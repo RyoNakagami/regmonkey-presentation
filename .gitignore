@@ -1,0 +1,45 @@
+# AUTHOR: RyoNak
+# UPDATE: 2025-05-02
+# General
+sandbox/
+tmp/
+
+# Sensitive
+*.gpg
+
+# Envrionments
+.env
+env/
+ENV/
+env.bak/
+
+# Cache
+.DS_Store
+*.bak
+*.swp
+
+# IDE specific
+
+# Logs
+logs
+*.log
+
+# bfg
+..bfg-report
+bfg_check_list/
+
+# ---------------------
+# Quarto Setting
+# ---------------------
+# general
+_book
+/.quarto/
+
+# python
+.venv
+.python-version
+
+# python cache
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints
