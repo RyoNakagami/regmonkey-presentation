@@ -3,7 +3,7 @@ title: "Test"
 subtitle: "subtilte"
 author: "中上 亮"
 date: "2025-05-02"
-format: revealjs
+
 categories: [html, quarto]
 ---
 
@@ -28,8 +28,6 @@ sdasd
     - asdasdsd
 
 
-
-
 :::
 
 ::: {.column width="50%"}
@@ -44,5 +42,7 @@ sdasd
 
 
 :::
+
+
 
 ::::

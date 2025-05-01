@@ -14,8 +14,6 @@ format:
   revealjs:
     width: 1600
     height: 900
-    css:
-      - /scss/revealjs.scss
     chalkboard:
       buttons: false
     show-notes: separate-page

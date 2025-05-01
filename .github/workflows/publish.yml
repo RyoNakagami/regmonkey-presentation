@@ -1,0 +1,39 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+  schedule:
+    - cron: "0 0 1 * *" # Every Sunday at midnight UTC
+
+name: Publish regmonkey_datascience_blog
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v3
+
+      - name: Configure Poetry
+        run: poetry config virtualenvs.create false
+
+      - name: Install the project dependencies
+        run: poetry install --no-root
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
