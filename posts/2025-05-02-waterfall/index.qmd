@@ -1,0 +1,48 @@
+---
+title: "Test"
+subtitle: "subtilte"
+author: "中上 亮"
+date: "2025-05-02"
+format: revealjs
+categories: [html, quarto]
+---
+
+## 2columns 箇条書きのテスト
+
+<div class="message-box">
+
+- 推定量の概要を記述
+- dasdsad
+
+</div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+sdasd
+
+
+- **<u>使用フォント</u>**
+    - メイリオ（日英とも）
+    - asdasdsd
+
+
+
+
+:::
+
+::: {.column width="50%"}
+
+
+- **<u>線</u>**
+    - 実線、破線共にデフォルトの0.75pt
+
+
+- **<u>その他</u>**
+    - 目次は原則Think-cellで
+
+
+:::
+
+::::

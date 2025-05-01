@@ -32,7 +32,7 @@ bfg_check_list/
 # Quarto Setting
 # ---------------------
 # general
-_book
+_site
 /.quarto/
 
 # python
