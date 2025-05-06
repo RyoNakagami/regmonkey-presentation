@@ -1,0 +1,64 @@
+---
+title: "スライド作成に役に立つ書籍紹介"
+subtitle: "ドラフト中"
+author: "Ryo Nakagami"
+date: "2025-05-02"
+categories: [book]
+filters:
+  - reveal-auto-agenda
+auto-agenda:
+  bullets: bullets
+---
+
+# メッセージ構成参考文献
+
+## The Little Book of Research Writing
+
+:::: {.columns}
+::: {.column .book-image}
+
+![research-writing](./research-writing.png)
+
+:::
+
+::: {.column .book-info}
+### 書籍情報
+
+| | |
+|----------|------|
+| タイトル  |[The Little Book of Research Writing](https://www.amazon.co.jp/-/en/Varanya-Chaubey/dp/1974673162)|
+| 著者     |  Varanya Chaubey (著) |
+| 発売日   | 2017/8/17 |
+| ISBN13     | 978-1974673162 |
+| 体裁     | 184ページ |
+
+
+
+### この本の内容
+
+- 様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説
+- Econリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能
+- メインメッセージの論理的明確性を確認する方法として，**R**(Research Question)・**A**(Answer)・**P**(Positioning Statement)フレームワークを紹介
+
+
+
+:::
+::::
+
+
+# スライド構成参考文献
+
+## Test
+
+
+
+
+
+
+:::
+::: {.column width="50%"}
+:::
+::::
+
+
+# スライドスタイリング参考文献

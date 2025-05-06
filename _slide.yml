@@ -14,16 +14,17 @@ format:
   revealjs:
     width: 1600
     height: 900
+    slide-level: 2
     chalkboard:
-      buttons: false
+      buttons: true
     show-notes: separate-page
     transition: slide
     slide-number: true
     menu: true
-    toc: true
+    toc: false
     background-transition: fade
     footer: "[Regmonkey Presentation](/index.html). ©Ryo Nakagami. All rights reserved."
-    font-family: " Meiryo"
+    font-family: "Meiryo"
     date-format: "YYYY年MM月DD日"
     header-includes: |
       <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>

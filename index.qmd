@@ -8,7 +8,7 @@ listing:
   categories: true
   sort-ui: false
   date-format: "iso"
-  fields: [categories, date, title, subtitle]  
+  fields: [categories, date, title]  
   filter-ui: false
   max-description-length: 80
 page-layout: full

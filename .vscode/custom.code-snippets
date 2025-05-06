@@ -11,7 +11,41 @@
         "description": 
             "adding checkmark please use it in inline scope like [test]{.checkmark-header}"
     },
-    
+    // --------------------------------------------
+    // book slide
+    // --------------------------------------------
+    "book-slide": {
+        "scope": "quarto",
+        "prefix": "book-slide",
+        "body": [
+            "## book title",
+            "",
+            ":::: {.columns}",
+            "::: {.column .book-image}",
+            "![research-writing](./*.png)",
+            ":::",
+            "",
+            "::: {.column .book-info}",
+            "### 書籍情報",
+            "",
+            "| | |",
+            "|----------|------|",
+            "| タイトル  ||",
+            "| 著者     |   |",
+            "| 発売日   |  |",
+            "| ISBN13     |  |",
+            "| 体裁     |  |",
+            "",
+            ": {tbl-colwidths=\"[25,65]\"}",
+            "",
+            "### この本の内容",
+            "",
+            ":::",
+            "::::"
+        ],
+        "description": 
+            "book introduction slide"
+    },
     // --------------------------------------------
     // math related
     // --------------------------------------------
