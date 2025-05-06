@@ -101,7 +101,8 @@
 /* adding footer setup */
 .reveal .slide-menu-button {
   position: absolute !important;
-  top: 10px; /* Distance from top */
+  top: 10px !important; /* Distance from top */
+  bottom: unset !important;
   background-size: 2.2rem !important;
 }
 
