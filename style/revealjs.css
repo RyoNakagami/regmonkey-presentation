@@ -75,6 +75,46 @@
 }
 
 /* ------------------------------------------------------------------- */
+/*                        basic symbol                                 */
+/* ------------------------------------------------------------------- */
+
+/* 
+.yabane-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+.yabane {
+    flex: 1 1 0;
+  display: flex;
+  width: 0;
+  position: relative;
+  background-color: #4fc3f7;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1em;
+  border-radius: 4px;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+.yabane::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  border-left: 1em solid #4fc3f7;
+} */
+/* ------------------------------------------------------------------- */
 /*                          Sections                                   */
 /* ------------------------------------------------------------------- */
 .reveal h1 {
