@@ -118,12 +118,14 @@
 /*                          Sections                                   */
 /* ------------------------------------------------------------------- */
 .reveal h1 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
   text-align: left;
   vertical-align: top;
   top: 0;
 }
 
 .reveal h2 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
   text-align: left !important;
   color: #0e3666; /* Bright Orange for title */
   font-size: 40pt !important;
@@ -133,6 +135,7 @@
 }
 
 .reveal h3 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
   text-align: left !important;
   color: #1a1a1a; /* Bright Orange for title */
   font-weight: bold !important;
@@ -259,15 +262,14 @@
 }
 
 /* ------------------------------------------------------------------- */
-/*                          messages                                   */
+/*                   main message                                      */
 /* ------------------------------------------------------------------- */
-
-.explain-main-message {
+.main-message-block {
   background-color: #ffffffff;
   padding-left: 0px;
   padding-top: 5px;
   padding-bottom: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 32px !important;
   line-height: 1;
 }
@@ -280,8 +282,86 @@
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  font-size: 30px !important;
+  font-size: 32px !important;
   line-height: 1;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   keypoints-block                                   */
+/* ------------------------------------------------------------------- */
+.keypoints-container {
+  width: 100%;
+  height: 90%; /* 画面全体 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* ← align children to the left */
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.keypoints-block {
+  line-height: 1.1;
+  font-size: 100%;
+  overflow: auto;
+  padding-top: 0.5em;
+  margin-bottom: 20px;
+  margin-left: 1em; /* ← adds 1em space from left */
+}
+
+.keypoints-block .block {
+  padding-top: 0.5em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0em;
+  border-bottom: 2px solid #ccc; /* 下線を追加 */
+  display: block !important;
+}
+
+.keypoints-block .no-border-block {
+  padding-top: 0.5em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0em;
+  display: block !important;
+}
+
+.keypoints-block .block p,
+.keypoints-block .no-border-block p {
+  margin-top: 8px;
+  padding-left: 1em;
+}
+
+.keypoints-block .block ul,
+.keypoints-block .no-border-block ul {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-left: 1em;
+}
+
+.keypoints-block .block ul li,
+.keypoints-block .no-border-block ul li {
+  margin-top: 0.3em !important;
+}
+
+.keypoints-block .block.last-block {
+  border-bottom: none;
+}
+
+.keypoints-block .block.first-block,
+.keypoints-block .no-border-block.first-block {
+  padding-top: 0 !important;
+}
+
+.keypoints-block .block .block-header,
+.keypoints-block .no-border-block .block-header {
+  display: block;
+  font-weight: bold;
+  font-size: 1.0715em;;
+  margin-top: 0em;
+  margin-bottom: -0.25em !important;
+  margin-left: 0em;
+  margin-right: 0em;
+  font-weight: bold;
+  margin-left: -0.85em !important;
 }
 
 /* ------------------------------------------------------------------- */
@@ -301,6 +381,45 @@
   content: "";
   margin-right: 4px;
   margin-left: -0.1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                     listed item setup                               */
+/* ------------------------------------------------------------------- */
+.checkmark ul {
+  list-style: none;
+  padding-left: 0em;
+}
+
+.checkmark ul li {
+  display: list-item;
+}
+
+.checkmark ul > li::before {
+  content: "✔";
+  margin-left: -1em;
+  margin-right: 0.15em; /* ← space after the checkmark */
+  display: inline-block; /* Keeps the checkmark inline with text */
+}
+
+.book-info ul li ul {
+  list-style: disc; /* Reveal default: • */
+}
+
+.checkmark ul li ul li {
+  list-style-type: disc !important;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding-left: 0em; /* Indentation for bullets */
+}
+
+.checkmark ul li ul li::before {
+  content: none; /* Remove custom checkmark */
+  display: none;
+}
+.checkmark ul > li::before {
+  content: "✔";
 }
 
 /* ------------------------------------------------------------------- */
