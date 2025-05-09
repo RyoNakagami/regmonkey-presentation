@@ -15,8 +15,9 @@ format:
     width: 1600
     height: 900
     slide-level: 2
+    pdf-export: true
     chalkboard:
-      buttons: true
+        buttons: true
     show-notes: separate-page
     transition: slide
     slide-number: true

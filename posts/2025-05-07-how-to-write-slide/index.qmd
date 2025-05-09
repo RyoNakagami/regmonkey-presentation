@@ -10,12 +10,77 @@ auto-agenda:
   bullets: bullets
 ---
 
-
 # スライド作成の基本
 
-## スライドメッセージ作成の３つのキーポイント
 
-{{< reveal_vspace 0.5em >}}
+## メッセージの全体像を書き起こしてから、スライド作成にかかる
+
+{{< reveal_vspace 1em >}}
+
+::::{.step-container style="height: 90%"}  
+
+:::{.step }
+
+[メッセージの作成<br>Planning an argument]{.step .active-phase }
+
+:::{.step-label }
+
+[**ゴール**: 伝えたい内容と目的の明確化]{style="font-size: 1.2em;"}
+
+:::{.checkmark}
+
+- メッセージ設計にあたって3Wを明確化する
+    - **Who**: 誰を対象にしているか？どのような事前知識を持っているのか？
+    - **Why**: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？
+    - **What**: どのような情報を伝えたいのか？
+- テーマ・問題・主張・提案など、伝達したいコアメッセージを言語化する
+:::
+:::
+:::
+
+:::{.step }
+
+[ストーリーの骨子の構築<br>Building an outline]{.step .active-phase }
+
+:::{.step-label }
+
+[**ゴール**: スライド全体の設計図の構築]{style="font-size: 1.2em;"}
+
+:::{.checkmark}
+
+- **Comprehend as they read**
+    - 読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成
+- スライド全体を「読み手との論理的対話（logical dialogue）」として設計する
+    - メインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする
+
+:::
+:::
+:::
+
+:::{.step }
+
+[スライド作成・資料化<br>Drafting paragraphs]{.step .active-phase }
+
+:::{.step-label }
+
+[**ゴール**: 具体的な表現・可視化・構成]{style="font-size: 1.2em;"}
+
+:::{.checkmark}
+- すべてのスライドがメッセージとストーリーをサポートするように構成されていること
+- 1スライド1メッセージとなっていること
+    - 論点が増えすぎると、一枚のスライドの内容を把握するのに時間がかかる
+- **MMUF**(Main Message UpFront)
+    - メインメッセージを先に示すと、後の詳細パートが理解しやすくなる
+- スライド内のオブジェクトを、直感的に理解しやすいように配置・整理する
+:::
+:::
+::::
+
+
+:::
+
+## メッセージ作成の３つのキーポイント
+
 
 :::::{.keypoints-container style="height: 90%; width: 100%; font-size: 1.2em;"}
 
@@ -46,7 +111,6 @@ auto-agenda:
 :::
 
 
-
 :::{.no-border-block}
 
 
@@ -59,6 +123,7 @@ auto-agenda:
 :::
 
 :::
+
 
 ::::
 :::::
