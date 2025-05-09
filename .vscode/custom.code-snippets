@@ -47,6 +47,17 @@
             "book introduction slide"
     },
     // --------------------------------------------
+    // lua related
+    // --------------------------------------------
+    "vspcae": {
+        "scope": "quarto",
+        "prefix": "vspace ",
+        "body": [
+            "{{< reveal_vspace 2em >}}",
+        ],
+        "description": "lua adding vspace"
+    },
+    // --------------------------------------------
     // math related
     // --------------------------------------------
     "Definition": {

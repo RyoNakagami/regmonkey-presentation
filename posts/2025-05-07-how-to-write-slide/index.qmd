@@ -1,0 +1,66 @@
+---
+title: "構造化されたストーリーとしてのスライド"
+subtitle: "スライド作成方法論 1"
+author: "Ryo Nakagami"
+date: "2025-05-07"
+categories: [方法論]
+filters:
+  - reveal-auto-agenda
+auto-agenda:
+  bullets: bullets
+---
+
+
+# スライド作成の基本
+
+## スライドメッセージ作成の３つのキーポイント
+
+{{< reveal_vspace 0.5em >}}
+
+:::::{.keypoints-container style="height: 90%; width: 100%; font-size: 1.2em;"}
+
+::::{.keypoints-block }
+
+:::{.no-border-block}
+
+[① 明確な主張(Argument)が存在すること]{.block-header}
+
+:::{.checkmark}
+- スライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと
+- 明確な主張にはRAP[^1]が整理されていることが望ましい
+    - **R**: Research Question、「何を明らかにしたいのか？」
+    - **A**: Answer、問いに対する答え
+    - **P**: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか
+:::
+:::
+
+
+:::{.no-border-block}
+
+[② 主張が論理的に構造化されていること]{.block-header}
+
+:::{.checkmark}
+- 単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要
+- 結論を先に示し、その根拠を段階的に説明する **descend structure** が効果的
+:::
+:::
+
+
+
+:::{.no-border-block}
+
+
+[③ 情報が最小限に絞られていること]{.block-header}
+
+:::{.checkmark}
+- スライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう
+- オッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」
+- 「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない
+:::
+
+:::
+
+::::
+:::::
+
+[^1]: [Varanya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)](https://www.amazon.co.jp/-/en/Varanya-Chaubey/dp/1974673162).
