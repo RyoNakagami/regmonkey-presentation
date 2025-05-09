@@ -75,45 +75,144 @@
 }
 
 /* ------------------------------------------------------------------- */
+/*                        general editting                             */
+/* ------------------------------------------------------------------- */
+.border-bottom {
+  border-bottom: 0.2rem solid #1a1a1a; /* 線の色と太さを調整 */
+  padding-bottom: 0.2em; /* 少し余白を足すと見やすくなる */
+  margin-bottom: 0.5em; /* 次の要素とのスペースも確保 */
+  width: 97.5%;
+  display: block;
+}
+
+/* ------------------------------------------------------------------- */
 /*                        basic symbol                                 */
 /* ------------------------------------------------------------------- */
-
-/* 
-.yabane-container {
+.step-container {
   display: flex;
-  justify-content: space-between;
-  gap: 0.5em;
-  margin: 1em 0;
+  overflow: hidden;
+  height: 10em;
+  padding-top: 1em;
 }
 
-.yabane {
-    flex: 1 1 0;
+.step {
+  flex: 1 1 0%; /* Evenly distributes space among all steps */
+  max-width: 97.5%; /* Optional: limit max width */
+  min-width: 120px; /* Optional: ensure boxes don't shrink too small */
   display: flex;
-  width: 0;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
-  background-color: #4fc3f7;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 1em;
-  border-radius: 4px;
-  margin: 0;
-  box-sizing: border-box;
-
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-left: 0em;
+  height: 4em;
 }
 
-.yabane::after {
+.step:first-child {
+  margin-left: 0 !important;
+}
+
+.step:first-child .clickable:before {
+  content: none !important;
+}
+
+.step-label {
+  flex-grow: 1;
+  display: flex;
+  position: absolute;
+  background-color: transparent;
+  color: #333;
+  text-align: left;
+  font-size: 0.85em;
+  padding: 0.2em 0.4em 0.2em 0.2em;
+  margin-top: 0em;
+  width: 100%;
+  max-height: none;
+  word-wrap: break-word; /* 古いブラウザ用 */
+  overflow-wrap: break-word; /* 現在主流のプロパティ */
+  white-space: normal; /* 折り返しを許可 */
+  display: block; /* ← 確実にブロック要素として扱う */
+  box-sizing: border-box; /* padding も含めて width 計算 */
+  top: 100%; /* 親要素の下に配置 */
+  left: 0;
+}
+.past-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #dae0e5;
+  color: #444;
+  font-weight: bold;
+  padding: 0 1em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.past-phase:before {
   content: "";
   position: absolute;
   top: 50%;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-top: 1em solid transparent;
-  border-bottom: 1em solid transparent;
-  border-left: 1em solid #4fc3f7;
-} */
+  margin-top: -2em;
+  border-width: 2em 0 2em 1em;
+  border-style: solid;
+  border-color: #dae0e5 transparent;
+  left: -1em;
+}
+
+.past-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-top: 2em solid transparent;
+  border-bottom: 2em solid transparent;
+  border-left: 1em solid #dae0e5;
+  right: -1em;
+}
+
+.active-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #0e3666;
+  border-color: #0e3666;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 1em;
+  text-align: center;
+  box-sizing: border-box;
+  border: 0px solid #0e3666;
+}
+
+.active-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0 2em 1em;
+  border-style: solid;
+  border-color: #0e3666 transparent;
+  left: -0.9822em;
+}
+
+.active-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-top: 2em solid transparent;
+  border-bottom: 2em solid transparent;
+  border-left: 1em solid #0e3666;
+  right: -0.9821em;
+}
+
 /* ------------------------------------------------------------------- */
 /*                          Sections                                   */
 /* ------------------------------------------------------------------- */
@@ -355,7 +454,7 @@
 .keypoints-block .no-border-block .block-header {
   display: block;
   font-weight: bold;
-  font-size: 1.0715em;;
+  font-size: 1.0715em;
   margin-top: 0em;
   margin-bottom: -0.25em !important;
   margin-left: 0em;
@@ -412,6 +511,7 @@
   line-height: inherit;
   color: inherit;
   padding-left: 0em; /* Indentation for bullets */
+  margin-top: 0.25em !important;
 }
 
 .checkmark ul li ul li::before {
@@ -703,4 +803,43 @@
 .book-info table tr td:nth-child(2),
 .book-info table tr th:nth-child(2) {
   width: 70%;
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Only apply these styles when printing               */
+/* ------------------------------------------------------------------- */
+@media print {
+  body {
+    font-size: 14pt;
+    color: black;
+    background: white;
+  }
+
+  .reveal {
+    width: 1280px !important; /* fixed width */
+    height: 720px !important; /* fixed height */
+    box-shadow: none !important;
+    font-size: 28px !important;
+    line-height: 1.4;
+    font-family: "Meiryo UI", "Helvetica", "Arial", sans-serif !important;
+  }
+
+  .reveal .slides {
+    transform: none !important;
+    position: static !important;
+    padding: 0;
+  }
+
+  .reveal .slide {
+    box-shadow: none !important;
+    margin: 0 !important;
+    page-break-after: always;
+  }
+
+  .slide-background,
+  .reveal .controls,
+  .reveal .progress,
+  .reveal .slide-number {
+    display: none !important;
+  }
 }

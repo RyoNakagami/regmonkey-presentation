@@ -7,11 +7,18 @@
     "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージ作成の３つのキーポイント",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージ作成の３つのキーポイント",
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
     "title": "構造化されたストーリーとしてのスライド",
-    "section": "スライドメッセージ作成の３つのキーポイント",
-    "text": "スライドメッセージ作成の３つのキーポイント\n\n\n\n\n① 明確な主張(Argument)が存在すること\n\n\nスライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと\n明確な主張にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n② 主張が論理的に構造化されていること\n\n\n単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n③ 情報が最小限に絞られていること\n\n\nスライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)."
+    "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
+    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\nメッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化する\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化する\n\n\n\n\n\nストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計する\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\nスライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成されていること\n1スライド1メッセージとなっていること\n\n論点が増えすぎると、一枚のスライドの内容を把握するのに時間がかかる\n\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理する"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "メッセージ作成の３つのキーポイント",
+    "text": "メッセージ作成の３つのキーポイント\n\n\n\n① 明確な主張(Argument)が存在すること\n\n\nスライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと\n明確な主張にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n② 主張が論理的に構造化されていること\n\n\n単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n③ 情報が最小限に絞られていること\n\n\nスライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)."
   },
   {
     "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
