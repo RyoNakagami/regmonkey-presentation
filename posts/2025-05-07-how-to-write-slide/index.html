@@ -449,8 +449,8 @@ anychart.onDocumentReady(function () {
               .fontSize(20);
 
         // Add title and axis labels
-        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("Meiryo");
-        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("Meiryo");
+        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
+        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
         // chart.xAxis().title("Year");
         chart.yAxis().title("Sales (in millions)").padding([0, 0, 10, 0]); // Adding the unit to the 
         chart.xAxis().stroke({ color: "black", thickness: 1 });
@@ -460,8 +460,8 @@ anychart.onDocumentReady(function () {
         // label config
         var label_x = chart.xAxis().labels();
         var label_y = chart.yAxis().labels();
-        label_x.fontFamily("Meiryo");
-        label_y.fontFamily("Meiryo");
+        label_x.fontFamily("MeiryoUI");
+        label_y.fontFamily("MeiryoUI");
         label_x.fontSize(20);
         label_y.fontSize(20);
         label_x.fontColor("#1a1a1a");
@@ -469,11 +469,12 @@ anychart.onDocumentReady(function () {
 
         // title config
         var title = chart.title();
-        title.enabled(true);
-        title.fontSize(22);
-        title.fontColor("black");
-        title.fontWeight(200);
-        title.text("売上と営業利益額の推移(2010~2019年)");
+        title.enabled(true)
+             .fontSize(22)
+             .fontFamily("MeiryoUI")
+             .fontColor("black")
+             .fontWeight(200)
+             .text("売上と営業利益額の推移(2010~2019年)");
         
         chart.legend(true);
 
@@ -619,8 +620,8 @@ anychart.onDocumentReady(function () {
               .fontSize(20);
 
         // Add title and axis labels
-        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("Meiryo");
-        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("Meiryo");
+        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
+        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
 
         chart.pointWidth("40%");
         // chart.xAxis().title("Year");
@@ -632,8 +633,8 @@ anychart.onDocumentReady(function () {
         // label config
         var label_x = chart.xAxis().labels();
         var label_y = chart.yAxis().labels();
-        label_x.fontFamily("Meiryo");
-        label_y.fontFamily("Meiryo");
+        label_x.fontFamily("MeiryoUI");
+        label_y.fontFamily("MeiryoUI");
         label_x.fontSize(20);
         label_y.fontSize(20);
         label_x.fontColor("#1a1a1a");
@@ -641,11 +642,12 @@ anychart.onDocumentReady(function () {
 
         // title config
         var title = chart.title();
-        title.enabled(true);
-        title.fontSize(26);
-        title.fontColor("#575757");
-        title.fontWeight(200);
-        title.text("売上と営業利益額の推移(2010 vs 2019年)");
+        title.enabled(true)
+             .fontFamily("MeiryoUI")
+             .fontSize(26)
+             .fontColor("#575757")
+             .fontWeight(200)
+             .text("売上と営業利益額の推移(2010 vs 2019年)");
         
         //legend
         chart.legend()
@@ -739,14 +741,14 @@ anychart.onDocumentReady(function () {
 
         // label config
         var labels = chart.xAxis().labels();
-        labels.fontFamily("Meiryo")
+        labels.fontFamily("MeiryoUI")
               .fontSize(fontsize)
               .fontColor("#000000")
               .fontSize(20)
               .useHtml(false);
         
         var labels = chart.yAxis().labels();
-        labels.fontFamily("Meiryo")
+        labels.fontFamily("MeiryoUI")
               .fontSize(fontsize)
               .fontColor("#000000")
               .fontSize(16)
@@ -754,11 +756,12 @@ anychart.onDocumentReady(function () {
 
         // title config
         var title = chart.title();
-        title.enabled(true);
-        title.text("営業利益増減の内訳(2010年 vs 2019年)");
-        title.fontSize(28);
-        title.fontColor("#575757");
-        title.fontWeight(200);
+        title.enabled(true)
+             .text("営業利益増減の内訳(2010年 vs 2019年)")
+             .fontSize(28)
+             .fontColor("#575757")
+             .fontFamily("MeiryoUI")
+             .fontWeight(200);
         // title.fontDecoration("underline");
         chart.tooltip().titleFormat("Absolute | Difference");
         chart.tooltip().format("{%absolute}\n{%diff}\n\n{%custom_field}");
