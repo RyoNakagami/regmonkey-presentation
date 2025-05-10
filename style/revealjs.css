@@ -86,12 +86,11 @@
 }
 
 .message-block {
-    display: inline-block;   
-    padding: 0.2em 0em;
-    background-color: transparent;
-    line-height: 1.1;
-  }
-
+  display: inline-block;
+  padding: 0.2em 0em;
+  background-color: transparent;
+  line-height: 1.1;
+}
 
 .topleftbox {
   position: absolute;
@@ -109,16 +108,17 @@
 }
 
 .message-box {
-    display: inline-block;   
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    border: 2px solid #1a1a1a;
-    border-radius: 0px;
-    background-color: transparent;
-    line-height: 1.1;
-    padding-left: 0.5em;
-    padding-right: 1em;
-  }
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border: 2px solid #1a1a1a;
+  border-radius: 0px;
+  background-color: transparent;
+  line-height: 1.1;
+  padding-left: 0.5em;
+  padding-right: 1em;
+}
+
 /* ------------------------------------------------------------------- */
 /*                        basic symbol                                 */
 /* ------------------------------------------------------------------- */
@@ -417,6 +417,13 @@
   margin-bottom: 10px;
   font-size: 32px !important;
   line-height: 1.1;
+}
+
+.h2-submessage {
+  color: #0e3666;
+  font-size: 1.3em;
+  font-weight: bold !important;
+  padding-top: 0.2em;
 }
 
 /* ------------------------------------------------------------------- */
@@ -885,7 +892,6 @@
   .slide-background,
   .reveal .controls,
   .reveal .progress,
-
   .reveal .slides section[hidden] {
     display: none !important;
   }
@@ -933,9 +939,9 @@
 }
 
 .research-paper-style h4 {
-    font-size: 1.1em;
-    margin-top: 1.1em;
-  }
+  font-size: 1.1em;
+  margin-top: 1.1em;
+}
 
 .research-paper-style .section {
   margin-bottom: 3em;
@@ -956,5 +962,4 @@
     background: none;
     color: black;
   }
-
 }
