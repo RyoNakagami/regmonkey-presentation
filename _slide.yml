@@ -12,15 +12,17 @@ knitr:
     warning: false
 format:
   revealjs:
+    navigationMode: linear
     width: 1600
     height: 900
     slide-level: 2
     pdf-export: true
-    chalkboard:
-        buttons: true
+    chalkboard: 
+      button: true
     show-notes: separate-page
-    transition: slide
+    transition: none
     slide-number: true
+    aspectratio: "16:9"
     menu: true
     toc: false
     background-transition: fade
@@ -35,4 +37,12 @@ format:
       <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
       <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
       <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-      <script src="/js/resize_keypoints_block.js"></script>
+      <script type="text/javascript" src="/js/resize_keypoints_block.js"></script>
+      <script type="text/javascript" src="/js/yaml2table.js"></script>
+      <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-bundle.min.js"></script>
+      <script src="/min/leader-line.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    revealjs-plugins:
+      - leader-line

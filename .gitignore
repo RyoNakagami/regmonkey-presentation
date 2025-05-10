@@ -34,6 +34,7 @@ bfg_check_list/
 # general
 _site
 /.quarto/
+_freeze/
 
 # python
 .venv
@@ -43,3 +44,5 @@ _site
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints
+
+/.luarc.json

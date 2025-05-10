@@ -9,6 +9,8 @@ resources:
   - include/
   - js/
   - img/
+  - min/
+  - .well-known
 
 website:
   title: "Presentation for Regession Monkey"

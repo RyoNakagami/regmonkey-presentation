@@ -18,3 +18,14 @@ function reveal_vspace(args)
 
     return pandoc.RawBlock("html", '<div class="reveal_vspace" style="--vspace-height: ' .. height .. ';"></div>')
 end
+
+
+
+function reveal_hspace(args)
+  local width = args[1] or "1em"
+
+  -- Adding CSS dependency (reveal_vspace.css can handle horizontal space too)
+  scan_blocks(quarto.doc.blocks)
+
+  return pandoc.RawBlock("html", '<span class="reveal_hspace" style="--hspace-width: ' .. width .. ';"></span>')
+end

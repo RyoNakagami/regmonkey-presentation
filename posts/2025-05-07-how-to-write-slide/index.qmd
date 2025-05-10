@@ -3,15 +3,69 @@ title: "構造化されたストーリーとしてのスライド"
 subtitle: "スライド作成方法論 1"
 author: "Ryo Nakagami"
 date: "2025-05-07"
-categories: [方法論]
+categories: [スライドパッケージ]
+slide-number: true
+resources:
+    - sample_data.csv
 filters:
   - reveal-auto-agenda
+  - inject_anychart_js
 auto-agenda:
   bullets: bullets
+# chalkboard: false
+# embed-resources: true
 ---
 
-# スライド作成の基本
+## Summary
 
+{{< reveal_vspace 1em >}}
+
+::::{.summary-container style="font-size:0.9em;"}
+
+:::{.block}
+:::{.headline}
+スライド作成の基本
+:::
+
+
+- プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める
+
+:::
+
+:::{.block}
+:::{.headline}
+メッセージ設計
+:::
+
+- 3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する
+- RAPフレームワーク: Research Question, Answer, Positioning Statement
+
+:::
+
+:::{.block}
+:::{.headline}
+ストーリー構築
+:::
+
+- 論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する
+
+:::
+
+:::{.block}
+:::{.headline}
+スライド作成のルール
+:::
+
+- 1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する
+- オッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する
+- メッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする
+
+:::
+
+::::
+
+
+# スライド作成の基本
 
 ## メッセージの全体像を書き起こしてから、スライド作成にかかる
 
@@ -21,7 +75,7 @@ auto-agenda:
 
 :::{.step }
 
-[メッセージの作成<br>Planning an argument]{.step .active-phase }
+[① メッセージの作成<br>Planning an argument]{.step .active-phase}
 
 :::{.step-label }
 
@@ -29,18 +83,20 @@ auto-agenda:
 
 :::{.checkmark}
 
-- メッセージ設計にあたって3Wを明確化する
-    - **Who**: 誰を対象にしているか？どのような事前知識を持っているのか？
-    - **Why**: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？
-    - **What**: どのような情報を伝えたいのか？
-- テーマ・問題・主張・提案など、伝達したいコアメッセージを言語化する
+- メッセージ設計にあたって3Wを明確化
+  - **Who**: 誰を対象にしているか？どのような事前知識を持っているのか？
+  - **Why**: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？
+  - **What**: どのような情報を伝えたいのか？{{< reveal_vspace 1em >}}
+- テーマ・問題・主張・提案など、伝達したいコアメッセージを言語化
+
 :::
 :::
 :::
+
 
 :::{.step }
 
-[ストーリーの骨子の構築<br>Building an outline]{.step .active-phase }
+[② ストーリーの骨子の構築<br>Building an outline]{.step .active-phase }
 
 :::{.step-label }
 
@@ -49,9 +105,9 @@ auto-agenda:
 :::{.checkmark}
 
 - **Comprehend as they read**
-    - 読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成
-- スライド全体を「読み手との論理的対話（logical dialogue）」として設計する
-    - メインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする
+  - 読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成{{< reveal_vspace 1m >}}
+- スライド全体を「読み手との論理的対話（logical dialogue）」として設計
+  - メインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする
 
 :::
 :::
@@ -59,73 +115,698 @@ auto-agenda:
 
 :::{.step }
 
-[スライド作成・資料化<br>Drafting paragraphs]{.step .active-phase }
+[③ スライド作成・資料化<br>Drafting paragraphs]{.step .active-phase }
 
 :::{.step-label }
 
 [**ゴール**: 具体的な表現・可視化・構成]{style="font-size: 1.2em;"}
 
 :::{.checkmark}
-- すべてのスライドがメッセージとストーリーをサポートするように構成されていること
-- 1スライド1メッセージとなっていること
-    - 論点が増えすぎると、一枚のスライドの内容を把握するのに時間がかかる
+
+- すべてのスライドがメッセージとストーリーをサポートするように構成{{< reveal_vspace 1em >}}
+- 1スライド1メッセージ{{< reveal_vspace 1em >}}
 - **MMUF**(Main Message UpFront)
-    - メインメッセージを先に示すと、後の詳細パートが理解しやすくなる
-- スライド内のオブジェクトを、直感的に理解しやすいように配置・整理する
+  - メインメッセージを先に示すと、後の詳細パートが理解しやすくなる{{< reveal_vspace 1em >}}
+- スライド内のオブジェクトを、直感的に理解しやすいように配置・整理
+
 :::
+:::
+::::
+:::
+
+
+## メッセージ作成の３つのキーポイント
+
+[① メッセージの作成]{.topleftbox}
+
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+明確な主張
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- ライドの目的は、意思決定に必要な情報を分かりやすく伝え、意思決定を促すこと
+- 明確な主張(Argument)にはRAP[^foot1]が整理されていることが望ましい
+  - **R**: Research Question、「何を明らかにしたいのか？」
+  - **A**: Answer、問いに対する答え
+  - **P**: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか
+
+:::
+
 :::
 ::::
 
 
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+
+{{< bi signpost  size=1.7em color=#428CE6 >}}
+筋の通った説明の流れ
+
 :::
 
-## メッセージ作成の３つのキーポイント
+{{< reveal_vspace 15% >}}
 
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
 
-:::::{.keypoints-container style="height: 90%; width: 100%; font-size: 1.2em;"}
-
-::::{.keypoints-block }
-
-:::{.no-border-block}
-
-[① 明確な主張(Argument)が存在すること]{.block-header}
-
-:::{.checkmark}
-- スライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと
-- 明確な主張にはRAP[^1]が整理されていることが望ましい
-    - **R**: Research Question、「何を明らかにしたいのか？」
-    - **A**: Answer、問いに対する答え
-    - **P**: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか
-:::
-:::
-
-
-:::{.no-border-block}
-
-[② 主張が論理的に構造化されていること]{.block-header}
-
-:::{.checkmark}
-- 単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要
+- 単に情報を並べるのではなく、情報を整理・構造化する
 - 結論を先に示し、その根拠を段階的に説明する **descend structure** が効果的
 :::
+
+
 :::
+::::
 
+:::: {.column style="width: 33.3%; height:100%"}
 
-:::{.no-border-block}
+{{< reveal_vspace 10% >}}
 
+:::{.horizontal-keypoints-block-no-border style="height:60%;"}
 
-[③ 情報が最小限に絞られていること]{.block-header}
+:::{.block-header}
 
-:::{.checkmark}
-- スライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう
+{{< bi funnel  size=1.7em color=#428CE6 >}}
+結論に必要な情報だけ
+
+:::
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- 情報過多なスライドは、重要ポイントを埋もれさせ、判断を迷わせる
 - オッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」
 - 「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない
+
 :::
+:::
+::::
+
+:::::
+
+
+
+<!-- footer -->
+
+[^foot1]: [Varanya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)](https://www.amazon.co.jp/-/en/Varanya-Chaubey/dp/1974673162)
+
+##  見出しと要点でストーリーを設計する
+
+[② ストーリーの骨子の構築]{.topleftbox}
+
+
+:::::{.step-container style="height: 90%"}
+
+::::{.step }
+
+[全体像の分割（Headingsの定義）]{.step .active-phase}
+
+
+::::{.step-label .checkmark}
+
+{{< reveal_vspace 0.5em >}}
+
+- メインメッセージを、いくつかのグループ(**見出し**)に分ける {{< reveal_vspace 1em >}}
+- 専門家・一般読者の両方に通じる、明快な見出し配置を設計する
+    - 誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める
+    - 「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想
 
 :::
 
+::::
+
+
+
+:::{.step }
+
+[Takeaways(要点)の明確化]{.step .active-phase}
+
+:::{.step-label .checkmark}
+
+{{< reveal_vspace 0.5em >}}
+
+
+- 「言いたいこと」を**主語＋動詞**で、具体的かつ明確に表現 {{< reveal_vspace 1em >}}
+- シンプルな文で表現
+  - 長い文章だと記憶に残らない{{< reveal_vspace 1em >}}
+- 要点が、セクション全体の**「だから何？(So what?)」**という問いに明確に答えているかを確認{{< reveal_vspace 1em >}}
+- メインメッセージとの関連を連想させるような表現
+  - 「XがYを引き起こすことを示している」
+  - 「XがYを引き起こすという主要結果を示している」
+
+:::
+:::
+
+
+:::{.step }
+
+[論理的な順序配置]{.step .active-phase}
+
+:::{.step-label .checkmark}
+
+{{< reveal_vspace 0.5em >}}
+
+- 見出しや要点は「理解しやすい順」に配置{{< reveal_vspace 2em >}}
+- 「聞き手との論理的対話」を意識
+  - 話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築
+  - 聞き手の事前知識を想定した上でのスムーズな論理構成
+
+:::
+
+:::
+
+::::::
+
+
+## 明確なスライドメッセージのルール
+
+[③ スライド作成・資料化]{.topleftbox}
+
+:::::: {.columns}
+
+{{< reveal_vspace 10% >}}
+
+::::: {.column style="width:33.3%; height:100%;"}
+
+::::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi pin-map-fill  size=1.7em color=#428CE6 >}}
+1スライド1メッセージ
+:::
+
+{{< reveal_vspace 1.5em >}}
+
+::: {.block .checkmark style="padding-left:0.5em; padding-right:0.5em;"}
+
+- 主張や要点をひとつに絞る{{< reveal_vspace 0.5em >}}
+- 複数の情報を詰め込まず、聞き手の理解に集中を促す
+  - [複数の主張や結論が同時にあると、聞き手が混乱してしまう]{ style="padding-left=-1em; font-size:0.8em;"}{{< reveal_vspace 0.3em >}}
+- MMUF(Main Message UpFront)
+
+:::
+::::
+:::::
+
+
+:::::{.column style="width: 33.4%; height:100%;"}
+
+
+::::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi scissors size=1.7em color=#428CE6 >}}
+オッカムの剃刀の原則
+:::
+
+
+{{< reveal_vspace 1.5em >}}
+
+:::{.block .checkmark style="padding-left:0.5em; padding-right:0.5em;"}
+
+- 聞き手が本質に集中する構成にする{{< reveal_vspace 0.62em >}}
+- 背景情報・前提知識は最低限にする{{< reveal_vspace 0.62em >}}
+- 伝えたい内容に直接関係しない情報は思い切って省く{{< reveal_vspace 0.62em >}}
+- 同じ情報を複数のスライドや文で繰り返さない
+
+:::
+::::
+:::::
+
+
+
+::::: {.column style="width:33.3%; height:100%;"}
+
+
+::::{.horizontal-keypoints-block-no-border style="height:70%;"}
+
+:::{.block-header}
+{{< bi sign-turn-right size=1.7em color=#428CE6 >}}
+メッセージと整合的な縦横軸
+:::
+
+{{< reveal_vspace 1.5em >}}
+
+:::{.block .checkmark style="padding-left:0.5em; padding-right:0.5em;"}
+
+- 秩序ある情報の列挙
+  - {{< bi hand-thumbs-down-fill size=0.8em color=#D31804 >}} [大根, 手羽先, 手羽元, ネギ, 砂糖, 黒酢]{style="padding-left=-1em; font-size:0.8em;"}
+  - {{< bi hand-thumbs-up-fill size=0.8em color=#FFD700 >}} [骨付き鳥黒酢煮込みのための具材<br>{{< reveal_hspace 2.9rem >}} `肉`: 手羽先, 手羽元<br>{{< reveal_hspace 2.9rem >}} `野菜`: 大根, ネギ<br>{{< reveal_hspace 2.9rem >}} `調味料`: 砂糖, 黒酢]{ style="padding-left=-1em; font-size:0.8em;"}
+- メッセージとスライド軸を合わせる
+  - [論点別の「問い」「調査結果」を伝えるならば、縦に「論点軸」、横に「問い」と「調査結果」の比較があるべき]{ style="padding-left=-1em; font-size:0.8em;"} 
+:::
+
+::::
+:::::
+::::::
+
+
+# スライド作成実践
+
+##  1スライドに複数メッセージが入ってしまっている
+
+:::{.main-message-block}
+
+[人件費の上昇により売上拡大にも関わらず営業利益減少]{#bad-main-message}
+
+:::
+
+:::: {.columns}
+::: {.column width="70%" #bad-example}
+
+
+::: {.js-chart-inject data-js="bad-example-container.js" data-container="bad-example-container" data-width="100%" data-height="15.5em"}
+:::
+
+
+::: {.js-chart-inject data-js="bad-data-table.js" data-container="bad-data-table" data-width="100%"}
+:::
+
+
+:::
+::: {.column width="30%"}
+
+:::{.message-box style="font-size:0.7em; margin-left:3em;" #tip1}
+
+１つのスライドに２つのメッセージが含まれてしまっている
+
+- 売上上昇にもかかわらず営業利益が減少
+- 営業利益減少の主要因は人件費の増加
+
+:::
+
+{{< reveal_vspace 3em >}}
+
+:::{.message-box style="font-size:0.7em; margin-left:3em;" #tip2}
+
+「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、
+2011~2018年の数値は本筋に対して過剰な情報
+
+:::
+
+{{< reveal_vspace 4.1em >}}
+
+:::{.message-box style="font-size:0.7em; margin-left:3em;" #tip3}
+
+- 図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭
+- 特定の行や列が強調されておらず、全体が等価に見えてしまい、何が重要情報なのかわからない
+
+:::
+
+
+:::
+::::
+
+
+[]{.leaderline start="#bad-main-message"  end="#tip1"
+    color="#575757" end-socket="left" size="3" 
+    path="grid"}   
+
+[]{.leaderline start="#bad-example"  end="#tip2"
+    path="grid" 
+    start-border-style="color:#575757; x: 10%; y:54%; width:87%; height:5%"
+    color="#575757" end-socket="left" size="3"}   
+
+[]{.leaderline start="#bad-data-table"  end="#tip3"
+    path="straight" 
+    start-border-style="color:#575757; x: 0%; y:0%; width:100%; height:100%"
+    color="#575757" end-socket="left" size="3"}   
+
+## 1スライド1メッセージによる改善案
+
+[1スライド1メッセージ]{.topleftbox}
+
+{{< reveal_vspace 2em >}}
+
+::::{#sliide1}
+
+:::{.main-message-block}
+
+ここ10年で売上は19%拡大しているが、営業利益は34%の減少
+
+:::
+
+:::: {.columns}
+::: {.column width="70%"}
+
+
+
+::: {.js-chart-inject data-js="compare-2010-2019.js" data-container="compare-2010-2019" 
+      data-width="100%" data-height="22.5em"}
+:::
+
+
+
+:::
+::: {.column width="30%"}
+
+{{< reveal_vspace 2.5em >}}
+
+[売上増減率]{.border-bottom style="width: 10em; text-align: center;"}
+
+
+[\+ 19%]{.message-block style="width: 10em; text-align: center;"}
+
+{{< reveal_vspace 2.2em >}}
+
+[コスト増減率]{.border-bottom style="width: 10em; text-align: center;"}
+
+
+[\+ 38%]{.message-block style="width: 10em; text-align: center;"}
+
+{{< reveal_vspace 2.2em >}}
+
+[営業利益増減率]{.border-bottom style="width: 10em; text-align: center;"}
+
+
+[\- 34%]{.message-block style="width: 10em; text-align: center;"}
+
+
+:::
+
+::::
+::::
+
+:::{.message-box style="font-size:0.9em; position: absolute; top: 0%; left: 65%" #focus-message}
+
+- このスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的
+- 「**直感に反した情報**」はシンプルかつ明快なロジックで説明したほうが良い
+
+:::
+
+## オッカムの剃刀の原則による改善案
+
+[オッカムの剃刀の原則]{.topleftbox}
+
+[注目すべき情報だけに絞り、判断の迷いをなくす]{.h2-submessage}
+
+
+{{< reveal_vspace 1em >}}
+
+::::{#sliide1}
+
+:::{.main-message-block}
+
+人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている
+
+
+:::
+
+::: {.js-chart-inject 
+        data-js="anychart-waterfall-container.js" 
+        data-container="anychart-waterfall-container" data-width="100%" data-height="630px"}
+:::
+
+::::
+
+:::{.message-box style="font-size:0.8em; position: absolute; top: 0%; left: 55%" #focus-message}
+
+前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「**どのコストが特に増加したのか？**」に答えることで論理的にスムーズな流れとなる
+
+:::
+
+
+## スライドに軸がなくメッセージが分かりづらい例 
+
+{{< reveal_vspace 1em >}}
+
+### LNGの供給の安定供給にかかわる主な論点[^foot2]
+
+:::::{.keypoints-container #bad-axis style="font-size:0.62em; padding-top:0px !important;"}
+
+::::{.vertical-keypoints-block style="width:70%;"}
+:::{.block}
+
+[① オペレーターの長期的な方針]{.block-header}
+
+- **問**: LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか
+- **調査結果**: LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、カーボンニュートラルLNGの生産やメタンガスの排出量削減など、様々な取り組みを推進している
+
+:::
+
+:::{.block}
+
+[② 収益性]{.block-header}
+
+- **問**:  LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか
+- **調査結果**: 
+    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクトになり、生産拠点の集中度が高まる可能性がある
+    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている
+    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている
+
+:::
+
+:::{.block}
+
+[③ LNGサプライサイド]{.block-header}
+
+- **問**:  LNGインフラの潜在的なボトルネックとは何か
+- **調査結果**: 
+    - パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される可能性がある
+
+{{< reveal_vspace 0.1em >}}
+
+- **問**: 今後、世界のLNG供給構成はどう変化していくのか
+- **調査結果**: 
+    - 世界のLNG生産量に占める米国の割合は、今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある
+    - 現在、主要LNG輸入国は、調達先の多様化を進めており、複数の大陸にまたがる約10カ国からLNGを調達している
+    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる
+
+:::
 
 ::::
 :::::
 
-[^1]: [Varanya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)](https://www.amazon.co.jp/-/en/Varanya-Chaubey/dp/1974673162).
+:::{.message-box #tip-axis style="position: absolute; top: 20%; left:75%; font-size:0.8em;"}
+
+{{< reveal_vspace 1em >}}
+
+[**比較の困難さ**]{.border-bottom style="padding-left: 0.5em; width: 10em;"}
+
+- カテゴリ軸と(「問」「調査結果」)の2軸が同じ縦軸のため、異なる主題間での「問」や「調査結果」の比較が煩雑
+
+[**視線の誘導の悪さ**]{.border-bottom style="padding-left: 0.5em; width: 10em;"}
+
+- 「オペレーターの長期的な方針」と「収益性」の各「調査結果」を比較する場合、縦に離れた位置にあるため、視線を大きく移動させる必要がある
+
+[**軸ラベルの冗長性**]{.border-bottom style="padding-left: 0.5em; width: 10em;"}
+
+- 同じ縦軸に異なる意味合いのラベル（「問」/「調査結果」）が何回も出現している
+- **重複排除の原則**に反している
+
+{{< reveal_vspace 2em >}}
+
+
+:::
+
+
+<!-- footer -->
+
+[^foot2]: [エネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業](https://www.meti.go.jp/meti_lib/report/2022FY/000762.pdf)より編集
+
+
+## 比較のためのスライド軸の導入と重複ラベルの排除
+
+[メッセージと整合的な縦横軸]{.topleftbox}
+
+::::{.custom-table style="width:100%; height:80%; font-size: 1.2rem !important;" }
+:::{.yaml2table .yaml2table-custom-top  #yaml-tidy-table data-col-widths="[15, 30, 55]"}
+
+
+```yaml
+record1:
+  カテゴリー: オペレーターの<br>長期的な方針
+  Question: 
+    - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか
+  調査結果: 
+    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、<span class="regmonkey_bold">カーボンニュートラルLNGの生産やメタンガスの排出量削減</span>など、様々な取り組みを推進している
+
+record2:
+  カテゴリー: 収益性
+  Question: 
+    - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか
+  調査結果:
+    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、<span class="regmonkey_bold">今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト</span>になり、生産拠点の集中度が高まる可能性がある
+    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている
+    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている
+
+record3:
+  カテゴリー: LNG<br>サプライサイド
+  Question: 
+    - LNGインフラの潜在的なボトルネックとは何か
+  調査結果:
+      - <span class="regmonkey_bold">パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される</span>可能性がある
+reocord4:
+  カテゴリー: LNG<br>サプライサイド
+  Question: 
+    - 今後、世界のLNG供給構成はどう変化していくのか
+  調査結果:
+    - 世界のLNG生産量に占める米国の割合は、<span class="regmonkey_bold">今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある</span>
+    - 現在、主要LNG輸入国は、調達先の多様化を進めており、<span class="regmonkey_bold">複数の大陸にまたがる約10カ国からLNGを調達</span>している
+    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる
+```
+:::
+::::
+
+
+
+# Appendix
+
+## 論文におけるHeadingsとTakeaways
+
+:::: {.columns}
+::: {.column style="width: 60%"}
+
+:::::{.keypoints-container style="height: 90%; width: 100%; font-size: 1.1em;"}
+
+::::{.vertical-keypoints-block }
+
+:::{.no-border-block}
+
+[[Headings( 見出し )]{#def-headings}]{.block-header}
+
+:::{.checkmark}
+- 議論や情報を階層化するためのセクションタイトル
+    - [「イントロ」「先行研究」「手法」「結果」「考察」「結論」]{style="font-size:0.9em"}
+- Headingsから関心部分にすぐアクセスできる
+:::
+:::
+
+:::{.no-border-block}
+
+[[Takeaways( 要点 )]{#def-takeaways}]{.block-header}
+
+:::{.checkmark}
+- 各セクションの要点や主張を示す
+- 通常はHeadingの直後に書かれる(**MMUF**の原則)
+    - [全文を読まずに、素早く全体の骨子・要点をつかめる]{style="font-size:0.9em"}
+
+:::
+:::
+
+::::
+:::::
+
+
+:::
+
+::: {.column style="width: 40%"}
+
+```{=html}
+<div class="research-paper-style">
+<h3 id="heading-box1"> 3. Data and Methodology</h3>
+
+<div class="takeaway" id="takeaway-box1">
+    We combine satellite imagery with city-level land-use data to model temperature variation.
+</div>
+
+<p>
+    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.
+</p>
+
+<h4 id="heading-box2"> 3.1 Data Sources</h4>
+
+<div class="takeaway" id="takeaway-box2">
+  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.
+</div>
+<p>
+  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ...
+</p>
+
+
+</div>
+```
+
+:::
+
+
+[]{.leaderline start="#def-headings"  end="#heading-box1" 
+    color="#A9A9A9" end-socket="left" size="3" dash=true 
+    end-border-style="color:#1a1a1a; radius:10"
+    index="1" lineid="line1"}   
+
+[]{.leaderline start="#def-headings"  end="#heading-box2" color="#A9A9A9"
+    end-socket="left" size="3" dash=true  
+    path="straight"
+    end-border-style="color:#1a1a1a; radius:10"
+    index="1" lineid="line2"}   
+
+[]{.leaderline start="#def-takeaways"  end="#takeaway-box1" color="#A9A9A9"
+    end-socket="left" size="3" dash=true  
+    path="straight"
+    end-border-style="color:#1a1a1a; radius:10"
+    index="2" lineid="line3"}   
+[]{.leaderline start="#def-takeaways"  end="#takeaway-box2" color="#A9A9A9"
+    end-socket="left" size="3" dash=true  
+    path="straight"
+    end-border-style="color:#1a1a1a; radius:10"
+    index="2" lineid="line4"}   
+
+::::
+
+
+## 場面に応じてスライド作成クオリティは異なる
+
+
+::::{.custom-table-no-header style="width:100%;" }
+:::{.yaml2table .yaml2table-custom-top  #yaml-mtg-table data-col-widths="[13, 20, 33, 34]"}
+
+```yaml
+record1:
+  MTG: ステコミ
+  目的:
+    - 意思決定の支援
+    - 重要案件の承認
+  オーディエンス:
+    - クライアント経営層
+    - 細かいところまでは把握していない
+  ポイント:
+    - 情報の簡潔性（1枚で要点を伝える）
+    - ビジュアル重視（図・表・チャート）
+    - 論理の一貫性と構成力
+    - 誤字・フォーマットも厳しくチェックされる
+
+record2:
+  MTG: 定例会
+  目的:
+    - 進捗報告
+    - 課題共有
+    - 方向性の確認
+  オーディエンス:
+    - クライアント + 社内チームメンバー
+    - PJ背景情報まで把握している
+  ポイント:
+    - 要点を絞った報告
+    - タスク・KPIに対する進捗の見える化
+    - 情報の網羅性を重視
+
+record3:
+  MTG: 社内MTG
+  目的:
+    - 知見の共有
+    - よもやま相談
+  オーディエンス:
+    - 社内の人
+    - 社内用語なり事前情報・価値観が揃っている
+  ポイント:
+    - ストーリー性や具体例が大切
+    - 手書き風や口頭中心もOK
+```
+:::
+::::
