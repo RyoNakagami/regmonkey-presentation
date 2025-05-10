@@ -11,28 +11,70 @@
     "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
     "title": "構造化されたストーリーとしてのスライド",
     "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
-    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\nメッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化する\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化する\n\n\n\n\n\nストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計する\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\nスライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成されていること\n1スライド1メッセージとなっていること\n\n論点が増えすぎると、一枚のスライドの内容を把握するのに時間がかかる\n\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理する"
+    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\n① メッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化\n\n\n\n\n\n② ストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\n③ スライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成\n1スライド1メッセージ\n\n論点が増えすぎると、一枚のスライドの内容を把握するのに時間がかかる\n\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理"
   },
   {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
     "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
     "title": "構造化されたストーリーとしてのスライド",
     "section": "メッセージ作成の３つのキーポイント",
-    "text": "メッセージ作成の３つのキーポイント\n\n\n\n① 明確な主張(Argument)が存在すること\n\n\nスライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと\n明確な主張にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n② 主張が論理的に構造化されていること\n\n\n単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n③ 情報が最小限に絞られていること\n\n\nスライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)."
+    "text": "メッセージ作成の３つのキーポイント\n① メッセージの作成\n\n\n\n① 明確な主張(Argument)が存在すること\n\n\nスライドの目的は「報告」ではなく、意思決定者に必要な情報をわかりやすく伝え、意思決定を促すこと\n明確な主張にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n② 主張が論理的に構造化されていること\n\n\n単に情報を並べるのではなく、意思決定者が判断しやすいよう、情報を整理・構造化することが重要\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n③ 情報が最小限に絞られていること\n\n\nスライドに過剰な情報が含まれていると、重要なポイントが埋もれてしまい、判断を迷わせてしまう\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)."
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "見出しと要点でストーリーを設計する",
+    "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n\n論理的な順序配置\n\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのための３つのキーポイント",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのための３つのキーポイント",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "明確なスライドメッセージのための３つのキーポイント",
+    "text": "明確なスライドメッセージのための３つのキーポイント\n③ スライド作成・資料化\n\n\n\n① 1スライド1メッセージ\n\n\nスライドには伝えたい主張や要点をひとつに絞る\n複数の情報を詰め込まず、聞き手の理解に集中を促す\n\n複数の主張や結論が同時にあると、聞き手が混乱してしまう\n\n\n\n\n\n② 間引きの原則\n\n\n聞き手が本質に集中できる構成にする\n背景情報・前提知識は最低限にとどめる\n伝えたい内容に直接関係しない情報は思い切って省く\n\n\n\n\n③ 重複排除の原則\n\n\n同じ情報を複数のスライドや文で繰り返さない\n繰り返しが必要なときは、目的を持って再提示"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "1スライドに複数メッセージが入ってしまっている",
+    "text": "1スライドに複数メッセージが入ってしまっている\n③ スライド作成・資料化\n\n人件費の上昇により売上拡大にも関わらず営業利益減少\n\n\n\n\n\n\n\n\n\n\n\n\n\n２つのメッセージが含まれてしまっている\n\n売上上昇にもかかわらず営業利益が減少\n営業利益減少の主要因は人件費の増加\n\n\n\n\n「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、 2011~2018年の数値は本筋に対して過剰な情報\n\n\n\n\n図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭\n特定の行や列が強調されておらず、全体が等価に見えてしまい，何が重要情報なのかわからない"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージを絞り込む-part-1",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージを絞り込む-part-1",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドメッセージを絞り込む: Part 1",
+    "text": "スライドメッセージを絞り込む: Part 1\n③ スライド作成・資料化\n\n\n\nここ10年で売上は19%拡大しているが、営業利益は34%の減少\n\n\n\n\n\n\n\n\n\n売上増減率\n+ 19%\n\nコスト増減率\n+ 38%\n\n営業利益増減率\n- 34%\n\n\n\n\nこのスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的\n「直感に反した情報」はシンプルかつ明快なロジックで説明したほうが良い"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージを絞り込む-part-2",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドメッセージを絞り込む-part-2",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドメッセージを絞り込む: Part 2",
+    "text": "スライドメッセージを絞り込む: Part 2\n③ スライド作成・資料化\n\n\n人件費の大幅増加が利益率減少の主要因。売上増分の８割を人件費の増加で相殺している"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "論文におけるHeadingsとTakeaways",
+    "text": "論文におけるHeadingsとTakeaways\n\n\n\n\n\nHeadings( 見出し )\n\n\n議論や情報を階層化するためのセクションタイトル\n\n「イントロ」「先行研究」「手法」「結果」「考察」「結論」\n\nHeadingsから関心部分にすぐアクセスできる\n\n\n\n\nTakeaways( 要点 )\n\n\n各セクションの要点や主張を示す\n通常はHeadingの直後に書かれる(MMUFの原則)\n\n全文を読まずに、素早く全体の骨子・要点をつかめる\n\n\n\n\n\n\n\n\n 3. Data and Methodology\n\n\n    We combine satellite imagery with city-level land-use data to model temperature variation.\n\n\n\n    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.\n\n\n 3.1 Data Sources\n\n\n  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.\n\n\n  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ..."
   },
   {
     "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
     "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
     "title": "スライド作成に役に立つ書籍紹介",
     "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#test",
-    "href": "posts/2025-05-02-references/index.html#test",
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
     "title": "スライド作成に役に立つ書籍紹介",
-    "section": "Test",
-    "text": "Test"
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
   },
   {
     "objectID": "index.html",

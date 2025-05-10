@@ -143,6 +143,10 @@
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
   <script src="../../js/resize_keypoints_block.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 <meta property="og:title" content="スライド作成に役に立つ書籍紹介 – Presentation for Regession Monkey">
 <meta property="og:description" content="ドラフト中">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -206,15 +210,15 @@ Ryo Nakagami
 </tr>
 <tr class="odd">
 <td>発売日</td>
-<td>2017/8/17</td>
+<td>2012/10/19</td>
 </tr>
 <tr class="even">
 <td>ISBN13</td>
-<td>978-1974673162</td>
+<td>978-4492557204</td>
 </tr>
 <tr class="odd">
 <td>体裁</td>
-<td>184ページ</td>
+<td>単行本, 159ページ</td>
 </tr>
 </tbody>
 </table>
@@ -243,8 +247,49 @@ Ryo Nakagami
 </ul>
 </div>
 </section>
-<section id="test" class="slide level2">
-<h2>Test</h2>
+<section id="外資系コンサルのスライド作成術図解表現23のテクニック" class="slide level2">
+<h2>外資系コンサルのスライド作成術―図解表現23のテクニック</h2>
+<div class="columns">
+<div class="column book-image">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./gaicon-slide-book.png"></p>
+<figcaption>gaicon-slide-book</figcaption>
+</figure>
+</div>
+</div><div class="column book-info">
+<h3 id="書籍情報-1">書籍情報</h3>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>タイトル</td>
+<td><a href="https://str.toyokeizai.net/books/9784492557204/">外資系コンサルのスライド作成術―図解表現23のテクニック</a></td>
+</tr>
+<tr class="even">
+<td>著者</td>
+<td>山口 周 (著)</td>
+</tr>
+<tr class="odd">
+<td>発売日</td>
+<td>2017/8/17</td>
+</tr>
+<tr class="even">
+<td>ISBN13</td>
+<td>978-1974673162</td>
+</tr>
+<tr class="odd">
+<td>体裁</td>
+<td>184ページ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="この本の内容-1">この本の内容</h3>
+<ul>
+<li>スライドが満たすべき必要条件を簡潔に解説</li>
+<li>スライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説</li>
+<li>カラー，フォントというスタイリング要素の解説は少ない</li>
+</ul>
+</div></div>
 </section></section>
 <section id="スライドスタイリング参考文献" class="title-slide slide level1 agenda-slide center">
 <h1>スライドスタイリング参考文献</h1>
@@ -279,6 +324,7 @@ Ryo Nakagami
   <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
   <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -301,7 +347,7 @@ Ryo Nakagami
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'chalkboard': {"buttons":true,"button":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -427,7 +473,7 @@ Ryo Nakagami
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
+        transition: 'none',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -472,7 +518,7 @@ Ryo Nakagami
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
 
           RevealMath,
           RevealNotes,

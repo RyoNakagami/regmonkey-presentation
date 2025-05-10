@@ -85,6 +85,40 @@
   display: block;
 }
 
+.message-block {
+    display: inline-block;   
+    padding: 0.2em 0em;
+    background-color: transparent;
+    line-height: 1.1;
+  }
+
+
+.topleftbox {
+  position: absolute;
+  top: -1.6em;
+  left: 0.25em;
+  font-size: 0.8em;
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
+  text-align: left !important;
+  background-color: #428ce6; /* Bright Orange for title */
+  color: #ffffffff;
+  font-weight: bold !important;
+  padding: 0.05em 0.2em;
+  align-items: center;
+  font-weight: bold;
+}
+
+.message-box {
+    display: inline-block;   
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border: 2px solid #1a1a1a;
+    border-radius: 0px;
+    background-color: transparent;
+    line-height: 1.1;
+    padding-left: 0.5em;
+    padding-right: 1em;
+  }
 /* ------------------------------------------------------------------- */
 /*                        basic symbol                                 */
 /* ------------------------------------------------------------------- */
@@ -370,10 +404,10 @@
   padding-bottom: 10px;
   margin-bottom: 0px;
   font-size: 32px !important;
-  line-height: 1;
+  line-height: 1.1;
 }
 
-.message-box {
+.main-message-box {
   border: 5px solid #0e3666;
   border-radius: 1px;
   background-color: #ffffffff;
@@ -382,7 +416,7 @@
   padding-bottom: 10px;
   margin-bottom: 10px;
   font-size: 32px !important;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 /* ------------------------------------------------------------------- */
@@ -403,6 +437,7 @@
   line-height: 1.1;
   font-size: 100%;
   overflow: auto;
+  display: block;
   padding-top: 0.5em;
   margin-bottom: 20px;
   margin-left: 1em; /* ← adds 1em space from left */
@@ -438,7 +473,7 @@
 
 .keypoints-block .block ul li,
 .keypoints-block .no-border-block ul li {
-  margin-top: 0.3em !important;
+  margin-top: 0.35em !important;
 }
 
 .keypoints-block .block.last-block {
@@ -454,10 +489,10 @@
 .keypoints-block .no-border-block .block-header {
   display: block;
   font-weight: bold;
-  font-size: 1.0715em;
+  font-size: 1.2em;
   margin-top: 0em;
+  max-width: 100%;
   margin-bottom: -0.25em !important;
-  margin-left: 0em;
   margin-right: 0em;
   font-weight: bold;
   margin-left: -0.85em !important;
@@ -810,9 +845,20 @@
 /* ------------------------------------------------------------------- */
 @media print {
   body {
-    font-size: 14pt;
+    font-size: 12pt;
     color: black;
     background: white;
+  }
+  canvas.leader-line,
+  .leader-line,
+  .leader-line-areaAnchor {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  canvas.leader-line,
+  .leader-line {
+    display: none !important;
+    visibility: hidden !important;
   }
 
   .reveal {
@@ -839,7 +885,76 @@
   .slide-background,
   .reveal .controls,
   .reveal .progress,
-  .reveal .slide-number {
+
+  .reveal .slides section[hidden] {
     display: none !important;
   }
+
+  .fragment {
+    display: none !important; /* Optional: hide fragments entirely */
+  }
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Research Paper Style                                */
+/* ------------------------------------------------------------------- */
+.research-paper-style {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #1a1a1a;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  background: transparent;
+}
+
+.research-paper-style h1,
+.research-paper-style h2,
+.research-paper-style h3 {
+  margin-top: 2em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.research-paper-style h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3em;
+}
+
+.research-paper-style h2 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+}
+
+.research-paper-style h3 {
+  font-size: 1.2em;
+  margin-top: 1.2em;
+}
+
+.research-paper-style h4 {
+    font-size: 1.1em;
+    margin-top: 1.1em;
+  }
+
+.research-paper-style .section {
+  margin-bottom: 3em;
+}
+
+.research-paper-style .takeaway {
+  margin: 1em 0;
+  line-height: 1.3;
+}
+
+.research-paper-style p {
+  margin: 1em 0;
+  text-align: justify;
+}
+
+@media print {
+  .research-paper-style {
+    background: none;
+    color: black;
+  }
+
 }
