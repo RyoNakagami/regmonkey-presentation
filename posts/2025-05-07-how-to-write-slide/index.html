@@ -31,6 +31,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link rel="stylesheet" href="../../style/revealjs.css">
@@ -143,11 +209,13 @@
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-  <script src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
   <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <meta property="og:title" content="構造化されたストーリーとしてのスライド – Presentation for Regession Monkey">
 <meta property="og:description" content="スライド作成方法論 1">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -248,7 +316,7 @@ Ryo Nakagami
 <section id="メッセージ作成の３つのキーポイント" class="slide level2">
 <h2>メッセージ作成の３つのキーポイント</h2>
 <p><span class="topleftbox">① メッセージの作成</span></p>
-<div class="keypoints-container" style="height: 90%; width: 100%;">
+<div class="keypoints-container" style="height: 90%; width: 100%; padding-left: 2em;">
 <div class="keypoints-block" style="height: 100%;">
 <div class="no-border-block">
 <p><span class="block-header">① 明確な主張(Argument)が存在すること</span></p>
@@ -348,7 +416,7 @@ Ryo Nakagami
 <section id="明確なスライドメッセージのための３つのキーポイント" class="slide level2">
 <h2>明確なスライドメッセージのための３つのキーポイント</h2>
 <p><span class="topleftbox">③ スライド作成・資料化</span></p>
-<div class="keypoints-container" style="height: 90%; width: 100%;">
+<div class="keypoints-container" style="height: 90%; width: 100%; padding-left:2em;">
 <div class="keypoints-block">
 <div class="no-border-block">
 <p><span class="block-header">① 1スライド1メッセージ</span></p>
@@ -363,21 +431,21 @@ Ryo Nakagami
 </div>
 </div>
 <div class="no-border-block">
-<p><span class="block-header">② 間引きの原則</span></p>
+<p><span class="block-header">② 間引きの原則(オッカムの剃刀の原則)</span></p>
 <div class="checkmark">
 <ul>
 <li>聞き手が本質に集中できる構成にする</li>
 <li>背景情報・前提知識は最低限にとどめる</li>
 <li>伝えたい内容に直接関係しない情報は思い切って省く</li>
+<li>同じ情報を複数のスライドや文で繰り返さない</li>
 </ul>
 </div>
 </div>
 <div class="no-border-block">
-<p><span class="block-header">③ 重複排除の原則</span></p>
+<p><span class="block-header">③ メッセージと整合的な縦横軸を選ぶ</span></p>
 <div class="checkmark">
 <ul>
-<li>同じ情報を複数のスライドや文で繰り返さない</li>
-<li>繰り返しが必要なときは、目的を持って再提示</li>
+<li></li>
 </ul>
 </div>
 </div>
@@ -392,151 +460,10 @@ Ryo Nakagami
 </div>
 <div class="columns">
 <div id="bad-example" class="column" style="width:70%;">
-<div id="bad-example-container" style="width: 100%; height: 15.5em;">
-
-</div>
-<script>
-// a function to set the series names
-let setupSeries = function (series, name, color, hoveredColor) {
-  series.name(name).stroke("2 #fff 1").fill(color);
-  series.hovered().stroke("1 #fff 1").fill(hoveredColor);
-};
-
-anychart.onDocumentReady(function () {
-        // Sample annual sales data from 2010 to 2020
-        let dataSet = anychart.data.set([
-          ["2010", 102, 38],
-          ["2011", 114, 37],
-          ["2012", 119, 38],
-          ["2013", 122, 35],
-          ["2014", 126, 33],
-          ["2015", 131, 32],
-          ["2016", 134, 31],
-          ["2017", 137, 28],
-          ["2018", 138, 26],
-          ["2019", 141, 25]
-        ]);
-        // Create stacked series
-        let cost_series = dataSet.mapAs({ x: 0, value: 1 });
-        let profit_series = dataSet.mapAs({ x: 0, value: 2 });
-
-        // create a column chart instance
-        let chart = anychart.column();
-
-        // stack values on y scale.
-        chart.yScale().stackMode('value');
-
-        // store series
-        let series;
-        series = chart.column(cost_series);
-        setupSeries(series, "費用", "#A9A9A9", "#D31804");
-        series.labels()
-              .enabled(true)
-              .format("{%Value}")  // You can also use "{%y}" for the Y value
-              .position("center")  // Optional: "inside", "outside", "center"
-              .anchor("center")    // Aligns label within bar
-              .fontColor("white") // Good contrast inside a colored bar
-              .fontSize(20);
-        
-        series = chart.column(profit_series);
-        setupSeries(series, "営業利益", "#0E3666", "#0E3666");
-        series.labels()
-              .enabled(true)
-              .format("{%Value}")  // You can also use "{%y}" for the Y value
-              .position("center")  // Optional: "inside", "outside", "center"
-              .anchor("center")    // Aligns label within bar
-              .fontColor("white") // Good contrast inside a colored bar
-              .fontSize(20);
-
-        // Add title and axis labels
-        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
-        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
-        // chart.xAxis().title("Year");
-        chart.yAxis().title("Sales (in millions)").padding([0, 0, 10, 0]); // Adding the unit to the 
-        chart.xAxis().stroke({ color: "black", thickness: 1 });
-        chart.yAxis().stroke({ color: "black", thickness: 1 });
-
-        // Enable legend
-        // label config
-        var label_x = chart.xAxis().labels();
-        var label_y = chart.yAxis().labels();
-        label_x.fontFamily("MeiryoUI");
-        label_y.fontFamily("MeiryoUI");
-        label_x.fontSize(20);
-        label_y.fontSize(20);
-        label_x.fontColor("#1a1a1a");
-        label_y.fontColor("#1a1a1a");
-
-        // title config
-        var title = chart.title();
-        title.enabled(true)
-             .fontSize(22)
-             .fontFamily("MeiryoUI")
-             .fontColor("black")
-             .fontWeight(200)
-             .text("売上と営業利益額の推移(2010~2019年)");
-        
-        chart.legend(true);
-
-        // Set container and draw
-        chart.container("bad-example-container");
-        chart.draw();
-      });
-</script>
-<div id="bad-data-table" style="width: 100%;">
-
-</div>
-<script>
-  let FILE_PATH='sample_data.csv'
-
-  // Function to transpose the table data
-  function transposeData(data) {
-    const transposed = data[0].map((_, colIndex) => data.map(row => row[colIndex]));
-    return transposed;
-  }
-  
-  function createTableFromCSV(data) {
-    const table = document.createElement("table");
-    table.style.borderCollapse = "collapse";
-    table.style.width = "100%";
-    table.style.fontSize = "0.6em";
-
-    data.forEach((row, rowIndex) => {
-      const tr = document.createElement("tr");
-
-      // Apply 'last-row' class to the last row
-      if (rowIndex === data.length - 1) {
-        tr.classList.add("last-row");
-      }
-
-      row.forEach(cell => {
-        const cellEl = rowIndex === 0
-          ? document.createElement("th")
-          : document.createElement("td");
-        cellEl.textContent = cell;
-        cellEl.style.border = "1px solid #ccc";
-        cellEl.style.padding = "8px";
-        cellEl.style.textAlign = "center";
-        if (rowIndex === 0) cellEl.style.backgroundColor = "#f0f0f0";
-        tr.appendChild(cellEl);
-      });
-      table.appendChild(tr);
-    });
-
-    return table;
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    Papa.parse(FILE_PATH, {
-      download: true,
-      complete: function (results) {
-        const transposedData = transposeData(results.data); // Transpose data
-        const container = document.getElementById("bad-data-table");
-        container.appendChild(createTableFromCSV(transposedData));
-      }
-    });
-  });
-</script>
+<div id="bad-example-container" style="width: 100%; height: 15.5em;"></div>
+<script src="bad-example-container.js"></script>
+<div id="bad-data-table" style="width: 100%; height: unset;"></div>
+<script src="bad-data-table.js"></script>
 </div><div class="column" style="width:30%;">
 <div id="tip1" class="message-box" style="font-size:0.7em; margin-left:3em;">
 <p>１つのスライドに２つのメッセージが含まれてしまっている</p>
@@ -571,104 +498,8 @@ anychart.onDocumentReady(function () {
 </div>
 <div class="columns">
 <div class="column" style="width:70%;">
-<div id="compare" style="width: 100%; height: 22.5em;">
-
-</div>
-<script>
-
-anychart.onDocumentReady(function () {
-        // Sample annual sales data from 2010 to 2020
-        let rawData = [
-          ["2010", 102, 38, 140],
-          ["2019", 141, 25, 167]
-        ];
-
-        let dataSet = anychart.data.set(rawData);
-        let cost_series = dataSet.mapAs({ x: 0, value: 1 });
-        let profit_series = dataSet.mapAs({ x: 0, value: 2 });
-
-        // create a column chart instance
-        let chart = anychart.column();
-
-        // stack values on y scale.
-        chart.yScale().stackMode('value');
-
-        // store series
-        let series;
-        series = chart.column(cost_series);
-        series.id("cost_series");  // Fixed ID for cost series
-
-        setupSeries(series, "費用", "#A9A9A9", "#A9A9A9");
-        series.labels()
-              .enabled(true)
-              .format("{%Value}")  // You can also use "{%y}" for the Y value
-              .position("center")  // Optional: "inside", "outside", "center"
-              .anchor("center")    // Aligns label within bar
-              .fontColor("white") // Good contrast inside a colored bar
-              .fontSize(20);
-        
-        series = chart.column(profit_series);
-        series.id("profit_series");  // Fixed ID for profit setupSeries
-        
-        setupSeries(series, "営業利益", "#0E3666", "#0E3666");
-        series.labels()
-              .enabled(true)
-              .format("{%Value}")  // You can also use "{%y}" for the Y value
-              .position("center")  // Optional: "inside", "outside", "center"
-              .anchor("center")    // Aligns label within bar
-              .fontColor("white") // Good contrast inside a colored bar
-              .fontSize(20);
-
-        // Add title and axis labels
-        chart.xAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
-        chart.yAxis().title().fontSize(20).fontWeight("bold").fontFamily("MeiryoUI");
-
-        chart.pointWidth("40%");
-        // chart.xAxis().title("Year");
-        chart.xAxis().stroke({ color: "black", thickness: 1 });
-        chart.yAxis().stroke({ color: "black", thickness: 1 });
-        chart.yAxis().title("Sales (in millions)").padding([0, 0, 10, 0]); // Adding the unit to the 
-        // Y-axis title
-        // Enable legend
-        // label config
-        var label_x = chart.xAxis().labels();
-        var label_y = chart.yAxis().labels();
-        label_x.fontFamily("MeiryoUI");
-        label_y.fontFamily("MeiryoUI");
-        label_x.fontSize(20);
-        label_y.fontSize(20);
-        label_x.fontColor("#1a1a1a");
-        label_y.fontColor("#1a1a1a");
-
-        // title config
-        var title = chart.title();
-        title.enabled(true)
-             .fontFamily("MeiryoUI")
-             .fontSize(26)
-             .fontColor("#575757")
-             .fontWeight(200)
-             .text("売上と営業利益額の推移(2010 vs 2019年)");
-        
-        //legend
-        chart.legend()
-             .enabled(true)
-             .fontSize(20)       // Change text size
-             .iconSize(20)       // Change icon size
-             .padding(10)        // Padding inside legend
-             .margin(10);        // Margin around legend
-        chart.legend(true);
-
-        // union
-        chart.tooltip().displayMode("union");
-        chart.tooltip().titleFormat(function(e){
-          return this.x + ' - ' + this.points[0].getStat('categoryYSum');
-        });
-
-
-        chart.container("compare");
-        chart.draw(); // Finally, draw the chart
-});
-</script>
+<div id="compare-2010-2019" style="width: 100%; height: 22.5em;"></div>
+<script src="compare-2010-2019.js"></script>
 </div><div class="column" style="width:30%;">
 <div class="reveal_vspace" style="--vspace-height: 2.5em;"></div>
 <p><span class="border-bottom" style="width: 10em; text-align: center;">売上増減率</span></p>
@@ -697,83 +528,8 @@ anychart.onDocumentReady(function () {
 <div class="main-message-block">
 <p>人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている</p>
 </div>
-<div id="anychart-waterfall-container" style="width: 100%; height: 630px;">
-
-</div>
-<script>
-    anychart.onDocumentReady(function () {
-        const fontsize = 16;
-
-        const data = [
-            {x: '営業利益(2010年)', value: 38 , custom_field: "売上 140"},
-            {x: '売上増加', value: 26},
-            {x: '原価', value: -7},
-            {x: '人件費', value: -20,},
-            {x: '広告宣伝費', value: -5},
-            {x: 'その他費用', value: -7},
-            {x: '営業利益(2019年)', isTotal: true, custom_field: "売上 166"}];
-
-        // create a waterfall chart
-        let chart = anychart.waterfall();
-        let series = chart.waterfall(data); // returns the series
-
-        series.labels()
-              .format("{%Value}")  // You can also use "{%y}" for the Y value
-              .fontColor("#1a1a1a") // Good contrast inside a colored bar
-              .fontSize(20);
-
-        // axis config
-        var yScale = chart.yScale();
-        yScale.minimum(0);
-        yScale.maximum(70);
-
-        // color config
-        series.normal().fill("#000080", 0.8);
-        series.normal().fallingFill("#808080", 0.3);
-        series.normal().fallingStroke("#808080", 1, "10 5", "round");
-        series.normal().risingFill("#1E90FF", 0.3);
-        series.normal().risingStroke("#1E90FF", 1, "10 5", "round");
-
-        series.select(3);
-        
-        chart.xAxis().stroke({ color: "black", thickness: 1 });
-        chart.yAxis().stroke({ color: "black", thickness: 1 });
-
-        // label config
-        var labels = chart.xAxis().labels();
-        labels.fontFamily("MeiryoUI")
-              .fontSize(fontsize)
-              .fontColor("#000000")
-              .fontSize(20)
-              .useHtml(false);
-        
-        var labels = chart.yAxis().labels();
-        labels.fontFamily("MeiryoUI")
-              .fontSize(fontsize)
-              .fontColor("#000000")
-              .fontSize(16)
-              .useHtml(false);
-
-        // title config
-        var title = chart.title();
-        title.enabled(true)
-             .text("営業利益増減の内訳(2010年 vs 2019年)")
-             .fontSize(28)
-             .fontColor("#575757")
-             .fontFamily("MeiryoUI")
-             .fontWeight(200);
-        // title.fontDecoration("underline");
-        chart.tooltip().titleFormat("Absolute | Difference");
-        chart.tooltip().format("{%absolute}\n{%diff}\n\n{%custom_field}");
-
-        
-        chart.container('anychart-waterfall-container');
-        chart.draw();;
-
-
-
-    });
-</script>
+<div id="anychart-waterfall-container" style="width: 100%; height: 630px;"></div>
+<script src="anychart-waterfall-container.js"></script>
 </div>
 <div id="focus-message" class="message-box" style="font-size:0.8em; position: absolute; top: 0%; left: 55%">
 <p>前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「<strong>どのコストが特に増加したのか？</strong>」に答えることで論理的にスムーズな流れとなる</p>
@@ -850,6 +606,52 @@ anychart.onDocumentReady(function () {
 </div>
 </div><p><span class="leaderline" start="#def-headings" data-end="#heading-box1" color="#A9A9A9" data-end-socket="left" size="3" data-dash="true" data-end-border-style="color:#1a1a1a; radius:10" data-index="1" data-lineid="line1"></span></p><p><span class="leaderline" start="#def-headings" data-end="#heading-box2" color="#A9A9A9" data-end-socket="left" size="3" data-dash="true" data-path="straight" data-end-border-style="color:#1a1a1a; radius:10" data-index="1" data-lineid="line2"></span></p><p><span class="leaderline" start="#def-takeaways" data-end="#takeaway-box1" color="#A9A9A9" data-end-socket="left" size="3" data-dash="true" data-path="straight" data-end-border-style="color:#1a1a1a; radius:10" data-index="2" data-lineid="line3"></span><br>
 <span class="leaderline" start="#def-takeaways" data-end="#takeaway-box2" color="#A9A9A9" data-end-socket="left" size="3" data-dash="true" data-path="straight" data-end-border-style="color:#1a1a1a; radius:10" data-index="2" data-lineid="line4"></span></p>
+</div>
+</section>
+<section id="場面に応じてスライド作成クオリティは異なる" class="slide level2">
+<h2>場面に応じてスライド作成クオリティは異なる</h2>
+<div class="custom-table-no-header" style="width:100%;">
+<div id="yaml-mtg-table" class="ymal2table ymal2table-custom-top" data-col-widths="[13, 20, 33, 34]">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> ステコミ</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb1-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意思決定の支援</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要案件の承認</span></span>
+<span id="cb1-6"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント経営層</span></span>
+<span id="cb1-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 細かいところまでは把握していない</span></span>
+<span id="cb1-9"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の簡潔性（1枚で要点を伝える）</span></span>
+<span id="cb1-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビジュアル重視（図・表・チャート）</span></span>
+<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 論理の一貫性と構成力</span></span>
+<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 誤字・フォーマットも厳しくチェックされる</span></span>
+<span id="cb1-14"><a></a></span>
+<span id="cb1-15"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb1-16"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 定例会</span></span>
+<span id="cb1-17"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb1-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 進捗報告</span></span>
+<span id="cb1-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 課題共有</span></span>
+<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の確認</span></span>
+<span id="cb1-21"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント + 社内チームメンバー</span></span>
+<span id="cb1-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PJ背景情報まで把握している</span></span>
+<span id="cb1-24"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 要点を絞った報告</span></span>
+<span id="cb1-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> タスク・KPIに対する進捗の見える化</span></span>
+<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の網羅性を重視</span></span>
+<span id="cb1-28"><a></a></span>
+<span id="cb1-29"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb1-30"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 社内MTG</span></span>
+<span id="cb1-31"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb1-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 知見の共有</span></span>
+<span id="cb1-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> よもやま相談</span></span>
+<span id="cb1-34"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb1-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内の人</span></span>
+<span id="cb1-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内用語なり事前情報・価値観が揃っている</span></span>
+<span id="cb1-37"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb1-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ストーリー性や具体例が大切</span></span>
+<span id="cb1-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手書き風や口頭中心もOK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 
 
