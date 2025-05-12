@@ -79,7 +79,7 @@
 /*                        general editting                             */
 /* ------------------------------------------------------------------- */
 .regmonkey_bold{
-    color: #12677c;
+    color: #206f83;
     font-weight: bold !important;
 }
 
@@ -512,6 +512,7 @@
   margin-right: 0em;
   font-weight: bold;
   margin-left: -0.85em !important;
+  
 }
 
 /* ------------------------------------------------------------------- */
