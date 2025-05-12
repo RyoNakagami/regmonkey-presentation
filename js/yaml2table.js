@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".ymal2table").forEach((el) => {
+  document.querySelectorAll(".yaml2table").forEach((el) => {
     const rawYaml = el.innerText.trim();
     const columnWidthsAttr = el.getAttribute("data-col-widths");
     const columnWidths = columnWidthsAttr ? JSON.parse(columnWidthsAttr) : null;

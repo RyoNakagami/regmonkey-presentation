@@ -74,9 +74,18 @@
   color: white;
 }
 
+
 /* ------------------------------------------------------------------- */
 /*                        general editting                             */
 /* ------------------------------------------------------------------- */
+.regmonkey_bold{
+    color: #12677c;
+    font-weight: bold !important;
+}
+
+
+
+
 .border-bottom {
   border-bottom: 0.2rem solid #1a1a1a; /* 線の色と太さを調整 */
   padding-bottom: 0.2em; /* 少し余白を足すと見やすくなる */
@@ -99,7 +108,7 @@
   font-size: 0.8em;
   font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
   text-align: left !important;
-  background-color: #428ce6; /* Bright Orange for title */
+  background-color: #1E90FF; /* Bright Orange for title */
   color: #ffffffff;
   font-weight: bold !important;
   padding: 0.05em 0.2em;
@@ -127,6 +136,7 @@
   overflow: hidden;
   height: 10em;
   padding-top: 1em;
+  gap: 0px; /* 隙間をなくす場合 */
 }
 
 .step {
@@ -219,10 +229,9 @@
   border-color: #0e3666;
   color: #fff;
   font-weight: bold;
-  padding: 0 1em;
+  padding: 0 0em;
   text-align: center;
   box-sizing: border-box;
-  border: 0px solid #0e3666;
 }
 
 .active-phase:before {
@@ -230,10 +239,10 @@
   position: absolute;
   top: 50%;
   margin-top: -2em;
-  border-width: 2em 0 2em 1em;
+  border-width: 2em 0.15em 2em 1em;
   border-style: solid;
   border-color: #0e3666 transparent;
-  left: -0.9822em;
+  left: -1em;
 }
 
 .active-phase:after {
@@ -241,9 +250,9 @@
   position: absolute;
   top: 50%;
   margin-top: -2em;
-  border-top: 2em solid transparent;
-  border-bottom: 2em solid transparent;
-  border-left: 1em solid #0e3666;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent #0e3666;
   right: -0.9821em;
 }
 
@@ -506,6 +515,57 @@
 }
 
 /* ------------------------------------------------------------------- */
+/*             horizontal keypoints-block                              */
+/* ------------------------------------------------------------------- */
+
+.horizontal-keypoints-block,
+.horizontal-keypoints-block-no-border {
+  line-height: 1.1;
+  font-size: 100%;
+  overflow: auto;
+  display: block;
+  padding-top: 0.5em;
+  margin-bottom: 20px;
+  margin-left: 1em; /* ← adds 1em space from left */
+  height: 100%;
+  position: relative; /* ← 追加：子要素の基準となる */
+}
+
+.horizontal-keypoints-block::after {
+  content: "";
+  position: absolute;
+  top: 0%; /* 上端の位置を要素の高さの 10% に設定 */
+  bottom: 0%; /* 下端の位置を要素の高さの 90% (上端から 100% - 10%) に設定 */
+  right: 0;
+  width: 1px; /* ボーダーの幅 */
+  background-color: black; /* ボーダーの色 */
+}
+
+.horizontal-keypoints-block .block-header,
+.horizontal-keypoints-block-no-border .block-header {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 0em;
+  max-width: 100%;
+  margin-right: 0em;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center; /* 水平方向中央揃え */
+  align-items: center; /* 垂直方向中央揃え */
+}
+
+.horizontal-keypoints-block .block-header i,
+.horizontal-keypoints-block-no-border .block-header i {
+  padding-right: 0.5rem;
+}
+
+.horizontal-keypoints-block .block,
+.horizontal-keypoints-block-no-border .block {
+  padding-left: 1em;
+}
+
+/* ------------------------------------------------------------------- */
 /*                          messages                                   */
 /* ------------------------------------------------------------------- */
 .custom-list {
@@ -567,20 +627,20 @@
 /* ------------------------------------------------------------------- */
 /*                          custom table                               */
 /* ------------------------------------------------------------------- */
-.ymal2table{
-    width: 100%;
+.yaml2table {
+  width: 100%;
 }
 
-.ymal2table-custom-top,
-.ymal2table-custom {
+.yaml2table-custom-top,
+.yaml2table-custom {
   height: 100%;
   width: 100%;
 }
 
-.ymal2table-custom-top td {
+.yaml2table-custom-top td {
   vertical-align: top !important;
 }
-.ymal2table-custom-top td:first-child {
+.yaml2table-custom-top td[rowspan]  {
   vertical-align: middle !important;
 }
 
@@ -876,7 +936,7 @@
 @media print {
   body {
     font-size: 12pt;
-    color: black;
+    color: #1a1a1a;
     background: white;
   }
   canvas.leader-line,
