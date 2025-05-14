@@ -74,17 +74,58 @@
   color: white;
 }
 
+/* ------------------------------------------------------------------- */
+/*                             summary                                 */
+/* ------------------------------------------------------------------- */
+
+.summary-container {
+  line-height: 1.1;
+  width: 100%;
+  height: 75%;
+  padding-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 1em; /* ← adds 1em space from left */
+  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */
+  display: flex;
+  flex-direction: column; /* ブロックを縦に並べる */
+}
+
+.summary-container .block {
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+  display: block !important;
+  align-items: center;
+  padding-left: 1em;
+  position: relative; /* Needed for positioning the pseudo-element */
+}
+
+.summary-container .block::before {
+  content: "";
+  position: absolute;
+  top: 0.6em; /* Start 5% from the top to cover the top 90% */
+  left: 0;
+  width: 0.5em; /* Same width as your intended border-left */
+  bottom: 0.5em; /* End 2em from the bottom */
+  background-color: #428CE6; /* Your desired border color */
+}
+
+.summary-container .block .headline {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0; /* Adjust margins as needed */
+  padding-bottom: 0em; /* Add some space below the border */
+}
+
 
 /* ------------------------------------------------------------------- */
 /*                        general editting                             */
 /* ------------------------------------------------------------------- */
-.regmonkey_bold{
-    color: #206f83;
-    font-weight: bold !important;
+.regmonkey_bold {
+  color: #206f83;
+  font-weight: bold !important;
 }
-
-
-
 
 .border-bottom {
   border-bottom: 0.2rem solid #1a1a1a; /* 線の色と太さを調整 */
@@ -108,7 +149,7 @@
   font-size: 0.8em;
   font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
   text-align: left !important;
-  background-color: #1E90FF; /* Bright Orange for title */
+  background-color: #1e90ff; /* Bright Orange for title */
   color: #ffffffff;
   font-weight: bold !important;
   padding: 0.05em 0.2em;
@@ -239,7 +280,7 @@
   position: absolute;
   top: 50%;
   margin-top: -2em;
-  border-width: 2em 0.15em 2em 1em;
+  border-width: 2em 2em 2em 1em;
   border-style: solid;
   border-color: #0e3666 transparent;
   left: -1em;
@@ -449,7 +490,7 @@
   padding-bottom: 20px;
 }
 
-.keypoints-block {
+.vertical-keypoints-block {
   line-height: 1.1;
   font-size: 100%;
   overflow: auto;
@@ -459,7 +500,7 @@
   margin-left: 1em; /* ← adds 1em space from left */
 }
 
-.keypoints-block .block {
+.vertical-keypoints-block .block {
   padding-top: 0.5em;
   padding-bottom: 0.1em;
   margin-bottom: 0em;
@@ -467,42 +508,42 @@
   display: block !important;
 }
 
-.keypoints-block .no-border-block {
+.vertical-keypoints-block .no-border-block {
   padding-top: 0.5em;
   padding-bottom: 0.1em;
   margin-bottom: 0em;
   display: block !important;
 }
 
-.keypoints-block .block p,
-.keypoints-block .no-border-block p {
+.vertical-keypoints-block .block p,
+.vertical-keypoints-block .no-border-block p {
   margin-top: 8px;
   padding-left: 1em;
 }
 
-.keypoints-block .block ul,
-.keypoints-block .no-border-block ul {
+.vertical-keypoints-block .block ul,
+.vertical-keypoints-block .no-border-block ul {
   margin-top: 2px;
   margin-bottom: 2px;
   padding-left: 1em;
 }
 
-.keypoints-block .block ul li,
-.keypoints-block .no-border-block ul li {
+.vertical-keypoints-block .block ul li,
+.vertical-keypoints-block .no-border-block ul li {
   margin-top: 0.35em !important;
 }
 
-.keypoints-block .block.last-block {
+.vertical-keypoints-block .block.last-block {
   border-bottom: none;
 }
 
-.keypoints-block .block.first-block,
-.keypoints-block .no-border-block.first-block {
+.vertical-keypoints-block .block.first-block,
+.vertical-keypoints-block .no-border-block.first-block {
   padding-top: 0 !important;
 }
 
-.keypoints-block .block .block-header,
-.keypoints-block .no-border-block .block-header {
+.vertical-keypoints-block .block .block-header,
+.vertical-keypoints-block .no-border-block .block-header {
   display: block;
   font-weight: bold;
   font-size: 1.2em;
@@ -512,7 +553,6 @@
   margin-right: 0em;
   font-weight: bold;
   margin-left: -0.85em !important;
-  
 }
 
 /* ------------------------------------------------------------------- */
@@ -641,7 +681,7 @@
 .yaml2table-custom-top td {
   vertical-align: top !important;
 }
-.yaml2table-custom-top td[rowspan]  {
+.yaml2table-custom-top td[rowspan] {
   vertical-align: middle !important;
 }
 

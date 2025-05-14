@@ -2,7 +2,7 @@ function scaleFontAndVerticalPaddingToFit() {
   const containers = document.querySelectorAll(".keypoints-container");
 
   containers.forEach((container) => {
-    const content = container.querySelector(".keypoints-block");
+    const content = container.querySelector(".vertical-keypoints-block");
     if (!content) return;
 
     // Reset font size and vertical padding
@@ -27,7 +27,7 @@ function scaleFontAndVerticalPaddingToFit() {
 
 function removeBottomBorderFromLastBlock() {
   const blocks = document.querySelectorAll(
-    ".keypoints-container .block, .keypoints-container .no-border-block"
+    ".keypoints-container .block"
   );
   if (blocks.length > 0) {
     blocks.forEach((block, index) => {

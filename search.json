@@ -1,10 +1,31 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
+    "text": "構造化されたストーリーとしてのスライド\n\n\n\n方法論\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+  },
+  {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除\n整合的な軸設計: メッセージに沿った縦横軸で情報を整"
   },
   {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
@@ -84,24 +105,10 @@
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "構造化されたストーリーとしてのスライド\n\n\n\n方法論\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   }
 ]
