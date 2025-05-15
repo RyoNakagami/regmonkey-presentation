@@ -109,7 +109,7 @@
     "href": "posts/2025-05-16-summary-slide/index.html#aazure-blue-サマリースライドの構成要素",
     "title": "Summaryスライド",
     "section": "Aazure blue サマリースライドの構成要素",
-    "text": "Aazure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
+    "text": "Aazure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
   },
   {
     "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",

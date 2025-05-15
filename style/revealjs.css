@@ -65,7 +65,7 @@
 }
 
 .reveal pre.sourceCode code {
-        max-height: 700px; // default 500
+        max-height: 700px; 
 }
 
 /* ------------------------------------------------------------------- */

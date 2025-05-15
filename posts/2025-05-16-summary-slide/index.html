@@ -217,13 +217,6 @@
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script>
-      MathJax = {
-          tex: {
-              tags: 'all'  // should be 'ams', 'none', or 'all'
-          }
-      };
-  </script>
 <meta property="og:title" content="Summaryスライド – Presentation for Regession Monkey">
 <meta property="og:description" content="revealjsスライド作成紹介">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -266,6 +259,7 @@ Ryo Nakagami
 <p>summary-container</p>
 </div>
 <ul>
+<li><code>&lt;div&gt;</code> 要素</li>
 <li>Flexbox使用し、全体を縦に並べるレイアウト</li>
 <li>中身を縦方向に中央揃え</li>
 </ul>
@@ -275,6 +269,7 @@ Ryo Nakagami
 <p>block-azureblue</p>
 </div>
 <ul>
+<li><code>&lt;div&gt;</code> 要素</li>
 <li>個々の情報ブロック</li>
 <li>左に青いライン（擬似要素 <code>::before</code>）でアクセント</li>
 </ul>
@@ -284,6 +279,7 @@ Ryo Nakagami
 <p>headline</p>
 </div>
 <ul>
+<li><code>&lt;div&gt;</code> 要素</li>
 <li>ブロック内のタイトル用</li>
 <li>太字・黒色・行間狭め</li>
 <li>改行を要するような文字列の入力は想定していない</li>
