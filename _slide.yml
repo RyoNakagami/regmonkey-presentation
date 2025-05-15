@@ -29,6 +29,7 @@ format:
     footer: "[Regmonkey Presentation](/index.html). ©Ryo Nakagami. All rights reserved."
     font-family: "Meiryo"
     date-format: "YYYY年MM月DD日"
+    html-math-method: mathjax
     header-includes: |
       <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
       <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
@@ -44,5 +45,6 @@ format:
       <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
       <script src="https://d3js.org/d3.v7.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     revealjs-plugins:
       - leader-line

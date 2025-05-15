@@ -22,7 +22,7 @@ auto-agenda:
 
 ::::{.summary-container style="font-size:0.9em;"}
 
-:::{.block}
+:::{.block-azureblue}
 :::{.headline}
 スライド作成の基本
 :::
@@ -32,7 +32,8 @@ auto-agenda:
 
 :::
 
-:::{.block}
+
+:::{.block-azureblue}
 :::{.headline}
 メッセージ設計
 :::
@@ -42,7 +43,7 @@ auto-agenda:
 
 :::
 
-:::{.block}
+:::{.block-azureblue}
 :::{.headline}
 ストーリー構築
 :::
@@ -51,7 +52,7 @@ auto-agenda:
 
 :::
 
-:::{.block}
+:::{.block-azureblue}
 :::{.headline}
 スライド作成のルール
 :::

@@ -1,0 +1,330 @@
+---
+title: "Summaryスライド"
+subtitle: "revealjsスライド作成紹介"
+author: "Ryo Nakagami"
+date: last-modified
+categories: [summary]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+# Aazure blue サマリースライド
+
+## Aazure blue サマリースライドの構成要素
+
+{{< reveal_vspace 2em >}}
+
+::::{.summary-container style="font-size:1em;"}
+
+:::{.block-azureblue }
+:::{.headline}
+summary-container
+:::
+
+- `<div>` 要素
+- Flexbox使用し、全体を縦に並べるレイアウト
+- 中身を縦方向に中央揃え
+
+:::
+
+:::{.block-azureblue}
+:::{.headline}
+block-azureblue
+:::
+
+- `<div>` 要素
+- 個々の情報ブロック
+- 左に青いライン（擬似要素 `::before`）でアクセント
+
+:::
+
+:::{.block-azureblue}
+:::{.headline}
+headline
+:::
+
+- `<div>` 要素
+- ブロック内のタイトル用
+- 太字・黒色・行間狭め
+- 改行を要するような文字列の入力は想定していない
+
+:::
+
+::::
+
+
+
+## `.summary-container`
+
+{{< reveal_vspace 1.5em >}}
+
+::::{.summary-container #azureblue-block-container style="font-size:0.9em;"}
+
+:::{.block-azureblue #azureblue-block}
+:::{.headline}
+スライド作成の基本
+:::
+
+
+- プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める
+
+:::
+
+:::{.block-azureblue #azureblue-block2}
+:::{.headline}
+メッセージ設計
+:::
+
+- 3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する
+- RAPフレームワーク: Research Question, Answer, Positioning Statement
+
+:::
+
+:::{.block-azureblue #azureblue-block3}
+:::{.headline}
+ストーリー構築
+:::
+
+- 論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する
+
+:::
+
+:::{.block-azureblue #azureblue-block4}
+:::{.headline}
+スライド作成のルール
+:::
+
+- 1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する
+- オッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する
+- メッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする
+
+:::
+
+::::
+
+:::{.message-box style="position: absolute; top: 4em; left: 80%; font-size:0.9em; width:13em;"}
+
+[`summary-container`]{.border-bottom #tip1 style="width: 12em; text-align: center;"}
+
+- `display: flex`
+  - コンテナの子要素（flex item）の並び方や配置を指定可能にする
+- `flex-direction: column`
+  - flex itemsを縦方向に並べる
+- `justify-content: center`
+  - flex item全体を縦方向中央に揃える
+
+:::
+
+
+
+
+<!-- leader line section -->
+
+[]{.leaderline start="#azureblue-block-container" 
+    start-socket="right" 
+    end="#tip1" 
+    color="#575757" end-socket="left" size="3" 
+    start-border-style="color:#575757; x: -2.5%; y:0%; width:75%; height:100%"
+    path="grid"}   
+
+
+## `.block-azureblue-block` 
+
+{{< reveal_vspace 1.5em >}}
+
+::::{.summary-container style="font-size:0.9em;"}
+
+:::{.block-azureblue #azureblue-block1}
+:::{.headline}
+スライド作成の基本
+:::
+
+
+- プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める
+
+:::
+
+:::{.block-azureblue #azureblue-block2}
+:::{.headline}
+メッセージ設計
+:::
+
+- 3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する
+- RAPフレームワーク: Research Question, Answer, Positioning Statement
+
+:::
+
+:::{.block-azureblue #azureblue-block3}
+:::{.headline}
+ストーリー構築
+:::
+
+- 論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する
+
+:::
+
+:::{.block-azureblue #azureblue-block4}
+:::{.headline}
+スライド作成のルール
+:::
+
+- 1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する
+- オッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する
+- メッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする
+
+:::
+
+::::
+
+
+:::{.message-box style="position: absolute; top: 15%; left: 80%; font-size:0.9em; width:12em;"}
+
+[`block-azureblue`]{.border-bottom #tip2  style="width: 10em; text-align: center;"}
+
+- `display: block`
+  - 要素を「ブロック要素」として表示
+  - 幅は親要素いっぱいに広がる
+- `background-color: #428ce6`
+  - DodgerBlueをblockのtop `0.6em` から bottom `0.5em`
+- `.headline`要素
+  - `font-size: 1em`で`bold`処理
+  - `line-height: 1`
+
+:::
+
+<!-- leader line section -->
+
+[]{.leaderline start="#azureblue-block1" 
+    start-socket="right" 
+    end="#tip2" 
+    color="#575757" end-socket="left" size="3" 
+    start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%"
+    path="grid"}   
+
+[]{.leaderline start="#azureblue-block2" 
+    start-socket="right" 
+    end="#tip2" 
+    color="#575757" end-socket="left" size="3" 
+    start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%"
+    path="grid"}   
+
+[]{.leaderline start="#azureblue-block3" 
+    start-socket="right" 
+    end="#tip2" 
+    color="#575757" end-socket="left" size="3" 
+    start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%"
+    path="grid"}   
+
+[]{.leaderline start="#azureblue-block4" 
+    start-socket="right" 
+    end="#tip2" 
+    color="#575757" end-socket="left" size="3" 
+    start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%"
+    path="grid"}   
+
+## CSS設定と実装例
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns}
+:::  {.column style="width:45%; height: 90%; padding-right:1em;"}
+
+[**CSS設定**]{.border-bottom #tip2  style="width: 100%; text-align: center;"}
+
+```css
+.summary-container {
+  line-height: 1.1;
+  width: 100%;
+  height: 75%;
+  padding-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column; /* ブロックを縦に並べる */
+  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */
+}
+
+.summary-container .block-azureblue {
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+  display: block !important;
+  padding-left: 1em;
+  position: relative; /* 疑似要素設定に必要 */
+}
+
+.summary-container .block-azureblue::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  width: 0.5em; /* vertical barのwidth指定 */
+  bottom: 0.5em;
+  background-color: #428ce6;
+}
+
+.summary-container .block-azureblue .headline {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  padding-bottom: 0em;
+}
+```
+
+
+
+:::
+::: {.column style="width:45%; height: 90%; padding-left:1em;"}
+
+
+[**summaryスライド実装例**]{.border-bottom #tip2  style="width: 100%; text-align: center;"}
+
+```qmd
+::::{.summary-container style="font-size:1em;"}
+
+:::{.block-azureblue }
+:::{.headline}
+summary-container
+:::
+
+
+- Flexbox使用し、全体を縦に並べるレイアウト
+- 中身を縦方向に中央揃え
+
+:::
+
+:::{.block-azureblue}
+:::{.headline}
+block-azureblue
+:::
+
+- 個々の情報ブロック
+- 左に青いライン（擬似要素 `::before`）でアクセント
+
+:::
+
+:::{.block-azureblue}
+:::{.headline}
+headline
+:::
+
+- ブロック内のタイトル用
+- 太字・黒色・行間狭め
+- 改行を要するような文字列の入力は想定していない
+
+:::
+
+::::
+```
+
+
+
+:::
+::::
