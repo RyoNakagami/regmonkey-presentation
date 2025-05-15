@@ -217,6 +217,14 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+      MathJax = {
+          tex: {
+              tags: 'all'  // should be 'ams', 'none', or 'all'
+          }
+      };
+  </script>
 <meta property="og:title" content="構造化されたストーリーとしてのスライド – Presentation for Regession Monkey">
 <meta property="og:description" content="スライド作成方法論 1">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -243,7 +251,7 @@ Ryo Nakagami
 <h2>Summary</h2>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="summary-container" style="font-size:0.9em;">
-<div class="block">
+<div class="block-azureblue">
 <div class="headline">
 <p>スライド作成の基本</p>
 </div>
@@ -251,7 +259,7 @@ Ryo Nakagami
 <li>プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める</li>
 </ul>
 </div>
-<div class="block">
+<div class="block-azureblue">
 <div class="headline">
 <p>メッセージ設計</p>
 </div>
@@ -260,7 +268,7 @@ Ryo Nakagami
 <li>RAPフレームワーク: Research Question, Answer, Positioning Statement</li>
 </ul>
 </div>
-<div class="block">
+<div class="block-azureblue">
 <div class="headline">
 <p>ストーリー構築</p>
 </div>
@@ -268,7 +276,7 @@ Ryo Nakagami
 <li>論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する</li>
 </ul>
 </div>
-<div class="block">
+<div class="block-azureblue">
 <div class="headline">
 <p>スライド作成のルール</p>
 </div>
@@ -1041,7 +1049,7 @@ Ryo Nakagami
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

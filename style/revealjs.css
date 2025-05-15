@@ -13,16 +13,6 @@
   overflow-wrap: break-word; /* Ensure long words break to fit within the width */
 }
 
-/* Header setup */
-/* // .reveal .slide-background-content {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     background-position: -40% 40%;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// } */
-
 .reveal .quarto-title-block h1.title {
   position: absolute;
   font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
@@ -74,6 +64,69 @@
   color: white;
 }
 
+.reveal pre.sourceCode code {
+        max-height: 700px; // default 500
+}
+
+/* ------------------------------------------------------------------- */
+/*                          Sections                                   */
+/* ------------------------------------------------------------------- */
+.reveal h1 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
+  text-align: left;
+  vertical-align: top;
+  top: 0;
+}
+
+.reveal h2 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
+  text-align: left !important;
+  color: #0e3666; /* Bright Orange for title */
+  font-size: 40pt !important;
+  font-weight: bold !important;
+  padding-bottom: 0em;
+  margin-bottom: 0.05em;
+}
+
+.reveal h3 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
+  text-align: left !important;
+  color: #1a1a1a; /* Bright Orange for title */
+  font-weight: bold !important;
+}
+
+/* adding footer setup */
+.reveal .slide-menu-button {
+  position: absolute !important;
+  top: 10px !important; /* Distance from top */
+  bottom: unset !important;
+  background-size: 2.2rem !important;
+}
+
+.reveal .slide-chalkboard-buttons {
+  position: absolute !important; /* Absolute positioning */
+  top: 15px; /* Distance from top */
+  left: unset !important;
+  right: 10px !important; /* Distance from right */
+  background-size: 2.2rem !important; /* Adjust the background size of the button */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.section-header {
+  font-weight: bold;
+  font-size: 1em;
+  color: #1a1a1a;
+  line-height: 1;
+  display: block;
+  position: relative;
+}
+
+.section-header::before {
+  content: "▶\00A0";
+  position: relative;
+  display: inline-block;
+}
+
 /* ------------------------------------------------------------------- */
 /*                             summary                                 */
 /* ------------------------------------------------------------------- */
@@ -85,21 +138,20 @@
   padding-top: 0.5em;
   margin-bottom: 0.5em;
   margin-left: 1em; /* ← adds 1em space from left */
-  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */
   display: flex;
   flex-direction: column; /* ブロックを縦に並べる */
+  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */
 }
 
-.summary-container .block {
+.summary-container .block-azureblue {
   margin-top: 0.5em;
   margin-bottom: 0.6em;
   display: block !important;
-  align-items: center;
   padding-left: 1em;
   position: relative; /* Needed for positioning the pseudo-element */
 }
 
-.summary-container .block::before {
+.summary-container .block-azureblue::before {
   content: "";
   position: absolute;
   top: 0.6em; /* Start 5% from the top to cover the top 90% */
@@ -109,13 +161,68 @@
   background-color: #428ce6; /* Your desired border color */
 }
 
-.summary-container .block .headline {
+.summary-container .block-azureblue .headline {
   font-size: 1em;
   font-weight: bold;
   color: #1a1a1a;
   line-height: 1;
   margin-top: 0; /* Adjust margins as needed */
   padding-bottom: 0em; /* Add some space below the border */
+}
+
+/* ------------------------------------------------------------------- */
+/*                             mathjax                                 */
+/* ------------------------------------------------------------------- */
+
+.def-block {
+  margin-top: 0.3rem;
+  padding-top: 0em;
+  padding-bottom: 0.05rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1.1;
+  position: relative; /* Needed for positioning the pseudo-element */
+}
+
+.def-block::before {
+  content: "";
+  position: absolute;
+  top: 0em; /* Start 5% from the top to cover the top 90% */
+  left: 0;
+  width: 0.4em; /* Same width as your intended border-left */
+  bottom: 0em; /* End 2em from the bottom */
+  background-color: #428ce6; /* Your desired border color */
+}
+
+.def-block .def-contents {
+  font-size: 0.8em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.reveal .slide .def-block ul,
+.reveal .slide .def-block ol {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 1em;
+}
+
+.def-block .theorem-title,
+.def-block .def-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0; /* Adjust margins as needed */
+  padding-bottom: 0em; /* Add some space below the border */
+}
+
+.theorem-title + .def-title::before {
+  content: ": ";
+  position: relative;
 }
 
 /* ------------------------------------------------------------------- */
@@ -294,50 +401,6 @@
   border-style: solid;
   border-color: transparent #0e3666;
   right: -0.9821em;
-}
-
-/* ------------------------------------------------------------------- */
-/*                          Sections                                   */
-/* ------------------------------------------------------------------- */
-.reveal h1 {
-  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
-  text-align: left;
-  vertical-align: top;
-  top: 0;
-}
-
-.reveal h2 {
-  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
-  text-align: left !important;
-  color: #0e3666; /* Bright Orange for title */
-  font-size: 40pt !important;
-  font-weight: bold !important;
-  padding-bottom: 0em;
-  margin-bottom: 0.05em;
-}
-
-.reveal h3 {
-  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important; /* (optional) change font family */
-  text-align: left !important;
-  color: #1a1a1a; /* Bright Orange for title */
-  font-weight: bold !important;
-}
-
-/* adding footer setup */
-.reveal .slide-menu-button {
-  position: absolute !important;
-  top: 10px !important; /* Distance from top */
-  bottom: unset !important;
-  background-size: 2.2rem !important;
-}
-
-.reveal .slide-chalkboard-buttons {
-  position: absolute !important; /* Absolute positioning */
-  top: 15px; /* Distance from top */
-  left: unset !important;
-  right: 10px !important; /* Distance from right */
-  background-size: 2.2rem !important; /* Adjust the background size of the button */
-  z-index: 1000; /* Ensure it's above other content */
 }
 
 /* ------------------------------------------------------------------- */
@@ -603,6 +666,7 @@
 .horizontal-keypoints-block .block,
 .horizontal-keypoints-block-no-border .block {
   padding-left: 1em;
+  padding-right: 0.5em;
 }
 
 /* ------------------------------------------------------------------- */
@@ -628,7 +692,7 @@
 /*                     listed item setup                               */
 /* ------------------------------------------------------------------- */
 .checkmark {
-    display: block;
+  display: block;
 }
 
 .checkmark ul {

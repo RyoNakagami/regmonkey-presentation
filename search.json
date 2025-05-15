@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "Summaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
@@ -103,6 +103,34 @@
     "title": "構造化されたストーリーとしてのスライド",
     "section": "場面に応じてスライド作成クオリティは異なる",
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#aazure-blue-サマリースライドの構成要素",
+    "href": "posts/2025-05-16-summary-slide/index.html#aazure-blue-サマリースライドの構成要素",
+    "title": "Summaryスライド",
+    "section": "Aazure blue サマリースライドの構成要素",
+    "text": "Aazure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "href": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "title": "Summaryスライド",
+    "section": ".summary-container",
+    "text": ".summary-container\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nsummary-container\n\ndisplay: flex\n\nコンテナの子要素（flex item）の並び方や配置を指定可能にする\n\nflex-direction: column\n\nflex itemsを縦方向に並べる\n\njustify-content: center\n\nflex item全体を縦方向中央に揃える"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "href": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "title": "Summaryスライド",
+    "section": ".block-azureblue-block",
+    "text": ".block-azureblue-block\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nblock-azureblue\n\ndisplay: block\n\n要素を「ブロック要素」として表示\n幅は親要素いっぱいに広がる\n\nbackground-color: #428ce6\n\nDodgerBlueをblockのtop 0.6em から bottom 0.5em\n\n.headline要素\n\nfont-size: 1emでbold処理\nline-height: 1"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "href": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "title": "Summaryスライド",
+    "section": "CSS設定と実装例",
+    "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em; /* ← adds 1em space from left */\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* Needed for positioning the pseudo-element */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em; /* Start 5% from the top to cover the top 90% */\n  left: 0;\n  width: 0.5em; /* Same width as your intended border-left */\n  bottom: 0.5em; /* End 2em from the bottom */\n  background-color: #428ce6; /* Your desired border color */\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0; /* Adjust margins as needed */\n  padding-bottom: 0em; /* Add some space below the border */\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
   },
   {
     "objectID": "about.html",
