@@ -137,7 +137,7 @@
   height: 75%;
   padding-top: 0.5em;
   margin-bottom: 0.5em;
-  margin-left: 1em; /* ← adds 1em space from left */
+  margin-left: 1em;
   display: flex;
   flex-direction: column; /* ブロックを縦に並べる */
   justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */
@@ -148,17 +148,17 @@
   margin-bottom: 0.6em;
   display: block !important;
   padding-left: 1em;
-  position: relative; /* Needed for positioning the pseudo-element */
+  position: relative; /* 疑似要素設定に必要 */
 }
 
 .summary-container .block-azureblue::before {
   content: "";
   position: absolute;
-  top: 0.6em; /* Start 5% from the top to cover the top 90% */
+  top: 0.6em;
   left: 0;
-  width: 0.5em; /* Same width as your intended border-left */
-  bottom: 0.5em; /* End 2em from the bottom */
-  background-color: #428ce6; /* Your desired border color */
+  width: 0.5em; /* vertical barのwidth指定 */
+  bottom: 0.5em; 
+  background-color: #428ce6; 
 }
 
 .summary-container .block-azureblue .headline {
@@ -166,8 +166,8 @@
   font-weight: bold;
   color: #1a1a1a;
   line-height: 1;
-  margin-top: 0; /* Adjust margins as needed */
-  padding-bottom: 0em; /* Add some space below the border */
+  margin-top: 0;
+  padding-bottom: 0em;
 }
 
 /* ------------------------------------------------------------------- */
