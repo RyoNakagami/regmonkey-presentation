@@ -32,7 +32,6 @@ auto-agenda:
 
 :::
 
-
 :::{.block-azureblue}
 :::{.headline}
 メッセージ設計

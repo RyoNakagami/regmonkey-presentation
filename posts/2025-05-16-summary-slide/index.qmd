@@ -2,7 +2,7 @@
 title: "Summaryスライド"
 subtitle: "revealjsスライド作成紹介"
 author: "Ryo Nakagami"
-date: last-modified
+date: "2025-05-16"
 categories: [summary]
 slide-number: true
 filters:
@@ -14,9 +14,9 @@ auto-agenda:
 # embed-resources: true
 ---
 
-# Aazure blue サマリースライド
+# Azure blue サマリースライド
 
-## Aazure blue サマリースライドの構成要素
+## Azure blue サマリースライドの構成要素
 
 {{< reveal_vspace 2em >}}
 

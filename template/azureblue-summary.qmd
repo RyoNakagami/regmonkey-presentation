@@ -1,0 +1,25 @@
+## <!-- summary-slide-title -->
+
+{{< reveal_vspace 2em >}}
+
+::::{.summary-container style="font-size:1em;"}
+
+:::{.block-azureblue }
+:::{.headline}
+<!-- keypoints-title -->
+:::
+
+<!-- bullet points area  -->
+
+:::
+
+:::{.block-azureblue }
+:::{.headline}
+<!-- keypoints-title -->
+:::
+
+<!-- bullet points area  -->
+
+:::
+
+::::
