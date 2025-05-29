@@ -1,0 +1,32 @@
+## <!-- title -->
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[<!-- definition title -->]{.def-title}
+
+::: {.def-contents}
+
+<!-- explain definition -->
+
+:::
+::::
+
+{{< reveal_vspace 1.0em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[**目的**]{.border-bottom style="width: 100%; text-align: center;"}
+
+
+:::
+::: {.column width="50%"}
+
+[**構造**]{.border-bottom style="width: 100%; text-align: center;"}
+
+
+:::
+
+::::

@@ -35,6 +35,17 @@
     ],
     "description": "lua adding vspace"
   },
+
+  "footer":{
+    "scope": "quarto",
+    "prefix": "slide-footer",
+    "body": [
+      "<!-- footer -->",
+      "",
+      "[^footer1]: xxxx"
+    ],
+    "description": "footer for quarto slide"
+  },
   // --------------------------------------------
   // main-message
   // --------------------------------------------
@@ -45,6 +56,21 @@
       "<!--- [コンテンツを記載]{.h2-submessage} -->",
     ],
     "description": "slideにおいて，h2 heading直下にメッセージを表示するためのもの"
+  },
+  "definition-block": {
+    "scope": "quarto",
+    "prefix": "slide-definition-block",
+    "body": [
+      ":::: {#def- .def-block}",
+      "",
+      "[definition-title]{.def-title}",
+      "",
+      "::: {.def-contents}",
+      "<!--- コンテンツを記載 -->",
+      ":::",
+      "::::"
+    ],
+    "description": "Definition block for Quarto slides"
   },
   // --------------------------------------------
   // sections

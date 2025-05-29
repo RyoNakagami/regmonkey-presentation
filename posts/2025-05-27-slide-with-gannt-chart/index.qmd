@@ -1,0 +1,771 @@
+---
+title: "Gannt chartを用いたプロジェクトマネジメント"
+subtitle: "Project Management"
+author: "Ryo Nakagami"
+date: "2025-05-27"
+categories: [gannt]
+slide-number: true
+resources:
+    - gannt_schedule.json
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## サマリー
+
+{{< reveal_vspace 1em >}}
+
+::::{.summary-container style="font-size:1.1em;"}
+
+:::{.block-azureblue }
+:::{.headline}
+
+Gannt chartは計画の可視化ツール
+
+:::
+
+- 各タスクの担当・進捗状況・依存関係という全体像を見ながらのリソース再配分議論が可能になる
+- スケジュールの遅延やリスクの早期発見が可能になる
+
+:::
+
+:::{.block-azureblue }
+:::{.headline}
+適切なタスク粒度の設定
+:::
+
+- タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）
+  - タスクが細かすぎると全体像が見えづらくなる
+  - タスクが大きすぎると具体的な作業内容が不明確になり、着手しにくくなる
+
+:::
+
+:::{.block-azureblue }
+:::{.headline}
+すべてのプロジェクトに使えるわけではない
+:::
+
+- 大規模プロジェクトでは複雑になりすぎる可能性がある
+- 更新作業に工数がかかる場合があり、頻繁な変更が生じるプロジェクトには不向き
+
+:::
+
+::::
+
+
+## Gannt chartはプロジェクト健全性の可視化と管理のためのツール
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[Gannt chartとは？]{.def-title}
+
+::: {.def-contents}
+
+- 縦軸にタスク、横軸を時間軸として、プロジェクトのタスクとその進捗状況を視覚的に表した図表のこと
+- プロジェクトスケジュール、マイルストン、タスク依存関係を一度に見渡せる
+
+:::
+::::
+
+{{< reveal_vspace 1.0em >}}
+
+:::{.section-header}
+
+Gannt chartのイメージ例[^footer1]
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.js-chart-inject data-js="gannt-chart.js" data-container="d3-gannt-container"}
+:::
+
+<!-- footer -->
+
+[^footer1]: [AnyChart Project Gantt Chart](https://docs.anychart.com/Gantt_Chart/Quick_Start_(Project))を用いて作成
+
+
+## Gannt chartの構成要素
+
+{{< reveal_vspace 2em >}}
+
+
+:::::{.grid .grid-cols-3 .gap-10 .mb-6}
+
+<!-- 1st -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-tasks text-white >}}
+
+:::
+
+### タスク名
+
+:::
+
+- プロジェクトを構成する作業単位
+- 各作業の内容や担当者を表示
+
+::::
+
+<!-- 2nd -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-calendar-alt text-white >}}
+
+:::
+
+### 時間軸
+
+:::
+
+- 日付や期間を示す横軸
+- 管理粒度に合わせて日、週、月などの単位で表示
+
+::::
+
+<!-- 3rd -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-chart-gantt text-white >}}
+
+:::
+
+### タスクバー
+
+:::
+
+- 各タスクの開始日から終了日までの期間を視覚的に表す横棒
+
+::::
+
+
+<!-- 4th -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-flag text-white >}}
+
+:::
+
+### マイルストーン
+
+:::
+
+- プロジェクトの重要な節目や成果物の完成時期を示す指標
+- [◆]{ style="color: #D31804;"} マークがよく用いられる
+::::
+
+<!-- 5th -->
+
+
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-project-diagram text-white >}}
+
+:::
+
+### 依存関係
+
+:::
+
+- タスク間のつながりを矢印で表現
+- 先行タスクと後続タスクの関係を明示し、クリティカルパスの特定に有効
+
+::::
+
+<!-- 6th -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-percentage text-white >}}
+
+:::
+
+### 着手状況
+
+:::
+
+- 各タスクの着手状況・進捗度合いを表現
+- 遅延の早期発見に有効
+
+::::
+
+:::::
+
+
+
+## Gannt chart運用のキーポイント
+
+{{< reveal_vspace 1em >}}
+
+
+:::::{.grid .grid-cols-3 .gap-10 .mb-6}
+
+<!-- 1st -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-tasks text-white >}}
+
+:::
+
+### 適切なタスク粒度の設定
+
+
+:::
+
+- タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）
+
+::::
+
+<!-- 2nd -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-user-check text-white >}}
+
+:::
+
+### 明確なタスク定義
+
+:::
+
+- 各タスクの目的・成果物・期間・担当者を明確にし、責任の所在を明確化する(SMART原則[^footer2])
+- タスクごとに10〜20%程度の余裕を持たせる
+
+::::
+
+<!-- 3rd -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-project-diagram text-white >}}
+
+:::
+
+### 依存関係の設定
+
+:::
+
+- 並行して進めるべき/でないタスクをチーム全体で共有する
+- 依存関係を踏まえた上で、着手すべき作業を判断する
+
+::::
+
+
+<!-- 4th -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-flag text-white >}}
+
+:::
+
+### マイルストンの設定
+
+:::
+
+- 「このマイルストンまでにここまで進める」をチームで共有する
+- マイルストンと照らし合わせ、各タスクの進捗・リスクを判断する
+
+::::
+
+<!-- 5th -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-sync-alt text-white >}}
+
+:::
+
+### 定期的な進捗更新
+
+:::
+
+- チームでプロジェクト進捗度合いの認識のズレをなくす
+- 完了・進行中・遅延が一目でわかるように色分けや記号を活用する
+
+::::
+
+<!-- 6th -->
+
+::::{.component-card .p-4}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+  
+{{< fas fa-arrow-circle-up text-white >}}
+
+:::
+
+### 継続的な改善
+
+:::
+
+- 早期にクリティカルパスを特定し、手遅れになる前に対策する
+- プロジェクト完了後も実績を振り返り、次回に向けた改善点を見つける
+
+::::
+
+:::::
+
+<!-- footer -->
+
+[^footer2]: Specific (具体的): 何を達成するのか明確に。
+Measurable (測定可能): 達成したか否かを判断できる基準があるか。
+Achievable (達成可能): 現実的に達成できる目標か。
+Relevant (関連性): プロジェクトの目標に直接貢献するか。
+Time-bound (期限がある): いつまでに達成するのか明確な期日があるか。
+
+
+## タスクをどのように洗い出すのか？: WBSからガントチャートへ
+
+{{< reveal_vspace 2em >}}
+
+:::::{.px-12 .py-8 .mb-0 .flex .items-center .justify-center .space-x-8 .slide-up}
+<!-- 1st block -->
+
+:::{.bg-blue-50 .rounded-xl .p-6 .border-2 .border-blue-200 .flex-1 .text-center }
+
+:::{.bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
+
+{{< fas fa-sitemap text-3xl text-white >}}
+
+:::
+
+:::{.text-xxl .font-bold .text-blue-700 .mb-2}
+WBS = 設計図
+:::
+
+:::{.text-xl .text-blue-600}
+プロジェクト全体像を構造化
+::::
+
+:::
+
+
+<!-- 1st operator -->
+
+:::{.text-center .connection-arrow}
+
+{{< fas fa-plus text-3xl text-green-500 >}}
+
+:::
+
+<!-- 2nd block -->
+
+:::{.bg-purple-50 .rounded-xl .p-6 .border-2 .border-purple-200 .flex-1 .text-center }
+
+:::{.bg-purple-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
+
+{{< fas fa-chart-gantt text-2xl text-white >}}
+
+:::
+
+:::{.text-xxl .font-bold .text-purple-700 .mb-2}
+Gannt chart = 工程表
+:::
+
+:::{.text-xl .text-blue-600}
+各タスクをプロジェクト時間軸で管理
+::::
+
+:::
+
+
+<!-- 2nd operator -->
+
+:::{.text-center .connection-arrow}
+
+{{< fas fa-equals text-3xl text-green-500 >}}
+
+:::
+
+<!-- 3rd block -->
+
+:::{.bg-green-50 .rounded-xl .p-6 .border-2 .border-green-200 .flex-1 .text-center}
+
+:::{.bg-green-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3  style="font-size:1.2em;"}
+
+{{< fas fa-rocket text-2xl text-white >}}
+
+:::
+
+
+:::{.text-xxl .font-bold .text-green-700 .mb-2}
+Project Management
+:::
+
+:::{.text-xl .text-green-600}
+プロジェクト全体の進捗に応じた意思決定
+:::
+
+:::
+
+:::::
+
+<!-- 3rd block end -->
+
+
+:::::{.px-12 .py-0 .mb-8 .flex .justify-center .space-x-8 .slide-up}
+
+:::{ .p-6 .border-2 .flex-1 .text-center}
+
+
+**「何をやるか」の明確化**
+
+{{< reveal_vspace 0.5em >}}
+
+- プロジェクトの最終成果物を定義し、そこから必要な作業を階層的に細分化する
+- 各タスクごとに、目的、成果物、期間、必要リソース、依存関係を定義し、見積もりを行う
+
+:::
+
+
+:::{.p-6 .border-2 .flex-1 .text-center}
+
+**「いつやるか」の可視化**
+
+{{< reveal_vspace 0.5em >}}
+
+- WBSで定義された各タスク情報を時間軸に落とし込む
+- タスクごとに開始日、終了日、期間を明確にする
+- 計画と実績のズレを逐次確認
+
+:::
+
+:::{.p-6 .border-2 .flex-1 .text-center}
+
+**実行、監視、コントロール**
+
+{{< reveal_vspace 0.5em >}}
+
+- 担当者の明確化
+- 稼働状況・負荷の偏りの把握
+- 実情に則したリソース管理
+- 問題の早期発見
+
+:::
+
+:::::
+
+
+## WBSとは何か？：作業の「分解」リスト
+
+{{< reveal_vspace 0.5m >}}
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[WBSの定義]{.def-title}
+
+::: {.def-contents}
+WBSは、プロジェクトの成果物（アウトプット）をベースに、それを達成するために必要な作業を階層的に分解していく手法
+:::
+::::
+
+{{< reveal_vspace 0.0em >}}
+
+:::: {.columns}
+::: {.column width="49%"}
+
+[**主な目的**]{.border-bottom style="width: 100%; text-align: center;"}
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em; background-color: aliceblue"}
+
+[① 作業の洗い出しと明確化]{.def-title}
+
+::: {.def-contents}
+- プロジェクトに必要なすべての作業を漏れなく特定する
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[②  責任範囲の明確化]{.def-title}
+
+::: {.def-contents }
+
+- RACIを用いて、各作業が誰の責任であるかを明確にする
+- Responsible（実行責任者）・Accountable（ケツ持ち）・Consulted（相談対象者）・Informed（報告対象者）
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[③ 見積もりの精度向上]{.def-title}
+
+::: {.def-contents}
+
+- 細分化された作業ごとに期間やコストを見積もることで、全体の精度が高める
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[④ スコープの明確化とスコープクリープの防止]{.def-title}
+
+::: {.def-contents}
+
+- プロジェクトの範囲（どこまでをやるのか）を明確にし、スコープクリープ（範囲の予期せぬ拡大）を防ぐ
+
+:::
+::::
+
+
+:::
+::: {.column style="width: 50%; padding-left:1em;"}
+
+[**Webサイト制作プロジェクトにおける構造例**]{.border-bottom style="width: 100%; text-align: center; padding-bottom:0em;"}
+
+::::{.custom-table style="width:100%;" }
+:::{.yaml2table .yaml2table-custom-top  #yaml-mtg-table data-col-widths="[13, 20, 33, 34]" style="font-size:0.50em;"}
+
+```yaml
+record1:
+  主要成果物: 要件定義
+  主要タスク: 
+    - クライアントヒアリング
+  分解タスク: 
+    - ビジネス目標とターゲットユーザーの特定
+    - サイトの目的と機能要件の洗い出し
+
+record2:
+  主要成果物: 要件定義
+  主要タスク: 
+    - サイトマップ作成
+  分解タスク: 
+    - サイト階層構造の設計
+    - 各ページコンテンツの概要定義
+
+record3:
+  主要成果物: 要件定義
+  主要タスク: 
+    - 要件定義書作成
+  分解タスク: 
+    - 定義済み要件のドキュメント化
+    - クライアント承認
+
+record4:
+  主要成果物: デザイン
+  主要タスク: 
+    - ワイヤーフレーム作成
+  分解タスク: 
+    - 各ページのレイアウト設計
+
+record5:
+  主要成果物: デザイン
+  主要タスク: 
+    - UIデザイン
+  分解タスク: 
+    - デザインコンセプトの作成
+    - デザインガイドライン作成
+
+record6:
+  主要成果物: 実装
+  主要タスク: 
+    - フロントエンド実装
+  分解タスク: 
+    - HTML/CSSコーディング
+    - レスポンシブデザイン対応
+
+record7:
+  主要成果物: 実装
+  主要タスク: 
+    - バックエンド実装
+  分解タスク: 
+    - データベース設計と構築
+    - API開発
+    - サーバー環境構築
+
+record8:
+  主要成果物: テスト
+  主要タスク: 
+    - 機能テスト
+  分解タスク: 
+    - 全機能の動作確認
+
+record9:
+  主要成果物: テスト
+  主要タスク: 
+    - パフォーマンステスト
+  分解タスク: 
+    - サイト表示速度の測定と最適化
+
+
+record10:
+  主要成果物: テスト
+  主要タスク: 
+    - クライアントUAT
+  分解タスク: 
+    - クライアントによる最終承認テスト
+
+```
+:::
+::::
+
+
+
+:::
+::::
+
+
+## 効率的なプロジェクト管理のためのマイルストン設定観点
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi flag-fill size=1.6em color=#428CE6 >}}
+プロジェクトの各段階
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:1.0em; padding-right:0.5em;"}
+プロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化
+
+:::{style="padding-left:0.5em; line-height:1.2em;"}
+- 要件定義完了
+- 設計完了
+- 開発完了
+- テスト完了
+:::
+
+
+:::
+
+:::
+::::
+
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi check-circle-fill size=1.7em color=#428CE6 >}}
+重要な成果物の完成
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:1.0em; padding-right:0.5em;"}
+具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現
+
+:::{style="padding-left:0.5em; line-height:1.2em;"}
+- プロトタイプ完成
+- 主要なドキュメント完成
+- システムの一部機能完成
+- 最終成果物の納品
+:::
+
+:::
+
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block-no-border style="height:60%;"}
+
+:::{.block-header}
+{{< bi people-fill size=1.7em color=#428CE6 >}}
+外部との連携ポイント
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:1.0em; padding-right:0.5em;"}
+ステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化
+
+:::{style="padding-left:0.5em; line-height:1.2em;"}
+- 顧客へのデモンストレーション
+- 外部ベンダーとの契約締結
+- 他部署への引き渡し
+- 承認・レビュー会議
+:::
+
+
+:::
+:::
+::::
+
+:::::

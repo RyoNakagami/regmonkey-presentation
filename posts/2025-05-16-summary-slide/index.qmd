@@ -235,7 +235,7 @@ headline
 :::: {.columns}
 :::  {.column style="width:45%; height: 90%; padding-right:1em;"}
 
-[**CSS設定**]{.border-bottom #tip2  style="width: 100%; text-align: center;"}
+[**CSS設定**]{.border-bottom style="width: 100%; text-align: center;"}
 
 ```css
 .summary-container {
@@ -284,7 +284,7 @@ headline
 ::: {.column style="width:45%; height: 90%; padding-left:1em;"}
 
 
-[**summaryスライド実装例**]{.border-bottom #tip2  style="width: 100%; text-align: center;"}
+[**summaryスライド実装例**]{.border-bottom style="width: 100%; text-align: center;"}
 
 ```qmd
 ::::{.summary-container style="font-size:1em;"}

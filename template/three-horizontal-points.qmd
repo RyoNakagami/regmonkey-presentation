@@ -1,0 +1,75 @@
+## <!-- title -->
+
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+<!-- point 1 -->
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+<!-- explanation for point 1 -->
+
+:::
+
+:::
+::::
+
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+
+{{< bi signpost  size=1.7em color=#428CE6 >}}
+<!-- point 2 -->
+
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+<!-- explanation for point 2 -->
+:::
+
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block-no-border style="height:60%;"}
+
+:::{.block-header}
+
+{{< bi funnel  size=1.7em color=#428CE6 >}}
+<!-- point 3 -->
+
+:::
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+<!-- explanation for point 3 -->
+
+:::
+:::
+::::
+
+:::::

@@ -1,0 +1,148 @@
+{
+  "gantt": {
+    "type": "gantt-project",
+    "controller": {
+      "isResourceChart": false,
+      "treeData": {
+        "children": [
+          {
+            "treeDataItemData": {
+              "id": "milestone-row",
+              "name": "マイルストン",
+              "personInCharge": "John Doe",
+              "markers": [
+                {
+                  "value": "2025-05-01",
+                  "type": "diamond",
+                  "fill": "#D31804"
+                },
+                {
+                  "value": "2025-06-01",
+                  "type": "diamond",
+                  "fill": "#D31804"
+                },
+                {
+                  "value": "2025-07-01",
+                  "type": "diamond",
+                  "fill": "#D31804"
+                }
+              ]
+            }
+          },
+          {
+            "treeDataItemData": {
+              "id": "task-1",
+              "name": "task-group-1",
+              "personInCharge": "John Doe",
+              "actualStart": "2025-05-01",
+              "actualEnd": "2025-05-30",
+              "isFinished": false,
+              "isStarted": true,
+              "progressValue": "100%",
+              "note": "",
+              "connector": [
+                {
+                  "connectorType": "finish-start",
+                  "connectTo": "task-2"
+                }
+              ]
+            },
+            "children": [
+              {
+                "treeDataItemData": {
+                  "id": "task-1-1",
+                  "name": "<span style=\"position:relative; left:0.95em;\">task 1</span>",
+                  "actualStart": "2025-05-13",
+                  "actualEnd": "2025-05-30",
+                  "note": "jpge",
+                  "isFinished": true,
+                  "isStarted": true,
+                  "connector": [
+                    {}
+                  ]
+                }
+              },
+              {
+                "treeDataItemData": {
+                  "id": "task-1-2",
+                  "name": "task 2",
+                  "actualStart": "2025-05-13",
+                  "actualEnd": "2025-05-20",
+                  "isFinished": false,
+                  "isStarted": true,
+                  "note": "hoge",
+                  "progressValue": "100%",
+                  "connector": [
+                    {}
+                  ]
+                },
+                "children": [
+                  {
+                    "treeDataItemData": {
+                      "id": "task-1-2-1",
+                      "name": "<span style=\"position:relative; left:0.95em;\">task 2-1</span>",
+                      "actualStart": "2025-05-13",
+                      "actualEnd": "2025-05-15",
+                      "note": "Release Test",
+                      "isStarted": true,
+                      "isFinished": false,
+                      "connector": [
+                        {
+                          "connectorType": "start-start",
+                          "connectTo": "task-1-2-2"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "treeDataItemData": {
+                      "id": "task-1-2-2",
+                      "name": "<span style=\"position:relative; left:0.95em;\">task 2-2</span>",
+                      "actualStart": "2025-05-16",
+                      "actualEnd": "2025-05-20",
+                      "note": "",
+                      "connector": [
+                        {}
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "treeDataItemData": {
+              "id": "task-2",
+              "name": "task-group-2",
+              "actualStart": "2025-06-01",
+              "actualEnd": "2025-06-30",
+              "isFinished": false,
+              "isStarted": false,
+              "note": "",
+              "progressValue": "100%",
+              "connector": [
+                {}
+              ]
+            },
+            "children": [
+              {
+                "treeDataItemData": {
+                  "id": "task-2-1",
+                  "name": "<span style=\"position:relative; left:0.95em;\">task A</span>",
+                  "actualStart": "2025-06-01",
+                  "actualEnd": "2025-06-15",
+                  "note": "<p style=\"font-weight: bold\">foo</p>",
+                  "isFinished": false,
+                  "isStarted": false,
+                  "connector": [
+                    {}
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

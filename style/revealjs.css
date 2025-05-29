@@ -297,6 +297,17 @@ div.colored-slide-30 {
 /* ------------------------------------------------------------------- */
 /*                        hop step jump                                */
 /* ------------------------------------------------------------------- */
+
+.component-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        hop step jump                                */
+/* ------------------------------------------------------------------- */
 .hop-step-jump-container {
   display: flex;
   position: relative;
@@ -378,7 +389,6 @@ div.colored-slide-30 {
   padding-top: 0;
   margin-top: 0.2em;
 }
-
 
 .hop-step-jump-container .info-label {
   display: flex;
@@ -569,7 +579,7 @@ div.colored-slide-30 {
 .reveal .slide aside .aside-footnotes p {
   margin: 0px !important;
   padding: 0px !important;
-  line-height: 0.8em;
+  line-height: 1.1em;
   font-size: 1em;
 }
 
