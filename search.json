@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
-    "section": "",
-    "text": "Summaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
-  },
-  {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
     "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
     "title": "構造化されたストーリーとしてのスライド",
@@ -105,11 +84,60 @@
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
   },
   {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#aazure-blue-サマリースライドの構成要素",
-    "href": "posts/2025-05-16-summary-slide/index.html#aazure-blue-サマリースライドの構成要素",
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "サマリー",
+    "text": "サマリー\n\n\n\n\nGannt chartは計画の可視化ツール\n\n\n各タスクの担当・進捗状況・依存関係という全体像を見ながらのリソース再配分議論が可能になる\nスケジュールの遅延やリスクの早期発見が可能になる\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\nタスクが細かすぎると全体像が見えづらくなる\nタスクが大きすぎると具体的な作業内容が不明確になり、着手しにくくなる\n\n\n\n\n\nすべてのプロジェクトに使えるわけではない\n\n\n大規模プロジェクトでは複雑になりすぎる可能性がある\n更新作業に工数がかかる場合があり、頻繁な変更が生じるプロジェクトには不向き"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール",
+    "text": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール\n\n\nGannt chartとは？\n\n\n縦軸にタスク、横軸を時間軸として、プロジェクトのタスクとその進捗状況を視覚的に表した図表のこと\nプロジェクトスケジュール、マイルストン、タスク依存関係を一度に見渡せる\n\n\n\n\nGannt chartのイメージ例1\n\n\n\n\nAnyChart Project Gantt Chartを用いて作成"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chartの構成要素",
+    "text": "Gannt chartの構成要素\n\n\n\n\n\n\n\n\nタスク名\n\n\nプロジェクトを構成する作業単位\n各作業の内容や担当者を表示\n\n\n\n\n\n\n\n\n時間軸\n\n\n日付や期間を示す横軸\n管理粒度に合わせて日、週、月などの単位で表示\n\n\n\n\n\n\n\n\nタスクバー\n\n\n各タスクの開始日から終了日までの期間を視覚的に表す横棒\n\n\n\n\n\n\n\n\nマイルストーン\n\n\nプロジェクトの重要な節目や成果物の完成時期を示す指標\n◆ マークがよく用いられる\n\n\n\n\n\n\n\n\n依存関係\n\n\nタスク間のつながりを矢印で表現\n先行タスクと後続タスクの関係を明示し、クリティカルパスの特定に有効\n\n\n\n\n\n\n\n\n着手状況\n\n\n各タスクの着手状況・進捗度合いを表現\n遅延の早期発見に有効"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chart運用のキーポイント",
+    "text": "Gannt chart運用のキーポイント\n\n\n\n\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n\n\n明確なタスク定義\n\n\n各タスクの目的・成果物・期間・担当者を明確にし、責任の所在を明確化する(SMART原則1)\nタスクごとに10〜20%程度の余裕を持たせる\n\n\n\n\n\n\n\n\n依存関係の設定\n\n\n並行して進めるべき/でないタスクをチーム全体で共有する\n依存関係を踏まえた上で、着手すべき作業を判断する\n\n\n\n\n\n\n\n\nマイルストンの設定\n\n\n「このマイルストンまでにここまで進める」をチームで共有する\nマイルストンと照らし合わせ、各タスクの進捗・リスクを判断する\n\n\n\n\n\n\n\n\n定期的な進捗更新\n\n\nチームでプロジェクト進捗度合いの認識のズレをなくす\n完了・進行中・遅延が一目でわかるように色分けや記号を活用する\n\n\n\n\n\n\n\n\n継続的な改善\n\n\n早期にクリティカルパスを特定し、手遅れになる前に対策する\nプロジェクト完了後も実績を振り返り、次回に向けた改善点を見つける\n\n\n\n\nSpecific (具体的): 何を達成するのか明確に。 Measurable (測定可能): 達成したか否かを判断できる基準があるか。 Achievable (達成可能): 現実的に達成できる目標か。 Relevant (関連性): プロジェクトの目標に直接貢献するか。 Time-bound (期限がある): いつまでに達成するのか明確な期日があるか。"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "タスクをどのように洗い出すのか？: WBSからガントチャートへ",
+    "text": "タスクをどのように洗い出すのか？: WBSからガントチャートへ\n\n\n\n\n\n\n\n\nWBS = 設計図\n\n\nプロジェクト全体像を構造化\n\n\n\n\n\n\n\n\n\n\n\n\nGannt chart = 工程表\n\n\n各タスクをプロジェクト時間軸で管理\n\n\n\n\n\n\n\n\n\n\n\n\nProject Management\n\n\nプロジェクト全体の進捗に応じた意思決定\n\n\n\n\n\n\n「何をやるか」の明確化\n\n\nプロジェクトの最終成果物を定義し、そこから必要な作業を階層的に細分化する\n各タスクごとに、目的、成果物、期間、必要リソース、依存関係を定義し、見積もりを行う\n\n\n\n「いつやるか」の可視化\n\n\nWBSで定義された各タスク情報を時間軸に落とし込む\nタスクごとに開始日、終了日、期間を明確にする\n計画と実績のズレを逐次確認\n\n\n\n実行、監視、コントロール\n\n\n担当者の明確化\n稼働状況・負荷の偏りの把握\n実情に則したリソース管理\n問題の早期発見"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "WBSとは何か？：作業の「分解」リスト",
+    "text": "WBSとは何か？：作業の「分解」リスト\n\n\nWBSの定義\n\nWBSは、プロジェクトの成果物（アウトプット）をベースに、それを達成するために必要な作業を階層的に分解していく手法\n\n\n\n\n\n主な目的\n\n\n① 作業の洗い出しと明確化\n\n\nプロジェクトに必要なすべての作業を漏れなく特定する\n\n\n\n\n\n② 責任範囲の明確化\n\n\nRACIを用いて、各作業が誰の責任であるかを明確にする\nResponsible（実行責任者）・Accountable（ケツ持ち）・Consulted（相談対象者）・Informed（報告対象者）\n\n\n\n\n\n③ 見積もりの精度向上\n\n\n細分化された作業ごとに期間やコストを見積もることで、全体の精度が高める\n\n\n\n\n\n④ スコープの明確化とスコープクリープの防止\n\n\nプロジェクトの範囲（どこまでをやるのか）を明確にし、スコープクリープ（範囲の予期せぬ拡大）を防ぐ\n\n\n\n\nWebサイト制作プロジェクトにおける構造例\n\n\nrecord1:\n  主要成果物: 要件定義\n  主要タスク: \n    - クライアントヒアリング\n  分解タスク: \n    - ビジネス目標とターゲットユーザーの特定\n    - サイトの目的と機能要件の洗い出し\n\nrecord2:\n  主要成果物: 要件定義\n  主要タスク: \n    - サイトマップ作成\n  分解タスク: \n    - サイト階層構造の設計\n    - 各ページコンテンツの概要定義\n\nrecord3:\n  主要成果物: 要件定義\n  主要タスク: \n    - 要件定義書作成\n  分解タスク: \n    - 定義済み要件のドキュメント化\n    - クライアント承認\n\nrecord4:\n  主要成果物: デザイン\n  主要タスク: \n    - ワイヤーフレーム作成\n  分解タスク: \n    - 各ページのレイアウト設計\n\nrecord5:\n  主要成果物: デザイン\n  主要タスク: \n    - UIデザイン\n  分解タスク: \n    - デザインコンセプトの作成\n    - デザインガイドライン作成\n\nrecord6:\n  主要成果物: 実装\n  主要タスク: \n    - フロントエンド実装\n  分解タスク: \n    - HTML/CSSコーディング\n    - レスポンシブデザイン対応\n\nrecord7:\n  主要成果物: 実装\n  主要タスク: \n    - バックエンド実装\n  分解タスク: \n    - データベース設計と構築\n    - API開発\n    - サーバー環境構築\n\nrecord8:\n  主要成果物: テスト\n  主要タスク: \n    - 機能テスト\n  分解タスク: \n    - 全機能の動作確認\n\nrecord9:\n  主要成果物: テスト\n  主要タスク: \n    - パフォーマンステスト\n  分解タスク: \n    - サイト表示速度の測定と最適化\n\n\nrecord10:\n  主要成果物: テスト\n  主要タスク: \n    - クライアントUAT\n  分解タスク: \n    - クライアントによる最終承認テスト"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "効率的なプロジェクト管理のためのマイルストン設定観点",
+    "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
+    "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
     "title": "Summaryスライド",
-    "section": "Aazure blue サマリースライドの構成要素",
-    "text": "Aazure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
+    "section": "Azure blue サマリースライドの構成要素",
+    "text": "Azure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
   },
   {
     "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
@@ -133,10 +161,94 @@
     "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
   },
   {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
+    "section": "",
+    "text": "Gannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライド作成\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "動作環境セットアップ",
+    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
+    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Roo Code用Slide generator modeの作成",
+    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Azure summaryスライドの作成",
+    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "hop-step-jumpスライドの作成",
+    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
   }
 ]
