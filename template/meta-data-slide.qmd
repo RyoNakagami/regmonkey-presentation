@@ -1,0 +1,124 @@
+## Section Top Slide
+
+{{< reveal_vspace 2em >}}
+
+
+
+<!-- Lecture info container -->
+
+::::::{.flex-1 .flex .items-center .justify-center .w-full}
+:::::{.lecture-content-container }
+
+
+<!-- left -->
+::::{.content-block}
+
+:::{.mb-4 .text-center .items-center .header}
+{{< fas fa-user-check mr-2 text-blue-500 >}} 対象者
+:::
+{{< reveal_vspace 0.5em >}}
+
+:::{.items-container}
+
+<!-- Biz -->
+:::{.item-group}
+:::{.title-item}
+Biz
+:::
+
+:::{.checkbox .checkbox-empty}
+:::
+
+:::
+
+<!-- DS -->
+:::{.item-group}
+:::{.title-item}
+DS
+:::
+
+:::{.checkbox .checkbox-filled}
+
+{{< fas fa-check check-icon >}}
+:::
+
+
+:::
+
+<!-- Dev -->
+:::{.item-group}
+:::{.title-item}
+Dev
+:::
+
+:::{.checkbox .checkbox-empty}
+:::
+
+:::
+
+:::
+::::
+
+<!-- middle -->
+::::{.content-block}
+
+:::{.mb-4 .text-center .items-center .header}
+{{< fas fa-chart-line mr-2 text-blue-500 >}} 難易度
+:::
+{{< reveal_vspace 0.5em >}}
+
+
+:::{.flex .justify-center .items-center .space-x-1}
+
+{{< fas fa-star difficulty-star >}}
+{{< fas fa-star difficulty-star >}}
+{{< fas fa-star difficulty-star >}}
+{{< fas fa-star difficulty-star empty >}}
+{{< fas fa-star difficulty-star empty >}}
+
+:::
+
+:::{.text-center .text-gray-500 }
+中級レベル
+:::
+
+::::
+
+
+<!-- Right -->
+::::{.content-block}
+
+
+:::{.mb-4 .text-center .items-center .header}
+{{< fas fa-tags mr-2 text-blue-500 >}} キーワード
+:::
+
+:::{.flex .justify-center .items-center .flex-wrap}
+
+aadasda adasdasdsa asdasdsa
+
+:::
+
+::::
+:::::
+::::::
+
+
+<!-- Abstract -->
+
+{{< reveal_vspace 2em >}}
+
+:::{ .pl-5}
+
+:::{.section-header}
+[Key Takeaways]{ style="font-size:1.2em;"}
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+- hogehogehogeadasdasdasdsdsad
+- hogehogehoge
+- hogehogehoge
+- hogehogehoge
+
+:::

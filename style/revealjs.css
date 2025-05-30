@@ -323,7 +323,7 @@ div.colored-slide-30 {
   height: 30%;
   background-color: transparent;
   border-left: 0.2em solid #1976d2;
-  background-image: linear-gradient(to right, #1976d2 70%, transparent 70%);
+  background-image: linear-gradient(to right, #1976d2 71.8%, transparent 71.8%);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100% 0.2em; /* Height = thickness of top line */
@@ -1259,6 +1259,179 @@ div.colored-slide-30 {
 .research-paper-style p {
   margin: 1em 0;
   text-align: justify;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        meta slide                                   */
+/* ------------------------------------------------------------------- */
+.lecture-content-container {
+  background: transparent;
+  border-top: 2px solid #dedede;
+  border-bottom: 2px solid #dedede;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.lecture-content-container .content-block {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1em;
+  margin: 0;
+  box-shadow: none;
+  flex: 1;
+  width: 100%;
+}
+
+.lecture-content-container .content-block .header {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 0.5em;
+}
+
+.lecture-content-container .content-divider {
+  /* width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #3b82f6 0px,
+    #3b82f6 16px,
+    transparent 16px,
+    transparent 16px
+  ); */
+  margin: 0;
+  align-self: stretch;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.difficulty-star {
+  color: #ffd700;
+  font-size: 1.2em;
+}
+.difficulty-star.empty {
+  color: #e5e7eb;
+}
+
+.checkbox {
+  width: 1.4em;
+  height: 1.4em;
+  border: 3px solid #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.item-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.item-group .title-item {
+  font-size: 1em;
+  font-weight: bold;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+}
+
+.checkbox-filled {
+  background-color: #2563eb;
+  color: white;
+}
+.checkbox-empty {
+  background-color: white;
+}
+.check-icon {
+  font-size: 1em;
+}
+
+
+/* ------------------------------------------------------------------- */
+/*                         Hotizontal tree                             */
+/* ------------------------------------------------------------------- */
+.horizontal-tree-container .tree {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.horizontal-tree-container .tree li {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 5px 0 5px;
+  position: relative;
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
+}
+
+.horizontal-tree-container .tree li::before,
+.horizontal-tree-container .tree li::after {
+  content: "";
+  left: -20px;
+  position: absolute;
+  right: auto;
+}
+
+.horizontal-tree-container .tree li::before {
+  border-left: 1px solid #999;
+  bottom: 50px;
+  height: 100%;
+  top: 0;
+  width: 1px;
+}
+
+.horizontal-tree-container .tree li::after {
+  border-top: 1px solid #999;
+  height: 20px;
+  top: 25px;
+  width: 25px;
+}
+
+.horizontal-tree-container .tree li a {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #999;
+  border-radius: 0px;
+  display: inline-block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.horizontal-tree-container .tree li.parent_hide > a {
+  padding: 3px 10px 3px 23px;
+  color: #333;
+}
+
+.horizontal-tree-container .tree > ul > li::before,
+.horizontal-tree-container .tree > ul > li::after {
+  border: 0;
+}
+
+.horizontal-tree-container .tree li:last-child::before {
+  height: 25px;
+}
+
+.horizontal-tree-container .tree li > ul {
+  padding-left: 70px;
+}
+
+[id^="parent_"] li:last-child::before {
+  height: 26px;
 }
 
 /* ------------------------------------------------------------------- */

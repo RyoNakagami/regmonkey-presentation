@@ -231,14 +231,14 @@ auto-agenda:
 [② ストーリーの骨子の構築]{.topleftbox}
 
 
-:::::{.step-container style="height: 90%"}
+::::{.step-container style="height: 90%"}
 
-::::{.step }
+:::{.step }
 
 [全体像の分割（Headingsの定義）]{.step .active-phase}
 
 
-::::{.step-label .checkmark}
+:::{.step-label .checkmark}
 
 {{< reveal_vspace 0.5em >}}
 
@@ -249,7 +249,7 @@ auto-agenda:
 
 :::
 
-::::
+:::
 
 
 
@@ -288,10 +288,65 @@ auto-agenda:
   - 聞き手の事前知識を想定した上でのスムーズな論理構成
 
 :::
-
 :::
 
-::::::
+::::
+
+
+## スライドアウトライン設計例
+[スライドやドキュメントを作る前に、スライド構成を「ツリー型ロジック」で描くのが有効]{.h2-submessage}
+
+[② ストーリーの骨子の構築]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[スライド構成フォーマット]{.border-bottom style="text-align: center;"}
+
+
+:::{.horizontal-tree-container}
+```yml
+horizontal_tree:
+  - テーマ
+    - headings1
+      - key takeaways
+        - paragraph 1
+        - paragraph 2
+    - headings2
+      - key takeaways
+        - paragraph 1
+        - paragraph 2
+```
+:::
+
+:::
+::: {.column width="50%"}
+
+[スライド構成例]{.border-bottom style="text-align: center;"}
+
+:::{.horizontal-tree-container style="font-size:0.7em"}
+
+```yml
+売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:
+  - 売上の全体傾向分析
+   - 売上は前年比▲12%、特に既存顧客売上が大幅減
+      - 全体売上と既存/新規の比較グラフ
+      - 時系列推移（過去12か月）
+  - 既存顧客離脱の要因分析
+    - 離脱要因は価格競争と顧客体験の低下
+      - 競合比較と価格感度分析
+  - リピート率改善の施策提案
+    - パーソナライズ施策が有効
+      - 類似顧客群へのキャンペーン効果の事例
+      - 実行計画・KPI設定案
+```
+
+:::
+:::
+::::
+
 
 
 ## 明確なスライドメッセージのルール
