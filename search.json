@@ -28,6 +28,13 @@
     "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n論理的な順序配置\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
   },
   {
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドアウトライン設計例",
+    "text": "スライドアウトライン設計例\nスライドやドキュメントを作る前に，スライド構成を「ツリー型ロジック」で描くのが有効\n② ストーリーの骨子の構築\n\n\n\nスライド構成フォーマット\n\nhorizontal_tree:\n  - テーマ\n    - headings1\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n    - headings2\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n\n\nスライド構成例\n\n売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:\n  - 売上の全体傾向分析\n   - 売上は前年比▲12%、特に既存顧客売上が大幅減\n      - 全体売上と既存/新規の比較グラフ\n      - 時系列推移（過去12か月）\n  - 既存顧客離脱の要因分析\n    - 離脱要因は価格競争と顧客体験の低下\n      - 競合比較と価格感度分析\n  - リピート率改善の施策提案\n    - パーソナライズ施策が有効\n      - 類似顧客群へのキャンペーン効果の事例\n      - 実行計画・KPI設定案"
+  },
+  {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
     "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
     "title": "構造化されたストーリーとしてのスライド",
@@ -187,6 +194,20 @@
     "title": "Presentation for Regession Monkey",
     "section": "",
     "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
   },
   {
     "objectID": "about.html",

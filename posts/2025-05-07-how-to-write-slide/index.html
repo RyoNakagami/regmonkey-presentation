@@ -220,6 +220,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
 <meta property="og:title" content="構造化されたストーリーとしてのスライド – Presentation for Regession Monkey">
 <meta property="og:description" content="スライド作成方法論 1">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -466,6 +467,44 @@ Ryo Nakagami
 </div>
 </div>
 </section>
+<section id="スライドアウトライン設計例" class="slide level2">
+<h2>スライドアウトライン設計例</h2>
+<p><span class="h2-submessage">スライドやドキュメントを作る前に，スライド構成を「ツリー型ロジック」で描くのが有効</span></p>
+<p><span class="topleftbox">② ストーリーの骨子の構築</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="border-bottom" style="text-align: center;">スライド構成フォーマット</span></p>
+<div class="horizontal-tree-container">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">horizontal_tree</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> テーマ</span></span>
+<span id="cb1-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> headings1</span></span>
+<span id="cb1-4"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> key takeaways</span></span>
+<span id="cb1-5"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> paragraph 1</span></span>
+<span id="cb1-6"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> paragraph 2</span></span>
+<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> headings2</span></span>
+<span id="cb1-8"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> key takeaways</span></span>
+<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> paragraph 1</span></span>
+<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> paragraph 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="border-bottom" style="text-align: center;">スライド構成例</span></p>
+<div class="horizontal-tree-container" style="font-size:0.7em">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> 売上の全体傾向分析</span></span>
+<span id="cb2-3"><a></a><span class="at">   </span><span class="kw">-</span><span class="at"> 売上は前年比▲12%、特に既存顧客売上が大幅減</span></span>
+<span id="cb2-4"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 全体売上と既存/新規の比較グラフ</span></span>
+<span id="cb2-5"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 時系列推移（過去12か月）</span></span>
+<span id="cb2-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> 既存顧客離脱の要因分析</span></span>
+<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 離脱要因は価格競争と顧客体験の低下</span></span>
+<span id="cb2-8"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 競合比較と価格感度分析</span></span>
+<span id="cb2-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> リピート率改善の施策提案</span></span>
+<span id="cb2-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パーソナライズ施策が有効</span></span>
+<span id="cb2-11"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 類似顧客群へのキャンペーン効果の事例</span></span>
+<span id="cb2-12"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 実行計画・KPI設定案</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
 <section id="明確なスライドメッセージのルール" class="slide level2">
 <h2>明確なスライドメッセージのルール</h2>
 <p><span class="topleftbox">③ スライド作成・資料化</span></p>
@@ -694,36 +733,36 @@ Ryo Nakagami
 <p><span class="topleftbox">メッセージと整合的な縦横軸</span></p>
 <div class="custom-table" style="width:100%; height:80%; font-size: 1.2rem !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 30, 55]">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> オペレーターの&lt;br&gt;長期的な方針</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class="regmonkey_bold"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb1-9"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> 収益性</span></span>
-<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか</span></span>
-<span id="cb1-12"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
-<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class="regmonkey_bold"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある</span></span>
-<span id="cb1-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている</span></span>
-<span id="cb1-16"><a></a></span>
-<span id="cb1-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> LNG&lt;br&gt;サプライサイド</span></span>
-<span id="cb1-19"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGインフラの潜在的なボトルネックとは何か</span></span>
-<span id="cb1-21"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey_bold"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある</span></span>
-<span id="cb1-23"><a></a><span class="fu">reocord4</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> LNG&lt;br&gt;サプライサイド</span></span>
-<span id="cb1-25"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 今後、世界のLNG供給構成はどう変化していくのか</span></span>
-<span id="cb1-27"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
-<span id="cb1-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 世界のLNG生産量に占める米国の割合は、&lt;span class="regmonkey_bold"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;</span></span>
-<span id="cb1-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class="regmonkey_bold"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している</span></span>
-<span id="cb1-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> オペレーターの&lt;br&gt;長期的な方針</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class="regmonkey_bold"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している</span></span>
+<span id="cb3-7"><a></a></span>
+<span id="cb3-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> 収益性</span></span>
+<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか</span></span>
+<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
+<span id="cb3-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class="regmonkey_bold"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある</span></span>
+<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている</span></span>
+<span id="cb3-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている</span></span>
+<span id="cb3-16"><a></a></span>
+<span id="cb3-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> LNG&lt;br&gt;サプライサイド</span></span>
+<span id="cb3-19"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LNGインフラの潜在的なボトルネックとは何か</span></span>
+<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
+<span id="cb3-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey_bold"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある</span></span>
+<span id="cb3-23"><a></a><span class="fu">reocord4</span><span class="kw">:</span></span>
+<span id="cb3-24"><a></a><span class="at">  </span><span class="fu">カテゴリー</span><span class="kw">:</span><span class="at"> LNG&lt;br&gt;サプライサイド</span></span>
+<span id="cb3-25"><a></a><span class="at">  </span><span class="fu">Question</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 今後、世界のLNG供給構成はどう変化していくのか</span></span>
+<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">調査結果</span><span class="kw">:</span></span>
+<span id="cb3-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 世界のLNG生産量に占める米国の割合は、&lt;span class="regmonkey_bold"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;</span></span>
+<span id="cb3-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class="regmonkey_bold"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している</span></span>
+<span id="cb3-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section>
@@ -807,45 +846,45 @@ Ryo Nakagami
 <h2>場面に応じてスライド作成クオリティは異なる</h2>
 <div class="custom-table-no-header" style="width:100%;">
 <div id="yaml-mtg-table" class="yaml2table yaml2table-custom-top" data-col-widths="[13, 20, 33, 34]">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> ステコミ</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意思決定の支援</span></span>
-<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要案件の承認</span></span>
-<span id="cb2-6"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント経営層</span></span>
-<span id="cb2-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 細かいところまでは把握していない</span></span>
-<span id="cb2-9"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の簡潔性（1枚で要点を伝える）</span></span>
-<span id="cb2-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビジュアル重視（図・表・チャート）</span></span>
-<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 論理の一貫性と構成力</span></span>
-<span id="cb2-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 誤字・フォーマットも厳しくチェックされる</span></span>
-<span id="cb2-14"><a></a></span>
-<span id="cb2-15"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-16"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 定例会</span></span>
-<span id="cb2-17"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 進捗報告</span></span>
-<span id="cb2-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 課題共有</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の確認</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント + 社内チームメンバー</span></span>
-<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PJ背景情報まで把握している</span></span>
-<span id="cb2-24"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 要点を絞った報告</span></span>
-<span id="cb2-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> タスク・KPIに対する進捗の見える化</span></span>
-<span id="cb2-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の網羅性を重視</span></span>
-<span id="cb2-28"><a></a></span>
-<span id="cb2-29"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb2-30"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 社内MTG</span></span>
-<span id="cb2-31"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
-<span id="cb2-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 知見の共有</span></span>
-<span id="cb2-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> よもやま相談</span></span>
-<span id="cb2-34"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
-<span id="cb2-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内の人</span></span>
-<span id="cb2-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内用語なり事前情報・価値観が揃っている</span></span>
-<span id="cb2-37"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ストーリー性や具体例が大切</span></span>
-<span id="cb2-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手書き風や口頭中心もOK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> ステコミ</span></span>
+<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb4-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意思決定の支援</span></span>
+<span id="cb4-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要案件の承認</span></span>
+<span id="cb4-6"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント経営層</span></span>
+<span id="cb4-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 細かいところまでは把握していない</span></span>
+<span id="cb4-9"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb4-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の簡潔性（1枚で要点を伝える）</span></span>
+<span id="cb4-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビジュアル重視（図・表・チャート）</span></span>
+<span id="cb4-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 論理の一貫性と構成力</span></span>
+<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 誤字・フォーマットも厳しくチェックされる</span></span>
+<span id="cb4-14"><a></a></span>
+<span id="cb4-15"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-16"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 定例会</span></span>
+<span id="cb4-17"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb4-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 進捗報告</span></span>
+<span id="cb4-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 課題共有</span></span>
+<span id="cb4-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の確認</span></span>
+<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb4-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアント + 社内チームメンバー</span></span>
+<span id="cb4-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PJ背景情報まで把握している</span></span>
+<span id="cb4-24"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 要点を絞った報告</span></span>
+<span id="cb4-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> タスク・KPIに対する進捗の見える化</span></span>
+<span id="cb4-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 情報の網羅性を重視</span></span>
+<span id="cb4-28"><a></a></span>
+<span id="cb4-29"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-30"><a></a><span class="at">  </span><span class="fu">MTG</span><span class="kw">:</span><span class="at"> 社内MTG</span></span>
+<span id="cb4-31"><a></a><span class="at">  </span><span class="fu">目的</span><span class="kw">:</span></span>
+<span id="cb4-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 知見の共有</span></span>
+<span id="cb4-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> よもやま相談</span></span>
+<span id="cb4-34"><a></a><span class="at">  </span><span class="fu">オーディエンス</span><span class="kw">:</span></span>
+<span id="cb4-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内の人</span></span>
+<span id="cb4-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内用語なり事前情報・価値観が揃っている</span></span>
+<span id="cb4-37"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb4-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ストーリー性や具体例が大切</span></span>
+<span id="cb4-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手書き風や口頭中心もOK</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 
