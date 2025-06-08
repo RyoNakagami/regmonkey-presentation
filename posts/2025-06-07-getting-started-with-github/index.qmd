@@ -1,0 +1,1431 @@
+---
+title: "はじめてのGitHub"
+subtitle: "開発環境"
+author: "Ryo Nakagami"
+date: "2025-06-07"
+categories: [開発環境]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+# GitHubとは
+
+## GitHubが提供する機能
+
+
+:::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+Gitレポジトリホスティング
+:::
+
+{{< reveal_vspace 10% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **ソースコードの安全な保管**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+クラウド上でコードを保存することで、紛失リスクを軽減
+:::
+
+
+- **バージョン管理の完全サポート**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+Gitを使った変更履歴の記録・追跡及び過去の状態への復元や変更内容の比較が可能
+:::
+
+:::
+
+:::
+::::
+
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi signpost-fill  size=1.7em color=#428CE6 >}}
+開発コラボレーション機能
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **Pull request(PR)**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+コードの変更を提案し、他のメンバーと議論・承認を経てマージする機能
+:::
+
+- **Issue**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+バグ報告やタスク、提案事項を管理する機能
+:::
+
+- **プロジェクト管理ボード**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+Kanbanスタイルのボードを使って、IssueやPRを視覚的に整理・進捗管理する機能
+:::
+
+- **Wiki**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+ユーザーが自由に編集できるDocumentプラットフォーム
+:::
+
+:::
+
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 10% >}}
+
+::::{.horizontal-keypoints-block-no-border style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi play-circle-fill  size=1.7em color=#428CE6 >}}
+CI/CDツール
+(GiHub Actions)
+
+:::
+{{< reveal_vspace 10% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **自動テスト実行**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+プッシュやPRのタイミングでユニットテストや統合テストを自動実行する機能
+:::
+
+- **自動デプロイ**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+本番やステージング環境へ自動でコードをデプロイでき、リリース作業の効率と安定性を実現
+:::
+
+- **コンテナ化対応**
+
+:::{.pl-5 style="margin-top: -0.8em;"}
+Dockerなどのコンテナ技術と連携し、開発から本番まで一貫した環境構築と運用が可能
+:::
+
+:::
+
+::::
+:::::
+::::::
+
+## 一つのプラットフォームで開発ライフサイクル全体をサポート 
+
+{{< reveal_vspace 2em >}}
+
+::::{.tools-grid}
+
+::::: {.tools-column}
+
+::: {.column-title .before-title}
+
+{{< bi x-circle-fill size=1.2em >}}
+
+[従来：個別ツールが必要]{.pl-5}
+
+:::
+
+:::: {.tool-item }
+::: {.tool-icon }
+
+{{< bi git size=1.2em >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+Version管理ツール
+
+:::
+::: {.tool-description}
+
+Git、SVN、Mercurial等を別途導入
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi bug-fill size=1.2em >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+Bug tracker
+:::
+
+::: {.tool-description}
+
+JIRA、Redmine、Bugzilla等を別途利用
+
+:::
+
+:::
+::::
+
+:::: {.tool-item }
+::: {.tool-icon }
+
+{{< bi search  size=1.2em >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+Code review tool
+:::
+::: {.tool-description}
+
+Review Board、Crucible等を別途導入
+
+:::
+:::
+::::
+
+
+:::: {.tool-item}
+::: {.tool-icon }
+
+{{< bi file-text size=1.2em >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+Document管理ツール
+
+:::
+::: {.tool-description}
+
+Confluence、SharePoint等を別途利用
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi gear-fill size=1.2em >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+CI/CDツール
+:::
+::: {.tool-description}
+
+Jenkins、TeamCity等を別途構築
+
+:::
+:::
+::::
+
+:::::
+
+
+::::: {.tools-column .tools-column-after}
+
+::: {.column-title .after-title}
+
+<i class="fa-brands fa-github" style="font-size: 1.5em;"></i>
+
+[GitHub：統合機能で提供]{.pl-5 .align-top}
+
+:::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi git  size=1.2em color=#0E3666 >}}
+
+:::
+::: {.tool-content}
+
+::: {.tool-name}
+Git
+:::
+
+::: {.tool-description}
+
+分散型バージョン管理システム
+
+:::
+
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi exclamation-circle-fill  size=1.2em color=#0E3666 >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+Issue
+
+:::
+::: {.tool-description}
+
+バグ追跡・タスク管理・機能要求
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi git  size=1.2em color=#0E3666 >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+Pull Request
+
+:::
+::: {.tool-description}
+
+コードレビュー・議論・マージ管理
+
+:::
+:::
+::::
+
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi book-fill  size=1.2em color=#0E3666 >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+Wiki
+
+:::
+::: {.tool-description}
+
+プロジェクトドキュメント管理
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< bi play-circle-fill  size=1.2em color=#0E3666 >}}
+
+:::
+::: {.tool-content}
+::: {.tool-name}
+
+GitHub Actions
+
+:::
+::: {.tool-description}
+
+CI/CD・自動化ワークフロー
+
+:::
+:::
+::::
+
+:::::
+
+:::{.integration-arrow}
+
+<svg width="40" height="400" viewBox="0 0 40 400" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 40,200 0,400" fill="#0E3666" />
+</svg>
+
+:::
+
+::::
+
+# GitHubの機能紹介
+## GitHub Issueとは？
+[GitHub Issue]{.topleftbox}
+
+[レポジトリ単位でタスク管理・バグ報告・アイデア共有などを行うために使用する機能]{.h2-submessage}
+
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+[![](./github-issue.png){style="width:100%; margin-left:0em;"}](https://github.com/pandas-dev/pandas/issues/61516)
+
+:::
+
+::: {.column .book-info width="40%"}
+
+{{< reveal_vspace 1em >}}
+
+| 構成要素                     | 説明                                          |
+| ---------------------- | ------------------------------------------- |
+| **タイトル**               | Issueの要点や目的を一言で示す                           |
+| **本文**                 | 詳細な説明、再現手順、スクリーンショットなど                      |
+| **Label**         | 種別（`bug`、`feature`、`help wanted`など）を色分けして分類 |
+| **Assignee**      | Issueの対応担当者を割り当て                          |
+| **マイルストーン** | リリースやスプリントなどの単位でグループ化可能                     |
+| **コメント欄**              | ユーザーや開発者が議論・進捗報告を行う場所                       |
+| **クローズ/オープン**          | 対応が完了したら「Closed」にすることで進捗管理が可能               |
+| **Relationship**|IssueやPull Request（PR）同士の依存関係を管理する項目|
+: {tbl-colwidths="[38,62]"}
+
+:::
+::::
+
+## GitHub Issueを用いたコミュニケーション例
+[GitHub Issue]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{#communication-with-issue}
+[![](./communication-with-issue.png)](https://github.com/pandas-dev/pandas/issues/61443)
+:::
+
+:::
+::: {.column width="45%"}
+
+{{< reveal_vspace 0.2em >}}
+
+:::: {.info-box #tip-mention}
+
+[Mention機能の活用]{.info-box-title}
+
+::: {.info-contents}
+`@username` 形式で，対象のユーザーに通知が飛ばせます
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box #tip-label}
+
+[ LabelでIssueを分類]{.info-box-title}
+
+::: {.info-contents}
+
+議論内容を踏まえ，Labelの追加や削除をします
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box #tip-commit}
+
+[Commitとの紐付けで進捗を自動追跡]{.info-box-title}
+
+::: {.info-contents}
+
+- Issue番号をcommit messageに付与すると，自動的に紐付けができます
+- 左図ではIssue thread に commit-id `09d4a63`が確認できる
+
+:::{style="font-size:1.4em; width: 90%"}
+
+```bash
+git commit -m "Fix connection timeout bug (#123)"
+```
+
+:::
+
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box #tip-ref}
+
+[他のIssueやPRからの参照]{.info-box-title}
+
+::: {.info-contents}
+
+IssueやPRに `#番号` を書くと，それがリンクになり相互参照ができます
+
+:::{style="font-size:1.4em; width: 90%"}
+
+```markdown
+This issue is related to #45 and blocked by #38.
+```
+
+:::
+
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box #tip-status}
+
+[PRやcommitでのIssueステータス管理]{.info-box-title}
+
+::: {.info-contents}
+
+対応状況（`Open/Clossed`）をcommit messageで管理することができます
+
+:::{style="font-size:1.4em; width: 90%"}
+
+```bash
+gh pr create --base main --head feature \
+  --title "Fix login bug causing crash" \
+  --body "Fixes #45"
+```
+
+:::
+
+:::
+::::
+
+
+:::
+::::
+
+
+
+[]{.leaderline start="#communication-with-issue"  end="#tip-mention"
+    color="#206f83" end-socket="left" size="3" 
+    start-border-style="color:#206f83; x: 5%; y:15%; width:87%; height:5%"
+    path="grid"}   
+
+[]{.leaderline start="#communication-with-issue"  end="#tip-label"
+    color="#206f83" end-socket="left" size="3" 
+    start-border-style="color:#206f83; x: 5%; y:28%; width:87%; height:5%"
+    path="grid"}   
+
+[]{.leaderline start="#communication-with-issue"  end="#tip-commit"
+    color="#206f83" end-socket="left" size="3" 
+    start-border-style="color:#206f83; x: 5%; y:36%; width:87%; height:7%"
+    path="grid"}   
+
+[]{.leaderline start="#communication-with-issue"  end="#tip-ref"
+    color="#206f83" end-socket="left" size="3" 
+    start-border-style="color:#206f83; x: 5%; y:52%; width:87%; height:7%"
+    path="grid"}   
+
+[]{.leaderline start="#communication-with-issue"  end="#tip-status"
+    color="#206f83" end-socket="left" size="3" 
+    start-border-style="color:#206f83; x: 5%; y:94%; width:87%; height:5%"
+    path="grid"}   
+
+## GitHub Issueを用いたワークフロー例の紹介
+[GitHub Issue]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+::::: {.columns}
+::::: {.column width="55%"}
+
+:::{.border-bottom-header}
+
+GitHub Issue活用ワークフロー例
+
+:::
+
+:::: {.tool-item }
+::: {.tool-icon .text-blue-700}
+
+{{< bi bug-fill size=1.2em >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Setp1: バグの発見とIssueの作成
+
+:::
+::: {.tool-description}
+
+問題の言語化と可視化を通して，チーム全体が何が起きているか共有
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< fas fa-tags size=1.2em text-blue-700 >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step2: ラベルとメタ情報の整理
+
+:::
+
+::: {.tool-description}
+
+ラベル・マイルストンの明示によって，タスクを管理しやすくする
+
+:::
+
+:::
+
+::::
+
+:::: {.tool-item}
+
+::: {.tool-icon}
+
+{{< fas fa-user-cog size=1.2em text-blue-700 >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step3: 担当者の割り当てと作業開始
+
+:::
+::: {.tool-description}
+
+担当者の明確化(`@mention`)により，進捗確認しやすくする
+
+:::
+:::
+
+::::
+
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< fas fa-code-branch size=1.2em text-blue-700 >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step4: Pull Requestを作成し、Issueと関連付け
+
+:::
+::: {.tool-description}
+
+何のための変更かを追跡でき，レビューや変更履歴の文脈が明確になる
+
+:::
+:::
+::::
+
+:::: {.tool-item}
+::: {.tool-icon}
+
+{{< fas fa-check-circle size=1.2em text-blue-700 >}}
+
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+Step5: PRマージとIssueの自動クローズ
+
+:::
+::: {.tool-description}
+
+作業の完了と状態管理の自動化によって，手動での管理ミスを防ぐ
+
+:::
+:::
+
+::::
+:::::
+
+:::::{.column width="45%"}
+
+:::{.border-bottom-header}
+
+GitHub Issue作成Tips
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+① Issueの重複を回避する
+
+:::
+
+:::{.info-contents}
+
+- Issue作成前にキーワード検索して既存のIssueを確認
+- 既存Issueに追記する形が望ましい場合は，新規作成を避ける
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+② チームで共通のLabelを定義・運用する
+
+:::
+
+:::{.info-contents}
+
+- カテゴリ・優先度・状態を表すラベルを整理（例：`bug`, `preprocess`, `P1`）
+- チームでラベル運用ルールを文書化する
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+
+③ Issue Templateを定義する
+
+:::
+
+:::{.info-contents}
+
+- `.github/ISSUE_TEMPLATE` にテンプレートファイルを作成
+- バグ報告・機能提案など，用途ごとにテンプレートを分ける
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+④ マイルストンを明確に設定する
+
+:::
+
+:::{.info-contents}
+
+- Issueごとにマイルストンを紐づける
+- マイルストンごとの進捗率把握に役に立つ
+  - 例: version 3.0 リリースに必要なタスクの95%が現在達成済み
+
+:::
+::::
+
+
+:::::
+:::::
+
+
+## Kanbanを用いたGitHub Issueの管理
+[GitHub Issue]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block}
+
+[GitHub Project Board]{.def-title}
+
+::: {.def-contents}
+
+- GitHub では Projects（プロジェクトボード） 機能を使って，Kanbanスタイルで最新情報のIssue/PRを管理できます
+- フィルタリング，並び替え，グループ化することでレイアウトを自由にカスタマイズできます
+
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+![](./kanban-example.gif)
+
+
+## Pull Requestとは？
+
+[あるブランチで行った変更について、別のブランチへのマージを依頼するGitHub上の仕組み[^footer1]]{.h2-submessage}
+[Pull Request]{.topleftbox}
+
+
+::::: {.columns}
+::::: {.column width="55%"}
+
+:::{.border-bottom-header .mb-0}
+
+GitHub Pull Requestワークフロー
+
+:::
+
+
+
+:::: {.tool-item .pt-2 .pb-2}
+::: {.tool-icon .text-blue-700}
+
+{{< fas fa-code-branch size=1.2em >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step1: ブランチ作成と作業開始
+
+:::
+::: {.tool-description style="font-size:0.75em;"}
+
+トピックブランチ[^footer2]を切り、独立して作業を進めることで本線に影響を与えず開発可能に
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+::: {.tool-icon .text-blue-700}
+
+{{< bi code-slash size=1.2em >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step2: コミットとプッシュ
+
+:::
+
+::: {.tool-description style="font-size:0.75em;"}
+
+適切な粒度でコミットを行い、GitHubにプッシュして作業状況を共有する
+
+:::
+
+:::
+
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-icon .text-blue-700}
+
+<i class="fa-brands fa-github" style="font-size: 1.5em;"></i>
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step3: Pull Request（PR）を作成
+
+:::
+::: {.tool-description style="font-size:0.75em;"}
+
+レビュー依頼・変更内容の記録・Issueとの関連付けなどを行う
+
+:::
+:::
+
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+::: {.tool-icon .text-blue-700}
+
+{{< bi chat-dots size=1.2em >}}
+
+:::
+
+::: {.tool-content}
+::: {.tool-name}
+
+Step4: レビューとフィードバック対応
+
+:::
+::: {.tool-description style="font-size:0.75em;"}
+
+コメント機能を活用し、コード品質と理解度を高めながら開発を進行
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+::: {.tool-icon}
+
+{{< fas fa-code-merge size=1.2em text-blue-700 >}}
+
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+Step5: Pull Requestをマージ
+
+:::
+::: {.tool-description style="font-size:0.75em;"}
+
+PRを承認・マージし、関連Issueも自動クローズ
+
+:::
+:::
+
+::::
+:::::
+
+:::::{.column width="45%"}
+
+:::{.border-bottom-header .mb-0}
+
+GitHub PR活用Tips
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+① PRとIssueを関連付ける
+
+:::
+
+:::{.info-contents}
+
+- PR本文に `Fixes #123` を記述して、マージ時にIssueを自動Close
+- 複数Issueに関連する場合は箇条書きで整理
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+② Draft PRを活用して作業途中でも共有
+
+:::
+
+:::{.info-contents}
+
+- 作業中でも早期に可視化してコメントをもらえる
+- `[WIP]`など作業中であることを明確にする
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+
+③ PRテンプレートを用意する
+
+:::
+
+:::{.info-contents}
+
+- `.github/PULL_REQUEST_TEMPLATE.md` にてPRテンプレート設定可能
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+④ レビュー後の変更は同一ブランチにPush
+
+:::
+
+:::{.info-contents}
+
+- 同じPR内で再レビューが可能になる
+- 会話の文脈を維持したままフィードバック対応ができる
+
+:::
+::::
+
+:::::
+:::::
+
+<!-- footer -->
+
+[^footer1]: Pull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み
+
+[^footer2]: １つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
+
+## はじめてのPull Requestの作成
+[Pull Request]{.topleftbox}
+
+
+
+
+## Conversationを活用したコードレビュー
+[Pull Request]{.topleftbox}
+
+
+## Pull Requestをトリガーとしたテストの実行
+[Pull Request]{.topleftbox}
+
+## merge commit vs squash merge vs rebase merge
+[Pull Request]{.topleftbox}
+
+
+## Wiki
+
+
+
+
+## GitHub Actions
+
+
+
+# 参考文献
+
+## サル先生のGit入門
+[Gitの初心者から中級者までを対象に、バージョン管理の基礎から実践的な操作方法までを解説]{.h2-submessage}
+
+:::: {.columns}
+::: {.column .book-image}
+
+![saru-git](./saru-git.png)
+
+:::
+
+::: {.column .book-info}
+### サイトメタデータ
+
+|||
+|---|---|
+|サイト名|サル先生のGit入門|
+|URL|[https://backlog.com/ja/git-tutorial/](https://backlog.com/ja/git-tutorial/)|
+|提供元|株式会社ヌーラボ（プロジェクト管理ツール「Backlog」の開発元）|
+|書籍版|『サルでもわかるGit入門』（インプレス刊）|
+
+
+
+### コンテンツ構成
+
+|セクション|内容|
+|---|---|
+|入門編|Gitの基本操作（コミット、ブランチ作成など）を図解で解説|
+|発展編|マージやリベース、コンフリクト解消など中級者向けの操作|
+|プルリクエスト編|チーム開発でのプルリクエストの使い方とレビューの流れ|
+|逆引きGit|やりたいことからコマンドを探せる便利な逆引きリファレンス|
+
+:::
+::::
+
+## OhGoshGit
+[初心者～中級者向けに「Git操作でやらかしがちなミスとその直し方」を解説したサイト]{.h2-submessage}
+
+:::: {.columns}
+::: {.column .book-image}
+
+![OGG](./ohgoshgit.png)
+
+:::
+
+::: {.column .book-info}
+### サイトメタデータ
+
+
+|||
+|---|---|
+|サイト名| OhGoshGit!?!                                                 |
+|URL| [https://ohgoshgit.github.io/](https://ohgoshgit.github.io/) |
+|提供元| OhGoshGit|
+|ライセンス| MIT License|
+|言語対応| 日本語対応セクションあり                                           |
+: {tbl-colwidths="[40,60]"}
+
+
+### コンテンツ構成
+
+- Git関連のトラブルシューティングや設定ミス対処法を解説
+- Headerから日本語選択可能
+- 具体的なトピック例
+  - リモートブランチへのpush/pullができない場合
+  - 最新のコミットと作業中の変更との差分を確認方法
+  - GitHubリポジトリの名前を変更する方法
+  - GitHubリポジトリへのSSH接続を設定する手順
+
+:::
+::::
+
+
+
+# Appendix: Git操作
+
+## Gitのバージョン管理の仕組み
+
+{{< reveal_vspace 1.0em >}}
+
+:::: {.columns}
+::: {.column width="65%"}
+
+[**Gitコマンドと領域移動関係図**]{.border-bottom style="width: 90%; text-align: center;"}
+
+{{< reveal_vspace 1.0em >}}
+
+```{mermaid}
+sequenceDiagram
+
+  participant A as working directory<br>(working tree)
+  participant B as staging area<br>(index)
+  participant C as local repository<br>(local branch)
+  participant D as local repository<br>(tracking branch)
+  participant E as remote repository
+
+  A->>B: git add/rm
+  B->>C: git commit
+  C->>E: git push
+  C->>A: git switch -c<br>(checkout)
+  E->>D: git fetch
+  D->>A: git merge
+  E->>A: git pull (実質的には git fetch + git merge)
+```
+:::
+
+::: {.column width="35%"}
+
+[**5つのGit管理領域**]{.border-bottom style="width: 100%; text-align: center;"}
+
+
+::::{.info-box}
+
+:::{.info-box-title}
+
+`working directory (working tree)`
+
+:::
+
+:::{.info-contents}
+
+コードを編集する作業領域
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+`staging area (index)`
+:::
+
+:::{.info-contents}
+次のコミットに含める変更を一時的に置く場所
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+`local repository (local branch)`
+:::
+
+:::{.info-contents}
+自分のPC上のGitリポジトリ。コミット履歴を保存
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+`local repository (tracking branch)`
+:::
+
+:::{.info-contents}
+リモートブランチを追跡しているローカルのブランチ
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box}
+
+:::{.info-box-title}
+`remote repository`
+:::
+
+:::{.info-contents}
+サーバー上の共有リポジトリ（GitHub）
+:::
+::::
+
+::::
+
+:::
+
+
+## Gitはsnapshot方式で全体の状態を記録
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+Snapshot形式のデータ管理
+:::
+
+![](./git-snapshot.png)
+
+:::{.border-bottom-header}
+差分形式のデータ管理
+:::
+
+![](./difference-data.png)
+
+
+:::
+::: {.column width="50%"}
+
+{{< reveal_vspace 4em >}}
+
+:::{.pl-10 .flex .flex-col .space-y-10}
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[① 各コミットは「ツリー（tree）」オブジェクトでディレクトリ構造を表現している]{.def-title}
+
+::::
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[② Git はすべてのファイルが各時点で状態をSnapshotで記録し、各ツリーはsnapshotへの参照を保存している]{.def-title}
+
+::::
+
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[③ 更新がなかったファイルは、前回と同じ blob オブジェクトへの参照リンクを保存している]{.def-title}
+
+::::
+
+
+
+:::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
+
+[④ Gitのオブジェクト（コミット、ツリー、ブロブなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している]{.def-title}
+
+::::
+
+:::
+
+:::
+::::
+
+
+## Git × 大容量ファイル ― やってはいけないアンチパターン
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[大容量ファイルをコミットするのは絶対にやってはいけない]{.def-title}
+
+::: {.def-contents}
+
+::: {.def-contents style="font-size:0.9em;"}
+
+- Gitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび**完全な新コピー**をオブジェクト DB に追加してしまう
+- 特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる
+
+:::
+
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+
+:::: {.tools-grid style="height:70%; font-size: 0.9em;"}
+
+:::: {.tools-column}
+::: {.column-title .before-title}
+{{< bi x-circle-fill  size=1.2em >}}
+[アンチパターン]{.pl-5}
+:::
+
+::: {.tool-item}
+
+::: {.tool-content}
+::: {.tool-name}
+
+巨大バイナリをそのままコミット
+
+:::
+::: {.tool-description}
+
+RAW 動画、可逆圧縮画像、機械学習モデルをcommit
+
+:::
+:::
+:::
+
+::: {.tool-item}
+
+::: {.tool-content}
+::: {.tool-name}
+
+定期的に更新される生成物を履歴に残す
+
+:::
+::: {.tool-description}
+PDF/PowerPoint, minified JS/CSS bundles, compiled binaries
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+
+一時ファイルやキャッシュをうっかり追加
+
+:::
+::: {.tool-description}
+
+`.DS_Store`, `.idea`, `*.sqlite`, `*.log`
+
+:::
+:::
+:::
+
+::::
+
+:::: {.tools-column .tools-column-after style="height:70%"}
+::: {.column-title}
+{{< bi exclamation-octagon-fill  size=1.2em color=#0E3666 >}}
+[発生する不具合]{.pl-5 .align-top}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+
+リポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる
+
+:::
+
+::: {.tool-description}
+
+1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り
+
+:::
+
+:::
+:::
+
+::: {.tool-item}
+
+::: {.tool-content}
+::: {.tool-name}
+
+生成物が少しでも変わるたびに**フルコピー**され履歴が膨張
+
+:::
+
+::: {.tool-description}
+
+ファイルの中の一部が変われば、新しい blob オブジェクトが生成される
+
+:::
+
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+
+差分や履歴がノイズまみれになる
+
+:::
+::: {.tool-description}
+
+開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる
+
+:::
+
+:::
+:::
+::::
+
+
+:::{.integration-arrow .absolute .left-49 style="top:55%"}
+
+<svg width="40" height="250" viewBox="0 0 40 250" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 40,125 0,250" fill="#0E3666" />
+</svg>
+
+
+:::
+::::
+
+
+# Appendix: 用語集
