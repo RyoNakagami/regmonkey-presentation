@@ -36,8 +36,7 @@
     ],
     "description": "lua adding vspace"
   },
-
-  "footer":{
+  "footer": {
     "scope": "quarto",
     "prefix": "slide-footer",
     "body": [
@@ -47,6 +46,14 @@
     ],
     "description": "footer for quarto slide"
   },
+  "slide-tag": {
+    "scope": "quarto",
+    "prefix": "slide-tag",
+    "body": [
+      "[tag]{.topleftbox}",
+    ],
+    "description": "slide tag for quarto slide"
+  },
   // --------------------------------------------
   // main-message
   // --------------------------------------------
@@ -54,7 +61,7 @@
     "scope": "quarto",
     "prefix": "slide-submessage",
     "body": [
-      "<!--- [コンテンツを記載]{.h2-submessage} -->",
+      "<!-- [コンテンツを記載]{.h2-submessage} -->",
     ],
     "description": "slideにおいて，h2 heading直下にメッセージを表示するためのもの"
   },
@@ -87,6 +94,41 @@
       ":::",
     ],
     "description": "▶ section header"
+  },
+  // --------------------------------------------
+  // blocks
+  // --------------------------------------------
+    "info-box": {
+    "scope": "quarto",
+    "prefix": "info-box",
+    "body": [
+      ":::: {.info-box}",
+      "",
+      "[①  Issueの重複を回避する]{.info-box-title}",
+      "",
+      "::: {.info-contents}",
+      "- Issue作成前にキーワード検索して既存のIssueを確認",
+      "- 既存Issueに追記する形が望ましい場合は，新規作成を避ける",
+      ":::",
+      "::::"
+    ],
+    "description": "info box"
+  },
+
+  // --------------------------------------------
+  // header
+  // --------------------------------------------
+  "border-bottom-header": {
+    "scope": "quarto",
+    "prefix": "border-bottom-header",
+    "body": [
+      ":::{.border-bottom-header}",
+      "",
+      "<!-- タイトル -->",
+      "",
+      ":::",
+    ],
+    "description": "border bottom header"
   },
   // --------------------------------------------
   // horizontal keypoints block
@@ -172,7 +214,6 @@
     "prefix": "problem",
     "body": [
       ":::: {.blog-custom-border}",
-      ,
       "::: {#exr- .custom_problem }",
       "<br>",
       "",
@@ -187,7 +228,6 @@
     "prefix": "thm",
     "body": [
       ":::: {.blog-custom-border}",
-      ,
       "::: {#thm- .custom_problem }",
       "<br>",
       "",
@@ -202,7 +242,6 @@
     "prefix": "remarks",
     "body": [
       ":::: {.blog-custom-border}",
-      ,
       "<strong >📘 REMARKS</strong> <br>",
       "",
       "::::"

@@ -3,7 +3,7 @@ title: "RooCodeを活用したReveal.jsスライド作成"
 subtitle: "スライド作成ガイド"
 author: "Ryo Nakagami"
 date: "2025-05-20"
-categories: [スライド作成]
+categories: [スライドパッケージ]
 slide-number: true
 filters:
   - reveal-auto-agenda

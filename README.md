@@ -1,8 +1,5 @@
 
 
-```bash
-$ quarto install extension andrie/reveal-auto-agenda
-```
 
 
 
@@ -16,6 +13,3 @@ $ quarto install extension andrie/reveal-auto-agenda
 % google-chrome --version
 Google Chrome 136.0.7103.59 
 ```
-
-
-- https://github.com/astefanutti/decktape
