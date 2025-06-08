@@ -203,6 +203,13 @@ div.colored-slide-30 {
   background-color: #428ce6; /* Your desired border color */
 }
 
+.def-block ul.task-list li input[type="checkbox"] {
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0em -1em;
+  vertical-align: middle;
+}
+
 .def-block .def-contents {
   font-size: 0.8em;
   padding-bottom: 0;
@@ -230,6 +237,7 @@ div.colored-slide-30 {
   content: ": ";
   position: relative;
 }
+
 
 /* ------------------------------------------------------------------- */
 /*                        general editting                             */
@@ -295,7 +303,7 @@ div.colored-slide-30 {
 }
 
 /* ------------------------------------------------------------------- */
-/*                        hop step jump                                */
+/*                       component card                                */
 /* ------------------------------------------------------------------- */
 
 .component-card {
@@ -303,6 +311,127 @@ div.colored-slide-30 {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          info box                                   */
+/* ------------------------------------------------------------------- */
+
+.info-box {
+  margin-top: 0.3rem;
+  background-color: #e8f1fe;
+  padding-top: 0.025em;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1.1;
+  position: relative; /* Needed for positioning the pseudo-element */
+  font-size: 0.9em;
+}
+
+
+.info-box::before {
+  content: "";
+  position: absolute;
+  top: 0em; /* Start 5% from the top to cover the top 90% */
+  left: 0;
+  width: 0.4em; /* Same width as your intended border-left */
+  bottom: 0em; /* End 2em from the bottom */
+  background-color: #428ce6; /* Your desired border color */
+}
+
+.info-box-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0; /* Adjust margins as needed */
+  padding-bottom: 0em; /* Add some space below the border */
+}
+
+.info-box .info-contents {
+  font-size: 0.8em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------- */
+/*                            tool grid                                */
+/* ------------------------------------------------------------------- */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.tools-column {
+  padding: 0.5em 1em;
+}
+
+.column-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.tool-icon {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.4em;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  border-bottom: 1.5px solid #dedede;
+  font-size: 1em;
+  text-align: left;
+}
+
+.tool-description {
+  font-size: 0.8em;
+  color: #718096;
+  margin-top: 0.5em;
+}
+
+.before-title {
+  color: #e53e3e !important;
+}
+
+.after-title {
+  color: #0e3666;
+}
+
+.tools-column-after {
+  background: #f7fafc;
+  border-radius: 0.8em;
+  border: 2px solid #e2e8f0;
+}
+
+.tool-name {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.integration-arrow {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  font-size: 8em;
+  color: #428ce6;
 }
 
 /* ------------------------------------------------------------------- */
@@ -1354,7 +1483,6 @@ div.colored-slide-30 {
 .check-icon {
   font-size: 1em;
 }
-
 
 /* ------------------------------------------------------------------- */
 /*                         Hotizontal tree                             */

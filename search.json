@@ -168,32 +168,18 @@
     "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
   },
   {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
-    "title": "Presentation for Regession Monkey",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "目的\n\n構造"
+    "text": "はじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
-    "title": "Presentation for Regession Monkey",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   },
   {
     "objectID": "template/meta-data-slide.html",
@@ -210,18 +196,158 @@
     "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "Gannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライド作成\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
+    "title": "はじめてのGitHub",
+    "section": "GitHubが提供する機能",
+    "text": "GitHubが提供する機能\n\n\n\n\n\n Gitレポジトリホスティング\n\n\n\n\nソースコードの安全な保管\n\n\nクラウド上でコードを保存することで、紛失リスクを軽減\n\n\nバージョン管理の完全サポート\n\n\nGitを使った変更履歴の記録・追跡及び過去の状態への復元や変更内容の比較が可能\n\n\n\n\n\n\n\n 開発コラボレーション機能\n\n\n\n\nPull request(PR)\n\n\nコードの変更を提案し、他のメンバーと議論・承認を経てマージする機能\n\n\nIssue\n\n\nバグ報告やタスク、提案事項を管理する機能\n\n\nプロジェクト管理ボード\n\n\nKanbanスタイルのボードを使って、IssueやPRを視覚的に整理・進捗管理する機能\n\n\nWiki\n\n\nユーザーが自由に編集できるDocumentプラットフォーム\n\n\n\n\n\n\n\n CI/CDツール (GiHub Actions)\n\n\n\n\n自動テスト実行\n\n\nプッシュやPRのタイミングでユニットテストや統合テストを自動実行する機能\n\n\n自動デプロイ\n\n\n本番やステージング環境へ自動でコードをデプロイでき、リリース作業の効率と安定性を実現\n\n\nコンテナ化対応\n\n\nDockerなどのコンテナ技術と連携し、開発から本番まで一貫した環境構築と運用が可能"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#一つのプラットフォームで開発ライフサイクル全体をサポート",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#一つのプラットフォームで開発ライフサイクル全体をサポート",
+    "title": "はじめてのGitHub",
+    "section": "一つのプラットフォームで開発ライフサイクル全体をサポート",
+    "text": "一つのプラットフォームで開発ライフサイクル全体をサポート\n\n\n\n\n\n従来：個別ツールが必要\n\n\n\n\n\n\n\nVersion管理ツール\n\n\nGit、SVN、Mercurial等を別途導入\n\n\n\n\n\n\n\n\n\nBug tracker\n\n\nJIRA、Redmine、Bugzilla等を別途利用\n\n\n\n\n\n\n\n\n\nCode review tool\n\n\nReview Board、Crucible等を別途導入\n\n\n\n\n\n\n\n\n\nDocument管理ツール\n\n\nConfluence、SharePoint等を別途利用\n\n\n\n\n\n\n\n\n\nCI/CDツール\n\n\nJenkins、TeamCity等を別途構築\n\n\n\n\n\n\n\nGitHub：統合機能で提供\n\n\n\n\n\n\n\nGit\n\n\n分散型バージョン管理システム\n\n\n\n\n\n\n\n\n\nIssue\n\n\nバグ追跡・タスク管理・機能要求\n\n\n\n\n\n\n\n\n\nPull Request\n\n\nコードレビュー・議論・マージ管理\n\n\n\n\n\n\n\n\n\nWiki\n\n\nプロジェクトドキュメント管理\n\n\n\n\n\n\n\n\n\nGitHub Actions\n\n\nCI/CD・自動化ワークフロー"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueとは？",
+    "text": "GitHub Issueとは？\nGitHub Issue\nレポジトリ単位でタスク管理・バグ報告・アイデア共有などを行うために使用する機能\n\n\n\n\n\n\n\n\n\n\n\n\n\n構成要素\n説明\n\n\n\n\nタイトル\nIssueの要点や目的を一言で示す\n\n\n本文\n詳細な説明、再現手順、スクリーンショットなど\n\n\nLabel\n種別（bug、feature、help wantedなど）を色分けして分類\n\n\nAssignee\nIssueの対応担当者を割り当て\n\n\nマイルストーン\nリリースやスプリントなどの単位でグループ化可能\n\n\nコメント欄\nユーザーや開発者が議論・進捗報告を行う場所\n\n\nクローズ/オープン\n対応が完了したら「Closed」にすることで進捗管理が可能\n\n\nRelationship\nIssueやPull Request（PR）同士の依存関係を管理する項目"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueを用いたコミュニケーション例",
+    "text": "GitHub Issueを用いたコミュニケーション例\nGitHub Issue\n\n\n\n\n\n\n\n\n\nMention機能の活用\n\n@username 形式で，対象のユーザーに通知が飛ばせます\n\n\n\n\nLabelでIssueを分類\n\n議論内容を踏まえ，Labelの追加や削除をします\n\n\n\n\nCommitとの紐付けで進捗を自動追跡\n\n\nIssue番号をcommit messageに付与すると，自動的に紐付けができます\n左図ではIssue thread に commit-id 09d4a63が確認できる\n\n\ngit commit -m \"Fix connection timeout bug (#123)\"\n\n\n\n\n\n他のIssueやPRからの参照\n\nIssueやPRに #番号 を書くと，それがリンクになり相互参照ができます\n\nThis issue is related to #45 and blocked by #38.\n\n\n\n\n\nPRやcommitでのIssueステータス管理\n\n対応状況（Open/Clossed）をcommit messageで管理することができます\n\ngh pr create --base main --head feature \\\n  --title \"Fix login bug causing crash\" \\\n  --body \"Fixes #45\""
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueを用いたワークフロー例の紹介",
+    "text": "GitHub Issueを用いたワークフロー例の紹介\nGitHub Issue\n\n\n\n\nGitHub Issue活用ワークフロー例\n\n\n\n\n\n\n\nSetp1: バグの発見とIssueの作成\n\n\n問題の言語化と可視化を通して，チーム全体が何が起きているか共有\n\n\n\n\n\n\n\n\n\nStep2: ラベルとメタ情報の整理\n\n\nラベル・マイルストンの明示によって，タスクを管理しやすくする\n\n\n\n\n\n\n\n\n\nStep3: 担当者の割り当てと作業開始\n\n\n担当者の明確化(@mention)により，進捗確認しやすくする\n\n\n\n\n\n\n\n\n\nStep4: Pull Requestを作成し、Issueと関連付け\n\n\n何のための変更かを追跡でき，レビューや変更履歴の文脈が明確になる\n\n\n\n\n\n\n\n\n\nStep5: PRマージとIssueの自動クローズ\n\n\n作業の完了と状態管理の自動化によって，手動での管理ミスを防ぐ\n\n\n\n\n\nGitHub Issue作成Tips\n\n\n\n\n① Issueの重複を回避する\n\n\n\nIssue作成前にキーワード検索して既存のIssueを確認\n既存Issueに追記する形が望ましい場合は，新規作成を避ける\n\n\n\n\n\n\n② チームで共通のLabelを定義・運用する\n\n\n\nカテゴリ・優先度・状態を表すラベルを整理（例：bug, preprocess, P1）\nチームでラベル運用ルールを文書化する\n\n\n\n\n\n\n③ Issue Templateを定義する\n\n\n\n.github/ISSUE_TEMPLATE にテンプレートファイルを作成\nバグ報告・機能提案など，用途ごとにテンプレートを分ける\n\n\n\n\n\n\n④ マイルストンを明確に設定する\n\n\n\nIssueごとにマイルストンを紐づける\nマイルストンごとの進捗率把握に役に立つ\n\n例: version 3.0 リリースに必要なタスクの95%が現在達成済み"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
+    "title": "はじめてのGitHub",
+    "section": "Kanbanを用いたGitHub Issueの管理",
+    "text": "Kanbanを用いたGitHub Issueの管理\nGitHub Issue\n\n\nGitHub Project Board\n\n\nGitHub では Projects（プロジェクトボード） 機能を使って，Kanbanスタイルで最新情報のIssue/PRを管理できます\nフィルタリング，並び替え，グループ化することでレイアウトを自由にカスタマイズできます"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
+    "title": "はじめてのGitHub",
+    "section": "Pull Requestとは？",
+    "text": "Pull Requestとは？\nあるブランチで行った変更について、別のブランチへのマージを依頼するGitHub上の仕組み1 Pull Request\n\n\n\nGitHub Pull Requestワークフロー\n\n\n\n\n\n\n\nStep1: ブランチ作成と作業開始\n\n\nトピックブランチ2を切り、独立して作業を進めることで本線に影響を与えず開発可能に\n\n\n\n\n\n\n\n\n\nStep2: コミットとプッシュ\n\n\n適切な粒度でコミットを行い、GitHubにプッシュして作業状況を共有する\n\n\n\n\n\n\n\n\n\nStep3: Pull Request（PR）を作成\n\n\nレビュー依頼・変更内容の記録・Issueとの関連付けなどを行う\n\n\n\n\n\n\n\n\n\nStep4: レビューとフィードバック対応\n\n\nコメント機能を活用し、コード品質と理解度を高めながら開発を進行\n\n\n\n\n\n\n\n\n\nStep5: Pull Requestをマージ\n\n\nPRを承認・マージし、関連Issueも自動クローズ\n\n\n\n\n\nGitHub PR活用Tips\n\n\n\n\n① PRとIssueを関連付ける\n\n\n\nPR本文に Fixes #123 を記述して、マージ時にIssueを自動Close\n複数Issueに関連する場合は箇条書きで整理\n\n\n\n\n\n\n② Draft PRを活用して作業途中でも共有\n\n\n\n作業中でも早期に可視化してコメントをもらえる\n[WIP]など作業中であることを明確にする\n\n\n\n\n\n\n③ PRテンプレートを用意する\n\n\n\n.github/PULL_REQUEST_TEMPLATE.md にてPRテンプレート設定可能\n\n\n\n\n\n\n④ レビュー後の変更は同一ブランチにPush\n\n\n\n同じPR内で再レビューが可能になる\n会話の文脈を維持したままフィードバック対応ができる\n\n\n\n\n\nPull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み１つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: main や release)．"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#はじめてのpull-requestの作成",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#はじめてのpull-requestの作成",
+    "title": "はじめてのGitHub",
+    "section": "はじめてのPull Requestの作成",
+    "text": "はじめてのPull Requestの作成\nPull Request"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#conversationを活用したコードレビュー",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#conversationを活用したコードレビュー",
+    "title": "はじめてのGitHub",
+    "section": "Conversationを活用したコードレビュー",
+    "text": "Conversationを活用したコードレビュー\nPull Request"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestをトリガーとしたテストの実行",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestをトリガーとしたテストの実行",
+    "title": "はじめてのGitHub",
+    "section": "Pull Requestをトリガーとしたテストの実行",
+    "text": "Pull Requestをトリガーとしたテストの実行\nPull Request"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#merge-commit-vs-squash-merge-vs-rebase-merge",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#merge-commit-vs-squash-merge-vs-rebase-merge",
+    "title": "はじめてのGitHub",
+    "section": "merge commit vs squash merge vs rebase merge",
+    "text": "merge commit vs squash merge vs rebase merge\nPull Request"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#wiki",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#wiki",
+    "title": "はじめてのGitHub",
+    "section": "Wiki",
+    "text": "Wiki"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-actions",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-actions",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
+    "title": "はじめてのGitHub",
+    "section": "サル先生のGit入門",
+    "text": "サル先生のGit入門\nGitの初心者から中級者までを対象に、バージョン管理の基礎から実践的な操作方法までを解説\n\n\n\n\n\nsaru-git\n\n\n\nサイトメタデータ\n\n\n\nサイト名\nサル先生のGit入門\n\n\nURL\nhttps://backlog.com/ja/git-tutorial/\n\n\n提供元\n株式会社ヌーラボ（プロジェクト管理ツール「Backlog」の開発元）\n\n\n書籍版\n『サルでもわかるGit入門』（インプレス刊）\n\n\n\nコンテンツ構成\n\n\n\nセクション\n内容\n\n\n\n\n入門編\nGitの基本操作（コミット、ブランチ作成など）を図解で解説\n\n\n発展編\nマージやリベース、コンフリクト解消など中級者向けの操作\n\n\nプルリクエスト編\nチーム開発でのプルリクエストの使い方とレビューの流れ\n\n\n逆引きGit\nやりたいことからコマンドを探せる便利な逆引きリファレンス"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
+    "title": "はじめてのGitHub",
+    "section": "OhGoshGit",
+    "text": "OhGoshGit\n初心者～中級者向けに「Git操作でやらかしがちなミスとその直し方」を解説したサイト\n\n\n\n\n\nOGG\n\n\n\nサイトメタデータ\n\n\n\n\n\n\n\nサイト名\nOhGoshGit!?!\n\n\nURL\nhttps://ohgoshgit.github.io/\n\n\n提供元\nOhGoshGit\n\n\nライセンス\nMIT License\n\n\n言語対応\n日本語対応セクションあり\n\n\n\nコンテンツ構成\n\nGit関連のトラブルシューティングや設定ミス対処法を解説\nHeaderから日本語選択可能\n具体的なトピック例\n\nリモートブランチへのpush/pullができない場合\n最新のコミットと作業中の変更との差分を確認方法\nGitHubリポジトリの名前を変更する方法\nGitHubリポジトリへのSSH接続を設定する手順"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
+    "title": "はじめてのGitHub",
+    "section": "Gitのバージョン管理の仕組み",
+    "text": "Gitのバージョン管理の仕組み\n\n\n\nGitコマンドと領域移動関係図\n\n\n\n\n\n\nsequenceDiagram\n\n  participant A as working directory&lt;br&gt;(working tree)\n  participant B as staging area&lt;br&gt;(index)\n  participant C as local repository&lt;br&gt;(local branch)\n  participant D as local repository&lt;br&gt;(tracking branch)\n  participant E as remote repository\n\n  A-&gt;&gt;B: git add/rm\n  B-&gt;&gt;C: git commit\n  C-&gt;&gt;E: git push\n  C-&gt;&gt;A: git switch -c&lt;br&gt;(checkout)\n  E-&gt;&gt;D: git fetch\n  D-&gt;&gt;A: git merge\n  E-&gt;&gt;A: git pull (実質的には git fetch + git merge)\n\n\n\n\n\n\n\n5つのGit管理領域\n\n\nworking directory (working tree)\n\n\nコードを編集する作業領域\n\n\n\n\n\nstaging area (index)\n\n\n次のコミットに含める変更を一時的に置く場所\n\n\n\n\n\nlocal repository (local branch)\n\n\n自分のPC上のGitリポジトリ。コミット履歴を保存\n\n\n\n\n\nlocal repository (tracking branch)\n\n\nリモートブランチを追跡しているローカルのブランチ\n\n\n\n\n\nremote repository\n\n\nサーバー上の共有リポジトリ（GitHub）"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
+    "title": "はじめてのGitHub",
+    "section": "Gitはsnapshot方式で全体の状態を記録",
+    "text": "Gitはsnapshot方式で全体の状態を記録\n\n\n\nSnapshot形式のデータ管理\n\n\n\n差分形式のデータ管理\n\n\n\n\n\n\n① 各コミットは「ツリー（tree）」オブジェクトでディレクトリ構造を表現している\n\n\n② Git はすべてのファイルが各時点で状態をSnapshotで記録し、各ツリーはsnapshotへの参照を保存している\n\n\n③ 更新がなかったファイルは、前回と同じ blob オブジェクトへの参照リンクを保存している\n\n\n④ Gitのオブジェクト（コミット、ツリー、ブロブなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
+    "title": "はじめてのGitHub",
+    "section": "Git × 大容量ファイル ― やってはいけないアンチパターン",
+    "text": "Git × 大容量ファイル ― やってはいけないアンチパターン\n\n\n大容量ファイルをコミットするのは絶対にやってはいけない\n\n\n\nGitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび完全な新コピーをオブジェクト DB に追加してしまう\n特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる\n\n\n\n\n\n\n\n\n アンチパターン\n\n\n\n\n巨大バイナリをそのままコミット\n\n\nRAW 動画、可逆圧縮画像、機械学習モデルをcommit\n\n\n\n\n\n\n定期的に更新される生成物を履歴に残す\n\n\nPDF/PowerPoint, minified JS/CSS bundles, compiled binaries\n\n\n\n\n\n\n一時ファイルやキャッシュをうっかり追加\n\n\n.DS_Store, .idea, *.sqlite, *.log\n\n\n\n\n\n\n 発生する不具合\n\n\n\n\nリポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる\n\n\n1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り\n\n\n\n\n\n\n生成物が少しでも変わるたびにフルコピーされ履歴が膨張\n\n\nファイルの中の一部が変われば、新しい blob オブジェクトが生成される\n\n\n\n\n\n\n差分や履歴がノイズまみれになる\n\n\n開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる"
   },
   {
     "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
