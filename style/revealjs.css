@@ -313,6 +313,15 @@ div.colored-slide-30 {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.component-card-for-analysis-summary {
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
 /* ------------------------------------------------------------------- */
 /*                          info box                                   */
 /* ------------------------------------------------------------------- */
@@ -492,7 +501,7 @@ div.colored-slide-30 {
   padding-left: 0.2em;
 }
 
-.hop-step-jump-container .info-box {
+.hop-step-jump-container .info-card {
   margin-top: 0.2em;
   display: grid;
   grid-template-columns: auto auto; /* Two-column layout */
@@ -1049,7 +1058,8 @@ div.colored-slide-30 {
 }
 
 .custom-table,
-.custom-table-no-header {
+.custom-table-no-header,
+.custom-table-for-analysis-summary {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 10px 5px;
@@ -1059,14 +1069,16 @@ div.colored-slide-30 {
 }
 
 .custom-table caption,
-.custom-table-no-header caption {
+.custom-table-no-header caption,
+.custom-table-for-analysis-summary caption {
   font-weight: bold;
   padding: 0.5em;
 }
 
 /* Apply black border the header cells */
 .custom-table thead tr,
-.custom-table-no-header thead tr {
+.custom-table-no-header thead tr,
+.custom-table-for-analysis-summary thead tr {
   border-bottom: 2px solid #1a1a1a;
 }
 .custom-table th:first-child {
@@ -1079,8 +1091,13 @@ div.colored-slide-30 {
   padding-left: 0em !important;
 }
 
+.custom-table-for-analysis-summary thead tr {
+  display: none;
+}
+
 .custom-table td,
-.custom-table-no-header td {
+.custom-table-no-header td,
+.custom-table-for-analysis-summary td {
   padding-top: 0.1em !important;
   padding-bottom: 0.1em !important;
   padding-right: 0.5em !important;
@@ -1092,7 +1109,8 @@ div.colored-slide-30 {
 }
 
 .custom-table th,
-.custom-table-no-header th {
+.custom-table-no-header th,
+.custom-table-for-analysis-summary th {
   padding-left: 0.4em !important;
   background-color: transparent;
   color: #1a1a1a;
@@ -1103,25 +1121,29 @@ div.colored-slide-30 {
 
 /* Dotted separation between rows */
 .custom-table tr,
-.custom-table-no-header tr {
+.custom-table-no-header tr,
+.custom-table-for-analysis-summary tr {
   border-bottom: 1.5px solid #ccc; /* Dotted line separating rows */
 }
 
 /* Remove bottom border on the last row of any nested tables */
 .custom-table table tr td table tr:last-child,
-.custom-table-no-header table tr td table tr:last-child {
+.custom-table-no-header table tr td table tr:last-child,
+.custom-table-for-analysis-summary table tr td table tr:last-child {
   border-bottom: none !important; /* Remove border for the last row in nested tables */
 }
 
 .custom-table tr:nth-child() td,
-.custom-table-no-header tr:nth-child() td {
+.custom-table-no-header tr:nth-child() td,
+.custom-table-for-analysis-summary tr:nth-child() td {
   background-color: #f2f2f2;
   padding-left: 10px;
 }
 
 /* Set white background for any <td> that is part of a rowspan */
 .custom-table td[rowspan],
-.custom-table-no-header td[rowspan] {
+.custom-table-no-header td[rowspan],
+.custom-table-for-analysis-summary td[rowspan] {
   background-clip: content-box;
   background-image: linear-gradient(
     to top,

@@ -1,0 +1,134 @@
+## 分析Introductionスライド例
+
+::::{.tools-grid}
+::::: {.tools-column}
+
+:::{.border-bottom-header}
+
+背景・課題
+
+:::
+
+
+<!-- 1st -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+
+:::
+
+### 背景・文脈
+
+
+:::
+
+:::{.pl-10 .grid-cols}
+
+<!-- 研究分野の「全体像」を提示する  -->
+
+:::
+
+::::
+
+<!-- 2nd -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi signpost-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 課題・ギャップ
+
+
+:::
+
+:::{.pl-10 }
+
+<!-- 分析の「必要性」を明確にする -->
+
+:::
+
+::::
+
+:::::
+
+::::: {.tools-column}
+
+:::{.border-bottom-header}
+
+実施内容
+
+:::
+
+
+
+<!-- 3rd -->
+
+::::{.component-card-for-analysis-summary }
+
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi funnel-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 分析スコープ
+
+
+:::
+
+:::{.pl-10 }
+
+
+<!-- 分析で「何に取り組んだのか」を明確にする -->
+
+
+:::
+
+::::
+
+
+{{< reveal_vspace 3.4em >}}
+
+
+<!-- 4th -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi bar-chart-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 分析結果
+
+
+:::
+
+:::{.pl-10 }
+
+
+<!-- 分析によって得られたインサイトを示す -->
+
+:::
+
+::::
+
+:::::
+::::

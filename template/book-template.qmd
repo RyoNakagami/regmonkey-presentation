@@ -1,0 +1,22 @@
+## <!-- title -->
+
+:::: {.columns}
+::: {.column .book-image}
+
+<!-- ![picture](./picture-path.png) -->
+
+:::
+
+::: {.column .book-info}
+### 書籍情報
+
+<!-- book metadata -->
+
+
+
+### この本の内容
+
+<!-- contents discription -->
+
+:::
+::::

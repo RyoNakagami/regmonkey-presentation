@@ -1,0 +1,409 @@
+---
+title: "Reasearch Introductionスライドの書き方"
+subtitle: "リサーチライティング"
+author: "Ryo Nakagami"
+date: "2025-06-13"
+categories: [スライドパッケージ, リサーチライティング]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## Introductionスライド４つの構成要素
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[Introductionスライドのルール]{.info-box-title}
+
+::: {.info-contents}
+
+- Introductionスライドの目的は、読者を分析に引き込む「入口」として機能すること
+- 「背景・文脈」「課題・ギャップ」「分析スコープ」「分析結果」が押さえられている
+
+:::
+::::
+
+::::: {.columns}
+
+:::: {.column style="width: 25%; height:80%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+背景・文脈
+:::
+
+{{< reveal_vspace 10% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;"}
+
+:::{.section-header}
+
+目的
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 研究分野の「全体像」を提示し、聴衆を導入部分で安心させる
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.section-header}
+
+構成要素
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- このテーマが属する分野
+- 分野の重要性
+- 既に明らかになっていること
+
+:::
+
+:::
+::::
+
+
+:::: {.column style="width: 25%; height:80%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi signpost-fill  size=1.7em color=#428CE6 >}}
+
+課題・ギャップ
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;"}
+
+:::{.section-header}
+
+目的
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 分析の「必要性」を明確にする
+
+{{< reveal_vspace 1.5em >}}
+
+:::{.section-header}
+
+構成要素
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- まだ解明されていない問題
+- これまでの議論のバイアス・視点の欠如
+
+:::
+
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:80%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi funnel-fill  size=1.7em color=#428CE6 >}}
+
+分析スコープ
+
+:::
+{{< reveal_vspace 10% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;"}
+
+:::{.section-header}
+
+目的
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 分析で「何に取り組んだのか」を明確にする
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.section-header}
+
+構成要素
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 分析の目的・クエッション
+- アプローチの概要
+- この分析の意義
+
+:::
+
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:80%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{.horizontal-keypoints-block-no-border style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi bar-chart-fill  size=1.7em color=#428CE6 >}}
+分析結果
+
+:::
+{{< reveal_vspace 10% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;"}
+
+:::{.section-header}
+
+目的
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 分析によって得られたインサイトを示す
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.section-header}
+
+構成要素
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+- 結果の要点と意義
+- 分析結果と「課題」の関係性
+- 分析結果の事業インパクト
+
+:::
+
+
+:::
+::::
+
+:::::
+
+
+## 分析Introductionスライド例
+
+::::{.tools-grid}
+::::: {.tools-column}
+
+:::{.border-bottom-header}
+
+背景・課題
+
+:::
+
+
+<!-- 1st -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi exclamation-circle-fill  size=1.6em color=#428CE6 >}}
+
+:::
+
+### 背景・文脈
+
+
+:::
+
+:::{.pl-10 .grid-cols}
+
+- 都市化とエネルギー需要の増加は、気候変動と密接に関係
+- 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析
+- 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）
+
+:::
+
+::::
+
+<!-- 2nd -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi signpost-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 課題・ギャップ
+
+
+:::
+
+:::{.pl-10 }
+
+- 多くの研究は単一都市の分析にとどまっている
+- 都市間比較や地域特異性の視点が欠如
+- 日本を含むアジア都市の分析は不十分
+
+:::
+
+::::
+
+:::::
+
+::::: {.tools-column}
+
+:::{.border-bottom-header}
+
+実施内容
+
+:::
+
+
+
+<!-- 3rd -->
+
+::::{.component-card-for-analysis-summary }
+
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi funnel-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 分析スコープ
+
+
+:::
+
+:::{.pl-10 }
+
+
+- 方針：気温変化と電力需要の関係を定量的に評価
+- 対象：東京・大阪・福岡の3都市
+- 手法：ARIMA + XGBoost モデルによる予測と比較分析
+
+
+:::
+
+::::
+
+
+{{< reveal_vspace 3.4em >}}
+
+
+<!-- 4th -->
+
+::::{.component-card-for-analysis-summary }
+
+:::{.flex .items-center}
+
+:::{.mr-3}
+  
+{{< bi bar-chart-fill  size=1.7em color=#428CE6 >}}
+
+:::
+
+### 分析結果
+
+
+:::
+
+:::{.pl-10 }
+
+
+- 東京は冷房需要が特に大きく増加
+- 大阪・福岡は冷暖房の両面で変動が大きい
+- 気温2度上昇時、夏季の電力需要は最大15%上昇
+- 都市ごとに異なる対応が必要であることを示唆
+
+:::
+
+::::
+
+:::::
+::::
+
+
+## 分析Introductionスライド例 pattern 2
+
+::::{.custom-table-for-analysis-summary style="width:100%;"}
+:::{.yaml2table .yaml2table-custom-top  #yaml-mtg-table data-col-widths="[20, 80]" style="font-size: 0.9em;"}
+
+```yaml
+record1:
+  component: 背景・文脈
+  説明:
+    - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析
+    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）
+
+record2:
+  component: 課題・ギャップ
+  説明:
+    - 多くの研究は単一都市の分析にとどまっている
+    - 都市間比較や地域特異性の視点が欠如
+    - 日本を含むアジア都市の分析は不十分
+    - モデルの精度や変数選定にも課題
+
+
+record3:
+  component: 分析目的<br>アプローチ
+  説明:
+    - <strong>目的</strong>： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える
+    - <strong>対象</strong>： 東京・大阪・福岡の3都市
+    - <strong>分析</strong>： 気温変化と電力需要の関係を定量的に評価
+    - <strong>手法</strong>： ARIMA + XGBoost モデルによる予測と比較分析
+
+record4:
+  component: 分析結果
+  説明:
+    - 東京は冷房需要が特に大きく増加
+    - 大阪・福岡は冷暖房の両面で変動が大きい
+    - 気温2度上昇時、夏季の電力需要は最大15%上昇
+    - 都市ごとに異なる対応が必要であることを示唆
+
+```
+:::
+::::

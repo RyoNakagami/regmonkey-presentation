@@ -537,27 +537,27 @@ gh pr create --base main --head feature \
 []{.leaderline start="#communication-with-issue"  end="#tip-mention"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:15%; width:87%; height:5%"
-    path="grid"}   
+    path="straight"}   
 
 []{.leaderline start="#communication-with-issue"  end="#tip-label"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:28%; width:87%; height:5%"
-    path="grid"}   
+    path="straight"}   
 
 []{.leaderline start="#communication-with-issue"  end="#tip-commit"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:36%; width:87%; height:7%"
-    path="grid"}   
+    path="straight"}   
 
 []{.leaderline start="#communication-with-issue"  end="#tip-ref"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:52%; width:87%; height:7%"
-    path="grid"}   
+    path="straight"}   
 
 []{.leaderline start="#communication-with-issue"  end="#tip-status"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:94%; width:87%; height:5%"
-    path="grid"}   
+    path="straight"}   
 
 ## GitHub Issueを用いたワークフロー例の紹介
 [GitHub Issue]{.topleftbox}
@@ -1013,20 +1013,20 @@ GitHub PR活用Tips
 
 [^footer2]: １つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
 
-## はじめてのPull Requestの作成
-[Pull Request]{.topleftbox}
+<!-- ## はじめてのPull Requestの作成
+[Pull Request]{.topleftbox} -->
 
 
 
 
-## Conversationを活用したコードレビュー
-[Pull Request]{.topleftbox}
+<!-- ## Conversationを活用したコードレビュー
+[Pull Request]{.topleftbox} -->
 
-
+<!-- 
 ## Pull Requestをトリガーとしたテストの実行
-[Pull Request]{.topleftbox}
+[Pull Request]{.topleftbox} -->
 
-## merge commit vs squash merge vs rebase merge
+<!-- ## merge commit vs squash merge vs rebase merge
 [Pull Request]{.topleftbox}
 
 
@@ -1035,7 +1035,7 @@ GitHub PR活用Tips
 
 
 
-## GitHub Actions
+## GitHub Actions -->
 
 
 
@@ -1428,4 +1428,4 @@ PDF/PowerPoint, minified JS/CSS bundles, compiled binaries
 ::::
 
 
-# Appendix: 用語集
+<!-- # Appendix: 用語集 -->

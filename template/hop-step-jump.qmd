@@ -21,7 +21,7 @@
 
 :::
 
-:::{.info-box}
+:::{.info-card}
 
 :::{.info-label}
 <!-- acticity label 目的-->
@@ -58,7 +58,7 @@
 
 :::
 
-:::{.info-box}
+:::{.info-card}
 
 :::{.info-label}
 <!-- acticity label 目的-->
@@ -96,7 +96,7 @@
 
 :::
 
-:::{.info-box}
+:::{.info-card}
 
 :::{.info-label}
 <!-- acticity label 目的-->
