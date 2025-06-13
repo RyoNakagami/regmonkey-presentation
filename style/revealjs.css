@@ -313,6 +313,15 @@ div.colored-slide-30 {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.component-card-for-analysis-summary {
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
 /* ------------------------------------------------------------------- */
 /*                          info box                                   */
 /* ------------------------------------------------------------------- */
@@ -492,7 +501,7 @@ div.colored-slide-30 {
   padding-left: 0.2em;
 }
 
-.hop-step-jump-container .info-box {
+.hop-step-jump-container .info-card {
   margin-top: 0.2em;
   display: grid;
   grid-template-columns: auto auto; /* Two-column layout */
