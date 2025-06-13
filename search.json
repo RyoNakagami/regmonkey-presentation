@@ -126,6 +126,13 @@
     "text": "分析Introductionスライド例\n\n\n\n背景・課題\n\n\n\n\n\n\n\n背景・文脈\n\n\n\n都市化とエネルギー需要の増加は、気候変動と密接に関係\n多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\n\n\n\n\n\n\n\n\n課題・ギャップ\n\n\n\n多くの研究は単一都市の分析にとどまっている\n都市間比較や地域特異性の視点が欠如\n日本を含むアジア都市の分析は不十分\n\n\n\n\n\n\n実施内容\n\n\n\n\n\n\n\n分析スコープ\n\n\n\n方針：気温変化と電力需要の関係を定量的に評価\n対象：東京・大阪・福岡の3都市\n手法：ARIMA + XGBoost モデルによる予測と比較分析\n\n\n\n\n\n\n\n\n\n\n分析結果\n\n\n\n東京は冷房需要が特に大きく増加\n大阪・福岡は冷暖房の両面で変動が大きい\n気温2度上昇時、夏季の電力需要は最大15%上昇\n都市ごとに異なる対応が必要であることを示唆"
   },
   {
+    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
+    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
+    "title": "Reasearch Introductionスライドの書き方",
+    "section": "分析Introductionスライド例 pattern 2",
+    "text": "分析Introductionスライド例 pattern 2\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
+  },
+  {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
     "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
     "title": "構造化されたストーリーとしてのスライド",
