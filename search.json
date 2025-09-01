@@ -1,38 +1,24 @@
 [
   {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "動作環境セットアップ",
-    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
+    "section": "",
+    "text": "Reasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
-    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
   },
   {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Roo Code用Slide generator modeの作成",
-    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Azure summaryスライドの作成",
-    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "hop-step-jumpスライドの作成",
-    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
   },
   {
     "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
@@ -82,6 +68,111 @@
     "title": "Gannt chartを用いたプロジェクトマネジメント",
     "section": "効率的なプロジェクト管理のためのマイルストン設定観点",
     "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
+    "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
+    "title": "Summaryスライド",
+    "section": "Azure blue サマリースライドの構成要素",
+    "text": "Azure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "href": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "title": "Summaryスライド",
+    "section": ".summary-container",
+    "text": ".summary-container\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nsummary-container\n\ndisplay: flex\n\nコンテナの子要素（flex item）の並び方や配置を指定可能にする\n\nflex-direction: column\n\nflex itemsを縦方向に並べる\n\njustify-content: center\n\nflex item全体を縦方向中央に揃える"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "href": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "title": "Summaryスライド",
+    "section": ".block-azureblue-block",
+    "text": ".block-azureblue-block\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nblock-azureblue\n\ndisplay: block\n\n要素を「ブロック要素」として表示\n幅は親要素いっぱいに広がる\n\nbackground-color: #428ce6\n\nDodgerBlueをblockのtop 0.6em から bottom 0.5em\n\n.headline要素\n\nfont-size: 1emでbold処理\nline-height: 1"
+  },
+  {
+    "objectID": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "href": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "title": "Summaryスライド",
+    "section": "CSS設定と実装例",
+    "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
+  },
+  {
+    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#introductionスライド４つの構成要素",
+    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#introductionスライド４つの構成要素",
+    "title": "Reasearch Introductionスライドの書き方",
+    "section": "Introductionスライド４つの構成要素",
+    "text": "Introductionスライド４つの構成要素\n\n\nIntroductionスライドのルール\n\n\nIntroductionスライドの目的は、読者を分析に引き込む「入口」として機能すること\n「背景・文脈」「課題・ギャップ」「分析スコープ」「分析結果」が押さえられている\n\n\n\n\n\n\n\n\n 背景・文脈\n\n\n\n目的\n\n\n研究分野の「全体像」を提示し、聴衆を導入部分で安心させる\n\n\n構成要素\n\n\nこのテーマが属する分野\n分野の重要性\n既に明らかになっていること\n\n\n\n\n\n\n\n\n課題・ギャップ\n\n\n\n目的\n\n\n分析の「必要性」を明確にする\n\n\n構成要素\n\n\nまだ解明されていない問題\nこれまでの議論のバイアス・視点の欠如\n\n\n\n\n\n\n\n\n分析スコープ\n\n\n\n目的\n\n\n分析で「何に取り組んだのか」を明確にする\n\n\n構成要素\n\n\n分析の目的・クエッション\nアプローチの概要\nこの分析の意義\n\n\n\n\n\n\n\n 分析結果\n\n\n\n目的\n\n\n分析によって得られたインサイトを示す\n\n\n構成要素\n\n\n結果の要点と意義\n分析結果と「課題」の関係性\n分析結果の事業インパクト"
+  },
+  {
+    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例",
+    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例",
+    "title": "Reasearch Introductionスライドの書き方",
+    "section": "分析Introductionスライド例",
+    "text": "分析Introductionスライド例\n\n\n\n背景・課題\n\n\n\n\n\n\n\n背景・文脈\n\n\n\n都市化とエネルギー需要の増加は、気候変動と密接に関係\n多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\n\n\n\n\n\n\n\n\n課題・ギャップ\n\n\n\n多くの研究は単一都市の分析にとどまっている\n都市間比較や地域特異性の視点が欠如\n日本を含むアジア都市の分析は不十分\n\n\n\n\n\n\n実施内容\n\n\n\n\n\n\n\n分析スコープ\n\n\n\n方針：気温変化と電力需要の関係を定量的に評価\n対象：東京・大阪・福岡の3都市\n手法：ARIMA + XGBoost モデルによる予測と比較分析\n\n\n\n\n\n\n\n\n\n\n分析結果\n\n\n\n東京は冷房需要が特に大きく増加\n大阪・福岡は冷暖房の両面で変動が大きい\n気温2度上昇時、夏季の電力需要は最大15%上昇\n都市ごとに異なる対応が必要であることを示唆"
+  },
+  {
+    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
+    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
+    "title": "Reasearch Introductionスライドの書き方",
+    "section": "分析Introductionスライド例 pattern 2",
+    "text": "分析Introductionスライド例 pattern 2\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
+  },
+  {
+    "objectID": "template/analysis-summary.html",
+    "href": "template/analysis-summary.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/analysis-summary.html#分析introductionスライド例",
+    "href": "template/analysis-summary.html#分析introductionスライド例",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+  },
+  {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
@@ -166,139 +257,6 @@
     "title": "はじめてのGitHub",
     "section": "Git × 大容量ファイル ― やってはいけないアンチパターン",
     "text": "Git × 大容量ファイル ― やってはいけないアンチパターン\n\n\n大容量ファイルをコミットするのは絶対にやってはいけない\n\n\n\nGitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび完全な新コピーをオブジェクト DB に追加してしまう\n特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる\n\n\n\n\n\n\n\n\n アンチパターン\n\n\n\n\n巨大バイナリをそのままコミット\n\n\nRAW 動画、可逆圧縮画像、機械学習モデルをcommit\n\n\n\n\n\n\n定期的に更新される生成物を履歴に残す\n\n\nPDF/PowerPoint, minified JS/CSS bundles, compiled binaries\n\n\n\n\n\n\n一時ファイルやキャッシュをうっかり追加\n\n\n.DS_Store, .idea, *.sqlite, *.log\n\n\n\n\n\n\n 発生する不具合\n\n\n\n\nリポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる\n\n\n1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り\n\n\n\n\n\n\n生成物が少しでも変わるたびにフルコピーされ履歴が膨張\n\n\nファイルの中の一部が変われば、新しい blob オブジェクトが生成される\n\n\n\n\n\n\n差分や履歴がノイズまみれになる\n\n\n開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる"
-  },
-  {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
-    "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
-    "title": "Summaryスライド",
-    "section": "Azure blue サマリースライドの構成要素",
-    "text": "Azure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
-  },
-  {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
-    "href": "posts/2025-05-16-summary-slide/index.html#summary-container",
-    "title": "Summaryスライド",
-    "section": ".summary-container",
-    "text": ".summary-container\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nsummary-container\n\ndisplay: flex\n\nコンテナの子要素（flex item）の並び方や配置を指定可能にする\n\nflex-direction: column\n\nflex itemsを縦方向に並べる\n\njustify-content: center\n\nflex item全体を縦方向中央に揃える"
-  },
-  {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
-    "href": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
-    "title": "Summaryスライド",
-    "section": ".block-azureblue-block",
-    "text": ".block-azureblue-block\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nblock-azureblue\n\ndisplay: block\n\n要素を「ブロック要素」として表示\n幅は親要素いっぱいに広がる\n\nbackground-color: #428ce6\n\nDodgerBlueをblockのtop 0.6em から bottom 0.5em\n\n.headline要素\n\nfont-size: 1emでbold処理\nline-height: 1"
-  },
-  {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
-    "href": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
-    "title": "Summaryスライド",
-    "section": "CSS設定と実装例",
-    "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
-  },
-  {
-    "objectID": "template/analysis-summary.html",
-    "href": "template/analysis-summary.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
-  },
-  {
-    "objectID": "template/analysis-summary.html#分析introductionスライド例",
-    "href": "template/analysis-summary.html#分析introductionスライド例",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
-  },
-  {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
-  },
-  {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
-    "section": "",
-    "text": "Reasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
-  },
-  {
-    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#introductionスライド４つの構成要素",
-    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#introductionスライド４つの構成要素",
-    "title": "Reasearch Introductionスライドの書き方",
-    "section": "Introductionスライド４つの構成要素",
-    "text": "Introductionスライド４つの構成要素\n\n\nIntroductionスライドのルール\n\n\nIntroductionスライドの目的は、読者を分析に引き込む「入口」として機能すること\n「背景・文脈」「課題・ギャップ」「分析スコープ」「分析結果」が押さえられている\n\n\n\n\n\n\n\n\n 背景・文脈\n\n\n\n目的\n\n\n研究分野の「全体像」を提示し、聴衆を導入部分で安心させる\n\n\n構成要素\n\n\nこのテーマが属する分野\n分野の重要性\n既に明らかになっていること\n\n\n\n\n\n\n\n\n課題・ギャップ\n\n\n\n目的\n\n\n分析の「必要性」を明確にする\n\n\n構成要素\n\n\nまだ解明されていない問題\nこれまでの議論のバイアス・視点の欠如\n\n\n\n\n\n\n\n\n分析スコープ\n\n\n\n目的\n\n\n分析で「何に取り組んだのか」を明確にする\n\n\n構成要素\n\n\n分析の目的・クエッション\nアプローチの概要\nこの分析の意義\n\n\n\n\n\n\n\n 分析結果\n\n\n\n目的\n\n\n分析によって得られたインサイトを示す\n\n\n構成要素\n\n\n結果の要点と意義\n分析結果と「課題」の関係性\n分析結果の事業インパクト"
-  },
-  {
-    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例",
-    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例",
-    "title": "Reasearch Introductionスライドの書き方",
-    "section": "分析Introductionスライド例",
-    "text": "分析Introductionスライド例\n\n\n\n背景・課題\n\n\n\n\n\n\n\n背景・文脈\n\n\n\n都市化とエネルギー需要の増加は、気候変動と密接に関係\n多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\n\n\n\n\n\n\n\n\n課題・ギャップ\n\n\n\n多くの研究は単一都市の分析にとどまっている\n都市間比較や地域特異性の視点が欠如\n日本を含むアジア都市の分析は不十分\n\n\n\n\n\n\n実施内容\n\n\n\n\n\n\n\n分析スコープ\n\n\n\n方針：気温変化と電力需要の関係を定量的に評価\n対象：東京・大阪・福岡の3都市\n手法：ARIMA + XGBoost モデルによる予測と比較分析\n\n\n\n\n\n\n\n\n\n\n分析結果\n\n\n\n東京は冷房需要が特に大きく増加\n大阪・福岡は冷暖房の両面で変動が大きい\n気温2度上昇時、夏季の電力需要は最大15%上昇\n都市ごとに異なる対応が必要であることを示唆"
-  },
-  {
-    "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
-    "href": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#分析introductionスライド例-pattern-2",
-    "title": "Reasearch Introductionスライドの書き方",
-    "section": "分析Introductionスライド例 pattern 2",
-    "text": "分析Introductionスライド例 pattern 2\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
   },
   {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
@@ -390,5 +348,47 @@
     "title": "構造化されたストーリーとしてのスライド",
     "section": "場面に応じてスライド作成クオリティは異なる",
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "動作環境セットアップ",
+    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
+    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Roo Code用Slide generator modeの作成",
+    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Azure summaryスライドの作成",
+    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "hop-step-jumpスライドの作成",
+    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   }
 ]
