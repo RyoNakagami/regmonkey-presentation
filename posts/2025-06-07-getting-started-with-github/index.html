@@ -259,7 +259,7 @@ Ryo Nakagami
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>開発プロセス</p>
+<p>ブランチ戦略</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>参考文献</p>
@@ -524,7 +524,7 @@ Ryo Nakagami
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>開発プロセス</p>
+<p>ブランチ戦略</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>参考文献</p>
@@ -592,37 +592,42 @@ Ryo Nakagami
 </tbody>
 </table>
 </div></div>
+<!-- slide -->
 </section>
 <section id="github-issueを用いたコミュニケーション例" class="slide level2">
 <h2>GitHub Issueを用いたコミュニケーション例</h2>
 <p><span class="topleftbox">GitHub Issue</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="columns">
-<div class="column" style="width:55%;">
+<!-- slide left --><div class="column" style="width:55%;">
 <div id="communication-with-issue">
 <p><a href="https://github.com/pandas-dev/pandas/issues/61443"><img data-src="./communication-with-issue.png"></a></p>
 </div>
-</div><div class="column" style="width:45%;">
+</div><!-- slide right --><div class="column" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 0.2em;"></div>
+<!-- .info-box start-->
 <div id="tip-mention" class="info-box">
 <p><span class="info-box-title">Mention機能の活用</span></p>
 <div class="info-contents">
-<p><code>@username</code> 形式で，対象のユーザーに通知が飛ばせます</p>
+<p><code>@username</code> 形式で、対象のユーザーに通知が飛ばせます</p>
 </div>
 </div>
+<!-- .info-box end -->
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<!-- .info-box tip-label -->
 <div id="tip-label" class="info-box">
 <p><span class="info-box-title">LabelでIssueを分類</span></p>
 <div class="info-contents">
-<p>議論内容を踏まえ，Labelの追加や削除をします</p>
+<p>議論内容を踏まえ、Labelの追加や削除をします</p>
 </div>
 </div>
+<!-- .info-box tip-label end-->
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div id="tip-commit" class="info-box">
 <p><span class="info-box-title">Commitとの紐付けで進捗を自動追跡</span></p>
 <div class="info-contents">
 <ul>
-<li>Issue番号をcommit messageに付与すると，自動的に紐付けができます</li>
+<li>Issue番号をcommit messageに付与すると、自動的に紐付けができます</li>
 <li>左図ではIssue thread に commit-id <code>09d4a63</code>が確認できる</li>
 </ul>
 <div style="font-size:1.4em; width: 90%">
@@ -634,7 +639,7 @@ Ryo Nakagami
 <div id="tip-ref" class="info-box">
 <p><span class="info-box-title">他のIssueやPRからの参照</span></p>
 <div class="info-contents">
-<p>IssueやPRに <code>#番号</code> を書くと，それがリンクになり相互参照ができます</p>
+<p>IssueやPRに <code>#番号</code> を書くと、それがリンクになり相互参照ができます</p>
 <div style="font-size:1.4em; width: 90%">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>This issue is related to #45 and blocked by #38.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -652,12 +657,8 @@ Ryo Nakagami
 </div>
 </div>
 </div>
-</div></div>
-<p><span class="leaderline" start="#communication-with-issue" data-end="#tip-mention" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:15%; width:87%; height:5%" data-path="straight"></span></p>
-<p><span class="leaderline" start="#communication-with-issue" data-end="#tip-label" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:28%; width:87%; height:5%" data-path="straight"></span></p>
-<p><span class="leaderline" start="#communication-with-issue" data-end="#tip-commit" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:36%; width:87%; height:7%" data-path="straight"></span></p>
-<p><span class="leaderline" start="#communication-with-issue" data-end="#tip-ref" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:52%; width:87%; height:7%" data-path="straight"></span></p>
-<p><span class="leaderline" start="#communication-with-issue" data-end="#tip-status" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:94%; width:87%; height:5%" data-path="straight"></span></p>
+</div><p><span class="leaderline" start="#communication-with-issue" data-end="#tip-mention" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:15%; width:87%; height:5%" data-path="straight"></span></p><p><span class="leaderline" start="#communication-with-issue" data-end="#tip-label" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:28%; width:87%; height:5%" data-path="straight"></span></p><p><span class="leaderline" start="#communication-with-issue" data-end="#tip-commit" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:36%; width:87%; height:7%" data-path="straight"></span></p><p><span class="leaderline" start="#communication-with-issue" data-end="#tip-ref" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:52%; width:87%; height:7%" data-path="straight"></span></p><p><span class="leaderline" start="#communication-with-issue" data-end="#tip-status" color="#206f83" data-end-socket="left" size="3" data-start-border-style="color:#206f83; x: 5%; y:94%; width:87%; height:5%" data-path="straight"></span></p>
+</div>
 </section>
 <section id="github-issueを用いたワークフロー例の紹介" class="slide level2">
 <h2>GitHub Issueを用いたワークフロー例の紹介</h2>
@@ -677,7 +678,7 @@ Ryo Nakagami
 <p>Setp1: バグの発見とIssueの作成</p>
 </div>
 <div class="tool-description">
-<p>問題の言語化と可視化を通して，チーム全体が何が起きているか共有</p>
+<p>問題の言語化と可視化を通して、チーム全体が何が起きているか共有</p>
 </div>
 </div>
 </div>
@@ -690,7 +691,7 @@ Ryo Nakagami
 <p>Step2: ラベルとメタ情報の整理</p>
 </div>
 <div class="tool-description">
-<p>ラベル・マイルストンの明示によって，タスクを管理しやすくする</p>
+<p>ラベル・マイルストンの明示によって、タスクを管理しやすくする</p>
 </div>
 </div>
 </div>
@@ -703,7 +704,7 @@ Ryo Nakagami
 <p>Step3: 担当者の割り当てと作業開始</p>
 </div>
 <div class="tool-description">
-<p>担当者の明確化(<code>@mention</code>)により，進捗確認しやすくする</p>
+<p>担当者の明確化(<code>@mention</code>)により、進捗確認しやすくする</p>
 </div>
 </div>
 </div>
@@ -716,7 +717,7 @@ Ryo Nakagami
 <p>Step4: Pull Requestを作成し、Issueと関連付け</p>
 </div>
 <div class="tool-description">
-<p>何のための変更かを追跡でき，レビューや変更履歴の文脈が明確になる</p>
+<p>何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる</p>
 </div>
 </div>
 </div>
@@ -729,7 +730,7 @@ Ryo Nakagami
 <p>Step5: PRマージとIssueの自動クローズ</p>
 </div>
 <div class="tool-description">
-<p>作業の完了と状態管理の自動化によって，手動での管理ミスを防ぐ</p>
+<p>作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ</p>
 </div>
 </div>
 </div>
@@ -745,7 +746,7 @@ Ryo Nakagami
 <div class="info-contents">
 <ul>
 <li>Issue作成前にキーワード検索して既存のIssueを確認</li>
-<li>既存Issueに追記する形が望ましい場合は，新規作成を避ける</li>
+<li>既存Issueに追記する形が望ましい場合は、新規作成を避ける</li>
 </ul>
 </div>
 </div>
@@ -769,7 +770,7 @@ Ryo Nakagami
 <div class="info-contents">
 <ul>
 <li><code>.github/ISSUE_TEMPLATE</code> にテンプレートファイルを作成</li>
-<li>バグ報告・機能提案など，用途ごとにテンプレートを分ける</li>
+<li>バグ報告・機能提案など、用途ごとにテンプレートを分ける</li>
 </ul>
 </div>
 </div>
@@ -798,8 +799,8 @@ Ryo Nakagami
 <p><span class="def-title">GitHub Project Board</span></p>
 <div class="def-contents">
 <ul>
-<li>GitHub では Projects（プロジェクトボード） 機能を使って，Kanbanスタイルで最新情報のIssue/PRを管理できます</li>
-<li>フィルタリング，並び替え，グループ化することでレイアウトを自由にカスタマイズできます</li>
+<li>GitHub では Projects（プロジェクトボード） 機能を使って、Kanbanスタイルで最新情報のIssue/PRを管理できます</li>
+<li>フィルタリング、並び替え、グループ化することでレイアウトを自由にカスタマイズできます</li>
 </ul>
 </div>
 </div>
@@ -932,10 +933,97 @@ Ryo Nakagami
 </div>
 </div></div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Pull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み</p></li><li id="fn2"><p>１つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: <code>main</code> や <code>release</code>)．</p></li></ol></aside></section></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Pull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み</p></li><li id="fn2"><p>１つのトピックに集中して、他の作業は一切行わないブランチ．対義語は統合ブランチ(例: <code>main</code> や <code>release</code>)．</p></li></ol></aside></section>
+<section id="pull-request-フィードバックポイント" class="slide level2">
+<h2>Pull Request フィードバックポイント</h2>
+<p><span class="topleftbox">Pull Request</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="grid grid-cols-3 gap-10 mb-6">
+<!-- 1st -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-eye text-white"></i></p>
+</div>
+<h3 id="コードの可読性">コードの可読性</h3>
+</div>
+<ul>
+<li>コーディング規則と整合的か</li>
+<li>コメントやドキュメントが適切か</li>
+</ul>
+</div>
+<!-- 2nd -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-cubes text-white"></i></p>
+</div>
+<h3 id="設計アーキテクチャ">設計・アーキテクチャ</h3>
+</div>
+<ul>
+<li>無駄なく効率的な計算か</li>
+<li>再利用性・拡張性はあるか</li>
+</ul>
+</div>
+<!-- 3rd -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-check-circle text-white"></i></p>
+</div>
+<h3 id="動作の正しさ">動作の正しさ</h3>
+</div>
+<ul>
+<li>要件や仕様を満たしているか</li>
+<li>境界条件や例外ケースの考慮があるか</li>
+</ul>
+</div>
+<!-- 4th -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-vial text-white"></i></p>
+</div>
+<h3 id="テスト">テスト</h3>
+</div>
+<ul>
+<li>単体テスト・統合テストが十分か</li>
+<li>カバレッジやケースの妥当性が確保されているか</li>
+<li>テストは再現可能な形で成功するか</li>
+</ul>
+</div>
+<!-- 5th -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-sync-alt text-white"></i></p>
+</div>
+<h3 id="リファクタリング">リファクタリング</h3>
+</div>
+<ul>
+<li>冗長なコードや重複が整理されているか</li>
+<li>関数やクラスの分割・抽象化が適切か</li>
+<li>技術的負債の返済につながっているか</li>
+</ul>
+</div>
+<!-- 6th -->
+<div class="component-card p-4">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-book text-white"></i></p>
+</div>
+<h3 id="プロジェクトルール遵守">プロジェクトルール遵守</h3>
+</div>
+<ul>
+<li>コーディング規約・スタイルガイドに沿っているか</li>
+<li>Gitのコミットメッセージ・ブランチ命名規則が守られているか</li>
+</ul>
+</div>
+</div>
+</section></section>
 <section>
-<section id="開発プロセス" class="title-slide slide level1 agenda-slide center">
-<h1>開発プロセス</h1>
+<section id="ブランチ戦略" class="title-slide slide level1 agenda-slide center">
+<h1>ブランチ戦略</h1>
 <div class="agenda">
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
@@ -945,7 +1033,7 @@ Ryo Nakagami
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-active">
-<p>開発プロセス</p>
+<p>ブランチ戦略</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>参考文献</p>
@@ -1043,6 +1131,7 @@ gitGraph
 <div class="tool-description">
 <ul>
 <li>安定版を保持するブランチ</li>
+<li><code>git push --tags</code> でリモートレポジトリに tagsをpushする</li>
 </ul>
 </div>
 </div>
@@ -1058,8 +1147,7 @@ gitGraph
 <div class="tool-description">
 <ul>
 <li><code>develop</code> は次期リリース向け統合ブランチ</li>
-<li><code>feature</code> は新機能開発用で，完成後 <code>develop</code> にマージ</li>
-<li><code>feature</code>はいわば，<code>develop</code>向けPRブランチ</li>
+<li><code>feature</code> は新機能開発用で、完成後 <code>develop</code> にマージ</li>
 </ul>
 </div>
 </div>
@@ -1090,8 +1178,8 @@ gitGraph
 </div>
 <div class="tool-description">
 <ul>
-<li>本番の緊急修正用ブランチ(例: <code>hotfix_&lt;issue number&gt;</code>)</li>
-<li><code>main</code> から派生し，修正後 <code>main</code> と <code>develop</code> にマージ</li>
+<li>本番の緊急修正用ブランチ(例: <code>hotfix/&lt;issue number&gt;-hogehoge</code>)</li>
+<li><code>main</code> から派生し、修正後 <code>main</code> と <code>develop</code> にマージ</li>
 </ul>
 </div>
 </div>
@@ -1202,12 +1290,12 @@ gitGraph
 </div>
 <div class="tool-content">
 <div class="tool-name">
-<p><span class="regmonkey-bold">system / unit/*</span></p>
+<p><span class="regmonkey-bold">system / unit</span></p>
 </div>
 <div class="tool-description">
 <ul>
 <li><code>system</code> は次期リリース向け統合ブランチでシステムテストを実施</li>
-<li><code>unit/*</code> はユニットテスト駆動で開発し，完成後 <code>system</code> にマージ</li>
+<li><code>unit/*</code> はユニットテスト駆動開発ブランチで、完成後に <code>system</code> にマージ</li>
 </ul>
 </div>
 </div>
@@ -1258,7 +1346,7 @@ gitGraph
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
-<p>開発プロセス</p>
+<p>ブランチ戦略</p>
 </div></li>
 <li><div class="agenda-active">
 <p>参考文献</p>
@@ -1398,7 +1486,7 @@ gitGraph
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
-<p>開発プロセス</p>
+<p>ブランチ戦略</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>参考文献</p>
