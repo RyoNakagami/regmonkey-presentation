@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – はじめてのGitHub</title>
@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link rel="stylesheet" href="../../style/revealjs.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EX9H7GRLTH"></script>
 
@@ -257,6 +257,9 @@ Ryo Nakagami
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>GitHubの機能紹介</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>開発プロセス</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>参考文献</p>
@@ -521,6 +524,9 @@ Ryo Nakagami
 <p>GitHubの機能紹介</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
+<p>開発プロセス</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
 <p>参考文献</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
@@ -620,7 +626,7 @@ Ryo Nakagami
 <li>左図ではIssue thread に commit-id <code>09d4a63</code>が確認できる</li>
 </ul>
 <div style="font-size:1.4em; width: 90%">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Fix connection timeout bug (#123)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Fix connection timeout bug (#123)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -630,7 +636,7 @@ Ryo Nakagami
 <div class="info-contents">
 <p>IssueやPRに <code>#番号</code> を書くと，それがリンクになり相互参照ができます</p>
 <div style="font-size:1.4em; width: 90%">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>This issue is related to #45 and blocked by #38.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>This issue is related to #45 and blocked by #38.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -640,9 +646,9 @@ Ryo Nakagami
 <div class="info-contents">
 <p>対応状況（<code>Open/Clossed</code>）をcommit messageで管理することができます</p>
 <div style="font-size:1.4em; width: 90%">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">gh</span> pr create <span class="at">--base</span> main <span class="at">--head</span> feature <span class="dt">\</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">gh</span> pr create <span class="at">--base</span> main <span class="at">--head</span> feature <span class="dt">\</span></span>
 <span id="cb3-2"><a></a>  <span class="at">--title</span> <span class="st">"Fix login bug causing crash"</span> <span class="dt">\</span></span>
-<span id="cb3-3"><a></a>  <span class="at">--body</span> <span class="st">"Fixes #45"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>  <span class="at">--body</span> <span class="st">"Fixes #45"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -926,24 +932,320 @@ Ryo Nakagami
 </div>
 </div></div>
 <!-- footer -->
-<!-- ## はじめてのPull Requestの作成
-[Pull Request]{.topleftbox} -->
-<!-- ## Conversationを活用したコードレビュー
-[Pull Request]{.topleftbox} -->
-<!-- 
-## Pull Requestをトリガーとしたテストの実行
-[Pull Request]{.topleftbox} -->
-<!-- ## merge commit vs squash merge vs rebase merge
-[Pull Request]{.topleftbox}
-
-
-## Wiki
-
-
-
-
-## GitHub Actions -->
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Pull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み</p></li><li id="fn2"><p>１つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: <code>main</code> や <code>release</code>)．</p></li></ol></aside></section></section>
+<section>
+<section id="開発プロセス" class="title-slide slide level1 agenda-slide center">
+<h1>開発プロセス</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>GitHubとは</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>GitHubの機能紹介</p>
+</div></li>
+<li><div class="agenda-active">
+<p>開発プロセス</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>参考文献</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Appendix: Git操作</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="git-flow-リリース中心の開発スタイル" class="slide level2">
+<h2>Git Flow: リリース中心の開発スタイル</h2>
+<p><span class="h2-submessage">「<code>main</code>」「<code>develop</code>」「<code>feature</code>」「<code>release</code>」「<code>hotfix</code>」に分けて管理するワークフロー</span></p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="border-bottom-header">
+<p>開発の流れに応じたBranch切り替え</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="cell" data-reveal="true" data-fig-width="16" data-fig-height="12" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{ init: {
+    'theme': 'default',
+    'themeVariables': { 
+        'fontFamily': 'Meiryo'
+    },
+    'gitGraph': { 
+        'orientation': 'LR', 
+        'nodeSpacing': 150, 
+        'mainBranchName': 'main' 
+    }
+} }%%
+gitGraph
+   commit id: "" tag: "v1.0.0"
+
+   branch hotfix
+   checkout hotfix
+   commit id: "BUGFIX"
+
+   checkout main
+   branch develop
+   checkout develop
+   commit id: "開発開始"
+
+   branch feature/login
+   checkout feature/login
+   commit id: ""
+
+   checkout main
+   merge hotfix tag: "v1.0.1"
+
+   checkout develop
+   merge hotfix
+   commit id: "incorporate hotfix"
+   
+   checkout develop
+   merge feature/login
+   commit id: "ログイン機能実装"
+
+   branch release/1.1.x
+   checkout release/1.1.x
+   commit id: "リリース準備"
+   commit id: "bugfix"
+
+   checkout develop
+   merge release/1.1.x
+
+   checkout main
+   merge release/1.1.x  tag: "v1.1.0"
+
+   checkout develop
+   commit id: "FEATURE"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="border-bottom-header">
+<p>各種ブランチの役割分担</p>
+</div>
+<div class="tools-column" style="padding: 0em">
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-green-700">
+<p><i class="bi-check-circle-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">main</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>安定版を保持するブランチ</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-blue-700">
+<p><i class="bi-code-slash " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">develop / feature</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li><code>develop</code> は次期リリース向け統合ブランチ</li>
+<li><code>feature</code> は新機能開発用で，完成後 <code>develop</code> にマージ</li>
+<li><code>feature</code>はいわば，<code>develop</code>向けPRブランチ</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-yellow-700">
+<p><i class="bi-rocket-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">release</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>リリース前のバグ修正や軽微な調整作業用ブランチ</li>
+<li>完了したら <code>main</code> と <code>develop</code> にマージしてタグ付け</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-red-700">
+<p><i class="bi-bug-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">hotfix</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>本番の緊急修正用ブランチ(例: <code>hotfix_&lt;issue number&gt;</code>)</li>
+<li><code>main</code> から派生し，修正後 <code>main</code> と <code>develop</code> にマージ</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="テスト駆動開発用git-flow" class="slide level2">
+<h2>テスト駆動開発用Git Flow</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="border-bottom-header">
+<p>開発の流れに応じたBranch切り替え（テスト駆動）</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="cell" data-reveal="true" data-fig-width="16" data-fig-height="12" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{ init: {
+    'theme': 'default',
+    'themeVariables': { 
+        'fontFamily': 'Meiryo',
+    },
+    'gitGraph': { 
+        'orientation': 'LR', 
+        'nodeSpacing': 150, 
+        'mainBranchName': 'main' 
+    }
+} }%%
+gitGraph
+   commit id: "" tag: "v1.0.0"
+
+   branch hotfix/1
+   checkout hotfix/1
+   commit id: "BUGFIX"
+
+   checkout main
+   branch system
+   checkout system
+   commit id: "システムテスト開始"
+
+   branch unit/login
+   checkout unit/login
+   commit id: "ユニットテスト駆動"
+
+   checkout main
+   merge hotfix/1 tag: "v1.0.1"
+
+   checkout system
+   merge hotfix/1
+   commit id: "Hotfix取り込み"
+   
+   checkout system
+   merge unit/login
+   commit id: "ログイン機能統合"
+
+   branch release/1.1.x
+   checkout release/1.1.x
+   commit id: "リリース準備"
+   commit id: "軽微な修正"
+
+   checkout system
+   merge release/1.1.x
+
+   checkout main
+   merge release/1.1.x  tag: "v1.1.0"
+
+   checkout system
+   commit id: "次期機能準備"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>リモートリポジトリには<code>main</code>/<code>release</code>/<code>system</code>ブランチのみ存在</li>
+<li>他ブランチはPRマージ後に削除される想定</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="border-bottom-header">
+<p>各種ブランチの役割分担</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="tools-column" style="padding: 0em">
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-green-700">
+<p><i class="bi-check-circle-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">main</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>安定版を保持するブランチ</li>
+<li>リリース済みのコードを管理</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-blue-700">
+<p><i class="bi-code-slash " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">system / unit/*</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li><code>system</code> は次期リリース向け統合ブランチでシステムテストを実施</li>
+<li><code>unit/*</code> はユニットテスト駆動で開発し，完成後 <code>system</code> にマージ</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-yellow-700">
+<p><i class="bi-rocket-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">release</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>リリース前のバグ修正や軽微な調整作業用ブランチ</li>
+<li>完了後 <code>main</code> と <code>system</code> にマージしタグ付け</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-item" style="padding: 0em;">
+<div class="tool-icon text-red-700">
+<p><i class="bi-bug-fill " style="font-size: 1.2em;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p><span class="regmonkey-bold">hotfix/*</span></p>
+</div>
+<div class="tool-description">
+<ul>
+<li>本番の緊急修正用ブランチ</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
 <section>
 <section id="参考文献" class="title-slide slide level1 agenda-slide center">
 <h1>参考文献</h1>
@@ -954,6 +1256,9 @@ Ryo Nakagami
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>GitHubの機能紹介</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>開発プロセス</p>
 </div></li>
 <li><div class="agenda-active">
 <p>参考文献</p>
@@ -1091,6 +1396,9 @@ Ryo Nakagami
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>GitHubの機能紹介</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>開発プロセス</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>参考文献</p>
@@ -1575,13 +1883,14 @@ Ryo Nakagami
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

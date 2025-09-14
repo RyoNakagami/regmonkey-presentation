@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Gannt chartを用いたプロジェクトマネジメント</title>
@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link rel="stylesheet" href="../../style/revealjs.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-EX9H7GRLTH"></script>
 
@@ -599,7 +599,7 @@ Ryo Nakagami
 <p><span class="border-bottom" style="width: 100%; text-align: center; padding-bottom:0em;"><strong>Webサイト制作プロジェクトにおける構造例</strong></span></p>
 <div class="custom-table" style="width:100%;">
 <div id="yaml-mtg-table" class="yaml2table yaml2table-custom-top" data-col-widths="[13, 20, 33, 34]" style="font-size:0.50em;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
 <span id="cb1-2"><a></a><span class="at">  </span><span class="fu">主要成果物</span><span class="kw">:</span><span class="at"> 要件定義</span></span>
 <span id="cb1-3"><a></a><span class="at">  </span><span class="fu">主要タスク</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb1-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントヒアリング</span></span>
@@ -675,7 +675,7 @@ Ryo Nakagami
 <span id="cb1-74"><a></a><span class="at">  </span><span class="fu">主要タスク</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb1-75"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントUAT</span></span>
 <span id="cb1-76"><a></a><span class="at">  </span><span class="fu">分解タスク</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-77"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントによる最終承認テスト</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-77"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントによる最終承認テスト</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -1011,13 +1011,14 @@ Ryo Nakagami
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

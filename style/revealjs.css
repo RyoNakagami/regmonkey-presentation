@@ -247,6 +247,11 @@ div.colored-slide-30 {
   font-weight: bold !important; /*Mckinsey green*/
 }
 
+.regmonkey-bold {
+  color: #206f83;
+  font-weight: bold !important; /*Mckinsey green*/
+}
+
 .border-bottom {
   border-bottom: 0.2rem solid #1a1a1a; /* 線の色と太さを調整 */
   padding-bottom: 0.2em; /* 少し余白を足すと見やすくなる */
