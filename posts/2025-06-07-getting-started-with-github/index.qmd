@@ -420,47 +420,67 @@ CI/CD・自動化ワークフロー
 :::
 ::::
 
+<!-- slide -->
+
 ## GitHub Issueを用いたコミュニケーション例
 [GitHub Issue]{.topleftbox}
 
 {{< reveal_vspace 0.5em >}}
 
-:::: {.columns}
-::: {.column width="55%"}
+::::: {.columns}
+
+<!-- slide left -->
+
+:::: {.column width="55%"}
 
 :::{#communication-with-issue}
+
 [![](./communication-with-issue.png)](https://github.com/pandas-dev/pandas/issues/61443)
-:::
 
 :::
-::: {.column width="45%"}
+
+::::
+
+<!-- slide right -->
+
+:::: {.column width="45%"}
 
 {{< reveal_vspace 0.2em >}}
+
+<!-- .info-box start-->
 
 :::: {.info-box #tip-mention}
 
 [Mention機能の活用]{.info-box-title}
 
 ::: {.info-contents}
-`@username` 形式で，対象のユーザーに通知が飛ばせます
+
+`@username` 形式で、対象のユーザーに通知が飛ばせます
 
 :::
+
 ::::
 
+<!-- .info-box end -->
+
 {{< reveal_vspace 0.25em >}}
+
+<!-- .info-box tip-label -->
 
 :::: {.info-box #tip-label}
 
-[ LabelでIssueを分類]{.info-box-title}
+[LabelでIssueを分類]{.info-box-title}
 
 ::: {.info-contents}
 
-議論内容を踏まえ，Labelの追加や削除をします
+議論内容を踏まえ、Labelの追加や削除をします
 
 :::
 ::::
+<!-- .info-box tip-label end-->
 
 {{< reveal_vspace 0.25em >}}
+
 
 :::: {.info-box #tip-commit}
 
@@ -468,7 +488,7 @@ CI/CD・自動化ワークフロー
 
 ::: {.info-contents}
 
-- Issue番号をcommit messageに付与すると，自動的に紐付けができます
+- Issue番号をcommit messageに付与すると、自動的に紐付けができます
 - 左図ではIssue thread に commit-id `09d4a63`が確認できる
 
 :::{style="font-size:1.4em; width: 90%"}
@@ -478,8 +498,6 @@ git commit -m "Fix connection timeout bug (#123)"
 ```
 
 :::
-
-
 :::
 ::::
 
@@ -491,7 +509,7 @@ git commit -m "Fix connection timeout bug (#123)"
 
 ::: {.info-contents}
 
-IssueやPRに `#番号` を書くと，それがリンクになり相互参照ができます
+IssueやPRに `#番号` を書くと、それがリンクになり相互参照ができます
 
 :::{style="font-size:1.4em; width: 90%"}
 
@@ -500,10 +518,9 @@ This issue is related to #45 and blocked by #38.
 ```
 
 :::
-
-
 :::
 ::::
+
 
 {{< reveal_vspace 0.25em >}}
 
@@ -524,12 +541,10 @@ gh pr create --base main --head feature \
 ```
 
 :::
-
 :::
 ::::
 
 
-:::
 ::::
 
 
@@ -557,6 +572,9 @@ gh pr create --base main --head feature \
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:94%; width:87%; height:5%"
     path="straight"}   
+
+:::::
+
 
 ## GitHub Issueを用いたワークフロー例の紹介
 [GitHub Issue]{.topleftbox}
@@ -587,7 +605,7 @@ Setp1: バグの発見とIssueの作成
 :::
 ::: {.tool-description}
 
-問題の言語化と可視化を通して，チーム全体が何が起きているか共有
+問題の言語化と可視化を通して、チーム全体が何が起きているか共有
 
 :::
 :::
@@ -609,7 +627,7 @@ Step2: ラベルとメタ情報の整理
 
 ::: {.tool-description}
 
-ラベル・マイルストンの明示によって，タスクを管理しやすくする
+ラベル・マイルストンの明示によって、タスクを管理しやすくする
 
 :::
 
@@ -633,7 +651,7 @@ Step3: 担当者の割り当てと作業開始
 :::
 ::: {.tool-description}
 
-担当者の明確化(`@mention`)により，進捗確認しやすくする
+担当者の明確化(`@mention`)により、進捗確認しやすくする
 
 :::
 :::
@@ -656,7 +674,7 @@ Step4: Pull Requestを作成し、Issueと関連付け
 :::
 ::: {.tool-description}
 
-何のための変更かを追跡でき，レビューや変更履歴の文脈が明確になる
+何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる
 
 :::
 :::
@@ -678,7 +696,7 @@ Step5: PRマージとIssueの自動クローズ
 :::
 ::: {.tool-description}
 
-作業の完了と状態管理の自動化によって，手動での管理ミスを防ぐ
+作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ
 
 :::
 :::
@@ -707,7 +725,7 @@ GitHub Issue作成Tips
 :::{.info-contents}
 
 - Issue作成前にキーワード検索して既存のIssueを確認
-- 既存Issueに追記する形が望ましい場合は，新規作成を避ける
+- 既存Issueに追記する形が望ましい場合は、新規作成を避ける
 
 :::
 ::::
@@ -743,7 +761,7 @@ GitHub Issue作成Tips
 :::{.info-contents}
 
 - `.github/ISSUE_TEMPLATE` にテンプレートファイルを作成
-- バグ報告・機能提案など，用途ごとにテンプレートを分ける
+- バグ報告・機能提案など、用途ごとにテンプレートを分ける
 
 :::
 ::::
@@ -783,8 +801,8 @@ GitHub Issue作成Tips
 
 ::: {.def-contents}
 
-- GitHub では Projects（プロジェクトボード） 機能を使って，Kanbanスタイルで最新情報のIssue/PRを管理できます
-- フィルタリング，並び替え，グループ化することでレイアウトを自由にカスタマイズできます
+- GitHub では Projects（プロジェクトボード） 機能を使って、Kanbanスタイルで最新情報のIssue/PRを管理できます
+- フィルタリング、並び替え、グループ化することでレイアウトを自由にカスタマイズできます
 
 :::
 ::::
@@ -1010,9 +1028,127 @@ GitHub PR活用Tips
 
 [^footer1]: Pull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み
 
-[^footer2]: １つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
+[^footer2]: １つのトピックに集中して、他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
 
-# 開発プロセス
+
+## Pull Request フィードバックポイント
+[Pull Request]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+
+:::::{.grid .grid-cols-3 .gap-10 .mb-6}
+
+<!-- 1st -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-eye text-white >}}
+:::
+
+### コードの可読性
+
+:::
+
+- コーディング規則と整合的か
+- コメントやドキュメントが適切か
+
+::::
+
+<!-- 2nd -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-cubes text-white >}}
+:::
+
+### 設計・アーキテクチャ
+
+:::
+
+- 無駄なく効率的な計算か
+- 再利用性・拡張性はあるか
+
+::::
+
+<!-- 3rd -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-check-circle text-white >}}
+:::
+
+### 動作の正しさ
+
+:::
+
+- 要件や仕様を満たしているか
+- 境界条件や例外ケースの考慮があるか
+
+::::
+
+<!-- 4th -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-vial text-white >}}
+:::
+
+### テスト
+
+:::
+
+- 単体テスト・統合テストが十分か
+- カバレッジやケースの妥当性が確保されているか
+- テストは再現可能な形で成功するか
+
+::::
+
+<!-- 5th -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-sync-alt text-white >}}
+:::
+
+### リファクタリング
+
+:::
+
+- 冗長なコードや重複が整理されているか
+- 関数やクラスの分割・抽象化が適切か
+- 技術的負債の返済につながっているか
+
+::::
+
+<!-- 6th -->
+
+::::{.component-card .p-4}
+:::{.flex .items-center .mb-2}
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+{{< fas fa-book text-white >}}
+:::
+
+### プロジェクトルール遵守
+
+:::
+
+- コーディング規約・スタイルガイドに沿っているか
+- Gitのコミットメッセージ・ブランチ命名規則が守られているか
+
+::::
+
+:::::
+
+
+
+
+# ブランチ戦略
 
 ## Git Flow: リリース中心の開発スタイル
 [「`main`」「`develop`」「`feature`」「`release`」「`hotfix`」に分けて管理するワークフロー]{.h2-submessage}
@@ -1115,6 +1251,7 @@ gitGraph
 ::: {.tool-description}
 
 - 安定版を保持するブランチ
+- `git push --tags` でリモートレポジトリに tagsをpushする
 
 :::
 
@@ -1138,8 +1275,7 @@ gitGraph
 ::: {.tool-description}
 
 - `develop` は次期リリース向け統合ブランチ
-- `feature` は新機能開発用で，完成後 `develop` にマージ
-- `feature`はいわば，`develop`向けPRブランチ
+- `feature` は新機能開発用で、完成後 `develop` にマージ
 
 :::
 
@@ -1188,8 +1324,8 @@ gitGraph
 
 ::: {.tool-description}
 
-- 本番の緊急修正用ブランチ(例: `hotfix_<issue number>`)
-- `main` から派生し，修正後 `main` と `develop` にマージ
+- 本番の緊急修正用ブランチ(例: `hotfix/<issue number>-hogehoge`)
+- `main` から派生し、修正後 `main` と `develop` にマージ
 
 :::
 
@@ -1325,14 +1461,14 @@ gitGraph
 
 ::: {.tool-name}
 
-[system / unit/*]{.regmonkey-bold}
+[system / unit]{.regmonkey-bold}
 
 :::
 
 ::: {.tool-description}
 
 - `system` は次期リリース向け統合ブランチでシステムテストを実施
-- `unit/*` はユニットテスト駆動で開発し，完成後 `system` にマージ
+- `unit/*` はユニットテスト駆動開発ブランチで、完成後に `system` にマージ
 
 :::
 
