@@ -533,7 +533,6 @@ gh pr create --base main --head feature \
 ::::
 
 
-
 []{.leaderline start="#communication-with-issue"  end="#tip-mention"
     color="#206f83" end-socket="left" size="3" 
     start-border-style="color:#206f83; x: 5%; y:15%; width:87%; height:5%"
@@ -1013,30 +1012,384 @@ GitHub PR活用Tips
 
 [^footer2]: １つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
 
-<!-- ## はじめてのPull Requestの作成
-[Pull Request]{.topleftbox} -->
+# 開発プロセス
+
+## Git Flow: リリース中心の開発スタイル
+[「`main`」「`develop`」「`feature`」「`release`」「`hotfix`」に分けて管理するワークフロー]{.h2-submessage}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{.border-bottom-header}
+
+開発の流れに応じたBranch切り替え
+
+:::
+
+{{< reveal_vspace 1em >}}
 
 
+```{mermaid}
+%%| fig-width: 16
+%%| fig-height: 12
+%%{ init: {
+    'theme': 'default',
+    'themeVariables': { 
+        'fontFamily': 'Meiryo'
+    },
+    'gitGraph': { 
+        'orientation': 'LR', 
+        'nodeSpacing': 150, 
+        'mainBranchName': 'main' 
+    }
+} }%%
+gitGraph
+   commit id: "" tag: "v1.0.0"
+
+   branch hotfix
+   checkout hotfix
+   commit id: "BUGFIX"
+
+   checkout main
+   branch develop
+   checkout develop
+   commit id: "開発開始"
+
+   branch feature/login
+   checkout feature/login
+   commit id: ""
+
+   checkout main
+   merge hotfix tag: "v1.0.1"
+
+   checkout develop
+   merge hotfix
+   commit id: "incorporate hotfix"
+   
+   checkout develop
+   merge feature/login
+   commit id: "ログイン機能実装"
+
+   branch release/1.1.x
+   checkout release/1.1.x
+   commit id: "リリース準備"
+   commit id: "bugfix"
+
+   checkout develop
+   merge release/1.1.x
+
+   checkout main
+   merge release/1.1.x  tag: "v1.1.0"
+
+   checkout develop
+   commit id: "FEATURE"
+```
+
+:::
+::: {.column width="45%"}
+
+:::{.border-bottom-header}
+
+各種ブランチの役割分担
+
+:::
 
 
-<!-- ## Conversationを活用したコードレビュー
-[Pull Request]{.topleftbox} -->
-
-<!-- 
-## Pull Requestをトリガーとしたテストの実行
-[Pull Request]{.topleftbox} -->
-
-<!-- ## merge commit vs squash merge vs rebase merge
-[Pull Request]{.topleftbox}
+::::: {.tools-column style="padding: 0em"}
 
 
-## Wiki
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-green-700}
+{{< bi check-circle-fill size=1.2em >}}
+::: 
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[main]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- 安定版を保持するブランチ
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-blue-700}
+ {{< bi code-slash size=1.2em >}}
+:::  
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[develop / feature]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- `develop` は次期リリース向け統合ブランチ
+- `feature` は新機能開発用で，完成後 `develop` にマージ
+- `feature`はいわば，`develop`向けPRブランチ
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-yellow-700}
+  {{< bi rocket-fill size=1.2em >}}
+:::  
 
 
+::: {.tool-content}
+
+::: {.tool-name}
+
+[release]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- リリース前のバグ修正や軽微な調整作業用ブランチ
+- 完了したら `main` と `develop` にマージしてタグ付け
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-red-700}
+{{< bi bug-fill size=1.2em >}}
+:::  
 
 
-## GitHub Actions -->
+::: {.tool-content}
 
+::: {.tool-name}
+
+[hotfix]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- 本番の緊急修正用ブランチ(例: `hotfix_<issue number>`)
+- `main` から派生し，修正後 `main` と `develop` にマージ
+
+:::
+
+:::
+::::
+
+::::::
+
+:::
+::::
+
+## テスト駆動開発用Git Flow
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{.border-bottom-header}
+
+開発の流れに応じたBranch切り替え（テスト駆動）
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+
+```{mermaid}
+%%| fig-width: 16
+%%| fig-height: 12
+%%{ init: {
+    'theme': 'default',
+    'themeVariables': { 
+        'fontFamily': 'Meiryo',
+    },
+    'gitGraph': { 
+        'orientation': 'LR', 
+        'nodeSpacing': 150, 
+        'mainBranchName': 'main' 
+    }
+} }%%
+gitGraph
+   commit id: "" tag: "v1.0.0"
+
+   branch hotfix/1
+   checkout hotfix/1
+   commit id: "BUGFIX"
+
+   checkout main
+   branch system
+   checkout system
+   commit id: "システムテスト開始"
+
+   branch unit/login
+   checkout unit/login
+   commit id: "ユニットテスト駆動"
+
+   checkout main
+   merge hotfix/1 tag: "v1.0.1"
+
+   checkout system
+   merge hotfix/1
+   commit id: "Hotfix取り込み"
+   
+   checkout system
+   merge unit/login
+   commit id: "ログイン機能統合"
+
+   branch release/1.1.x
+   checkout release/1.1.x
+   commit id: "リリース準備"
+   commit id: "軽微な修正"
+
+   checkout system
+   merge release/1.1.x
+
+   checkout main
+   merge release/1.1.x  tag: "v1.1.0"
+
+   checkout system
+   commit id: "次期機能準備"
+```
+
+- リモートリポジトリには`main`/`release`/`system`ブランチのみ存在
+- 他ブランチはPRマージ後に削除される想定
+
+:::
+
+
+::: {.column width="45%"}
+
+:::{.border-bottom-header}
+
+各種ブランチの役割分担
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+::::: {.tools-column style="padding: 0em"}
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-green-700}
+{{< bi check-circle-fill size=1.2em >}}
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[main]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- 安定版を保持するブランチ
+- リリース済みのコードを管理
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-blue-700}
+{{< bi code-slash size=1.2em >}}
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[system / unit/*]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- `system` は次期リリース向け統合ブランチでシステムテストを実施
+- `unit/*` はユニットテスト駆動で開発し，完成後 `system` にマージ
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-yellow-700}
+{{< bi rocket-fill size=1.2em >}}
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[release]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- リリース前のバグ修正や軽微な調整作業用ブランチ
+- 完了後 `main` と `system` にマージしタグ付け
+
+:::
+
+:::
+::::
+
+:::: {.tool-item style="padding: 0em;"}
+
+::: {.tool-icon .text-red-700}
+{{< bi bug-fill size=1.2em >}}
+:::
+
+::: {.tool-content}
+
+::: {.tool-name}
+
+[hotfix/*]{.regmonkey-bold}
+
+:::
+
+::: {.tool-description}
+
+- 本番の緊急修正用ブランチ
+
+:::
+
+:::
+
+:::
+:::
+:::
+
+::::
 
 
 # 参考文献
