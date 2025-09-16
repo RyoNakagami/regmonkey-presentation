@@ -884,7 +884,7 @@ Ryo Nakagami
 <div class="border-bottom-header mb-0">
 <p>GitHub PR活用Tips</p>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="reveal_vspace" style="--vspace-height: 0.15em;"></div>
 <div class="info-box">
 <div class="info-box-title">
 <p>① PRとIssueを関連付ける</p>
@@ -896,7 +896,7 @@ Ryo Nakagami
 </ul>
 </div>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="reveal_vspace" style="--vspace-height: 0.15em;"></div>
 <div class="info-box">
 <div class="info-box-title">
 <p>② Draft PRを活用して作業途中でも共有</p>
@@ -905,10 +905,11 @@ Ryo Nakagami
 <ul>
 <li>作業中でも早期に可視化してコメントをもらえる</li>
 <li><code>[WIP]</code>など作業中であることを明確にする</li>
+<li>レビューを踏まえた変更は同一ブランチにPush</li>
 </ul>
 </div>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="reveal_vspace" style="--vspace-height: 0.15em;"></div>
 <div class="info-box">
 <div class="info-box-title">
 <p>③ PRテンプレートを用意する</p>
@@ -919,15 +920,15 @@ Ryo Nakagami
 </ul>
 </div>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="reveal_vspace" style="--vspace-height: 0.15em;"></div>
 <div class="info-box">
 <div class="info-box-title">
-<p>④ レビュー後の変更は同一ブランチにPush</p>
+<p>④ PRのサイズは小さく</p>
 </div>
 <div class="info-contents">
 <ul>
-<li>同じPR内で再レビューが可能になる</li>
-<li>会話の文脈を維持したままフィードバック対応ができる</li>
+<li>開発期間やコード量が大きいほど，レビューの負担は増す</li>
+<li>大きな変更は機能単位や修正単位で分割すること</li>
 </ul>
 </div>
 </div>
@@ -1046,7 +1047,7 @@ Ryo Nakagami
 </section>
 <section id="git-flow-リリース中心の開発スタイル" class="slide level2">
 <h2>Git Flow: リリース中心の開発スタイル</h2>
-<p><span class="h2-submessage">「<code>main</code>」「<code>develop</code>」「<code>feature</code>」「<code>release</code>」「<code>hotfix</code>」に分けて管理するワークフロー</span></p>
+<p><span class="h2-submessage"><code>main</code>，<code>develop</code>，<code>feature</code>，<code>release</code>，<code>hotfix</code>に分けて管理するワークフロー</span></p>
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="border-bottom-header">
@@ -1469,7 +1470,6 @@ gitGraph
 <li>リモートブランチへのpush/pullができない場合</li>
 <li>最新のコミットと作業中の変更との差分を確認方法</li>
 <li>GitHubリポジトリの名前を変更する方法</li>
-<li>GitHubリポジトリへのSSH接続を設定する手順</li>
 </ul></li>
 </ul>
 </div></div>
@@ -1594,16 +1594,16 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 4em;"></div>
 <div class="pl-10 flex flex-col space-y-10">
 <div class="def-block" style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue">
-<p><span class="def-title">① 各コミットは「ツリー（tree）」オブジェクトでディレクトリ構造を表現している</span></p>
+<p><span class="def-title">① 各コミットはTreeオブジェクトでディレクトリ構造を表現している</span></p>
 </div>
 <div class="def-block" style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue">
-<p><span class="def-title">② Git はすべてのファイルが各時点で状態をSnapshotで記録し、各ツリーはsnapshotへの参照を保存している</span></p>
+<p><span class="def-title">② Git は各時点でのファイル状態をSnapshotで記録．各ツリーはsnapshotへの参照を保存している</span></p>
 </div>
 <div class="def-block" style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue">
 <p><span class="def-title">③ 更新がなかったファイルは、前回と同じ blob オブジェクトへの参照リンクを保存している</span></p>
 </div>
 <div class="def-block" style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue">
-<p><span class="def-title">④ Gitのオブジェクト（コミット、ツリー、ブロブなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している</span></p>
+<p><span class="def-title">④ Gitのオブジェクト（commit, tree, blobなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している</span></p>
 </div>
 </div>
 </div></div>
