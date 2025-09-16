@@ -950,7 +950,7 @@ GitHub PR活用Tips
 
 :::
 
-{{< reveal_vspace 0.25em >}}
+{{< reveal_vspace 0.15em >}}
 
 ::::{.info-box}
 
@@ -968,7 +968,7 @@ GitHub PR活用Tips
 :::
 ::::
 
-{{< reveal_vspace 0.25em >}}
+{{< reveal_vspace 0.15em >}}
 
 ::::{.info-box}
 
@@ -982,11 +982,12 @@ GitHub PR活用Tips
 
 - 作業中でも早期に可視化してコメントをもらえる
 - `[WIP]`など作業中であることを明確にする
+- レビューを踏まえた変更は同一ブランチにPush
 
 :::
 ::::
 
-{{< reveal_vspace 0.25em >}}
+{{< reveal_vspace 0.15em >}}
 
 :::: {.info-box}
 
@@ -1003,20 +1004,20 @@ GitHub PR活用Tips
 :::
 ::::
 
-{{< reveal_vspace 0.25em >}}
+{{< reveal_vspace 0.15em >}}
 
 ::::{.info-box}
 
 :::{.info-box-title}
 
-④ レビュー後の変更は同一ブランチにPush
+④ PRのサイズは小さく
 
 :::
 
 :::{.info-contents}
 
-- 同じPR内で再レビューが可能になる
-- 会話の文脈を維持したままフィードバック対応ができる
+- 開発期間やコード量が大きいほど，レビューの負担は増す
+- 大きな変更は機能単位や修正単位で分割すること
 
 :::
 ::::
@@ -1151,7 +1152,7 @@ GitHub PR活用Tips
 # ブランチ戦略
 
 ## Git Flow: リリース中心の開発スタイル
-[「`main`」「`develop`」「`feature`」「`release`」「`hotfix`」に分けて管理するワークフロー]{.h2-submessage}
+[`main`，`develop`，`feature`，`release`，`hotfix`に分けて管理するワークフロー]{.h2-submessage}
 
 :::: {.columns}
 ::: {.column width="55%"}
@@ -1596,7 +1597,6 @@ gitGraph
   - リモートブランチへのpush/pullができない場合
   - 最新のコミットと作業中の変更との差分を確認方法
   - GitHubリポジトリの名前を変更する方法
-  - GitHubリポジトリへのSSH接続を設定する手順
 
 :::
 ::::
@@ -1739,13 +1739,13 @@ Snapshot形式のデータ管理
 
 :::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
 
-[① 各コミットは「ツリー（tree）」オブジェクトでディレクトリ構造を表現している]{.def-title}
+[① 各コミットはTreeオブジェクトでディレクトリ構造を表現している]{.def-title}
 
 ::::
 
 :::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
 
-[② Git はすべてのファイルが各時点で状態をSnapshotで記録し、各ツリーはsnapshotへの参照を保存している]{.def-title}
+[② Git は各時点でのファイル状態をSnapshotで記録．各ツリーはsnapshotへの参照を保存している]{.def-title}
 
 ::::
 
@@ -1760,7 +1760,7 @@ Snapshot形式のデータ管理
 
 :::: {.def-block style="font-size:0.9em; padding-top:0.025em; padding-bottom:0.5em;  background-color: aliceblue"}
 
-[④ Gitのオブジェクト（コミット、ツリー、ブロブなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している]{.def-title}
+[④ Gitのオブジェクト（commit, tree, blobなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している]{.def-title}
 
 ::::
 
