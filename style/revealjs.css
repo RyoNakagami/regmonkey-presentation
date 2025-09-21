@@ -172,18 +172,6 @@ div.colored-slide-30 {
   padding-left: 2em;
 }
 
-.pentagon-box-600 {
-  position: relative;
-  width: 95%;
-  height: 600px;
-  background-color: #ffffff;
-  border-right: transparent 0px solid;
-  border-left: #0e3666 4px solid;
-  border-top: #0e3666 4px solid;
-  border-bottom: #0e3666 4px solid;
-  padding-left: 1.5em;
-}
-
 .pentagon-box-500 {
   position: relative;
   width: 95%;
@@ -249,6 +237,17 @@ div.colored-slide-30 {
   padding-left: 2em;
 }
 
+.pentagon-box-600 {
+  position: relative;
+  width: 95%;
+  height: 600px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1.5em;
+}
 
 .pentagon-box-600::after {
   content: "";

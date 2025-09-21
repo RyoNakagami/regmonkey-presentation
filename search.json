@@ -441,11 +441,32 @@
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
   },
   {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例",
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
     "title": "pentagon-squared-boxスライド",
-    "section": "pentagon-squared-boxスライド例",
-    "text": "pentagon-squared-boxスライド例\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "section": "pentagon-squared-boxスライド例 with .pentagon-box-500",
+    "text": "pentagon-squared-boxスライド例 with .pentagon-box-500\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-550 テンプレート",
+    "text": ".pentagon-box-550 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-600 テンプレート",
+    "text": ".pentagon-box-600 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-700 テンプレート",
+    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
   },
   {
     "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
