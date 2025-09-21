@@ -1,0 +1,233 @@
+---
+title: "hop-step-jumpスライド"
+subtitle: "revealjsスライド作成紹介"
+author: "Ryo Nakagami"
+date: "2025-05-29"
+categories: [template]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## 実務業務におけるデータサイエンティスト分類
+
+:::::{.hop-step-jump-container}
+
+<!-- 1st step -->
+
+::::{.step .step-1}
+:::{.step-number}
+
+ジュニアDS
+
+:::
+:::{.step-title}
+
+分析ができる
+
+:::
+:::{.info-content}
+
+- 実装スキル（Python / SQL / Rなど）
+- 可視化、要約、特徴量エンジニアリングなどの基本分析技術
+- 指示タスクの正確な実行力
+- ドキュメンテーション・再現性への意識
+
+:::
+::::
+
+<!-- 2nd step -->
+
+::::{.step .step-2}
+:::{.step-number}
+
+ミドルDS
+
+:::
+:::{.step-title}
+
+分析を構想できる
+
+:::
+:::{.info-content}
+
+- 問いの構造化、仮説立案、分析手法の選定力
+- 分析計画とタスクの分解・優先順位づけ
+- 分析からインサイトを見出し、報告書を作成
+- 後続プロセス・業務実装を見据えた設計の議論や不備の指摘
+
+:::
+::::
+
+<!-- 3rd step -->
+
+::::{.step .step-3}
+:::{.step-number}
+
+シニアDS
+
+:::
+:::{.step-title}
+
+プロジェクトを組織で推進できる
+
+:::
+:::{.info-content}
+
+- PJマネジメント（進捗・品質・タスク調整）
+- 顧客・社内ステークホルダーとの合意形成
+- 分析成果の価値訴求力（経営層視点で語れる）
+- 組織内の知見・資産の展開と仕組み化
+
+:::
+::::
+:::::
+
+## `.hop-step-jump-container`の構造解説
+
+:::: {.columns}
+::: {.column width="72.5%"}
+
+{{< reveal_vspace 2em >}}
+
+
+:::::{.hop-step-jump-container style="height:640px; font-size:0.9em"}
+
+<!-- 1st step -->
+
+::::{.step .step-1}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content1}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+
+<!-- 2nd step -->
+
+::::{.step .step-2}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content2}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+
+<!-- 3rd step -->
+
+::::{.step .step-3}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content3}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+:::::
+:::
+::: {.column width="27.5%"}
+
+:::{.border-bottom-header}
+
+`.hop-step-jump-container`
+
+:::
+
+:::{.squaredmark style="font-size: 0.95em;"}
+
+- `.hop-step-jump-container`
+  - `.hop-step-jump-container-vannila`は背景矢印なしversion
+  - `column` と組み合わせる場合，高さを指定する必要あり(`style="height:640px;`)
+- `.step-number`
+  - 各stepの色付きheader
+- `.step-title`
+  - 各stepのboldタイトル
+- `.info-content`
+  - 各stepの記述領域
+
+:::
+
+
+
+:::
+::::
+
+:::{.message-box style="font-size:0.8em; position: absolute; top: 70.5%; left:50%; right: 32%" #info-content-def}
+
+- `info-content` block
+- ここにqmd形式で各ステップ内容を記述
+
+:::
+
+:::{#leaderline-area}
+
+[]{.leaderline start="#info-content1"  end="#info-content-def" 
+    color="#A9A9A9" size="3"
+    end-socket="left"
+    path="grid"
+    end-plug="square"
+    start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%"
+    }   
+
+[]{.leaderline start="#info-content2"  end="#info-content-def" 
+    color="#A9A9A9" size="3"
+    start-socket="bottom" 
+    end-socket="left" 
+    path="grid" 
+    end-plug="square"
+    start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%"
+    }   
+
+[]{.leaderline start="#info-content3"  end="#info-content-def" 
+    color="#A9A9A9" size="3"
+    end-socket="top"
+    path="grid" 
+    start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%"
+    end-plug="square"
+    }   
+
+:::

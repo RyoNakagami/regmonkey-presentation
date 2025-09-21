@@ -521,11 +521,9 @@ horizontal_tree:
 ::: {.column width="70%"}
 
 
-
 ::: {.js-chart-inject data-js="compare-2010-2019.js" data-container="compare-2010-2019" 
       data-width="100%" data-height="22.5em"}
 :::
-
 
 
 :::
@@ -571,7 +569,6 @@ horizontal_tree:
 
 [注目すべき情報だけに絞り、判断の迷いをなくす]{.h2-submessage}
 
-
 {{< reveal_vspace 1em >}}
 
 ::::{#sliide1}
@@ -583,9 +580,7 @@ horizontal_tree:
 
 :::
 
-::: {.js-chart-inject 
-        data-js="anychart-waterfall-container.js" 
-        data-container="anychart-waterfall-container" data-width="100%" data-height="630px"}
+::: {.js-chart-inject data-js="anychart-waterfall-container.js" data-container="anychart-waterfall-container" data-width="100%" data-height="630px"}
 :::
 
 ::::

@@ -3,7 +3,7 @@ title: "Summaryスライド"
 subtitle: "revealjsスライド作成紹介"
 author: "Ryo Nakagami"
 date: "2025-05-16"
-categories: [summary]
+categories: [summary, template]
 slide-number: true
 filters:
   - reveal-auto-agenda

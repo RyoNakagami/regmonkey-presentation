@@ -40,7 +40,7 @@ format:
       <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
       <script type="text/javascript" src="/js/resize_keypoints_block.js"></script>
       <script type="text/javascript" src="/js/yaml2table.js"></script>
-      <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-bundle.min.js"></script>
+      <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
       <script src="/min/leader-line.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
       <script src="https://d3js.org/d3.v7.min.js"></script>

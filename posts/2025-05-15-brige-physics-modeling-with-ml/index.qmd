@@ -1,0 +1,281 @@
+---
+title: "MathJaxのレンダリング確認"
+subtitle: "スライド作成テスト"
+author: "Ryo Nakagami"
+date: "2025-05-15"
+categories: [MathJax]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+# 物理モデリングの基本要素
+
+
+## 保存則と運動方程式
+
+:::{.main-message-block }
+
+物理学における法則は，**保存則**か**運動方程式** で表現される．表現方法は微分方程式が用いられる場合が多い．
+
+:::
+
+:::: {.columns}
+::: {.column style="width: 50%; height:100%"}
+
+::: {.horizontal-keypoints-block style="height:65%;"}
+
+::: {.block-header}
+
+{{< bi yin-yang  size=1.7em color=#428CE6 >}}
+Law of conservation(保存則[^foot1])
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+::: {.block style="font-size: 0.9em;"}
+
+- エネルギー保存則
+- 運動量保存則
+- 質量保存則
+
+:::{#exm-}
+
+<br>
+
+ある筒の中で流体が一定方向で流れるとき，筒の中の密度 $\rho$ の時間的変化は 体積 $V$， 入流量 $Gin$, 出流量 $Gout$ を用いて，質量保存則の観点から以下のように表される
+
+$$
+V\frac{\partial \rho}{\partial t} = Gin_t - Gout_t
+$$
+
+:::
+:::
+
+:::
+
+
+:::
+
+::: {.column style="width: 50%; height:100%"}
+
+::: {.horizontal-keypoints-block-no-border style="height:65%;"}
+
+::: {.block-header}
+
+{{< bi stopwatch  size=1.7em color=#428CE6 >}}
+
+Law of motion(運動方程式)
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+::: {.block style="font-size: 0.9em;"}
+
+- ニュートンの法則
+- フーリエの法則
+- フィックの第一法則
+
+:::{#exm-}
+
+<br>
+
+熱エネルギーが温度の高い方から低い方へ輸送されることか，$x$: 位置, $t$: 時間, $\lambda$: 熱伝導率，$T(x, t)$: 温度とすると，熱流密度 $q(x, t)$ は 
+
+$$
+q(x, t) = -\lambda \frac{\partial T(x, t)}{\partial x} \label{eq-fourier-law}
+$$
+
+:::
+:::
+
+:::
+
+:::
+::::
+
+[^foot1]: Noether's theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる
+
+## 微分方程式と局所性
+
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {#def- .def-block}
+
+[局所性]{.def-title}
+
+::: {.def-contents}
+
+ある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは
+
+1. まず周囲（隣の点）に影響を与え
+2. 時間の１ステップごとに伝わっていく
+
+このように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+:::{.section-header}
+
+数式による定式化
+
+:::
+
+$$
+\frac{\partial y(t, x)}{\partial t} = f(y(t,x), t, x)
+$$
+
+
+- 時刻 $t$ における変化率は，その時点の値 $y(t)$ と時間 $t$ 場所 $x$ のみに依存する
+- 時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）
+- 過去全体に依存する場合は、時間的に非局所的
+
+## 微分方程式と因果性
+
+{{< reveal_vspace 1em >}}
+
+::: {#def- .def-block}
+: **因果性**
+<br>
+
+ある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+<strong > &#9654;&nbsp; 常微分方程式による定式化</strong>
+
+$$
+\frac{dy(t)}{dt} = f(y(t), u(t))
+$$
+
+- 時刻 $t$ における出力は，現像の入力 $u(t)$ と状態 $y(t)$  のみから決まる
+- $t=5$ のような未来の解 $y(t)$は、初期値 $y_0$ とそれまでの $u(t)$ によってのみ決まる
+  - 因果に基づいた未来の予測
+
+## 物理モデリングを使って何を求めるのか？: 順問題と逆問題
+
+[物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある]{.h2-submessage}
+
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column style="width: 50%; height:100%"}
+
+::: {.horizontal-keypoints-block style="height:65%;"}
+
+::: {.block-header}
+
+{{< bi skip-forward-fill  size=1.7em color=#428CE6 >}}
+
+順問題
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+::: {.block}
+
+- 微分方程式が知られている場合に，その解を求める
+- 入力や条件が分かっていて、現象を予測
+
+:::{#exm- style="font-size: 0.8em;"}
+
+<br>
+
+- **Given**: 入力 $u(t)$, モデル $M$, パラメータ $\theta$ が与えられる
+- **Goal**: $y(t)$ を求める
+
+$$
+y(t) = M(u(t), \theta)
+$$
+
+:::
+:::
+
+:::
+
+
+:::
+
+::: {.column style="width: 50%; height:100%"}
+
+::: {.horizontal-keypoints-block-no-border style="height:65%;"}
+
+::: {.block-header}
+
+{{< bi skip-backward-fill  size=1.7em color=#428CE6 >}}
+
+逆問題
+
+:::
+
+{{< reveal_vspace 10% >}}
+
+::: {.block}
+
+- 解の挙動が知られているとき，解が従う法則を探求する
+- 結果が観測されていて、その原因を特定
+
+:::{#exm- style="font-size: 0.8em;"}
+
+- **Given**: 入力 $u(t)$, モデル $M$, 出力 $y(t)$ が与えられる
+- **Goal**: パラメータ $\theta$ を求める
+
+$P_\theta$ を 入力，モデルを条件付けたとき，$\theta$ によって特徴づけられる $y(t)$ のデータ生成分布としたとき，観測データと整合的な $\theta$ を識別する
+
+
+:::
+:::
+
+:::
+
+
+:::
+::::
+
+# 物理モデリングと機械学習の世界
+
+## PINN: physics-informed neural network
+
+{{< reveal_vspace 1em >}}
+
+::: {#def- .def-block}
+: **PINN**
+<br>
+
+運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+<strong > &#9654;&nbsp; Approach</strong>
+
+$$
+L = L_{D}(\hat y, y) + L_{\operatorname{physics}}(\hat y)
+$$
+
+- $y$: 目的変数
+- $\hat y$: 目的変数の予測値
+- $L_{D}(\hat y, y)$: 予測値とtrueの距離(自乗距離など)
+- $L_{\operatorname{pysics}}(\hat y)$: $\hat y$ が満たすべき物理ロジックとの適合度
+
+<strong > &#9654;&nbsp; 例: 熱伝導方程式</strong>
+
+$$
+\min \frac{1}{n}\sum_{i=1}^n(T(x, t) - T)^2 + P \left\|\frac{\partial T(x, t)}{\partial t} - \frac{\lambda}{c\rho}\frac{\partial^2 T(x, t)}{\partial x^2}\right\|^2
+$$

@@ -1,119 +1,76 @@
 ## Test
 
-::::{.hop-step-jump-container style="height: 80%;"}
+:::::{.hop-step-jump-container style="height:90%;"}
 
-:::{.step .step-1}
+<!-- 1st step -->
 
-
+::::{.step .step-1}
 :::{.step-number}
-1 Step
-:::
 
+ジュニアDS
+
+:::
 :::{.step-title}
 
-<!-- acticity tile 1 -->
+分析ができる
 
-:::
-
-:::{.step-description}
-
-<!-- acticity description-->
-
-:::
-
-:::{.info-card}
-
-:::{.info-label}
-<!-- acticity label 目的-->
 :::
 :::{.info-content}
-<!-- acticity content -->
-:::
 
-:::{.info-label}
-<!-- acticity label 成果物-->
-:::
-:::{.info-content}
-<!-- acticity content -->
-:::
-:::
+- 実装スキル（Python / SQL / Rなど）
+- 可視化、要約、特徴量エンジニアリングなどの基本分析技術
+- 指示タスクの正確な実行力
+- ドキュメンテーション・再現性への意識
 
-:::
 
-:::{.step .step-2}
-
-:::{.step-number}
-2 Step
-:::
-
-:::{.step-title}
-
-<!-- acticity tile 1 -->
-
-:::
-
-:::{.step-description}
-
-<!-- acticity description-->
-
-:::
-
-:::{.info-card}
-
-:::{.info-label}
-<!-- acticity label 目的-->
-:::
-:::{.info-content}
-<!-- acticity content -->
-:::
-
-:::{.info-label}
-<!-- acticity label 成果物-->
-:::
-:::{.info-content}
-<!-- acticity content -->
-:::
-:::
 
 
 :::
-
-:::{.step .step-3}
-
-:::{.step-number}
-3 Step
-:::
-
-:::{.step-title}
-
-<!-- acticity tile 1 -->
-
-:::
-
-:::{.step-description}
-
-<!-- acticity description-->
-
-:::
-
-:::{.info-card}
-
-:::{.info-label}
-<!-- acticity label 目的-->
-:::
-:::{.info-content}
-<!-- acticity content -->
-:::
-
-:::{.info-label}
-<!-- acticity label 成果物-->
-:::
-:::{.info-content}
-<!-- acticity content -->
-:::
-:::
-
-
-
-
 ::::
+
+<!-- 2nd step -->
+
+::::{.step .step-2}
+:::{.step-number}
+
+ミドルDS
+
+:::
+:::{.step-title}
+
+分析を構想できる
+
+:::
+:::{.info-content}
+
+- 問いの構造化、仮説立案、分析手法の選定力
+- 分析計画とタスクの分解・優先順位づけ
+- 分析からインサイトを見出し、報告書を作成
+- 後続プロセス・業務実装を見据えた設計の議論や不備の指摘
+
+:::
+::::
+
+<!-- 3rd step -->
+
+::::{.step .step-3}
+:::{.step-number}
+
+シニアDS
+
+:::
+:::{.step-title}
+
+プロジェクトを組織で推進できる
+
+:::
+:::{.info-content}
+
+- PJマネジメント（進捗・品質・タスク調整）
+- 顧客・社内ステークホルダーとの合意形成
+- 分析成果の価値訴求力（経営層視点で語れる）
+- 組織内の知見・資産の展開と仕組み化
+
+:::
+::::
+:::::

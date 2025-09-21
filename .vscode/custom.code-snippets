@@ -95,9 +95,40 @@
     ],
     "description": "▶ section header"
   },
+    "mini-section": {
+    "scope": "quarto",
+    "prefix": "mini-section",
+    "body": [
+      "[section]{.mini-section}"
+    ],
+    "description": ""
+  },
   // --------------------------------------------
   // blocks
   // --------------------------------------------
+    "def-block":{
+    "scope": "quarto",
+    "prefix": "def-block",
+    "body": [
+      ":::: {.def-block style=\"font-size:1.2em;\"}",
+      "",
+      "[大容量ファイルをコミットするのは絶対にやってはいけない]{.def-title}",
+      "",
+      "::: {.def-contents}",
+      "::: {.def-contents style=\"font-size:0.9em;\"}",
+      "",
+      "- Gitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび**完全な新コピー**をオブジェクト DB に追加してしまう",
+      "- 特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる",
+      "",
+      ":::",
+      ":::",
+      "::::"
+    ],
+    "description": "definition block"
+    },
+
+
+
     "info-box": {
     "scope": "quarto",
     "prefix": "info-box",

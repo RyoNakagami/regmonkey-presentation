@@ -11,8 +11,8 @@ filters:
   - regmonkey_slide_editing
 auto-agenda:
   bullets: bullets
-# chalkboard: false
-# embed-resources: true
+  chalkboard: false
+  embed-resources: true
 ---
 
 # GitHubとは
@@ -600,7 +600,7 @@ GitHub Issue活用ワークフロー例
 ::: {.tool-content}
 ::: {.tool-name}
 
-Setp1: バグの発見とIssueの作成
+Step1: バグの発見とIssueの作成
 
 :::
 ::: {.tool-description}
@@ -1917,4 +1917,93 @@ PDF/PowerPoint, minified JS/CSS bundles, compiled binaries
 ::::
 
 
-<!-- # Appendix: 用語集 -->
+## git logコマンドでcommit logを確認する
+[gitコマンド]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[`git log` コマンドの基本動作]{.def-title}
+
+::: {.def-contents}
+
+::: {.def-contents style="font-size:0.9em;"}
+
+
+{{< reveal_vspace 0.5em >}}
+
+::: {style="font-size:2em; padding-left:0.5em;" }
+
+```{.bash code-line-numbers="false"}
+git log [options] -- <file>
+```
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+- 誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=`git rebase`や`git difftool`を使いこなすために必要)
+- ファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる
+
+:::
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{.border-bottom-header}
+
+`git log` の挙動例
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+::: {style="font-size:1.5em;" }
+
+```{.bash code-line-numbers="false"}
+$ git log --pretty=format:'%cs,%h,%an,%s'
+
+2025-09-21,ec4df50,Ryo Nak,Merge pull request #13
+2025-09-20,a1b2c3d,John Doe,BUGFIX: solve #11
+2025-09-19,9f8e7d6,Alice Smith,ENH: simplify OLS class
+2025-09-18,7e6d5c4,Bob Johnson,DOCS: adding README
+```
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+- `--pretty=format` を用いることで，commit logを1行に要約して出力することができます
+- FileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ慶して出力できます
+- `-p` オプションを追加で付与することで，各コミットにおける差分も表示することができます
+
+
+:::
+::: {.column width="45%"}
+
+:::{.border-bottom-header}
+
+`--pretty=format` オプション解説
+
+:::
+
+:::{style="font-size:0.9em; padding-left:0.5em;" }
+
+| フィールド             | 説明                 |
+| :-----------------: | ------------------ |
+| `%cs`             | コミット日時をYYYY-MM-DD 形式で表示 |
+| `%ci`             | コミット日時をISO 8601的形式で表示 |
+| `%h`              | 短縮コミットID           |
+| `%an`             | Author名            |
+| `%s`              | コミットメッセージ          |
+: {tbl-colwidths="[30,70]"}
+
+:::
+
+
+:::
+::::
