@@ -216,7 +216,7 @@
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
   <script type="text/javascript" src="../../js/yaml2table.js"></script>
-  <script src="https://cdn.anychart.com/releases/8.13.0/js/anychart-bundle.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
   <script src="../../min/leader-line.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -675,7 +675,7 @@ Ryo Nakagami
 </div>
 <div class="tool-content">
 <div class="tool-name">
-<p>Setp1: バグの発見とIssueの作成</p>
+<p>Step1: バグの発見とIssueの作成</p>
 </div>
 <div class="tool-description">
 <p>問題の言語化と可視化を通して、チーム全体が何が起きているか共有</p>
@@ -1700,7 +1700,89 @@ gitGraph
 </svg>
 </div>
 </div>
-<!-- # Appendix: 用語集 -->
+</section>
+<section id="git-logコマンドでcommit-logを確認する" class="slide level2">
+<h2>git logコマンドでcommit logを確認する</h2>
+<p><span class="topleftbox">gitコマンド</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block" style="font-size:1.2em;">
+<p><span class="def-title"><code>git log</code> コマンドの基本動作</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:0.9em;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div style="font-size:2em; padding-left:0.5em;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span> <span class="at">--</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li>誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=<code>git rebase</code>や<code>git difftool</code>を使いこなすために必要)</li>
+<li>ファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="border-bottom-header">
+<p><code>git log</code> の挙動例</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div style="font-size:1.5em;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">'%cs,%h,%an,%s'</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-21,ec4df50,Ryo</span> Nak,Merge pull request <span class="co">#13</span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-20,a1b2c3d,John</span> Doe,BUGFIX: solve <span class="co">#11</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-19,9f8e7d6,Alice</span> Smith,ENH: simplify OLS class</span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-18,7e6d5c4,Bob</span> Johnson,DOCS: adding README</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li><code>--pretty=format</code> を用いることで，commit logを1行に要約して出力することができます</li>
+<li>FileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ慶して出力できます</li>
+<li><code>-p</code> オプションを追加で付与することで，各コミットにおける差分も表示することができます</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="border-bottom-header">
+<p><code>--pretty=format</code> オプション解説</p>
+</div>
+<div style="font-size:0.9em; padding-left:0.5em;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">フィールド</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>%cs</code></td>
+<td>コミット日時をYYYY-MM-DD 形式で表示</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>%ci</code></td>
+<td>コミット日時をISO 8601的形式で表示</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>%h</code></td>
+<td>短縮コミットID</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>%an</code></td>
+<td>Author名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>%s</code></td>
+<td>コミットメッセージ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
 
 
 </section></section>

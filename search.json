@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "Reasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "pentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nReasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
@@ -19,6 +19,13 @@
     "title": "スライド作成に役に立つ書籍紹介",
     "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
     "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
+    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
   },
   {
     "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
@@ -70,6 +77,41 @@
     "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
   },
   {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "title": "MathJaxのレンダリング確認",
+    "section": "保存則と運動方程式",
+    "text": "保存則と運動方程式\n\n物理学における法則は，保存則か運動方程式 で表現される．表現方法は微分方程式が用いられる場合が多い．\n\n\n\n\n\n Law of conservation(保存則1)\n\n\n\n\nエネルギー保存則\n運動量保存則\n質量保存則\n\n\nExample 1 \nある筒の中で流体が一定方向で流れるとき，筒の中の密度 \\(\\rho\\) の時間的変化は 体積 \\(V\\)， 入流量 \\(Gin\\), 出流量 \\(Gout\\) を用いて，質量保存則の観点から以下のように表される\n\\[\nV\\frac{\\partial \\rho}{\\partial t} = Gin_t - Gout_t\n\\]\n\n\n\n\n\n\n\nLaw of motion(運動方程式)\n\n\n\n\nニュートンの法則\nフーリエの法則\nフィックの第一法則\n\n\nExample 2 \n熱エネルギーが温度の高い方から低い方へ輸送されることか，\\(x\\): 位置, \\(t\\): 時間, \\(\\lambda\\): 熱伝導率，\\(T(x, t)\\): 温度とすると，熱流密度 \\(q(x, t)\\) は\n\\[\nq(x, t) = -\\lambda \\frac{\\partial T(x, t)}{\\partial x} \\label{eq-fourier-law}\n\\]\n\n\n\n\nNoether’s theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と局所性",
+    "text": "微分方程式と局所性\n\n\nDefinition 1 局所性\n\nある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは\n\nまず周囲（隣の点）に影響を与え\n時間の１ステップごとに伝わっていく\n\nこのように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．\n\n\n\n数式による定式化\n\\[\n\\frac{\\partial y(t, x)}{\\partial t} = f(y(t,x), t, x)\n\\]\n\n時刻 \\(t\\) における変化率は，その時点の値 \\(y(t)\\) と時間 \\(t\\) 場所 \\(x\\) のみに依存する\n時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）\n過去全体に依存する場合は、時間的に非局所的"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と因果性",
+    "text": "微分方程式と因果性\n\n\nDefinition 2 : 因果性 \nある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．\n\n\n ▶  常微分方程式による定式化\n\\[\n\\frac{dy(t)}{dt} = f(y(t), u(t))\n\\]\n\n時刻 \\(t\\) における出力は，現像の入力 \\(u(t)\\) と状態 \\(y(t)\\) のみから決まる\n\\(t=5\\) のような未来の解 \\(y(t)\\)は、初期値 \\(y_0\\) とそれまでの \\(u(t)\\) によってのみ決まる\n\n因果に基づいた未来の予測"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "title": "MathJaxのレンダリング確認",
+    "section": "物理モデリングを使って何を求めるのか？: 順問題と逆問題",
+    "text": "物理モデリングを使って何を求めるのか？: 順問題と逆問題\n物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある\n\n\n\n\n\n\n順問題\n\n\n\n\n微分方程式が知られている場合に，その解を求める\n入力や条件が分かっていて、現象を予測\n\n\nExample 3 \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), パラメータ \\(\\theta\\) が与えられる\nGoal: \\(y(t)\\) を求める\n\n\\[\ny(t) = M(u(t), \\theta)\n\\]\n\n\n\n\n\n\n\n逆問題\n\n\n\n\n解の挙動が知られているとき，解が従う法則を探求する\n結果が観測されていて、その原因を特定\n\n\nExample 4  \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), 出力 \\(y(t)\\) が与えられる\nGoal: パラメータ \\(\\theta\\) を求める\n\n\\(P_\\theta\\) を 入力，モデルを条件付けたとき，\\(\\theta\\) によって特徴づけられる \\(y(t)\\) のデータ生成分布としたとき，観測データと整合的な \\(\\theta\\) を識別する"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "title": "MathJaxのレンダリング確認",
+    "section": "PINN: physics-informed neural network",
+    "text": "PINN: physics-informed neural network\n\n\nDefinition 3 : PINN \n運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法\n\n\n ▶  Approach\n\\[\nL = L_{D}(\\hat y, y) + L_{\\operatorname{physics}}(\\hat y)\n\\]\n\n\\(y\\): 目的変数\n\\(\\hat y\\): 目的変数の予測値\n\\(L_{D}(\\hat y, y)\\): 予測値とtrueの距離(自乗距離など)\n\\(L_{\\operatorname{pysics}}(\\hat y)\\): \\(\\hat y\\) が満たすべき物理ロジックとの適合度\n\n ▶  例: 熱伝導方程式\n\\[\n\\min \\frac{1}{n}\\sum_{i=1}^n(T(x, t) - T)^2 + P \\left\\|\\frac{\\partial T(x, t)}{\\partial t} - \\frac{\\lambda}{c\\rho}\\frac{\\partial^2 T(x, t)}{\\partial x^2}\\right\\|^2\n\\]"
+  },
+  {
     "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
     "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
     "title": "Summaryスライド",
@@ -119,6 +161,27 @@
     "text": "分析Introductionスライド例 pattern 2\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
   },
   {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/pentagon-squared-box.html",
+    "href": "template/pentagon-squared-box.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
+  },
+  {
     "objectID": "template/analysis-summary.html",
     "href": "template/analysis-summary.html",
     "title": "Presentation for Regession Monkey",
@@ -151,28 +214,28 @@
     "href": "template/hop-step-jump.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
   },
   {
     "objectID": "template/hop-step-jump.html#test",
     "href": "template/hop-step-jump.html#test",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "1 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2 Step\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3 Step"
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
   },
   {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "title": "hop-step-jumpスライド",
+    "section": "実務業務におけるデータサイエンティスト分類",
+    "text": "実務業務におけるデータサイエンティスト分類\n\n\n\n\nジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
   },
   {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "title": "hop-step-jumpスライド",
+    "section": ".hop-step-jump-containerの構造解説",
+    "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
@@ -207,7 +270,7 @@
     "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
     "title": "はじめてのGitHub",
     "section": "GitHub Issueを用いたワークフロー例の紹介",
-    "text": "GitHub Issueを用いたワークフロー例の紹介\nGitHub Issue\n\n\n\n\nGitHub Issue活用ワークフロー例\n\n\n\n\n\n\n\nSetp1: バグの発見とIssueの作成\n\n\n問題の言語化と可視化を通して、チーム全体が何が起きているか共有\n\n\n\n\n\n\n\n\n\nStep2: ラベルとメタ情報の整理\n\n\nラベル・マイルストンの明示によって、タスクを管理しやすくする\n\n\n\n\n\n\n\n\n\nStep3: 担当者の割り当てと作業開始\n\n\n担当者の明確化(@mention)により、進捗確認しやすくする\n\n\n\n\n\n\n\n\n\nStep4: Pull Requestを作成し、Issueと関連付け\n\n\n何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる\n\n\n\n\n\n\n\n\n\nStep5: PRマージとIssueの自動クローズ\n\n\n作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ\n\n\n\n\n\nGitHub Issue作成Tips\n\n\n\n\n① Issueの重複を回避する\n\n\n\nIssue作成前にキーワード検索して既存のIssueを確認\n既存Issueに追記する形が望ましい場合は、新規作成を避ける\n\n\n\n\n\n\n② チームで共通のLabelを定義・運用する\n\n\n\nカテゴリ・優先度・状態を表すラベルを整理（例：bug, preprocess, P1）\nチームでラベル運用ルールを文書化する\n\n\n\n\n\n\n③ Issue Templateを定義する\n\n\n\n.github/ISSUE_TEMPLATE にテンプレートファイルを作成\nバグ報告・機能提案など、用途ごとにテンプレートを分ける\n\n\n\n\n\n\n④ マイルストンを明確に設定する\n\n\n\nIssueごとにマイルストンを紐づける\nマイルストンごとの進捗率把握に役に立つ\n\n例: version 3.0 リリースに必要なタスクの95%が現在達成済み"
+    "text": "GitHub Issueを用いたワークフロー例の紹介\nGitHub Issue\n\n\n\n\nGitHub Issue活用ワークフロー例\n\n\n\n\n\n\n\nStep1: バグの発見とIssueの作成\n\n\n問題の言語化と可視化を通して、チーム全体が何が起きているか共有\n\n\n\n\n\n\n\n\n\nStep2: ラベルとメタ情報の整理\n\n\nラベル・マイルストンの明示によって、タスクを管理しやすくする\n\n\n\n\n\n\n\n\n\nStep3: 担当者の割り当てと作業開始\n\n\n担当者の明確化(@mention)により、進捗確認しやすくする\n\n\n\n\n\n\n\n\n\nStep4: Pull Requestを作成し、Issueと関連付け\n\n\n何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる\n\n\n\n\n\n\n\n\n\nStep5: PRマージとIssueの自動クローズ\n\n\n作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ\n\n\n\n\n\nGitHub Issue作成Tips\n\n\n\n\n① Issueの重複を回避する\n\n\n\nIssue作成前にキーワード検索して既存のIssueを確認\n既存Issueに追記する形が望ましい場合は、新規作成を避ける\n\n\n\n\n\n\n② チームで共通のLabelを定義・運用する\n\n\n\nカテゴリ・優先度・状態を表すラベルを整理（例：bug, preprocess, P1）\nチームでラベル運用ルールを文書化する\n\n\n\n\n\n\n③ Issue Templateを定義する\n\n\n\n.github/ISSUE_TEMPLATE にテンプレートファイルを作成\nバグ報告・機能提案など、用途ごとにテンプレートを分ける\n\n\n\n\n\n\n④ マイルストンを明確に設定する\n\n\n\nIssueごとにマイルストンを紐づける\nマイルストンごとの進捗率把握に役に立つ\n\n例: version 3.0 リリースに必要なタスクの95%が現在達成済み"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
@@ -278,6 +341,13 @@
     "title": "はじめてのGitHub",
     "section": "Git × 大容量ファイル ― やってはいけないアンチパターン",
     "text": "Git × 大容量ファイル ― やってはいけないアンチパターン\n\n\n大容量ファイルをコミットするのは絶対にやってはいけない\n\n\n\nGitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび完全な新コピーをオブジェクト DB に追加してしまう\n特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる\n\n\n\n\n\n\n\n\n アンチパターン\n\n\n\n\n巨大バイナリをそのままコミット\n\n\nRAW 動画、可逆圧縮画像、機械学習モデルをcommit\n\n\n\n\n\n\n定期的に更新される生成物を履歴に残す\n\n\nPDF/PowerPoint, minified JS/CSS bundles, compiled binaries\n\n\n\n\n\n\n一時ファイルやキャッシュをうっかり追加\n\n\n.DS_Store, .idea, *.sqlite, *.log\n\n\n\n\n\n\n 発生する不具合\n\n\n\n\nリポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる\n\n\n1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り\n\n\n\n\n\n\n生成物が少しでも変わるたびにフルコピーされ履歴が膨張\n\n\nファイルの中の一部が変われば、新しい blob オブジェクトが生成される\n\n\n\n\n\n\n差分や履歴がノイズまみれになる\n\n\n開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
+    "title": "はじめてのGitHub",
+    "section": "git logコマンドでcommit logを確認する",
+    "text": "git logコマンドでcommit logを確認する\ngitコマンド\n\n\ngit log コマンドの基本動作\n\n\n\n\ngit log [options] -- &lt;file&gt;\n\n\n\n誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=git rebaseやgit difftoolを使いこなすために必要)\nファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる\n\n\n\n\n\n\n\n\ngit log の挙動例\n\n\n\n$ git log --pretty=format:'%cs,%h,%an,%s'\n\n2025-09-21,ec4df50,Ryo Nak,Merge pull request #13\n2025-09-20,a1b2c3d,John Doe,BUGFIX: solve #11\n2025-09-19,9f8e7d6,Alice Smith,ENH: simplify OLS class\n2025-09-18,7e6d5c4,Bob Johnson,DOCS: adding README\n\n\n\n--pretty=format を用いることで，commit logを1行に要約して出力することができます\nFileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ慶して出力できます\n-p オプションを追加で付与することで，各コミットにおける差分も表示することができます\n\n\n\n--pretty=format オプション解説\n\n\n\n\n\n\n\n\n\nフィールド\n説明\n\n\n\n\n%cs\nコミット日時をYYYY-MM-DD 形式で表示\n\n\n%ci\nコミット日時をISO 8601的形式で表示\n\n\n%h\n短縮コミットID\n\n\n%an\nAuthor名\n\n\n%s\nコミットメッセージ"
   },
   {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
@@ -369,6 +439,13 @@
     "title": "構造化されたストーリーとしてのスライド",
     "section": "場面に応じてスライド作成クオリティは異なる",
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例",
+    "title": "pentagon-squared-boxスライド",
+    "section": "pentagon-squared-boxスライド例",
+    "text": "pentagon-squared-boxスライド例\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
   },
   {
     "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",

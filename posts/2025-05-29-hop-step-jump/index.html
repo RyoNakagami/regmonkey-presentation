@@ -9,12 +9,11 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – Reasearch Introductionスライドの書き方</title>
+  <title>Presentation for Regession Monkey – hop-step-jumpスライド</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,72 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link rel="stylesheet" href="../../style/revealjs.css">
@@ -221,8 +154,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
-<meta property="og:title" content="Reasearch Introductionスライドの書き方 – Presentation for Regession Monkey">
-<meta property="og:description" content="リサーチライティング">
+<meta property="og:title" content="hop-step-jumpスライド – Presentation for Regession Monkey">
+<meta property="og:description" content="revealjsスライド作成紹介">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
 <body class="quarto-light">
@@ -230,8 +163,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Reasearch Introductionスライドの書き方</h1>
-  <p class="subtitle">リサーチライティング</p>
+  <h1 class="title">hop-step-jumpスライド</h1>
+  <p class="subtitle">revealjsスライド作成紹介</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -241,233 +174,158 @@ Ryo Nakagami
 </div>
 </div>
 
-  <p class="date">2025年06月13日</p>
+  <p class="date">2025年05月29日</p>
 </section>
-<section id="introductionスライド４つの構成要素" class="slide level2">
-<h2>Introductionスライド４つの構成要素</h2>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-box" style="font-size: 1.1em;">
-<p><span class="info-box-title">Introductionスライドのルール</span></p>
-<div class="info-contents">
+<section id="実務業務におけるデータサイエンティスト分類" class="slide level2">
+<h2>実務業務におけるデータサイエンティスト分類</h2>
+<div class="hop-step-jump-container">
+<!-- 1st step -->
+<div class="step step-1">
+<div class="step-number">
+<p>ジュニアDS</p>
+</div>
+<div class="step-title">
+<p>分析ができる</p>
+</div>
+<div class="info-content">
 <ul>
-<li>Introductionスライドの目的は、読者を分析に引き込む「入口」として機能すること</li>
-<li>「背景・文脈」「課題・ギャップ」「分析スコープ」「分析結果」が押さえられている</li>
+<li>実装スキル（Python / SQL / Rなど）</li>
+<li>可視化、要約、特徴量エンジニアリングなどの基本分析技術</li>
+<li>指示タスクの正確な実行力</li>
+<li>ドキュメンテーション・再現性への意識</li>
 </ul>
 </div>
 </div>
+<!-- 2nd step -->
+<div class="step step-2">
+<div class="step-number">
+<p>ミドルDS</p>
+</div>
+<div class="step-title">
+<p>分析を構想できる</p>
+</div>
+<div class="info-content">
+<ul>
+<li>問いの構造化、仮説立案、分析手法の選定力</li>
+<li>分析計画とタスクの分解・優先順位づけ</li>
+<li>分析からインサイトを見出し、報告書を作成</li>
+<li>後続プロセス・業務実装を見据えた設計の議論や不備の指摘</li>
+</ul>
+</div>
+</div>
+<!-- 3rd step -->
+<div class="step step-3">
+<div class="step-number">
+<p>シニアDS</p>
+</div>
+<div class="step-title">
+<p>プロジェクトを組織で推進できる</p>
+</div>
+<div class="info-content">
+<ul>
+<li>PJマネジメント（進捗・品質・タスク調整）</li>
+<li>顧客・社内ステークホルダーとの合意形成</li>
+<li>分析成果の価値訴求力（経営層視点で語れる）</li>
+<li>組織内の知見・資産の展開と仕組み化</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="hop-step-jump-containerの構造解説" class="slide level2">
+<h2><code>.hop-step-jump-container</code>の構造解説</h2>
 <div class="columns">
-<div class="column" style="width: 25%; height:80%">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="horizontal-keypoints-block" style="height:65%;">
-<div class="block-header">
-<p><i class="bi-exclamation-circle-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> 背景・文脈</p>
+<div class="column" style="width:72.5%;">
+<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
+<div class="hop-step-jump-container" style="height:640px; font-size:0.9em">
+<!-- 1st step -->
+<div class="step step-1">
+<div class="step-number">
+<p>step-number</p>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
-<div class="block" style="font-size:0.8em; padding-right:0.5em;">
-<span class="section-header">目的</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="step-title">
+<p>step-title</p>
+</div>
+<div id="info-content1" class="info-content">
 <ul>
-<li>研究分野の「全体像」を提示し、聴衆を導入部分で安心させる</li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<span class="section-header">構成要素</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<ul>
-<li>このテーマが属する分野</li>
-<li>分野の重要性</li>
-<li>既に明らかになっていること</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
 </ul>
 </div>
 </div>
-</div><div class="column" style="width: 25%; height:80%">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="horizontal-keypoints-block" style="height:65%;">
-<div class="block-header">
-<p><i class="bi-signpost-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<p>課題・ギャップ</p>
+<!-- 2nd step -->
+<div class="step step-2">
+<div class="step-number">
+<p>step-number</p>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
-<div class="block" style="font-size:0.8em; padding-right:0.5em;">
-<span class="section-header">目的</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="step-title">
+<p>step-title</p>
+</div>
+<div id="info-content2" class="info-content">
 <ul>
-<li>分析の「必要性」を明確にする</li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
-<span class="section-header">構成要素</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<ul>
-<li>まだ解明されていない問題</li>
-<li>これまでの議論のバイアス・視点の欠如</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
 </ul>
 </div>
 </div>
-</div><div class="column" style="width: 25%; height:80%">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="horizontal-keypoints-block" style="height:65%;">
-<div class="block-header">
-<p><i class="bi-funnel-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<p>分析スコープ</p>
+<!-- 3rd step -->
+<div class="step step-3">
+<div class="step-number">
+<p>step-number</p>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
-<div class="block" style="font-size:0.8em; padding-right:0.5em;">
-<span class="section-header">目的</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="step-title">
+<p>step-title</p>
+</div>
+<div id="info-content3" class="info-content">
 <ul>
-<li>分析で「何に取り組んだのか」を明確にする</li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<span class="section-header">構成要素</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<ul>
-<li>分析の目的・クエッション</li>
-<li>アプローチの概要</li>
-<li>この分析の意義</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
+<li>xxxxxx</li>
 </ul>
 </div>
 </div>
-</div><div class="column" style="width: 25%; height:80%">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="horizontal-keypoints-block-no-border" style="height:65%;">
-<div class="block-header">
-<p><i class="bi-bar-chart-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i> 分析結果</p>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
-<div class="block" style="font-size:0.8em; padding-right:0.5em;">
-<span class="section-header">目的</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<ul>
-<li>分析によって得られたインサイトを示す</li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<span class="section-header">構成要素</span>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<ul>
-<li>結果の要点と意義</li>
-<li>分析結果と「課題」の関係性</li>
-<li>分析結果の事業インパクト</li>
-</ul>
+</div><div class="column" style="width:27.5%;">
+<div class="border-bottom-header">
+<p><code>.hop-step-jump-container</code></p>
 </div>
+<div class="squaredmark" style="font-size: 0.95em;">
+<ul>
+<li><code>.hop-step-jump-container</code>
+<ul>
+<li><code>.hop-step-jump-container-vannila</code>は背景矢印なしversion</li>
+<li><code>column</code> と組み合わせる場合，高さを指定する必要あり(<code>style="height:640px;</code>)</li>
+</ul></li>
+<li><code>.step-number</code>
+<ul>
+<li>各stepの色付きheader</li>
+</ul></li>
+<li><code>.step-title</code>
+<ul>
+<li>各stepのboldタイトル</li>
+</ul></li>
+<li><code>.info-content</code>
+<ul>
+<li>各stepの記述領域</li>
+</ul></li>
+</ul>
 </div>
 </div></div>
-</section>
-<section id="分析introductionスライド例" class="slide level2">
-<h2>分析Introductionスライド例</h2>
-<div class="tools-grid">
-<div class="tools-column">
-<div class="border-bottom-header">
-<p>背景・課題</p>
-</div>
-<!-- 1st -->
-<div class="component-card-for-analysis-summary">
-<div class="flex items-center">
-<div class="mr-3">
-<p><i class="bi-exclamation-circle-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-</div>
-<h3 id="背景文脈">背景・文脈</h3>
-</div>
-<div class="pl-10 grid-cols">
+<div id="info-content-def" class="message-box" style="font-size:0.8em; position: absolute; top: 70.5%; left:50%; right: 32%">
 <ul>
-<li>都市化とエネルギー需要の増加は、気候変動と密接に関係</li>
-<li>多くの研究が「気温変化とエネルギー消費パターン」の相関を分析</li>
-<li>北米・欧州の主要都市を対象とした研究が中心（Smith et al.&nbsp;2020, Zhao et al.&nbsp;2022）</li>
+<li><code>info-content</code> block</li>
+<li>ここにqmd形式で各ステップ内容を記述</li>
 </ul>
 </div>
-</div>
-<!-- 2nd -->
-<div class="component-card-for-analysis-summary">
-<div class="flex items-center">
-<div class="mr-3">
-<p><i class="bi-signpost-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-</div>
-<h3 id="課題ギャップ">課題・ギャップ</h3>
-</div>
-<div class="pl-10">
-<ul>
-<li>多くの研究は単一都市の分析にとどまっている</li>
-<li>都市間比較や地域特異性の視点が欠如</li>
-<li>日本を含むアジア都市の分析は不十分</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="tools-column">
-<div class="border-bottom-header">
-<p>実施内容</p>
-</div>
-<!-- 3rd -->
-<div class="component-card-for-analysis-summary">
-<div class="flex items-center">
-<div class="mr-3">
-<p><i class="bi-funnel-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-</div>
-<h3 id="分析スコープ">分析スコープ</h3>
-</div>
-<div class="pl-10">
-<ul>
-<li>方針：気温変化と電力需要の関係を定量的に評価</li>
-<li>対象：東京・大阪・福岡の3都市</li>
-<li>手法：ARIMA + XGBoost モデルによる予測と比較分析</li>
-</ul>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 3.4em;"></div>
-<!-- 4th -->
-<div class="component-card-for-analysis-summary">
-<div class="flex items-center">
-<div class="mr-3">
-<p><i class="bi-bar-chart-fill " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-</div>
-<h3 id="分析結果">分析結果</h3>
-</div>
-<div class="pl-10">
-<ul>
-<li>東京は冷房需要が特に大きく増加</li>
-<li>大阪・福岡は冷暖房の両面で変動が大きい</li>
-<li>気温2度上昇時、夏季の電力需要は最大15%上昇</li>
-<li>都市ごとに異なる対応が必要であることを示唆</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="分析introductionスライド例-pattern-2" class="slide level2">
-<h2>分析Introductionスライド例 pattern 2</h2>
-<div class="custom-table-for-analysis-summary" style="width:100%;">
-<div id="yaml-mtg-table" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 80]" style="font-size: 0.9em;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">component</span><span class="kw">:</span><span class="at"> 背景・文脈</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb1-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 都市化とエネルギー需要の増加は、気候変動と密接に関係</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb1-9"><a></a><span class="at">  </span><span class="fu">component</span><span class="kw">:</span><span class="at"> 課題・ギャップ</span></span>
-<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb1-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 多くの研究は単一都市の分析にとどまっている</span></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 都市間比較や地域特異性の視点が欠如</span></span>
-<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 日本を含むアジア都市の分析は不十分</span></span>
-<span id="cb1-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> モデルの精度や変数選定にも課題</span></span>
-<span id="cb1-15"><a></a></span>
-<span id="cb1-16"><a></a></span>
-<span id="cb1-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">  </span><span class="fu">component</span><span class="kw">:</span><span class="at"> 分析目的&lt;br&gt;アプローチ</span></span>
-<span id="cb1-19"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える</span></span>
-<span id="cb1-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価</span></span>
-<span id="cb1-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析</span></span>
-<span id="cb1-24"><a></a></span>
-<span id="cb1-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb1-26"><a></a><span class="at">  </span><span class="fu">component</span><span class="kw">:</span><span class="at"> 分析結果</span></span>
-<span id="cb1-27"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb1-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 東京は冷房需要が特に大きく増加</span></span>
-<span id="cb1-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大阪・福岡は冷暖房の両面で変動が大きい</span></span>
-<span id="cb1-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 気温2度上昇時、夏季の電力需要は最大15%上昇</span></span>
-<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 都市ごとに異なる対応が必要であることを示唆</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<div id="leaderline-area">
+<p><span class="leaderline" start="#info-content1" data-end="#info-content-def" color="#A9A9A9" size="3" data-end-socket="left" data-path="grid" data-end-plug="square" data-start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%"></span></p>
+<p><span class="leaderline" start="#info-content2" data-end="#info-content-def" color="#A9A9A9" size="3" data-start-socket="bottom" data-end-socket="left" data-path="grid" data-end-plug="square" data-start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%"></span></p>
+<p><span class="leaderline" start="#info-content3" data-end="#info-content-def" color="#A9A9A9" size="3" data-end-socket="top" data-path="grid" data-start-border-style="color:#575757; x: 0.5%; y:0%; width:75%; height:100%" data-end-plug="square"></span></p>
 </div>
 
 
