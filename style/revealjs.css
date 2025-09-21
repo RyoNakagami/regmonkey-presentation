@@ -192,7 +192,7 @@ div.colored-slide-30 {
   /* 親の右端に配置 */
   width: 165px;
   height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 100,300 0,620" fill="white" stroke="none"/><polyline points="0,0 100,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
   z-index: 9999;   /* 他の要素より前に */
 }
 
@@ -223,9 +223,9 @@ div.colored-slide-30 {
   top: 0;
   left: 100%;
   /* 親の右端に配置 */
-  width: 190px;
+  width: 180px;
   height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 620"><polygon points="0,0 100,300 0,620" fill="white" stroke="none"/><polyline points="0,0 100,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
   z-index: 9999;   /* 他の要素より前に */
 }
 
