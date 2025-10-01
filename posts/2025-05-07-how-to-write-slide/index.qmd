@@ -665,7 +665,6 @@ horizontal_tree:
 
 :::
 
-
 <!-- footer -->
 
 [^foot2]: [エネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業](https://www.meti.go.jp/meti_lib/report/2022FY/000762.pdf)より編集
@@ -784,7 +783,6 @@ reocord4:
 ```
 
 :::
-
 
 []{.leaderline start="#def-headings"  end="#heading-box1" 
     color="#A9A9A9" end-socket="left" size="3" dash=true 

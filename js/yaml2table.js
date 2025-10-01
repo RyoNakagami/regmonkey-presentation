@@ -65,17 +65,16 @@ function generateTable(data, columnWidths) {
     rows.forEach((component, idx) => {
       table += "<tr>";
       if (idx === 0) {
-        // Get the first key as record_index and display it in the first column
         const recordIndex = Object.keys(component)[0];
         table += `<td rowspan="${rows.length}"${
           columnWidths && columnWidths[0]
             ? ` style="width: ${columnWidths[0]}%;"`
             : ""
-        }>${component[recordIndex]}</td>`; // Display the first column as record_index
+        }>${component[recordIndex]}</td>`;
       }
 
       let cellIndex = 1;
-      const headersArray = Array.from(allHeaders); // Ensure consistent order
+      const headersArray = Array.from(allHeaders);
 
       headersArray.forEach((header) => {
         const value = component[header];
@@ -84,20 +83,10 @@ function generateTable(data, columnWidths) {
             ? ` style="width: ${columnWidths[cellIndex]}%;"`
             : "";
 
-        if (Array.isArray(value)) {
-          let listItems = "";
-          value.forEach((item) => {
-            if (typeof item === "string") {
-              listItems += `<li>${item}</li>`;
-            } else if (typeof item === "object") {
-              listItems += generateNestedList(item);
-            }
-          });
-          table += `<td${cellStyle}><ul>${listItems}</ul></td>`;
-        } else if (typeof value === "object" && value !== null) {
-          table += `<td${cellStyle}>${generateNestedTable(value)}</td>`;
+        if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
+          table += `<td${cellStyle}>${generateNestedList(value)}</td>`;
         } else if (value === null) {
-          table += `<td${cellStyle}><p  style="vertical-align: middle;">-</p></td>`;
+          table += `<td${cellStyle}><p style="vertical-align: middle;">-</p></td>`;
         } else {
           table += `<td${cellStyle}>${value}</td>`;
         }
@@ -112,24 +101,25 @@ function generateTable(data, columnWidths) {
   return table;
 }
 
+// 再帰的にネストされた配列やオブジェクトを <ul><li> で展開
 function generateNestedList(data) {
-  let listItems = "";
-  for (const key in data) {
-    listItems += `<li>${key}<ul>`;
-    data[key].forEach((subItem) => {
-      listItems += `<li>${subItem}</li>`;
-    });
-    listItems += "</ul></li>";
+  if (Array.isArray(data)) {
+    return `<ul>${data.map(item => {
+      if (typeof item === "object" && item !== null) {
+        return `<li>${generateNestedList(item)}</li>`;
+      } else {
+        return `<li>${item}</li>`;
+      }
+    }).join("")}</ul>`;
   }
-  return listItems;
-}
 
-function generateNestedTable(data) {
-  let nestedTable =
-    '<table style="width: 100%; height: 100%; border-collapse: collapse;"><tbody>';
-  for (const key in data) {
-    nestedTable += `<tr><td>${key}</td><td>${data[key]}</td></tr>`;
+  if (typeof data === "object" && data !== null) {
+    let listItems = "";
+    for (const key in data) {
+      listItems += `<li>${key}${generateNestedList(data[key])}</li>`;
+    }
+    return `<ul>${listItems}</ul>`;
   }
-  nestedTable += "</tbody></table>";
-  return nestedTable;
+
+  return `<ul><li>${data}</li></ul>`;
 }

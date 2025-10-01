@@ -1,0 +1,1089 @@
+---
+title: "分析提案スライドの作成"
+subtitle: "リサーチライティング"
+author: "Ryo Nakagami"
+date: "2025-10-01"
+categories: [方法論]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+chalkboard: false
+embed-resources: true
+---
+
+# 分析提案書テンプレート
+
+<!-- page 1 -->
+
+## モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現
+[Goal Setting]{.topleftbox}
+
+
+:::::::{.width-110}
+:::::: {.columns}
+
+::::: {.column width="50%" .position-left-20 }
+::::{.width-90}
+
+:::{.border-bottom-header}
+
+AS-IS
+
+:::
+
+
+```{mermaid}
+sequenceDiagram
+    participant Chatbot
+    participant ModelTrainingService
+    participant ModelEvaluationService
+
+    Chatbot ->> ModelTrainingService: Provide preprocessed data
+
+    opt Train AI model
+        ModelTrainingService ->> ModelTrainingService: Train AI model
+        Note right of ModelTrainingService: モデルやパラメータのログは手動管理
+    end
+
+    ModelTrainingService ->> ModelEvaluationService: Evaluate model performance
+    ModelEvaluationService ->> ModelTrainingService: Provide evaluation results
+
+    ModelTrainingService ->> Chatbot: Deliver trained model
+    Note right of ModelTrainingService: 過去モデルの再デプロイは困難
+
+%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%% 
+```
+
+::::
+:::::
+
+<!-- 矢印 -->
+
+:::{.integration-arrow}
+
+<svg width="40" height="400" viewBox="0 0 40 400" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 40,200 0,400" fill="#0E3666" />
+</svg>
+
+:::
+
+<!-- 矢印 end -->
+
+::::: {.column width="50%" .position-left-20}
+::::{.width-90}
+
+:::{.border-bottom-header}
+
+TO-BE
+
+:::
+
+```{mermaid}
+sequenceDiagram
+    participant Chatbot
+    participant ModelTrainingService
+    participant ModelEvaluationService
+    participant MLflow
+
+    Chatbot ->> ModelTrainingService: Provide preprocessed data
+
+    opt Train AI model
+        ModelTrainingService ->> MLflow: Log experiment parameters
+        ModelTrainingService ->> ModelTrainingService: Train AI model
+        ModelTrainingService ->> MLflow: Log model, metrics, artifacts
+    end
+
+    ModelTrainingService ->> ModelEvaluationService: Evaluate model performance
+    ModelEvaluationService ->> MLflow: Log evaluation metrics
+    ModelEvaluationService ->> ModelTrainingService: Provide evaluation results
+
+    ModelTrainingService ->> MLflow: Register model version
+    Chatbot ->> MLflow: Request previous model version
+    MLflow ->> Chatbot: Provide historical model for deployment
+
+    ModelTrainingService ->> Chatbot: Deliver trained model
+
+%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(4) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%% 
+```
+
+
+::::
+:::::
+
+::::::
+:::::::
+
+<!-- page 2 -->
+
+## Problem Statement
+[xxxxxxxx]{.h2-submessage}
+[Problem Statement]{.topleftbox}
+
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+:::{.horizontal-tree-container .font-11}
+
+```yml
+horizontal_tree:
+  - テーマ
+    - breakdown 1
+        - problem 1.1
+        - problem 1.2
+          - problem 1.2.1
+          - problem 1.2.2
+        - problem 1.3
+    - breakdown 2
+        - problem 2.1
+        - problem 2.2
+```
+:::
+
+:::{.integration-arrow}
+
+<svg width="40" height="400" viewBox="0 0 40 400" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 40,200 0,400" fill="#0E3666" />
+</svg>
+
+:::
+
+:::::
+
+<!-- left column end -->
+
+::::: {.column width="50%" .padding-L-10}
+:::: {.info-box .padding-TB-none}
+
+[Problem 1.1]{.info-box-title}
+
+::: {.info-contents}
+
+- どのような技術障壁があるのか？
+- 現状のステータスは？
+
+:::
+
+::::
+
+<!-- .info-box end -->
+
+{{< reveal_vspace 0.1em >}}
+
+:::: {.info-box .padding-TB-none}
+
+[Problem 1.2]{.info-box-title}
+
+::: {.info-contents}
+
+- どのような技術障壁があるのか？
+- 現状のステータスは？
+
+:::
+
+::::
+
+<!-- .info-box end -->
+
+{{< reveal_vspace 0.1em >}}
+
+:::: {.info-box .padding-TB-none}
+
+[Problem 1.3]{.info-box-title}
+
+::: {.info-contents}
+
+- どのような技術障壁があるのか？
+- 現状のステータスは？
+
+:::
+
+::::
+
+<!-- .info-box end -->
+
+{{< reveal_vspace 0.1em >}}
+
+:::: {.info-box .padding-TB-none}
+
+[Problem 2.1]{.info-box-title}
+
+::: {.info-contents}
+
+- どのような技術障壁があるのか？
+- 現状のステータスは？
+
+:::
+
+::::
+
+<!-- .info-box end -->
+
+{{< reveal_vspace 0.1em >}}
+
+:::: {.info-box .padding-TB-none}
+
+[Problem 2.2]{.info-box-title}
+
+::: {.info-contents}
+
+- どのような技術障壁があるのか？
+- 現状のステータスは？
+
+:::
+
+::::
+
+<!-- .info-box end -->
+
+:::::
+::::::
+
+## 課題解決のステップ
+[Objectivesの整理]{.topleftbox}
+
+:::::{.hop-step-jump-container style="height:640px; font-size:0.9em"}
+
+<!-- 1st step -->
+
+::::{.step .step-1}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content1}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+
+<!-- 2nd step -->
+
+::::{.step .step-2}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content2}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+
+<!-- 3rd step -->
+
+::::{.step .step-3}
+:::{.step-number}
+
+step-number
+
+:::
+:::{.step-title}
+
+step-title
+
+:::
+:::{.info-content #info-content3}
+
+- xxxxxx
+- xxxxxx
+- xxxxxx
+- xxxxxx
+
+:::
+::::
+:::::
+
+## 今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す
+[Solution提案]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+<!-- pentagon-squared-box style -->
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+<!-- left pentagon-box -->
+
+::::{.pentagon-box-700}
+
+:::{.border-bottom-header-left}
+
+開発課題（一般市場向け）
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- ① 実機テスト環境が市場条件を十分に再現できない  
+  - 実際の稼働環境では不具合が顕在化するリスク、設計と実利用の乖離  
+
+{{< reveal_vspace 1em >}}
+
+- ② パラメータ調整が手作業で非効率  
+  - 調整作業に時間がかかり、設計サイクルが長期化  
+
+{{< reveal_vspace 1em >}}
+
+- ③ デバイス単体での評価にとどまり、システム挙動が把握しづらい  
+  - 連携不具合や制御ロジックの不整合が開発後期まで見えにくい  
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+<!-- right square-box -->
+
+::::{ .square-box-700}
+
+:::{.border-bottom-header-left}
+
+分析ソリューション（デジタルツイン導入）
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- ① **デジタルツイン環境構築**  
+  - 実市場に近い動的条件でシミュレーション可能  
+  - **効果**：市場投入後の不具合低減、試験工数削減
+
+{{< reveal_vspace 1em >}}
+
+- ② **パラメータ最適化アルゴリズムの導入**  
+  - ML／PIML を用いた効率的な条件探索  
+  - **効果**：調整時間を短縮し、開発リードタイムを圧縮  
+
+{{< reveal_vspace 1em >}}
+
+- ③ **システム全体の統合シミュレーション**  
+  - デバイス間連携や制御ロジックを再現  
+  - **効果**：単体では見えない不具合の早期検出、信頼性向上  
+
+:::
+::::
+
+:::::
+::::::
+
+## 分析方針対応表
+[Solution提案]{.topleftbox}
+
+::::{.custom-table style="width:110%; height:80%; font-size: 0.7em !important;" .position-left-40}
+:::{.yaml2table .yaml2table-custom-top  #yaml-tidy-table data-col-widths="[15,22,12,23,18,10]"}
+
+```yaml
+record1:
+  テーマ: テスト環境再現性向上
+  事業課題: 
+    - "<strong>実機テスト環境が市場条件を十分に再現できない</strong>" 
+    - "市場投入後の予期せぬトラブルによるリコールや追加対応のコスト増"
+  受益者:
+    - 開発エンジニア
+    - テスト担当
+  取り組み提案:
+    - |
+      ① デジタルツイン環境を構築し、市場条件を忠実に再現するシミュレーションを実施。
+      これにより、<span style="color: #206f83; font-weight: bold !important;">
+      実環境に近い動的シミュレーション環境を提供し、設計・検証の精度を向上</span>させる。
+  事業インパクト:
+    - 市場投入後の不具合低減
+    - 試験工数削減
+  想定期間: 3ヶ月
+
+record2:
+  テーマ: パラメータ最適化
+  事業課題: 
+    - パラメータ調整が手作業で非効率
+    - 調整作業に時間がかかり、開発サイクルが長期化する
+    - 手作業による人為的ミスや調整のばらつきが発生しやすい
+  受益者:
+    - 品質保証部門
+    - 生産部門
+  取り組み提案:
+    - |
+      ② ML／PIML を用いた効率的な条件探索アルゴリズムを導入し、<span style="color: #206f83; font-weight: bold !important;">パラメータ最適化プロセスを構築</span>します。
+  事業インパクト:
+    - 調整時間短縮
+    - 開発リードタイム圧縮
+  想定期間: 4ヶ月
+
+record2-2:
+  テーマ: システム統合評価
+  事業課題: 
+    - デバイス単体での評価にとどまり、システム挙動が把握しづらい
+    - 連携不具合や制御ロジックの不整合が開発後期まで見えにくい
+    - 単体評価では検出できない問題が市場投入後に顕在化するリスク
+  受益者:
+    - 品質保証部門
+    - 顧客対応部門
+  取り組み提案:
+    - |
+      ③ デバイス間連携・制御ロジックを再現する統合シミュレーションを実施し、<span style="color: #206f83; font-weight: bold !important;">システム全体の統合テスト環境を構築</span>します。
+
+  事業インパクト:
+    - 単体では見えない不具合の早期検出
+    - 信頼性向上
+  想定期間: 3ヶ月
+```
+:::
+::::
+
+
+## 分析アプローチ1
+[必要データ，アルゴリズム概要，分析成果物概要及びその活用方法を記載]{.h2-submessage}
+
+::::::{style="width:110%;".position-left-20}
+
+:::::{.px-12 .py-8 .mb-0 .flex .items-center .justify-center .space-x-8 .slide-up}
+<!-- 1st block -->
+
+:::{.bg-gray-100 .rounded-xl .p-6 .border-2 .border-blue-200 .flex-1 .text-center }
+
+:::{.bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
+
+{{< fas fa-database text-3xl text-white >}}
+
+:::
+
+:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+Data
+:::
+
+:::{.text-xl .text-gray-700}
+新市場環境に近い市場データや装置稼働データを収集し、解析用に整備
+::::
+
+:::
+
+
+<!-- 1st operator -->
+
+:::{.text-center .connection-arrow}
+
+{{< fas fa-plus text-3xl text-green-500 >}}
+
+:::
+
+<!-- 2nd block -->
+
+:::{.bg-gray-100 .rounded-xl .p-6 .border-2 .border-blue-200 .flex-1 .text-center }
+
+:::{.bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
+
+{{< fas fa-brain text-2xl text-white >}}
+
+:::
+
+:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+サロゲートモデル
+:::
+
+:::{.text-xl .text-gray-700}
+デジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施
+::::
+
+:::
+
+
+<!-- 2nd operator -->
+
+:::{.text-center .connection-arrow}
+
+{{< fas fa-equals text-3xl text-green-500 >}}
+
+:::
+
+<!-- 3rd block -->
+
+:::{.bg-blue-50 .rounded-xl .p-6 .border-2 .border-green-200 .flex-1 .text-center}
+
+:::{.bg-blue-700 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3  style="font-size:1.2em;"}
+
+{{< fas fa-rocket text-2xl text-white >}}
+
+:::
+
+
+:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+成果物
+:::
+
+:::{.text-xl .text-gray-600}
+実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現
+:::
+
+:::
+
+:::::
+
+<!-- 3rd block end -->
+
+
+:::::{.px-12 .py-0 .mb-8 .flex .justify-center .space-x-8 .slide-up}
+
+:::{ .p-6 .font-09 .border-2 .flex-1 .text-center}
+
+- 製造装置・機器の稼働ログデータ（温度、圧力、流量など）
+- センサー・IoT データ（リアルタイム計測値、異常ログ）
+- 市場環境や使用条件データ（使用頻度、外気条件、負荷条件）
+- 過去の故障・不具合履歴、品質データ
+
+:::
+
+
+:::{.p-6 .font-09 .border-2 .flex-1 .text-center}
+
+- デジタルツインモデルの構築（装置・システム挙動を再現）
+- ML / PIML を用いたパラメータ最適化アルゴリズムの実装
+- システム統合シミュレーションにより、単体評価では見えない挙動を解析
+- 分析結果をもとに改善策や最適設定を抽出し、設計・検証の指針を生成
+
+:::
+
+:::{.p-6 .font-09 .border-2 .flex-1 .text-center}
+
+- 実環境に近い動的シミュレーション環境（デジタルツイン）
+- 最適化済みパラメータセット、統合システム挙動の可視化レポート
+- 開発チームが設計・検証に活用、試験工数削減、リードタイム短縮
+- 結果を経営・製造・品質保証部門で共有し意思決定に反映
+
+:::
+
+:::::
+::::::
+
+
+## Why important
+[分析手法1の成果物説明]{.topleftbox}
+[ビジネスインパクトベースで]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="35%"}
+
+::::{.square-box-700 style="padding-left:0.75em; padding-right:0.5em;"}
+
+:::{.border-bottom-header}
+
+試算根拠の記述
+
+:::
+
+- xxxxx
+- xxxxx
+- xxxxx
+- xxxxx
+- xxxxx
+
+::::
+
+:::::
+::::: {.column width="65%"}
+
+
+:::{.regmonkey-waterfall-container data-width="100%" data-height="700px" data-legend="false"}
+
+```yml
+現状:
+  value: 100
+  custom_field: "dsadsd"
+  is_total: false
+  color: "#E8F1FE"
+'センサ・ログ<br>取得の自動化':
+  value: -10
+  custom_field: "センサ・ログ取得の自動化"
+  is_total: false
+  color: "#E8F1FE"
+前処理:
+  value: -8
+  custom_field: "データクレンジング自動化"
+  is_total: false
+  color: "#B4D7FF"
+モデル構築:
+  value: -12
+  custom_field: "サロゲートモデル活用"
+  is_total: false
+  color: "#0E3666"
+モデル評価:
+  value: -5
+  custom_field: "テストデータ・理論値比較の効率化"
+  is_total: false
+  color: "#428CE6"
+PoC実施:
+  value: -3
+  custom_field: "小規模試験環境での迅速検証"
+  is_total: false
+  color: "#1A1A1A"
+総合工数削減:
+  custom_field: "合計工数削減"
+  is_total: true
+  color: "#D31804"
+
+```
+:::
+
+
+:::::
+::::::
+
+
+## 分析アプローチ 1のMethodologyを紹介
+[３段階アプローチを用いて情報がWeb上にいつ現れたのかを判定する]{.h2-submessage}
+[分析手法紹介 1-1]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.step-container style="height: 90%" .padding-TB-none}  
+
+:::{.step }
+
+[① 情報の包含判定]{.step .active-phase}
+
+:::{.step-label}
+
+:::{.center-aligned .font-11}
+
+Webページのクエリの[包含度]{.regmonkey-bold}を計算
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.font-14}
+
+```{.ini code-line-numbers="false"}
+Tom fell in love with Naomi.
+
+Tom bought Naomi many things.
+
+Jewels, cars, and also a house.
+```
+
+:::
+:::
+
+`Tom bought Naomi a mansion` というクエリに対して，
+
+- 完全一致（ページ内に同じ語が存在）：1.0
+- 語形・同義語などの近似一致（編集距離や辞書ベースで判定）：0.5
+
+というルールで近似度を計算
+
+$$
+1 + 1 + 1 + 1/2 = 7/2
+$$
+
+
+:::
+:::
+
+
+:::{.step }
+
+[② 公開日時の取得]{.step .active-phase }
+
+:::{.step-label}
+
+:::{.center-aligned .font-11}
+
+Webページの[タイムスタンプ]{.regmonkey-bold}を検出
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.font-11}
+
+```{.html code-line-numbers="false"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="article:published_time" content="2025-09-30T14:05:00Z">
+  <title>Sample Article</title>
+</head>
+<body>
+  <article>
+    <h1>Sample News Article</h1>
+    <p class="date">Published on September 30, 2025</p>
+    <time datetime="2025-09-30T14:05:00Z">2025/09/30 14:05</time>
+    <p>This is a short article body.</p>
+  </article>
+</body>
+</html>
+```
+
+:::
+:::
+
+- 日時表現がタイムスタンプらしいといえる要因を列挙し評価関数を作成
+
+:::
+:::
+
+:::{.step }
+
+[③ ノイズの除去]{.step .active-phase }
+
+:::{.step-label}
+
+:::{.center-aligned .font-11}
+
+- ①と②を用いて情報のweb上の出現の時系列を取得
+- 時系列にはノイズが含まれるので，ガウシアンカーネル平滑化を用いてsmoothingを実施
+
+{{< reveal_vspace 0.5em >}}
+
+:::
+
+![](./gaussian_smoothing.svg)
+
+:::
+:::
+::::
+
+## 分析アプローチ 1の技術的特徴と強み
+[分析手法紹介 1続]{.topleftbox}
+
+{{< reveal_vspace 2em >}}
+
+::::{.summary-container style="font-size:1em;"}
+
+:::{.block-azureblue-with-bg }
+:::{.headline}
+
+① 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善
+
+:::
+
+:::{.description}
+
+- xxxx
+- xxxx
+- xxxx
+
+:::
+
+:::
+
+:::{.block-azureblue-with-bg }
+:::{.headline}
+
+② フリークエンシーのモデリングによる上位ファネル動画の効果測定の改善
+
+:::
+
+:::{.description}
+
+- xxxx
+- xxxx
+- xxxx
+
+:::
+
+:::
+
+:::{.block-azureblue-with-bg }
+:::{.headline}
+
+③ 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善
+
+:::
+
+:::{.description}
+
+- xxxx
+- xxxx
+- xxxx
+
+:::
+
+:::
+
+::::
+
+## 分析１のタイムライン概要
+[データ収集 → 前処理 → モデリング → PoC検証の工程をトータル３ヶ月で完了させる]{.h2-submessage}
+
+{{< reveal_vspace 2em >}}
+
+::::{ .width-110 .position-left-25}
+:::{.vuetify-timeline-container}
+
+```yml
+data1:
+  title: "収集対象と範囲確定"
+  content: 
+    - '社内外のセンサーデータ、ログデータを収集'
+    - '必要に応じて外部データセットを取得'
+    - '<span style="color: #D31804;">xxxのリスクあり</span>'
+  opposite: "５月中旬完了見込み"
+  color: "#E8F1FE"
+
+Preprocessing:
+  title: "データクレンジング"
+  content:
+    - '欠損値処理、異常値検出'
+    - '正規化・標準化・カテゴリ変換などの前処理'
+  opposite: "５月下旬完了見込み"
+  color: "#B4D7FF"
+
+Modeling1:
+  title: "モデル選択と構築"
+  content:
+    - '機械学習／回帰モデルの構築'
+    - 'PIML／サロゲートモデルによる物理挙動の推定'
+  opposite: "６月上旬Start"
+  color: "#0E3666"
+
+Modeling2:
+  title: "モデル検証"
+  content:
+    - 'テストデータによる性能評価'
+    - '理論値との比較および誤差分析'
+  opposite: "7月上旬完了"
+  color: "#0E3666"
+PoC1:
+  title: "PoC"
+  content:
+    - '小規模試験環境での検証'
+    - '実運用への適用可能性評価'
+  opposite: ""
+  color: "#428CE6"
+```
+:::
+::::
+
+# チェックリスト
+## 分析提案書チェックリスト
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+::: {.info-contents .font-10 .padding-L-10}
+
+- 形式だけでなく内容の質を高めることで説得力のある提案書にすることが重要
+- 下記の自己チェックに加えて，定期的な上長レビューと同僚からのフィードバックを活用してください
+
+:::
+
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header .margin-B-00}
+
+① 分析の方向性・目的に関するチェック
+
+:::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[分析目的の明確性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+分析の目的が明確に記述されているか
+
+:::
+:::
+::::
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[Research Questionの明確性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+設定したRQが具体的で検証可能な形になっているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[成果物の明確性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+分析によって得られる成果物が具体的に記述されているか?
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[手法の妥当性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+選択した分析手法の理由と他手法との比較が記載されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[エビデンスの充実度]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+主張を裏付ける参考文献や根拠が適切に引用されているか
+
+:::
+:::
+::::
+
+
+
+:::
+::: {.column width="50%"}
+
+:::{.border-bottom-header .margin-B-00}
+
+② 分析実施ロジに関するチェック
+
+:::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[リソース計画の現実性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+必要なデータ・計算環境・人的リソースが過不足なく記載されているか
+
+:::
+:::
+::::
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[実現可能性の検討]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+予想される制約や限界についても言及されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[タイムラインの具体性]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+各工程の期間と全体スケジュールが明示されているか
+
+:::
+:::
+::::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[PoCの目的・範囲]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+PoCで検証する業務フローや課題領域が明確に定義されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[PoC評価基準]{.checkbox2}
+
+:::
+::: {.tool-description .padding-L-20}
+
+PoCの成果物や成功基準，評価方法が定義されているか
+
+:::
+:::
+::::
+
+
+:::
+::::

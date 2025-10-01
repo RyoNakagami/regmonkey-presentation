@@ -32,7 +32,6 @@ auto-agenda:
 :::
 ::::
 
-
 {{< reveal_vspace 1em >}}
 
 <!-- pentagon-squared-box style -->

@@ -38,8 +38,6 @@ format:
       <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
       <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
       <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-      <script type="text/javascript" src="/js/resize_keypoints_block.js"></script>
-      <script type="text/javascript" src="/js/yaml2table.js"></script>
       <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
       <script src="/min/leader-line.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -49,5 +47,12 @@ format:
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
       <script type="text/javascript" src="/js/horizontal_tree.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+      <script type="text/javascript" src="/js/resize_keypoints_block.js"></script>
+      <script type="text/javascript" src="/js/yaml2table.js"></script>
+      <script type="text/javascript" src="/js/regmonkey_vuetify_timeline.js"></script>
+      <script type="text/javascript" src="/js/regmonkey_waterfall.js"></script>
     revealjs-plugins:
       - leader-line
