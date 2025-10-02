@@ -11,8 +11,11 @@ filters:
   - regmonkey_slide_editing
 auto-agenda:
   bullets: bullets
-chalkboard: false
-embed-resources: true
+# chalkboard: false
+# embed-resources: true
+resources:
+    - data-task.json
+    - data-gantt.yml
 ---
 
 # 分析提案書テンプレート
@@ -34,7 +37,6 @@ embed-resources: true
 AS-IS
 
 :::
-
 
 ```{mermaid}
 sequenceDiagram
@@ -880,6 +882,16 @@ PoC1:
 :::
 ::::
 
+## Gantt
+[ぺっぺろぺー]{.h2-submessage}
+
+{{< reveal_vspace 2em >}}
+
+::: {.gantt-chart-inject data-json="data-task.json" data-container="vuejs-gantt-container" data-config="data-gantt.yml"}
+:::
+
+
+
 # チェックリスト
 ## 分析提案書チェックリスト
 
@@ -1052,9 +1064,9 @@ PoC1:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+::::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
 
-::: {.tool-content}
+:::: {.tool-content}
 ::: {.tool-name}
 
 [PoCの目的・範囲]{.checkbox2}
@@ -1065,12 +1077,12 @@ PoC1:
 PoCで検証する業務フローや課題領域が明確に定義されているか
 
 :::
-:::
 ::::
+:::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+::::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
 
-::: {.tool-content}
+:::: {.tool-content}
 ::: {.tool-name}
 
 [PoC評価基準]{.checkbox2}
@@ -1081,8 +1093,8 @@ PoCで検証する業務フローや課題領域が明確に定義されてい�
 PoCの成果物や成功基準，評価方法が定義されているか
 
 :::
-:::
 ::::
+:::::
 
 
 :::

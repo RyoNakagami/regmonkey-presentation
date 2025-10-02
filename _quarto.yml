@@ -21,7 +21,8 @@ website:
   open-graph: true
   page-navigation: true
   google-analytics:
-    tracking-id: "G-EX9H7GRLTH"
+    # tracking-id: "G-EX9H7GRLTH"
+    tracking-id: "G-LVL413SV09"
   favicon: img/favicon.ico
   navbar:
     title: Home

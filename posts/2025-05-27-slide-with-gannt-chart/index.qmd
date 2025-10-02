@@ -15,6 +15,8 @@ auto-agenda:
   bullets: bullets
 # chalkboard: false
 # embed-resources: true
+header-includes: |
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
 ---
 
 ## サマリー
@@ -79,7 +81,7 @@ Gannt chartは計画の可視化ツール
 
 :::{.section-header}
 
-Gannt chartのイメージ例[^footer1]
+Anychart-based Gannt chartのイメージ例[^footer1]
 
 :::
 

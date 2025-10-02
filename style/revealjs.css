@@ -2042,9 +2042,9 @@ div.colored-slide-30 {
   }
 
   .reveal {
-    width: 1280px !important;
+    width: 1600px !important;
     /* fixed width */
-    height: 720px !important;
+    height: 900px !important;
     /* fixed height */
     box-shadow: none !important;
     font-size: 28px !important;
@@ -2278,4 +2278,10 @@ div.colored-slide-30 {
     inset-inline-start: auto;
     width: calc(var(--v-timeline-line-size-base) + 12px - var(--v-timeline-line-inset));
     background: #575757;
+}
+
+.gantt-chart-inject{
+  overflow-x: auto;
+  overflow-y: auto; /* 縦スクロールも有効に */
+  max-height: 600px; /* 必要なら高さ制限をつける */
 }
