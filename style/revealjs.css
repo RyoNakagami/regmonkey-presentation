@@ -161,7 +161,8 @@ div.colored-slide-30 {
   width: 130px;
   height: 100%;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 100,300 0,620" fill="white" stroke="none"/><polyline points="0,0 100,300 0,620" fill="none" stroke="%230e3666" stroke-width="8"/></svg>') no-repeat;
-  z-index: 9999;   /* 他の要素より前に */
+  z-index: 9999;
+  /* 他の要素より前に */
 }
 
 .square-box-400 {
@@ -193,7 +194,8 @@ div.colored-slide-30 {
   width: 165px;
   height: 100%;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
-  z-index: 9999;   /* 他の要素より前に */
+  z-index: 9999;
+  /* 他の要素より前に */
 }
 
 .square-box-500 {
@@ -226,7 +228,8 @@ div.colored-slide-30 {
   width: 180px;
   height: 100%;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
-  z-index: 9999;   /* 他の要素より前に */
+  z-index: 9999;
+  /* 他の要素より前に */
 }
 
 .square-box-550 {
@@ -258,7 +261,8 @@ div.colored-slide-30 {
   width: 200px;
   height: 100%;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
-  z-index: 9999;   /* 他の要素より前に */
+  z-index: 9999;
+  /* 他の要素より前に */
 }
 
 .square-box-600 {
@@ -290,7 +294,8 @@ div.colored-slide-30 {
   width: 240px;
   height: 100%;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 810"><polygon points="0,0 100,400 0,810" fill="white" stroke="none"/><polyline points="0,0 100,400 0,810" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
-  z-index: 9999;   /* 他の要素より前に */
+  z-index: 9999;
+  /* 他の要素より前に */
 }
 
 .square-box-700 {
@@ -362,6 +367,16 @@ div.colored-slide-30 {
   /* 疑似要素設定に必要 */
 }
 
+.summary-container .block-azureblue-with-bg {
+  margin-top: 0.5em;
+  background-color: #e8f1fe;
+  margin-bottom: 0.6em;
+  display: block !important;
+  padding-left: 1em;
+  position: relative;
+  /* 疑似要素設定に必要 */
+}
+
 .summary-container .block-azureblue::before {
   content: "";
   position: absolute;
@@ -373,13 +388,31 @@ div.colored-slide-30 {
   background-color: #428ce6;
 }
 
-.summary-container .block-azureblue .headline {
+.summary-container .block-azureblue-with-bg::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  left: 0;
+  width: 0.5em;
+  /* vertical barのwidth指定 */
+  bottom: 0em;
+  background-color: #428ce6;
+}
+
+
+.summary-container .block-azureblue .headline,
+.summary-container .block-azureblue-with-bg .headline {
   font-size: 1em;
   font-weight: bold;
   color: #1a1a1a;
   line-height: 1;
   margin-top: 0;
   padding-bottom: 0em;
+}
+
+.summary-container .block-azureblue .description,
+.summary-container .block-azureblue-with-bg .description {
+  padding-left: 1em;
 }
 
 /* ------------------------------------------------------------------- */
@@ -699,7 +732,7 @@ div.colored-slide-30 {
   position: relative;
   width: 100%;
   height: 90%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="0 0 100 30"  style="transform: rotate(-30deg);"><polygon points="10,22 80,22 80,18 95,25 80,32 80,28 10,28"  fill="%23B4D7FF" opacity="0.35"/></svg>') no-repeat center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="0 0 110 25"  style="transform: rotate(-25deg);"><polygon points="10,22 80,22 80,18 95,25 80,32 80,28 10,28"  fill="%23B4D7FF" opacity="0.25"/></svg>') no-repeat center;
   background-size: contain;
 }
 
@@ -710,7 +743,8 @@ div.colored-slide-30 {
   height: 90%;
 }
 
-.hop-step-jump-container-vanilla .step, .hop-step-jump-container .step {
+.hop-step-jump-container-vanilla .step,
+.hop-step-jump-container .step {
   position: absolute;
   width: 40%;
   height: 30%;
@@ -726,7 +760,8 @@ div.colored-slide-30 {
   justify-content: unset !important;
 }
 
-.hop-step-jump-container .step-number, .hop-step-jump-container-vanilla .step-number {
+.hop-step-jump-container .step-number,
+.hop-step-jump-container-vanilla .step-number {
   position: absolute;
   top: -2em;
   color: #1976d2;
@@ -735,7 +770,8 @@ div.colored-slide-30 {
   text-align: center;
 }
 
-.hop-step-jump-container .step-title, .hop-step-jump-container-vanilla .step-title {
+.hop-step-jump-container .step-title,
+.hop-step-jump-container-vanilla .step-title {
   font-size: 1em;
   font-weight: bold;
   color: #1a1a1a;
@@ -743,12 +779,14 @@ div.colored-slide-30 {
   padding-bottom: 0em;
 }
 
-.hop-step-jump-container .step-title p, .hop-step-jump-container-vanilla .step-title p {
+.hop-step-jump-container .step-title p,
+.hop-step-jump-container-vanilla .step-title p {
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.hop-step-jump-container .step-description, .hop-step-jump-container-vanilla .step-description {
+.hop-step-jump-container .step-description,
+.hop-step-jump-container-vanilla .step-description {
   font-size: 0.7em;
   line-height: 1.1;
   margin-bottom: 0em;
@@ -757,7 +795,8 @@ div.colored-slide-30 {
   padding-left: 0.2em;
 }
 
-.hop-step-jump-container .info-card, .hop-step-jump-container-vanilla .info-card {
+.hop-step-jump-container .info-card,
+.hop-step-jump-container-vanilla .info-card {
   margin-top: 0.2em;
   display: grid;
   grid-template-columns: auto auto;
@@ -766,13 +805,15 @@ div.colored-slide-30 {
   /* Add spacing between rows and columns */
 }
 
-.hop-step-jump-container .info-label, .hop-step-jump-container-vanilla .info-label {
+.hop-step-jump-container .info-label,
+.hop-step-jump-container-vanilla .info-label {
   font-weight: bold;
   font-size: 0.7em;
   width: 4rem;
 }
 
-.hop-step-jump-container .info-content, .hop-step-jump-container-vanilla .info-content {
+.hop-step-jump-container .info-content,
+.hop-step-jump-container-vanilla .info-content {
   text-align: left;
   font-size: 0.7em;
   width: 29rem;
@@ -789,7 +830,8 @@ div.colored-slide-30 {
   margin-top: 0.2em;
 }
 
-.hop-step-jump-container .info-label, .hop-step-jump-container-vanilla .info-label {
+.hop-step-jump-container .info-label,
+.hop-step-jump-container-vanilla .info-label {
   display: flex;
   background-color: #1976d2;
   color: white;
@@ -800,24 +842,28 @@ div.colored-slide-30 {
   /* Horizontal centering */
 }
 
-.hop-step-jump-container .info-content, .hop-step-jump-container-vanilla .info-content {
+.hop-step-jump-container .info-content,
+.hop-step-jump-container-vanilla .info-content {
   display: inline-block;
   background-color: transparent;
   padding: 4px 10px;
   color: #575757;
 }
 
-.hop-step-jump-container .step-1, .hop-step-jump-container-vanilla .step-1 {
+.hop-step-jump-container .step-1,
+.hop-step-jump-container-vanilla .step-1 {
   left: 5%;
   bottom: 0;
 }
 
-.hop-step-jump-container .step-2, .hop-step-jump-container-vanilla .step-2 {
+.hop-step-jump-container .step-2,
+.hop-step-jump-container-vanilla .step-2 {
   left: 32.5%;
   bottom: 30%;
 }
 
-.hop-step-jump-container .step-3, .hop-step-jump-container-vanilla .step-3 {
+.hop-step-jump-container .step-3,
+.hop-step-jump-container-vanilla .step-3 {
   left: 60.85%;
   bottom: 60%;
 }
@@ -1341,8 +1387,10 @@ div.colored-slide-30 {
 
 
 .squaredmark ul>li::marker {
-  color: #0e3666;   /* 四角バレットの色 */
-  font-size: 1.2em; /* サイズ調整も可能 */
+  color: #0e3666;
+  /* 四角バレットの色 */
+  font-size: 1.2em;
+  /* サイズ調整も可能 */
 }
 
 .squaredmark ul li {
@@ -1994,9 +2042,9 @@ div.colored-slide-30 {
   }
 
   .reveal {
-    width: 1280px !important;
+    width: 1600px !important;
     /* fixed width */
-    height: 720px !important;
+    height: 900px !important;
     /* fixed height */
     box-shadow: none !important;
     font-size: 28px !important;
@@ -2032,4 +2080,208 @@ div.colored-slide-30 {
     background: none;
     color: black;
   }
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Position styles                                     */
+/* ------------------------------------------------------------------- */
+
+.position-left-05{
+  position: relative !important; 
+  left: -0.5em !important;
+}
+
+.position-left-10{
+  position: relative !important; 
+  left: -1em !important;
+}
+
+.position-left-15{
+  position: relative !important; 
+  left: -1.5em !important;
+}
+
+.position-left-20{
+  position: relative !important; 
+  left: -2em !important;
+}
+
+.position-left-25{
+  position: relative !important; 
+  left: -2.5em !important;
+}
+
+.position-left-30{
+  position: relative !important; 
+  left: -3em !important;
+}
+
+.position-left-35{
+  position: relative !important; 
+  left: -3.5em !important;
+}
+
+.position-left-40{
+  position: relative !important; 
+  left: -4em !important;
+}
+
+.width-80{
+  width: 80% !important;
+}
+
+
+.width-90{
+  width: 90% !important;
+}
+.width-110{
+  width: 110% !important;
+}
+
+
+/* ------------------------------------------------------------------- */
+/*                 margin and padding styles                           */
+/* ------------------------------------------------------------------- */
+.margin-B-00 {
+  margin-bottom: 0em !important;
+}
+
+.padding-TB-none {
+  padding-bottom: 0.0em !important;
+  padding-top: 0.0em !important;
+}
+
+.padding-TB-01 {
+  padding-bottom: 0.1em !important;
+  padding-top: 0.1em !important;
+}
+
+.padding-TB-02 {
+  padding-bottom: 0.2em !important;
+  padding-top: 0.2em !important;
+}
+
+.padding-TB-05 {
+  padding-bottom: 0.5em !important;
+  padding-top: 0.5em !important;
+}
+
+.padding-L-05 {
+  padding-left: 0.5em !important;
+}
+
+.padding-L-10 {
+  padding-left: 1em !important;
+}
+
+.padding-L-11 {
+  padding-left: 1.1em !important;
+}
+
+.padding-L-12 {
+  padding-left: 1.2em !important;
+}
+
+.padding-L-15 {
+  padding-left: 1.5em !important;
+}
+
+.padding-L-20 {
+  padding-left: 2em !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        text/font styles                             */
+/* ------------------------------------------------------------------- */
+.center-aligned {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+
+
+.font-09 {
+  font-size: 0.9em !important;
+}
+
+.font-10 {
+  font-size: 1.0em !important;
+}
+
+
+.font-11 {
+  font-size: 1.1em !important;
+}
+
+.font-12 {
+  font-size: 1.2em !important;
+}
+
+.font-14 {
+  font-size: 1.4em !important;
+}
+
+.font-15 {
+  font-size: 1.4em !important;
+}
+
+
+
+.checkbox2::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  border: 2px solid #428CE6;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+
+.regmonkey-timeline-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  /* Adjust margins as needed */
+  padding-bottom: 0em;
+  /* Add some space below the border */
+}
+
+.regmonkey-timeline-content-block,
+.regmonkey-timeline-content-block ul,
+.regmonkey-timeline-content-block ul li {
+  font-size: 0.95em !important;
+}
+
+.regmonkey-timeline-opposite{
+  color: #206f83;
+  font-weight: bold !important;
+  /*Mckinsey green*/
+}
+
+
+.v-timeline--horizontal .v-timeline-divider__before {
+    height: 3px;
+    inset-inline-end: -12px;
+    inset-inline-start: auto;
+    width: calc(var(--v-timeline-line-size-base) + 12px - var(--v-timeline-line-inset));
+    background: #575757;
+}
+
+
+.v-timeline--horizontal .v-timeline-divider__after {
+    height: 3px;
+    inset-inline-end: -12px;
+    inset-inline-start: auto;
+    width: calc(var(--v-timeline-line-size-base) + 12px - var(--v-timeline-line-inset));
+    background: #575757;
+}
+
+.gantt-chart-inject{
+  overflow-x: auto;
+  overflow-y: auto; /* 縦スクロールも有効に */
+  max-height: 600px; /* 必要なら高さ制限をつける */
 }

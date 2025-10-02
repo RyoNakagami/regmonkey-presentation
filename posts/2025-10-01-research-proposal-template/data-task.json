@@ -1,0 +1,97 @@
+[
+  {
+    "id": "0",
+    "name": "v1.2リリース",
+    "actualStart": "2025-07-26",
+    "actualEnd": "2025-07-26",
+    "personInCharge": "",
+    "note": "",
+    "isStarted": false,
+    "isFinished": false,
+    "isMilestone": true,
+    "children": []
+  },
+  {
+    "id": "0",
+    "name": "v1.0リリース",
+    "actualStart": "2025-05-26",
+    "actualEnd": "2025-05-26",
+    "personInCharge": "",
+    "note": "",
+    "isStarted": false,
+    "isFinished": false,
+    "isMilestone": true,
+    "children": []
+  },
+  {
+    "id": "1",
+    "name": "プロジェクト計画",
+    "actualStart": "2025-04-27",
+    "actualEnd": "2025-05-10",
+    "personInCharge": "田中",
+    "note": "完了",
+    "isStarted": true,
+    "isFinished": true,
+    "isMilestone": false,
+    "children": []
+  },
+  {
+    "id": "2",
+    "name": "開発フェーズ2",
+    "actualStart": "2025-05-11",
+    "actualEnd": "2025-06-30",
+    "personInCharge": "佐藤",
+    "note": "進行中",
+    "isStarted": true,
+    "isFinished": false,
+    "isMilestone": false,
+    "children": [
+      {
+        "id": "2-1",
+        "name": "バックエンド開発",
+        "actualStart": "2025-05-11",
+        "actualEnd": "2025-06-15",
+        "personInCharge": "鈴木",
+        "note": "進行中",
+        "isStarted": true,
+        "isFinished": false,
+        "isMilestone": false
+      },
+      {
+        "id": "2-2",
+        "name": "フロントエンド開発",
+        "actualStart": "2025-05-20",
+        "actualEnd": "2025-06-30",
+        "personInCharge": "高橋",
+        "note": "",
+        "isStarted": true,
+        "isFinished": false,
+        "isMilestone": false
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "テストフェーズ",
+    "actualStart": "2025-07-01",
+    "actualEnd": "2025-07-05",
+    "personInCharge": "山田",
+    "note": "",
+    "isStarted": false,
+    "isFinished": false,
+    "isMilestone": false,
+    "children": []
+  },
+  {
+    "id": "3",
+    "name": "テストフェーズ",
+    "actualStart": "2025-08-01",
+    "actualEnd": "2025-08-05",
+    "personInCharge": "山田",
+    "note": "",
+    "isStarted": false,
+    "isFinished": false,
+    "isMilestone": false,
+    "children": []
+  }
+]
