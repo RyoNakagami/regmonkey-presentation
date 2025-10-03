@@ -33,6 +33,11 @@
     return config;
   }
 
+  function formatQuarter(date) {
+    const q = Math.floor(date.getMonth() / 3) + 1; // 0-based → Q1〜Q4
+    return `${date.getFullYear()} Q${q}`;
+  }
+
   // ガントチャートの描画
   function drawGanttChart(container, tasks, config) {
     const chartStartX = config.nameWidth + (config.showPersonInCharge ? config.personInChargeWidth : 0);
@@ -85,11 +90,25 @@
         const monthEnd = new Date(current.getFullYear(), current.getMonth() + 1, 0);
         monthEnd.setHours(23, 59, 59, 999);
         const displayEnd = monthEnd > timeMax ? timeMax : monthEnd;
+        const fmt = d3.timeFormat(config.dateFormat || "%Y年%m月");
+
+        // "%y/%m";   // → "26/01"
+        // "%Y/%m";   // → "2026/01"
+        // "%Y年%m月"; // → "2026年01月"
+        // "%b %Y";   // → "Jan 2026"
+
+        let monthLabel;
+        if (config.dateFormat === "quarter") {
+          monthLabel = formatQuarter(current);
+        } else {
+          const fmt = d3.timeFormat(config.dateFormat || "%Y年%m月");
+          monthLabel = fmt(current);
+        }
 
         months.push({
           date: new Date(current),
           endDate: displayEnd,
-          label: `${current.getFullYear()}年${current.getMonth() + 1}月`
+          label: monthLabel
         });
 
         current = new Date(current.getFullYear(), current.getMonth() + 1, 1);
