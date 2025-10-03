@@ -403,26 +403,37 @@
     });
 
     // 本日ライン
-    const todayLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    todayLine.setAttribute('x1', dateToX(today));
-    todayLine.setAttribute('y1', headerHeight);
-    todayLine.setAttribute('x2', dateToX(today));
-    todayLine.setAttribute('y2', headerHeight + totalRows * config.rowHeight);
-    todayLine.setAttribute('stroke', '#FFD700');
-    todayLine.setAttribute('stroke-width', 4);
-    todayLine.setAttribute('stroke-dasharray', '5 2');
-    svg.appendChild(todayLine);
+    if (config.VerticalLine) {
+      const todayLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      todayLine.setAttribute('x1', dateToX(today));
+      todayLine.setAttribute('y1', headerHeight);
+      todayLine.setAttribute('x2', dateToX(today));
+      todayLine.setAttribute('y2', headerHeight + totalRows * config.rowHeight);
+      todayLine.setAttribute('stroke', '#FFD700');
+      todayLine.setAttribute('stroke-width', 4);
+      todayLine.setAttribute('stroke-dasharray', '5 2');
+      svg.appendChild(todayLine);
+    }
 
     // 凡例 (省略... 変更なし)
     const legendDiv = document.createElement('div');
     legendDiv.style.cssText = 'display: flex; align-items: center; gap: 24px; padding: 12px; background: white; border-top: 1px solid #e0e0e0;';
 
-    const legends = [
-      { color: '#0E3666', text: '完了タスク' },
-      { color: '#1976d2', text: '着手済みタスク' },
-      { color: '#B4D7FF', text: '未着手タスク' },
-      { color: '#FFD700', text: '本日', isLine: true }
-    ];
+    let legends = [];
+    if (config.isDisplayLegend === false) {
+      legends = [];
+    } else {
+      legends.push(
+        { color: '#0E3666', text: '完了タスク' },
+        { color: '#1976d2', text: '着手済みタスク' },
+        { color: '#B4D7FF', text: '未着手タスク' }
+      );
+      if (config.VerticalLine) {
+        legends.push({ color: '#FFD700', text: '本日', isLine: true });
+      }
+    }
+
+    // --- 【修正ロジック】凡例の表示制御を追加 ---
 
     legends.forEach(legend => {
       const item = document.createElement('div');
