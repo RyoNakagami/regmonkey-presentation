@@ -1,34 +1,46 @@
 // gantt-chart.js
-(function() {
+(function () {
   'use strict';
 
   // YAMLパーサー（簡易版）
   function parseYAML(yamlText) {
     const lines = yamlText.split('\n');
     const config = {};
-    
+
     lines.forEach(line => {
       line = line.trim();
       if (line && !line.startsWith('#')) {
         const [key, ...valueParts] = line.split(':');
         if (key && valueParts.length > 0) {
           let value = valueParts.join(':').trim();
+
+          // --- 追加: boolean 判定 ---
+          if (value.toLowerCase() === 'true') {
+            value = true;
+          } else if (value.toLowerCase() === 'false') {
+            value = false;
+          }
           // 数値の変換
-          if (!isNaN(value) && value !== '') {
+          else if (!isNaN(value) && value !== '') {
             value = Number(value);
           }
-          // 日付形式の文字列はそのまま
+          // そのほかは文字列のまま
           config[key.trim()] = value;
         }
       }
     });
-    
+
     return config;
+  }
+
+  function formatQuarter(date) {
+    const q = Math.floor(date.getMonth() / 3) + 1; // 0-based → Q1〜Q4
+    return `${date.getFullYear()} Q${q}`;
   }
 
   // ガントチャートの描画
   function drawGanttChart(container, tasks, config) {
-    const chartStartX = config.nameWidth + config.personInChargeWidth;
+    const chartStartX = config.nameWidth + (config.showPersonInCharge ? config.personInChargeWidth : 0);
     const chartWidth = config.svgWidth - chartStartX;
     const headerHeight = 80;
 
@@ -39,7 +51,7 @@
       const totalDays = (timeMax - timeMin) / (1000 * 60 * 60 * 24);
       const daysPassed = (d - timeMin) / (1000 * 60 * 60 * 24);
       // daysPassedが負の値にならないように調整 (範囲外のタスクはグラフ外に配置)
-      const normalizedDaysPassed = Math.max(0, daysPassed); 
+      const normalizedDaysPassed = Math.max(0, daysPassed);
       return chartStartX + (normalizedDaysPassed / totalDays) * chartWidth;
     };
 
@@ -54,17 +66,17 @@
       endDate.setHours(0, 0, 0, 0);
       const today = new Date(config.today || new Date());
       today.setHours(0, 0, 0, 0); // 時刻をリセット
-      
+
       if (task.isFinished) {
         return { isDelayed: false, days: 0 };
       }
-      
+
       if (endDate < today) {
         const diffTime = Math.abs(endDate - today);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         return { isDelayed: true, days: diffDays };
       }
-      
+
       return { isDelayed: false, days: 0 };
     };
 
@@ -73,21 +85,35 @@
       let current = new Date(config.timeMin);
       current.setDate(1);
       const timeMax = new Date(config.timeMax);
-      
+
       while (current <= timeMax) {
         const monthEnd = new Date(current.getFullYear(), current.getMonth() + 1, 0);
         monthEnd.setHours(23, 59, 59, 999);
         const displayEnd = monthEnd > timeMax ? timeMax : monthEnd;
-        
+        const fmt = d3.timeFormat(config.dateFormat || "%Y年%m月");
+
+        // "%y/%m";   // → "26/01"
+        // "%Y/%m";   // → "2026/01"
+        // "%Y年%m月"; // → "2026年01月"
+        // "%b %Y";   // → "Jan 2026"
+
+        let monthLabel;
+        if (config.dateFormat === "quarter") {
+          monthLabel = formatQuarter(current);
+        } else {
+          const fmt = d3.timeFormat(config.dateFormat || "%Y年%m月");
+          monthLabel = fmt(current);
+        }
+
         months.push({
           date: new Date(current),
           endDate: displayEnd,
-          label: `${current.getFullYear()}年${current.getMonth() + 1}月`
+          label: monthLabel
         });
-        
+
         current = new Date(current.getFullYear(), current.getMonth() + 1, 1);
       }
-      
+
       return months;
     };
 
@@ -95,26 +121,26 @@
       const weeks = [];
       let current = new Date(config.timeMin);
       const timeMax = new Date(config.timeMax);
-      
+
       // 週の始まりを調整（ここでは日曜日を週の始まりとするロジックを想定）
       current.setDate(current.getDate() - current.getDay()); // 週の始まりの日曜日に設定
-      
+
       while (current <= timeMax) {
         const weekEnd = new Date(current);
         weekEnd.setDate(current.getDate() + 6);
         weekEnd.setHours(23, 59, 59, 999);
         const displayEnd = weekEnd > timeMax ? timeMax : weekEnd;
-        
+
         weeks.push({
           date: new Date(current),
           endDate: displayEnd,
           label: `${current.getMonth() + 1}/${current.getDate()}`
         });
-        
+
         current = new Date(current);
         current.setDate(current.getDate() + 7);
       }
-      
+
       return weeks;
     };
 
@@ -139,17 +165,17 @@
     const taskIdMap = {};
     let rowIndex = 0;
     allTasks.forEach(task => {
-        // idがない場合は配列のインデックスで一意キー生成し、別の行として扱う
-        const key = task.id || `_no_id_${allTasks.findIndex(t => t === task)}`; 
-        
-        if (!taskIdMap.hasOwnProperty(key)) {
-            taskIdMap[key] = rowIndex;
-            rowIndex++;
-        }
+      // idがない場合は配列のインデックスで一意キー生成し、別の行として扱う
+      const key = task.id || `_no_id_${allTasks.findIndex(t => t === task)}`;
+
+      if (!taskIdMap.hasOwnProperty(key)) {
+        taskIdMap[key] = rowIndex;
+        rowIndex++;
+      }
     });
 
     const totalRows = rowIndex; // 描画する行の総数 (一意なIDの数)
-    
+
     // SVG要素の作成
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width', config.svgWidth);
@@ -174,7 +200,7 @@
       const width = nextX - x;
 
       const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      
+
       const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('x', x);
       rect.setAttribute('y', 0);
@@ -199,7 +225,7 @@
       text.setAttribute('x', x + width / 2);
       text.setAttribute('y', 25);
       text.setAttribute('text-anchor', 'middle');
-      text.setAttribute('font-size', config.fontSize);
+      text.setAttribute('font-size', config.monthFontSize || config.fontSize);
       text.setAttribute('font-weight', config.fontWeight);
       text.setAttribute('fill', '#1a1a1a');
       text.textContent = month.label;
@@ -215,7 +241,7 @@
       const width = nextX - x;
 
       const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      
+
       const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('x', x);
       rect.setAttribute('y', 40);
@@ -243,7 +269,9 @@
       text.setAttribute('font-size', config.dateFontSize);
       text.setAttribute('font-weight', config.fontWeight);
       text.setAttribute('fill', '#1a1a1a');
-      text.textContent = week.label;
+      // const options = {day: '2-digit' };
+      // text.textContent = week.date.toLocaleDateString('ja-JP', options);
+      text.textContent = week.date.getDate();
       g.appendChild(text);
 
       svg.appendChild(g);
@@ -270,26 +298,27 @@
     nameHeaderText.textContent = 'タスク名';
     svg.appendChild(nameHeaderText);
 
-    const chargeHeaderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    chargeHeaderRect.setAttribute('x', config.nameWidth);
-    chargeHeaderRect.setAttribute('y', 0);
-    chargeHeaderRect.setAttribute('width', config.personInChargeWidth);
-    chargeHeaderRect.setAttribute('height', headerHeight);
-    chargeHeaderRect.setAttribute('fill', '#f5f5f5');
-    chargeHeaderRect.setAttribute('stroke', '#999');
-    chargeHeaderRect.setAttribute('stroke-width', 1);
-    svg.appendChild(chargeHeaderRect);
+    if (config.showPersonInCharge) {
+      const chargeHeaderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      chargeHeaderRect.setAttribute('x', config.nameWidth);
+      chargeHeaderRect.setAttribute('y', 0);
+      chargeHeaderRect.setAttribute('width', config.personInChargeWidth);
+      chargeHeaderRect.setAttribute('height', headerHeight);
+      chargeHeaderRect.setAttribute('fill', '#f5f5f5');
+      chargeHeaderRect.setAttribute('stroke', '#999');
+      chargeHeaderRect.setAttribute('stroke-width', 1);
+      svg.appendChild(chargeHeaderRect);
 
-    const chargeHeaderText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    chargeHeaderText.setAttribute('x', config.nameWidth + config.personInChargeWidth / 2);
-    chargeHeaderText.setAttribute('y', 45);
-    chargeHeaderText.setAttribute('text-anchor', 'middle');
-    chargeHeaderText.setAttribute('font-size', config.fontSize);
-    chargeHeaderText.setAttribute('font-weight', config.fontWeight);
-    chargeHeaderText.setAttribute('fill', '#1a1a1a');
-    chargeHeaderText.textContent = '担当';
-    svg.appendChild(chargeHeaderText);
-
+      const chargeHeaderText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      chargeHeaderText.setAttribute('x', config.nameWidth + config.personInChargeWidth / 2);
+      chargeHeaderText.setAttribute('y', 45);
+      chargeHeaderText.setAttribute('text-anchor', 'middle');
+      chargeHeaderText.setAttribute('font-size', config.fontSize);
+      chargeHeaderText.setAttribute('font-weight', config.fontWeight);
+      chargeHeaderText.setAttribute('fill', '#1a1a1a');
+      chargeHeaderText.textContent = '担当';
+      svg.appendChild(chargeHeaderText);
+    }
     // タスク描画
     allTasks.forEach((task) => {
       // 【修正ロジック】IDをキーとしてインデックスを取得
@@ -298,7 +327,7 @@
       if (index === undefined) return;
 
       // タスクバー・マイルストーンは重複して描画する
-      
+
       const y = headerHeight + index * config.rowHeight;
       const taskY = y + (config.rowHeight - config.taskHeight) / 2;
       const startX = dateToX(task.actualStart);
@@ -313,27 +342,28 @@
       const isFirstOccurrence = allTasks.findIndex(t => t.id === task.id) === allTasks.findIndex(t => t === task);
 
       if (isFirstOccurrence) {
-          // 行背景
-          const rowBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-          rowBg.setAttribute('x', 0);
-          rowBg.setAttribute('y', y);
-          rowBg.setAttribute('width', config.svgWidth);
-          rowBg.setAttribute('height', config.rowHeight);
-          rowBg.setAttribute('fill', index % 2 === 0 ? '#ffffff' : '#fafafa');
-          rowBg.setAttribute('stroke', '#e0e0e0');
-          rowBg.setAttribute('stroke-width', 0.5);
-          taskGroup.appendChild(rowBg);
+        // 行背景
+        const rowBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rowBg.setAttribute('x', 0);
+        rowBg.setAttribute('y', y);
+        rowBg.setAttribute('width', config.svgWidth);
+        rowBg.setAttribute('height', config.rowHeight);
+        rowBg.setAttribute('fill', index % 2 === 0 ? '#ffffff' : '#fafafa');
+        rowBg.setAttribute('stroke', '#e0e0e0');
+        rowBg.setAttribute('stroke-width', 0.5);
+        taskGroup.appendChild(rowBg);
 
-          // タスク名
-          const nameText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-          nameText.setAttribute('x', 10 + task.depth * 20);
-          nameText.setAttribute('y', y + config.rowHeight / 2 + 6);
-          nameText.setAttribute('font-size', config.fontSize);
-          nameText.setAttribute('fill', '#1a1a1a');
-          nameText.textContent = task.name;
-          taskGroup.appendChild(nameText);
+        // タスク名
+        const nameText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        nameText.setAttribute('x', 10 + task.depth * 20);
+        nameText.setAttribute('y', y + config.rowHeight / 2 + 6);
+        nameText.setAttribute('font-size', config.fontSize);
+        nameText.setAttribute('fill', '#1a1a1a');
+        nameText.textContent = task.name;
+        taskGroup.appendChild(nameText);
 
-          // 担当者
+        // 担当者
+        if (config.showPersonInCharge) {
           const chargeText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           chargeText.setAttribute('x', config.nameWidth + 10);
           chargeText.setAttribute('y', y + config.rowHeight / 2 + 6);
@@ -341,9 +371,10 @@
           chargeText.setAttribute('fill', '#1a1a1a');
           chargeText.textContent = task.personInCharge || '';
           taskGroup.appendChild(chargeText);
+        }
       }
       // --- 【修正ロジック】ここまで ---
-      
+
       // タスクバーまたはマイルストーン (全てのタスクに対して描画)
       if (task.isMilestone) {
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -391,42 +422,53 @@
     });
 
     // 本日ライン
-    const todayLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    todayLine.setAttribute('x1', dateToX(today));
-    todayLine.setAttribute('y1', headerHeight);
-    todayLine.setAttribute('x2', dateToX(today));
-    todayLine.setAttribute('y2', headerHeight + totalRows * config.rowHeight);
-    todayLine.setAttribute('stroke', '#FFD700');
-    todayLine.setAttribute('stroke-width', 4);
-    todayLine.setAttribute('stroke-dasharray', '5 2');
-    svg.appendChild(todayLine);
+    if (config.VerticalLine) {
+      const todayLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      todayLine.setAttribute('x1', dateToX(today));
+      todayLine.setAttribute('y1', headerHeight);
+      todayLine.setAttribute('x2', dateToX(today));
+      todayLine.setAttribute('y2', headerHeight + totalRows * config.rowHeight);
+      todayLine.setAttribute('stroke', '#FFD700');
+      todayLine.setAttribute('stroke-width', 4);
+      todayLine.setAttribute('stroke-dasharray', '5 2');
+      svg.appendChild(todayLine);
+    }
 
     // 凡例 (省略... 変更なし)
     const legendDiv = document.createElement('div');
     legendDiv.style.cssText = 'display: flex; align-items: center; gap: 24px; padding: 12px; background: white; border-top: 1px solid #e0e0e0;';
-    
-    const legends = [
-      { color: '#0E3666', text: '完了タスク' },
-      { color: '#1976d2', text: '着手済みタスク' },
-      { color: '#B4D7FF', text: '未着手タスク' },
-      { color: '#FFD700', text: '本日', isLine: true }
-    ];
+
+    let legends = [];
+    if (config.isDisplayLegend === false) {
+      legends = [];
+    } else {
+      legends.push(
+        { color: '#0E3666', text: '完了タスク' },
+        { color: '#1976d2', text: '着手済みタスク' },
+        { color: '#B4D7FF', text: '未着手タスク' }
+      );
+      if (config.VerticalLine) {
+        legends.push({ color: '#FFD700', text: '本日', isLine: true });
+      }
+    }
+
+    // --- 【修正ロジック】凡例の表示制御を追加 ---
 
     legends.forEach(legend => {
       const item = document.createElement('div');
       item.style.cssText = 'display: flex; align-items: center; gap: 8px;';
-      
+
       const icon = document.createElement('div');
       if (legend.isLine) {
         icon.style.cssText = `width: 48px; height: 4px; background-color: ${legend.color};`;
       } else {
         icon.style.cssText = `width: 16px; height: 16px; background-color: ${legend.color};`;
       }
-      
+
       const text = document.createElement('span');
       text.style.fontSize = '16px';
       text.textContent = legend.text;
-      
+
       item.appendChild(icon);
       item.appendChild(text);
       legendDiv.appendChild(item);
@@ -444,11 +486,11 @@
   // 初期化 (省略... 変更なし)
   function initGanttCharts() {
     const containers = document.querySelectorAll('.gantt-chart-inject');
-    
+
     containers.forEach(container => {
       const dataFile = container.getAttribute('data-json');
       const configFile = container.getAttribute('data-config');
-      
+
       if (!dataFile || !configFile) {
         console.error('data-json and data-config attributes are required');
         return;
@@ -459,32 +501,32 @@
         fetch(configFile).then(res => res.text()).then(parseYAML),
         fetch(dataFile).then(res => res.json())
       ])
-      .then(([config, tasks]) => {
-        // デフォルト設定
-        const defaultConfig = {
-          svgWidth: 1600,
-          svgHeight: 480, // この値はdrawGanttChart内で上書きされる
-          rowHeight: 40,
-          fontSize: 20,
-          dateFontSize: 12,
-          labelFontSize: 16,
-          fontWeight: 800,
-          nameWidth: 300,
-          personInChargeWidth: 150,
-          taskHeight: 20,
-          labelPadding: 8,
-          timeMin: '2025-04-27',
-          timeMax: '2025-07-20',
-          today: new Date().toISOString().split('T')[0]
-        };
+        .then(([config, tasks]) => {
+          // デフォルト設定
+          const defaultConfig = {
+            svgWidth: 1600,
+            svgHeight: 480, // この値はdrawGanttChart内で上書きされる
+            rowHeight: 40,
+            fontSize: 20,
+            dateFontSize: 12,
+            labelFontSize: 16,
+            fontWeight: 800,
+            nameWidth: 300,
+            personInChargeWidth: 150,
+            taskHeight: 20,
+            labelPadding: 8,
+            timeMin: '2025-04-27',
+            timeMax: '2025-07-20',
+            today: new Date().toISOString().split('T')[0]
+          };
 
-        const finalConfig = { ...defaultConfig, ...config };
-        drawGanttChart(container, tasks, finalConfig);
-      })
-      .catch(error => {
-        console.error('Error loading Gantt chart:', error);
-        container.innerHTML = `<div style="color: red; padding: 20px;">Error loading chart: ${error.message}</div>`;
-      });
+          const finalConfig = { ...defaultConfig, ...config };
+          drawGanttChart(container, tasks, finalConfig);
+        })
+        .catch(error => {
+          console.error('Error loading Gantt chart:', error);
+          container.innerHTML = `<div style="color: red; padding: 20px;">Error loading chart: ${error.message}</div>`;
+        });
     });
   }
 
