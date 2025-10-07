@@ -23,3 +23,32 @@
 :::
 
 ::::
+
+
+## <!-- color box  -->
+
+::::{.summary-container style="font-size:1em;"}
+
+:::: {.info-box}
+
+[① モデル面]{.info-box-title}
+
+::: {.info-contents}
+- 精度，複雑，そんなに再現必要なかった
+- 物理モデルと回帰モデルのinputフィールドが大きく異なっていた
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+:::: {.info-box}
+
+[② 体制面]{.info-box-title}
+
+::: {.info-contents}
+- 物理モデルの仕様書の共有ができなった
+- ヒアリング経由しか仕様を確認できなった
+:::
+::::
+
+::::

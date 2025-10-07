@@ -25,7 +25,6 @@ resources:
 ## モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現
 [Goal Setting]{.topleftbox}
 
-
 :::::::{.width-110}
 :::::: {.columns}
 
@@ -470,14 +469,19 @@ record2-2:
 
 :::{.bg-gray-100 .rounded-xl .p-6 .border-2 .border-blue-200 .flex-1 .text-center }
 
-:::{.bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
 
+:::{.flex .items-center .justify-center  .mb-2}
+
+:::{ .bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mb-3 style="font-size:1.2em;"}
+  
 {{< fas fa-database text-3xl text-white >}}
 
 :::
 
-:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-L-05}
 Data
+:::
+
 :::
 
 :::{.text-xl .text-gray-700}
@@ -491,7 +495,7 @@ Data
 
 :::{.text-center .connection-arrow}
 
-{{< fas fa-plus text-3xl text-green-500 >}}
+{{< fas fa-plus text-3xl text-gray-700 >}}
 
 :::
 
@@ -499,14 +503,17 @@ Data
 
 :::{.bg-gray-100 .rounded-xl .p-6 .border-2 .border-blue-200 .flex-1 .text-center }
 
-:::{.bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3 style="font-size:1.2em;"}
+:::{.flex .items-center .justify-center  .mb-2}
 
-{{< fas fa-brain text-2xl text-white >}}
+:::{ .bg-blue-500 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mb-3 style="font-size:1.2em;"}
+  
+{{< fas fa-brain text-3xl text-white >}}
 
 :::
 
-:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-L-05}
 サロゲートモデル
+:::
 :::
 
 :::{.text-xl .text-gray-700}
@@ -515,12 +522,11 @@ Data
 
 :::
 
-
 <!-- 2nd operator -->
 
 :::{.text-center .connection-arrow}
 
-{{< fas fa-equals text-3xl text-green-500 >}}
+{{< fas fa-equals text-3xl text-gray-700 >}}
 
 :::
 
@@ -528,15 +534,18 @@ Data
 
 :::{.bg-blue-50 .rounded-xl .p-6 .border-2 .border-green-200 .flex-1 .text-center}
 
-:::{.bg-blue-700 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mx-auto .mb-3  style="font-size:1.2em;"}
+:::{.flex .items-center .justify-center  .mb-2}
+
+:::{.bg-blue-700 .rounded-full .w-16 .h-16 .flex .items-center .justify-center .mb-3  style="font-size:1.2em;"}
 
 {{< fas fa-rocket text-2xl text-white >}}
 
 :::
 
 
-:::{.text-xxl .font-bold .text-gray-700 .mb-2}
+:::{.text-xxl .font-bold .mb-3 .padding-L-05}
 成果物
+:::
 :::
 
 :::{.text-xl .text-gray-600}
@@ -910,6 +919,7 @@ PoC1:
 
 ::::
 
+
 {{< reveal_vspace 0.25em >}}
 
 :::: {.columns}
@@ -926,7 +936,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[分析目的の明確性]{.checkbox2}
+[分析目的の明確性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -943,7 +953,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[Research Questionの明確性]{.checkbox2}
+[Research Questionの明確性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -959,7 +969,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[成果物の明確性]{.checkbox2}
+[成果物の明確性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -975,7 +985,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[手法の妥当性]{.checkbox2}
+[手法の妥当性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -991,7 +1001,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[エビデンスの充実度]{.checkbox2}
+[エビデンスの充実度]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1018,7 +1028,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[リソース計画の現実性]{.checkbox2}
+[リソース計画の現実性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1035,7 +1045,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[実現可能性の検討]{.checkbox2}
+[実現可能性の検討]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1051,7 +1061,7 @@ PoC1:
 ::: {.tool-content}
 ::: {.tool-name}
 
-[タイムラインの具体性]{.checkbox2}
+[タイムラインの具体性]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1069,7 +1079,7 @@ PoC1:
 :::: {.tool-content}
 ::: {.tool-name}
 
-[PoCの目的・範囲]{.checkbox2}
+[PoCの目的・範囲]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1085,7 +1095,7 @@ PoCで検証する業務フローや課題領域が明確に定義されてい�
 :::: {.tool-content}
 ::: {.tool-name}
 
-[PoC評価基準]{.checkbox2}
+[PoC評価基準]{.checkbox2 .checked}
 
 :::
 ::: {.tool-description .padding-L-20}
@@ -1099,3 +1109,353 @@ PoCの成果物や成功基準，評価方法が定義されているか
 
 :::
 ::::
+
+## Test
+
+```{=html}
+<style>
+    .orgchart-container {
+      position: relative;
+      display: inline-block;
+      height: 420px;
+      width: 80%;
+      border: 2px dashed #aaa;
+      border-radius: 5px;
+      overflow: auto;
+      text-align: center;
+    }
+    
+    .orgchart {
+      box-sizing: border-box;
+      display: inline-block;
+      min-height: 402px;
+      min-width: 402px;
+      user-select: none;
+      background-image: linear-gradient(90deg, rgba(200, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0) 10%),
+                        linear-gradient(rgba(200, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+      background-size: 10px 10px;
+      border: 1px dashed rgba(0, 0, 0, 0);
+      padding: 20px;
+    }
+    
+    .orgchart table {
+      border-spacing: 0;
+      border-collapse: separate;
+    }
+    
+    .orgchart > table {
+      margin: 20px auto;
+    }
+    
+    .orgchart td {
+      text-align: center;
+      vertical-align: top;
+      padding: 0;
+    }
+    
+    .orgchart .lines td {
+      box-sizing: border-box;
+      height: 20px;
+    }
+    
+    .orgchart .lines .topLine {
+      border-top: 2px solid #428CE6;
+    }
+    
+    .orgchart .lines .rightLine {
+      border-right: 1px solid #428CE6;
+    }
+    
+    .orgchart .lines .leftLine {
+      border-left: 1px solid #428CE6;
+    }
+    
+    .orgchart .lines .downLine {
+      background-color: #428CE6;
+      margin: 0 auto;
+      height: 20px;
+      width: 2px;
+    }
+    
+    .orgchart .node {
+      box-sizing: border-box;
+      display: inline-block;
+      position: relative;
+      margin: 0;
+      padding: 3px;
+      border: 2px dashed transparent;
+      text-align: center;
+      width: 130px;
+      transition: background-color 0.3s;
+    }
+    
+    .orgchart .node:hover {
+      background-color: rgba(238, 217, 54, 0.5);
+      cursor: pointer;
+      z-index: 20;
+    }
+    
+    .orgchart .node .title {
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: #428CE6;
+      color: #fff;
+      border-radius: 4px 4px 0 0;
+    }
+    
+    .orgchart .node .content {
+      box-sizing: border-box;
+      width: 100%;
+      height: 20px;
+      font-size: 11px;
+      line-height: 18px;
+      border: 1px solid #428CE6;
+      border-radius: 0 0 4px 4px;
+      text-align: center;
+      background-color: #fff;
+      color: #333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .info-box-tree {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .selected-box {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #e3f2fd;
+      border-radius: 5px;
+      border: 1px solid #2196f3;
+    }
+
+    .instructions {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .instructions ul {
+      margin-left: 20px;
+    }
+  </style>
+<div id="svgContainer"></div>
+  
+
+<script>
+// sample org data
+const orgData = {
+  id: '1',
+  name: 'CEO',
+  title: '最高経営責任者',
+  children: [
+    {
+      id: '2',
+      name: 'CTO',
+      title: '最高技術責任者',
+      children: [
+        { id: '4', name: '開発部長', title: 'Development Manager' },
+        { id: '5', name: 'インフラ部長', title: 'Infrastructure Manager' },
+      ]
+    },
+    {
+      id: '3',
+      name: 'CFO',
+      title: '最高財務責任者',
+      children: [
+        { id: '7', name: '財務部長', title: 'Finance Manager' },
+        {
+          id: '12', name: 'インフラ部長', title: 'Infrastructure Manager', children: [
+            { id: '7', name: '財務部長', title: 'Finance Manager' }, { id: '11', name: 'インフラ部長', title: 'Infrastructure Manager' },]
+        },
+
+      ]
+    },
+  ]
+};
+
+const config = {
+  width: 1600,
+  height: 900,
+  nodeWidth: 200,
+  nodeHeight: 50,
+  horizontalSpacing: 600,
+  verticalSpacing: 100,
+  titleHeight: 24
+};
+
+// node positions calculation
+function calculatePositions(node, x, y, level = 0) {
+  node._x = x;
+  node._y = y;
+  node._level = level;
+
+  if (node.children && node.children.length > 0) {
+    const childY = y + config.nodeHeight + config.verticalSpacing;
+
+    // 階層に応じてshirink horizontal line
+    const spacingFactor = Math.pow(0.85, Math.min(level, 1)); // power
+    const adjustedSpacing = Math.pow(config.horizontalSpacing, spacingFactor);
+
+    const totalWidth = (node.children.length - 1) * adjustedSpacing;
+    let childX = x - totalWidth / 2;
+
+    node.children.forEach((child, idx) => {
+      calculatePositions(child, childX, childY, level + 1);
+      childX += adjustedSpacing;
+    });
+  }
+}
+
+
+// node generator
+function createNodeSVG(node) {
+  const x = node._x;
+  const y = node._y;
+  const halfWidth = config.nodeWidth / 2;
+
+  return `
+        <g class="node-box">
+          <!-- 背景 -->
+          <rect 
+            x="${x - halfWidth}" 
+            y="${y}" 
+            width="${config.nodeWidth}" 
+            height="${config.nodeHeight}" 
+            fill="white"
+            stroke="#428CE6"
+            stroke-width="2"
+            rx="4"
+          />
+          <!-- タイトル部分 -->
+          <rect 
+            x="${x - halfWidth}" 
+            y="${y}" 
+            width="${config.nodeWidth}" 
+            height="${config.titleHeight}" 
+            fill="#428CE6"
+            rx="4"
+          />
+          <text 
+            class="node-title"
+            x="${x}" 
+            y="${y + 16}" 
+            text-anchor="middle"
+            fill="white"
+            font-size="14"
+            font-weight="bold"
+          >${node.name}</text>
+          <!-- コンテンツ部分 -->
+          <text 
+            class="node-content"
+            x="${x}" 
+            y="${y + 38}" 
+            text-anchor="middle"
+            fill="#333"
+            font-size="12"
+          >${node.title}</text>
+        </g>
+      `;
+}
+
+// connections SVG
+function createConnectionsSVG(node) {
+  if (!node.children || node.children.length === 0) return '';
+
+  const x = node._x;
+  const y = node._y;
+  const nodeHeight = config.nodeHeight;
+  const lineSpacing = config.nodeHeight; // 親ノード下から水平線までの距離
+
+  let svg = '';
+
+  // vertical line
+  const verticalY1 = y + nodeHeight;
+  const verticalY2 = verticalY1 + lineSpacing;
+  svg += `<line x1="${x}" y1="${verticalY1}" x2="${x}" y2="${verticalY2}" stroke="#428CE6" stroke-width="2"/>`;
+
+  if (node.children.length > 1) {
+    // horizontal line
+    const firstChildX = node.children[0]._x;
+    const lastChildX = node.children[node.children.length - 1]._x;
+    svg += `<line x1="${firstChildX}" y1="${verticalY2}" x2="${lastChildX}" y2="${verticalY2}" stroke="#428CE6" stroke-width="2"/>`;
+  }
+
+  // vertical lines
+  node.children.forEach(child => {
+    const childX = child._x;
+    const childY = child._y;
+    svg += `<line x1="${childX}" y1="${verticalY2}" x2="${childX}" y2="${childY}" stroke="#428CE6" stroke-width="2"/>`;
+  });
+
+  return svg;
+}
+
+
+// recursively render all nodes and connections
+function renderAllNodes(node) {
+  let svg = '';
+
+  // connections
+  svg += createConnectionsSVG(node);
+
+  // 自分のノード
+  svg += createNodeSVG(node);
+
+  // 子ノード
+  if (node.children) {
+    node.children.forEach(child => {
+      svg += renderAllNodes(child);
+    });
+  }
+
+  return svg;
+}
+
+// SVG generator
+function generateSVG() {
+  // positionsを計算
+  const startX = config.width / 2;
+  const startY = 60;
+  calculatePositions(orgData, startX, startY);
+
+  // SVG generation
+  const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${config.width}" height="${config.height}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .node-box:hover rect:first-child {
+        fill: rgba(238, 217, 54, 0.3);
+      }
+      .node-box {
+        cursor: pointer;
+      }
+    </style>
+  </defs>
+  ${renderAllNodes(orgData)}
+</svg>`;
+
+  return svgContent;
+}
+
+// dispplay SVG
+function displaySVG() {
+  const svgContent = generateSVG();
+  document.getElementById('svgContainer').innerHTML = svgContent;
+  document.getElementById('svgCode').value = svgContent;
+}
+
+displaySVG();
+</script>
+```

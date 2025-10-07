@@ -8,6 +8,8 @@
 
 ```bash
 decktape reveal http://localhost:4201/posts/2025-05-07-how-to-write-slide/index.html test.pdf --chrome-path /usr/bin/google-chrome
+
+decktape reveal http://localhost:4201/posts/sandbox/index.html test_20251001.pdf --chrome-path /usr/bin/google-chrome --size 1920x1080 --chrome-arg=--force-color-profile=srgb
 ```
 
 **&#9654;&nbsp; スクリプト**

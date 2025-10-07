@@ -533,22 +533,21 @@ horizontal_tree:
 
 [売上増減率]{.border-bottom style="width: 10em; text-align: center;"}
 
-
-[\+ 19%]{.message-block style="width: 10em; text-align: center;"}
+[\+ 19%]{.message-box-no-border style="width: 10em; text-align: center;"}
 
 {{< reveal_vspace 2.2em >}}
 
 [コスト増減率]{.border-bottom style="width: 10em; text-align: center;"}
 
 
-[\+ 38%]{.message-block style="width: 10em; text-align: center;"}
+[\+ 38%]{.message-box-no-border style="width: 10em; text-align: center;"}
 
 {{< reveal_vspace 2.2em >}}
 
 [営業利益増減率]{.border-bottom style="width: 10em; text-align: center;"}
 
 
-[\- 34%]{.message-block style="width: 10em; text-align: center;"}
+[\- 34%]{.message-box-no-border style="width: 10em; text-align: center;"}
 
 
 :::
@@ -684,14 +683,14 @@ record1:
   Question: 
     - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか
   調査結果: 
-    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、<span class="regmonkey_bold">カーボンニュートラルLNGの生産やメタンガスの排出量削減</span>など、様々な取り組みを推進している
+    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、<span class="regmonkey-bold">カーボンニュートラルLNGの生産やメタンガスの排出量削減</span>など、様々な取り組みを推進している
 
 record2:
   カテゴリー: 収益性
   Question: 
     - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか
   調査結果:
-    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、<span class="regmonkey_bold">今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト</span>になり、生産拠点の集中度が高まる可能性がある
+    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、<span class="regmonkey-bold">今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト</span>になり、生産拠点の集中度が高まる可能性がある
     - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている
     - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている
 
@@ -700,14 +699,14 @@ record3:
   Question: 
     - LNGインフラの潜在的なボトルネックとは何か
   調査結果:
-      - <span class="regmonkey_bold">パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される</span>可能性がある
+      - <span class="regmonkey-bold">パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される</span>可能性がある
 reocord4:
   カテゴリー: LNG<br>サプライサイド
   Question: 
     - 今後、世界のLNG供給構成はどう変化していくのか
   調査結果:
-    - 世界のLNG生産量に占める米国の割合は、<span class="regmonkey_bold">今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある</span>
-    - 現在、主要LNG輸入国は、調達先の多様化を進めており、<span class="regmonkey_bold">複数の大陸にまたがる約10カ国からLNGを調達</span>している
+    - 世界のLNG生産量に占める米国の割合は、<span class="regmonkey-bold">今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある</span>
+    - 現在、主要LNG輸入国は、調達先の多様化を進めており、<span class="regmonkey-bold">複数の大陸にまたがる約10カ国からLNGを調達</span>している
     - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる
 ```
 :::

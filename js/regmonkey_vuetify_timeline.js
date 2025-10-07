@@ -68,7 +68,7 @@ class VuetifyTimeline {
                   <div class="regmonkey-timeline-opposite">{{ item.opposite }}</div>
                 </template>
                 <div>
-                  <div class="regmonkey-timeline-title">{{ item.title }}</div>
+                  <div class="regmonkey-timeline-title" v-html="item.title"></div>
                   <div class="regmonkey-timeline-content-block">
                     <ul v-if="Array.isArray(item.content)">
                       <li v-for="(c, i) in item.content" :key="i" v-html="c"></li>

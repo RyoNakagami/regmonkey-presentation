@@ -146,6 +146,21 @@
     "description": "info box"
   },
 
+  "message-box":{
+    "scope": "quarto",
+    "prefix": "message-box",
+    "body": [
+      ":::: {.message-box style=\"font-size:0.9em; position: absolute; top: 0%; left: 65%\" #focus-message}",
+      "",
+      "- このスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的",
+      "- 「**直感に反した情報**」はシンプルかつ明快なロジックで説明したほうが良い",
+      "",
+      ":::"
+    ],
+    "description": "message box"
+  },
+
+
   // --------------------------------------------
   // header
   // --------------------------------------------
@@ -161,6 +176,7 @@
     ],
     "description": "border bottom header"
   },
+  
   // --------------------------------------------
   // horizontal keypoints block
   // --------------------------------------------

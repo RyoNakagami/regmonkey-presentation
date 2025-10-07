@@ -83,7 +83,8 @@ format:
       dark: 
         - darkly
         - style/dark.scss
-    css: style.css
+    css: 
+      - style.css
     code-copy: true
     code-fold: true
     code-overflow: wrap

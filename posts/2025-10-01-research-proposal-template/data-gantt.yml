@@ -4,6 +4,7 @@ rowHeight: 40
 fontSize: 20
 labelFontSize: 16
 dateFontSize: 14
+monthFontSize: 14
 fontWeight: 800
 nameWidth: 300
 personInChargeWidth: 100
@@ -11,3 +12,6 @@ taskHeight: 20
 timeMin: 2025-04-27
 timeMax: 2025-09-30
 today: 2025-05-01
+showPersonInCharge: false
+VerticalLine: false
+isDisplayLegend: false
