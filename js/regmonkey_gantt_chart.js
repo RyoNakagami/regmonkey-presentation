@@ -42,7 +42,7 @@
   function drawGanttChart(container, tasks, config) {
     const chartStartX = config.nameWidth + (config.showPersonInCharge ? config.personInChargeWidth : 0);
     const chartWidth = config.svgWidth - chartStartX;
-    const headerHeight = 80;
+    const headerHeight = ((config.isShowWeek) ? 80 : 40);
 
     const dateToX = (date) => {
       const d = new Date(date);
@@ -217,7 +217,7 @@
         line.setAttribute('x2', x + width);
         line.setAttribute('y2', 40);
         line.setAttribute('stroke', '#999');
-        line.setAttribute('stroke-width', 1);
+        line.setAttribute('stroke-width', 2);
         g.appendChild(line);
       }
 
@@ -235,54 +235,56 @@
     });
 
     // 週ヘッダー (省略... 変更なし)
-    weeks.forEach((week, i) => {
-      const x = dateToX(week.date);
-      const nextX = dateToX(new Date(week.endDate.getTime() + 1));
-      const width = nextX - x;
+    if (config.isShowWeek) {
+      weeks.forEach((week, i) => {
+        const x = dateToX(week.date);
+        const nextX = dateToX(new Date(week.endDate.getTime() + 1));
+        const width = nextX - x;
 
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
-      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      rect.setAttribute('x', x);
-      rect.setAttribute('y', 40);
-      rect.setAttribute('width', width);
-      rect.setAttribute('height', 40);
-      rect.setAttribute('fill', '#f5f5f5');
-      rect.setAttribute('stroke', 'none');
-      g.appendChild(rect);
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', x);
+        rect.setAttribute('y', 40);
+        rect.setAttribute('width', width);
+        rect.setAttribute('height', 40);
+        rect.setAttribute('fill', '#f5f5f5');
+        rect.setAttribute('stroke', 'none');
+        g.appendChild(rect);
 
-      if (i < weeks.length - 1) {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', x + width);
-        line.setAttribute('y1', 40);
-        line.setAttribute('x2', x + width);
-        line.setAttribute('y2', 80);
-        line.setAttribute('stroke', '#ccc');
-        line.setAttribute('stroke-width', 1);
-        g.appendChild(line);
-      }
+        if (i < weeks.length - 1) {
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', x + width);
+          line.setAttribute('y1', 40);
+          line.setAttribute('x2', x + width);
+          line.setAttribute('y2', 80);
+          line.setAttribute('stroke', '#ccc');
+          line.setAttribute('stroke-width', 1);
+          g.appendChild(line);
+        }
 
-      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      text.setAttribute('x', x + width / 2);
-      text.setAttribute('y', 65);
-      text.setAttribute('text-anchor', 'middle');
-      text.setAttribute('font-size', config.dateFontSize);
-      text.setAttribute('font-weight', config.fontWeight);
-      text.setAttribute('fill', '#1a1a1a');
-      // const options = {day: '2-digit' };
-      // text.textContent = week.date.toLocaleDateString('ja-JP', options);
-      text.textContent = week.date.getDate();
-      g.appendChild(text);
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', x + width / 2);
+        text.setAttribute('y', 65);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('font-size', config.dateFontSize);
+        text.setAttribute('font-weight', config.fontWeight);
+        text.setAttribute('fill', '#1a1a1a');
+        // const options = {day: '2-digit' };
+        // text.textContent = week.date.toLocaleDateString('ja-JP', options);
+        text.textContent = week.date.getDate();
+        g.appendChild(text);
 
-      svg.appendChild(g);
-    });
+        svg.appendChild(g);
+      })
+    };
 
     // 列ヘッダー（タスク名、担当） (省略... 変更なし)
     const nameHeaderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     nameHeaderRect.setAttribute('x', 0);
     nameHeaderRect.setAttribute('y', 0);
     nameHeaderRect.setAttribute('width', config.nameWidth);
-    nameHeaderRect.setAttribute('height', headerHeight);
+    nameHeaderRect.setAttribute('height', (config.isShowWeek) ? headerHeight : 40);
     nameHeaderRect.setAttribute('fill', '#f5f5f5');
     nameHeaderRect.setAttribute('stroke', '#999');
     nameHeaderRect.setAttribute('stroke-width', 1);
@@ -290,7 +292,7 @@
 
     const nameHeaderText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     nameHeaderText.setAttribute('x', config.nameWidth / 2);
-    nameHeaderText.setAttribute('y', 45);
+    nameHeaderText.setAttribute('y', (config.isShowWeek) ? 45 : 25);
     nameHeaderText.setAttribute('text-anchor', 'middle');
     nameHeaderText.setAttribute('font-size', config.fontSize);
     nameHeaderText.setAttribute('font-weight', config.fontWeight);
@@ -311,7 +313,7 @@
 
       const chargeHeaderText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
       chargeHeaderText.setAttribute('x', config.nameWidth + config.personInChargeWidth / 2);
-      chargeHeaderText.setAttribute('y', 45);
+      chargeHeaderText.setAttribute('y', (config.isShowWeek) ? 45 : 25);
       chargeHeaderText.setAttribute('text-anchor', 'middle');
       chargeHeaderText.setAttribute('font-size', config.fontSize);
       chargeHeaderText.setAttribute('font-weight', config.fontWeight);
@@ -393,7 +395,7 @@
         milestoneLabel.setAttribute('fill', '#1a1a1a');
         milestoneLabel.setAttribute('font-weight', 'bold');
         // マイルストーンラベルは、最初のものに限定せず、全て描画する
-        milestoneLabel.textContent = task.name;
+        milestoneLabel.textContent = task.note;
         taskGroup.appendChild(milestoneLabel);
       } else {
         const taskBar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -401,7 +403,7 @@
         taskBar.setAttribute('y', taskY);
         taskBar.setAttribute('width', taskWidth);
         taskBar.setAttribute('height', config.taskHeight);
-        taskBar.setAttribute('fill', getTaskColor(task));
+        taskBar.setAttribute('fill', (task.isTrackingTime && delayInfo.isDelayed) ? '#D31804' : getTaskColor(task));
         taskBar.setAttribute('rx', 3);
         taskGroup.appendChild(taskBar);
 
@@ -411,9 +413,27 @@
           label.setAttribute('x', endX + 5);
           label.setAttribute('y', taskY + config.taskHeight / 2 + 5);
           label.setAttribute('font-size', config.labelFontSize);
-          label.setAttribute('fill', delayInfo.isDelayed ? '#D31804' : '#1a1a1a');
-          label.setAttribute('font-weight', delayInfo.isDelayed ? 'bold' : 'normal');
-          label.textContent = (delayInfo.isDelayed ? `${delayInfo.days}日遅延 ` : '') + (task.note || '');
+          label.setAttribute('fill', '#1a1a1a');
+          label.setAttribute('font-weight', 'normal');
+
+          if (task.isTrackingTime && delayInfo.isDelayed) {
+            // 通常の note 部分
+            const noteSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            noteSpan.textContent = task.note || '';
+
+            // 赤い遅延部分
+            const delaySpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            delaySpan.textContent = `[${delayInfo.days}日遅延]`;
+            delaySpan.setAttribute('fill', '#D31804');
+            delaySpan.setAttribute('font-weight', 'bold');
+
+            label.appendChild(noteSpan);
+            label.appendChild(delaySpan);
+          } else {
+            // 遅延なし：通常 note 表示
+            label.textContent = task.note || '';
+          }
+
           taskGroup.appendChild(label);
         }
       }
@@ -428,8 +448,8 @@
       todayLine.setAttribute('y1', headerHeight);
       todayLine.setAttribute('x2', dateToX(today));
       todayLine.setAttribute('y2', headerHeight + totalRows * config.rowHeight);
-      todayLine.setAttribute('stroke', '#FFD700');
-      todayLine.setAttribute('stroke-width', 4);
+      todayLine.setAttribute('stroke', '#575757');
+      todayLine.setAttribute('stroke-width', 2);
       todayLine.setAttribute('stroke-dasharray', '5 2');
       svg.appendChild(todayLine);
     }
@@ -445,10 +465,11 @@
       legends.push(
         { color: '#0E3666', text: '完了タスク' },
         { color: '#1976d2', text: '着手済みタスク' },
-        { color: '#B4D7FF', text: '未着手タスク' }
+        { color: '#B4D7FF', text: '未着手タスク' },
+        { color: '#D31804', text: '遅延タスク' }
       );
       if (config.VerticalLine) {
-        legends.push({ color: '#FFD700', text: '本日', isLine: true });
+        legends.push({ color: '#575757', text: '本日', isLine: true });
       }
     }
 
@@ -477,7 +498,7 @@
     // コンテナに追加
     container.innerHTML = '';
     const wrapper = document.createElement('div');
-    wrapper.style.cssText = 'width: 100%; overflow: auto; background: white;';
+    wrapper.style.cssText = 'width: 100%; heihgt: 100%; overflow: auto; background: white;';
     wrapper.appendChild(svg);
     wrapper.appendChild(legendDiv);
     container.appendChild(wrapper);
@@ -517,7 +538,8 @@
             labelPadding: 8,
             timeMin: '2025-04-27',
             timeMax: '2025-07-20',
-            today: new Date().toISOString().split('T')[0]
+            today: new Date().toISOString().split('T')[0],
+            isTrackingTime: false,
           };
 
           const finalConfig = { ...defaultConfig, ...config };

@@ -136,6 +136,13 @@ div.colored-slide-30 {
   /* Ensure it's above other content */
 }
 
+svg.fas {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
 /* ------------------------------------------------------------------- */
 /*                          Pentagon Boxes                             */
 /* ------------------------------------------------------------------- */
@@ -1441,8 +1448,7 @@ div.colored-slide-30 {
   width: 100%;
 }
 
-.yaml2table-custom-top,
-.yaml2table-custom {
+.yaml2table-custom-top {
   height: 100%;
   width: 100%;
 }
@@ -1455,13 +1461,38 @@ div.colored-slide-30 {
   vertical-align: middle !important;
 }
 
+.yaml2grouptable-custom-top,
+.yaml2table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 10px 5px;
+  margin: 20px 0px;
+  border-radius: 10px;
+}
+
+.yaml2grouptable-custom-top td {
+  vertical-align: top !important;
+  border: none !important;
+  background-color: transparent;
+}
+
+.yaml2grouptable-custom-top td[rowspan] {
+  vertical-align: top !important;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  border: none !important;
+  background-color: transparent;
+}
+
+
+
 .custom-table,
 .custom-table-no-header,
 .custom-table-for-analysis-summary {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 10px 5px;
-  margin: 40px 0px;
+  margin-bottom: 40px;
   font-size: 1em !important;
   border-radius: 10px;
 }
@@ -1475,6 +1506,7 @@ div.colored-slide-30 {
 
 /* Apply black border the header cells */
 .custom-table thead tr,
+.yaml2grouptable-custom-top thead tr,
 .custom-table-no-header thead tr,
 .custom-table-for-analysis-summary thead tr {
   border-bottom: 2px solid #1a1a1a;
@@ -1498,7 +1530,7 @@ div.colored-slide-30 {
 .custom-table td,
 .custom-table-no-header td,
 .custom-table-for-analysis-summary td {
-  padding-top: 0.1em !important;
+  padding-top: 0.2em !important;
   padding-bottom: 0.1em !important;
   padding-right: 0.5em !important;
   padding-left: 0.8em !important;
@@ -1510,6 +1542,7 @@ div.colored-slide-30 {
 
 .custom-table th,
 .custom-table-no-header th,
+.yaml2grouptable-custom-top th,
 .custom-table-for-analysis-summary th {
   padding-left: 0.4em !important;
   background-color: transparent;
@@ -1521,6 +1554,7 @@ div.colored-slide-30 {
 
 /* Dotted separation between rows */
 .custom-table tr,
+.yaml2grouptable-custom-top tr,
 .custom-table-no-header tr,
 .custom-table-for-analysis-summary tr {
   border-bottom: 1.5px solid #ccc;
@@ -1547,14 +1581,15 @@ div.colored-slide-30 {
 .custom-table-no-header td[rowspan],
 .custom-table-for-analysis-summary td[rowspan] {
   background-clip: content-box;
-  background-image: linear-gradient(to top,
+  background-color: #0e3666; /* Dark blue background for cells within rowspan */
+  /* background-image: linear-gradient(to top,
       transparent 0,
       transparent 0.2em,
       #0e3666 0.2em,
       #0e3666 calc(100% - 0.2em),
       transparent calc(100% - 0.2em),
       transparent 100%);
-  /* White background for cells within rowspan */
+  White background for cells within rowspan */
   color: #ffffffff;
   /* Optional: Change text color for contrast */
   padding-top: 3px !important;
@@ -2134,6 +2169,11 @@ div.colored-slide-30 {
 .width-90{
   width: 90% !important;
 }
+
+.width-105{
+  width: 105% !important;
+}
+
 .width-110{
   width: 110% !important;
 }
@@ -2189,6 +2229,7 @@ div.colored-slide-30 {
 .padding-L-20 {
   padding-left: 2em !important;
 }
+
 
 /* ------------------------------------------------------------------- */
 /*                        text/font styles                             */
@@ -2283,5 +2324,5 @@ div.colored-slide-30 {
 .gantt-chart-inject{
   overflow-x: auto;
   overflow-y: auto; /* 縦スクロールも有効に */
-  max-height: 600px; /* 必要なら高さ制限をつける */
+  max-height: 900px; /* 必要なら高さ制限をつける */
 }

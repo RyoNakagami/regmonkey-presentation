@@ -81,7 +81,7 @@
     "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
     "title": "pentagon-squared-boxスライド",
     "section": ".pentagon-box-700 テンプレート",
-    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
@@ -243,6 +243,13 @@
     "title": "Regression Monkey Presenation List",
     "section": "",
     "text": "分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nReasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "template/azureblue-summary.html#section-1",
+    "href": "template/azureblue-summary.html#section-1",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
   },
   {
     "objectID": "template/meta-data-slide.html",
@@ -431,7 +438,7 @@
     "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ1",
     "title": "分析提案スライドの作成",
     "section": "分析アプローチ1",
-    "text": "分析アプローチ1\n必要データ，アルゴリズム概要，分析成果物概要及びその活用方法を記載\n\n\n\n\n\n\n\n\nData\n\n\n新市場環境に近い市場データや装置稼働データを収集し、解析用に整備\n\n\n\n\n\n\n\n\n\n\n\n\nサロゲートモデル\n\n\nデジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施\n\n\n\n\n\n\n\n\n\n\n\n\n成果物\n\n\n実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現\n\n\n\n\n\n\n\n製造装置・機器の稼働ログデータ（温度、圧力、流量など）\nセンサー・IoT データ（リアルタイム計測値、異常ログ）\n市場環境や使用条件データ（使用頻度、外気条件、負荷条件）\n過去の故障・不具合履歴、品質データ\n\n\n\n\nデジタルツインモデルの構築（装置・システム挙動を再現）\nML / PIML を用いたパラメータ最適化アルゴリズムの実装\nシステム統合シミュレーションにより、単体評価では見えない挙動を解析\n分析結果をもとに改善策や最適設定を抽出し、設計・検証の指針を生成\n\n\n\n\n実環境に近い動的シミュレーション環境（デジタルツイン）\n最適化済みパラメータセット、統合システム挙動の可視化レポート\n開発チームが設計・検証に活用、試験工数削減、リードタイム短縮\n結果を経営・製造・品質保証部門で共有し意思決定に反映"
+    "text": "分析アプローチ1\n必要データ，アルゴリズム概要，分析成果物概要及びその活用方法を記載\n\n\n\n\n\n\n\n\n\nData\n\n\n\n新市場環境に近い市場データや装置稼働データを収集し、解析用に整備\n\n\n\n\n\n\n\n\n\n\n\n\n\nサロゲートモデル\n\n\n\nデジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施\n\n\n\n\n\n\n\n\n\n\n\n\n\n成果物\n\n\n\n実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現\n\n\n\n\n\n\n\n製造装置・機器の稼働ログデータ（温度、圧力、流量など）\nセンサー・IoT データ（リアルタイム計測値、異常ログ）\n市場環境や使用条件データ（使用頻度、外気条件、負荷条件）\n過去の故障・不具合履歴、品質データ\n\n\n\n\nデジタルツインモデルの構築（装置・システム挙動を再現）\nML / PIML を用いたパラメータ最適化アルゴリズムの実装\nシステム統合シミュレーションにより、単体評価では見えない挙動を解析\n分析結果をもとに改善策や最適設定を抽出し、設計・検証の指針を生成\n\n\n\n\n実環境に近い動的シミュレーション環境（デジタルツイン）\n最適化済みパラメータセット、統合システム挙動の可視化レポート\n開発チームが設計・検証に活用、試験工数削減、リードタイム短縮\n結果を経営・製造・品質保証部門で共有し意思決定に反映"
   },
   {
     "objectID": "posts/2025-10-01-research-proposal-template/index.html#why-important",
@@ -474,6 +481,13 @@
     "title": "分析提案スライドの作成",
     "section": "分析提案書チェックリスト",
     "text": "分析提案書チェックリスト\n\n\n\n\n\n形式だけでなく内容の質を高めることで説得力のある提案書にすることが重要\n下記の自己チェックに加えて，定期的な上長レビューと同僚からのフィードバックを活用してください\n\n\n\n\n\n\n\n① 分析の方向性・目的に関するチェック\n\n\n\n\n分析目的の明確性\n\n\n分析の目的が明確に記述されているか\n\n\n\n\n\n\nResearch Questionの明確性\n\n\n設定したRQが具体的で検証可能な形になっているか\n\n\n\n\n\n\n成果物の明確性\n\n\n分析によって得られる成果物が具体的に記述されているか?\n\n\n\n\n\n\n手法の妥当性\n\n\n選択した分析手法の理由と他手法との比較が記載されているか\n\n\n\n\n\n\nエビデンスの充実度\n\n\n主張を裏付ける参考文献や根拠が適切に引用されているか\n\n\n\n\n\n② 分析実施ロジに関するチェック\n\n\n\n\nリソース計画の現実性\n\n\n必要なデータ・計算環境・人的リソースが過不足なく記載されているか\n\n\n\n\n\n\n実現可能性の検討\n\n\n予想される制約や限界についても言及されているか\n\n\n\n\n\n\nタイムラインの具体性\n\n\n各工程の期間と全体スケジュールが明示されているか\n\n\n\n\n\n\nPoCの目的・範囲\n\n\nPoCで検証する業務フローや課題領域が明確に定義されているか\n\n\n\n\n\n\nPoC評価基準\n\n\nPoCの成果物や成功基準，評価方法が定義されているか"
+  },
+  {
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#test",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#test",
+    "title": "分析提案スライドの作成",
+    "section": "Test",
+    "text": "Test"
   },
   {
     "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",

@@ -207,7 +207,6 @@
   <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
   <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
@@ -215,23 +214,21 @@
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
   <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="../../min/leader-line.min.js"></script>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
   <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
   <script type="text/javascript" src="../../js/yaml2table.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
 <meta property="og:title" content="分析提案スライドの作成 – Presentation for Regession Monkey">
 <meta property="og:description" content="リサーチライティング">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
@@ -636,11 +633,13 @@ Ryo Nakagami
 <div class="px-12 py-8 mb-0 flex items-center justify-center space-x-8 slide-up">
 <!-- 1st block -->
 <div class="bg-gray-100 rounded-xl p-6 border-2 border-blue-200 flex-1 text-center">
-<div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3" style="font-size:1.2em;">
+<div class="flex items-center justify-center mb-2">
+<div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mb-3" style="font-size:1.2em;">
 <p><i class="fas fa-database text-3xl text-white"></i></p>
 </div>
-<div class="text-xxl font-bold text-gray-700 mb-2">
+<div class="text-xxl font-bold text-gray-700 mb-3 padding-L-05">
 <p>Data</p>
+</div>
 </div>
 <div class="text-xl text-gray-700">
 <p>新市場環境に近い市場データや装置稼働データを収集し、解析用に整備</p>
@@ -648,15 +647,17 @@ Ryo Nakagami
 </div>
 <!-- 1st operator -->
 <div class="text-center connection-arrow">
-<p><i class="fas fa-plus text-3xl text-green-500"></i></p>
+<p><i class="fas fa-plus text-3xl text-gray-700"></i></p>
 </div>
 <!-- 2nd block -->
 <div class="bg-gray-100 rounded-xl p-6 border-2 border-blue-200 flex-1 text-center">
-<div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3" style="font-size:1.2em;">
-<p><i class="fas fa-brain text-2xl text-white"></i></p>
+<div class="flex items-center justify-center mb-2">
+<div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mb-3" style="font-size:1.2em;">
+<p><i class="fas fa-brain text-3xl text-white"></i></p>
 </div>
-<div class="text-xxl font-bold text-gray-700 mb-2">
+<div class="text-xxl font-bold text-gray-700 mb-3 padding-L-05">
 <p>サロゲートモデル</p>
+</div>
 </div>
 <div class="text-xl text-gray-700">
 <p>デジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施</p>
@@ -664,15 +665,17 @@ Ryo Nakagami
 </div>
 <!-- 2nd operator -->
 <div class="text-center connection-arrow">
-<p><i class="fas fa-equals text-3xl text-green-500"></i></p>
+<p><i class="fas fa-equals text-3xl text-gray-700"></i></p>
 </div>
 <!-- 3rd block -->
 <div class="bg-blue-50 rounded-xl p-6 border-2 border-green-200 flex-1 text-center">
-<div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3" style="font-size:1.2em;">
+<div class="flex items-center justify-center mb-2">
+<div class="bg-blue-700 rounded-full w-16 h-16 flex items-center justify-center mb-3" style="font-size:1.2em;">
 <p><i class="fas fa-rocket text-2xl text-white"></i></p>
 </div>
-<div class="text-xxl font-bold text-gray-700 mb-2">
+<div class="text-xxl font-bold mb-3 padding-L-05">
 <p>成果物</p>
+</div>
 </div>
 <div class="text-xl text-gray-600">
 <p>実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現</p>
@@ -1076,6 +1079,355 @@ Ryo Nakagami
 </div>
 </div>
 </div></div>
+</section>
+<section id="test" class="slide level2">
+<h2>Test</h2>
+<style>
+    .orgchart-container {
+      position: relative;
+      display: inline-block;
+      height: 420px;
+      width: 80%;
+      border: 2px dashed #aaa;
+      border-radius: 5px;
+      overflow: auto;
+      text-align: center;
+    }
+    
+    .orgchart {
+      box-sizing: border-box;
+      display: inline-block;
+      min-height: 402px;
+      min-width: 402px;
+      user-select: none;
+      background-image: linear-gradient(90deg, rgba(200, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0) 10%),
+                        linear-gradient(rgba(200, 0, 0, 0.15) 10%, rgba(0, 0, 0, 0) 10%);
+      background-size: 10px 10px;
+      border: 1px dashed rgba(0, 0, 0, 0);
+      padding: 20px;
+    }
+    
+    .orgchart table {
+      border-spacing: 0;
+      border-collapse: separate;
+    }
+    
+    .orgchart > table {
+      margin: 20px auto;
+    }
+    
+    .orgchart td {
+      text-align: center;
+      vertical-align: top;
+      padding: 0;
+    }
+    
+    .orgchart .lines td {
+      box-sizing: border-box;
+      height: 20px;
+    }
+    
+    .orgchart .lines .topLine {
+      border-top: 2px solid #428CE6;
+    }
+    
+    .orgchart .lines .rightLine {
+      border-right: 1px solid #428CE6;
+    }
+    
+    .orgchart .lines .leftLine {
+      border-left: 1px solid #428CE6;
+    }
+    
+    .orgchart .lines .downLine {
+      background-color: #428CE6;
+      margin: 0 auto;
+      height: 20px;
+      width: 2px;
+    }
+    
+    .orgchart .node {
+      box-sizing: border-box;
+      display: inline-block;
+      position: relative;
+      margin: 0;
+      padding: 3px;
+      border: 2px dashed transparent;
+      text-align: center;
+      width: 130px;
+      transition: background-color 0.3s;
+    }
+    
+    .orgchart .node:hover {
+      background-color: rgba(238, 217, 54, 0.5);
+      cursor: pointer;
+      z-index: 20;
+    }
+    
+    .orgchart .node .title {
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      height: 20px;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: #428CE6;
+      color: #fff;
+      border-radius: 4px 4px 0 0;
+    }
+    
+    .orgchart .node .content {
+      box-sizing: border-box;
+      width: 100%;
+      height: 20px;
+      font-size: 11px;
+      line-height: 18px;
+      border: 1px solid #428CE6;
+      border-radius: 0 0 4px 4px;
+      text-align: center;
+      background-color: #fff;
+      color: #333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .info-box-tree {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .selected-box {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #e3f2fd;
+      border-radius: 5px;
+      border: 1px solid #2196f3;
+    }
+
+    .instructions {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .instructions ul {
+      margin-left: 20px;
+    }
+  </style>
+<div id="svgContainer"></div>
+  
+
+<script>
+// sample org data
+const orgData = {
+  id: '1',
+  name: 'CEO',
+  title: '最高経営責任者',
+  children: [
+    {
+      id: '2',
+      name: 'CTO',
+      title: '最高技術責任者',
+      children: [
+        { id: '4', name: '開発部長', title: 'Development Manager' },
+        { id: '5', name: 'インフラ部長', title: 'Infrastructure Manager' },
+      ]
+    },
+    {
+      id: '3',
+      name: 'CFO',
+      title: '最高財務責任者',
+      children: [
+        { id: '7', name: '財務部長', title: 'Finance Manager' },
+        {
+          id: '12', name: 'インフラ部長', title: 'Infrastructure Manager', children: [
+            { id: '7', name: '財務部長', title: 'Finance Manager' }, { id: '11', name: 'インフラ部長', title: 'Infrastructure Manager' },]
+        },
+
+      ]
+    },
+  ]
+};
+
+const config = {
+  width: 1600,
+  height: 900,
+  nodeWidth: 200,
+  nodeHeight: 50,
+  horizontalSpacing: 600,
+  verticalSpacing: 100,
+  titleHeight: 24
+};
+
+// node positions calculation
+function calculatePositions(node, x, y, level = 0) {
+  node._x = x;
+  node._y = y;
+  node._level = level;
+
+  if (node.children && node.children.length > 0) {
+    const childY = y + config.nodeHeight + config.verticalSpacing;
+
+    // 階層に応じてshirink horizontal line
+    const spacingFactor = Math.pow(0.85, Math.min(level, 1)); // power
+    const adjustedSpacing = Math.pow(config.horizontalSpacing, spacingFactor);
+
+    const totalWidth = (node.children.length - 1) * adjustedSpacing;
+    let childX = x - totalWidth / 2;
+
+    node.children.forEach((child, idx) => {
+      calculatePositions(child, childX, childY, level + 1);
+      childX += adjustedSpacing;
+    });
+  }
+}
+
+
+// node generator
+function createNodeSVG(node) {
+  const x = node._x;
+  const y = node._y;
+  const halfWidth = config.nodeWidth / 2;
+
+  return `
+        <g class="node-box">
+          <!-- 背景 -->
+          <rect 
+            x="${x - halfWidth}" 
+            y="${y}" 
+            width="${config.nodeWidth}" 
+            height="${config.nodeHeight}" 
+            fill="white"
+            stroke="#428CE6"
+            stroke-width="2"
+            rx="4"
+          />
+          <!-- タイトル部分 -->
+          <rect 
+            x="${x - halfWidth}" 
+            y="${y}" 
+            width="${config.nodeWidth}" 
+            height="${config.titleHeight}" 
+            fill="#428CE6"
+            rx="4"
+          />
+          <text 
+            class="node-title"
+            x="${x}" 
+            y="${y + 16}" 
+            text-anchor="middle"
+            fill="white"
+            font-size="14"
+            font-weight="bold"
+          >${node.name}</text>
+          <!-- コンテンツ部分 -->
+          <text 
+            class="node-content"
+            x="${x}" 
+            y="${y + 38}" 
+            text-anchor="middle"
+            fill="#333"
+            font-size="12"
+          >${node.title}</text>
+        </g>
+      `;
+}
+
+// connections SVG
+function createConnectionsSVG(node) {
+  if (!node.children || node.children.length === 0) return '';
+
+  const x = node._x;
+  const y = node._y;
+  const nodeHeight = config.nodeHeight;
+  const lineSpacing = config.nodeHeight; // 親ノード下から水平線までの距離
+
+  let svg = '';
+
+  // vertical line
+  const verticalY1 = y + nodeHeight;
+  const verticalY2 = verticalY1 + lineSpacing;
+  svg += `<line x1="${x}" y1="${verticalY1}" x2="${x}" y2="${verticalY2}" stroke="#428CE6" stroke-width="2"/>`;
+
+  if (node.children.length > 1) {
+    // horizontal line
+    const firstChildX = node.children[0]._x;
+    const lastChildX = node.children[node.children.length - 1]._x;
+    svg += `<line x1="${firstChildX}" y1="${verticalY2}" x2="${lastChildX}" y2="${verticalY2}" stroke="#428CE6" stroke-width="2"/>`;
+  }
+
+  // vertical lines
+  node.children.forEach(child => {
+    const childX = child._x;
+    const childY = child._y;
+    svg += `<line x1="${childX}" y1="${verticalY2}" x2="${childX}" y2="${childY}" stroke="#428CE6" stroke-width="2"/>`;
+  });
+
+  return svg;
+}
+
+
+// recursively render all nodes and connections
+function renderAllNodes(node) {
+  let svg = '';
+
+  // connections
+  svg += createConnectionsSVG(node);
+
+  // 自分のノード
+  svg += createNodeSVG(node);
+
+  // 子ノード
+  if (node.children) {
+    node.children.forEach(child => {
+      svg += renderAllNodes(child);
+    });
+  }
+
+  return svg;
+}
+
+// SVG generator
+function generateSVG() {
+  // positionsを計算
+  const startX = config.width / 2;
+  const startY = 60;
+  calculatePositions(orgData, startX, startY);
+
+  // SVG generation
+  const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${config.width}" height="${config.height}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .node-box:hover rect:first-child {
+        fill: rgba(238, 217, 54, 0.3);
+      }
+      .node-box {
+        cursor: pointer;
+      }
+    </style>
+  </defs>
+  ${renderAllNodes(orgData)}
+</svg>`;
+
+  return svgContent;
+}
+
+// dispplay SVG
+function displaySVG() {
+  const svgContent = generateSVG();
+  document.getElementById('svgContainer').innerHTML = svgContent;
+  document.getElementById('svgCode').value = svgContent;
+}
+
+displaySVG();
+</script>
+
 
 
 </section></section>
@@ -1271,7 +1623,7 @@ Ryo Nakagami
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
