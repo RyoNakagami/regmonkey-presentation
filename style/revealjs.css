@@ -1367,8 +1367,14 @@ svg.fas {
 /* ------------------------------------------------------------------- */
 /*                     listed item setup                               */
 /* ------------------------------------------------------------------- */
+.checkmark_none,
 .checkmark {
   display: block;
+}
+
+.checkmark_none ul {
+  list-style-type: square !important;
+  padding-left: 0em;
 }
 
 .checkmark ul {
@@ -1376,12 +1382,26 @@ svg.fas {
   padding-left: 0em;
 }
 
+.checkmark_none ul li,
 .checkmark ul li {
   display: list-item;
 }
 
+
+
+
+
 .checkmark ul>li::before {
   content: "✔";
+  margin-left: -1em;
+  margin-right: 0.15em;
+  /* ← space after the checkmark */
+  display: inline-block;
+  /* Keeps the checkmark inline with text */
+}
+
+.checkmark_none ul>li::before {
+  content: none;
   margin-left: -1em;
   margin-right: 0.15em;
   /* ← space after the checkmark */
