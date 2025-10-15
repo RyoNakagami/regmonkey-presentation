@@ -58,28 +58,28 @@
   {
     "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
     "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
-    "title": "語彙力とは？",
+    "title": "DSとしての語彙力",
     "section": "「単語(word)」を知っているとは？",
     "text": "「単語(word)」を知っているとは？\n知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される\n\n\n\n\n\n\n Form\n\n\n\n\n発音\n\n\n\n単語を「耳で聞いて理解し」「口で正しく発音できる」\n\n\n\n綴り(spelling)\n\n\n\n単語の視覚的な形（written form）を正しく知っている\n\n\n\n単語の構成要素\n\n\n\n単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している\n「単語の内部構造」を理解し，派生や意味の変化を読み取れる\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n語形と意味のつながり\n\n\n\n単語の「形」と「意味」が頭の中で結びついている\n\n\n\n概念と指示物\n\n\n\n単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている\n単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ\n\n\n\n連想 (association)\n\n\n\n単語がもつ感情・文化・意味ネットワークを理解している\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能\n\n\n\n単語が文の中でどのような文法的役割を果たすか理解している\n文中での位置（主語・動詞・目的語など）を理解している\n\n\n\nコロケーション\n\n\n\n自然な語の組み合わせ・共起関係を理解している\n\n\n\n使用制約\n\n\n\n単語を使う場面・文体・相手に応じて適切に使い分けられる"
   },
   {
     "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
     "href": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
-    "title": "語彙力とは？",
+    "title": "DSとしての語彙力",
     "section": "(参考) 「プログラミング言語」を知っているとは？",
     "text": "(参考) 「プログラミング言語」を知っているとは？\nプログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる\n\n\n\n\n\n\n Form\n\n\n\n\n構文 (syntax)\n\n\n\nコードの正しい「形（文法）」を理解している\n例：for (let i=0; i&lt;10; i++) の括弧・セミコロンの役割を理解している\n\n\n\n記法 (spelling)\n\n\n\n言語特有のキーワードや識別子を正確に書ける\n\n\n\n構成要素 (structure)\n\n\n\n文や式がどのような要素で構成されるかを理解している\n例：関数＝宣言 + 引数 + 本体\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n概念と処理の対応\n\n\n\n言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している\n「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し\n\n\n\n連想 (association)\n\n\n\nコードから関連知識を連想できる\n例：append() → 「リスト操作」, 「破壊的変更」, 「配列末尾」\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能 (grammatical role)\n\n\n\nコード要素が文の中でどんな役割を果たすかを理解している\n例：変数は値の入れ物，関数は処理単位\n\n\n\nコロケーション (共起関係)\n\n\n\n自然なコードの組み合わせを理解している\n例：if ... else，try ... except，for ... in などのペアを正しく使える\n\n\n\n使用制約 (context constraints)\n\n\n\n構文・関数を適切な場面で使い分けられる\n例:\n\n同期処理と非同期処理の文脈の違い\nglobal変数の慎重な利用"
   },
   {
     "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
     "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
-    "title": "語彙力とは？",
+    "title": "DSとしての語彙力",
     "section": "単語を使いこなす能力: receptive vs productive",
     "text": "単語を使いこなす能力: receptive vs productive\n\n\n\n① Receptive knowledge\n\n\n使用場面: reading, listening skills\n提示された情報を理解できる力\n\n他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力\n他人のコード・APIドキュメントを読んで動作を理解できる\n\nForm → Meaning の対応を把握し，Usage は参照的に理解する段階\n\n\n\n\n\n② Productive knowledge\n\n\n使用場面: speaking, writing skills\n自分の考えや意図を表現できる力(= 状況に応じた創造的応用)\n\n単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力\n自分で関数やロジックを書き，再利用できる能力\n\nForm・Meaning・Usage をすべて統合して能動的に使える"
   },
   {
     "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
     "href": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
-    "title": "語彙力とは？",
+    "title": "DSとしての語彙力",
     "section": "References",
     "text": "References\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nWriting for Academic Purposes 英作文を卒業して英語論文を書く\n\n\n著者\n田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編\n\n\n発売日\n2010/4/1\n\n\nISBN\n978-4-89476-490-3\n\n\n体裁\n単行本，213ページ\n\n\n\nこの本の内容\n\n大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック\n「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説"
   },
@@ -333,7 +333,7 @@
     "href": "index.html",
     "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "語彙力とは？\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nReasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "DSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nReasearch Introductionスライドの書き方\n\n\n\nスライドパッケージ\n\nリサーチライティング\n\n\n\n\n2025-06-13\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2025-06-13-how-to-write-analysis-abstract-slide/index.html#introductionスライド４つの構成要素",
