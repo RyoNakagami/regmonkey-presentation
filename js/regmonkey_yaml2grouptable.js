@@ -1,13 +1,32 @@
 function formatValue(value) {
+  // Array
   if (Array.isArray(value)) {
-    return `<ul>${value.map(v => `<li>${v}</li>`).join('')}</ul>`;
-  } else if (typeof value === 'object' && value !== null) {
-    return Object.entries(value)
-      .map(([k, v]) => `<strong>${k}:</strong> ${formatValue(v)}`)
-      .join('<br>');
-  } else {
-    return value ?? '';
+    return `<ul>${value.map(item => {
+      // Single-key object → treat key as <li> parent
+      if (typeof item === "object" && item !== null && Object.keys(item).length === 1) {
+        const key = Object.keys(item)[0];
+        return `<li>${key}${formatValue(item[key])}</li>`;
+      }
+      // Object with multiple keys → recurse as normal
+      else if (typeof item === "object" && item !== null) {
+        return `<li>${formatValue(item)}</li>`;
+      }
+      // Primitive
+      else {
+        return `<li>${item}</li>`;
+      }
+    }).join('')}</ul>`;
   }
+
+  // Object
+  if (typeof value === "object" && value !== null) {
+    return Object.entries(value)
+      .map(([k, v]) => `<li>${k}${formatValue(v)}</li>`)
+      .join('');
+  }
+
+  // Primitive
+  return value ?? '';
 }
 
 function getHeaders(data) {

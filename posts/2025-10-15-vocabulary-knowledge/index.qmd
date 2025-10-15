@@ -1,0 +1,523 @@
+---
+title: "DSとしての語彙力"
+subtitle: "教育コンテンツ"
+author: "Ryo Nakagami"
+date: "2025-10-15"
+categories: [方法論]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## 「単語(word)」を知っているとは？
+[知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される]{.h2-submessage}
+
+<!-- whole column start -->
+:::::: {.columns} 
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+::::{.horizontal-keypoints-block style="height:75%;"}
+
+:::{.block-header}
+
+{{< bi spellcheck size=1.6em color=#428CE6 >}} Form
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **発音**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語を「耳で聞いて理解し」「口で正しく発音できる」
+
+:::
+
+- **綴り(spelling)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語の**視覚的な形（written form）**を正しく知っている
+
+:::
+
+- **単語の構成要素**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している
+- 「単語の内部構造」を理解し，派生や意味の変化を読み取れる
+
+:::
+
+
+:::
+
+::::
+:::::
+
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:75%;"}
+
+:::{.block-header}
+{{< bi lightbulb-fill size=1.7em color=#428CE6 >}} Meaning  
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **語形と意味のつながり**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語の「形」と「意味」が頭の中で結びついている
+
+:::
+
+- **概念と指示物**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている
+- 単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ
+
+:::
+
+- **連想 (association)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語がもつ感情・文化・意味ネットワークを理解している
+
+:::
+
+:::
+:::
+:::::
+
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+::::{.horizontal-keypoints-block-no-border style="height:75%;"}
+
+:::{.block-header}
+{{< bi journal-text size=1.7em color=#428CE6 >}} Usage  
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **文法的機能**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語が文の中でどのような文法的役割を果たすか理解している
+- 文中での**位置（主語・動詞・目的語など）**を理解している
+
+:::
+- **コロケーション**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 自然な語の組み合わせ・共起関係を理解している
+
+:::
+
+- **使用制約**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 単語を使う場面・文体・相手に応じて適切に使い分けられる
+
+:::
+
+:::
+::::
+:::::
+
+<!-- whole column end -->
+::::::
+
+## (参考) 「プログラミング言語」を知っているとは？
+[プログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる]{.h2-submessage}
+
+<!-- whole column start -->
+
+:::::: {.columns}
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+::::{.horizontal-keypoints-block style="height:75%;"}
+
+:::{.block-header}
+{{< bi spellcheck size=1.6em color=#428CE6 >}} Form
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **構文 (syntax)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- コードの正しい「形（文法）」を理解している
+- 例：`for (let i=0; i<10; i++)` の括弧・セミコロンの役割を理解している
+
+:::
+
+- **記法 (spelling)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 言語特有のキーワードや識別子を正確に書ける
+
+:::
+
+- **構成要素 (structure)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 文や式がどのような要素で構成されるかを理解している
+- 例：関数＝宣言 + 引数 + 本体
+
+:::
+
+:::
+::::
+:::::
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:75%;"}
+
+:::{.block-header}
+{{< bi lightbulb-fill size=1.7em color=#428CE6 >}} Meaning
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **概念と処理の対応**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している
+- 「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し
+
+:::
+
+- **連想 (association)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- コードから関連知識を連想できる
+- 例：`append()` → 「リスト操作」, 「破壊的変更」, 「配列末尾」
+
+:::
+
+:::
+:::
+:::::
+
+::::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+::::{.horizontal-keypoints-block-no-border style="height:75%;"}
+
+:::{.block-header}
+{{< bi journal-text size=1.7em color=#428CE6 >}} Usage
+:::
+
+{{< reveal_vspace 8.5% >}}
+
+:::{.block .checkmark style="font-size:0.8em; padding-right:0.5em;"}
+
+- **文法的機能 (grammatical role)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- コード要素が文の中でどんな役割を果たすかを理解している
+- 例：変数は値の入れ物，関数は処理単位
+
+:::
+
+- **コロケーション (共起関係)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 自然なコードの組み合わせを理解している
+- 例：`if ... else`，`try ... except`，`for ... in` などのペアを正しく使える
+:::
+
+- **使用制約 (context constraints)**
+
+:::{.pl-5 .checkmark_none style="margin-top: -0.5em;"}
+
+- 構文・関数を適切な場面で使い分けられる
+- 例: 
+  - 同期処理と非同期処理の文脈の違い
+  - `global`変数の慎重な利用
+
+:::
+
+:::
+::::
+:::::
+
+<!-- whole column end -->
+
+::::::
+
+## 単語を使いこなす能力: receptive vs productive
+{{< reveal_vspace 1em >}}
+
+::::{.summary-container style="font-size:1.3em;"}
+
+:::: {.info-box}
+
+[① Receptive knowledge]{.info-box-title}
+
+::: {.info-contents}
+
+- 使用場面: reading, listening skills 
+- 提示された情報を理解できる力
+  - 他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力
+  - 他人のコード・APIドキュメントを読んで動作を理解できる
+- Form → Meaning の対応を把握し，Usage は参照的に理解する段階
+
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+:::: {.info-box}
+
+[② Productive knowledge]{.info-box-title}
+
+::: {.info-contents}
+
+- 使用場面: speaking, writing skills
+- 自分の考えや意図を表現できる力(= **状況に応じた創造的応用**)
+  - 単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力
+  - 自分で関数やロジックを書き，再利用できる能力
+- Form・Meaning・Usage をすべて統合して能動的に使える
+
+:::
+::::
+
+::::
+
+## ✅ プログラミング言語理解チェックリスト
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="height:90%; font-size: 0.8em !important;"}
+:::{.yaml2grouptable style="width:110%; height:90%; font-size:0.9em;" .position-left-30 data-col-widths="[12,15,36,37]"}
+
+```yml
+record1:
+    観点: Form
+    children:
+      - チェック項目: syntax
+        Receptive skill:
+          - コードの構文構造を見て意味を理解できる
+          - 括弧やインデントの意味を理解できる
+        Productive skill:
+          - 正しい構文でコードを書ける
+          - 構文エラーを自力で修正できる
+      - チェック項目: spelling
+        Receptive skill:
+          - 言語特有のキーワードや識別子を見て意味を理解できる
+          - 大文字・小文字・予約語の違いを認識できる
+        Productive skill:
+          - キーワードや識別子を正確に書ける
+          - 命名規則に従って識別子を作れる
+
+      - チェック項目: structure
+        Receptive skill:
+          - 文や式の構成要素を理解できる
+          - 関数やクラスの構造を読み解ける
+        Productive skill:
+          - 再利用可能な関数を設計できる
+
+record2:
+    観点: Meaning
+    children:
+      - チェック項目: concept-behavior
+        Receptive skill:
+          - ループ・条件分岐・関数などの概念と挙動を理解できる
+          - コードの意味を説明できる
+        Productive skill:
+          - 概念をコードに正しく落とし込める
+          - 推定量→疑似コード→アルゴリズム実装の流れを実行できる
+      - チェック項目: association
+        Receptive skill:
+          - コードから関連知識を連想できる
+          - API名やメソッド名から用途を推測できる
+        Productive skill:
+          - 適切な関数やメソッドを選択できる
+          - 挙動と整合的な命名をすることができる
+
+record3:
+    観点: Usage
+    children:
+      - チェック項目: grammatical role
+        Receptive skill:
+          - 各構文要素がどんな役割を果たすか理解できる
+          - コード全体の構造を把握できる
+        Productive skill:
+          - 処理の意図に応じて構文を選択できる
+          - 構成要素を組み合わせてクラスを構築できる
+
+      - チェック項目: collocation
+        Receptive skill:
+          - よく使われる構文パターンを理解できる
+          - 組み合わせの自然さを判断できる
+        Productive skill:
+          - 自然なコードペアを使える（例：<code>if...else</code>, <code>try...except</code>, <code>for...in</code>）
+
+      - チェック項目: context constraints
+        Receptive skill:
+          - 文脈に応じた構文や関数の使用制約を理解している
+          - 同期/非同期やスコープや名前空間などの制約を把握できる
+        Productive skill:
+          - 文脈に応じて適切な構文や関数を選択できる
+          - 設計上の制約を踏まえて安全なコードを書ける
+
+```
+
+:::
+::::
+
+## Receptive → Productive → Scalableの順番で知識を確立する
+
+:::::{.hop-step-jump-container style="height:90%;"}
+
+<!-- 1st step -->
+
+::::{.step .step-1}
+:::{.step-number}
+
+Learn-by-Thinking
+
+:::
+:::{.step-title}
+
+Receptive Knowldgeの確立
+
+:::
+:::{.info-content}
+
+- 論文やOSSライブラリーを見て理解する
+- 理論や概念の背景を整理する
+- 単語・構文・仕組みを頭の中でマッピングする
+- 問題や課題の意味を解釈できるようになる
+
+:::
+::::
+
+<!-- 2nd step -->
+
+::::{.step .step-2}
+:::{.step-number}
+
+Learn-by-Doing
+
+:::
+:::{.step-title}
+
+Productive Knowldgeの確立
+
+:::
+:::{.info-content}
+
+- 実際に手を動かしてコードを書く・課題を解く
+- フィードバックを受けながら理解を修正する
+- 推定量→疑似コード→実装の流れを実現する
+- 課題解決や実務で活用可能なスキルへ昇華する
+
+:::
+::::
+
+<!-- 3rd step -->
+
+::::{.step .step-3}
+:::{.step-number}
+
+Expand-your-knowledge
+
+:::
+:::{.step-title}
+
+Scalable Knowldgeの確立
+
+:::
+:::{.info-content}
+
+- 習得した知見を整理し，関連知識と結びつける
+- 他の課題や領域への応用方法を考える
+- 自分の知識を言語化して共有する
+- 他人を巻き込み，知識をスケールさせる
+
+:::
+::::
+:::::
+
+
+
+## References
+
+:::: {.columns}
+::: {.column .book-image style="padding-top: 2em"}
+
+![research-writing](./writing-for-academic-purposes.png)
+
+:::
+
+::: {.column .book-info}
+### 書籍情報
+
+| | |
+|----------|------|
+| タイトル  |[Writing for Academic Purposes 英作文を卒業して英語論文を書く](https://www.hituzi.co.jp/books/490.html)|
+| 著者     |  田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編 |
+| 発売日   | 2010/4/1 |
+| ISBN     | 978-4-89476-490-3 |
+| 体裁     |   単行本，213ページ   |
+
+
+
+### この本の内容
+
+- 大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック
+- 「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説
+
+
+:::
+::::
