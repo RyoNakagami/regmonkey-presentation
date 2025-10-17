@@ -1,0 +1,269 @@
+---
+title: "Indexスライドテンプレート"
+subtitle: "リサーチライティングスライド"
+author: "Ryo Nakagami"
+date: "2025-10-17"
+categories: [方法論, リサーチライティング]
+slide-number: true
+# resources:
+#     - sample_data.csv
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## Index {.regmonkey-index-slide}
+
+::::: {.columns}
+
+{{< reveal_vspace 0.6em >}}
+
+:::: {.column width="30%"}
+
+:::: {.sidebar}
+::: {.sidebar-title}
+
+本研修の目的
+
+:::
+
+:::{.sidebar-text}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+:::
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+::: {.regmonkey_index style="width:1100px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.7em
+  children:
+    - title: 1. 分析目的
+      description:
+        - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている
+        - 都市間比較や地域特異性の視点が欠如
+        
+      width: [28, 72]
+    - title: 2. 分析手法
+      description:
+        - <strong>対象</strong>： 東京・大阪・福岡の3都市
+        - <strong>目的変数</strong>：気温変化に応じた各都市の電力需要
+        - <strong>手法</strong>：ARIMA + XGBoost モデルによる予測と比較分析
+      width: [28, 72]
+    - title: 3. 分析結果
+      description:
+        - 東京は冷房需要が特に大きく増加
+        - 大阪・福岡は冷暖房の両面で変動が大きい
+        - 都市ごとに異なる対応が必要であることを示唆
+      width: [28, 72]
+    - title: 4. 今後の展望
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+    - title: 5. Appendix
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+      
+```
+
+
+:::
+:::
+:::::
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 3em >}}
+
+:::: {.column width="30%"}
+
+:::: {.sidebar}
+::: {.sidebar-title}
+
+本研修の目的
+
+:::
+
+:::{.sidebar-text}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+:::
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+::: {.regmonkey_index style="width:1100px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.7em
+  children:
+    - title: 1. 分析目的
+      description:
+        - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている
+        - 都市間比較や地域特異性の視点が欠如
+        
+      width: [28, 72]
+    - title: 2. 分析手法
+      description:
+        - <strong>対象</strong>： 東京・大阪・福岡の3都市
+        - <strong>目的変数</strong>：気温変化に応じた各都市の電力需要
+        - <strong>手法</strong>：ARIMA + XGBoost モデルによる予測と比較分析
+      width: [28, 72]
+    - title: 3. 分析結果
+      description:
+        - 東京は冷房需要が特に大きく増加
+        - 大阪・福岡は冷暖房の両面で変動が大きい
+        - 都市ごとに異なる対応が必要であることを示唆
+      width: [28, 72]
+    - title: 4. 今後の展望
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+    - title: 5. Appendix
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+      
+```
+
+
+:::
+:::
+:::::
+
+## Index 2 {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 3em >}}
+
+:::: {.column width="30%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+  
+{{< bi person size=1.7em color=#428CE6 >}} 
+
+### 対象レベル
+
+:::
+
+- タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+  
+{{< bi book size=1.7em color=#428CE6 >}} 
+
+### 前提知識
+
+
+:::
+
+- タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+  
+{{< bi terminal size=1.7em color=#428CE6 >}} 
+
+
+### 必要環境
+
+
+:::
+
+- タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）
+
+::::
+
+
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+::: {.regmonkey_index style="width:1100px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.7em
+  children:
+    - title: 1. 分析目的
+      description:
+        - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている
+        - 都市間比較や地域特異性の視点が欠如
+        
+      width: [28, 72]
+    - title: 2. 分析手法
+      description:
+        - <strong>対象</strong>： 東京・大阪・福岡の3都市
+        - <strong>目的変数</strong>：気温変化に応じた各都市の電力需要
+        - <strong>手法</strong>：ARIMA + XGBoost モデルによる予測と比較分析
+      width: [28, 72]
+    - title: 3. 分析結果
+      description:
+        - 東京は冷房需要が特に大きく増加
+        - 大阪・福岡は冷暖房の両面で変動が大きい
+        - 都市ごとに異なる対応が必要であることを示唆
+      width: [28, 72]
+    - title: 4. 今後の展望
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+    - title: 5. Appendix
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [28, 72]
+      
+```
+
+
+:::
+:::
+:::::

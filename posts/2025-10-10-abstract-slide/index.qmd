@@ -2,7 +2,7 @@
 title: "分析Abstractスライドテンプレート"
 subtitle: "リサーチライティングスライド"
 author: "Ryo Nakagami"
-date: "2025-10-17"
+date: "2025-10-10"
 categories: [方法論, リサーチライティング]
 slide-number: true
 filters:
