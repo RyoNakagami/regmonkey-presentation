@@ -7,6 +7,7 @@
   /* (change the default font size) */
   line-height: 1.4;
   /* (optional) adjust line spacing */
+  aspect-ratio: 16 / 9;
 }
 
 .wrap-text {
@@ -136,6 +137,83 @@ div.colored-slide-30 {
   /* Ensure it's above other content */
 }
 
+/* ------------------------------------------------------------------- */
+/*                     regmonkey index slide                           */
+/* ------------------------------------------------------------------- */
+
+.regmonkey-index-slide,
+.regmonkey-index-slide-no-title {
+  font-family: 'Meiryo', sans-serif;
+  width: 100%;
+  /* Full slide width */
+  height: 100% !important;
+  /* Full viewport height */
+  /* Change this to whatever color you like */
+  /* Include padding in height */
+}
+
+
+.regmonkey-index-slide-no-title h2 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  color: transparent;
+  /* Bright Orange for title */
+  font-size: 0pt !important;
+  padding-bottom: 0em;
+  margin-bottom: 0.0em;
+}
+
+.regmonkey-index-slide .sidebar .sidebar-title,
+.regmonkey-index-slide-no-title .sidebar .sidebar-title {
+  font-size: 1.6em;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  color: #0E3666;
+  font-weight: bold;
+}
+
+.regmonkey-index-slide .sidebar-text,
+.regmonkey-index-slide-no-title .sidebar-text {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.regmonkey-index-slide .numbered-section,
+.regmonkey-index-slide-no-title .numbered-section {
+  position: relative;
+  padding-left: 80px;
+  width: 100%;
+}
+
+.regmonkey-index-slide .number,
+.regmonkey-index-slide-no-title .number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Playfair Display', "MeiryoUI", serif;
+  font-size: 60px;
+  color: #0a1e3d;
+  opacity: 0.8;
+}
+
+.regmonkey-index-slide .section-text,
+.regmonkey-index-slide-no-title .section-text {
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.regmonkey-index-slide .divider,
+.regmonkey-index-slide-no-title .divider {
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   regmonkey slide editing                           */
+/* ------------------------------------------------------------------- */
+
 svg.fas {
   display: inline-block;
   vertical-align: middle;
@@ -182,20 +260,20 @@ svg.fas {
 /*                          MathJax                                    */
 /* ------------------------------------------------------------------- */
 .MathJax_SVG {
-	font-style: normal;
-	font-weight: normal;
-	line-height: normal;
-	font-size: 100%;
-	font-size-adjust: none;
-	text-indent: 0;
-	text-align: left;
-	text-transform: none;
-	letter-spacing: normal;
-	word-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-	vertical-align: sub !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  text-indent: 0;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: sub !important;
 }
 
 
@@ -734,6 +812,18 @@ svg.fas {
   font-size: 0.9em;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.component-card-index {
+  background: white;
+  border-radius: 8px;
+  font-size: 0.8em;
+  border: #0a1e3d 2px solid;
+}
+
+.component-card-index h3{
+  margin-left: 0.5em;
+}
+
 
 
 
@@ -1297,6 +1387,7 @@ svg.fas {
   border-radius: 3px;
   vertical-align: middle;
 }
+
 .checkbox2.checked::before,
 .checkbox2.active::before {
   content: "✓";
@@ -2427,16 +2518,18 @@ svg.fas {
 
 
 .stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: #206f83;
-            font-size: 64px;
-        }
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #206f83;
+  font-size: 64px;
+}
 
-.slide-container + .slide-container::before {
+.slide-container+.slide-container::before {
   content: "";
   display: block;
   height: 1px;
-  background-color: #d1d5db; /* Tailwind gray-300 */
-  margin: 2rem 0; /* 上下マージン */
+  background-color: #d1d5db;
+  /* Tailwind gray-300 */
+  margin: 2rem 0;
+  /* 上下マージン */
 }

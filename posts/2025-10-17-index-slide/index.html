@@ -9,11 +9,12 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – RooCodeを活用したReveal.jsスライド作成</title>
+  <title>Presentation for Regession Monkey – Indexスライドテンプレート</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -227,8 +228,8 @@
   <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
-<meta property="og:title" content="RooCodeを活用したReveal.jsスライド作成 – Presentation for Regession Monkey">
-<meta property="og:description" content="スライド作成ガイド">
+<meta property="og:title" content="Indexスライドテンプレート – Presentation for Regession Monkey">
+<meta property="og:description" content="リサーチライティングスライド">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
 <body class="quarto-light">
@@ -236,8 +237,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">RooCodeを活用したReveal.jsスライド作成</h1>
-  <p class="subtitle">スライド作成ガイド</p>
+  <h1 class="title">Indexスライドテンプレート</h1>
+  <p class="subtitle">リサーチライティングスライド</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -247,478 +248,194 @@ Ryo Nakagami
 </div>
 </div>
 
-  <p class="date">2025年05月20日</p>
+  <p class="date">2025年10月17日</p>
 </section>
-<section>
-<section id="環境セットアップ" class="title-slide slide level1 agenda-slide center">
-<h1>環境セットアップ</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-active">
-<p>環境セットアップ</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Reveal.jsスライドの作成</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="動作環境セットアップ" class="slide level2">
-<h2>動作環境セットアップ</h2>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<section id="index" class="slide level2 regmonkey-index-slide">
+<h2>Index</h2>
 <div class="columns">
-<div class="column" style="width: 50%; height:100%">
-<div class="border-bottom-header" style="width:80%; margin-left: 10%;">
-<p>必要ツール</p>
+<div class="reveal_vspace" style="--vspace-height: 0.6em;"></div><div class="column" style="width:30%;">
+<div class="sidebar">
+<div class="sidebar-title">
+<p>本研修の目的</p>
 </div>
-<div class="keypoints-container" style="height:70%; padding-left:1em; padding-top: 0em;">
-<div class="vertical-keypoints-block" style="width:80%;">
-<div class="block">
-<div class="block-header-centered">
-<p><img data-src="./quarto.png" style="width:1.8em"></p>
-<p>Quarto</p>
-</div>
-<ul>
-<li>ドキュメントやスライド作成のためのオープンソースツール</li>
-<li>Reveal.jsスライドの生成が可能</li>
-</ul>
-</div>
-<div class="no-border-block">
-<div class="block-header-centered">
-<p><img data-src="./vscode.png" style="width:1.8em"></p>
-<p>VSCode</p>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<ul>
-<li>開発環境用（スライド作成環境）エディタ</li>
-<li>RooCode動作に必要</li>
-<li>拡張機能を通じてMarkdownやQuartoのサポートを追加可能</li>
-</ul>
+<div class="sidebar-text">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 </div>
 </div>
-</div>
-</div><div class="column" style="width: 50%; height:100%">
-<div class="border-bottom-header" style="margin-right:7.5%;">
-<p>インストール手順</p>
-</div>
-<div style="font-size: 0.8em;">
-<ul>
-<li>下記の方法はUbuntu 22.04LTSでのインストールを想定</li>
-<li>macOSやWindowsの場合は公式ドキュメントを参照してください</li>
-</ul>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># VSCodeのインストール</span></span>
-<span id="cb1-2"><a></a><span class="fu">sudo</span> apt update</span>
-<span id="cb1-3"><a></a><span class="fu">sudo</span> apt install code</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># Quartoのインストール</span></span>
-<span id="cb1-6"><a></a><span class="bu">export</span> <span class="va">QUARTO_VERSION</span><span class="op">=</span><span class="st">"1.5.54"</span></span>
-<span id="cb1-7"><a></a><span class="fu">sudo</span> mkdir <span class="at">-p</span> /opt/quarto/<span class="va">${QUARTO_VERSION}</span></span>
-<span id="cb1-8"><a></a><span class="fu">sudo</span> curl <span class="at">-o</span> quarto.tar.gz <span class="at">-L</span> <span class="dt">\</span></span>
-<span id="cb1-9"><a></a>    <span class="st">"https://github.com/quarto-dev/quarto-cli/releases/download/v</span><span class="va">${QUARTO_VERSION}</span><span class="st">/quarto-</span><span class="va">${QUARTO_VERSION}</span><span class="st">-linux-amd64.tar.gz"</span></span>
-<span id="cb1-10"><a></a><span class="fu">sudo</span> tar <span class="at">-zxvf</span> quarto.tar.gz <span class="dt">\</span></span>
-<span id="cb1-11"><a></a>    <span class="at">-C</span> <span class="st">"/opt/quarto/</span><span class="va">${QUARTO_VERSION}</span><span class="st">"</span> <span class="dt">\</span></span>
-<span id="cb1-12"><a></a>    <span class="at">--strip-components</span><span class="op">=</span>1</span>
-<span id="cb1-13"><a></a><span class="fu">sudo</span> rm quarto.tar.gz</span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a><span class="co"># Quartoの動作確認</span></span>
-<span id="cb1-16"><a></a><span class="ex">/opt/quarto/</span><span class="st">"</span><span class="va">${QUARTO_VERSION}</span><span class="st">"</span><span class="ex">/bin/quarto</span> check</span>
-<span id="cb1-17"><a></a></span>
-<span id="cb1-18"><a></a><span class="co"># Add symbols</span></span>
-<span id="cb1-19"><a></a><span class="fu">sudo</span> ln <span class="at">-s</span> /opt/quarto/<span class="va">${QUARTO_VERSION}</span>/bin/quarto /usr/local/bin/quarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-</div></div>
-</section>
-<section id="quartoスライド作成に必要なツール-roocodeとreveal.js" class="slide level2">
-<h2>Quartoスライド作成に必要なツール: RooCodeとReveal.js</h2>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="columns">
-<div class="column" style="width: 50%; height:80%">
-<div class="horizontal-keypoints-block" style="height:100%;">
-<div class="block-header">
-<p><img data-src="./roocode.png" style="width:1.5em"></p>
-<p><span style="padding-left:0.5em;">RooCode</span></p>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
-<div class="block">
-<ul>
-<li><strong>AIによるコード生成支援</strong>
-<ul>
-<li>RooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール</li>
-<li>cssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能</li>
-</ul></li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
-<ul>
-<li><strong>VSCode拡張機能経由インストール</strong>
-<ul>
-<li><code>ext install RooVeterinaryInc.roo-cline</code></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div><div class="column" style="width: 50%; height:100%">
-<div class="horizontal-keypoints-block-no-border" style="height:100%;">
-<div class="block-header">
-<p><img data-src="./revealjs.png" style="width:1.5em"></p>
-<p><span style="padding-left:0.5em;">Reveal.js</span></p>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
-<div class="block">
-<ul>
-<li><strong>ウェブベースのスライドフレームワーク</strong>
-<ul>
-<li><code>Reveal.js</code>は、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク</li>
-<li>ブラウザ上で動作し、Quartoがインストールされているなら利用可能</li>
-</ul></li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
-<ul>
-<li><strong>カスタマイズ性</strong>
-<ul>
-<li>css、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能</li>
-</ul></li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
-<ul>
-<li><strong>多言語対応</strong>
-<ul>
-<li>複数のプログラミング言語に対応</li>
-<li><code>js</code>を用いた可視化など、スライドごとの細かなニーズに対応可能</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="reveal.jsスライドの作成" class="title-slide slide level1 agenda-slide center">
-<h1>Reveal.jsスライドの作成</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>環境セットアップ</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Reveal.jsスライドの作成</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="roo-code用slide-generator-modeの作成" class="slide level2">
-<h2>Roo Code用Slide generator modeの作成</h2>
-<p><span class="h2-submessage">要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Roo Code custom mode setting</p>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a></a><span class="fu">{</span></span>
-<span id="cb2-2"><a></a>  <span class="dt">"slug"</span><span class="fu">:</span> <span class="st">"slide-generator"</span><span class="fu">,</span></span>
-<span id="cb2-3"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"📝 Slide Generator"</span><span class="fu">,</span></span>
-<span id="cb2-4"><a></a>  <span class="dt">"roleDefinition"</span><span class="fu">:</span> <span class="st">"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:</span><span class="ch">\n</span><span class="st">- Summarizing text or file contents</span><span class="ch">\n</span><span class="st">- Organizing summarized content into structured templates</span><span class="ch">\n</span><span class="st">- Ensuring compatibility with Quarto and Reveal.js formats</span><span class="ch">\n</span><span class="st">- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),"</span><span class="fu">,</span></span>
-<span id="cb2-5"><a></a>  <span class="dt">"whenToUse"</span><span class="fu">:</span> <span class="st">"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates."</span><span class="fu">,</span></span>
-<span id="cb2-6"><a></a>  <span class="dt">"customInstructions"</span><span class="fu">:</span> <span class="st">"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js."</span><span class="fu">,</span></span>
-<span id="cb2-7"><a></a>  <span class="dt">"groups"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb2-8"><a></a>    <span class="st">"read"</span><span class="ot">,</span></span>
-<span id="cb2-9"><a></a>    <span class="ot">[</span></span>
-<span id="cb2-10"><a></a>      <span class="st">"edit"</span><span class="ot">,</span></span>
-<span id="cb2-11"><a></a>      <span class="fu">{</span></span>
-<span id="cb2-12"><a></a>        <span class="dt">"fileRegex"</span><span class="fu">:</span> <span class="st">"</span><span class="ch">\\</span><span class="st">.qmd$"</span><span class="fu">,</span></span>
-<span id="cb2-13"><a></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Quarto Markdown files only"</span></span>
-<span id="cb2-14"><a></a>      <span class="fu">}</span></span>
-<span id="cb2-15"><a></a>    <span class="ot">],</span></span>
-<span id="cb2-16"><a></a>    <span class="st">"mcp"</span></span>
-<span id="cb2-17"><a></a>  <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb2-18"><a></a>  <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"global"</span></span>
-<span id="cb2-19"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column" style="width:45%; padding-left:1em;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Configの説明</p>
-</div>
-<div style="font-size:0.9em">
-<ul>
-<li><strong><code>slug</code></strong>: モードの識別子（例: <code>slide-generator</code>）</li>
-<li><strong><code>name</code></strong>: モードの表示名（例: 📝 Slide Generator）</li>
-<li><strong><code>roleDefinition</code></strong>: モードの役割
-<ul>
-<li>テキストやファイルの要約とテンプレートへのフォーマット</li>
-<li>QuartoやReveal.js形式との互換性を確保</li>
-</ul></li>
-<li><strong><code>whenToUse</code></strong>: スライド生成や要約が必要な場合に使用</li>
-<li><strong><code>customInstructions</code></strong>: 要約を簡潔にし、テンプレートに従うことを指示</li>
-<li><strong><code>groups</code></strong>:
-<ul>
-<li><code>read</code>: ファイルの読み取り</li>
-<li><code>edit</code>: <code>.qmd</code>ファイルの編集</li>
-<li><code>mcp</code>: 高度な操作を許可</li>
-</ul></li>
-<li><strong><code>source</code></strong>: グローバル設定からのモード</li>
-</ul>
+</div><div class="column" style="padding-left:1em;">
+<div class="regmonkey_index" style="width:1100px">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 分析目的</span></span>
+<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市化とエネルギー需要の増加は、気候変動と密接に関係</span></span>
+<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている</span></span>
+<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市間比較や地域特異性の視点が欠如</span></span>
+<span id="cb1-10"><a></a><span class="at">        </span></span>
+<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 分析手法</span></span>
+<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市</span></span>
+<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要</span></span>
+<span id="cb1-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析</span></span>
+<span id="cb1-17"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb1-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. 分析結果</span></span>
+<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 東京は冷房需要が特に大きく増加</span></span>
+<span id="cb1-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 大阪・福岡は冷暖房の両面で変動が大きい</span></span>
+<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市ごとに異なる対応が必要であることを示唆</span></span>
+<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb1-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 今後の展望</span></span>
+<span id="cb1-25"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb1-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb1-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Appendix</span></span>
+<span id="cb1-31"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-32"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb1-33"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb1-34"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb1-35"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb1-36"><a></a><span class="at">      </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
-<section id="azure-summaryスライドの作成" class="slide level2">
-<h2>Azure summaryスライドの作成</h2>
+<section id="index-1" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Roo Code自動生成結果</p>
+<div class="reveal_vspace" style="--vspace-height: 3em;"></div><div class="column" style="width:30%;">
+<div class="sidebar">
+<div class="sidebar-title">
+<p>本研修の目的</p>
 </div>
-<div class="summary-container" style="font-size:0.8em;">
-<div class="block-azureblue">
-<div class="headline">
-<p>背景</p>
-</div>
-<ul>
-<li>機械学習の進展により、多くの科学分野で革新的な成果が得られている</li>
-<li>データ取得コストが高い場合、部分的な情報で意思決定を行う必要がある</li>
-</ul>
-</div>
-<div class="block-azureblue">
-<div class="headline">
-<p>課題</p>
-</div>
-<ul>
-<li>少量データでは従来の機械学習手法が収束性やロバスト性に欠ける</li>
-<li>非線形問題において、既存のガウス過程回帰法には限界がある</li>
-</ul>
-</div>
-<div class="block-azureblue">
-<div class="headline">
-<p>提案手法</p>
-</div>
-<ul>
-<li>物理法則を組み込んだニューラルネットワークを活用</li>
-<li>自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現</li>
-</ul>
-</div>
-<div class="block-azureblue">
-<div class="headline">
-<p>応用</p>
-</div>
-<ul>
-<li>データ駆動型の偏微分方程式の解法と発見</li>
-<li>新しい数値解法やモデル反転手法の開発</li>
-</ul>
+<div class="sidebar-text">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Roo Code Prompt</p>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Prompt</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="Prompt"><pre class="sourceCode numberSource prompt number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>1. Summarize the introduction of </span>
-<span id="cb3-2"><a></a>   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  </span>
-<span id="cb3-3"><a></a>   into Japanese. </span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>2. Format the summary using the @/template/azureblue-summary.qmd file. </span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a>3. Ensure the output is concise, structured into sections,</span>
-<span id="cb3-8"><a></a>   and adheres to the template's style</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div id="fig-paper-intro" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-paper-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-paper-intro" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-page1" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-fig">
-<div aria-describedby="fig-page1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="PIML-page1.png" id="fig-page1" data-ref-parent="fig-paper-intro">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-page1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-paper-intro" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-page2" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-fig">
-<div aria-describedby="fig-page2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="PIML-page2.png" id="fig-page2" data-ref-parent="fig-paper-intro">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-page2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-paper-intro" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-page3" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-fig">
-<div aria-describedby="fig-page3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="PIML-page3.png" id="fig-page3" data-ref-parent="fig-paper-intro">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-page3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-paper-intro" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-page4" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-fig">
-<div aria-describedby="fig-page4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="PIML-page4.png" id="fig-page4" data-ref-parent="fig-paper-intro">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-page4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-intro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: <a href="../../posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf">Introduction pages exmples</a>
-</figcaption>
-</figure>
+</div><div class="column" style="padding-left:1em;">
+<div class="regmonkey_index" style="width:1100px">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 分析目的</span></span>
+<span id="cb2-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市化とエネルギー需要の増加は、気候変動と密接に関係</span></span>
+<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている</span></span>
+<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市間比較や地域特異性の視点が欠如</span></span>
+<span id="cb2-10"><a></a><span class="at">        </span></span>
+<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 分析手法</span></span>
+<span id="cb2-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市</span></span>
+<span id="cb2-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要</span></span>
+<span id="cb2-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析</span></span>
+<span id="cb2-17"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb2-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. 分析結果</span></span>
+<span id="cb2-19"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 東京は冷房需要が特に大きく増加</span></span>
+<span id="cb2-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 大阪・福岡は冷暖房の両面で変動が大きい</span></span>
+<span id="cb2-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市ごとに異なる対応が必要であることを示唆</span></span>
+<span id="cb2-23"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb2-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 今後の展望</span></span>
+<span id="cb2-25"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb2-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb2-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb2-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb2-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Appendix</span></span>
+<span id="cb2-31"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-32"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb2-33"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb2-34"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb2-35"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb2-36"><a></a><span class="at">      </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
-<section id="hop-step-jumpスライドの作成" class="slide level2">
-<h2>hop-step-jumpスライドの作成</h2>
+<section id="index-2" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index 2</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Roo Code自動生成結果</p>
-</div>
-<div class="hop-step-jump-container" style="height:640px; font-size:0.8em;">
-<div class="step step-1">
-<div class="step-number">
-<p>1 Step</p>
-</div>
-<div class="step-title">
-<p>分析設計</p>
-</div>
-<div class="step-description">
-<p>プロジェクトの目標を明確にし、必要なデータと分析手法を設計します</p>
-</div>
-<div class="info-box">
-<div class="info-label">
-<p>目的</p>
-</div>
-<div class="info-content">
-<p>分析の方向性を定め、必要なリソースを特定する</p>
-</div>
-<div class="info-label">
-<p>成果物</p>
-</div>
-<div class="info-content">
-<p>分析計画書</p>
-</div>
-</div>
-</div>
-<div class="step step-2">
-<div class="step-number">
-<p>2 Step</p>
-</div>
-<div class="step-title">
-<p>ベースラインモデル作成</p>
-</div>
-<div class="step-description">
-<p>基本的なモデルを構築し、初期のパフォーマンスを評価します</p>
-</div>
-<div class="info-box">
-<div class="info-label">
-<p>目的</p>
-</div>
-<div class="info-content">
-<p>モデルの基準となるパフォーマンスを確立する</p>
-</div>
-<div class="info-label">
-<p>成果物</p>
-</div>
-<div class="info-content">
-<p>ベースラインモデルとその評価結果</p>
-</div>
-</div>
-</div>
-<div class="step step-3">
-<div class="step-number">
-<p>3 Step</p>
-</div>
-<div class="step-title">
-<p>モデル精緻化</p>
-</div>
-<div class="step-description">
-<p>モデルを改良し、最適化してパフォーマンスを向上させます</p>
-</div>
-<div class="info-box">
-<div class="info-label">
-<p>目的</p>
-</div>
-<div class="info-content">
-<p>モデルの精度と信頼性を向上させる</p>
-</div>
-<div class="info-label">
-<p>成果物</p>
-</div>
-<div class="info-content">
-<p>最適化されたモデルとその評価結果</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p>Roo Code Prompt</p>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>Prompt</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="Prompt"><pre class="sourceCode numberSource prompt number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>1. summarize 3 steps for datascience </span>
-<span id="cb4-2"><a></a>   project into japanese</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a>2. Format the summary using the </span>
-<span id="cb4-5"><a></a>   @/template/hop-step-jump.qmd  file. </span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a>3. insert contensts at &lt;!-- insert contents --&gt; </span>
-<span id="cb4-8"><a></a>   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="border-bottom-header" style="width:90%; margin-left: 5%;">
-<p><code>/template/hop-step-jump.qmd</code></p>
+<div class="reveal_vspace" style="--vspace-height: 3em;"></div><div class="column" style="width:30%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="sidebar">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-person " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="対象レベル">対象レベル</h3>
 </div>
 <ul>
-<li>3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート
-<ul>
-<li>ホップ・ステップ・ジャンプの表現が主目的</li>
-</ul></li>
-<li>それぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています</li>
+<li>タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）</li>
 </ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="前提知識">前提知識</h3>
+</div>
+<ul>
+<li>タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-terminal " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="必要環境">必要環境</h3>
+</div>
+<ul>
+<li>タスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="padding-left:1em;">
+<div class="regmonkey_index" style="width:1100px">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb3-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 分析目的</span></span>
+<span id="cb3-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市化とエネルギー需要の増加は、気候変動と密接に関係</span></span>
+<span id="cb3-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている</span></span>
+<span id="cb3-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市間比較や地域特異性の視点が欠如</span></span>
+<span id="cb3-10"><a></a><span class="at">        </span></span>
+<span id="cb3-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb3-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 分析手法</span></span>
+<span id="cb3-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市</span></span>
+<span id="cb3-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要</span></span>
+<span id="cb3-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析</span></span>
+<span id="cb3-17"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb3-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. 分析結果</span></span>
+<span id="cb3-19"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 東京は冷房需要が特に大きく増加</span></span>
+<span id="cb3-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 大阪・福岡は冷暖房の両面で変動が大きい</span></span>
+<span id="cb3-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 都市ごとに異なる対応が必要であることを示唆</span></span>
+<span id="cb3-23"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb3-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 今後の展望</span></span>
+<span id="cb3-25"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb3-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb3-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb3-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb3-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Appendix</span></span>
+<span id="cb3-31"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-32"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築</span></span>
+<span id="cb3-33"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上</span></span>
+<span id="cb3-34"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 政策立案支援・再エネ導入シナリオ評価への展開を目指す</span></span>
+<span id="cb3-35"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">28</span><span class="kw">,</span><span class="at"> </span><span class="dv">72</span><span class="kw">]</span></span>
+<span id="cb3-36"><a></a><span class="at">      </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div></div>
-<!-- ## Decision Treeスライドの作成 -->
-<!-- ## Slide Title {.colored-slide-30}
-
-:::: {.columns}
-::: {.column width="70%"}
-
-test
-
-:::
-::: {.column style="width: 30%"}
-
-
-test
-
-
-:::
-:::: -->
 
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
