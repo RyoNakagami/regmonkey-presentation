@@ -2220,6 +2220,10 @@ svg.fas {
   width: 110% !important;
 }
 
+.width-115 {
+  width: 115% !important;
+}
+
 .height-70 {
   height: 70% !important;
 }
@@ -2396,4 +2400,21 @@ svg.fas {
   /* 縦スクロールも有効に */
   max-height: 900px;
   /* 必要なら高さ制限をつける */
+}
+
+
+
+.stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #206f83;
+            font-size: 64px;
+        }
+
+.slide-container + .slide-container::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #d1d5db; /* Tailwind gray-300 */
+  margin: 2rem 0; /* 上下マージン */
 }

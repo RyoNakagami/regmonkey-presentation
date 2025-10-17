@@ -55,5 +55,6 @@ format:
       <script type="text/javascript" src="/js/regmonkey_waterfall.js"></script>
       <script type="text/javascript" src="/js/regmonkey_gantt_chart.js"></script>
       <script type="text/javascript" src="/js/regmonkey_yaml2grouptable.js"></script>
+      <script type="text/javascript" src="/js/regmonkey_abstract_summary.js"></script>
     revealjs-plugins:
       - leader-line

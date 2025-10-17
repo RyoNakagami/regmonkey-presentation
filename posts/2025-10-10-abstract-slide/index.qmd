@@ -1,0 +1,230 @@
+---
+title: "分析Abstractスライドテンプレート"
+subtitle: "リサーチライティングスライド"
+author: "Ryo Nakagami"
+date: "2025-10-17"
+categories: [方法論, リサーチライティング]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## 分析Abstractスライド４つの構成要素
+
+{{< reveal_vspace 1em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[分析Abstractスライドのルール]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- 分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること
+- IMRaD方式など分析内容を構造的に示した内容であること
+- Abstract自体がself-contained(自己完結的)な文章であること
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[IMRaD方式のAbstract構成要素[^footer1]]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::{.width-110 .position-left-20}
+
+::::: {.columns}
+
+:::: {.column style="width: 25%; height:670px;"}
+:::{.horizontal-keypoints-block style="height:65%;"}
+
+:::{.block-header}
+
+{{< bi signpost-fill  size=1.7em color=#428CE6 >}} 
+
+背景・目的
+
+:::
+
+
+:::{.block .pt-10 style="font-size:0.85em; padding-right:0.5em; line-height:1.3; "}
+
+- 分析の動機・背景を説明
+- 先行研究の限界，分析目的，明確な仮説，リサーチクエッション
+- 「何に取り組んだのか」「なぜこの分析を行うのか？」
+
+:::
+
+:::
+::::
+
+
+:::: {.column style="width: 25%; height:670px;"}
+:::{.horizontal-keypoints-block style="height:65%;"}
+:::{.block-header}
+
+{{< bi graph-up  size=1.7em color=#428CE6 >}}
+
+分析手法
+
+:::
+
+:::{.block .pt-10 style="font-size:0.85em; padding-right:0.5em; line-height:1.3; "}
+
+- 分析をどのように実施したか説明
+- 分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析
+- 「どのように分析を行ったのか？」
+- 詳細よりも「方法の枠組み」を明確にする
+
+:::
+:::
+::::
+
+:::: {.column style="width: 25%; height:670px;"}
+:::{.horizontal-keypoints-block style="height:65%;"}
+:::{.block-header}
+
+{{< bi bar-chart-fill  size=1.7em color=#428CE6 >}}
+
+分析結果
+
+:::
+
+
+:::{.block .pt-10 style="font-size:0.85em; padding-right:0.5em; line-height:1.3; "}
+
+- 分析で得られた結果をできるだけ具体的に報告
+- 主な結果（表・図・統計指標）
+- 「何が分かったのか？」
+
+:::
+:::
+::::
+
+:::: {.column style="width: 25%; height:670px;"}
+:::{.horizontal-keypoints-block-no-border style="height:65%;"}
+:::{.block-header}
+
+{{< bi compass size=1.7em color=#428CE6 >}}
+
+今後の展望
+
+:::
+
+
+:::{.block .pt-10 style="font-size:0.85em; padding-right:0.5em; line-height:1.3; "}
+
+- 結果をどのように解釈し，どのような意味があるか
+- 主な発見の解釈，先行研究との比較，限界，今後の展望
+- 「分析結果の示唆は？」
+
+:::
+:::
+::::
+
+:::::
+:::::
+
+
+## 分析Abstract Slide
+
+{{< reveal_vspace 1.5em >}}
+
+:::::{.width-100}
+:::{.regmonkey_abstract_summary}
+
+
+```yaml
+regmonkey_abstract_summary:
+  title_fontsize: 1.5em
+  bullet_fontsize: 0.8em
+  keystat_fontsize: 0.8em
+  children:
+    - title: 背景・分析目的
+      description:
+        - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている
+        - 都市間比較や地域特異性の視点が欠如
+        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える
+      width: [25, 75]
+    - title: 分析手法
+      description:
+        - <strong>対象</strong>： 東京・大阪・福岡の3都市
+        - <strong>目的変数</strong>：気温変化に応じた各都市の電力需要
+        - <strong>手法</strong>：ARIMA + XGBoost モデルによる予測と比較分析
+      width: [25, 75]
+    - title: 分析結果
+      description:
+        - 東京は冷房需要が特に大きく増加
+        - 大阪・福岡は冷暖房の両面で変動が大きい
+        - 都市ごとに異なる対応が必要であることを示唆
+      keystat_header: 気温2度上昇時、夏季の<br>電力需要は最大
+      keystat: 15%<span style="font-size:0.5em;">上昇</span>
+      width: [25, 55, 20]
+    - title: 今後の展望
+      description:
+        - 分析対象を全国レベル・他国都市へ拡張し、<strong>都市スケールでのエネルギー需給モデル</strong>を構築
+        - 気象予測データや社会経済要因を組み合わせた<strong>構造推定モデル</strong>による予測精度向上
+        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す
+      width: [25, 75]
+```
+
+
+:::
+:::::
+
+<!-- footer -->
+
+[^footer1]: IMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない
+
+
+## 分析Abstract Slide Pattern 2
+
+{{< reveal_vspace 1em >}}
+
+::::{.custom-table-for-analysis-summary style="width:100%;"}
+:::{.yaml2table .yaml2table-custom-top  #yaml-mtg-table data-col-widths="[20, 80]" style="font-size: 0.9em;"}
+
+```yaml
+record1:
+  component: 背景・文脈
+  説明:
+    - 都市化とエネルギー需要の増加は、気候変動と密接に関係
+    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析
+    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）
+
+record2:
+  component: 課題・ギャップ
+  説明:
+    - 多くの研究は単一都市の分析にとどまっている
+    - 都市間比較や地域特異性の視点が欠如
+    - 日本を含むアジア都市の分析は不十分
+    - モデルの精度や変数選定にも課題
+
+
+record3:
+  component: 分析目的<br>アプローチ
+  説明:
+    - <strong>目的</strong>： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える
+    - <strong>対象</strong>： 東京・大阪・福岡の3都市
+    - <strong>分析</strong>： 気温変化と電力需要の関係を定量的に評価
+    - <strong>手法</strong>： ARIMA + XGBoost モデルによる予測と比較分析
+
+record4:
+  component: 分析結果
+  説明:
+    - 東京は冷房需要が特に大きく増加
+    - 大阪・福岡は冷暖房の両面で変動が大きい
+    - 気温2度上昇時、夏季の電力需要は最大15%上昇
+    - 都市ごとに異なる対応が必要であることを示唆
+
+```
+:::
+::::
