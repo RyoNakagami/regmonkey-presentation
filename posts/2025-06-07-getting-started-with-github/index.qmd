@@ -1926,20 +1926,10 @@ PDF/PowerPoint, minified JS/CSS bundles, compiled binaries
 
 [`git log` コマンドの基本動作]{.info-box-title}
 
+::: {.info-contents .pl-5}
 
-{{< reveal_vspace 0.5em >}}
-
-::: {.font-14 .padding-L-05}
-
-```{.bash code-line-numbers="false"}
-git log [options] -- <file>
-```
-:::
-
-{{< reveal_vspace 0.5em >}}
-
-::: {.info-contents}
-
+- **Syntax**: 
+  - `git log [options] -- <file>`
 - 誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=`git rebase`や`git difftool`を使いこなすために必要)
 - ファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる
 
@@ -1947,6 +1937,9 @@ git log [options] -- <file>
 ::::
 
 {{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="47.5%" .font-08}
 
 [`git log` の挙動例]{.mini-section}
 
@@ -1969,5 +1962,268 @@ $ git log --pretty=format:'%cs,%h,%an,%s'
 - `--pretty=format` を用いることで，commit logを1行に要約して出力することができます
 - FileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ形式で出力できます
 - `-p` オプションを追加で付与することで，各コミットにおける差分も表示することができます
-- `--pretty=format` オプションは以下
-  - `%cs`: コミット日時をYYYY-MM-DD 形式で表示 , `%h` : 短縮コミットID, `%an`: Author名, `%s`: コミットメッセージ
+
+:::
+::: {.column width="52.5%" .font-08 .pl-5}
+
+[`git log` options]{.mini-section}
+
+| **オプション**                         | **説明**                                              |
+| --------------------------------- | --------------------------------------------------- |
+| `--pretty=format:"%cs %h %an %s"` | `%cs`: コミット日時（YYYY-MM-DD）<br>`%h`: 短縮コミットID<br>`%an`: Author名<br>`%s`: コミットメッセージ |
+| `-p`                              | 各コミットにおける差分（パッチ）を表示                              | 
+| `--after=<日付>`  | `--after="2025-01-01"` で2025-01-01以降にフィルタリング（境界含む） |
+| `--before=<日付>`  | `--before="2025-01-01"` で2025-01-01以前にフィルタリング （境界含む）|
+
+: {tbl-colwidths="[50,50]"}
+
+:::
+::::
+
+## .gitginoreの設定
+[gitコマンド]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box .font-11}
+
+[.gitignoreファイル]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- 不必要なcommitを避けることを目的にGitによる追跡対象としないファイルを指定するための設定ファイル
+- .gitignore に記載された対象ファイルは、git add の実行時に、インデックスに追加されないようになる
+- **「これから追加しない」ための設定**
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[注意点]{.mini-section}
+
+::: {.pl-10}
+
+- すでに一度 git add を経験したファイルは、インデックスに追加され、Git 追跡対象に含まれてしまうので、後から.girignoreを変更しても意図した通りの動きをしないときがある
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+[すでに追加されたファイルの追跡を解除したい場合]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.font-15 .pl-10}
+
+```{.bash code-line-numbers="false"}
+git rm --cached <FILENAME>
+```
+:::
+
+::: {.pl-10}
+
+- `.gitignore` に書かれたファイルを「今後追跡しない」状態に変更
+- ファイルはローカルには残る（削除されない）
+
+:::
+
+
+
+## Windows + PowershellでのGit環境構築
+[環境構築]{.topleftbox}
+
+<!-- column start -->
+:::::: {.columns}
+
+<!-- 1stt column start -->
+::::: {.column width="65%" .pr-5}
+
+{{< reveal_vspace 1.5em >}}
+
+:::::{.manual-template .font-09}
+
+::::{.step}
+
+:::{.step-title}
+
+[1]{.step-number} [**公式サイト**](https://git-scm.com/download/win)からインストーラーをダウンロード
+
+:::
+::::
+
+::::{.step}
+
+:::{.step-title}
+
+[2]{.step-number} インストールウィザードに従ってセットアップを進める
+
+:::
+
+::: {.callout-note .pl-15 .font-12}
+### [Git Bash onlyを選択]{.pl-2}
+
+「Git Bash only」を選択しておくと環境がシンプルになります
+
+{{< reveal_vspace 0.5em >}}
+
+:::
+::::
+
+::::{.step}
+:::{.step-title}
+
+[3]{.step-number} インストール完了後，PowerShell を開きPATHの確認
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.pl-15}
+::: {.font-15}
+
+```powershell
+git --version
+```
+:::
+
+- バージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功
+
+:::
+::::
+
+::::{.step}
+:::{.step-title}
+
+[4]{.step-number} PowerShellでのGitレポジトリ作成テスト
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.pl-15}
+::: {.font-15}
+
+```powershell
+PS> cd ./Desktop
+PS> mkdir ./test
+PS> git init
+PS> cd ..
+PS> Remove-Item ./test -Recurse -Force
+```
+:::
+
+- 上記がエラーなく実行できれば、Git の動作確認は完了
+
+:::
+::::
+
+:::::
+:::::
+
+:::::{.column width="35%"}
+
+:::{.border-bottom-header}
+
+PATHが通らない場合の対処法
+
+:::
+
+
+<!-- sidebar start -->
+::::: {.sidebar .font-09}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-2 .border-gray-500}
+
+:::{.flex .items-center .title}
+  
+Step 1: 実行ファイルの場所を探す
+
+:::
+
+:::{.pl-5}
+
+
+- `git.exe`の存在場所を確認する
+- 通常は `D:\Program Files\Git\bin\git.exe`
+
+:::{.font-13}
+
+```powershell
+Test-Path "D:\Program Files\Git\bin\git.exe"
+```
+
+:::
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .border-gray-500}
+
+:::{.flex .items-center .mb-3  .title}
+
+Step 2: 実行可能性のテスト
+
+:::
+
+:::{.pl-5}
+
+:::{.font-13 .pt-1}
+
+```powershell
+& "D:\Program Files\Git\bin\git.exe" --version
+```
+
+:::
+
+- バージョン情報が出力されれば，次のステップ
+- 出力されない場合はGitの再インストール
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-gray-500}
+
+:::{.flex .items-center .title }
+  
+Step 3: PATHの追加
+
+:::
+
+:::{.pl-5 .pb-1}
+
+- `Test-Path $PROFILE` で表示されたprofileファイルに以下のラインを追加
+
+:::{.font-13 .pt-1}
+
+```powershell
+D:\Program Files\Git\bin\git.exe
+```
+:::
+
+- 存在しない場合は，以下のコマンドで新規作成
+
+:::{.font-13 .pt-2 .mb-1}
+
+```powershell
+New-Item -ItemType File -Path $PROFILE -Force
+```
+:::
+:::
+
+::::
+
+<!-- sidebar end -->
+:::::
+
+
+
+
+<!-- column end -->
+
+:::::
+::::::
