@@ -1714,42 +1714,229 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box font-11">
 <p><span class="info-box-title"><code>git log</code> コマンドの基本動作</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="font-14 padding-L-05">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span> <span class="at">--</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents">
+<div class="info-contents pl-5">
 <ul>
+<li><strong>Syntax</strong>:
+<ul>
+<li><code>git log [options] -- &lt;file&gt;</code></li>
+</ul></li>
 <li>誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=<code>git rebase</code>や<code>git difftool</code>を使いこなすために必要)</li>
 <li>ファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる</li>
 </ul>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column font-08" style="width:47.5%;">
 <p><span class="mini-section"><code>git log</code> の挙動例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div style="font-size:1.5em;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">'%cs,%h,%an,%s'</span></span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-21,ec4df50,Ryo</span> Nak,Merge pull request <span class="co">#13</span></span>
-<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-20,a1b2c3d,John</span> Doe,BUGFIX: solve <span class="co">#11</span></span>
-<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-19,9f8e7d6,Alice</span> Smith,ENH: simplify OLS class</span>
-<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-18,7e6d5c4,Bob</span> Johnson,DOCS: adding README</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--pretty</span><span class="op">=</span>format:<span class="st">'%cs,%h,%an,%s'</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-21,ec4df50,Ryo</span> Nak,Merge pull request <span class="co">#13</span></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-20,a1b2c3d,John</span> Doe,BUGFIX: solve <span class="co">#11</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-19,9f8e7d6,Alice</span> Smith,ENH: simplify OLS class</span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="ex">2025-09-18,7e6d5c4,Bob</span> Johnson,DOCS: adding README</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <ul>
 <li><code>--pretty=format</code> を用いることで，commit logを1行に要約して出力することができます</li>
 <li>FileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ形式で出力できます</li>
 <li><code>-p</code> オプションを追加で付与することで，各コミットにおける差分も表示することができます</li>
-<li><code>--pretty=format</code> オプションは以下
-<ul>
-<li><code>%cs</code>: コミット日時をYYYY-MM-DD 形式で表示 , <code>%h</code> : 短縮コミットID, <code>%an</code>: Author名, <code>%s</code>: コミットメッセージ</li>
-</ul></li>
 </ul>
+</div><div class="column font-08 pl-5" style="width:52.5%;">
+<p><span class="mini-section"><code>git log</code> options</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>オプション</strong></th>
+<th><strong>説明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--pretty=format:"%cs %h %an %s"</code></td>
+<td><code>%cs</code>: コミット日時（YYYY-MM-DD）<br><code>%h</code>: 短縮コミットID<br><code>%an</code>: Author名<br><code>%s</code>: コミットメッセージ</td>
+</tr>
+<tr class="even">
+<td><code>-p</code></td>
+<td>各コミットにおける差分（パッチ）を表示</td>
+</tr>
+<tr class="odd">
+<td><code>--after=&lt;日付&gt;</code></td>
+<td><code>--after="2025-01-01"</code> で2025-01-01以降にフィルタリング（境界含む）</td>
+</tr>
+<tr class="even">
+<td><code>--before=&lt;日付&gt;</code></td>
+<td><code>--before="2025-01-01"</code> で2025-01-01以前にフィルタリング （境界含む）</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="gitginoreの設定" class="slide level2">
+<h2>.gitginoreの設定</h2>
+<p><span class="topleftbox">gitコマンド</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box font-11">
+<p><span class="info-box-title">.gitignoreファイル</span></p>
+<div class="info-contents pl-5">
+<ul>
+<li>不必要なcommitを避けることを目的にGitによる追跡対象としないファイルを指定するための設定ファイル</li>
+<li>.gitignore に記載された対象ファイルは、git add の実行時に、インデックスに追加されないようになる</li>
+<li><strong>「これから追加しない」ための設定</strong></li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">注意点</span></p>
+<div class="pl-10">
+<ul>
+<li>すでに一度 git add を経験したファイルは、インデックスに追加され、Git 追跡対象に含まれてしまうので、後から.girignoreを変更しても意図した通りの動きをしないときがある</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<p><span class="mini-section">すでに追加されたファイルの追跡を解除したい場合</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="font-15 pl-10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="op">&lt;</span>FILENAME<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pl-10">
+<ul>
+<li><code>.gitignore</code> に書かれたファイルを「今後追跡しない」状態に変更</li>
+<li>ファイルはローカルには残る（削除されない）</li>
+</ul>
+</div>
+</section>
+<section id="windows-powershellでのgit環境構築" class="slide level2">
+<h2>Windows + PowershellでのGit環境構築</h2>
+<p><span class="topleftbox">環境構築</span></p>
+<div class="columns">
+<div class="column pr-5" style="width:65%;">
+<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
+<div class="manual-template font-09">
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">1</span> <a href="https://git-scm.com/download/win"><strong>公式サイト</strong></a>からインストーラーをダウンロード</p>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">2</span> インストールウィザードに従ってセットアップを進める</p>
+</div>
+<div class="pl-15 font-12">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="pl-2">Git Bash onlyを選択</span></strong></p>
+</div>
+<div class="callout-content">
+<p>「Git Bash only」を選択しておくと環境がシンプルになります</p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">3</span> インストール完了後，PowerShell を開きPATHの確認</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="pl-15">
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a></a>git <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>バージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">4</span> PowerShellでのGitレポジトリ作成テスト</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="pl-15">
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">./</span>Desktop</span>
+<span id="cb7-2"><a></a><span class="fu">PS</span><span class="op">&gt;</span> mkdir <span class="op">./</span>test</span>
+<span id="cb7-3"><a></a><span class="fu">PS</span><span class="op">&gt;</span> git init</span>
+<span id="cb7-4"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">..</span></span>
+<span id="cb7-5"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">Remove-Item</span> <span class="op">./</span>test <span class="op">-</span>Recurse <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>上記がエラーなく実行できれば、Git の動作確認は完了</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<div class="border-bottom-header">
+<p>PATHが通らない場合の対処法</p>
+</div>
+<div class="sidebar font-09">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-2 border-gray-500">
+<section id="step-1-実行ファイルの場所を探す" class="flex items-center mt-2">
+<h3>Step 1: 実行ファイルの場所を探す</h3>
+</section>
+<div class="pl-5">
+<ul>
+<li><code>git.exe</code>の存在場所を確認する</li>
+<li>通常は <code>D:\Program Files\Git\bin\git.exe</code></li>
+</ul>
+<div class="font-13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a></a><span class="fu">Test-Path</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 border-gray-500">
+<section id="step-2-実行可能性のテスト" class="flex items-center mb-5 mt-2">
+<h3>Step 2: 実行可能性のテスト</h3>
+</section>
+<div class="pl-5">
+<div class="font-13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a></a><span class="op">&amp;</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span> <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>バージョン情報が出力されれば，次のステップ</li>
+<li>出力されない場合はGitの再インストール</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-gray-500">
+<section id="step-3-pathの追加" class="flex items-center mt-2">
+<h3>Step 3: PATHの追加</h3>
+</section>
+<div class="pl-5">
+<ul>
+<li><code>Test-Path $PROFILE</code> で表示されたprofileファイルに以下のラインを追加</li>
+</ul>
+<div class="font-13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a></a>D<span class="op">:</span>\Program Files\Git\bin\git<span class="op">.</span><span class="fu">exe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>存在しない場合は，以下のコマンドで新規作成</li>
+</ul>
+<div class="font-13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType File <span class="op">-</span>Path <span class="va">$PROFILE</span> <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
 
+</div>
+</div></div>
 </section></section>
 
     </div>
