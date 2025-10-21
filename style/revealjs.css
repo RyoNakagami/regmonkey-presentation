@@ -820,8 +820,14 @@ svg.fas {
   border: #0a1e3d 2px solid;
 }
 
-.component-card-index h3 {
+.component-card-index .title {
   margin-left: 0.5em;
+  /* (optional) change font family */
+  text-align: left !important;
+  color: #1a1a1a;
+  /* Bright Orange for title */
+  font-weight: bold !important;
+  font-size: var(--r-heading3-size);
 }
 
 
@@ -841,7 +847,7 @@ svg.fas {
   align-items: center;
   text-align: left;
   padding-left: 1em;
-  line-height: 1.1;
+  line-height: 1;
   position: relative;
   /* Needed for positioning the pseudo-element */
   font-size: 0.9em;
@@ -2470,10 +2476,11 @@ svg.fas {
 /* ------------------------------------------------------------------- */
 /*                      Regmonkey Manuals                              */
 /* ------------------------------------------------------------------- */
-.manual-template{
-   display: flex;
-   flex-direction: column;  /* 横方向に並べる */
-   
+.manual-template {
+  display: flex;
+  flex-direction: column;
+  /* 横方向に並べる */
+
 }
 
 .manual-template .step {
@@ -2481,7 +2488,8 @@ svg.fas {
 }
 
 .manual-template .step:first-child {
-  margin-left: 0.5em !important; /* 左端を強制的に揃える */
+  margin-left: 0.5em !important;
+  /* 左端を強制的に揃える */
 }
 
 .manual-template .step-number {

@@ -1815,8 +1815,9 @@ gitGraph
 <section id="windows-powershellでのgit環境構築" class="slide level2">
 <h2>Windows + PowershellでのGit環境構築</h2>
 <p><span class="topleftbox">環境構築</span></p>
+<!-- column start -->
 <div class="columns">
-<div class="column pr-5" style="width:65%;">
+<!-- 1stt column start --><div class="column pr-5" style="width:65%;">
 <div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
 <div class="manual-template font-09">
 <div class="step">
@@ -1882,11 +1883,12 @@ gitGraph
 <div class="border-bottom-header">
 <p>PATHが通らない場合の対処法</p>
 </div>
+<!-- sidebar start -->
 <div class="sidebar font-09">
 <div class="component-card-index pl-4 pr-4 pt-1 pb-2 border-gray-500">
-<section id="step-1-実行ファイルの場所を探す" class="flex items-center mt-2">
-<h3>Step 1: 実行ファイルの場所を探す</h3>
-</section>
+<div class="flex items-center title">
+<p>Step 1: 実行ファイルの場所を探す</p>
+</div>
 <div class="pl-5">
 <ul>
 <li><code>git.exe</code>の存在場所を確認する</li>
@@ -1899,9 +1901,9 @@ gitGraph
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="component-card-index pl-4 pr-4 pt-1 border-gray-500">
-<section id="step-2-実行可能性のテスト" class="flex items-center mb-5 mt-2">
-<h3>Step 2: 実行可能性のテスト</h3>
-</section>
+<div class="flex items-center mb-3 title">
+<p>Step 2: 実行可能性のテスト</p>
+</div>
 <div class="pl-5">
 <div class="font-13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a></a><span class="op">&amp;</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span> <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1914,9 +1916,9 @@ gitGraph
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-gray-500">
-<section id="step-3-pathの追加" class="flex items-center mt-2">
-<h3>Step 3: PATHの追加</h3>
-</section>
+<div class="flex items-center title">
+<p>Step 3: PATHの追加</p>
+</div>
 <div class="pl-5">
 <ul>
 <li><code>Test-Path $PROFILE</code> で表示されたprofileファイルに以下のラインを追加</li>
@@ -1927,16 +1929,18 @@ gitGraph
 <ul>
 <li>存在しない場合は，以下のコマンドで新規作成</li>
 </ul>
-<div class="font-13">
+<div class="font-13 pt-1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType File <span class="op">-</span>Path <span class="va">$PROFILE</span> <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-
-
-
+<!-- sidebar end -->
 </div>
+<!-- column end -->
 </div></div>
+
+
+
 </section></section>
 
     </div>
