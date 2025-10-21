@@ -1905,7 +1905,7 @@ gitGraph
 <p>Step 2: 実行可能性のテスト</p>
 </div>
 <div class="pl-5">
-<div class="font-13">
+<div class="font-13 pt-1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a></a><span class="op">&amp;</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span> <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
@@ -1919,17 +1919,17 @@ gitGraph
 <div class="flex items-center title">
 <p>Step 3: PATHの追加</p>
 </div>
-<div class="pl-5">
+<div class="pl-5 pb-1">
 <ul>
 <li><code>Test-Path $PROFILE</code> で表示されたprofileファイルに以下のラインを追加</li>
 </ul>
-<div class="font-13">
+<div class="font-13 pt-1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a></a>D<span class="op">:</span>\Program Files\Git\bin\git<span class="op">.</span><span class="fu">exe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>存在しない場合は，以下のコマンドで新規作成</li>
 </ul>
-<div class="font-13 pt-1">
+<div class="font-13 pt-2 mb-1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType File <span class="op">-</span>Path <span class="va">$PROFILE</span> <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
