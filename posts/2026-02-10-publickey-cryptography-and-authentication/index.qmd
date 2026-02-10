@@ -1,0 +1,339 @@
+---
+title: "公開鍵暗号と公開鍵認証の概要"
+subtitle: "Linux101"
+author: "Ryo Nakagami"
+date: "2026-02-10"
+categories: [Linux]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+auto-agenda:
+  bullets: bullets
+---
+
+## 公開鍵暗号の概要
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+[公開鍵暗号]{.def-title}
+
+::: {.def-contents}
+
+- 非対称型暗号方式とも呼ばれる
+- 秘密鍵を乱数で生成し，公開鍵は秘密鍵から，素数の席や離散対数により生成される
+- データをやり取りする際に，公開鍵で暗号化し，秘密鍵で復号する
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[公開鍵暗号方式の仕組み]{.mini-section}
+
+{{< reveal_vspace 1em >}}
+
+::::::::{.pki-diagram}
+
+:::::::{.pki-section}
+
+::::::{.pki-grid}
+
+:::::{.pki-side-title}
+データ送信側
+:::::
+
+:::::{}
+:::::
+
+:::::{.pki-side-title}
+データ受信側
+:::::
+
+:::::{}
+:::::
+
+:::::{.pki-outer-box style="grid-column: 1; grid-row: 2 / 5; width:15em; height: 12.5em;"}
+
+{{< reveal_vspace 1em >}}
+
+::::{.pki-box style="width:10em;"}
+公開鍵
+::::
+
+::::{.pki-v-arrow}
+③暗号化
+
+<div class="pki-v-arrow-shaft"><div class="pki-v-arrow-line" style="height:4em;"></div><div class="pki-v-arrow-head"></div></div>
+
+::::
+
+::::{.pki-box style = "width:10em;"}
+データ
+::::
+
+:::::
+
+:::::{.pki-h-arrow style="grid-column: 2; grid-row: 2;"}
+
+::::{.pki-h-arrow-label}
+②公開鍵をコピー
+::::
+
+<div class="pki-h-arrow-shaft"><div class="pki-h-arrow-head-left"></div><div class="pki-h-arrow-line"></div></div>
+
+:::::
+
+
+:::::{.pki-outer-box style="grid-column: 3; grid-row: 2 / 5; width:15em; height: 12.5em;"}
+
+①キーペア作成
+
+{{< reveal_vspace 0.5em >}}
+
+:::::{.pki-keypair-box style="grid-column: 3; grid-row: 2; width:10em;"}
+
+::::{.pki-keypair-row}
+公開鍵
+::::
+
+::::{.pki-keypair-row}
+秘密鍵
+::::
+
+:::::
+
+
+::::{.pki-v-arrow style="height:2em;"}
+⑤ 復号
+
+<div class="pki-v-arrow-shaft"><div class="pki-v-arrow-line"></div><div class="pki-v-arrow-head"></div></div>
+
+::::
+
+::::{.pki-box style = "width:10em;"}
+データ
+::::
+
+:::::
+
+:::::{.pki-h-arrow style="grid-column: 2; grid-row: 3;"}
+
+{{< reveal_vspace 5em >}}
+
+::::{.pki-h-arrow-label}
+④暗号化したデータを送信
+::::
+
+<div class="pki-h-arrow-shaft"><div class="pki-h-arrow-line"></div><div class="pki-h-arrow-head-right"></div></div>
+
+
+:::::
+
+::::::
+
+
+:::::::
+
+::::::::
+
+## 公開鍵認証の概要
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+[公開鍵認証]{.def-title}
+
+::: {.def-contents}
+
+- 公開鍵暗号の鍵ペアを用いて，通信相手の正当性を検証する仕組み
+- 被認証側が秘密鍵で認証データを作成し，認証側が公開鍵で検証する
+- SSH接続^[OpenSSHではサーバー側に登録された公開鍵情報を用いてクライアント認証を行い，その後，公開鍵暗号でセッション鍵を安全に交換して暗号化通信を行う]やデジタル署名などで広く利用される
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[公開鍵認証の仕組み]{.mini-section}
+
+{{< reveal_vspace 1em >}}
+
+::::::::{.pki-diagram}
+
+:::::::{.pki-section}
+
+::::::{.pki-grid}
+
+:::::{.pki-side-title}
+認証側
+:::::
+
+:::::{}
+:::::
+
+:::::{.pki-side-title}
+被認証側
+:::::
+
+:::::{}
+:::::
+
+:::::{.pki-outer-box style="grid-column: 1; grid-row: 2 / 5; width:15em; height: 12.5em;"}
+
+{{< reveal_vspace 1em >}}
+
+::::{.pki-box style="width:10em;"}
+公開鍵
+::::
+
+::::{.pki-v-arrow}
+⑤検証
+
+<div class="pki-v-arrow-shaft"><div class="pki-v-arrow-line" style="height:4em;"></div><div class="pki-v-arrow-head"></div></div>
+
+::::
+
+::::{.pki-box style="width:10em;"}
+認証データ
+::::
+
+:::::
+
+:::::{.pki-h-arrow style="grid-column: 2; grid-row: 2;"}
+
+::::{.pki-h-arrow-label}
+②公開鍵をコピー^[サーバー側の`~/.ssh/authorized_keys`に公開鍵を登録]
+::::
+
+<div class="pki-h-arrow-shaft"><div class="pki-h-arrow-head-left"></div><div class="pki-h-arrow-line"></div></div>
+
+:::::
+
+
+:::::{.pki-outer-box style="grid-column: 3; grid-row: 2 / 5; width:15em; height: 12.5em;"}
+
+①キーペア作成^[コマンド例: `ssh-keygen -t ed25519 -C "hoshinokirby@pupupupu.com" -f ~/.ssh/id_ed25519_github`]
+
+{{< reveal_vspace 0.5em >}}
+
+:::::{.pki-keypair-box style="grid-column: 3; grid-row: 2; width:10em;"}
+
+::::{.pki-keypair-row}
+公開鍵
+::::
+
+::::{.pki-keypair-row}
+秘密鍵
+::::
+
+:::::
+
+
+::::{.pki-v-arrow style="height:2em;"}
+③作成
+
+<div class="pki-v-arrow-shaft"><div class="pki-v-arrow-line"></div><div class="pki-v-arrow-head"></div></div>
+
+::::
+
+::::{.pki-box style="width:10em;"}
+認証データ
+::::
+
+:::::
+
+:::::{.pki-h-arrow style="grid-column: 2; grid-row: 3;"}
+
+{{< reveal_vspace 5em >}}
+
+::::{.pki-h-arrow-label}
+④認証データを送信
+::::
+
+<div class="pki-h-arrow-shaft"><div class="pki-h-arrow-head-left"></div><div class="pki-h-arrow-line"></div></div>
+
+
+:::::
+
+::::::
+
+
+:::::::
+
+::::::::
+
+## ホスト認証とクライアント認証の違い
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+:::: {.def-block style="font-size:1.1em;"}
+[SSH接続における二段階の認証]{.def-title}
+
+::: {.def-contents}
+
+- **ホスト認証**: クライアントが接続先サーバーの正当性を確認する
+- **クライアント認証**: サーバーがクライアント（ユーザー）の正当性を確認する
+- SSH接続時，ホスト認証 → クライアント認証の順で実行される
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[ホスト認証 vs クライアント認証]{.mini-section}
+
+{{< reveal_vspace 1em >}}
+
+:::{style="font-size:0.85em; line-height: 1.5em;"}
+
+|  | ホスト認証 | クライアント認証 |
+|:---|:---|:---|
+| 目的 | サーバーの正当性を確認 | クライアントの正当性を確認 |
+| 検証する側 | クライアント | サーバー |
+| 鍵ペアの所有者 | サーバー | クライアント |
+| 公開鍵の保管場所 | `~/.ssh/known_hosts` | `~/.ssh/authorized_keys` |
+| 防ぐ脅威 | 中間者攻撃（なりすましサーバー） | 不正ユーザーのアクセス |
+
+:::
+
+
+:::
+::: {.column width="40%" .position-top-30}
+
+```{mermaid}
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+
+    C->>S: TCP接続
+
+    Note over C,S: 1. ホスト認証 (Server Authentication)
+    S->>C: サーバ公開鍵送信
+    C->>C: サーバ鍵を known_hosts と照合
+
+    C->S: セッション鍵生成 & 交換
+
+    Note over C,S: 2. クライアント認証 (Client Authentication)
+    C->>S: ユーザ名送信
+    S->>C: 認証方式要求 (password / publickey )
+    C->>S: 公開鍵署名送信
+    S->>S: 署名を公開鍵で検証
+    S->>C: Authentication OK & セッション開始
+```
+
+
+:::
+::::
