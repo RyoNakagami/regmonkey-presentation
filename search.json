@@ -7,6 +7,83 @@
     "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   },
   {
+    "objectID": "template/analysis-summary.html",
+    "href": "template/analysis-summary.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/analysis-summary.html#分析introductionスライド例",
+    "href": "template/analysis-summary.html#分析introductionスライド例",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "title": "MathJaxのレンダリング確認",
+    "section": "保存則と運動方程式",
+    "text": "保存則と運動方程式\n\n物理学における法則は，保存則か運動方程式 で表現される．表現方法は微分方程式が用いられる場合が多い．\n\n\n\n\n\n Law of conservation(保存則1)\n\n\n\n\nエネルギー保存則\n運動量保存則\n質量保存則\n\n\nExample 1 \nある筒の中で流体が一定方向で流れるとき，筒の中の密度 \\(\\rho\\) の時間的変化は 体積 \\(V\\)， 入流量 \\(Gin\\), 出流量 \\(Gout\\) を用いて，質量保存則の観点から以下のように表される\n\\[\nV\\frac{\\partial \\rho}{\\partial t} = Gin_t - Gout_t\n\\]\n\n\n\n\n\n\n\nLaw of motion(運動方程式)\n\n\n\n\nニュートンの法則\nフーリエの法則\nフィックの第一法則\n\n\nExample 2 \n熱エネルギーが温度の高い方から低い方へ輸送されることか，\\(x\\): 位置, \\(t\\): 時間, \\(\\lambda\\): 熱伝導率，\\(T(x, t)\\): 温度とすると，熱流密度 \\(q(x, t)\\) は\n\\[\nq(x, t) = -\\lambda \\frac{\\partial T(x, t)}{\\partial x} \\label{eq-fourier-law}\n\\]\n\n\n\n\nNoether’s theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と局所性",
+    "text": "微分方程式と局所性\n\n\nDefinition 1 局所性\n\nある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは\n\nまず周囲（隣の点）に影響を与え\n時間の１ステップごとに伝わっていく\n\nこのように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．\n\n\n\n数式による定式化\n\\[\n\\frac{\\partial y(t, x)}{\\partial t} = f(y(t,x), t, x)\n\\]\n\n時刻 \\(t\\) における変化率は，その時点の値 \\(y(t)\\) と時間 \\(t\\) 場所 \\(x\\) のみに依存する\n時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）\n過去全体に依存する場合は、時間的に非局所的"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と因果性",
+    "text": "微分方程式と因果性\n\n\nDefinition 2 : 因果性 \nある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．\n\n\n ▶  常微分方程式による定式化\n\\[\n\\frac{dy(t)}{dt} = f(y(t), u(t))\n\\]\n\n時刻 \\(t\\) における出力は，現像の入力 \\(u(t)\\) と状態 \\(y(t)\\) のみから決まる\n\\(t=5\\) のような未来の解 \\(y(t)\\)は、初期値 \\(y_0\\) とそれまでの \\(u(t)\\) によってのみ決まる\n\n因果に基づいた未来の予測"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "title": "MathJaxのレンダリング確認",
+    "section": "物理モデリングを使って何を求めるのか？: 順問題と逆問題",
+    "text": "物理モデリングを使って何を求めるのか？: 順問題と逆問題\n物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある\n\n\n\n\n\n\n順問題\n\n\n\n\n微分方程式が知られている場合に，その解を求める\n入力や条件が分かっていて、現象を予測\n\n\nExample 3 \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), パラメータ \\(\\theta\\) が与えられる\nGoal: \\(y(t)\\) を求める\n\n\\[\ny(t) = M(u(t), \\theta)\n\\]\n\n\n\n\n\n\n\n逆問題\n\n\n\n\n解の挙動が知られているとき，解が従う法則を探求する\n結果が観測されていて、その原因を特定\n\n\nExample 4  \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), 出力 \\(y(t)\\) が与えられる\nGoal: パラメータ \\(\\theta\\) を求める\n\n\\(P_\\theta\\) を 入力，モデルを条件付けたとき，\\(\\theta\\) によって特徴づけられる \\(y(t)\\) のデータ生成分布としたとき，観測データと整合的な \\(\\theta\\) を識別する"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "title": "MathJaxのレンダリング確認",
+    "section": "PINN: physics-informed neural network",
+    "text": "PINN: physics-informed neural network\n\n\nDefinition 3 : PINN \n運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法\n\n\n ▶  Approach\n\\[\nL = L_{D}(\\hat y, y) + L_{\\operatorname{physics}}(\\hat y)\n\\]\n\n\\(y\\): 目的変数\n\\(\\hat y\\): 目的変数の予測値\n\\(L_{D}(\\hat y, y)\\): 予測値とtrueの距離(自乗距離など)\n\\(L_{\\operatorname{pysics}}(\\hat y)\\): \\(\\hat y\\) が満たすべき物理ロジックとの適合度\n\n ▶  例: 熱伝導方程式\n\\[\n\\min \\frac{1}{n}\\sum_{i=1}^n(T(x, t) - T)^2 + P \\left\\|\\frac{\\partial T(x, t)}{\\partial t} - \\frac{\\lambda}{c\\rho}\\frac{\\partial^2 T(x, t)}{\\partial x^2}\\right\\|^2\n\\]"
+  },
+  {
     "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
     "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
     "title": "公開鍵暗号と公開鍵認証の概要",
@@ -56,25 +133,95 @@
     "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index",
-    "href": "posts/2025-10-17-index-slide/index.html#index",
-    "title": "Indexスライドテンプレート",
-    "section": "Index",
-    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "サマリー",
+    "text": "サマリー\n\n\n\n\nGannt chartは計画の可視化ツール\n\n\n各タスクの担当・進捗状況・依存関係という全体像を見ながらのリソース再配分議論が可能になる\nスケジュールの遅延やリスクの早期発見が可能になる\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\nタスクが細かすぎると全体像が見えづらくなる\nタスクが大きすぎると具体的な作業内容が不明確になり、着手しにくくなる\n\n\n\n\n\nすべてのプロジェクトに使えるわけではない\n\n\n大規模プロジェクトでは複雑になりすぎる可能性がある\n更新作業に工数がかかる場合があり、頻繁な変更が生じるプロジェクトには不向き"
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index-1",
-    "href": "posts/2025-10-17-index-slide/index.html#index-1",
-    "title": "Indexスライドテンプレート",
-    "section": "Index",
-    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール",
+    "text": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール\n\n\nGannt chartとは？\n\n\n縦軸にタスク、横軸を時間軸として、プロジェクトのタスクとその進捗状況を視覚的に表した図表のこと\nプロジェクトスケジュール、マイルストン、タスク依存関係を一度に見渡せる\n\n\n\n\nAnychart-based Gannt chartのイメージ例1\n\n\n\n\nAnyChart Project Gantt Chartを用いて作成"
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index-2",
-    "href": "posts/2025-10-17-index-slide/index.html#index-2",
-    "title": "Indexスライドテンプレート",
-    "section": "Index 2",
-    "text": "Index 2\n\n\n\n\n\n\n\n対象レベル\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n前提知識\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n必要環境\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chartの構成要素",
+    "text": "Gannt chartの構成要素\n\n\n\n\n\n\n\n\nタスク名\n\n\nプロジェクトを構成する作業単位\n各作業の内容や担当者を表示\n\n\n\n\n\n\n\n\n時間軸\n\n\n日付や期間を示す横軸\n管理粒度に合わせて日、週、月などの単位で表示\n\n\n\n\n\n\n\n\nタスクバー\n\n\n各タスクの開始日から終了日までの期間を視覚的に表す横棒\n\n\n\n\n\n\n\n\nマイルストーン\n\n\nプロジェクトの重要な節目や成果物の完成時期を示す指標\n◆ マークがよく用いられる\n\n\n\n\n\n\n\n\n依存関係\n\n\nタスク間のつながりを矢印で表現\n先行タスクと後続タスクの関係を明示し、クリティカルパスの特定に有効\n\n\n\n\n\n\n\n\n着手状況\n\n\n各タスクの着手状況・進捗度合いを表現\n遅延の早期発見に有効"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "Gannt chart運用のキーポイント",
+    "text": "Gannt chart運用のキーポイント\n\n\n\n\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n\n\n明確なタスク定義\n\n\n各タスクの目的・成果物・期間・担当者を明確にし、責任の所在を明確化する(SMART原則1)\nタスクごとに10〜20%程度の余裕を持たせる\n\n\n\n\n\n\n\n\n依存関係の設定\n\n\n並行して進めるべき/でないタスクをチーム全体で共有する\n依存関係を踏まえた上で、着手すべき作業を判断する\n\n\n\n\n\n\n\n\nマイルストンの設定\n\n\n「このマイルストンまでにここまで進める」をチームで共有する\nマイルストンと照らし合わせ、各タスクの進捗・リスクを判断する\n\n\n\n\n\n\n\n\n定期的な進捗更新\n\n\nチームでプロジェクト進捗度合いの認識のズレをなくす\n完了・進行中・遅延が一目でわかるように色分けや記号を活用する\n\n\n\n\n\n\n\n\n継続的な改善\n\n\n早期にクリティカルパスを特定し、手遅れになる前に対策する\nプロジェクト完了後も実績を振り返り、次回に向けた改善点を見つける\n\n\n\n\nSpecific (具体的): 何を達成するのか明確に。 Measurable (測定可能): 達成したか否かを判断できる基準があるか。 Achievable (達成可能): 現実的に達成できる目標か。 Relevant (関連性): プロジェクトの目標に直接貢献するか。 Time-bound (期限がある): いつまでに達成するのか明確な期日があるか。"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "タスクをどのように洗い出すのか？: WBSからガントチャートへ",
+    "text": "タスクをどのように洗い出すのか？: WBSからガントチャートへ\n\n\n\n\n\n\n\n\nWBS = 設計図\n\n\nプロジェクト全体像を構造化\n\n\n\n\n\n\n\n\n\n\n\n\nGannt chart = 工程表\n\n\n各タスクをプロジェクト時間軸で管理\n\n\n\n\n\n\n\n\n\n\n\n\nProject Management\n\n\nプロジェクト全体の進捗に応じた意思決定\n\n\n\n\n\n\n「何をやるか」の明確化\n\n\nプロジェクトの最終成果物を定義し、そこから必要な作業を階層的に細分化する\n各タスクごとに、目的、成果物、期間、必要リソース、依存関係を定義し、見積もりを行う\n\n\n\n「いつやるか」の可視化\n\n\nWBSで定義された各タスク情報を時間軸に落とし込む\nタスクごとに開始日、終了日、期間を明確にする\n計画と実績のズレを逐次確認\n\n\n\n実行、監視、コントロール\n\n\n担当者の明確化\n稼働状況・負荷の偏りの把握\n実情に則したリソース管理\n問題の早期発見"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "WBSとは何か？：作業の「分解」リスト",
+    "text": "WBSとは何か？：作業の「分解」リスト\n\n\nWBSの定義\n\nWBSは、プロジェクトの成果物（アウトプット）をベースに、それを達成するために必要な作業を階層的に分解していく手法\n\n\n\n\n\n主な目的\n\n\n① 作業の洗い出しと明確化\n\n\nプロジェクトに必要なすべての作業を漏れなく特定する\n\n\n\n\n\n② 責任範囲の明確化\n\n\nRACIを用いて、各作業が誰の責任であるかを明確にする\nResponsible（実行責任者）・Accountable（ケツ持ち）・Consulted（相談対象者）・Informed（報告対象者）\n\n\n\n\n\n③ 見積もりの精度向上\n\n\n細分化された作業ごとに期間やコストを見積もることで、全体の精度が高める\n\n\n\n\n\n④ スコープの明確化とスコープクリープの防止\n\n\nプロジェクトの範囲（どこまでをやるのか）を明確にし、スコープクリープ（範囲の予期せぬ拡大）を防ぐ\n\n\n\n\nWebサイト制作プロジェクトにおける構造例\n\n\nrecord1:\n  主要成果物: 要件定義\n  主要タスク: \n    - クライアントヒアリング\n  分解タスク: \n    - ビジネス目標とターゲットユーザーの特定\n    - サイトの目的と機能要件の洗い出し\n\nrecord2:\n  主要成果物: 要件定義\n  主要タスク: \n    - サイトマップ作成\n  分解タスク: \n    - サイト階層構造の設計\n    - 各ページコンテンツの概要定義\n\nrecord3:\n  主要成果物: 要件定義\n  主要タスク: \n    - 要件定義書作成\n  分解タスク: \n    - 定義済み要件のドキュメント化\n    - クライアント承認\n\nrecord4:\n  主要成果物: デザイン\n  主要タスク: \n    - ワイヤーフレーム作成\n  分解タスク: \n    - 各ページのレイアウト設計\n\nrecord5:\n  主要成果物: デザイン\n  主要タスク: \n    - UIデザイン\n  分解タスク: \n    - デザインコンセプトの作成\n    - デザインガイドライン作成\n\nrecord6:\n  主要成果物: 実装\n  主要タスク: \n    - フロントエンド実装\n  分解タスク: \n    - HTML/CSSコーディング\n    - レスポンシブデザイン対応\n\nrecord7:\n  主要成果物: 実装\n  主要タスク: \n    - バックエンド実装\n  分解タスク: \n    - データベース設計と構築\n    - API開発\n    - サーバー環境構築\n\nrecord8:\n  主要成果物: テスト\n  主要タスク: \n    - 機能テスト\n  分解タスク: \n    - 全機能の動作確認\n\nrecord9:\n  主要成果物: テスト\n  主要タスク: \n    - パフォーマンステスト\n  分解タスク: \n    - サイト表示速度の測定と最適化\n\n\nrecord10:\n  主要成果物: テスト\n  主要タスク: \n    - クライアントUAT\n  分解タスク: \n    - クライアントによる最終承認テスト"
+  },
+  {
+    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
+    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
+    "title": "Gannt chartを用いたプロジェクトマネジメント",
+    "section": "効率的なプロジェクト管理のためのマイルストン設定観点",
+    "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
+    "title": "DSとしての語彙力",
+    "section": "「単語(word)」を知っているとは？",
+    "text": "「単語(word)」を知っているとは？\n知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される\n\n\n\n\n\n\n Form\n\n\n\n\n発音\n\n\n\n単語を「耳で聞いて理解し」「口で正しく発音できる」\n\n\n\n綴り(spelling)\n\n\n\n単語の視覚的な形（written form）を正しく知っている\n\n\n\n単語の構成要素\n\n\n\n単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している\n「単語の内部構造」を理解し，派生や意味の変化を読み取れる\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n語形と意味のつながり\n\n\n\n単語の「形」と「意味」が頭の中で結びついている\n\n\n\n概念と指示物\n\n\n\n単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている\n単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ\n\n\n\n連想 (association)\n\n\n\n単語がもつ感情・文化・意味ネットワークを理解している\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能\n\n\n\n単語が文の中でどのような文法的役割を果たすか理解している\n文中での位置（主語・動詞・目的語など）を理解している\n\n\n\nコロケーション\n\n\n\n自然な語の組み合わせ・共起関係を理解している\n\n\n\n使用制約\n\n\n\n単語を使う場面・文体・相手に応じて適切に使い分けられる"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
+    "title": "DSとしての語彙力",
+    "section": "(参考) 「プログラミング言語」を知っているとは？",
+    "text": "(参考) 「プログラミング言語」を知っているとは？\nプログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる\n\n\n\n\n\n\n Form\n\n\n\n\n構文 (syntax)\n\n\n\nコードの正しい「形（文法）」を理解している\n例：for (let i=0; i&lt;10; i++) の括弧・セミコロンの役割を理解している\n\n\n\n記法 (spelling)\n\n\n\n言語特有のキーワードや識別子を正確に書ける\n\n\n\n構成要素 (structure)\n\n\n\n文や式がどのような要素で構成されるかを理解している\n例：関数＝宣言 + 引数 + 本体\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n概念と処理の対応\n\n\n\n言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している\n「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し\n\n\n\n連想 (association)\n\n\n\nコードから関連知識を連想できる\n例：append() → 「リスト操作」, 「破壊的変更」, 「配列末尾」\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能 (grammatical role)\n\n\n\nコード要素が文の中でどんな役割を果たすかを理解している\n例：変数は値の入れ物，関数は処理単位\n\n\n\nコロケーション (共起関係)\n\n\n\n自然なコードの組み合わせを理解している\n例：if ... else，try ... except，for ... in などのペアを正しく使える\n\n\n\n使用制約 (context constraints)\n\n\n\n構文・関数を適切な場面で使い分けられる\n例:\n\n同期処理と非同期処理の文脈の違い\nglobal変数の慎重な利用"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
+    "title": "DSとしての語彙力",
+    "section": "単語を使いこなす能力: receptive vs productive",
+    "text": "単語を使いこなす能力: receptive vs productive\n\n\n\n① Receptive knowledge\n\n\n使用場面: reading, listening skills\n提示された情報を理解できる力\n\n他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力\n他人のコード・APIドキュメントを読んで動作を理解できる\n\nForm → Meaning の対応を把握し，Usage は参照的に理解する段階\n\n\n\n\n\n② Productive knowledge\n\n\n使用場面: speaking, writing skills\n自分の考えや意図を表現できる力(= 状況に応じた創造的応用)\n\n単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力\n自分で関数やロジックを書き，再利用できる能力\n\nForm・Meaning・Usage をすべて統合して能動的に使える"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
+    "title": "DSとしての語彙力",
+    "section": "✅ プログラミング言語理解チェックリスト",
+    "text": "✅ プログラミング言語理解チェックリスト\n\n\n\nrecord1:\n    観点: Form\n    children:\n      - チェック項目: syntax\n        Receptive skill:\n          - コードの構文構造を見て意味を理解できる\n          - 括弧やインデントの意味を理解できる\n        Productive skill:\n          - 正しい構文でコードを書ける\n          - 構文エラーを自力で修正できる\n      - チェック項目: spelling\n        Receptive skill:\n          - 言語特有のキーワードや識別子を見て意味を理解できる\n          - 大文字・小文字・予約語の違いを認識できる\n        Productive skill:\n          - キーワードや識別子を正確に書ける\n          - 命名規則に従って識別子を作れる\n\n      - チェック項目: structure\n        Receptive skill:\n          - 文や式の構成要素を理解できる\n          - 関数やクラスの構造を読み解ける\n        Productive skill:\n          - 再利用可能な関数を設計できる\n\nrecord2:\n    観点: Meaning\n    children:\n      - チェック項目: concept-behavior\n        Receptive skill:\n          - ループ・条件分岐・関数などの概念と挙動を理解できる\n          - コードの意味を説明できる\n        Productive skill:\n          - 概念をコードに正しく落とし込める\n          - 推定量→疑似コード→アルゴリズム実装の流れを実行できる\n      - チェック項目: association\n        Receptive skill:\n          - コードから関連知識を連想できる\n          - API名やメソッド名から用途を推測できる\n        Productive skill:\n          - 適切な関数やメソッドを選択できる\n          - 挙動と整合的な命名をすることができる\n\nrecord3:\n    観点: Usage\n    children:\n      - チェック項目: grammatical role\n        Receptive skill:\n          - 各構文要素がどんな役割を果たすか理解できる\n          - コード全体の構造を把握できる\n        Productive skill:\n          - 処理の意図に応じて構文を選択できる\n          - 構成要素を組み合わせてクラスを構築できる\n\n      - チェック項目: collocation\n        Receptive skill:\n          - よく使われる構文パターンを理解できる\n          - 組み合わせの自然さを判断できる\n        Productive skill:\n          - 自然なコードペアを使える（例：&lt;code&gt;if...else&lt;/code&gt;, &lt;code&gt;try...except&lt;/code&gt;, &lt;code&gt;for...in&lt;/code&gt;）\n\n      - チェック項目: context constraints\n        Receptive skill:\n          - 文脈に応じた構文や関数の使用制約を理解している\n          - 同期/非同期やスコープや名前空間などの制約を把握できる\n        Productive skill:\n          - 文脈に応じて適切な構文や関数を選択できる\n          - 設計上の制約を踏まえて安全なコードを書ける"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
+    "title": "DSとしての語彙力",
+    "section": "Receptive → Productive → Scalableの順番で知識を確立する",
+    "text": "Receptive → Productive → Scalableの順番で知識を確立する\n\n\n\n\nLearn-by-Thinking\n\n\nReceptive Knowldgeの確立\n\n\n\n論文やOSSライブラリーを見て理解する\n理論や概念の背景を整理する\n単語・構文・仕組みを頭の中でマッピングする\n問題や課題の意味を解釈できるようになる\n\n\n\n\n\n\nLearn-by-Doing\n\n\nProductive Knowldgeの確立\n\n\n\n実際に手を動かしてコードを書く・課題を解く\nフィードバックを受けながら理解を修正する\n推定量→疑似コード→実装の流れを実現する\n課題解決や実務で活用可能なスキルへ昇華する\n\n\n\n\n\n\nExpand-your-knowledge\n\n\nScalable Knowldgeの確立\n\n\n\n習得した知見を整理し，関連知識と結びつける\n他の課題や領域への応用方法を考える\n自分の知識を言語化して共有する\n他人を巻き込み，知識をスケールさせる"
+  },
+  {
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
+    "title": "DSとしての語彙力",
+    "section": "References",
+    "text": "References\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nWriting for Academic Purposes 英作文を卒業して英語論文を書く\n\n\n著者\n田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編\n\n\n発売日\n2010/4/1\n\n\nISBN\n978-4-89476-490-3\n\n\n体裁\n単行本，213ページ\n\n\n\nこの本の内容\n\n大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック\n「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説"
   },
   {
     "objectID": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
@@ -166,209 +313,6 @@
     "title": "分析提案スライドの作成",
     "section": "Test",
     "text": "Test"
-  },
-  {
-    "objectID": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
-    "href": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
-    "title": "hop-step-jumpスライド",
-    "section": "実務業務におけるデータサイエンティスト分類",
-    "text": "実務業務におけるデータサイエンティスト分類\n\n\n\n\nジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
-    "href": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
-    "title": "hop-step-jumpスライド",
-    "section": ".hop-step-jump-containerの構造解説",
-    "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstractスライド４つの構成要素",
-    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide",
-    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide Pattern 2",
-    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "動作環境セットアップ",
-    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
-    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Roo Code用Slide generator modeの作成",
-    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Azure summaryスライドの作成",
-    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "hop-step-jumpスライドの作成",
-    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/pentagon-squared-box.html",
-    "href": "template/pentagon-squared-box.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
-  },
-  {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/analysis-summary.html",
-    "href": "template/analysis-summary.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
-  },
-  {
-    "objectID": "template/analysis-summary.html#分析introductionスライド例",
-    "href": "template/analysis-summary.html#分析introductionスライド例",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
-  },
-  {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/azureblue-summary.html#section-1",
-    "href": "template/azureblue-summary.html#section-1",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
-    "section": "",
-    "text": "公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
-    "title": "MathJaxのレンダリング確認",
-    "section": "保存則と運動方程式",
-    "text": "保存則と運動方程式\n\n物理学における法則は，保存則か運動方程式 で表現される．表現方法は微分方程式が用いられる場合が多い．\n\n\n\n\n\n Law of conservation(保存則1)\n\n\n\n\nエネルギー保存則\n運動量保存則\n質量保存則\n\n\nExample 1 \nある筒の中で流体が一定方向で流れるとき，筒の中の密度 \\(\\rho\\) の時間的変化は 体積 \\(V\\)， 入流量 \\(Gin\\), 出流量 \\(Gout\\) を用いて，質量保存則の観点から以下のように表される\n\\[\nV\\frac{\\partial \\rho}{\\partial t} = Gin_t - Gout_t\n\\]\n\n\n\n\n\n\n\nLaw of motion(運動方程式)\n\n\n\n\nニュートンの法則\nフーリエの法則\nフィックの第一法則\n\n\nExample 2 \n熱エネルギーが温度の高い方から低い方へ輸送されることか，\\(x\\): 位置, \\(t\\): 時間, \\(\\lambda\\): 熱伝導率，\\(T(x, t)\\): 温度とすると，熱流密度 \\(q(x, t)\\) は\n\\[\nq(x, t) = -\\lambda \\frac{\\partial T(x, t)}{\\partial x} \\label{eq-fourier-law}\n\\]\n\n\n\n\nNoether’s theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる"
-  },
-  {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
-    "title": "MathJaxのレンダリング確認",
-    "section": "微分方程式と局所性",
-    "text": "微分方程式と局所性\n\n\nDefinition 1 局所性\n\nある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは\n\nまず周囲（隣の点）に影響を与え\n時間の１ステップごとに伝わっていく\n\nこのように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．\n\n\n\n数式による定式化\n\\[\n\\frac{\\partial y(t, x)}{\\partial t} = f(y(t,x), t, x)\n\\]\n\n時刻 \\(t\\) における変化率は，その時点の値 \\(y(t)\\) と時間 \\(t\\) 場所 \\(x\\) のみに依存する\n時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）\n過去全体に依存する場合は、時間的に非局所的"
-  },
-  {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
-    "title": "MathJaxのレンダリング確認",
-    "section": "微分方程式と因果性",
-    "text": "微分方程式と因果性\n\n\nDefinition 2 : 因果性 \nある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．\n\n\n ▶  常微分方程式による定式化\n\\[\n\\frac{dy(t)}{dt} = f(y(t), u(t))\n\\]\n\n時刻 \\(t\\) における出力は，現像の入力 \\(u(t)\\) と状態 \\(y(t)\\) のみから決まる\n\\(t=5\\) のような未来の解 \\(y(t)\\)は、初期値 \\(y_0\\) とそれまでの \\(u(t)\\) によってのみ決まる\n\n因果に基づいた未来の予測"
-  },
-  {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
-    "title": "MathJaxのレンダリング確認",
-    "section": "物理モデリングを使って何を求めるのか？: 順問題と逆問題",
-    "text": "物理モデリングを使って何を求めるのか？: 順問題と逆問題\n物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある\n\n\n\n\n\n\n順問題\n\n\n\n\n微分方程式が知られている場合に，その解を求める\n入力や条件が分かっていて、現象を予測\n\n\nExample 3 \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), パラメータ \\(\\theta\\) が与えられる\nGoal: \\(y(t)\\) を求める\n\n\\[\ny(t) = M(u(t), \\theta)\n\\]\n\n\n\n\n\n\n\n逆問題\n\n\n\n\n解の挙動が知られているとき，解が従う法則を探求する\n結果が観測されていて、その原因を特定\n\n\nExample 4  \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), 出力 \\(y(t)\\) が与えられる\nGoal: パラメータ \\(\\theta\\) を求める\n\n\\(P_\\theta\\) を 入力，モデルを条件付けたとき，\\(\\theta\\) によって特徴づけられる \\(y(t)\\) のデータ生成分布としたとき，観測データと整合的な \\(\\theta\\) を識別する"
-  },
-  {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
-    "title": "MathJaxのレンダリング確認",
-    "section": "PINN: physics-informed neural network",
-    "text": "PINN: physics-informed neural network\n\n\nDefinition 3 : PINN \n運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法\n\n\n ▶  Approach\n\\[\nL = L_{D}(\\hat y, y) + L_{\\operatorname{physics}}(\\hat y)\n\\]\n\n\\(y\\): 目的変数\n\\(\\hat y\\): 目的変数の予測値\n\\(L_{D}(\\hat y, y)\\): 予測値とtrueの距離(自乗距離など)\n\\(L_{\\operatorname{pysics}}(\\hat y)\\): \\(\\hat y\\) が満たすべき物理ロジックとの適合度\n\n ▶  例: 熱伝導方程式\n\\[\n\\min \\frac{1}{n}\\sum_{i=1}^n(T(x, t) - T)^2 + P \\left\\|\\frac{\\partial T(x, t)}{\\partial t} - \\frac{\\lambda}{c\\rho}\\frac{\\partial^2 T(x, t)}{\\partial x^2}\\right\\|^2\n\\]"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
-    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
@@ -497,123 +441,74 @@
     "text": "Windows + PowershellでのGit環境構築\n環境構築\n\n\n\n\n\n\n\n1 公式サイトからインストーラーをダウンロード\n\n\n\n\n2 インストールウィザードに従ってセットアップを進める\n\n\n\n\n\n\n\n\nGit Bash onlyを選択\n\n\n「Git Bash only」を選択しておくと環境がシンプルになります\n\n\n\n\n\n\n\n\n3 インストール完了後，PowerShell を開きPATHの確認\n\n\n\n\ngit --version\n\n\nバージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功\n\n\n\n\n\n4 PowerShellでのGitレポジトリ作成テスト\n\n\n\n\nPS&gt; cd ./Desktop\nPS&gt; mkdir ./test\nPS&gt; git init\nPS&gt; cd ..\nPS&gt; Remove-Item ./test -Recurse -Force\n\n\n上記がエラーなく実行できれば、Git の動作確認は完了\n\n\n\n\n\n\nPATHが通らない場合の対処法\n\n\n\n\n\nStep 1: 実行ファイルの場所を探す\n\n\n\ngit.exeの存在場所を確認する\n通常は D:\\Program Files\\Git\\bin\\git.exe\n\n\nTest-Path \"D:\\Program Files\\Git\\bin\\git.exe\"\n\n\n\n\n\n\nStep 2: 実行可能性のテスト\n\n\n\n& \"D:\\Program Files\\Git\\bin\\git.exe\" --version\n\n\nバージョン情報が出力されれば，次のステップ\n出力されない場合はGitの再インストール\n\n\n\n\n\n\nStep 3: PATHの追加\n\n\n\nTest-Path $PROFILE で表示されたprofileファイルに以下のラインを追加\n\n\nD:\\Program Files\\Git\\bin\\git.exe\n\n\n存在しない場合は，以下のコマンドで新規作成\n\n\nNew-Item -ItemType File -Path $PROFILE -Force"
   },
   {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
-    "title": "pentagon-squared-boxスライド",
-    "section": "pentagon-squared-boxスライド例 with .pentagon-box-500",
-    "text": "pentagon-squared-boxスライド例 with .pentagon-box-500\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
+    "section": "",
+    "text": "Linuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-550 テンプレート",
-    "text": ".pentagon-box-550 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
   },
   {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-600 テンプレート",
-    "text": ".pentagon-box-600 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
   },
   {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-700 テンプレート",
-    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
+    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
-    "title": "DSとしての語彙力",
-    "section": "「単語(word)」を知っているとは？",
-    "text": "「単語(word)」を知っているとは？\n知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される\n\n\n\n\n\n\n Form\n\n\n\n\n発音\n\n\n\n単語を「耳で聞いて理解し」「口で正しく発音できる」\n\n\n\n綴り(spelling)\n\n\n\n単語の視覚的な形（written form）を正しく知っている\n\n\n\n単語の構成要素\n\n\n\n単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している\n「単語の内部構造」を理解し，派生や意味の変化を読み取れる\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n語形と意味のつながり\n\n\n\n単語の「形」と「意味」が頭の中で結びついている\n\n\n\n概念と指示物\n\n\n\n単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている\n単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ\n\n\n\n連想 (association)\n\n\n\n単語がもつ感情・文化・意味ネットワークを理解している\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能\n\n\n\n単語が文の中でどのような文法的役割を果たすか理解している\n文中での位置（主語・動詞・目的語など）を理解している\n\n\n\nコロケーション\n\n\n\n自然な語の組み合わせ・共起関係を理解している\n\n\n\n使用制約\n\n\n\n単語を使う場面・文体・相手に応じて適切に使い分けられる"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index",
+    "href": "posts/2025-10-17-index-slide/index.html#index",
+    "title": "Indexスライドテンプレート",
+    "section": "Index",
+    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
-    "title": "DSとしての語彙力",
-    "section": "(参考) 「プログラミング言語」を知っているとは？",
-    "text": "(参考) 「プログラミング言語」を知っているとは？\nプログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる\n\n\n\n\n\n\n Form\n\n\n\n\n構文 (syntax)\n\n\n\nコードの正しい「形（文法）」を理解している\n例：for (let i=0; i&lt;10; i++) の括弧・セミコロンの役割を理解している\n\n\n\n記法 (spelling)\n\n\n\n言語特有のキーワードや識別子を正確に書ける\n\n\n\n構成要素 (structure)\n\n\n\n文や式がどのような要素で構成されるかを理解している\n例：関数＝宣言 + 引数 + 本体\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n概念と処理の対応\n\n\n\n言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している\n「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し\n\n\n\n連想 (association)\n\n\n\nコードから関連知識を連想できる\n例：append() → 「リスト操作」, 「破壊的変更」, 「配列末尾」\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能 (grammatical role)\n\n\n\nコード要素が文の中でどんな役割を果たすかを理解している\n例：変数は値の入れ物，関数は処理単位\n\n\n\nコロケーション (共起関係)\n\n\n\n自然なコードの組み合わせを理解している\n例：if ... else，try ... except，for ... in などのペアを正しく使える\n\n\n\n使用制約 (context constraints)\n\n\n\n構文・関数を適切な場面で使い分けられる\n例:\n\n同期処理と非同期処理の文脈の違い\nglobal変数の慎重な利用"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index-1",
+    "href": "posts/2025-10-17-index-slide/index.html#index-1",
+    "title": "Indexスライドテンプレート",
+    "section": "Index",
+    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
-    "title": "DSとしての語彙力",
-    "section": "単語を使いこなす能力: receptive vs productive",
-    "text": "単語を使いこなす能力: receptive vs productive\n\n\n\n① Receptive knowledge\n\n\n使用場面: reading, listening skills\n提示された情報を理解できる力\n\n他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力\n他人のコード・APIドキュメントを読んで動作を理解できる\n\nForm → Meaning の対応を把握し，Usage は参照的に理解する段階\n\n\n\n\n\n② Productive knowledge\n\n\n使用場面: speaking, writing skills\n自分の考えや意図を表現できる力(= 状況に応じた創造的応用)\n\n単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力\n自分で関数やロジックを書き，再利用できる能力\n\nForm・Meaning・Usage をすべて統合して能動的に使える"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index-2",
+    "href": "posts/2025-10-17-index-slide/index.html#index-2",
+    "title": "Indexスライドテンプレート",
+    "section": "Index 2",
+    "text": "Index 2\n\n\n\n\n\n\n\n対象レベル\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n前提知識\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n必要環境\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
-    "title": "DSとしての語彙力",
-    "section": "✅ プログラミング言語理解チェックリスト",
-    "text": "✅ プログラミング言語理解チェックリスト\n\n\n\nrecord1:\n    観点: Form\n    children:\n      - チェック項目: syntax\n        Receptive skill:\n          - コードの構文構造を見て意味を理解できる\n          - 括弧やインデントの意味を理解できる\n        Productive skill:\n          - 正しい構文でコードを書ける\n          - 構文エラーを自力で修正できる\n      - チェック項目: spelling\n        Receptive skill:\n          - 言語特有のキーワードや識別子を見て意味を理解できる\n          - 大文字・小文字・予約語の違いを認識できる\n        Productive skill:\n          - キーワードや識別子を正確に書ける\n          - 命名規則に従って識別子を作れる\n\n      - チェック項目: structure\n        Receptive skill:\n          - 文や式の構成要素を理解できる\n          - 関数やクラスの構造を読み解ける\n        Productive skill:\n          - 再利用可能な関数を設計できる\n\nrecord2:\n    観点: Meaning\n    children:\n      - チェック項目: concept-behavior\n        Receptive skill:\n          - ループ・条件分岐・関数などの概念と挙動を理解できる\n          - コードの意味を説明できる\n        Productive skill:\n          - 概念をコードに正しく落とし込める\n          - 推定量→疑似コード→アルゴリズム実装の流れを実行できる\n      - チェック項目: association\n        Receptive skill:\n          - コードから関連知識を連想できる\n          - API名やメソッド名から用途を推測できる\n        Productive skill:\n          - 適切な関数やメソッドを選択できる\n          - 挙動と整合的な命名をすることができる\n\nrecord3:\n    観点: Usage\n    children:\n      - チェック項目: grammatical role\n        Receptive skill:\n          - 各構文要素がどんな役割を果たすか理解できる\n          - コード全体の構造を把握できる\n        Productive skill:\n          - 処理の意図に応じて構文を選択できる\n          - 構成要素を組み合わせてクラスを構築できる\n\n      - チェック項目: collocation\n        Receptive skill:\n          - よく使われる構文パターンを理解できる\n          - 組み合わせの自然さを判断できる\n        Productive skill:\n          - 自然なコードペアを使える（例：&lt;code&gt;if...else&lt;/code&gt;, &lt;code&gt;try...except&lt;/code&gt;, &lt;code&gt;for...in&lt;/code&gt;）\n\n      - チェック項目: context constraints\n        Receptive skill:\n          - 文脈に応じた構文や関数の使用制約を理解している\n          - 同期/非同期やスコープや名前空間などの制約を把握できる\n        Productive skill:\n          - 文脈に応じて適切な構文や関数を選択できる\n          - 設計上の制約を踏まえて安全なコードを書ける"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstractスライド４つの構成要素",
+    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
-    "title": "DSとしての語彙力",
-    "section": "Receptive → Productive → Scalableの順番で知識を確立する",
-    "text": "Receptive → Productive → Scalableの順番で知識を確立する\n\n\n\n\nLearn-by-Thinking\n\n\nReceptive Knowldgeの確立\n\n\n\n論文やOSSライブラリーを見て理解する\n理論や概念の背景を整理する\n単語・構文・仕組みを頭の中でマッピングする\n問題や課題の意味を解釈できるようになる\n\n\n\n\n\n\nLearn-by-Doing\n\n\nProductive Knowldgeの確立\n\n\n\n実際に手を動かしてコードを書く・課題を解く\nフィードバックを受けながら理解を修正する\n推定量→疑似コード→実装の流れを実現する\n課題解決や実務で活用可能なスキルへ昇華する\n\n\n\n\n\n\nExpand-your-knowledge\n\n\nScalable Knowldgeの確立\n\n\n\n習得した知見を整理し，関連知識と結びつける\n他の課題や領域への応用方法を考える\n自分の知識を言語化して共有する\n他人を巻き込み，知識をスケールさせる"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide",
+    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
   },
   {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
-    "title": "DSとしての語彙力",
-    "section": "References",
-    "text": "References\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nWriting for Academic Purposes 英作文を卒業して英語論文を書く\n\n\n著者\n田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編\n\n\n発売日\n2010/4/1\n\n\nISBN\n978-4-89476-490-3\n\n\n体裁\n単行本，213ページ\n\n\n\nこの本の内容\n\n大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック\n「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "サマリー",
-    "text": "サマリー\n\n\n\n\nGannt chartは計画の可視化ツール\n\n\n各タスクの担当・進捗状況・依存関係という全体像を見ながらのリソース再配分議論が可能になる\nスケジュールの遅延やリスクの早期発見が可能になる\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\nタスクが細かすぎると全体像が見えづらくなる\nタスクが大きすぎると具体的な作業内容が不明確になり、着手しにくくなる\n\n\n\n\n\nすべてのプロジェクトに使えるわけではない\n\n\n大規模プロジェクトでは複雑になりすぎる可能性がある\n更新作業に工数がかかる場合があり、頻繁な変更が生じるプロジェクトには不向き"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartはプロジェクト健全性の可視化と管理のためのツール",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール",
-    "text": "Gannt chartはプロジェクト健全性の可視化と管理のためのツール\n\n\nGannt chartとは？\n\n\n縦軸にタスク、横軸を時間軸として、プロジェクトのタスクとその進捗状況を視覚的に表した図表のこと\nプロジェクトスケジュール、マイルストン、タスク依存関係を一度に見渡せる\n\n\n\n\nAnychart-based Gannt chartのイメージ例1\n\n\n\n\nAnyChart Project Gantt Chartを用いて作成"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chartの構成要素",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "Gannt chartの構成要素",
-    "text": "Gannt chartの構成要素\n\n\n\n\n\n\n\n\nタスク名\n\n\nプロジェクトを構成する作業単位\n各作業の内容や担当者を表示\n\n\n\n\n\n\n\n\n時間軸\n\n\n日付や期間を示す横軸\n管理粒度に合わせて日、週、月などの単位で表示\n\n\n\n\n\n\n\n\nタスクバー\n\n\n各タスクの開始日から終了日までの期間を視覚的に表す横棒\n\n\n\n\n\n\n\n\nマイルストーン\n\n\nプロジェクトの重要な節目や成果物の完成時期を示す指標\n◆ マークがよく用いられる\n\n\n\n\n\n\n\n\n依存関係\n\n\nタスク間のつながりを矢印で表現\n先行タスクと後続タスクの関係を明示し、クリティカルパスの特定に有効\n\n\n\n\n\n\n\n\n着手状況\n\n\n各タスクの着手状況・進捗度合いを表現\n遅延の早期発見に有効"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#gannt-chart運用のキーポイント",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "Gannt chart運用のキーポイント",
-    "text": "Gannt chart運用のキーポイント\n\n\n\n\n\n\n\n\n適切なタスク粒度の設定\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n\n\n明確なタスク定義\n\n\n各タスクの目的・成果物・期間・担当者を明確にし、責任の所在を明確化する(SMART原則1)\nタスクごとに10〜20%程度の余裕を持たせる\n\n\n\n\n\n\n\n\n依存関係の設定\n\n\n並行して進めるべき/でないタスクをチーム全体で共有する\n依存関係を踏まえた上で、着手すべき作業を判断する\n\n\n\n\n\n\n\n\nマイルストンの設定\n\n\n「このマイルストンまでにここまで進める」をチームで共有する\nマイルストンと照らし合わせ、各タスクの進捗・リスクを判断する\n\n\n\n\n\n\n\n\n定期的な進捗更新\n\n\nチームでプロジェクト進捗度合いの認識のズレをなくす\n完了・進行中・遅延が一目でわかるように色分けや記号を活用する\n\n\n\n\n\n\n\n\n継続的な改善\n\n\n早期にクリティカルパスを特定し、手遅れになる前に対策する\nプロジェクト完了後も実績を振り返り、次回に向けた改善点を見つける\n\n\n\n\nSpecific (具体的): 何を達成するのか明確に。 Measurable (測定可能): 達成したか否かを判断できる基準があるか。 Achievable (達成可能): 現実的に達成できる目標か。 Relevant (関連性): プロジェクトの目標に直接貢献するか。 Time-bound (期限がある): いつまでに達成するのか明確な期日があるか。"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#タスクをどのように洗い出すのか-wbsからガントチャートへ",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "タスクをどのように洗い出すのか？: WBSからガントチャートへ",
-    "text": "タスクをどのように洗い出すのか？: WBSからガントチャートへ\n\n\n\n\n\n\n\n\nWBS = 設計図\n\n\nプロジェクト全体像を構造化\n\n\n\n\n\n\n\n\n\n\n\n\nGannt chart = 工程表\n\n\n各タスクをプロジェクト時間軸で管理\n\n\n\n\n\n\n\n\n\n\n\n\nProject Management\n\n\nプロジェクト全体の進捗に応じた意思決定\n\n\n\n\n\n\n「何をやるか」の明確化\n\n\nプロジェクトの最終成果物を定義し、そこから必要な作業を階層的に細分化する\n各タスクごとに、目的、成果物、期間、必要リソース、依存関係を定義し、見積もりを行う\n\n\n\n「いつやるか」の可視化\n\n\nWBSで定義された各タスク情報を時間軸に落とし込む\nタスクごとに開始日、終了日、期間を明確にする\n計画と実績のズレを逐次確認\n\n\n\n実行、監視、コントロール\n\n\n担当者の明確化\n稼働状況・負荷の偏りの把握\n実情に則したリソース管理\n問題の早期発見"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#wbsとは何か作業の分解リスト",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "WBSとは何か？：作業の「分解」リスト",
-    "text": "WBSとは何か？：作業の「分解」リスト\n\n\nWBSの定義\n\nWBSは、プロジェクトの成果物（アウトプット）をベースに、それを達成するために必要な作業を階層的に分解していく手法\n\n\n\n\n\n主な目的\n\n\n① 作業の洗い出しと明確化\n\n\nプロジェクトに必要なすべての作業を漏れなく特定する\n\n\n\n\n\n② 責任範囲の明確化\n\n\nRACIを用いて、各作業が誰の責任であるかを明確にする\nResponsible（実行責任者）・Accountable（ケツ持ち）・Consulted（相談対象者）・Informed（報告対象者）\n\n\n\n\n\n③ 見積もりの精度向上\n\n\n細分化された作業ごとに期間やコストを見積もることで、全体の精度が高める\n\n\n\n\n\n④ スコープの明確化とスコープクリープの防止\n\n\nプロジェクトの範囲（どこまでをやるのか）を明確にし、スコープクリープ（範囲の予期せぬ拡大）を防ぐ\n\n\n\n\nWebサイト制作プロジェクトにおける構造例\n\n\nrecord1:\n  主要成果物: 要件定義\n  主要タスク: \n    - クライアントヒアリング\n  分解タスク: \n    - ビジネス目標とターゲットユーザーの特定\n    - サイトの目的と機能要件の洗い出し\n\nrecord2:\n  主要成果物: 要件定義\n  主要タスク: \n    - サイトマップ作成\n  分解タスク: \n    - サイト階層構造の設計\n    - 各ページコンテンツの概要定義\n\nrecord3:\n  主要成果物: 要件定義\n  主要タスク: \n    - 要件定義書作成\n  分解タスク: \n    - 定義済み要件のドキュメント化\n    - クライアント承認\n\nrecord4:\n  主要成果物: デザイン\n  主要タスク: \n    - ワイヤーフレーム作成\n  分解タスク: \n    - 各ページのレイアウト設計\n\nrecord5:\n  主要成果物: デザイン\n  主要タスク: \n    - UIデザイン\n  分解タスク: \n    - デザインコンセプトの作成\n    - デザインガイドライン作成\n\nrecord6:\n  主要成果物: 実装\n  主要タスク: \n    - フロントエンド実装\n  分解タスク: \n    - HTML/CSSコーディング\n    - レスポンシブデザイン対応\n\nrecord7:\n  主要成果物: 実装\n  主要タスク: \n    - バックエンド実装\n  分解タスク: \n    - データベース設計と構築\n    - API開発\n    - サーバー環境構築\n\nrecord8:\n  主要成果物: テスト\n  主要タスク: \n    - 機能テスト\n  分解タスク: \n    - 全機能の動作確認\n\nrecord9:\n  主要成果物: テスト\n  主要タスク: \n    - パフォーマンステスト\n  分解タスク: \n    - サイト表示速度の測定と最適化\n\n\nrecord10:\n  主要成果物: テスト\n  主要タスク: \n    - クライアントUAT\n  分解タスク: \n    - クライアントによる最終承認テスト"
-  },
-  {
-    "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
-    "href": "posts/2025-05-27-slide-with-gannt-chart/index.html#効率的なプロジェクト管理のためのマイルストン設定観点",
-    "title": "Gannt chartを用いたプロジェクトマネジメント",
-    "section": "効率的なプロジェクト管理のためのマイルストン設定観点",
-    "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide Pattern 2",
+    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
   },
   {
     "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
@@ -705,5 +600,152 @@
     "title": "構造化されたストーリーとしてのスライド",
     "section": "場面に応じてスライド作成クオリティは異なる",
     "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
+  },
+  {
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "title": "hop-step-jumpスライド",
+    "section": "実務業務におけるデータサイエンティスト分類",
+    "text": "実務業務におけるデータサイエンティスト分類\n\n\n\n\nジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "title": "hop-step-jumpスライド",
+    "section": ".hop-step-jump-containerの構造解説",
+    "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "動作環境セットアップ",
+    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
+    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Roo Code用Slide generator modeの作成",
+    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Azure summaryスライドの作成",
+    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "hop-step-jumpスライドの作成",
+    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
+    "title": "pentagon-squared-boxスライド",
+    "section": "pentagon-squared-boxスライド例 with .pentagon-box-500",
+    "text": "pentagon-squared-boxスライド例 with .pentagon-box-500\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-550 テンプレート",
+    "text": ".pentagon-box-550 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-600 テンプレート",
+    "text": ".pentagon-box-600 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-700 テンプレート",
+    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "日本語入力システムの種類",
+    "text": "日本語入力システムの種類\n\n\n\nrecord1:\n  入力方式: FEP&lt;br&gt;(Front End Processor)\n  概要:\n    - キーボード割込みを直接処理する端末常駐型\n    - アプリ非依存・画面バッファ直接書換\n    - 単一プロセス制御\n  どこで処理？:\n    - OS / TTY レベル\n  tool例:\n    - canna + canuum\n    - wnn + uum\n\nrecord2:\n  入力方式: XIM&lt;br&gt;(X Input Method)\n  概要:\n    - X11標準IMプロトコル\n    - クライアント⇄IMサーバ通信型\n  どこで処理？:\n    - X11レイヤ\n  tool例:\n    - kinput2\n    - wnn + Xwnmo\n\nrecord3:\n  入力方式: X11 Framework型&lt;br&gt;(IBus / Fcitx5)\n  概要:\n    - XIMプロトコルに代わりD-Busで IM 通信\n    - GTK/Qt IM Moduleで透過的にアプリ統合\n  どこで処理？:\n    - D-Bus + X11レイヤ\n  tool例:\n    - fcitx5 + mozc\n    - ibus + mozc\n\nrecord4:\n  入力方式: Wayland IM\n  概要:\n    - compositor主導のIMプロトコル\n    - 厳格な入力フォーカス管理\n    - セキュア分離モデル\n  どこで処理？:\n    - Wayland compositor\n  tool例:\n    - fcitx5 + mozc\n\nrecord5:\n  入力方式: 組み込み型\n  概要:\n    - アプリ内部に入力処理を実装\n    - 外部IMサーバ不要\n    - アプリごとに独立実装\n  どこで処理？:\n    - アプリケーション内部\n  tool例:\n    - Emacs"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "FEP（Front-End Processor）",
+    "text": "FEP（Front-End Processor）\n\n\nFront-End Processor\n\n\nOS やターミナルのレベルでキー入力を横取りし，変換結果を画面に直接書き込む方式\nアプリケーション側は日本語入力の存在を意識しない\nGUI 環境の普及とともに役割を終えた\n\n\n\n\n    \n    \n        user\n    \n\n    \n        FEP\n    \n\n    \n        日本語変換サーバー\n    \n\n    \n        Application\n    \n\n    1\n    2\n    3\n    4\n\n    \n        \n            \n                \n            \n        \n\n        \n        \n        \n        \n        \n        \n        \n    \n\n\nFEPは単なる仲介者ではなく，サーバーへのリクエスト(②)とレスポンス(③)を制御する中心核として機能\nアプリケーションへの最終配送(④)までを一気通貫で管理する独立したプロトコル・スタックを形成している"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "XIM（X Input Method）",
+    "text": "XIM（X Input Method）\n\n\nX Input Method\n\n\nX Window System の標準プロトコルとして定義された入力方式\nアプリケーションが Xlib を通じて IM サーバーと通信し，入力をフィルタリングする\n同期通信によるパフォーマンス低下や，UI 描画の柔軟性の欠如が課題\n\n\n\n\n\n    \n    user\n    \n    X Server\n    \n    \n        Application\n        (Xlib)\n    \n\n    XIM Server\n\n    日本語変換サーバー\n\n    1\n    2\n    3\n    4\n    5\n    6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "X11 Framework型（Fcitx5 / IBus）",
+    "text": "X11 Framework型（Fcitx5 / IBus）\n\n\nX11 Framework Model\n\n\nD-Bus による疎結合化: XIMプロトコルに代わり，D-Bus で IM 通信を行うことで疎結合を実現\nIM Module の活用: アプリ側のツールキット（GTK/Qt）専用モジュールが D-Bus 通信を隠蔽する\n柔軟な描画: 候補ウィンドウを IM 側が独立した X11 ウィンドウとして表示するため，自由な UI 設計が可能\n\n\n\n\n\n        \n        \n            \n                \n                    \n                \n            \n\n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n        \n\n        \n            user\n        \n\n        \n            D-Bus(Message Bus)\n        \n\n        \n            Application\n            (GTK / Qt IM Module)\n        \n\n        \n            IM Framework(Fcitx5 / IBus)\n        \n\n        \n            日本語変換エンジン(Mozc)\n        \n\n        1\n        2\n        3\n        4\n        5\n        6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "Wayland Input Method",
+    "text": "Wayland Input Method\n\n\nWayland Input Method\n\n\ntext-input-v3 / input-method-v2 プロトコルで標準化された入力方式\nWayland compositor が入力を一元管理し，IM は compositor 経由でアプリと連携\nフォーカス管理とプロセス分離を前提としたセキュア設計\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        WaylandCompositor\n    \n\n    \n        Application\n    \n\n    \n        IM Service(Fcitx5 / IBus)\n    \n\n    \n        日本語変換エンジン(Mozc)\n    \n\n    1\n    2\n    3\n    4\n    5\n    6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "組み込み型（Emacs 内蔵 IM）",
+    "text": "組み込み型（Emacs 内蔵 IM）\n\n\nEmbedded Input Method Model\n\n\n自己完結型設計: アプリケーション（Emacs等）内部に Lisp などで実装された IM ライブラリを直接持つ\n外部依存ゼロ: コンポジタや IM フレームワークを介さず、OS からの未加工イベントを直接処理\nシームレスな統合: エディタのバッファ管理と IM 状態が直結しており、高度なカスタマイズが可能\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        \n            Application (e.g., Emacs)\n        \n    \n\n    \n        Internal IM(Leim / SKK)\n    \n\n    \n        Text Buffer /Core Logic\n    \n\n    \n        Dictionary File(.pwn / .jisyo)\n    \n\n    1\n    2\n    3\n    4"
+  },
+  {
+    "objectID": "template/pentagon-squared-box.html",
+    "href": "template/pentagon-squared-box.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/azureblue-summary.html#section-1",
+    "href": "template/azureblue-summary.html#section-1",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
   }
 ]
