@@ -1,0 +1,424 @@
+---
+title: "Linuxにおける日本語入力方式"
+subtitle: "Linux101"
+author: "Ryo Nakagami"
+date: "2026-02-16"
+categories: [Linux]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+auto-agenda:
+  bullets: bullets
+---
+
+# 日本語入力方式の比較
+
+## 日本語入力システムの種類
+
+{{< reveal_vspace 1em >}}
+
+::::{.custom-table style="width:100%; height:85%; font-size: 0.9em !important;" }
+:::{.yaml2table .yaml2table-custom-top  #yaml-ime-table data-col-widths="[25,36,20,19]"}
+
+```yaml
+record1:
+  入力方式: FEP<br>(Front End Processor)
+  概要:
+    - キーボード割込みを直接処理する端末常駐型
+    - アプリ非依存・画面バッファ直接書換
+    - 単一プロセス制御
+  どこで処理？:
+    - OS / TTY レベル
+  tool例:
+    - canna + canuum
+    - wnn + uum
+
+record2:
+  入力方式: XIM<br>(X Input Method)
+  概要:
+    - X11標準IMプロトコル
+    - クライアント⇄IMサーバ通信型
+  どこで処理？:
+    - X11レイヤ
+  tool例:
+    - kinput2
+    - wnn + Xwnmo
+
+record3:
+  入力方式: X11 Framework型<br>(IBus / Fcitx5)
+  概要:
+    - XIMプロトコルに代わりD-Busで IM 通信
+    - GTK/Qt IM Moduleで透過的にアプリ統合
+  どこで処理？:
+    - D-Bus + X11レイヤ
+  tool例:
+    - fcitx5 + mozc
+    - ibus + mozc
+
+record4:
+  入力方式: Wayland IM
+  概要:
+    - compositor主導のIMプロトコル
+    - 厳格な入力フォーカス管理
+    - セキュア分離モデル
+  どこで処理？:
+    - Wayland compositor
+  tool例:
+    - fcitx5 + mozc
+
+record5:
+  入力方式: 組み込み型
+  概要:
+    - アプリ内部に入力処理を実装
+    - 外部IMサーバ不要
+    - アプリごとに独立実装
+  どこで処理？:
+    - アプリケーション内部
+  tool例:
+    - Emacs
+```
+
+:::
+::::
+# 各方式の解説
+
+## FEP（Front-End Processor）
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[Front-End Processor]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- OS やターミナルのレベルでキー入力を横取りし，変換結果を画面に直接書き込む方式
+- アプリケーション側は日本語入力の存在を意識しない
+- GUI 環境の普及とともに役割を終えた
+
+:::
+::::
+
+
+```{=html}
+<div style="position: relative; width: 1100px; height: 450px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
+    
+    <div style="position: absolute; left: 11px; top: 275px; width: 154px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
+        user
+    </div>
+
+    <div style="position: absolute; left: 418px; top: 275px; width: 154px; height: 110px; border: 3.3px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 1;">
+        FEP
+    </div>
+
+    <div style="position: absolute; left: 396px; top: 22px; width: 220px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.9em; text-align: center;">
+        日本語変換<br>サーバー
+    </div>
+
+    <div style="position: absolute; left: 869px; top: 275px; width: 176px; height: 110px; border: 1.7px solid #00a9e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; color: #002d72; text-align: center;">
+        Application
+    </div>
+
+    <div style="position: absolute; left: 297px; top: 291px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">1</div>
+    <div style="position: absolute; left: 440px; top: 187px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">2</div>
+    <div style="position: absolute; left: 533px; top: 187px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">3</div>
+    <div style="position: absolute; left: 671px; top: 291px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">4</div>
+
+    <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; overflow: visible;">
+        <defs>
+            <marker id="arrowhead_fep" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto">
+                <polygon points="0 0, 11 4, 0 8" fill="#002d72" />
+            </marker>
+        </defs>
+
+        <line x1="165" y1="330" x2="407" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)" />
+        
+        <line x1="473" y1="264" x2="473" y2="143" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)" />
+        
+        <line x1="517" y1="143" x2="517" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)" />
+        
+        <line x1="583" y1="330" x2="858" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)" />
+    </svg>
+</div>
+```
+
+- FEPは単なる仲介者ではなく，サーバーへの**リクエスト(②)**と**レスポンス(③)**を制御する中心核として機能
+- アプリケーションへの**最終配送(④)**までを一気通貫で管理する独立したプロトコル・スタックを形成している
+
+## XIM（X Input Method）
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[X Input Method]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- X Window System の標準プロトコルとして定義された入力方式
+- アプリケーションが Xlib を通じて IM サーバーと通信し，入力をフィルタリングする
+- 同期通信によるパフォーマンス低下や，UI 描画の柔軟性の欠如が課題
+
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+
+```{=html}
+<div style="position: relative; width: 1000px; height: 450px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
+    
+    <div style="position: absolute; left: 22px; top: 77px; width: 143px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">user</div>
+    
+    <div style="position: absolute; left: 368px; top: 77px; width: 143px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 1em;">X Server</div>
+    
+    <div style="position: absolute; left: 341px; top: 275px; width: 198px; height: 132px; border: 3.3px solid #002d72; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 1;">
+        Application
+        <span style="font-size: 0.7em; font-weight: normal; color: #555;">(Xlib)</span>
+    </div>
+
+    <div style="position: absolute; left: 704px; top: 275px; width: 198px; height: 132px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.9em; text-align: center;">XIM Server</div>
+
+    <div style="position: absolute; left: 726px; top: 22px; width: 198px; height: 110px; border: 1.7px solid #00a9e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.9em; color: #002d72; text-align: center;">日本語変換<br>サーバー</div>
+
+    <div style="position: absolute; left: 258px; top: 99px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">1</div>
+    <div style="position: absolute; left: 451px; top: 214px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">2</div>
+    <div style="position: absolute; left: 605px; top: 302px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">3</div>
+    <div style="position: absolute; left: 770px; top: 187px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">4</div>
+    <div style="position: absolute; left: 863px; top: 187px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">5</div>
+    <div style="position: absolute; left: 605px; top: 423px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">6</div>
+
+    <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; overflow: visible;">
+        <defs>
+            <marker id="arrowhead_xim" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#002d72" />
+            </marker>
+        </defs>
+
+        <line x1="165" y1="132" x2="363" y2="132" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)" />
+        
+        <line x1="440" y1="187" x2="440" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)" />
+        
+        <line x1="539" y1="330" x2="693" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)" />
+
+        <line x1="803" y1="264" x2="803" y2="143" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)" />
+        
+        <line x1="847" y1="143" x2="847" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)" />
+        
+        <path d="M 715 374 Q 605 440 495 374" stroke="#002d72" stroke-width="2.2" fill="none" marker-end="url(#arrowhead_xim)" />
+    </svg>
+</div>
+```
+
+## X11 Framework型（Fcitx5 / IBus）
+
+{{< reveal_vspace 1em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[X11 Framework Model]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- D-Bus による疎結合化: XIMプロトコルに代わり，D-Bus で IM 通信を行うことで疎結合を実現
+- IM Module の活用: アプリ側のツールキット（GTK/Qt）専用モジュールが D-Bus 通信を隠蔽する
+- 柔軟な描画: 候補ウィンドウを IM 側が独立した X11 ウィンドウとして表示するため，自由な UI 設計が可能
+
+:::
+::::
+
+{{< reveal_vspace 3em >}}
+
+```{=html}
+<div style="position: relative; width: 1100px; height: 500px; margin: 0 auto; background: #fff;">
+        
+        <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" >
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#002d72" />
+                </marker>
+            </defs>
+
+            <line x1="180" y1="310" x2="400" y2="310" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)" />
+            
+            <line x1="520" y1="260" x2="520" y2="180" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)" />
+            
+            <line x1="640" y1="130" x2="780" y2="130" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)" />
+            
+            <line x1="880" y1="80" x2="880" y2="30" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)" />
+            
+            <line x1="930" y1="30" x2="930" y2="80" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)" />
+            
+            <path d="M 830 180 Q 680 250 560 180" stroke="#002d72" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+        </svg>
+
+        <div style="position: absolute; left: 10px; top: 260px; width: 170px; height: 100px; border: 1.5px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 2;">
+            user
+        </div>
+
+        <div style="position: absolute; left: 400px; top: 80px; width: 240px; height: 100px; border: 3px solid #00a9e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 2; text-align: center; color: #002d72;">
+            D-Bus<br>(Message Bus)
+        </div>
+
+        <div style="position: absolute; left: 400px; top: 260px; width: 260px; height: 120px; border: 1.5px solid #002d72; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 2; text-align: center;">
+            Application
+            <span style="font-size: 0.7em; font-weight: normal; color: #555;">(GTK / Qt IM Module)</span>
+        </div>
+
+        <div style="position: absolute; left: 780px; top: 80px; width: 260px; height: 110px; border: 1.5px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 2; font-size: 0.9em; text-align: center;">
+            IM Framework<br>(Fcitx5 / IBus)
+        </div>
+
+        <div style="position: absolute; left: 790px; top: -70px; width: 240px; height: 100px; border: 1.5px solid #00a9e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 2; font-size: 0.9em; color: #002d72; text-align: center;">
+            日本語変換エンジン<br>(Mozc)
+        </div>
+
+        <div style="position: absolute; left: 280px; top: 280px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">1</div>
+        <div style="position: absolute; left: 535px; top: 210px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">2</div>
+        <div style="position: absolute; left: 700px; top: 100px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">3</div>
+        <div style="position: absolute; left: 860px; top: 40px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">4</div>
+        <div style="position: absolute; left: 950px; top: 40px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">5</div>
+        <div style="position: absolute; left: 680px; top: 210px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">6</div>
+    </div>
+```
+
+
+
+## Wayland Input Method
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[Wayland Input Method]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- `text-input-v3` / `input-method-v2` プロトコルで標準化された入力方式
+- Wayland compositor が入力を一元管理し，IM は compositor 経由でアプリと連携
+- フォーカス管理とプロセス分離を前提としたセキュア設計
+
+:::
+::::
+
+{{< reveal_vspace 4em >}}
+
+
+```{=html}
+<div style="position: relative; width: 1100px; height: 520px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
+    
+    <div style="position: absolute; left: 10px; top: 70px; width: 170px; height: 100px; border: 2px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
+        user
+    </div>
+
+    <div style="position: absolute; left: 400px; top: 70px; width: 220px; height: 100px; border: 3px solid #002d72; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 1; text-align: center;">
+        Wayland<br>Compositor
+    </div>
+
+    <div style="position: absolute; left: 400px; top: 260px; width: 220px; height: 120px; border: 2px solid #002d72; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
+        Application
+    </div>
+
+    <div style="position: absolute; left: 780px; top: 80px; width: 260px; height: 110px; border: 2px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.95em; text-align: center;">
+        IM Service<br>(Fcitx5 / IBus)
+    </div>
+
+    <div style="position: absolute; left: 790px; top: -75px; width: 250px; height: 105px; border: 2px solid #00a9e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.95em; color: #002d72; text-align: center;">
+        日本語変換エンジン<br>(Mozc)
+    </div>
+
+    <div style="position: absolute; left: 275px; top: 85px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">1</div>
+    <div style="position: absolute; left: 690px; top: 75px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">2</div>
+    <div style="position: absolute; left: 830px; top: 40px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">3</div>
+    <div style="position: absolute; left: 975px; top: 40px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">4</div>
+    <div style="position: absolute; left: 700px; top: 250px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">5</div>
+    <div style="position: absolute; left: 525px; top: 205px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 10; font-weight: bold;">6</div>
+
+    <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; overflow: visible;">
+        <defs>
+            <marker id="arrowhead_final" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#002d72" />
+            </marker>
+        </defs>
+
+        <line x1="180" y1="120" x2="395" y2="120" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)" />
+        
+        <line x1="510" y1="175" x2="510" y2="255" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)" />
+        
+        <line x1="625" y1="110" x2="775" y2="110" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)" />
+        
+        <line x1="860" y1="80" x2="860" y2="35" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)" />
+        
+        <line x1="950" y1="35" x2="950" y2="80" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)" />
+        
+        <path d="M 820 195 Q 700 280 550 200" stroke="#002d72" stroke-width="2.5" fill="none" marker-end="url(#arrowhead_final)" />
+    </svg>
+</div>
+```
+
+## 組み込み型（Emacs 内蔵 IM）
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[Embedded Input Method Model]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- 自己完結型設計: アプリケーション（Emacs等）内部に Lisp などで実装された IM ライブラリを直接持つ
+- 外部依存ゼロ: コンポジタや IM フレームワークを介さず、OS からの未加工イベントを直接処理
+- シームレスな統合: エディタのバッファ管理と IM 状態が直結しており、高度なカスタマイズが可能
+
+:::
+::::
+
+{{< reveal_vspace 2em >}}
+
+
+```{=html}
+<div style="position: relative; width: 1100px; height: 520px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
+    
+    <div style="position: absolute; left: 10px; top: 120px; width: 170px; height: 100px; border: 2px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
+        user
+    </div>
+
+    <div style="position: absolute; left: 350px; top: 20px; width: 650px; height: 350px; border: 4px solid #002d72; border-radius: 15px; background: #f9f9f9; z-index: 0;">
+        <div style="padding: 15px; font-weight: bold; color: #002d72; border-bottom: 2px solid #002d72;">
+            Application (e.g., Emacs)
+        </div>
+    </div>
+
+    <div style="position: absolute; left: 400px; top: 180px; width: 220px; height: 120px; border: 2px solid #002d72; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 1; text-align: center;">
+        Internal IM<br>(Leim / SKK)
+    </div>
+
+    <div style="position: absolute; left: 720px; top: 180px; width: 220px; height: 120px; border: 2px solid #002d72; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; text-align: center;">
+        Text Buffer /<br>Core Logic
+    </div>
+
+    <div style="position: absolute; left: 400px; top: 400px; width: 220px; height: 80px; border: 2px dashed #00a9e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 0.95em; color: #002d72; text-align: center;">
+        Dictionary File<br>(.pwn / .jisyo)
+    </div>
+
+    <div style="position: absolute; left: 250px; top: 135px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 100; font-weight: bold;">1</div>
+    <div style="position: absolute; left: 500px; top: 150px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 100; font-weight: bold;">2</div>
+    <div style="position: absolute; left: 500px; top: 350px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 100; font-weight: bold;">3</div>
+    <div style="position: absolute; left: 660px; top: 210px; background: #00a9e0; color: white; width: 26px; height: 26px; border-radius: 50%; font-size: 0.7em; display: flex; align-items: center; justify-content: center; z-index: 100; font-weight: bold;">4</div>
+
+    <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; overflow: visible;">
+        <defs>
+            <marker id="arrowhead_embedded" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#002d72" />
+            </marker>
+        </defs>
+
+        <line x1="180" y1="170" x2="345" y2="170" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_embedded)" />
+        
+        <path d="M 350 120 Q 400 120 450 175" stroke="#002d72" stroke-width="2.5" fill="none" marker-end="url(#arrowhead_embedded)" />
+        
+        <line x1="480" y1="305" x2="480" y2="395" stroke="#002d72" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrowhead_embedded)" />
+        <line x1="540" y1="395" x2="540" y2="305" stroke="#002d72" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrowhead_embedded)" />
+        
+        <line x1="625" y1="240" x2="715" y2="240" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_embedded)" />
+    </svg>
+</div>
+```
