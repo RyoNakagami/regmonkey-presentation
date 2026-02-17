@@ -1,0 +1,98 @@
+---
+title: "データ活用と法的リスク"
+subtitle: "法学101"
+author: "Ryo Nakagami"
+date: "2026-02-17"
+categories: [Legal]
+slide-number: true
+# resources:
+#     - sample_data.csv
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+## Yahoo!BB 情報漏洩事件
+[個人情報の適切管理義務と不法行為責任 大阪地判H18.5.19]{.h2-submessage .font-10}
+
+:::: {.sidebar .font-08}
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+  
+{{< bi question-circle size=1.7em color=#428CE6 >}} 
+
+### [論点]{.ml-2}
+
+:::
+
+- 個人情報の適切管理に必要な措置を講じなかったため情報が不正に取得された場合，管理主体は不法行為責任を負うか？
+- 関連条文: 民法709条・710条
+
+::::
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+  
+{{< bi list-ul size=1.7em color=#428CE6 >}} 
+
+### [事実]{.ml-2}
+
+:::
+
+- 電気通信事業を営む $Y_1$（ヤフー株式会社）, $Y_2$（ソフトバンクBB） は共同してインターネット接続サービス等を提供
+- $Y_2$ は，社内サーバーに本件サービスにかかる顧客情報を記録していたが，社外からのメンテナンス作業を可能にするため，リモートサーバーを設置
+- $Y_2$ の業務委託先から派遣され，顧客サーバーの管理業務に従事していた $A$ は，退職後，リモートアクセスのために付与されていた認証情報を用いて顧客サーバーにアクセスし，不正に顧客情報を取得
+- 個人情報（氏名、住所、電話番号など）が流出したことを受け，$Y$ のインターネット接続サービス利用者 $X$ らは， $Y$ が個人情報の適切な管理を怠った過失等により自己情報コントロール権を侵害されたとして，$Y$ らに対して共同不法行為に基づく損害賠償を請求
+
+::::
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+  
+{{< bi book size=1.7em color=#428CE6 >}} 
+
+### [判旨]{.ml-2}
+
+:::
+
+- ユーザー名とパスワードによる認証以外に外部からのアクセスを規制する措置が取られていない上，肝心のユーザー名とパスワードの管理が極めて不十分，と裁判所は指摘
+- 電気通信事業における個人情報保護に関するガイドラインや，個人情報保護法における個人情報の適切な管理に関する規定を踏まえ，裁判所は「外部からの不正アクセスを防止するための相当な措置を講ずべき注意義務を怠った過失」に基づき，BBテクノロジーの不法行為責任を認定
+- ヤフーに対する請求は，「ヤフーが直接管理していた情報の流出はなく、賠償責任は負わない」として棄却
+
+::::
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+  
+{{< bi lightbulb size=1.7em color=#428CE6 >}} 
+
+
+### [ポイント]{.ml-2}
+
+
+:::
+
+- 管理主体が負う私法上の注意義務の内容確定に，ガイドラインや個人情報保護法の規定が果たす役割を認めた点で重要
+- 個人情報の適切な管理のため必要な措置を講ずべき注意義務を怠った場合，不法行為責任が認められ得るとした点も重要
+
+::::
+
+
+::::
