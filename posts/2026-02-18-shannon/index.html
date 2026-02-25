@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – 通信を高速に，正確に</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link rel="stylesheet" href="../../style/revealjs.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"></script>
+      <style>.ps-comment { padding-left: 1em; }</style>
+    
+<meta property="og:title" content="通信を高速に，正確に – Presentation for Regession Monkey">
+<meta property="og:description" content="シャノンの通信モデル">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">通信を高速に，正確に</h1>
+  <p class="subtitle">シャノンの通信モデル</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年02月18日</p>
+</section>
+<section>
+<section id="シャノンの通信モデル" class="title-slide slide level1 agenda-slide center">
+<h1>シャノンの通信モデル</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>シャノンの通信モデル</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>情報の価値</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>情報源符号化定理</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="executive-summary" class="slide level2">
+<h2>Executive Summary</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="exec-summary-box">
+<ul>
+<li><p>シャノンは，価値ある情報を高速かつ正確に伝達するための原理を以下のように定式化</p>
+<ul>
+<li>情報源から送信される通信の量を減らす</li>
+<li>通信路の中で誤りを減らす</li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<ul>
+<li><p>通信の本質は，<strong>「効率性（圧縮）」</strong>と<strong>「信頼性（耐性）」</strong>のトレードオフを制御すること</p>
+<ul>
+<li><strong>情報源符号化:</strong> 冗長性を排除し，データ転送効率を最大化する</li>
+<li><strong>通信路符号化:</strong> 適切な冗長性を付加し，ノイズ環境下での正確性を担保する</li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<ul>
+<li>情報源符号化定理（シャノンの第一定理）: データの圧縮限界を<strong>エントロピー（<span class="math inline">\(H\)</span>）</strong>として数学的に定義
+<ul>
+<li>効率を追求した結果の<strong>平均符号長（<span class="math inline">\(L\)</span>）</strong>は，エントロピーより小さくすることはできない（<span class="math inline">\(L \ge H\)</span>）</li>
+<li>適切に設計された瞬時符号を用いれば、平均符号長をエントロピーに極限まで近づけることが可能</li>
+<li>出現確率の大きな記号に短いビット列を割り当てるのが基本方針</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="シャノンの通信モデル-1" class="slide level2">
+<h2>シャノンの通信モデル</h2>
+<div class="shannon-model font-09">
+<div class="shannon-component">
+<p><span class="shannon-process-tag">情報源符号化</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-database"></i></p>
+</div>
+<p><span class="shannon-label">情報源</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>一意復号可能</li>
+<li>瞬時符号</li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<p><span class="shannon-process-tag">通信路符号化</span> </p><div class="reveal_vspace" style="--vspace-height: 0.5em;"></div><p></p>
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-tower-broadcast"></i></p>
+</div>
+<p><span class="shannon-label">送信機</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>通信量を減らす</li>
+<li>誤りを減らす</li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-signal"></i></p>
+</div>
+<p><span class="shannon-label">通信路</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-noise-source font-09">
+<div class="shannon-noise-arrow-up">
+
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><i class="fa-solid fa-bolt"></i> 雑音(ノイズ)</p>
+</div>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<p><span class="shannon-process-tag">通信路復号</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-server"></i></p>
+</div>
+<p><span class="shannon-label">受信機</span></p>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<p><span class="shannon-process-tag">情報源復号</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-user-check"></i></p>
+</div>
+<p><span class="shannon-label">受信者</span></p>
+</div>
+</div>
+<div class="shannon-overview-arrow font-12">
+<div class="shannon-overview-arrow-line">
+
+</div>
+<div class="shannon-overview-arrow-text">
+価値ある情報を高速に，正確に送る
+</div>
+<div class="shannon-overview-arrow-line">
+
+</div>
+<div class="shannon-overview-arrow-head">
+
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.1em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sidebar font-09">
+<div class="reveal_vspace" style="--vspace-height: 0.35em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-scissors " style="font-size: 1.7em;color: #003366;" role="img" aria-hidden="true"></i></p>
+<h3 id="情報源符号化情報を簡潔に言い表す"><span class="ml-2">情報源符号化（情報を簡潔に言い表す）</span></h3>
+</div>
+<ul>
+<li><strong>目的</strong>: 冗長性を排除し，データ量を最小化する（<strong>効率性の追求</strong>）</li>
+<li><strong>手法</strong>: 出現頻度の高いデータに短い符号を割り当てる（例：ハフマン符号）</li>
+<li><strong>役割</strong>: ストレージの節約，転送時間の短縮</li>
+</ul>
+<p>符号化は，電話で言えば，音圧を電流に変換する過程．モールス信号であれば，メッセージをある決められた方式で短点・長点・空白の列に変換する過程． </p><div class="reveal_vspace" style="--vspace-height: 0.8em;"></div><p></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="sidebar font-09">
+<div class="reveal_vspace" style="--vspace-height: 0.35em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-shield-check " style="font-size: 1.7em;color: #0054a6;" role="img" aria-hidden="true"></i></p>
+<h3 id="通信路符号化間違いを直せるようにする"><span class="ml-2">通信路符号化（間違いを直せるようにする）</span></h3>
+</div>
+<ul>
+<li><strong>目的</strong>: 意図的な冗長性を加え，エラー耐性を高める（<strong>信頼性の担保</strong>）</li>
+<li><strong>手法</strong>: 誤り訂正符号を付加し，ノイズによる変質を検知・修正する</li>
+<li><strong>役割</strong>: 不安定な通信路での正確なデータ伝送の維持</li>
+</ul>
+<p>分析発表では，理解力差や注意散漫といった認知ノイズの対策として，スライド整理や図解を行いますが， これは，メッセージが一部失われても意味を復元できるようにする<strong>プレゼンにおける誤り訂正</strong></p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="シャノン通信モデルによるプレゼン設計" class="slide level2">
+<h2>シャノン通信モデルによるプレゼン設計</h2>
+<div class="columns">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div><div class="column" style="width:47.5%;">
+<h3 id="送信側-phase">送信側 Phase</h3>
+<div class="sidebar font-08">
+<div class="reveal_vspace" style="--vspace-height: 0.35em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-scissors " style="font-size: 1.5em;color: #003366;" role="img" aria-hidden="true"></i></p>
+<h3 id="情報源符号化-source"><span class="ml-2">1. 情報源符号化 (Source)</span></h3>
+</div>
+<ul>
+<li><strong>概念</strong>: 伝えるべき本質情報の圧縮</li>
+<li><strong>Protocol</strong>: <strong>用語・前提の事前共有（Semantic Alignment）</strong></li>
+<li><strong>Action</strong>: 前提を揃え，冗長説明を削減し，論点を構造化</li>
+<li><strong>Goal</strong>: 最小限の情報量で最大の意味を伝える</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-eye-fill " style="font-size: 1.5em;color: #0054a6;" role="img" aria-hidden="true"></i></p>
+<h3 id="通信路符号化-channel"><span class="ml-2">2. 通信路符号化 (Channel)</span></h3>
+</div>
+<ul>
+<li><strong>概念</strong>: 認知ノイズに耐えるための冗長設計</li>
+<li><strong>Protocol</strong>: <strong>提示フォーマットの統一（Formatting Convention）</strong></li>
+<li><strong>Action</strong>: アジェンダ提示，結論→根拠の型，図解・強調・再掲</li>
+<li><strong>Goal</strong>: 情報が一部欠落しても意味が復元可能な状態を作る</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="padding-left: 2.5%;">
+<h3 id="受信側-phase">受信側 Phase</h3>
+<div class="sidebar font-08">
+<div class="reveal_vspace" style="--vspace-height: 0.35em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-cpu-fill " style="font-size: 1.5em;color: #0054a6;" role="img" aria-hidden="true"></i></p>
+<h3 id="通信路復号化-channel"><span class="ml-2">3. 通信路復号化 (Channel)</span></h3>
+</div>
+<ul>
+<li><strong>概念</strong>: 構造と文脈に基づく意味の補完</li>
+<li><strong>Protocol</strong>: <strong>質疑応答・確認（Feedback Loop）</strong></li>
+<li><strong>Action</strong>: 不明点の質問，提示形式に基づく理解補正</li>
+<li><strong>Goal</strong>: ノイズで歪んだ情報を正しく修復する</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-0 pb-0 border-blue-500">
+<div class="flex items-center">
+<p><i class="bi-check-circle-fill " style="font-size: 1.5em;color: #003366;" role="img" aria-hidden="true"></i></p>
+<h3 id="情報源復号化-source"><span class="ml-2">4. 情報源復号化 (Source)</span></h3>
+</div>
+<ul>
+<li><strong>概念</strong>: 情報を意思決定へ変換する最終解釈</li>
+<li><strong>Protocol</strong>: <strong>評価基準の共有（Decision Criteria Alignment）</strong></li>
+<li><strong>Action</strong>: 合意された定義・基準に基づき，示唆を行動へ接続</li>
+<li><strong>Goal</strong>: 送り手の意図を組織の判断・実行に転換する</li>
+</ul>
+</div>
+</div>
+</div></div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">プロトコル詳細定義</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="width-100">
+<div class="regmonkey_abstract_summary">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Semantic Alignment Protocol（用語・前提同期）</span></span>
+<span id="cb1-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主要用語の定義を事前に明示</span></span>
+<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 前提条件・分析スコープを明確化</span></span>
+<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「何を議論しないか」も明示</span></span>
+<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Formatting Convention Protocol（提示形式合意）</span></span>
+<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 結論→根拠→示唆の順序を固定</span></span>
+<span id="cb1-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> スライド1枚1メッセージ原則</span></span>
+<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 色・太字・アイコンの意味を統一</span></span>
+<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="width-100">
+<div class="regmonkey_abstract_summary">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Feedback Loop Protocol&lt;br&gt;（確認・応答規約）</span></span>
+<span id="cb2-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 要点ごとに理解確認ポイントを設置</span></span>
+<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Q&amp;Aの時間と形式を明示</span></span>
+<span id="cb2-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 不明点は即時再説明要求可能とする</span></span>
+<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Decision Criteria Alignment Protocol（評価基準共有）</span></span>
+<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 意思決定の判断軸を事前提示</span></span>
+<span id="cb2-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 成功指標（KPI）を明確化</span></span>
+<span id="cb2-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 最終アウトプットの期待水準を合意</span></span>
+<span id="cb2-18"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="情報の価値" class="title-slide slide level1 agenda-slide center">
+<h1>情報の価値</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>シャノンの通信モデル</p>
+</div></li>
+<li><div class="agenda-active">
+<p>情報の価値</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>情報源符号化定理</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="個々の情報がもつ大きさ-情報量" class="slide level2">
+<h2>個々の情報がもつ大きさ: 情報量</h2>
+<p><span class="h2-submessage">情報が出現する確率を用いて情報量を定式化する</span></p>
+<div class="def-block" style="font-size:1.1em;">
+<p><span class="def-title">自己情報量（Shannon Information Content）</span></p>
+<div class="def-contents">
+<p>事象 <span class="math inline">\(x\)</span> の生起確率を <span class="math inline">\(P(x)\)</span> としたとき，その事象がもつ <strong>情報量</strong> <span class="math inline">\(I(x)\)</span> は</p>
+<p><span class="math display">\[
+I(x) = -\log_2 P(x) \quad [\text{bit}]
+\]</span></p>
+</div>
+</div>
+<div class="columns font-09">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">直感的理解</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li><strong>珍しい事象ほど情報量が大きい</strong>
+<ul>
+<li>「明日太陽が昇る」(<span class="math inline">\(P \approx 1\)</span>) → 情報量 <span class="math inline">\(\approx 0\)</span></li>
+<li>「明日雪が降る（沖縄）」(<span class="math inline">\(P \ll 1\)</span>) → 情報量 大</li>
+</ul></li>
+</ul>
+<p><span class="mini-section">情報量の性質</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li><span class="math inline">\(I(x) \geq 0\)</span>（情報量は常に非負）</li>
+<li><span class="math inline">\(P(x) \to 0 \Rightarrow I(x) \to \infty\)</span></li>
+<li><strong>独立な事象の情報量は加法的</strong>
+<ul>
+<li><span class="math inline">\(P(x, y) = P(x)P(y)\)</span> のとき</li>
+<li><span class="math inline">\(I(x, y) = I(x) + I(y)\)</span></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div id="28185e93" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-2-output-1.png" width="662" height="468"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ワインの選択と情報量" class="slide level2">
+<h2>ワインの選択と情報量</h2>
+<p><span class="h2-submessage">ブラインドテイスティングで品種を当てたときの「驚き」の大きさ</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-box-title">
+<p>設定</p>
+</div>
+<div class="info-contents font-10">
+<ul>
+<li>ワインの出現確率比が <strong>シャルドネ : アリゴテ : カベルネ : ピノノワール = 4 : 2 : 1 : 1</strong> とする</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns font-09">
+<div class="column" style="width:55%;">
+<div id="98a24681" class="cell" data-fig-height="5.5" data-fig-width="8" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-3-output-1.png" width="758" height="518"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="def-block" style="font-size:1em;">
+<p><span class="def-title">計算</span></p>
+<div class="def-contents">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">品種</th>
+<th style="text-align: center;"><span class="math inline">\(P(x)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I(x) = -\log_2 P(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">シャルドネ</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{4}{8} = 0.5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.00\)</span> bit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">アリゴテ</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{2}{8} = 0.25\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2.00\)</span> bit</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">カベルネ</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{8} = 0.125\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.00\)</span> bit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ピノノワール</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{1}{8} = 0.125\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3.00\)</span> bit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="info-box">
+<div class="info-box-title">
+<p>解釈</p>
+</div>
+<div class="info-contents font-10">
+<ul>
+<li>シャルドネを当てても驚きは <strong>1 bit</strong>（コイン投げ1回分）</li>
+<li>カベルネ・ピノノワールを当てると <strong>3 bit</strong>（コイン投げ3回分の驚き）</li>
+<li><strong>出にくいワインほど，当てたときの情報価値が高い</strong></li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="情報源全体の不確実性-情報エントロピー" class="slide level2">
+<h2>情報源全体の不確実性: 情報エントロピー</h2>
+<p><span class="h2-submessage">確率分布全体が持つ「平均的な情報量」を定式化する</span></p>
+<div class="def-block">
+<p><span class="def-title">情報エントロピー（Shannon Entropy）</span></p>
+<div class="def-contents padding-L-10 font-08">
+<p>確率分布 <span class="math inline">\(P = \{P(x_1), P(x_2), \ldots, P(x_n)\}\)</span> に対して，<strong>情報エントロピー</strong> <span class="math inline">\(H(P)\)</span> は</p>
+<p><span class="math display">\[
+H(P) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i) = \mathbb{E}[I(x)] \quad [\text{bit}]
+\]</span></p>
+<p>各事象の情報量 <span class="math inline">\(I(x_i)\)</span> を，その生起確率 <span class="math inline">\(P(x_i)\)</span> で重み付けした期待値</p>
+</div>
+</div>
+<div class="columns font-09">
+<div class="column font-09" style="width:50%;">
+<p><span class="mini-section">エントロピーの性質</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li><span class="math inline">\(H(P) \geq 0\)</span>（常に非負）</li>
+<li><span class="math inline">\(H(P) = 0 \Leftrightarrow\)</span> 確実な事象（<span class="math inline">\(P(x_i) = 1\)</span> のみ）</li>
+<li><strong>最大値</strong>: <span class="math inline">\(n\)</span> 個の事象が一様分布のとき <span class="math inline">\(H_{\max} = \log_2 n\)</span>
+<ul>
+<li>確率分布が一様に近いほど，エントロピーは大きい</li>
+<li>特定の事象に偏っているほど，エントロピーは小さい</li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li><strong>例: コイン投げ</strong>
+<ul>
+<li>公正なコイン (<span class="math inline">\(P(表) = P(裏) = 0.5\)</span>) → <span class="math inline">\(H = 1\)</span> bit（最大エントロピー）</li>
+<li>偏ったコイン (<span class="math inline">\(P(表) = 0.9, P(裏) = 0.1\)</span>) → <span class="math inline">\(H \approx 0.47\)</span> bit（低エントロピー）</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div id="a6403292" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.png" width="662" height="469"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="情報源符号化定理" class="title-slide slide level1 agenda-slide center">
+<h1>情報源符号化定理</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>シャノンの通信モデル</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>情報の価値</p>
+</div></li>
+<li><div class="agenda-active">
+<p>情報源符号化定理</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="アナログ信号からデジタルデータへ" class="slide level2">
+<h2>アナログ信号からデジタルデータへ</h2>
+<div class="shannon-model font-09">
+<div class="shannon-component">
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-wave-square"></i></p>
+</div>
+<p><span class="shannon-label">アナログ信号</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>連続時間</li>
+<li>連続振幅</li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<p></p><div class="reveal_vspace" style="--vspace-height: 7em;"></div> <i class="fa-solid fa-arrow-right"></i><p></p>
+</div>
+<div class="shannon-component">
+<div class="shannon-icon-box-channel">
+<p><i class="fa-solid fa-ellipsis-h"></i></p>
+</div>
+<p><span class="shannon-label">標本化 (Sampling)</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li><strong>離散時間</strong></li>
+<li>連続振幅</li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<div class="shannon-icon-box-channel">
+<p><i class="fa-solid  fa-chart-bar"></i></p>
+</div>
+<p><span class="shannon-label">量子化</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>離散時間</li>
+<li><strong>離散振幅</strong></li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
+<p><i class="fa-solid fa-arrow-right"></i></p>
+</div>
+<div class="shannon-component">
+<div class="shannon-icon-box-channel">
+<p><i class="fa-solid fa-barcode"></i></p>
+</div>
+<p><span class="shannon-label">符号化</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>2進数化</li>
+<li>ビット列変換</li>
+</ul>
+</div>
+</div>
+<div class="shannon-arrow">
+<p></p><div class="reveal_vspace" style="--vspace-height: 7em;"></div> <i class="fa-solid fa-arrow-right"></i><p></p>
+</div>
+<div class="shannon-component">
+<div class="shannon-icon-box">
+<p><i class="fa-solid fa-microchip"></i></p>
+</div>
+<p><span class="shannon-label">デジタルデータ</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="shannon-annotation-box">
+<ul>
+<li>0/1 ビット列</li>
+<li>有限語長</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="shannon-overview-arrow font-12" style="margin-top:0.75em !important;">
+<div class="shannon-overview-arrow-line">
+
+</div>
+<div class="shannon-overview-arrow-text">
+A/D変換: アナログ信号をデジタルデータへ
+</div>
+<div class="shannon-overview-arrow-line">
+
+</div>
+<div class="shannon-overview-arrow-head">
+
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="9b4f1fe3" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.png" width="1238" height="661"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="1db675fe" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.png" width="1238" height="663"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="一意復号可能瞬時符号可能" class="slide level2">
+<h2>一意復号可能・瞬時符号可能</h2>
+<p><span class="h2-submessage">符号の性質による分類</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns font-10">
+<div class="column" style="width:40%;">
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<div class="def-block">
+<p><span class="def-title">一意復号可能</span></p>
+<div class="def-contents">
+<ul>
+<li>符号語の任意の有限連接が<strong>ただ一通り</strong>に復号できる</li>
+<li>符号語の連接 <span class="math inline">\(c_1 c_2 \cdots = c_1' c_2' \cdots\)</span> ならば <span class="math inline">\(x_i = x_i'\)</span></li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block">
+<p><span class="def-title">瞬時符号（prefix-free）</span></p>
+<div class="def-contents">
+<ul>
+<li>どの符号語も他の符号語の<strong>前置符号にならない</strong></li>
+<li>先読みなしに1語ずつ即時復号できる</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block">
+<p><span class="def-title">必要十分条件</span></p>
+<div class="def-contents">
+<ul>
+<li>瞬時符号 <span class="math inline">\(\Rightarrow\)</span> 一意復号可能</li>
+<li>逆は必ずしも成立しない：Case 3</li>
+</ul>
+</div>
+</div>
+</div><div class="column padding-L-10" style="width:60%;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div style="border-bottom: 2px solid #051C2C; padding-bottom: 10px; margin-bottom: 30px; text-align: left;">
+
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 1em;;">
+<th data-quarto-table-cell-role="th" style="padding: 15px; border: 1px solid #051C2C">文字</th>
+<th data-quarto-table-cell-role="th" style="padding: 15px; border: 1px solid #051C2C">Case 1<br>
+<span style="font-size: 0.8em; font-weight: normal;">(等長符号)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 15px; border: 1px solid #051C2C">Case 2<br>
+<span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 15px; border: 1px solid #051C2C">Case 3<br>
+<span style="font-size: 0.8em; font-weight: normal;">(前置符号)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 15px; border: 1px solid #051C2C">Case 4<br>
+<span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+</tr>
+</thead>
+<tbody style="font-size: 1em; text-align: center;">
+<tr class="odd">
+<td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">A</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">00</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">0</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">0</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">0</td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">B</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">01</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">01</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">01</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">1</td>
+</tr>
+<tr class="odd">
+<td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">C</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">10</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">011</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">011</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">10</td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">D</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">11</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">11</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">111</td>
+<td style="padding-left: 0.8em; border: 1px solid #D1D7DB">11</td>
+</tr>
+<tr class="odd" style="border-top: 3px solid #051C2C;">
+<td style="text-align: left; padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555;">一意復号可能</td>
+<td style="color: #16a34a; font-weight: bold">✔</td>
+<td style="color: #dc2626; font-weight: bold">✘</td>
+<td style="color: #16a34a; font-weight: bold">✔</td>
+<td style="color: #dc2626; font-weight: bold">✘</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555;">瞬時符号</td>
+<td style="color: #16a34a; font-weight: bold">✔</td>
+<td style="color: #dc2626; font-weight: bold">✘</td>
+<td style="color: #dc2626; font-weight: bold">✘</td>
+<td style="color: #dc2626; font-weight: bold">✘</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555;">備考</td>
+<td style="font-size: 0.7em; padding-left: 0.8em">等長符号</td>
+<td style="font-size: 0.7em; padding-left: 0.8em">"011"=C or A+D</td>
+<td style="font-size: 0.7em; padding-left: 0.8em">A⊂B⊂C（前置）</td>
+<td style="font-size: 0.7em; padding-left: 0.8em">"10"=C or B+A</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+<p><span class="mini-section">練習問題</span></p>
+<ol type="1">
+<li><code>01101011</code> というパターンの文字列が与えられた時，Case 3プロトコルを活用する時，復号可能か？</li>
+<li>Case 3の符号をツリーを用いて表現してください</li>
+</ol>
+</section>
+<section id="適切な符号長配分により平均符号長をエントロピーまで近似可能" class="slide level2">
+<h2>適切な符号長配分により，平均符号長をエントロピーまで近似可能</h2>
+<div class="def-block" style="font-size:1.2em;">
+<p><span class="def-title">平均符号長</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:0.9em;">
+<ul>
+<li>各記号の出現確率 <span class="math inline">\(p_i\)</span> と，割り当てられた符号長 <span class="math inline">\(l_i\)</span> の期待値を平均符号長 <span class="math inline">\(L\)</span> と呼ぶ</li>
+<li><span class="math inline">\(L\)</span> が情報エントロピー <span class="math inline">\(H\)</span> に近いほど，伝送効率が高い</li>
+</ul>
+<p><span class="math display">\[
+L = \sum_{i=1}^np_il_i \ \ (\text{理論限界:} L \geq H)
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th data-quarto-table-cell-role="th" style="padding: 12px; border: 1px solid #051C2C">文字</th>
+<th data-quarto-table-cell-role="th" style="padding: 12px; border: 1px solid #051C2C">出現確率 \(p_i\)<br>
+<span style="font-size: 0.8em; font-weight: normal;">(偏りあり 4:2:1:1)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C">Case 1: 等長<br>
+<span style="font-size: 0.8em; font-weight: normal;">(固定長 2bit)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C">Case 2: 最適化<br>
+<span style="font-size: 0.8em; font-weight: normal;">(確率に比例)</span></th>
+<th data-quarto-table-cell-role="th" style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C">Case 3: 逆配分<br>
+<span style="font-size: 0.8em; font-weight: normal;">(非効率)</span></th>
+</tr>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr class="odd">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">A</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB"><strong>50%</strong> (1/2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">00 (2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0 (1)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">111 (3)</td>
+</tr>
+<tr class="even">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">B</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB"><strong>25%</strong> (1/4)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">01 (2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">10 (2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">110 (3)</td>
+</tr>
+<tr class="odd">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">C</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB"><strong>12.5%</strong> (1/8)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">10 (2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">110 (3)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">10 (2)</td>
+</tr>
+<tr class="even">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">D</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB"><strong>12.5%</strong> (1/8)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">11 (2)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">111 (3)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0 (1)</td>
+</tr>
+<tr class="odd" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="2" style="text-align: right; padding: 15px; font-weight: bold; color: #475569;">平均符号長 (\(L\))</td>
+<td style="padding: 15px; font-size: 1.1em">2.00</td>
+<td style="padding: 15px; font-size: 1.2em; font-weight: bold; color: #16a34a; background-color: #f0fdf4">1.75</td>
+<td style="padding: 15px; font-size: 1.1em; color: #dc2626">2.625</td>
+</tr>
+<tr class="even" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="2" style="text-align: right; padding: 10px; font-weight: bold;">情報エントロピー (\(H\))</td>
+<td colspan="3" style="padding: 10px; font-size: 1.1em; letter-spacing: 1px"><strong>1.75 bits</strong></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div></div>
+</section>
+<section id="シャノン符号化法" class="slide level2">
+<h2>シャノン符号化法</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="def-block" style="font-size:1.1em;">
+<p><span class="def-title">シャノン符号化法</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:1em;">
+<p>次の条件を満たす無記憶情報源の２元符号（シャノン符号）を構成する</p>
+<p><span class="math display">\[
+-\log P(s_k) \leq l_k &lt; -\log P(s_k) + 1
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="font-08">
+<p><span class="mini-section">Setup</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
+<p>情報源 <span class="math inline">\(S = \{s_1, s_2, s_3, s_4, s_5\}\)</span>，各記号の発生確率:</p>
+<p><span class="math display">\[
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+\]</span></p>
+<p><span class="mini-section">ステップ１</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
+<p>発生確率の大きい順に並べる（上記は既にソート済み）</p>
+<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
+<p><span class="mini-section">ステップ２: 符号長の決定</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
+<p>次の条件を満たす正の整数を符号長 <span class="math inline">\((l_1, l_2, l_3, l_4, l_5)\)</span> とする:</p>
+<p><span class="math display">\[
+-\log_2 P(s_k) \leq l_k &lt; -\log_2 P(s_k) + 1
+\]</span></p>
+<div class="columns font-09">
+<div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">記号</th>
+<th style="text-align: center;">条件</th>
+<th style="text-align: center;">符号長</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(s_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\log_2 0.4 \leq l_1 &lt; -\log_2 0.4 + 1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(l_1 = 2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(s_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\log_2 0.3 \leq l_2 &lt; -\log_2 0.3 + 1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(l_2 = 2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(s_3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\log_2 0.15 \leq l_3 &lt; -\log_2 0.15 + 1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(l_3 = 3\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">記号</th>
+<th style="text-align: center;">条件</th>
+<th style="text-align: center;">符号長</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(s_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\log_2 0.1 \leq l_4 &lt; -\log_2 0.1 + 1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(l_4 = 4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(s_5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\log_2 0.05 \leq l_5 &lt; -\log_2 0.05 + 1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(l_5 = 5\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="シャノン符号化法-符号の構成" class="slide level2">
+<h2>シャノン符号化法: 符号の構成</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns font-08">
+<div class="column" style="width:45%;">
+<p><span class="mini-section">ステップ３: 累積確率の計算</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="math display">\[
+\begin{aligned}
+P_1 &amp;= 0 \\
+P_2 &amp;= P_1 + P(s_1) = 0.4 \\
+P_3 &amp;= P_2 + P(s_2) = 0.7 \\
+P_4 &amp;= P_3 + P(s_3) = 0.85 \\
+P_5 &amp;= P_4 + P(s_4) = 0.95
+\end{aligned}
+\]</span></p>
+<p><span class="mini-section">ステップ４: ２進数展開</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="math display">\[
+\begin{aligned}
+P_1 = 0 &amp;\to 0.00000\ldots \\
+P_2 = 0.4 &amp;\to 0.01100\ldots \\
+P_3 = 0.7 &amp;\to 0.10110\ldots \\
+P_4 = 0.85 &amp;\to 0.11011\ldots \\
+P_5 = 0.95 &amp;\to 0.11110\ldots
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:55%;">
+<p><span class="mini-section">ステップ５: 符号の割当</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>小数点以下 <span class="math inline">\(l_k\)</span> 桁を <span class="math inline">\(s_k\)</span> の符号とする:</p>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">記号</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">確率</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">累積確率(2進)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号長</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号</th>
+</tr>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_1\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.<strong>00</strong>000…</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">00</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_2\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.<strong>01</strong>100…</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">01</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_3\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.15</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.<strong>101</strong>10…</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">101</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_4\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.<strong>1101</strong>1…</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">1101</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_5\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.05</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.<strong>11110</strong>…</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">5</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">11110</td>
+</tr>
+<tr class="even" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="4" style="text-align: right; padding: 12px; font-weight: bold; color: #475569;">平均符号長 (\(L\))</td>
+<td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4">2.5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="math display">\[
+L = 2 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 5 \times 0.05 = 2.5
+\]</span></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-05 font-12">REMARKS</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>シャノン符号は累積確率を２進数展開し，上位 <span class="math inline">\(l_k\)</span> 桁を符号とするアルゴリズム</li>
+<li>後述するシャノン・ファノ符号化法は記号を確率の合計がほぼ等しい２群に再帰的に分割し，各群に 0/1 を割り当てるトップダウン型のアルゴリズム</li>
+<li>いずれも最適符号（ハフマン符号）とは限らない</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="シャノンファノ符号化法-12" class="slide level2">
+<h2>シャノン・ファノ符号化法: 1/2</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block" style="font-size:1.1em;">
+<p><span class="def-title">シャノン・ファノ符号</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:0.9em;">
+<p>記号を発生確率の大きい順に並べ，確率の合計がほぼ等しくなるように<strong>再帰的に２群に分割</strong>し，各群に 0/1 を割り当てて符号を構成する</p>
+</div>
+</div>
+</div>
+<p><span class="mini-section">Setup</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>情報源 <span class="math inline">\(S = \{s_1, s_2, s_3, s_4, s_5\}\)</span>，各記号の発生確率:</p>
+<p><span class="math display">\[
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+\]</span></p>
+<p><span class="mini-section">分割手順</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>各ステップで確率の合計差が最小となる位置で分割し，上位群に <code>0</code>，下位群に <code>1</code> を割り当てる:</p>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">分割</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">上位群 (→0)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">下位群 (→1)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">確率差</th>
+</tr>
+</thead>
+<tbody style="text-align: center;">
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">第1分割</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_1\}\)　合計 0.40</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_2, s_3, s_4, s_5\}\)　合計 0.60</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.20</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">第2分割</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_2\}\)　合計 0.30</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_3, s_4, s_5\}\)　合計 0.30</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold">0.00</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">第3分割</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_3\}\)　合計 0.15</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_4, s_5\}\)　合計 0.15</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold">0.00</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">第4分割</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_4\}\)　合計 0.10</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(\{s_5\}\)　合計 0.05</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.05</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+<section id="シャノンファノ符号化法-22" class="slide level2">
+<h2>シャノン・ファノ符号化法: 2/2</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns font-09">
+<div class="column" style="width:45%;">
+<p><span class="mini-section">符号の構成過程</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>各分割で割り当てたビットを連結:</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_1 &amp;: \underbrace{0}_{\text{第1}} \to \texttt{0} \\
+s_2 &amp;: \underbrace{1}_{\text{第1}}\underbrace{0}_{\text{第2}} \to \texttt{10} \\
+s_3 &amp;: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{0}_{\text{第3}} \to \texttt{110} \\
+s_4 &amp;: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{1}_{\text{第3}}\underbrace{0}_{\text{第4}} \to \texttt{1110} \\
+s_5 &amp;: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{1}_{\text{第3}}\underbrace{1}_{\text{第4}} \to \texttt{1111}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:55%;">
+<p><span class="mini-section">結果</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">記号</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">確率</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号長</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号</th>
+</tr>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_1\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">0</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_2\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">10</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_3\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.15</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">110</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_4\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">1110</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_5\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.05</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">1111</td>
+</tr>
+<tr class="even" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="3" style="text-align: right; padding: 12px; font-weight: bold; color: #475569;">平均符号長 (\(L\))</td>
+<td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4">2.05</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="math display">\[
+L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 = 2.05
+\]</span></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-05 font-12">REMARKS</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>シャノン符号の平均符号長 <span class="math inline">\(L = 2.5\)</span> に対し，ファノ符号は <span class="math inline">\(L = 2.05\)</span> とエントロピー <span class="math inline">\(H \approx 2.01\)</span> により近い</li>
+<li>ファノ符号は分割の自由度があるため，分割方法によって結果が異なりうる(同じ確率和の分割が複数ある場合)</li>
+<li>いずれもハフマン符号のような最適性は保証されない</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="シャノンファノ符号化法とツリー図" class="slide level2">
+<h2>シャノン・ファノ符号化法とツリー図</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div id="44f20082" class="cell" data-fig-height="8" data-fig-width="16" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.png" width="1526" height="757"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ハフマン符号化法-12" class="slide level2">
+<h2>ハフマン符号化法: 1/2</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block" style="font-size:1.1em;">
+<p><span class="def-title">ハフマン符号</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:0.9em;">
+<p>発生確率の小さい記号から順にペアにまとめ，<strong>ボトムアップに２分木を構築</strong>して最適な瞬時復号可能符号を得る</p>
+</div>
+</div>
+</div>
+<p><span class="mini-section">Setup</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>情報源 <span class="math inline">\(S = \{s_1, s_2, s_3, s_4, s_5\}\)</span>，各記号の発生確率:</p>
+<p><span class="math display">\[
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+\]</span></p>
+<p><span class="mini-section">マージ手順</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>各ステップで確率が最小の２ノードをマージし，新たなノードを作る:</p>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.8em;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">ステップ</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">マージ対象</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">新ノード</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; padding: 10px; border: 1px solid #051C2C;">キュー（確率昇順）</th>
+</tr>
+</thead>
+<tbody style="text-align: center;">
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">初期</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">—</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">—</td>
+<td style="text-align: left; padding: 8px; border: 1px solid #D1D7DB;">\(s_5\)(0.05), \(s_4\)(0.10), \(s_3\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(s_5\)(0.05) + \(s_4\)(0.10)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold">\(n_1\)(0.15)</td>
+<td style="text-align: left; padding: 8px; border: 1px solid #D1D7DB;">\(s_3\)(0.15), \(n_1\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(s_3\)(0.15) + \(n_1\)(0.15)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold">\(n_2\)(0.30)</td>
+<td style="text-align: left; padding: 8px; border: 1px solid #D1D7DB;">\(n_2\)(0.30), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(n_2\)(0.30) + \(s_2\)(0.30)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold">\(n_3\)(0.60)</td>
+<td style="text-align: left; padding: 8px; border: 1px solid #D1D7DB;">\(s_1\)(0.40), \(n_3\)(0.60)</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">\(s_1\)(0.40) + \(n_3\)(0.60)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold">root(1.00)</td>
+<td style="text-align: left; padding: 8px; border: 1px solid #D1D7DB;">root(1.00)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+<section id="ハフマン符号化法-22" class="slide level2">
+<h2>ハフマン符号化法: 2/2</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns font-09">
+<div class="column" style="width:45%;">
+<p><span class="mini-section">符号の構成過程</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>各マージで左の子に <code>0</code>，右の子に <code>1</code> を割り当てる:</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_1 &amp;: \underbrace{0}_{\text{root左}} \to \texttt{0} \\
+s_2 &amp;: \underbrace{1}_{\text{root右}}\underbrace{0}_{n_3\text{左}} \to \texttt{10} \\
+s_3 &amp;: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{0}_{n_2\text{左}} \to \texttt{110} \\
+s_4 &amp;: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{1}_{n_2\text{右}}\underbrace{1}_{n_1\text{右}} \to \texttt{1111} \\
+s_5 &amp;: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{1}_{n_2\text{右}}\underbrace{0}_{n_1\text{左}} \to \texttt{1110}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:55%;">
+<p><span class="mini-section">結果</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">記号</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">確率</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号長</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">符号</th>
+</tr>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_1\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">0</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_2\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">10</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_3\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.15</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">3</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">110</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_4\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.1</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">1111</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">\(s_5\)</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">0.05</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">1110</td>
+</tr>
+<tr class="even" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="3" style="text-align: right; padding: 12px; font-weight: bold; color: #475569;">平均符号長 (\(L\))</td>
+<td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4">2.05</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="math display">\[
+L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 = 2.05
+\]</span></p>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-05 font-12">REMARKS</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>ハフマン符号は<strong>最適な</strong>瞬時復号可能符号であることが証明されている（<span class="math inline">\(H \leq L &lt; H + 1\)</span>）</li>
+<li>本例ではファノ符号と同じ符号長配分 <span class="math inline">\((1,2,3,4,4)\)</span> となり <span class="math inline">\(L = 2.05\)</span>（エントロピー <span class="math inline">\(H \approx 2.01\)</span>）</li>
+<li>シャノン符号（<span class="math inline">\(L = 2.5\)</span>）に比べ，ハフマン・ファノはともにエントロピーに近い符号長を達成</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ハフマン符号とブロック化" class="slide level2">
+<h2>ハフマン符号とブロック化</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="def-block" style="font-size:1.1em;">
+<p><span class="def-title">ブロック化（拡大情報源）</span></p>
+<div class="def-contents">
+<div class="def-contents" style="font-size:0.9em;">
+<p>記号を <span class="math inline">\(m\)</span> 個ずつまとめた <strong>ブロック</strong> を新たな記号とみなしてハフマン符号化を行う． <span class="math inline">\(m\)</span> ブロックの平均符号長を <span class="math inline">\(L_m\)</span> とすると，<strong>1記号あたりの平均符号長</strong> <span class="math inline">\(L_m/m\)</span> は次を満たす:</p>
+<p><span class="math display">\[
+H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><span class="mini-section">Setup</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>2値情報源 <span class="math inline">\(S = \{0, 1\}\)</span>，<span class="math inline">\(P(0) = 0.9,\ P(1) = 0.1\)</span>，<span class="math inline">\(H(S) = 0.469\)</span> bits/記号</p>
+<div class="columns font-09">
+<div class="column" style="width:45%;">
+<p><span class="mini-section"><span class="math inline">\(m = 1\)</span>（記号単位）</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<ul>
+<li>記号が 2 種のみ → 各 1 bit しか割り当てられない</li>
+<li><span class="math inline">\(L_1 = 1.0\)</span>，<span class="math inline">\(L_1/1 = 1.0\)</span> bits/記号</li>
+<li>符号化効率: <span class="math inline">\(H/L = 0.469/1.0 = 46.9\%\)</span></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<p><span class="mini-section"><span class="math inline">\(m = 2\)</span>（2記号ブロック）</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white;">
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #051C2C">ブロック</th>
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #051C2C">確率</th>
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #051C2C">符号</th>
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #051C2C">符号長</th>
+</tr>
+</thead>
+<tbody style="text-align: center;">
+<tr class="odd">
+<td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">00</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">0.81</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">0</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">1</td>
+</tr>
+<tr class="even">
+<td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">01</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">0.09</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">10</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">2</td>
+</tr>
+<tr class="odd">
+<td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">10</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">0.09</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">111</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">3</td>
+</tr>
+<tr class="even">
+<td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">11</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">0.01</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">110</td>
+<td style="padding: 6px; border: 1px solid #D1D7DB">3</td>
+</tr>
+<tr class="odd" style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+<td colspan="3" style="text-align: right; padding: 8px; font-weight: bold; color: #475569;">\(L_2\)</td>
+<td style="padding: 8px; font-weight: bold; color: #16a34a">1.29</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p><span class="math inline">\(L_2/2 = 0.645\)</span> bits/記号（効率: <span class="math inline">\(72.7\%\)</span>）</p>
+</div></div>
+</section>
+<section id="ハフマン符号とブロック化-効率の改善" class="slide level2">
+<h2>ハフマン符号とブロック化: 効率の改善</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns font-09">
+<div class="column" style="width:55%;">
+<p><span class="mini-section">ブロックサイズと符号化効率</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div>
+  
+<table class="caption-top" style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<thead>
+<tr class="header" style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">ブロック長 \(m\)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">超記号数</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">\(L_m\)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">\(L_m / m\)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">上界 \(H + 1/m\)</th>
+<th data-quarto-table-cell-role="th" style="padding: 10px; border: 1px solid #051C2C">効率</th>
+</tr>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr class="odd">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">1</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">1.00</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">1.000</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">1.469</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">46.9%</td>
+</tr>
+<tr class="even">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">2</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">4</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">1.29</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0.645</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0.969</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">72.7%</td>
+</tr>
+<tr class="odd">
+<td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB">3</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">8</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">1.60</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0.533</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">0.802</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">88.0%</td>
+</tr>
+<tr class="even" style="border-top: 2px solid #051C2C; background-color: #f0fdf4;">
+<td style="padding: 10px; font-weight: bold; border: 1px solid #D1D7DB">\(m \to \infty\)</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">—</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">—</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">→ 0.469</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB">→ 0.469</td>
+<td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a">→ 100%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div><div class="column" style="width:45%;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div id="5ceb46da" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-8-output-1.png" width="564" height="468"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-05 font-12">REMARKS</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="math inline">\(m\)</span> を大きくすると <span class="math inline">\(L_m/m \to H(S)\)</span> に収束し，エントロピー限界に漸近的に到達可能</li>
+<li>代償として超記号数が <span class="math inline">\(|S|^m\)</span> に指数増大し，符号表のサイズと計算量が増大する</li>
+<li>前例の5記号情報源（<span class="math inline">\(H \approx 2.01\)</span>）では <span class="math inline">\(m=1\)</span> で既に <span class="math inline">\(L = 2.05\)</span> と近いため，ブロック化の恩恵は小さい</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ハフマン符号-実装" class="slide level2">
+<h2>ハフマン符号: 実装</h2>
+<p><span class="h2-submessage">ハフマン符号化は <strong>①最小ヒープによる木の構築</strong> と <strong>②再帰的な符号語の生成</strong> の2段階で実装できる</span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><span class="mini-section">擬似コード</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="font-08">
+<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-comment-delimiter="//" data-indent-size="1em" data-line-number-punc=":" data-caption-prefix="Algorithm" data-line-number="true" data-no-end="false">
+<div class="pseudocode">
+\begin{algorithm} \caption{Huffman Encoding} \begin{algorithmic} \Procedure{Encode}{$S$} \State $C \gets \textsf{Counter}(S)$ \Comment{出現頻度を集計} \State $Q \gets \textsf{MinHeap}(\{Node(k, v) \mid (k,v) \in C\})$ \Comment{最小ヒープ構築} \While{$|Q| &gt; 1$} \State $l \gets \textsf{Pop}(Q)$ \State $r \gets \textsf{Pop}(Q)$ \State $m \gets Node(\emptyset, \; l.count + r.count, \; l, \; r)$ \State $\textsf{Push}(Q, \; m)$ \EndWhile \State $root \gets Q[0]$ \State \Call{GenCode}{$root, \; \varepsilon$} \Return $\textsf{join}(\text{dict}[c] : c \in S)$ \Comment{符号語に置換して連結} \EndProcedure \State \Procedure{GenCode}{$node, \; code$} \If{$node.key \neq \emptyset$} \Comment{葉ノード} \State $\text{dict}[node.key] \gets code$ \Return \EndIf \State \Call{GenCode}{$node.left, \; code \,\|\, \text{"0"}$} \Comment{左の子 → 0} \State \Call{GenCode}{$node.right, \; code \,\|\, \text{"1"}$} \Comment{右の子 → 1} \EndProcedure \end{algorithmic} \end{algorithm}
+</div>
+</div>
+</div>
+</div><div class="column padding-L-10" style="width:50%;">
+<p><span class="mini-section">Python 実装</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="font-size: 0.75em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> heapq</span>
+<span id="cb3-2"><a></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="kw">class</span> HuffmanNode:</span>
+<span id="cb3-5"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key<span class="op">=</span><span class="va">None</span>, count<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-6"><a></a>        <span class="va">self</span>.key <span class="op">=</span> key</span>
+<span id="cb3-7"><a></a>        <span class="va">self</span>.count <span class="op">=</span> count</span>
+<span id="cb3-8"><a></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb3-9"><a></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
+<span id="cb3-10"><a></a></span>
+<span id="cb3-11"><a></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):           <span class="co"># ヒープの比較演算</span></span>
+<span id="cb3-12"><a></a>        <span class="cf">return</span> <span class="va">self</span>.count <span class="op">&lt;</span> other.count</span>
+<span id="cb3-13"><a></a></span>
+<span id="cb3-14"><a></a><span class="kw">class</span> Huffman:</span>
+<span id="cb3-15"><a></a>    <span class="kw">def</span> encode(<span class="va">self</span>, strings):</span>
+<span id="cb3-16"><a></a>        <span class="va">self</span>.encode_dict <span class="op">=</span> {}</span>
+<span id="cb3-17"><a></a>        <span class="va">self</span>.decode_dict <span class="op">=</span> {}</span>
+<span id="cb3-18"><a></a></span>
+<span id="cb3-19"><a></a>        counter <span class="op">=</span> Counter(strings)     <span class="co"># ①出現頻度を集計</span></span>
+<span id="cb3-20"><a></a>        heap <span class="op">=</span> [HuffmanNode(k, v) <span class="cf">for</span> k, v <span class="kw">in</span> counter.items()]</span>
+<span id="cb3-21"><a></a>        heapq.heapify(heap)            <span class="co"># ②最小ヒープ構築</span></span>
+<span id="cb3-22"><a></a></span>
+<span id="cb3-23"><a></a>        <span class="cf">while</span> <span class="bu">len</span>(heap) <span class="op">&gt;</span> <span class="dv">1</span>:           <span class="co"># ③最小2ノードをマージ</span></span>
+<span id="cb3-24"><a></a>            left <span class="op">=</span> heapq.heappop(heap)</span>
+<span id="cb3-25"><a></a>            right <span class="op">=</span> heapq.heappop(heap)</span>
+<span id="cb3-26"><a></a>            merged <span class="op">=</span> HuffmanNode(</span>
+<span id="cb3-27"><a></a>                <span class="va">None</span>, left.count <span class="op">+</span> right.count, left, right</span>
+<span id="cb3-28"><a></a>            )</span>
+<span id="cb3-29"><a></a>            heapq.heappush(heap, merged)</span>
+<span id="cb3-30"><a></a></span>
+<span id="cb3-31"><a></a>        <span class="va">self</span>.tree <span class="op">=</span> heap[<span class="dv">0</span>]            <span class="co"># ④根ノード</span></span>
+<span id="cb3-32"><a></a>        <span class="va">self</span>._generate_code(<span class="va">self</span>.tree, <span class="st">""</span>)</span>
+<span id="cb3-33"><a></a></span>
+<span id="cb3-34"><a></a>        <span class="cf">return</span> <span class="st">""</span>.join(               <span class="co"># ⑥符号語に置換</span></span>
+<span id="cb3-35"><a></a>            <span class="va">self</span>.encode_dict[c] <span class="cf">for</span> c <span class="kw">in</span> strings</span>
+<span id="cb3-36"><a></a>        )</span>
+<span id="cb3-37"><a></a></span>
+<span id="cb3-38"><a></a>    <span class="kw">def</span> _generate_code(<span class="va">self</span>, node, code):  <span class="co"># ⑤再帰走査</span></span>
+<span id="cb3-39"><a></a>        <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:       <span class="co"># 葉ノード</span></span>
+<span id="cb3-40"><a></a>            <span class="va">self</span>.encode_dict[node.key] <span class="op">=</span> code</span>
+<span id="cb3-41"><a></a>            <span class="va">self</span>.decode_dict[code] <span class="op">=</span> node.key</span>
+<span id="cb3-42"><a></a>            <span class="cf">return</span></span>
+<span id="cb3-43"><a></a>        <span class="va">self</span>._generate_code(node.left, code <span class="op">+</span> <span class="st">"0"</span>)   <span class="co"># 左→"0"</span></span>
+<span id="cb3-44"><a></a>        <span class="va">self</span>._generate_code(node.right, code <span class="op">+</span> <span class="st">"1"</span>)   <span class="co"># 右→"1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="ハフマン符号-実行例" class="slide level2">
+<h2>ハフマン符号: 実行例</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p>先ほどの実装を用いた <span class="math inline">\(S = \{s_1, s_2, s_3, s_4, s_5\}\)</span>, <span class="math inline">\(P = (0.4, 0.3, 0.15, 0.1, 0.05)\)</span> での実行例</p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">エンコード</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="op">&gt;&gt;&gt;</span> huff <span class="op">=</span> Huffman()</span>
+<span id="cb4-2"><a></a><span class="op">&gt;&gt;&gt;</span> symbols <span class="op">=</span> <span class="bu">list</span>(<span class="st">"aaaaaaaaabbbbbbcccdde"</span>)  <span class="co"># 頻度比 = 9:6:3:2:1 ≈ P</span></span>
+<span id="cb4-3"><a></a><span class="op">&gt;&gt;&gt;</span> encoded <span class="op">=</span> huff.encode(symbols)</span>
+<span id="cb4-4"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">sorted</span>(huff.encode_dict.items()):</span>
+<span id="cb4-5"><a></a>...     <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-6"><a></a>  a <span class="op">-&gt;</span> <span class="dv">0</span></span>
+<span id="cb4-7"><a></a>  b <span class="op">-&gt;</span> <span class="dv">10</span></span>
+<span id="cb4-8"><a></a>  c <span class="op">-&gt;</span> <span class="dv">110</span></span>
+<span id="cb4-9"><a></a>  d <span class="op">-&gt;</span> <span class="dv">1110</span></span>
+<span id="cb4-10"><a></a>  e <span class="op">-&gt;</span> <span class="dv">1111</span></span>
+<span id="cb4-11"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"encoded = </span><span class="sc">{</span>encoded<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-12"><a></a>encoded <span class="op">=</span> <span class="dv">000000000</span><span class="er">101010101010110110110111011101111</span></span>
+<span id="cb4-13"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"圧縮率: </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span><span class="sc">}</span><span class="ss"> "</span></span>
+<span id="cb4-14"><a></a>...       <span class="ss">f"= </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="op">/</span>(<span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span>)<span class="sc">:.2%}</span><span class="ss">"</span>)</span>
+<span id="cb4-15"><a></a>圧縮率: <span class="dv">42</span><span class="op">/</span><span class="dv">60</span> <span class="op">=</span> <span class="fl">70.00</span><span class="op">%</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">デコード</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="kw">def</span> decode(tree, bits):</span>
+<span id="cb5-2"><a></a>...     result <span class="op">=</span> []</span>
+<span id="cb5-3"><a></a>...     node <span class="op">=</span> tree</span>
+<span id="cb5-4"><a></a>...     <span class="cf">for</span> b <span class="kw">in</span> bits:</span>
+<span id="cb5-5"><a></a>...         node <span class="op">=</span> node.left <span class="cf">if</span> b <span class="op">==</span> <span class="st">"0"</span> <span class="cf">else</span> node.right</span>
+<span id="cb5-6"><a></a>...         <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:     <span class="co"># 葉に到達</span></span>
+<span id="cb5-7"><a></a>...             result.append(node.key)</span>
+<span id="cb5-8"><a></a>...             node <span class="op">=</span> tree              <span class="co"># 根に戻る</span></span>
+<span id="cb5-9"><a></a>...     <span class="cf">return</span> <span class="st">""</span>.join(result)</span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">=</span> decode(huff.tree, encoded)</span>
+<span id="cb5-12"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"decoded = </span><span class="sc">{</span>decoded<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-13"><a></a>decoded <span class="op">=</span> aaaaaaaaabbbbbbcccdde</span>
+<span id="cb5-14"><a></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">==</span> <span class="st">""</span>.join(symbols)</span>
+<span id="cb5-15"><a></a><span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="reveal_vspace" style="--vspace-height: 1em;"></div><div class="font-12">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-05">REMARKS</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>即時復号可能（prefix-free）なので，ビット列を先頭から読むだけで一意にデコードできる</li>
+<li>圧縮率 70% は，エントロピー <span class="math inline">\(H \approx 1.96\)</span> bit に対し平均符号長 <span class="math inline">\(L = 2.1\)</span> bit/symbol で情報理論的限界に近い</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+        <script type="text/javascript">
+        function _pseudocodeRenderAll() {
+          // Patch KaTeX to support commands not natively available
+          if (typeof katex !== "undefined" && !katex._pseudocodePatched) {
+            var _origRenderToString = katex.renderToString;
+            katex.renderToString = function(tex, options) {
+              options = options || {};
+              options.macros = Object.assign(options.macros || {}, {
+                "\\textsc": "\\textsf"
+              });
+              return _origRenderToString.call(katex, tex, options);
+            };
+            katex._pseudocodePatched = true;
+          }
+
+          document.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            if (el.querySelector(".ps-root")) return;
+            var pseudocodeOptions = {
+              indentSize: el.dataset.indentSize || "1.2em",
+              commentDelimiter: el.dataset.commentDelimiter || "//",
+              lineNumber: el.dataset.lineNumber === "true" ? true : false,
+              lineNumberPunc: el.dataset.lineNumberPunc || ":",
+              noEnd: el.dataset.noEnd === "true" ? true : false,
+              titlePrefix: el.dataset.captionPrefix || "Algorithm"
+            };
+            try {
+              pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+            } catch (e) {
+              console.error("pseudocode render error:", e);
+            }
+          });
+          document.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            var captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+            if (captionSpan !== null) {
+              var captionPrefix = el.dataset.captionPrefix + " ";
+              var captionNumber = "";
+              if (el.dataset.pseudocodeNumber) {
+                captionNumber = el.dataset.pseudocodeNumber + " ";
+                if (el.dataset.chapterLevel) {
+                  captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+                }
+              }
+              captionSpan.innerHTML = captionPrefix + captionNumber;
+            }
+          });
+        }
+        if (document.readyState === "complete") {
+          _pseudocodeRenderAll();
+        } else {
+          window.addEventListener("load", _pseudocodeRenderAll);
+        }
+        </script>
+      
+    
+
+</body></html>

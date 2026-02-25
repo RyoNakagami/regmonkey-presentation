@@ -7,242 +7,53 @@
     "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   },
   {
-    "objectID": "template/analysis-summary.html",
-    "href": "template/analysis-summary.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
+    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
+    "title": "公開鍵暗号と公開鍵認証の概要",
+    "section": "公開鍵暗号の概要",
+    "text": "公開鍵暗号の概要\n\n\n公開鍵暗号\n\n\n非対称型暗号方式とも呼ばれる\n秘密鍵を乱数で生成し，公開鍵は秘密鍵から，素数の席や離散対数により生成される\nデータをやり取りする際に，公開鍵で暗号化し，秘密鍵で復号する\n\n\n\n\n\n公開鍵暗号方式の仕組み\n\n\n\n\n\nデータ送信側\n\n\n\n\n\nデータ受信側\n\n\n\n\n\n\n\n公開鍵\n\n\n③暗号化\n\n\n\n\n\n\n\n\n\n\nデータ\n\n\n\n\n②公開鍵をコピー\n\n\n\n\n\n\n\n\n\n\n\n①キーペア作成\n\n\n\n公開鍵\n\n\n秘密鍵\n\n\n\n⑤ 復号\n\n\n\n\n\n\n\n\n\n\nデータ\n\n\n\n\n\n④暗号化したデータを送信"
   },
   {
-    "objectID": "template/analysis-summary.html#分析introductionスライド例",
-    "href": "template/analysis-summary.html#分析introductionスライド例",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵認証の概要",
+    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵認証の概要",
+    "title": "公開鍵暗号と公開鍵認証の概要",
+    "section": "公開鍵認証の概要",
+    "text": "公開鍵認証の概要\n\n\n公開鍵認証\n\n\n公開鍵暗号の鍵ペアを用いて，通信相手の正当性を検証する仕組み\n被認証側が秘密鍵で認証データを作成し，認証側が公開鍵で検証する\nSSH接続1やデジタル署名などで広く利用される\n\n\n\n\n\n公開鍵認証の仕組み\n\n\n\n\n\n認証側\n\n\n\n\n\n被認証側\n\n\n\n\n\n\n\n公開鍵\n\n\n⑤検証\n\n\n\n\n\n\n\n\n\n\n認証データ\n\n\n\n\n②公開鍵をコピー2\n\n\n\n\n\n\n\n\n\n\n\n①キーペア作成3\n\n\n\n公開鍵\n\n\n秘密鍵\n\n\n\n③作成\n\n\n\n\n\n\n\n\n\n\n認証データ\n\n\n\n\n\n④認証データを送信\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenSSHではサーバー側に登録された公開鍵情報を用いてクライアント認証を行い，その後，公開鍵暗号でセッション鍵を安全に交換して暗号化通信を行うサーバー側の~/.ssh/authorized_keysに公開鍵を登録コマンド例: ssh-keygen -t ed25519 -C \"hoshinokirby@pupupupu.com\" -f ~/.ssh/id_ed25519_github"
   },
   {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#ホスト認証とクライアント認証の違い",
+    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#ホスト認証とクライアント認証の違い",
+    "title": "公開鍵暗号と公開鍵認証の概要",
+    "section": "ホスト認証とクライアント認証の違い",
+    "text": "ホスト認証とクライアント認証の違い\n\n\n\n\nSSH接続における二段階の認証\n\n\nホスト認証: クライアントが接続先サーバーの正当性を確認する\nクライアント認証: サーバーがクライアント（ユーザー）の正当性を確認する\nSSH接続時，ホスト認証 → クライアント認証の順で実行される\n\n\n\n\n\nホスト認証 vs クライアント認証\n\n\n\n\n\n\nホスト認証\nクライアント認証\n\n\n\n\n目的\nサーバーの正当性を確認\nクライアントの正当性を確認\n\n\n検証する側\nクライアント\nサーバー\n\n\n鍵ペアの所有者\nサーバー\nクライアント\n\n\n公開鍵の保管場所\n~/.ssh/known_hosts\n~/.ssh/authorized_keys\n\n\n防ぐ脅威\n中間者攻撃（なりすましサーバー）\n不正ユーザーのアクセス\n\n\n\n\n\n\n\n\n\n\nsequenceDiagram\n    participant C as Client\n    participant S as Server\n\n    C-&gt;&gt;S: TCP接続\n\n    Note over C,S: 1. ホスト認証 (Server Authentication)\n    S-&gt;&gt;C: サーバ公開鍵送信\n    C-&gt;&gt;C: サーバ鍵を known_hosts と照合\n\n    C-&gt;S: セッション鍵生成 & 交換\n\n    Note over C,S: 2. クライアント認証 (Client Authentication)\n    C-&gt;&gt;S: ユーザ名送信\n    S-&gt;&gt;C: 認証方式要求 (password / publickey )\n    C-&gt;&gt;S: 公開鍵署名送信\n    S-&gt;&gt;S: 署名を公開鍵で検証\n    S-&gt;&gt;C: Authentication OK & セッション開始"
   },
   {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+    "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
+    "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
+    "title": "Summaryスライド",
+    "section": "Azure blue サマリースライドの構成要素",
+    "text": "Azure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
   },
   {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
+    "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "href": "posts/2025-05-16-summary-slide/index.html#summary-container",
+    "title": "Summaryスライド",
+    "section": ".summary-container",
+    "text": ".summary-container\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nsummary-container\n\ndisplay: flex\n\nコンテナの子要素（flex item）の並び方や配置を指定可能にする\n\nflex-direction: column\n\nflex itemsを縦方向に並べる\n\njustify-content: center\n\nflex item全体を縦方向中央に揃える"
   },
   {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
+    "objectID": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "href": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
+    "title": "Summaryスライド",
+    "section": ".block-azureblue-block",
+    "text": ".block-azureblue-block\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nblock-azureblue\n\ndisplay: block\n\n要素を「ブロック要素」として表示\n幅は親要素いっぱいに広がる\n\nbackground-color: #428ce6\n\nDodgerBlueをblockのtop 0.6em から bottom 0.5em\n\n.headline要素\n\nfont-size: 1emでbold処理\nline-height: 1"
   },
   {
-    "objectID": "posts/2926-02-17-law-cases/index.html#yahoobb-情報漏洩事件",
-    "href": "posts/2926-02-17-law-cases/index.html#yahoobb-情報漏洩事件",
-    "title": "データ活用と法的リスク",
-    "section": "Yahoo!BB 情報漏洩事件",
-    "text": "Yahoo!BB 情報漏洩事件\n個人情報の適切管理義務と不法行為責任 大阪地判H18.5.19\n\n\n\n\n\n論点\n\n\n個人情報の適切管理に必要な措置を講じなかったため情報が不正に取得された場合，管理主体は不法行為責任を負うか？\n関連条文: 民法709条・710条\n\n\n\n\n\n\n事実\n\n\n電気通信事業を営む \\(Y_1\\)（ヤフー株式会社）, \\(Y_2\\)（ソフトバンクBB） は共同してインターネット接続サービス等を提供\n\\(Y_2\\) は，社内サーバーに本件サービスにかかる顧客情報を記録していたが，社外からのメンテナンス作業を可能にするため，リモートサーバーを設置\n\\(Y_2\\) の業務委託先から派遣され，顧客サーバーの管理業務に従事していた \\(A\\) は，退職後，リモートアクセスのために付与されていた認証情報を用いて顧客サーバーにアクセスし，不正に顧客情報を取得\n個人情報（氏名、住所、電話番号など）が流出したことを受け，\\(Y\\) のインターネット接続サービス利用者 \\(X\\) らは， \\(Y\\) が個人情報の適切な管理を怠った過失等により自己情報コントロール権を侵害されたとして，\\(Y\\) らに対して共同不法行為に基づく損害賠償を請求\n\n\n\n\n\n\n判旨\n\n\nユーザー名とパスワードによる認証以外に外部からのアクセスを規制する措置が取られていない上，肝心のユーザー名とパスワードの管理が極めて不十分，と裁判所は指摘\n電気通信事業における個人情報保護に関するガイドラインや，個人情報保護法における個人情報の適切な管理に関する規定を踏まえ，裁判所は「外部からの不正アクセスを防止するための相当な措置を講ずべき注意義務を怠った過失」に基づき，BBテクノロジーの不法行為責任を認定\nヤフーに対する請求は，「ヤフーが直接管理していた情報の流出はなく、賠償責任は負わない」として棄却\n\n\n\n\n\n\nポイント\n\n\n管理主体が負う私法上の注意義務の内容確定に，ガイドラインや個人情報保護法の規定が果たす役割を認めた点で重要\n個人情報の適切な管理のため必要な措置を講ずべき注意義務を怠った場合，不法行為責任が認められ得るとした点も重要"
-  },
-  {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
-    "title": "pentagon-squared-boxスライド",
-    "section": "pentagon-squared-boxスライド例 with .pentagon-box-500",
-    "text": "pentagon-squared-boxスライド例 with .pentagon-box-500\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
-  },
-  {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-550 テンプレート",
-    "text": ".pentagon-box-550 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
-  },
-  {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-600 テンプレート",
-    "text": ".pentagon-box-600 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
-  },
-  {
-    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
-    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
-    "title": "pentagon-squared-boxスライド",
-    "section": ".pentagon-box-700 テンプレート",
-    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "動作環境セットアップ",
-    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
-    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Roo Code用Slide generator modeの作成",
-    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "Azure summaryスライドの作成",
-    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
-  },
-  {
-    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
-    "title": "RooCodeを活用したReveal.jsスライド作成",
-    "section": "hop-step-jumpスライドの作成",
-    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
-  },
-  {
-    "objectID": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
-    "href": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
-    "title": "hop-step-jumpスライド",
-    "section": "実務業務におけるデータサイエンティスト分類",
-    "text": "実務業務におけるデータサイエンティスト分類\n\n\n\n\nジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
-    "href": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
-    "title": "hop-step-jumpスライド",
-    "section": ".hop-step-jump-containerの構造解説",
-    "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "Summary",
-    "text": "Summary\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
-    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\n① メッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化\n\n\n\n\n\n② ストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\n③ スライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成\n1スライド1メッセージ\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "メッセージ作成の３つのキーポイント",
-    "text": "メッセージ作成の３つのキーポイント\n① メッセージの作成\n\n\n\n\n\n 明確な主張\n\n\n\n\nライドの目的は、意思決定に必要な情報を分かりやすく伝え、意思決定を促すこと\n明確な主張(Argument)にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n\n\n\n 筋の通った説明の流れ\n\n\n\n\n単に情報を並べるのではなく、情報を整理・構造化する\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n\n\n\n 結論に必要な情報だけ\n\n\n\n\n情報過多なスライドは、重要ポイントを埋もれさせ、判断を迷わせる\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "見出しと要点でストーリーを設計する",
-    "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n論理的な順序配置\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "スライドアウトライン設計例",
-    "text": "スライドアウトライン設計例\nスライドやドキュメントを作る前に、スライド構成を「ツリー型ロジック」で描くのが有効\n② ストーリーの骨子の構築\n\n\n\nスライド構成フォーマット\n\nhorizontal_tree:\n  - テーマ\n    - headings1\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n    - headings2\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n\n\nスライド構成例\n\n売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:\n  - 売上の全体傾向分析\n   - 売上は前年比▲12%、特に既存顧客売上が大幅減\n      - 全体売上と既存/新規の比較グラフ\n      - 時系列推移（過去12か月）\n  - 既存顧客離脱の要因分析\n    - 離脱要因は価格競争と顧客体験の低下\n      - 競合比較と価格感度分析\n  - リピート率改善の施策提案\n    - パーソナライズ施策が有効\n      - 類似顧客群へのキャンペーン効果の事例\n      - 実行計画・KPI設定案"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "明確なスライドメッセージのルール",
-    "text": "明確なスライドメッセージのルール\n③ スライド作成・資料化\n\n\n\n\n 1スライド1メッセージ\n\n\n\n\n主張や要点をひとつに絞る\n複数の情報を詰め込まず、聞き手の理解に集中を促す\n\n複数の主張や結論が同時にあると、聞き手が混乱してしまう\n\nMMUF(Main Message UpFront)\n\n\n\n\n\n\n オッカムの剃刀の原則\n\n\n\n\n聞き手が本質に集中する構成にする\n背景情報・前提知識は最低限にする\n伝えたい内容に直接関係しない情報は思い切って省く\n同じ情報を複数のスライドや文で繰り返さない\n\n\n\n\n\n\n メッセージと整合的な縦横軸\n\n\n\n\n秩序ある情報の列挙\n\n 大根, 手羽先, 手羽元, ネギ, 砂糖, 黒酢\n 骨付き鳥黒酢煮込みのための具材 肉: 手羽先, 手羽元 野菜: 大根, ネギ 調味料: 砂糖, 黒酢\n\nメッセージとスライド軸を合わせる\n\n論点別の「問い」「調査結果」を伝えるならば、縦に「論点軸」、横に「問い」と「調査結果」の比較があるべき"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "1スライドに複数メッセージが入ってしまっている",
-    "text": "1スライドに複数メッセージが入ってしまっている\n\n人件費の上昇により売上拡大にも関わらず営業利益減少\n\n\n\n\n\n\n\n\n\n１つのスライドに２つのメッセージが含まれてしまっている\n\n売上上昇にもかかわらず営業利益が減少\n営業利益減少の主要因は人件費の増加\n\n\n\n\n「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、 2011~2018年の数値は本筋に対して過剰な情報\n\n\n\n\n図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭\n特定の行や列が強調されておらず、全体が等価に見えてしまい、何が重要情報なのかわからない"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "1スライド1メッセージによる改善案",
-    "text": "1スライド1メッセージによる改善案\n1スライド1メッセージ\n\n\n\nここ10年で売上は19%拡大しているが、営業利益は34%の減少\n\n\n\n\n\n\n\n売上増減率\n+ 19%\n\nコスト増減率\n+ 38%\n\n営業利益増減率\n- 34%\n\n\n\n\nこのスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的\n「直感に反した情報」はシンプルかつ明快なロジックで説明したほうが良い"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "オッカムの剃刀の原則による改善案",
-    "text": "オッカムの剃刀の原則による改善案\nオッカムの剃刀の原則\n注目すべき情報だけに絞り、判断の迷いをなくす\n\n\n\n人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている\n\n\n\n\n\n前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「どのコストが特に増加したのか？」に答えることで論理的にスムーズな流れとなる"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "スライドに軸がなくメッセージが分かりづらい例",
-    "text": "スライドに軸がなくメッセージが分かりづらい例\n\nLNGの供給の安定供給にかかわる主な論点1\n\n\n\n① オペレーターの長期的な方針\n\n問: LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n調査結果: LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、カーボンニュートラルLNGの生産やメタンガスの排出量削減など、様々な取り組みを推進している\n\n\n\n② 収益性\n\n問: LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n調査結果:\n\nシェールガスのコスト競争力の高まりや従来のガスへの投資減少により、今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクトになり、生産拠点の集中度が高まる可能性がある\n原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\n\n\n\n③ LNGサプライサイド\n\n問: LNGインフラの潜在的なボトルネックとは何か\n調査結果:\n\nパイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される可能性がある\n\n\n\n\n問: 今後、世界のLNG供給構成はどう変化していくのか\n調査結果:\n\n世界のLNG生産量に占める米国の割合は、今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある\n現在、主要LNG輸入国は、調達先の多様化を進めており、複数の大陸にまたがる約10カ国からLNGを調達している\n従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる\n\n\n\n\n\n\n\n比較の困難さ\n\nカテゴリ軸と(「問」「調査結果」)の2軸が同じ縦軸のため、異なる主題間での「問」や「調査結果」の比較が煩雑\n\n視線の誘導の悪さ\n\n「オペレーターの長期的な方針」と「収益性」の各「調査結果」を比較する場合、縦に離れた位置にあるため、視線を大きく移動させる必要がある\n\n軸ラベルの冗長性\n\n同じ縦軸に異なる意味合いのラベル（「問」/「調査結果」）が何回も出現している\n重複排除の原則に反している\n\n\n\n\nエネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業より編集"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "比較のためのスライド軸の導入と重複ラベルの排除",
-    "text": "比較のためのスライド軸の導入と重複ラベルの排除\nメッセージと整合的な縦横軸\n\n\nrecord1:\n  カテゴリー: オペレーターの&lt;br&gt;長期的な方針\n  Question: \n    - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n  調査結果: \n    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class=\"regmonkey-bold\"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している\n\nrecord2:\n  カテゴリー: 収益性\n  Question: \n    - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n  調査結果:\n    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class=\"regmonkey-bold\"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある\n    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\nrecord3:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - LNGインフラの潜在的なボトルネックとは何か\n  調査結果:\n      - &lt;span class=\"regmonkey-bold\"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある\nreocord4:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - 今後、世界のLNG供給構成はどう変化していくのか\n  調査結果:\n    - 世界のLNG生産量に占める米国の割合は、&lt;span class=\"regmonkey-bold\"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;\n    - 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class=\"regmonkey-bold\"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している\n    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる"
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "論文におけるHeadingsとTakeaways",
-    "text": "論文におけるHeadingsとTakeaways\n\n\n\n\n\nHeadings( 見出し )\n\n\n議論や情報を階層化するためのセクションタイトル\n\n「イントロ」「先行研究」「手法」「結果」「考察」「結論」\n\nHeadingsから関心部分にすぐアクセスできる\n\n\n\n\nTakeaways( 要点 )\n\n\n各セクションの要点や主張を示す\n通常はHeadingの直後に書かれる(MMUFの原則)\n\n全文を読まずに、素早く全体の骨子・要点をつかめる\n\n\n\n\n\n\n\n\n 3. Data and Methodology\n\n\n    We combine satellite imagery with city-level land-use data to model temperature variation.\n\n\n\n    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.\n\n\n 3.1 Data Sources\n\n\n  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.\n\n\n  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ..."
-  },
-  {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "場面に応じてスライド作成クオリティは異なる",
-    "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstractスライド４つの構成要素",
-    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide",
-    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
-  },
-  {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide Pattern 2",
-    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
+    "objectID": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "href": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
+    "title": "Summaryスライド",
+    "section": "CSS設定と実装例",
+    "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
   },
   {
     "objectID": "posts/2025-10-17-index-slide/index.html#index",
@@ -266,32 +77,18 @@
     "text": "Index 2\n\n\n\n\n\n\n\n対象レベル\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n前提知識\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n必要環境\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+    "objectID": "posts/2026-02-17-law-cases/index.html#yahoobb-情報漏洩事件",
+    "href": "posts/2026-02-17-law-cases/index.html#yahoobb-情報漏洩事件",
+    "title": "データ活用と法的リスク",
+    "section": "Yahoo!BB 情報漏洩事件",
+    "text": "Yahoo!BB 情報漏洩事件\n個人情報の適切管理義務と不法行為責任 大阪地判H18.5.19\n\n\n\n\n\n論点\n\n\n\n個人情報の適切管理に必要な措置を講じなかったため情報が不正に取得された場合，管理主体は不法行為責任を負うか？\n関連条文: 民法709条・710条\n\n\n\n\n\n\n\n事実\n\n\n\n電気通信事業を営む \\(Y_1\\)（ヤフー株式会社）, \\(Y_2\\)（ソフトバンクBB） は共同してインターネット接続サービス等を提供\n\\(Y_2\\) は，社内サーバーに本件サービスにかかる顧客情報を記録していたが，社外からのメンテナンス作業を可能にするため，リモートサーバーを設置\n\\(Y_2\\) の業務委託先から派遣され，顧客サーバーの管理業務に従事していた \\(A\\) は，退職後，リモートアクセスのために付与されていた認証情報を用いて顧客サーバーにアクセスし，不正に顧客情報を取得\n個人情報（氏名、住所、電話番号など）が流出したことを受け，\\(Y\\) のインターネット接続サービス利用者 \\(X\\) らは， \\(Y\\) が個人情報の適切な管理を怠った過失等により自己情報コントロール権を侵害されたとして，\\(Y\\) らに対して共同不法行為に基づく損害賠償を請求\n\n\n\n\n\n\n\n判旨\n\n\n\nユーザー名とパスワードによる認証以外に外部からのアクセスを規制する措置が取られていない上，肝心のユーザー名とパスワードの管理が極めて不十分，と裁判所は指摘\n電気通信事業における個人情報保護に関するガイドラインや，個人情報保護法における個人情報の適切な管理に関する規定を踏まえ，裁判所は「外部からの不正アクセスを防止するための相当な措置を講ずべき注意義務を怠った過失」に基づき，BBテクノロジーの不法行為責任を認定\nヤフーに対する請求は，「ヤフーが直接管理していた情報の流出はなく、賠償責任は負わない」として棄却\n\n\n\n\n\n\n\nポイント\n\n\n\n管理主体が負う私法上の注意義務の内容確定に，ガイドラインや個人情報保護法の規定が果たす役割を認めた点で重要\n個人情報の適切な管理のため必要な措置を講ずべき注意義務を怠った場合，不法行為責任が認められ得るとした点も重要"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
-  },
-  {
-    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
-    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
-    "section": "",
-    "text": "データ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/2026-02-17-law-cases/index.html#眼科医事件",
+    "href": "posts/2026-02-17-law-cases/index.html#眼科医事件",
+    "title": "データ活用と法的リスク",
+    "section": "眼科医事件",
+    "text": "眼科医事件\n電話帳掲載情報を電子掲示板で公開する行為の不法行為責任 神戸地判H11.6.23\n\n\n\n\n\n論点\n\n\n\n電話帳に掲載されている氏名・住所・電話番号を電子掲示板に転載する行為は不法行為（民法709条）となるか？\n公開情報であっても，インターネット上で再公開することはプライバシー侵害に当たるか？\n関連条文: 民法709条・710条\n\n\n\n\n\n\n\n事実\n\n\n\n眼科医である \\(X\\)（原告）は，電話帳に自己の氏名・住所・電話番号を掲載していた\n被告 \\(Y\\) は，インターネット接続会社ニフティの電子掲示板上に \\(X\\) の電話帳掲載情報(眼科医の氏名，職業，診療所の住所・電話番号)を記載\n書き込みが行われた日は34回，翌日には10回，診療所にいたずら電話がかかってきた．さらに，注文していない商品が合計3回，通信販売会社から診療所に配達された\n\\(X\\) は，事故のプライバシー侵害，開業する眼科の診療の妨害，信用を既存されたと主張して， \\(Y\\) に対し不法行為に基づく損害賠償を請求\n\n\n\n\n\n\n\n判旨\n\n\n\n「本件個人情報は，\\(X\\) の業務の内容からして当然に対外的に周知されることが予定されているものといえるから，必ずしも純粋な私生活上の事柄であるとは言い難い」が，その個人情報であっても，正当な目的・方法のもとで利用される限度で公開が予定されているにすぎない\n個人情報を一定の目的のために公開したものが，それが「目的外に悪用されないために，右個人情報を右公開目的と関係ない範囲まで知られたくないと欲することは」保護されるべき利益であり，プライバシーの権利の基本的属性に含まれる\n本件個人情報は，公開を一般に欲しないし，診療所を探す者以外の一般人には未だ知られていない事柄であるといえる一方，電子掲示板に転載し，不特定多数が容易に閲覧できる状態に置く行為は，誹謗中傷被害の発生の危険性をもたらす恐れのある行為であることから，\\(X\\) のプライバシーを侵害するものとして不法行為（民法709条）に該当する\n\n\n\n\n\n\n\nポイント\n\n\n\n一旦公開された情報であっても，公開の目的・範囲を超えて拡散されない利益は保護されるという，個人情報の伝播範囲の制限を保護されるべき法的利益として認めた判決として重要"
   },
   {
     "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
@@ -420,6 +217,391 @@
     "text": "Windows + PowershellでのGit環境構築\n環境構築\n\n\n\n\n\n\n\n1 公式サイトからインストーラーをダウンロード\n\n\n\n\n2 インストールウィザードに従ってセットアップを進める\n\n\n\n\n\n\n\n\nGit Bash onlyを選択\n\n\n「Git Bash only」を選択しておくと環境がシンプルになります\n\n\n\n\n\n\n\n\n3 インストール完了後，PowerShell を開きPATHの確認\n\n\n\n\ngit --version\n\n\nバージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功\n\n\n\n\n\n4 PowerShellでのGitレポジトリ作成テスト\n\n\n\n\nPS&gt; cd ./Desktop\nPS&gt; mkdir ./test\nPS&gt; git init\nPS&gt; cd ..\nPS&gt; Remove-Item ./test -Recurse -Force\n\n\n上記がエラーなく実行できれば、Git の動作確認は完了\n\n\n\n\n\n\nPATHが通らない場合の対処法\n\n\n\n\n\nStep 1: 実行ファイルの場所を探す\n\n\n\ngit.exeの存在場所を確認する\n通常は D:\\Program Files\\Git\\bin\\git.exe\n\n\nTest-Path \"D:\\Program Files\\Git\\bin\\git.exe\"\n\n\n\n\n\n\nStep 2: 実行可能性のテスト\n\n\n\n& \"D:\\Program Files\\Git\\bin\\git.exe\" --version\n\n\nバージョン情報が出力されれば，次のステップ\n出力されない場合はGitの再インストール\n\n\n\n\n\n\nStep 3: PATHの追加\n\n\n\nTest-Path $PROFILE で表示されたprofileファイルに以下のラインを追加\n\n\nD:\\Program Files\\Git\\bin\\git.exe\n\n\n存在しない場合は，以下のコマンドで新規作成\n\n\nNew-Item -ItemType File -Path $PROFILE -Force"
   },
   {
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
+    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#executive-summary",
+    "href": "posts/2026-02-18-shannon/index.html#executive-summary",
+    "title": "通信を高速に，正確に",
+    "section": "Executive Summary",
+    "text": "Executive Summary\n\n\n\nシャノンは，価値ある情報を高速かつ正確に伝達するための原理を以下のように定式化\n\n情報源から送信される通信の量を減らす\n通信路の中で誤りを減らす\n\n\n\n\n通信の本質は，「効率性（圧縮）」と「信頼性（耐性）」のトレードオフを制御すること\n\n情報源符号化: 冗長性を排除し，データ転送効率を最大化する\n通信路符号化: 適切な冗長性を付加し，ノイズ環境下での正確性を担保する\n\n\n\n\n情報源符号化定理（シャノンの第一定理）: データの圧縮限界をエントロピー（\\(H\\)）として数学的に定義\n\n効率を追求した結果の平均符号長（\\(L\\)）は，エントロピーより小さくすることはできない（\\(L \\ge H\\)）\n適切に設計された瞬時符号を用いれば、平均符号長をエントロピーに極限まで近づけることが可能\n出現確率の大きな記号に短いビット列を割り当てるのが基本方針"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノンの通信モデル-1",
+    "href": "posts/2026-02-18-shannon/index.html#シャノンの通信モデル-1",
+    "title": "通信を高速に，正確に",
+    "section": "シャノンの通信モデル",
+    "text": "シャノンの通信モデル\n\n\n情報源符号化\n\n\n\n\n情報源\n\n\n\n一意復号可能\n瞬時符号\n\n\n\n\n\n\n\n\n通信路符号化 \n\n\n\n送信機\n\n\n\n通信量を減らす\n誤りを減らす\n\n\n\n\n\n\n\n\n\n\n\n\n通信路\n\n\n\n\n\n\n 雑音(ノイズ)\n\n\n\n\n\n\n\n通信路復号\n\n\n\n\n受信機\n\n\n\n\n\n\n情報源復号\n\n\n\n\n受信者\n\n\n\n\n\n\n\n価値ある情報を高速に，正確に送る\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n情報源符号化（情報を簡潔に言い表す）\n\n\n目的: 冗長性を排除し，データ量を最小化する（効率性の追求）\n手法: 出現頻度の高いデータに短い符号を割り当てる（例：ハフマン符号）\n役割: ストレージの節約，転送時間の短縮\n\n符号化は，電話で言えば，音圧を電流に変換する過程．モールス信号であれば，メッセージをある決められた方式で短点・長点・空白の列に変換する過程． \n\n\n\n\n\n\n\n\n通信路符号化（間違いを直せるようにする）\n\n\n目的: 意図的な冗長性を加え，エラー耐性を高める（信頼性の担保）\n手法: 誤り訂正符号を付加し，ノイズによる変質を検知・修正する\n役割: 不安定な通信路での正確なデータ伝送の維持\n\n分析発表では，理解力差や注意散漫といった認知ノイズの対策として，スライド整理や図解を行いますが， これは，メッセージが一部失われても意味を復元できるようにするプレゼンにおける誤り訂正"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノン通信モデルによるプレゼン設計",
+    "href": "posts/2026-02-18-shannon/index.html#シャノン通信モデルによるプレゼン設計",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン通信モデルによるプレゼン設計",
+    "text": "シャノン通信モデルによるプレゼン設計\n\n\n送信側 Phase\n\n\n\n\n\n1. 情報源符号化 (Source)\n\n\n概念: 伝えるべき本質情報の圧縮\nProtocol: 用語・前提の事前共有（Semantic Alignment）\nAction: 前提を揃え，冗長説明を削減し，論点を構造化\nGoal: 最小限の情報量で最大の意味を伝える\n\n\n\n\n\n\n2. 通信路符号化 (Channel)\n\n\n概念: 認知ノイズに耐えるための冗長設計\nProtocol: 提示フォーマットの統一（Formatting Convention）\nAction: アジェンダ提示，結論→根拠の型，図解・強調・再掲\nGoal: 情報が一部欠落しても意味が復元可能な状態を作る\n\n\n\n\n受信側 Phase\n\n\n\n\n\n3. 通信路復号化 (Channel)\n\n\n概念: 構造と文脈に基づく意味の補完\nProtocol: 質疑応答・確認（Feedback Loop）\nAction: 不明点の質問，提示形式に基づく理解補正\nGoal: ノイズで歪んだ情報を正しく修復する\n\n\n\n\n\n\n4. 情報源復号化 (Source)\n\n\n概念: 情報を意思決定へ変換する最終解釈\nProtocol: 評価基準の共有（Decision Criteria Alignment）\nAction: 合意された定義・基準に基づき，示唆を行動へ接続\nGoal: 送り手の意図を組織の判断・実行に転換する\n\n\n\n\n\nプロトコル詳細定義\n\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 0.85em\n  bullet_fontsize: 0.7em\n  keystat_fontsize: 0.7em\n  children:\n    - title: Semantic Alignment Protocol（用語・前提同期）\n      description:\n        - 主要用語の定義を事前に明示\n        - 前提条件・分析スコープを明確化\n        - 「何を議論しないか」も明示\n      width: [50, 50]\n\n    - title: Formatting Convention Protocol（提示形式合意）\n      description:\n        - 結論→根拠→示唆の順序を固定\n        - スライド1枚1メッセージ原則\n        - 色・太字・アイコンの意味を統一\n      width: [50, 50]\n\n\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 0.85em\n  bullet_fontsize: 0.7em\n  keystat_fontsize: 0.7em\n  children:\n    - title: Feedback Loop Protocol&lt;br&gt;（確認・応答規約）\n      description:\n        - 要点ごとに理解確認ポイントを設置\n        - Q&Aの時間と形式を明示\n        - 不明点は即時再説明要求可能とする\n      width: [50, 50]\n\n    - title: Decision Criteria Alignment Protocol（評価基準共有）\n      description:\n        - 意思決定の判断軸を事前提示\n        - 成功指標（KPI）を明確化\n        - 最終アウトプットの期待水準を合意\n      width: [50, 50]"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#個々の情報がもつ大きさ-情報量",
+    "href": "posts/2026-02-18-shannon/index.html#個々の情報がもつ大きさ-情報量",
+    "title": "通信を高速に，正確に",
+    "section": "個々の情報がもつ大きさ: 情報量",
+    "text": "個々の情報がもつ大きさ: 情報量\n情報が出現する確率を用いて情報量を定式化する\n\n自己情報量（Shannon Information Content）\n\n事象 \\(x\\) の生起確率を \\(P(x)\\) としたとき，その事象がもつ 情報量 \\(I(x)\\) は\n\\[\nI(x) = -\\log_2 P(x) \\quad [\\text{bit}]\n\\]\n\n\n\n\n直感的理解\n\n\n珍しい事象ほど情報量が大きい\n\n「明日太陽が昇る」(\\(P \\approx 1\\)) → 情報量 \\(\\approx 0\\)\n「明日雪が降る（沖縄）」(\\(P \\ll 1\\)) → 情報量 大\n\n\n情報量の性質\n\n\n\\(I(x) \\geq 0\\)（情報量は常に非負）\n\\(P(x) \\to 0 \\Rightarrow I(x) \\to \\infty\\)\n独立な事象の情報量は加法的\n\n\\(P(x, y) = P(x)P(y)\\) のとき\n\\(I(x, y) = I(x) + I(y)\\)"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ワインの選択と情報量",
+    "href": "posts/2026-02-18-shannon/index.html#ワインの選択と情報量",
+    "title": "通信を高速に，正確に",
+    "section": "ワインの選択と情報量",
+    "text": "ワインの選択と情報量\nブラインドテイスティングで品種を当てたときの「驚き」の大きさ\n\n\n\n設定\n\n\n\nワインの出現確率比が シャルドネ : アリゴテ : カベルネ : ピノノワール = 4 : 2 : 1 : 1 とする\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n計算\n\n\n\n\n品種\n\\(P(x)\\)\n\\(I(x) = -\\log_2 P(x)\\)\n\n\n\n\nシャルドネ\n\\(\\frac{4}{8} = 0.5\\)\n\\(1.00\\) bit\n\n\nアリゴテ\n\\(\\frac{2}{8} = 0.25\\)\n\\(2.00\\) bit\n\n\nカベルネ\n\\(\\frac{1}{8} = 0.125\\)\n\\(3.00\\) bit\n\n\nピノノワール\n\\(\\frac{1}{8} = 0.125\\)\n\\(3.00\\) bit\n\n\n\n\n\n\n\n\n解釈\n\n\n\nシャルドネを当てても驚きは 1 bit（コイン投げ1回分）\nカベルネ・ピノノワールを当てると 3 bit（コイン投げ3回分の驚き）\n出にくいワインほど，当てたときの情報価値が高い"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#情報源全体の不確実性-情報エントロピー",
+    "href": "posts/2026-02-18-shannon/index.html#情報源全体の不確実性-情報エントロピー",
+    "title": "通信を高速に，正確に",
+    "section": "情報源全体の不確実性: 情報エントロピー",
+    "text": "情報源全体の不確実性: 情報エントロピー\n確率分布全体が持つ「平均的な情報量」を定式化する\n\n情報エントロピー（Shannon Entropy）\n\n確率分布 \\(P = \\{P(x_1), P(x_2), \\ldots, P(x_n)\\}\\) に対して，情報エントロピー \\(H(P)\\) は\n\\[\nH(P) = -\\sum_{i=1}^{n} P(x_i) \\log_2 P(x_i) = \\mathbb{E}[I(x)] \\quad [\\text{bit}]\n\\]\n各事象の情報量 \\(I(x_i)\\) を，その生起確率 \\(P(x_i)\\) で重み付けした期待値\n\n\n\n\nエントロピーの性質\n\n\n\\(H(P) \\geq 0\\)（常に非負）\n\\(H(P) = 0 \\Leftrightarrow\\) 確実な事象（\\(P(x_i) = 1\\) のみ）\n最大値: \\(n\\) 個の事象が一様分布のとき \\(H_{\\max} = \\log_2 n\\)\n\n確率分布が一様に近いほど，エントロピーは大きい\n特定の事象に偏っているほど，エントロピーは小さい\n\n\n\n\n例: コイン投げ\n\n公正なコイン (\\(P(表) = P(裏) = 0.5\\)) → \\(H = 1\\) bit（最大エントロピー）\n偏ったコイン (\\(P(表) = 0.9, P(裏) = 0.1\\)) → \\(H \\approx 0.47\\) bit（低エントロピー）"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#アナログ信号からデジタルデータへ",
+    "href": "posts/2026-02-18-shannon/index.html#アナログ信号からデジタルデータへ",
+    "title": "通信を高速に，正確に",
+    "section": "アナログ信号からデジタルデータへ",
+    "text": "アナログ信号からデジタルデータへ\n\n\n\n\n\nアナログ信号\n\n\n\n連続時間\n連続振幅\n\n\n\n\n \n\n\n\n\n\n標本化 (Sampling)\n\n\n\n離散時間\n連続振幅\n\n\n\n\n\n\n\n\n\n\n\n量子化\n\n\n\n離散時間\n離散振幅\n\n\n\n\n\n\n\n\n\n\n\n符号化\n\n\n\n2進数化\nビット列変換\n\n\n\n\n \n\n\n\n\n\nデジタルデータ\n\n\n\n0/1 ビット列\n有限語長\n\n\n\n\n\n\n\n\n\nA/D変換: アナログ信号をデジタルデータへ"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#一意復号可能瞬時符号可能",
+    "href": "posts/2026-02-18-shannon/index.html#一意復号可能瞬時符号可能",
+    "title": "通信を高速に，正確に",
+    "section": "一意復号可能・瞬時符号可能",
+    "text": "一意復号可能・瞬時符号可能\n符号の性質による分類\n\n\n\n\n\n一意復号可能\n\n\n符号語の任意の有限連接がただ一通りに復号できる\n符号語の連接 \\(c_1 c_2 \\cdots = c_1' c_2' \\cdots\\) ならば \\(x_i = x_i'\\)\n\n\n\n\n\n瞬時符号（prefix-free）\n\n\nどの符号語も他の符号語の前置符号にならない\n先読みなしに1語ずつ即時復号できる\n\n\n\n\n\n必要十分条件\n\n\n瞬時符号 \\(\\Rightarrow\\) 一意復号可能\n逆は必ずしも成立しない：Case 3\n\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n文字\nCase 1\n(等長符号)\nCase 2\n(非一意)\nCase 3\n(前置符号)\nCase 4\n(非一意)\n\n\n\n\nA\n00\n0\n0\n0\n\n\nB\n01\n01\n01\n1\n\n\nC\n10\n011\n011\n10\n\n\nD\n11\n11\n111\n11\n\n\n一意復号可能\n✔\n✘\n✔\n✘\n\n\n瞬時符号\n✔\n✘\n✘\n✘\n\n\n備考\n等長符号\n\"011\"=C or A+D\nA⊂B⊂C（前置）\n\"10\"=C or B+A\n\n\n\n\n\n\n練習問題\n\n01101011 というパターンの文字列が与えられた時，Case 3プロトコルを活用する時，復号可能か？\nCase 3の符号をツリーを用いて表現してください"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#適切な符号長配分により平均符号長をエントロピーまで近似可能",
+    "href": "posts/2026-02-18-shannon/index.html#適切な符号長配分により平均符号長をエントロピーまで近似可能",
+    "title": "通信を高速に，正確に",
+    "section": "適切な符号長配分により，平均符号長をエントロピーまで近似可能",
+    "text": "適切な符号長配分により，平均符号長をエントロピーまで近似可能\n\n平均符号長\n\n\n\n各記号の出現確率 \\(p_i\\) と，割り当てられた符号長 \\(l_i\\) の期待値を平均符号長 \\(L\\) と呼ぶ\n\\(L\\) が情報エントロピー \\(H\\) に近いほど，伝送効率が高い\n\n\\[\nL = \\sum_{i=1}^np_il_i \\ \\ (\\text{理論限界:} L \\geq H)\n\\]\n\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n文字\n出現確率 \\(p_i\\)\n(偏りあり 4:2:1:1)\nCase 1: 等長\n(固定長 2bit)\nCase 2: 最適化\n(確率に比例)\nCase 3: 逆配分\n(非効率)\n\n\n\n\nA\n50% (1/2)\n00 (2)\n0 (1)\n111 (3)\n\n\nB\n25% (1/4)\n01 (2)\n10 (2)\n110 (3)\n\n\nC\n12.5% (1/8)\n10 (2)\n110 (3)\n10 (2)\n\n\nD\n12.5% (1/8)\n11 (2)\n111 (3)\n0 (1)\n\n\n平均符号長 (\\(L\\))\n2.00\n1.75\n2.625\n\n\n情報エントロピー (\\(H\\))\n1.75 bits"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノン符号化法",
+    "href": "posts/2026-02-18-shannon/index.html#シャノン符号化法",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン符号化法",
+    "text": "シャノン符号化法\n\n\nシャノン符号化法\n\n\n次の条件を満たす無記憶情報源の２元符号（シャノン符号）を構成する\n\\[\n-\\log P(s_k) \\leq l_k &lt; -\\log P(s_k) + 1\n\\]\n\n\n\n\nSetup\n\n情報源 \\(S = \\{s_1, s_2, s_3, s_4, s_5\\}\\)，各記号の発生確率:\n\\[\nP(s_1) = 0.4, \\quad P(s_2) = 0.3, \\quad P(s_3) = 0.15, \\quad P(s_4) = 0.1, \\quad P(s_5) = 0.05\n\\]\nステップ１\n\n発生確率の大きい順に並べる（上記は既にソート済み）\n\nステップ２: 符号長の決定\n\n次の条件を満たす正の整数を符号長 \\((l_1, l_2, l_3, l_4, l_5)\\) とする:\n\\[\n-\\log_2 P(s_k) \\leq l_k &lt; -\\log_2 P(s_k) + 1\n\\]\n\n\n\n\n\n記号\n条件\n符号長\n\n\n\n\n\\(s_1\\)\n\\(-\\log_2 0.4 \\leq l_1 &lt; -\\log_2 0.4 + 1\\)\n\\(l_1 = 2\\)\n\n\n\\(s_2\\)\n\\(-\\log_2 0.3 \\leq l_2 &lt; -\\log_2 0.3 + 1\\)\n\\(l_2 = 2\\)\n\n\n\\(s_3\\)\n\\(-\\log_2 0.15 \\leq l_3 &lt; -\\log_2 0.15 + 1\\)\n\\(l_3 = 3\\)\n\n\n\n\n\n\n\n記号\n条件\n符号長\n\n\n\n\n\\(s_4\\)\n\\(-\\log_2 0.1 \\leq l_4 &lt; -\\log_2 0.1 + 1\\)\n\\(l_4 = 4\\)\n\n\n\\(s_5\\)\n\\(-\\log_2 0.05 \\leq l_5 &lt; -\\log_2 0.05 + 1\\)\n\\(l_5 = 5\\)"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノン符号化法-符号の構成",
+    "href": "posts/2026-02-18-shannon/index.html#シャノン符号化法-符号の構成",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン符号化法: 符号の構成",
+    "text": "シャノン符号化法: 符号の構成\n\n\n\nステップ３: 累積確率の計算\n\n\\[\n\\begin{aligned}\nP_1 &= 0 \\\\\nP_2 &= P_1 + P(s_1) = 0.4 \\\\\nP_3 &= P_2 + P(s_2) = 0.7 \\\\\nP_4 &= P_3 + P(s_3) = 0.85 \\\\\nP_5 &= P_4 + P(s_4) = 0.95\n\\end{aligned}\n\\]\nステップ４: ２進数展開\n\n\\[\n\\begin{aligned}\nP_1 = 0 &\\to 0.00000\\ldots \\\\\nP_2 = 0.4 &\\to 0.01100\\ldots \\\\\nP_3 = 0.7 &\\to 0.10110\\ldots \\\\\nP_4 = 0.85 &\\to 0.11011\\ldots \\\\\nP_5 = 0.95 &\\to 0.11110\\ldots\n\\end{aligned}\n\\]\n\nステップ５: 符号の割当\n\n小数点以下 \\(l_k\\) 桁を \\(s_k\\) の符号とする:\n\n  \n\n\n\n記号\n確率\n累積確率(2進)\n符号長\n符号\n\n\n\n\n\\(s_1\\)\n0.4\n0.00000…\n2\n00\n\n\n\\(s_2\\)\n0.3\n0.01100…\n2\n01\n\n\n\\(s_3\\)\n0.15\n0.10110…\n3\n101\n\n\n\\(s_4\\)\n0.1\n0.11011…\n4\n1101\n\n\n\\(s_5\\)\n0.05\n0.11110…\n5\n11110\n\n\n平均符号長 (\\(L\\))\n2.5\n\n\n\n\n\n\n\\[\nL = 2 \\times 0.4 + 2 \\times 0.3 + 3 \\times 0.15 + 4 \\times 0.1 + 5 \\times 0.05 = 2.5\n\\]\n\n\n\n\n\n\n\nREMARKS\n\n\n\nシャノン符号は累積確率を２進数展開し，上位 \\(l_k\\) 桁を符号とするアルゴリズム\n後述するシャノン・ファノ符号化法は記号を確率の合計がほぼ等しい２群に再帰的に分割し，各群に 0/1 を割り当てるトップダウン型のアルゴリズム\nいずれも最適符号（ハフマン符号）とは限らない"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法-12",
+    "href": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法-12",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン・ファノ符号化法: 1/2",
+    "text": "シャノン・ファノ符号化法: 1/2\n\n\nシャノン・ファノ符号\n\n\n記号を発生確率の大きい順に並べ，確率の合計がほぼ等しくなるように再帰的に２群に分割し，各群に 0/1 を割り当てて符号を構成する\n\n\n\nSetup\n\n情報源 \\(S = \\{s_1, s_2, s_3, s_4, s_5\\}\\)，各記号の発生確率:\n\\[\nP(s_1) = 0.4, \\quad P(s_2) = 0.3, \\quad P(s_3) = 0.15, \\quad P(s_4) = 0.1, \\quad P(s_5) = 0.05\n\\]\n分割手順\n\n各ステップで確率の合計差が最小となる位置で分割し，上位群に 0，下位群に 1 を割り当てる:\n\n  \n\n\n\n分割\n上位群 (→0)\n下位群 (→1)\n確率差\n\n\n\n\n第1分割\n\\(\\{s_1\\}\\)　合計 0.40\n\\(\\{s_2, s_3, s_4, s_5\\}\\)　合計 0.60\n0.20\n\n\n第2分割\n\\(\\{s_2\\}\\)　合計 0.30\n\\(\\{s_3, s_4, s_5\\}\\)　合計 0.30\n0.00\n\n\n第3分割\n\\(\\{s_3\\}\\)　合計 0.15\n\\(\\{s_4, s_5\\}\\)　合計 0.15\n0.00\n\n\n第4分割\n\\(\\{s_4\\}\\)　合計 0.10\n\\(\\{s_5\\}\\)　合計 0.05\n0.05"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法-22",
+    "href": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法-22",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン・ファノ符号化法: 2/2",
+    "text": "シャノン・ファノ符号化法: 2/2\n\n\n\n符号の構成過程\n\n各分割で割り当てたビットを連結:\n\\[\n\\begin{aligned}\ns_1 &: \\underbrace{0}_{\\text{第1}} \\to \\texttt{0} \\\\\ns_2 &: \\underbrace{1}_{\\text{第1}}\\underbrace{0}_{\\text{第2}} \\to \\texttt{10} \\\\\ns_3 &: \\underbrace{1}_{\\text{第1}}\\underbrace{1}_{\\text{第2}}\\underbrace{0}_{\\text{第3}} \\to \\texttt{110} \\\\\ns_4 &: \\underbrace{1}_{\\text{第1}}\\underbrace{1}_{\\text{第2}}\\underbrace{1}_{\\text{第3}}\\underbrace{0}_{\\text{第4}} \\to \\texttt{1110} \\\\\ns_5 &: \\underbrace{1}_{\\text{第1}}\\underbrace{1}_{\\text{第2}}\\underbrace{1}_{\\text{第3}}\\underbrace{1}_{\\text{第4}} \\to \\texttt{1111}\n\\end{aligned}\n\\]\n\n結果\n\n\n  \n\n\n\n記号\n確率\n符号長\n符号\n\n\n\n\n\\(s_1\\)\n0.4\n1\n0\n\n\n\\(s_2\\)\n0.3\n2\n10\n\n\n\\(s_3\\)\n0.15\n3\n110\n\n\n\\(s_4\\)\n0.1\n4\n1110\n\n\n\\(s_5\\)\n0.05\n4\n1111\n\n\n平均符号長 (\\(L\\))\n2.05\n\n\n\n\n\n\n\\[\nL = 1 \\times 0.4 + 2 \\times 0.3 + 3 \\times 0.15 + 4 \\times 0.1 + 4 \\times 0.05 = 2.05\n\\]\n\n\n\n\n\n\n\nREMARKS\n\n\n\nシャノン符号の平均符号長 \\(L = 2.5\\) に対し，ファノ符号は \\(L = 2.05\\) とエントロピー \\(H \\approx 2.01\\) により近い\nファノ符号は分割の自由度があるため，分割方法によって結果が異なりうる(同じ確率和の分割が複数ある場合)\nいずれもハフマン符号のような最適性は保証されない"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法とツリー図",
+    "href": "posts/2026-02-18-shannon/index.html#シャノンファノ符号化法とツリー図",
+    "title": "通信を高速に，正確に",
+    "section": "シャノン・ファノ符号化法とツリー図",
+    "text": "シャノン・ファノ符号化法とツリー図"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号化法-12",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号化法-12",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号化法: 1/2",
+    "text": "ハフマン符号化法: 1/2\n\n\nハフマン符号\n\n\n発生確率の小さい記号から順にペアにまとめ，ボトムアップに２分木を構築して最適な瞬時復号可能符号を得る\n\n\n\nSetup\n\n情報源 \\(S = \\{s_1, s_2, s_3, s_4, s_5\\}\\)，各記号の発生確率:\n\\[\nP(s_1) = 0.4, \\quad P(s_2) = 0.3, \\quad P(s_3) = 0.15, \\quad P(s_4) = 0.1, \\quad P(s_5) = 0.05\n\\]\nマージ手順\n\n各ステップで確率が最小の２ノードをマージし，新たなノードを作る:\n\n  \n\n\n\nステップ\nマージ対象\n新ノード\nキュー（確率昇順）\n\n\n\n\n初期\n—\n—\n\\(s_5\\)(0.05), \\(s_4\\)(0.10), \\(s_3\\)(0.15), \\(s_2\\)(0.30), \\(s_1\\)(0.40)\n\n\n1\n\\(s_5\\)(0.05) + \\(s_4\\)(0.10)\n\\(n_1\\)(0.15)\n\\(s_3\\)(0.15), \\(n_1\\)(0.15), \\(s_2\\)(0.30), \\(s_1\\)(0.40)\n\n\n2\n\\(s_3\\)(0.15) + \\(n_1\\)(0.15)\n\\(n_2\\)(0.30)\n\\(n_2\\)(0.30), \\(s_2\\)(0.30), \\(s_1\\)(0.40)\n\n\n3\n\\(n_2\\)(0.30) + \\(s_2\\)(0.30)\n\\(n_3\\)(0.60)\n\\(s_1\\)(0.40), \\(n_3\\)(0.60)\n\n\n4\n\\(s_1\\)(0.40) + \\(n_3\\)(0.60)\nroot(1.00)\nroot(1.00)"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号化法-22",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号化法-22",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号化法: 2/2",
+    "text": "ハフマン符号化法: 2/2\n\n\n\n符号の構成過程\n\n各マージで左の子に 0，右の子に 1 を割り当てる:\n\\[\n\\begin{aligned}\ns_1 &: \\underbrace{0}_{\\text{root左}} \\to \\texttt{0} \\\\\ns_2 &: \\underbrace{1}_{\\text{root右}}\\underbrace{0}_{n_3\\text{左}} \\to \\texttt{10} \\\\\ns_3 &: \\underbrace{1}_{\\text{root右}}\\underbrace{1}_{n_3\\text{右}}\\underbrace{0}_{n_2\\text{左}} \\to \\texttt{110} \\\\\ns_4 &: \\underbrace{1}_{\\text{root右}}\\underbrace{1}_{n_3\\text{右}}\\underbrace{1}_{n_2\\text{右}}\\underbrace{1}_{n_1\\text{右}} \\to \\texttt{1111} \\\\\ns_5 &: \\underbrace{1}_{\\text{root右}}\\underbrace{1}_{n_3\\text{右}}\\underbrace{1}_{n_2\\text{右}}\\underbrace{0}_{n_1\\text{左}} \\to \\texttt{1110}\n\\end{aligned}\n\\]\n\n結果\n\n\n  \n\n\n\n記号\n確率\n符号長\n符号\n\n\n\n\n\\(s_1\\)\n0.4\n1\n0\n\n\n\\(s_2\\)\n0.3\n2\n10\n\n\n\\(s_3\\)\n0.15\n3\n110\n\n\n\\(s_4\\)\n0.1\n4\n1111\n\n\n\\(s_5\\)\n0.05\n4\n1110\n\n\n平均符号長 (\\(L\\))\n2.05\n\n\n\n\n\n\n\\[\nL = 1 \\times 0.4 + 2 \\times 0.3 + 3 \\times 0.15 + 4 \\times 0.1 + 4 \\times 0.05 = 2.05\n\\]\n\n\n\n\n\n\n\nREMARKS\n\n\n\nハフマン符号は最適な瞬時復号可能符号であることが証明されている（\\(H \\leq L &lt; H + 1\\)）\n本例ではファノ符号と同じ符号長配分 \\((1,2,3,4,4)\\) となり \\(L = 2.05\\)（エントロピー \\(H \\approx 2.01\\)）\nシャノン符号（\\(L = 2.5\\)）に比べ，ハフマン・ファノはともにエントロピーに近い符号長を達成"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号とブロック化",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号とブロック化",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号とブロック化",
+    "text": "ハフマン符号とブロック化\n\n\nブロック化（拡大情報源）\n\n\n記号を \\(m\\) 個ずつまとめた ブロック を新たな記号とみなしてハフマン符号化を行う． \\(m\\) ブロックの平均符号長を \\(L_m\\) とすると，1記号あたりの平均符号長 \\(L_m/m\\) は次を満たす:\n\\[\nH(S) \\leq \\frac{L_m}{m} &lt; H(S) + \\frac{1}{m}\n\\]\n\n\n\nSetup\n\n2値情報源 \\(S = \\{0, 1\\}\\)，\\(P(0) = 0.9,\\ P(1) = 0.1\\)，\\(H(S) = 0.469\\) bits/記号\n\n\n\\(m = 1\\)（記号単位）\n\n\n記号が 2 種のみ → 各 1 bit しか割り当てられない\n\\(L_1 = 1.0\\)，\\(L_1/1 = 1.0\\) bits/記号\n符号化効率: \\(H/L = 0.469/1.0 = 46.9\\%\\)\n\n\n\\(m = 2\\)（2記号ブロック）\n\n\n  \n\n\n\nブロック\n確率\n符号\n符号長\n\n\n\n\n00\n0.81\n0\n1\n\n\n01\n0.09\n10\n2\n\n\n10\n0.09\n111\n3\n\n\n11\n0.01\n110\n3\n\n\n\\(L_2\\)\n1.29\n\n\n\n\n\n\\(L_2/2 = 0.645\\) bits/記号（効率: \\(72.7\\%\\)）"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号とブロック化-効率の改善",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号とブロック化-効率の改善",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号とブロック化: 効率の改善",
+    "text": "ハフマン符号とブロック化: 効率の改善\n\n\n\nブロックサイズと符号化効率\n\n\n  \n\n\n\nブロック長 \\(m\\)\n超記号数\n\\(L_m\\)\n\\(L_m / m\\)\n上界 \\(H + 1/m\\)\n効率\n\n\n\n\n1\n2\n1.00\n1.000\n1.469\n46.9%\n\n\n2\n4\n1.29\n0.645\n0.969\n72.7%\n\n\n3\n8\n1.60\n0.533\n0.802\n88.0%\n\n\n\\(m \\to \\infty\\)\n—\n—\n→ 0.469\n→ 0.469\n→ 100%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nREMARKS\n\n\n\n\\(m\\) を大きくすると \\(L_m/m \\to H(S)\\) に収束し，エントロピー限界に漸近的に到達可能\n代償として超記号数が \\(|S|^m\\) に指数増大し，符号表のサイズと計算量が増大する\n前例の5記号情報源（\\(H \\approx 2.01\\)）では \\(m=1\\) で既に \\(L = 2.05\\) と近いため，ブロック化の恩恵は小さい"
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号-実装",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号-実装",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号: 実装",
+    "text": "ハフマン符号: 実装\nハフマン符号化は ①最小ヒープによる木の構築 と ②再帰的な符号語の生成 の2段階で実装できる\n\n\n擬似コード\n\n\n\n\n\\begin{algorithm} \\caption{Huffman Encoding} \\begin{algorithmic} \\Procedure{Encode}{$S$} \\State $C \\gets \\textsf{Counter}(S)$ \\Comment{出現頻度を集計} \\State $Q \\gets \\textsf{MinHeap}(\\{Node(k, v) \\mid (k,v) \\in C\\})$ \\Comment{最小ヒープ構築} \\While{$|Q| &gt; 1$} \\State $l \\gets \\textsf{Pop}(Q)$ \\State $r \\gets \\textsf{Pop}(Q)$ \\State $m \\gets Node(\\emptyset, \\; l.count + r.count, \\; l, \\; r)$ \\State $\\textsf{Push}(Q, \\; m)$ \\EndWhile \\State $root \\gets Q[0]$ \\State \\Call{GenCode}{$root, \\; \\varepsilon$} \\Return $\\textsf{join}(\\text{dict}[c] : c \\in S)$ \\Comment{符号語に置換して連結} \\EndProcedure \\State \\Procedure{GenCode}{$node, \\; code$} \\If{$node.key \\neq \\emptyset$} \\Comment{葉ノード} \\State $\\text{dict}[node.key] \\gets code$ \\Return \\EndIf \\State \\Call{GenCode}{$node.left, \\; code \\,\\|\\, \\text{\"0\"}$} \\Comment{左の子 → 0} \\State \\Call{GenCode}{$node.right, \\; code \\,\\|\\, \\text{\"1\"}$} \\Comment{右の子 → 1} \\EndProcedure \\end{algorithmic} \\end{algorithm}\n\n\n\n\nPython 実装\n\nimport heapq\nfrom collections import Counter\n\nclass HuffmanNode:\n    def __init__(self, key=None, count=0, left=None, right=None):\n        self.key = key\n        self.count = count\n        self.left = left\n        self.right = right\n\n    def __lt__(self, other):           # ヒープの比較演算\n        return self.count &lt; other.count\n\nclass Huffman:\n    def encode(self, strings):\n        self.encode_dict = {}\n        self.decode_dict = {}\n\n        counter = Counter(strings)     # ①出現頻度を集計\n        heap = [HuffmanNode(k, v) for k, v in counter.items()]\n        heapq.heapify(heap)            # ②最小ヒープ構築\n\n        while len(heap) &gt; 1:           # ③最小2ノードをマージ\n            left = heapq.heappop(heap)\n            right = heapq.heappop(heap)\n            merged = HuffmanNode(\n                None, left.count + right.count, left, right\n            )\n            heapq.heappush(heap, merged)\n\n        self.tree = heap[0]            # ④根ノード\n        self._generate_code(self.tree, \"\")\n\n        return \"\".join(               # ⑥符号語に置換\n            self.encode_dict[c] for c in strings\n        )\n\n    def _generate_code(self, node, code):  # ⑤再帰走査\n        if node.key is not None:       # 葉ノード\n            self.encode_dict[node.key] = code\n            self.decode_dict[code] = node.key\n            return\n        self._generate_code(node.left, code + \"0\")   # 左→\"0\"\n        self._generate_code(node.right, code + \"1\")   # 右→\"1\""
+  },
+  {
+    "objectID": "posts/2026-02-18-shannon/index.html#ハフマン符号-実行例",
+    "href": "posts/2026-02-18-shannon/index.html#ハフマン符号-実行例",
+    "title": "通信を高速に，正確に",
+    "section": "ハフマン符号: 実行例",
+    "text": "ハフマン符号: 実行例\n\n先ほどの実装を用いた \\(S = \\{s_1, s_2, s_3, s_4, s_5\\}\\), \\(P = (0.4, 0.3, 0.15, 0.1, 0.05)\\) での実行例\n\n\n\nエンコード\n\n&gt;&gt;&gt; huff = Huffman()\n&gt;&gt;&gt; symbols = list(\"aaaaaaaaabbbbbbcccdde\")  # 頻度比 = 9:6:3:2:1 ≈ P\n&gt;&gt;&gt; encoded = huff.encode(symbols)\n&gt;&gt;&gt; for k, v in sorted(huff.encode_dict.items()):\n...     print(f\"  {k} -&gt; {v}\")\n  a -&gt; 0\n  b -&gt; 10\n  c -&gt; 110\n  d -&gt; 1110\n  e -&gt; 1111\n&gt;&gt;&gt; print(f\"encoded = {encoded}\")\nencoded = 000000000101010101010110110110111011101111\n&gt;&gt;&gt; print(f\"圧縮率: {len(encoded)}/{len(symbols)*3} \"\n...       f\"= {len(encoded)/(len(symbols)*3):.2%}\")\n圧縮率: 42/60 = 70.00%\n\nデコード\n\n&gt;&gt;&gt; def decode(tree, bits):\n...     result = []\n...     node = tree\n...     for b in bits:\n...         node = node.left if b == \"0\" else node.right\n...         if node.key is not None:     # 葉に到達\n...             result.append(node.key)\n...             node = tree              # 根に戻る\n...     return \"\".join(result)\n\n&gt;&gt;&gt; decoded = decode(huff.tree, encoded)\n&gt;&gt;&gt; print(f\"decoded = {decoded}\")\ndecoded = aaaaaaaaabbbbbbcccdde\n&gt;&gt;&gt; decoded == \"\".join(symbols)\nTrue\n\n\n\n\n\n\n\nREMARKS\n\n\n\n即時復号可能（prefix-free）なので，ビット列を先頭から読むだけで一意にデコードできる\n圧縮率 70% は，エントロピー \\(H \\approx 1.96\\) bit に対し平均符号長 \\(L = 2.1\\) bit/symbol で情報理論的限界に近い"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#動作環境セットアップ",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "動作環境セットアップ",
+    "text": "動作環境セットアップ\n\n\n\n\n必要ツール\n\n\n\n\n\n\nQuarto\n\n\nドキュメントやスライド作成のためのオープンソースツール\nReveal.jsスライドの生成が可能\n\n\n\n\n\nVSCode\n\n\n\n開発環境用（スライド作成環境）エディタ\nRooCode動作に必要\n拡張機能を通じてMarkdownやQuartoのサポートを追加可能\n\n\n\n\n\n\nインストール手順\n\n\n\n下記の方法はUbuntu 22.04LTSでのインストールを想定\nmacOSやWindowsの場合は公式ドキュメントを参照してください\n\n\n\n# VSCodeのインストール\nsudo apt update\nsudo apt install code\n\n# Quartoのインストール\nexport QUARTO_VERSION=\"1.5.54\"\nsudo mkdir -p /opt/quarto/${QUARTO_VERSION}\nsudo curl -o quarto.tar.gz -L \\\n    \"https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz\"\nsudo tar -zxvf quarto.tar.gz \\\n    -C \"/opt/quarto/${QUARTO_VERSION}\" \\\n    --strip-components=1\nsudo rm quarto.tar.gz\n\n# Quartoの動作確認\n/opt/quarto/\"${QUARTO_VERSION}\"/bin/quarto check\n\n# Add symbols\nsudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#quartoスライド作成に必要なツール-roocodeとreveal.js",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Quartoスライド作成に必要なツール: RooCodeとReveal.js",
+    "text": "Quartoスライド作成に必要なツール: RooCodeとReveal.js\n\n\n\n\n\n\nRooCode\n\n\n\n\nAIによるコード生成支援\n\nRooCodeは、AIを活用してプログラミング作業を効率化するVSCode用ツール\ncssやスライドテンプレートを踏まえて、生成AIの文章をスライド化するタスクを実行させることが可能\n\n\n\n\nVSCode拡張機能経由インストール\n\next install RooVeterinaryInc.roo-cline\n\n\n\n\n\n\n\n\nReveal.js\n\n\n\n\nウェブベースのスライドフレームワーク\n\nReveal.jsは、HTMLやCSS、JavaScriptを用いてスライドを作成するための軽量なフレームワーク\nブラウザ上で動作し、Quartoがインストールされているなら利用可能\n\n\n\n\nカスタマイズ性\n\ncss、プラグインを活用して、スライドのデザインや機能を自由にカスタマイズ可能\n\n\n\n\n多言語対応\n\n複数のプログラミング言語に対応\njsを用いた可視化など、スライドごとの細かなニーズに対応可能"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#roo-code用slide-generator-modeの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Roo Code用Slide generator modeの作成",
+    "text": "Roo Code用Slide generator modeの作成\n要約やテンプレートフォーマットを効率的に行うためのスライド生成に特化したモードを定義\n\n\n\nRoo Code custom mode setting\n\n{\n  \"slug\": \"slide-generator\",\n  \"name\": \"📝 Slide Generator\",\n  \"roleDefinition\": \"You are Roo, a slide generation assistant specializing in summarizing content and formatting it into predefined templates. Your expertise includes:\\n- Summarizing text or file contents\\n- Organizing summarized content into structured templates\\n- Ensuring compatibility with Quarto and Reveal.js formats\\n- Ensuring the output is concise, structured into sections (e.g., Background, Challenges, Proposed Method, Applications),\",\n  \"whenToUse\": \"Use this mode when generating slides from text or file inputs, especially for summarizing and formatting content into templates.\",\n  \"customInstructions\": \"Ensure all summarized content is concise and formatted according to the provided template. Validate compatibility with Quarto and Reveal.js.\",\n  \"groups\": [\n    \"read\",\n    [\n      \"edit\",\n      {\n        \"fileRegex\": \"\\\\.qmd$\",\n        \"description\": \"Quarto Markdown files only\"\n      }\n    ],\n    \"mcp\"\n  ],\n  \"source\": \"global\"\n}\n\n\nConfigの説明\n\n\n\nslug: モードの識別子（例: slide-generator）\nname: モードの表示名（例: 📝 Slide Generator）\nroleDefinition: モードの役割\n\nテキストやファイルの要約とテンプレートへのフォーマット\nQuartoやReveal.js形式との互換性を確保\n\nwhenToUse: スライド生成や要約が必要な場合に使用\ncustomInstructions: 要約を簡潔にし、テンプレートに従うことを指示\ngroups:\n\nread: ファイルの読み取り\nedit: .qmdファイルの編集\nmcp: 高度な操作を許可\n\nsource: グローバル設定からのモード"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#azure-summaryスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "Azure summaryスライドの作成",
+    "text": "Azure summaryスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n背景\n\n\n機械学習の進展により、多くの科学分野で革新的な成果が得られている\nデータ取得コストが高い場合、部分的な情報で意思決定を行う必要がある\n\n\n\n\n課題\n\n\n少量データでは従来の機械学習手法が収束性やロバスト性に欠ける\n非線形問題において、既存のガウス過程回帰法には限界がある\n\n\n\n\n提案手法\n\n\n物理法則を組み込んだニューラルネットワークを活用\n自動微分技術を用いて、入力座標やモデルパラメータに基づく微分を実現\n\n\n\n\n応用\n\n\nデータ駆動型の偏微分方程式の解法と発見\n新しい数値解法やモデル反転手法の開発\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. Summarize the introduction of \n   @/posts/2025-05-20-generate-slide-with-roocode/PIML-part1.pdf  \n   into Japanese. \n\n2. Format the summary using the @/template/azureblue-summary.qmd file. \n\n3. Ensure the output is concise, structured into sections,\n   and adheres to the template's style\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\nFigure 1: Introduction pages exmples"
+  },
+  {
+    "objectID": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "href": "posts/2025-05-20-generate-slide-with-roocode/index.html#hop-step-jumpスライドの作成",
+    "title": "RooCodeを活用したReveal.jsスライド作成",
+    "section": "hop-step-jumpスライドの作成",
+    "text": "hop-step-jumpスライドの作成\n\n\n\nRoo Code自動生成結果\n\n\n\n\n1 Step\n\n\n分析設計\n\n\nプロジェクトの目標を明確にし、必要なデータと分析手法を設計します\n\n\n\n目的\n\n\n分析の方向性を定め、必要なリソースを特定する\n\n\n成果物\n\n\n分析計画書\n\n\n\n\n\n2 Step\n\n\nベースラインモデル作成\n\n\n基本的なモデルを構築し、初期のパフォーマンスを評価します\n\n\n\n目的\n\n\nモデルの基準となるパフォーマンスを確立する\n\n\n成果物\n\n\nベースラインモデルとその評価結果\n\n\n\n\n\n3 Step\n\n\nモデル精緻化\n\n\nモデルを改良し、最適化してパフォーマンスを向上させます\n\n\n\n目的\n\n\nモデルの精度と信頼性を向上させる\n\n\n成果物\n\n\n最適化されたモデルとその評価結果\n\n\n\n\n\n\nRoo Code Prompt\n\n\n\n\nPrompt\n\n1. summarize 3 steps for datascience \n   project into japanese\n\n2. Format the summary using the \n   @/template/hop-step-jump.qmd  file. \n\n3. insert contensts at &lt;!-- insert contents --&gt; \n   in @/posts/2025-05-20-generate-slide-with-roocode/index.qmd\n\n\n\n/template/hop-step-jump.qmd\n\n\n3つのステッププロセスを表現するために設計された構造化された Quarto Markdown テンプレート\n\nホップ・ステップ・ジャンプの表現が主目的\n\nそれぞれのステップは、タイトル、説明、目的、成果物の特定のプレースホルダーを含むブロックにカプセル化されています"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
+    "section": "",
+    "text": "通信を高速に，正確に\n\n\n\n情報理論\n\n\n\n\n2026-02-18\n\n\n\n\n\n\n\n\n\n\nデータ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "template/azureblue-summary.html#section-1",
+    "href": "template/azureblue-summary.html#section-1",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
+  },
+  {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/analysis-summary.html",
+    "href": "template/analysis-summary.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/analysis-summary.html#分析introductionスライド例",
+    "href": "template/analysis-summary.html#分析introductionスライド例",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/pentagon-squared-box.html",
+    "href": "template/pentagon-squared-box.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "日本語入力システムの種類",
+    "text": "日本語入力システムの種類\n\n\n\nrecord1:\n  入力方式: FEP&lt;br&gt;(Front End Processor)\n  概要:\n    - キーボード割込みを直接処理する端末常駐型\n    - アプリ非依存・画面バッファ直接書換\n    - 単一プロセス制御\n  どこで処理？:\n    - OS / TTY レベル\n  tool例:\n    - canna + canuum\n    - wnn + uum\n\nrecord2:\n  入力方式: XIM&lt;br&gt;(X Input Method)\n  概要:\n    - X11標準IMプロトコル\n    - クライアント⇄IMサーバ通信型\n  どこで処理？:\n    - X11レイヤ\n  tool例:\n    - kinput2\n    - wnn + Xwnmo\n\nrecord3:\n  入力方式: X11 Framework型&lt;br&gt;(IBus / Fcitx5)\n  概要:\n    - XIMプロトコルに代わりD-Busで IM 通信\n    - GTK/Qt IM Moduleで透過的にアプリ統合\n  どこで処理？:\n    - D-Bus + X11レイヤ\n  tool例:\n    - fcitx5 + mozc\n    - ibus + mozc\n\nrecord4:\n  入力方式: Wayland IM\n  概要:\n    - compositor主導のIMプロトコル\n    - 厳格な入力フォーカス管理\n    - セキュア分離モデル\n  どこで処理？:\n    - Wayland compositor\n  tool例:\n    - fcitx5 + mozc\n\nrecord5:\n  入力方式: 組み込み型\n  概要:\n    - アプリ内部に入力処理を実装\n    - 外部IMサーバ不要\n    - アプリごとに独立実装\n  どこで処理？:\n    - アプリケーション内部\n  tool例:\n    - Emacs"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "FEP（Front-End Processor）",
+    "text": "FEP（Front-End Processor）\n\n\nFront-End Processor\n\n\nOS やターミナルのレベルでキー入力を横取りし，変換結果を画面に直接書き込む方式\nアプリケーション側は日本語入力の存在を意識しない\nGUI 環境の普及とともに役割を終えた\n\n\n\n\n    \n    \n        user\n    \n\n    \n        FEP\n    \n\n    \n        日本語変換サーバー\n    \n\n    \n        Application\n    \n\n    1\n    2\n    3\n    4\n\n    \n        \n            \n                \n            \n        \n\n        \n        \n        \n        \n        \n        \n        \n    \n\n\nFEPは単なる仲介者ではなく，サーバーへのリクエスト(②)とレスポンス(③)を制御する中心核として機能\nアプリケーションへの最終配送(④)までを一気通貫で管理する独立したプロトコル・スタックを形成している"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "XIM（X Input Method）",
+    "text": "XIM（X Input Method）\n\n\nX Input Method\n\n\nX Window System の標準プロトコルとして定義された入力方式\nアプリケーションが Xlib を通じて IM サーバーと通信し，入力をフィルタリングする\n同期通信によるパフォーマンス低下や，UI 描画の柔軟性の欠如が課題\n\n\n\n\n\n    \n    user\n    \n    X Server\n    \n    \n        Application\n        (Xlib)\n    \n\n    XIM Server\n\n    日本語変換サーバー\n\n    1\n    2\n    3\n    4\n    5\n    6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "X11 Framework型（Fcitx5 / IBus）",
+    "text": "X11 Framework型（Fcitx5 / IBus）\n\n\nX11 Framework Model\n\n\nD-Bus による疎結合化: XIMプロトコルに代わり，D-Bus で IM 通信を行うことで疎結合を実現\nIM Module の活用: アプリ側のツールキット（GTK/Qt）専用モジュールが D-Bus 通信を隠蔽する\n柔軟な描画: 候補ウィンドウを IM 側が独立した X11 ウィンドウとして表示するため，自由な UI 設計が可能\n\n\n\n\n\n        \n        \n            \n                \n                    \n                \n            \n\n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n        \n\n        \n            user\n        \n\n        \n            D-Bus(Message Bus)\n        \n\n        \n            Application\n            (GTK / Qt IM Module)\n        \n\n        \n            IM Framework(Fcitx5 / IBus)\n        \n\n        \n            日本語変換エンジン(Mozc)\n        \n\n        1\n        2\n        3\n        4\n        5\n        6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "Wayland Input Method",
+    "text": "Wayland Input Method\n\n\nWayland Input Method\n\n\ntext-input-v3 / input-method-v2 プロトコルで標準化された入力方式\nWayland compositor が入力を一元管理し，IM は compositor 経由でアプリと連携\nフォーカス管理とプロセス分離を前提としたセキュア設計\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        WaylandCompositor\n    \n\n    \n        Application\n    \n\n    \n        IM Service(Fcitx5 / IBus)\n    \n\n    \n        日本語変換エンジン(Mozc)\n    \n\n    1\n    2\n    3\n    4\n    5\n    6"
+  },
+  {
+    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
+    "href": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
+    "title": "Linuxにおける日本語入力方式",
+    "section": "組み込み型（Emacs 内蔵 IM）",
+    "text": "組み込み型（Emacs 内蔵 IM）\n\n\nEmbedded Input Method Model\n\n\n自己完結型設計: アプリケーション（Emacs等）内部に Lisp などで実装された IM ライブラリを直接持つ\n外部依存ゼロ: コンポジタや IM フレームワークを介さず、OS からの未加工イベントを直接処理\nシームレスな統合: エディタのバッファ管理と IM 状態が直結しており、高度なカスタマイズが可能\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        \n            Application (e.g., Emacs)\n        \n    \n\n    \n        Internal IM(Leim / SKK)\n    \n\n    \n        Text Buffer /Core Logic\n    \n\n    \n        Dictionary File(.pwn / .jisyo)\n    \n\n    1\n    2\n    3\n    4"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
+    "title": "MathJaxのレンダリング確認",
+    "section": "保存則と運動方程式",
+    "text": "保存則と運動方程式\n\n物理学における法則は，保存則か運動方程式 で表現される．表現方法は微分方程式が用いられる場合が多い．\n\n\n\n\n\n Law of conservation(保存則1)\n\n\n\n\nエネルギー保存則\n運動量保存則\n質量保存則\n\n\nExample 1 \nある筒の中で流体が一定方向で流れるとき，筒の中の密度 \\(\\rho\\) の時間的変化は 体積 \\(V\\)， 入流量 \\(Gin\\), 出流量 \\(Gout\\) を用いて，質量保存則の観点から以下のように表される\n\\[\nV\\frac{\\partial \\rho}{\\partial t} = Gin_t - Gout_t\n\\]\n\n\n\n\n\n\n\nLaw of motion(運動方程式)\n\n\n\n\nニュートンの法則\nフーリエの法則\nフィックの第一法則\n\n\nExample 2 \n熱エネルギーが温度の高い方から低い方へ輸送されることか，\\(x\\): 位置, \\(t\\): 時間, \\(\\lambda\\): 熱伝導率，\\(T(x, t)\\): 温度とすると，熱流密度 \\(q(x, t)\\) は\n\\[\nq(x, t) = -\\lambda \\frac{\\partial T(x, t)}{\\partial x} \\label{eq-fourier-law}\n\\]\n\n\n\n\nNoether’s theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と局所性",
+    "text": "微分方程式と局所性\n\n\nDefinition 1 局所性\n\nある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは\n\nまず周囲（隣の点）に影響を与え\n時間の１ステップごとに伝わっていく\n\nこのように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．\n\n\n\n数式による定式化\n\\[\n\\frac{\\partial y(t, x)}{\\partial t} = f(y(t,x), t, x)\n\\]\n\n時刻 \\(t\\) における変化率は，その時点の値 \\(y(t)\\) と時間 \\(t\\) 場所 \\(x\\) のみに依存する\n時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）\n過去全体に依存する場合は、時間的に非局所的"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
+    "title": "MathJaxのレンダリング確認",
+    "section": "微分方程式と因果性",
+    "text": "微分方程式と因果性\n\n\nDefinition 2 : 因果性 \nある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．\n\n\n ▶  常微分方程式による定式化\n\\[\n\\frac{dy(t)}{dt} = f(y(t), u(t))\n\\]\n\n時刻 \\(t\\) における出力は，現像の入力 \\(u(t)\\) と状態 \\(y(t)\\) のみから決まる\n\\(t=5\\) のような未来の解 \\(y(t)\\)は、初期値 \\(y_0\\) とそれまでの \\(u(t)\\) によってのみ決まる\n\n因果に基づいた未来の予測"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
+    "title": "MathJaxのレンダリング確認",
+    "section": "物理モデリングを使って何を求めるのか？: 順問題と逆問題",
+    "text": "物理モデリングを使って何を求めるのか？: 順問題と逆問題\n物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある\n\n\n\n\n\n\n順問題\n\n\n\n\n微分方程式が知られている場合に，その解を求める\n入力や条件が分かっていて、現象を予測\n\n\nExample 3 \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), パラメータ \\(\\theta\\) が与えられる\nGoal: \\(y(t)\\) を求める\n\n\\[\ny(t) = M(u(t), \\theta)\n\\]\n\n\n\n\n\n\n\n逆問題\n\n\n\n\n解の挙動が知られているとき，解が従う法則を探求する\n結果が観測されていて、その原因を特定\n\n\nExample 4  \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), 出力 \\(y(t)\\) が与えられる\nGoal: パラメータ \\(\\theta\\) を求める\n\n\\(P_\\theta\\) を 入力，モデルを条件付けたとき，\\(\\theta\\) によって特徴づけられる \\(y(t)\\) のデータ生成分布としたとき，観測データと整合的な \\(\\theta\\) を識別する"
+  },
+  {
+    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
+    "title": "MathJaxのレンダリング確認",
+    "section": "PINN: physics-informed neural network",
+    "text": "PINN: physics-informed neural network\n\n\nDefinition 3 : PINN \n運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法\n\n\n ▶  Approach\n\\[\nL = L_{D}(\\hat y, y) + L_{\\operatorname{physics}}(\\hat y)\n\\]\n\n\\(y\\): 目的変数\n\\(\\hat y\\): 目的変数の予測値\n\\(L_{D}(\\hat y, y)\\): 予測値とtrueの距離(自乗距離など)\n\\(L_{\\operatorname{pysics}}(\\hat y)\\): \\(\\hat y\\) が満たすべき物理ロジックとの適合度\n\n ▶  例: 熱伝導方程式\n\\[\n\\min \\frac{1}{n}\\sum_{i=1}^n(T(x, t) - T)^2 + P \\left\\|\\frac{\\partial T(x, t)}{\\partial t} - \\frac{\\lambda}{c\\rho}\\frac{\\partial^2 T(x, t)}{\\partial x^2}\\right\\|^2\n\\]"
+  },
+  {
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstractスライド４つの構成要素",
+    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
+  },
+  {
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide",
+    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
+  },
+  {
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide Pattern 2",
+    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
+  },
+  {
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#実務業務におけるデータサイエンティスト分類",
+    "title": "hop-step-jumpスライド",
+    "section": "実務業務におけるデータサイエンティスト分類",
+    "text": "実務業務におけるデータサイエンティスト分類\n\n\n\n\nジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "href": "posts/2025-05-29-hop-step-jump/index.html#hop-step-jump-containerの構造解説",
+    "title": "hop-step-jumpスライド",
+    "section": ".hop-step-jump-containerの構造解説",
+    "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
+  },
+  {
     "objectID": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
     "href": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
     "title": "分析提案スライドの作成",
@@ -509,6 +691,34 @@
     "title": "分析提案スライドの作成",
     "section": "Test",
     "text": "Test"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-squared-boxスライド例-with-.pentagon-box-500",
+    "title": "pentagon-squared-boxスライド",
+    "section": "pentagon-squared-boxスライド例 with .pentagon-box-500",
+    "text": "pentagon-squared-boxスライド例 with .pentagon-box-500\n\n\nConversational Data Analysis(会話型データ分析)\n\n\nデータ分析フロー全体において，DSメンバー同士のコミュニケーションを重視して分析を進めるスタイル\n仮説生成から検証・洞察共有まで，メンバー同士が自然に対話できる場を重視\n分析の試行錯誤をコラボレーションとして加速し，知識の再利用性を高めることを目指す\n\n\n\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-550-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-550 テンプレート",
+    "text": ".pentagon-box-550 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-600-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-600 テンプレート",
+    "text": ".pentagon-box-600 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
+  },
+  {
+    "objectID": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "href": "posts/2025-09-21-comparison-blocks/index.html#pentagon-box-700-テンプレート",
+    "title": "pentagon-squared-boxスライド",
+    "section": ".pentagon-box-700 テンプレート",
+    "text": ".pentagon-box-700 テンプレート\n\n\n\n\n\n\n\nデータ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP1 の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行\n\n\n\n\n\n\n\nResearch Question, Answer, Positioningの整理フレームワーク"
   },
   {
     "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
@@ -602,157 +812,94 @@
     "text": "効率的なプロジェクト管理のためのマイルストン設定観点\n\n\n\n\n\n プロジェクトの各段階\n\n\n\nプロジェクトの各段階の完了時点に設定し、次のフェーズへの移行条件を明確化\n\n\n要件定義完了\n設計完了\n開発完了\nテスト完了\n\n\n\n\n\n\n\n\n 重要な成果物の完成\n\n\n\n具体的な成果物が完成するポイントに設定し、進捗の可視化と品質確認を実現\n\n\nプロトタイプ完成\n主要なドキュメント完成\nシステムの一部機能完成\n最終成果物の納品\n\n\n\n\n\n\n\n\n 外部との連携ポイント\n\n\n\nステークホルダーとの重要な接点に設定し、コミュニケーション機会を明確化\n\n\n顧客へのデモンストレーション\n外部ベンダーとの契約締結\n他部署への引き渡し\n承認・レビュー会議"
   },
   {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
-    "href": "posts/2025-05-16-summary-slide/index.html#azure-blue-サマリースライドの構成要素",
-    "title": "Summaryスライド",
-    "section": "Azure blue サマリースライドの構成要素",
-    "text": "Azure blue サマリースライドの構成要素\n\n\n\n\nsummary-container\n\n\n&lt;div&gt; 要素\nFlexbox使用し、全体を縦に並べるレイアウト\n中身を縦方向に中央揃え\n\n\n\n\nblock-azureblue\n\n\n&lt;div&gt; 要素\n個々の情報ブロック\n左に青いライン（擬似要素 ::before）でアクセント\n\n\n\n\nheadline\n\n\n&lt;div&gt; 要素\nブロック内のタイトル用\n太字・黒色・行間狭め\n改行を要するような文字列の入力は想定していない"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする"
   },
   {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#summary-container",
-    "href": "posts/2025-05-16-summary-slide/index.html#summary-container",
-    "title": "Summaryスライド",
-    "section": ".summary-container",
-    "text": ".summary-container\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nsummary-container\n\ndisplay: flex\n\nコンテナの子要素（flex item）の並び方や配置を指定可能にする\n\nflex-direction: column\n\nflex itemsを縦方向に並べる\n\njustify-content: center\n\nflex item全体を縦方向中央に揃える"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
+    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\n① メッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化\n\n\n\n\n\n② ストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\n③ スライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成\n1スライド1メッセージ\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理"
   },
   {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
-    "href": "posts/2025-05-16-summary-slide/index.html#block-azureblue-block",
-    "title": "Summaryスライド",
-    "section": ".block-azureblue-block",
-    "text": ".block-azureblue-block\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする\n\n\n\n\nblock-azureblue\n\ndisplay: block\n\n要素を「ブロック要素」として表示\n幅は親要素いっぱいに広がる\n\nbackground-color: #428ce6\n\nDodgerBlueをblockのtop 0.6em から bottom 0.5em\n\n.headline要素\n\nfont-size: 1emでbold処理\nline-height: 1"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "メッセージ作成の３つのキーポイント",
+    "text": "メッセージ作成の３つのキーポイント\n① メッセージの作成\n\n\n\n\n\n 明確な主張\n\n\n\n\nライドの目的は、意思決定に必要な情報を分かりやすく伝え、意思決定を促すこと\n明確な主張(Argument)にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n\n\n\n 筋の通った説明の流れ\n\n\n\n\n単に情報を並べるのではなく、情報を整理・構造化する\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n\n\n\n 結論に必要な情報だけ\n\n\n\n\n情報過多なスライドは、重要ポイントを埋もれさせ、判断を迷わせる\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)"
   },
   {
-    "objectID": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
-    "href": "posts/2025-05-16-summary-slide/index.html#css設定と実装例",
-    "title": "Summaryスライド",
-    "section": "CSS設定と実装例",
-    "text": "CSS設定と実装例\n\n\n\nCSS設定\n.summary-container {\n  line-height: 1.1;\n  width: 100%;\n  height: 75%;\n  padding-top: 0.5em;\n  margin-bottom: 0.5em;\n  margin-left: 1em;\n  display: flex;\n  flex-direction: column; /* ブロックを縦に並べる */\n  justify-content: center; /* 全体を縦方向中央に揃える（親の高さ次第） */\n}\n\n.summary-container .block-azureblue {\n  margin-top: 0.5em;\n  margin-bottom: 0.6em;\n  display: block !important;\n  padding-left: 1em;\n  position: relative; /* 疑似要素設定に必要 */\n}\n\n.summary-container .block-azureblue::before {\n  content: \"\";\n  position: absolute;\n  top: 0.6em;\n  left: 0;\n  width: 0.5em; /* vertical barのwidth指定 */\n  bottom: 0.5em;\n  background-color: #428ce6;\n}\n\n.summary-container .block-azureblue .headline {\n  font-size: 1em;\n  font-weight: bold;\n  color: #1a1a1a;\n  line-height: 1;\n  margin-top: 0;\n  padding-bottom: 0em;\n}\n\nsummaryスライド実装例\n::::{.summary-container style=\"font-size:1em;\"}\n\n:::{.block-azureblue }\n:::{.headline}\nsummary-container\n:::\n\n\n- Flexbox使用し、全体を縦に並べるレイアウト\n- 中身を縦方向に中央揃え\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nblock-azureblue\n:::\n\n- 個々の情報ブロック\n- 左に青いライン（擬似要素 `::before`）でアクセント\n\n:::\n\n:::{.block-azureblue}\n:::{.headline}\nheadline\n:::\n\n- ブロック内のタイトル用\n- 太字・黒色・行間狭め\n- 改行を要するような文字列の入力は想定していない\n\n:::\n\n::::"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "見出しと要点でストーリーを設計する",
+    "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n論理的な順序配置\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
   },
   {
-    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
-    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵暗号の概要",
-    "title": "公開鍵暗号と公開鍵認証の概要",
-    "section": "公開鍵暗号の概要",
-    "text": "公開鍵暗号の概要\n\n\n公開鍵暗号\n\n\n非対称型暗号方式とも呼ばれる\n秘密鍵を乱数で生成し，公開鍵は秘密鍵から，素数の席や離散対数により生成される\nデータをやり取りする際に，公開鍵で暗号化し，秘密鍵で復号する\n\n\n\n\n\n公開鍵暗号方式の仕組み\n\n\n\n\n\nデータ送信側\n\n\n\n\n\nデータ受信側\n\n\n\n\n\n\n\n公開鍵\n\n\n③暗号化\n\n\n\n\n\n\n\n\n\n\nデータ\n\n\n\n\n②公開鍵をコピー\n\n\n\n\n\n\n\n\n\n\n\n①キーペア作成\n\n\n\n公開鍵\n\n\n秘密鍵\n\n\n\n⑤ 復号\n\n\n\n\n\n\n\n\n\n\nデータ\n\n\n\n\n\n④暗号化したデータを送信"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドアウトライン設計例",
+    "text": "スライドアウトライン設計例\nスライドやドキュメントを作る前に、スライド構成を「ツリー型ロジック」で描くのが有効\n② ストーリーの骨子の構築\n\n\n\nスライド構成フォーマット\n\nhorizontal_tree:\n  - テーマ\n    - headings1\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n    - headings2\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n\n\nスライド構成例\n\n売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:\n  - 売上の全体傾向分析\n   - 売上は前年比▲12%、特に既存顧客売上が大幅減\n      - 全体売上と既存/新規の比較グラフ\n      - 時系列推移（過去12か月）\n  - 既存顧客離脱の要因分析\n    - 離脱要因は価格競争と顧客体験の低下\n      - 競合比較と価格感度分析\n  - リピート率改善の施策提案\n    - パーソナライズ施策が有効\n      - 類似顧客群へのキャンペーン効果の事例\n      - 実行計画・KPI設定案"
   },
   {
-    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵認証の概要",
-    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#公開鍵認証の概要",
-    "title": "公開鍵暗号と公開鍵認証の概要",
-    "section": "公開鍵認証の概要",
-    "text": "公開鍵認証の概要\n\n\n公開鍵認証\n\n\n公開鍵暗号の鍵ペアを用いて，通信相手の正当性を検証する仕組み\n被認証側が秘密鍵で認証データを作成し，認証側が公開鍵で検証する\nSSH接続1やデジタル署名などで広く利用される\n\n\n\n\n\n公開鍵認証の仕組み\n\n\n\n\n\n認証側\n\n\n\n\n\n被認証側\n\n\n\n\n\n\n\n公開鍵\n\n\n⑤検証\n\n\n\n\n\n\n\n\n\n\n認証データ\n\n\n\n\n②公開鍵をコピー2\n\n\n\n\n\n\n\n\n\n\n\n①キーペア作成3\n\n\n\n公開鍵\n\n\n秘密鍵\n\n\n\n③作成\n\n\n\n\n\n\n\n\n\n\n認証データ\n\n\n\n\n\n④認証データを送信\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenSSHではサーバー側に登録された公開鍵情報を用いてクライアント認証を行い，その後，公開鍵暗号でセッション鍵を安全に交換して暗号化通信を行うサーバー側の~/.ssh/authorized_keysに公開鍵を登録コマンド例: ssh-keygen -t ed25519 -C \"hoshinokirby@pupupupu.com\" -f ~/.ssh/id_ed25519_github"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "明確なスライドメッセージのルール",
+    "text": "明確なスライドメッセージのルール\n③ スライド作成・資料化\n\n\n\n\n 1スライド1メッセージ\n\n\n\n\n主張や要点をひとつに絞る\n複数の情報を詰め込まず、聞き手の理解に集中を促す\n\n複数の主張や結論が同時にあると、聞き手が混乱してしまう\n\nMMUF(Main Message UpFront)\n\n\n\n\n\n\n オッカムの剃刀の原則\n\n\n\n\n聞き手が本質に集中する構成にする\n背景情報・前提知識は最低限にする\n伝えたい内容に直接関係しない情報は思い切って省く\n同じ情報を複数のスライドや文で繰り返さない\n\n\n\n\n\n\n メッセージと整合的な縦横軸\n\n\n\n\n秩序ある情報の列挙\n\n 大根, 手羽先, 手羽元, ネギ, 砂糖, 黒酢\n 骨付き鳥黒酢煮込みのための具材 肉: 手羽先, 手羽元 野菜: 大根, ネギ 調味料: 砂糖, 黒酢\n\nメッセージとスライド軸を合わせる\n\n論点別の「問い」「調査結果」を伝えるならば、縦に「論点軸」、横に「問い」と「調査結果」の比較があるべき"
   },
   {
-    "objectID": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#ホスト認証とクライアント認証の違い",
-    "href": "posts/2026-02-10-publickey-cryptography-and-authentication/index.html#ホスト認証とクライアント認証の違い",
-    "title": "公開鍵暗号と公開鍵認証の概要",
-    "section": "ホスト認証とクライアント認証の違い",
-    "text": "ホスト認証とクライアント認証の違い\n\n\n\n\nSSH接続における二段階の認証\n\n\nホスト認証: クライアントが接続先サーバーの正当性を確認する\nクライアント認証: サーバーがクライアント（ユーザー）の正当性を確認する\nSSH接続時，ホスト認証 → クライアント認証の順で実行される\n\n\n\n\n\nホスト認証 vs クライアント認証\n\n\n\n\n\n\nホスト認証\nクライアント認証\n\n\n\n\n目的\nサーバーの正当性を確認\nクライアントの正当性を確認\n\n\n検証する側\nクライアント\nサーバー\n\n\n鍵ペアの所有者\nサーバー\nクライアント\n\n\n公開鍵の保管場所\n~/.ssh/known_hosts\n~/.ssh/authorized_keys\n\n\n防ぐ脅威\n中間者攻撃（なりすましサーバー）\n不正ユーザーのアクセス\n\n\n\n\n\n\n\n\n\n\nsequenceDiagram\n    participant C as Client\n    participant S as Server\n\n    C-&gt;&gt;S: TCP接続\n\n    Note over C,S: 1. ホスト認証 (Server Authentication)\n    S-&gt;&gt;C: サーバ公開鍵送信\n    C-&gt;&gt;C: サーバ鍵を known_hosts と照合\n\n    C-&gt;S: セッション鍵生成 & 交換\n\n    Note over C,S: 2. クライアント認証 (Client Authentication)\n    C-&gt;&gt;S: ユーザ名送信\n    S-&gt;&gt;C: 認証方式要求 (password / publickey )\n    C-&gt;&gt;S: 公開鍵署名送信\n    S-&gt;&gt;S: 署名を公開鍵で検証\n    S-&gt;&gt;C: Authentication OK & セッション開始"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "1スライドに複数メッセージが入ってしまっている",
+    "text": "1スライドに複数メッセージが入ってしまっている\n\n人件費の上昇により売上拡大にも関わらず営業利益減少\n\n\n\n\n\n\n\n\n\n１つのスライドに２つのメッセージが含まれてしまっている\n\n売上上昇にもかかわらず営業利益が減少\n営業利益減少の主要因は人件費の増加\n\n\n\n\n「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、 2011~2018年の数値は本筋に対して過剰な情報\n\n\n\n\n図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭\n特定の行や列が強調されておらず、全体が等価に見えてしまい、何が重要情報なのかわからない"
   },
   {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#保存則と運動方程式",
-    "title": "MathJaxのレンダリング確認",
-    "section": "保存則と運動方程式",
-    "text": "保存則と運動方程式\n\n物理学における法則は，保存則か運動方程式 で表現される．表現方法は微分方程式が用いられる場合が多い．\n\n\n\n\n\n Law of conservation(保存則1)\n\n\n\n\nエネルギー保存則\n運動量保存則\n質量保存則\n\n\nExample 1 \nある筒の中で流体が一定方向で流れるとき，筒の中の密度 \\(\\rho\\) の時間的変化は 体積 \\(V\\)， 入流量 \\(Gin\\), 出流量 \\(Gout\\) を用いて，質量保存則の観点から以下のように表される\n\\[\nV\\frac{\\partial \\rho}{\\partial t} = Gin_t - Gout_t\n\\]\n\n\n\n\n\n\n\nLaw of motion(運動方程式)\n\n\n\n\nニュートンの法則\nフーリエの法則\nフィックの第一法則\n\n\nExample 2 \n熱エネルギーが温度の高い方から低い方へ輸送されることか，\\(x\\): 位置, \\(t\\): 時間, \\(\\lambda\\): 熱伝導率，\\(T(x, t)\\): 温度とすると，熱流密度 \\(q(x, t)\\) は\n\\[\nq(x, t) = -\\lambda \\frac{\\partial T(x, t)}{\\partial x} \\label{eq-fourier-law}\n\\]\n\n\n\n\nNoether’s theorem(ネーターの定理)より，作用に対称性があれば，それに付随して保存カレントが存在するので対称性と理解することもできる"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "1スライド1メッセージによる改善案",
+    "text": "1スライド1メッセージによる改善案\n1スライド1メッセージ\n\n\n\nここ10年で売上は19%拡大しているが、営業利益は34%の減少\n\n\n\n\n\n\n\n売上増減率\n+ 19%\n\nコスト増減率\n+ 38%\n\n営業利益増減率\n- 34%\n\n\n\n\nこのスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的\n「直感に反した情報」はシンプルかつ明快なロジックで説明したほうが良い"
   },
   {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と局所性",
-    "title": "MathJaxのレンダリング確認",
-    "section": "微分方程式と局所性",
-    "text": "微分方程式と局所性\n\n\nDefinition 1 局所性\n\nある空間の点において局所的にある時刻に発生した現象が，空間の異なる点に影響を与えるプロセスは\n\nまず周囲（隣の点）に影響を与え\n時間の１ステップごとに伝わっていく\n\nこのように，影響が空間的に近い点から順に伝播する性質を，「局所性」と呼ぶ．\n\n\n\n数式による定式化\n\\[\n\\frac{\\partial y(t, x)}{\\partial t} = f(y(t,x), t, x)\n\\]\n\n時刻 \\(t\\) における変化率は，その時点の値 \\(y(t)\\) と時間 \\(t\\) 場所 \\(x\\) のみに依存する\n時間的及び空間的にに局所的＝今と少し前しか見ない（空間についても同様）\n過去全体に依存する場合は、時間的に非局所的"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "オッカムの剃刀の原則による改善案",
+    "text": "オッカムの剃刀の原則による改善案\nオッカムの剃刀の原則\n注目すべき情報だけに絞り、判断の迷いをなくす\n\n\n\n人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている\n\n\n\n\n\n前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「どのコストが特に増加したのか？」に答えることで論理的にスムーズな流れとなる"
   },
   {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#微分方程式と因果性",
-    "title": "MathJaxのレンダリング確認",
-    "section": "微分方程式と因果性",
-    "text": "微分方程式と因果性\n\n\nDefinition 2 : 因果性 \nある時点の出力や状態は、「過去および現在の入力・状態」によってのみ決定されるという性質を，「因果性」と呼ぶ．\n\n\n ▶  常微分方程式による定式化\n\\[\n\\frac{dy(t)}{dt} = f(y(t), u(t))\n\\]\n\n時刻 \\(t\\) における出力は，現像の入力 \\(u(t)\\) と状態 \\(y(t)\\) のみから決まる\n\\(t=5\\) のような未来の解 \\(y(t)\\)は、初期値 \\(y_0\\) とそれまでの \\(u(t)\\) によってのみ決まる\n\n因果に基づいた未来の予測"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドに軸がなくメッセージが分かりづらい例",
+    "text": "スライドに軸がなくメッセージが分かりづらい例\n\nLNGの供給の安定供給にかかわる主な論点1\n\n\n\n① オペレーターの長期的な方針\n\n問: LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n調査結果: LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、カーボンニュートラルLNGの生産やメタンガスの排出量削減など、様々な取り組みを推進している\n\n\n\n② 収益性\n\n問: LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n調査結果:\n\nシェールガスのコスト競争力の高まりや従来のガスへの投資減少により、今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクトになり、生産拠点の集中度が高まる可能性がある\n原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\n\n\n\n③ LNGサプライサイド\n\n問: LNGインフラの潜在的なボトルネックとは何か\n調査結果:\n\nパイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される可能性がある\n\n\n\n\n問: 今後、世界のLNG供給構成はどう変化していくのか\n調査結果:\n\n世界のLNG生産量に占める米国の割合は、今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある\n現在、主要LNG輸入国は、調達先の多様化を進めており、複数の大陸にまたがる約10カ国からLNGを調達している\n従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる\n\n\n\n\n\n\n\n比較の困難さ\n\nカテゴリ軸と(「問」「調査結果」)の2軸が同じ縦軸のため、異なる主題間での「問」や「調査結果」の比較が煩雑\n\n視線の誘導の悪さ\n\n「オペレーターの長期的な方針」と「収益性」の各「調査結果」を比較する場合、縦に離れた位置にあるため、視線を大きく移動させる必要がある\n\n軸ラベルの冗長性\n\n同じ縦軸に異なる意味合いのラベル（「問」/「調査結果」）が何回も出現している\n重複排除の原則に反している\n\n\n\n\nエネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業より編集"
   },
   {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#物理モデリングを使って何を求めるのか-順問題と逆問題",
-    "title": "MathJaxのレンダリング確認",
-    "section": "物理モデリングを使って何を求めるのか？: 順問題と逆問題",
-    "text": "物理モデリングを使って何を求めるのか？: 順問題と逆問題\n物理モデリングを機械学習で解きたいとき，解きたい問題はどちらのカテゴリーに属するか把握する必要がある\n\n\n\n\n\n\n順問題\n\n\n\n\n微分方程式が知られている場合に，その解を求める\n入力や条件が分かっていて、現象を予測\n\n\nExample 3 \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), パラメータ \\(\\theta\\) が与えられる\nGoal: \\(y(t)\\) を求める\n\n\\[\ny(t) = M(u(t), \\theta)\n\\]\n\n\n\n\n\n\n\n逆問題\n\n\n\n\n解の挙動が知られているとき，解が従う法則を探求する\n結果が観測されていて、その原因を特定\n\n\nExample 4  \n\nGiven: 入力 \\(u(t)\\), モデル \\(M\\), 出力 \\(y(t)\\) が与えられる\nGoal: パラメータ \\(\\theta\\) を求める\n\n\\(P_\\theta\\) を 入力，モデルを条件付けたとき，\\(\\theta\\) によって特徴づけられる \\(y(t)\\) のデータ生成分布としたとき，観測データと整合的な \\(\\theta\\) を識別する"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "比較のためのスライド軸の導入と重複ラベルの排除",
+    "text": "比較のためのスライド軸の導入と重複ラベルの排除\nメッセージと整合的な縦横軸\n\n\nrecord1:\n  カテゴリー: オペレーターの&lt;br&gt;長期的な方針\n  Question: \n    - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n  調査結果: \n    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class=\"regmonkey-bold\"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している\n\nrecord2:\n  カテゴリー: 収益性\n  Question: \n    - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n  調査結果:\n    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class=\"regmonkey-bold\"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある\n    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\nrecord3:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - LNGインフラの潜在的なボトルネックとは何か\n  調査結果:\n      - &lt;span class=\"regmonkey-bold\"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある\nreocord4:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - 今後、世界のLNG供給構成はどう変化していくのか\n  調査結果:\n    - 世界のLNG生産量に占める米国の割合は、&lt;span class=\"regmonkey-bold\"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;\n    - 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class=\"regmonkey-bold\"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している\n    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる"
   },
   {
-    "objectID": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
-    "href": "posts/2025-05-15-brige-physics-modeling-with-ml/index.html#pinn-physics-informed-neural-network",
-    "title": "MathJaxのレンダリング確認",
-    "section": "PINN: physics-informed neural network",
-    "text": "PINN: physics-informed neural network\n\n\nDefinition 3 : PINN \n運動方程式や保存則を偏微分方程式を用いて表した物理モデリングをneural netで効率よく数値的に解くための手法\n\n\n ▶  Approach\n\\[\nL = L_{D}(\\hat y, y) + L_{\\operatorname{physics}}(\\hat y)\n\\]\n\n\\(y\\): 目的変数\n\\(\\hat y\\): 目的変数の予測値\n\\(L_{D}(\\hat y, y)\\): 予測値とtrueの距離(自乗距離など)\n\\(L_{\\operatorname{pysics}}(\\hat y)\\): \\(\\hat y\\) が満たすべき物理ロジックとの適合度\n\n ▶  例: 熱伝導方程式\n\\[\n\\min \\frac{1}{n}\\sum_{i=1}^n(T(x, t) - T)^2 + P \\left\\|\\frac{\\partial T(x, t)}{\\partial t} - \\frac{\\lambda}{c\\rho}\\frac{\\partial^2 T(x, t)}{\\partial x^2}\\right\\|^2\n\\]"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "論文におけるHeadingsとTakeaways",
+    "text": "論文におけるHeadingsとTakeaways\n\n\n\n\n\nHeadings( 見出し )\n\n\n議論や情報を階層化するためのセクションタイトル\n\n「イントロ」「先行研究」「手法」「結果」「考察」「結論」\n\nHeadingsから関心部分にすぐアクセスできる\n\n\n\n\nTakeaways( 要点 )\n\n\n各セクションの要点や主張を示す\n通常はHeadingの直後に書かれる(MMUFの原則)\n\n全文を読まずに、素早く全体の骨子・要点をつかめる\n\n\n\n\n\n\n\n\n 3. Data and Methodology\n\n\n    We combine satellite imagery with city-level land-use data to model temperature variation.\n\n\n\n    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.\n\n\n 3.1 Data Sources\n\n\n  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.\n\n\n  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ..."
   },
   {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#日本語入力システムの種類",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "日本語入力システムの種類",
-    "text": "日本語入力システムの種類\n\n\n\nrecord1:\n  入力方式: FEP&lt;br&gt;(Front End Processor)\n  概要:\n    - キーボード割込みを直接処理する端末常駐型\n    - アプリ非依存・画面バッファ直接書換\n    - 単一プロセス制御\n  どこで処理？:\n    - OS / TTY レベル\n  tool例:\n    - canna + canuum\n    - wnn + uum\n\nrecord2:\n  入力方式: XIM&lt;br&gt;(X Input Method)\n  概要:\n    - X11標準IMプロトコル\n    - クライアント⇄IMサーバ通信型\n  どこで処理？:\n    - X11レイヤ\n  tool例:\n    - kinput2\n    - wnn + Xwnmo\n\nrecord3:\n  入力方式: X11 Framework型&lt;br&gt;(IBus / Fcitx5)\n  概要:\n    - XIMプロトコルに代わりD-Busで IM 通信\n    - GTK/Qt IM Moduleで透過的にアプリ統合\n  どこで処理？:\n    - D-Bus + X11レイヤ\n  tool例:\n    - fcitx5 + mozc\n    - ibus + mozc\n\nrecord4:\n  入力方式: Wayland IM\n  概要:\n    - compositor主導のIMプロトコル\n    - 厳格な入力フォーカス管理\n    - セキュア分離モデル\n  どこで処理？:\n    - Wayland compositor\n  tool例:\n    - fcitx5 + mozc\n\nrecord5:\n  入力方式: 組み込み型\n  概要:\n    - アプリ内部に入力処理を実装\n    - 外部IMサーバ不要\n    - アプリごとに独立実装\n  どこで処理？:\n    - アプリケーション内部\n  tool例:\n    - Emacs"
-  },
-  {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#fepfront-end-processor",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "FEP（Front-End Processor）",
-    "text": "FEP（Front-End Processor）\n\n\nFront-End Processor\n\n\nOS やターミナルのレベルでキー入力を横取りし，変換結果を画面に直接書き込む方式\nアプリケーション側は日本語入力の存在を意識しない\nGUI 環境の普及とともに役割を終えた\n\n\n\n\n    \n    \n        user\n    \n\n    \n        FEP\n    \n\n    \n        日本語変換サーバー\n    \n\n    \n        Application\n    \n\n    1\n    2\n    3\n    4\n\n    \n        \n            \n                \n            \n        \n\n        \n        \n        \n        \n        \n        \n        \n    \n\n\nFEPは単なる仲介者ではなく，サーバーへのリクエスト(②)とレスポンス(③)を制御する中心核として機能\nアプリケーションへの最終配送(④)までを一気通貫で管理する独立したプロトコル・スタックを形成している"
-  },
-  {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#ximx-input-method",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "XIM（X Input Method）",
-    "text": "XIM（X Input Method）\n\n\nX Input Method\n\n\nX Window System の標準プロトコルとして定義された入力方式\nアプリケーションが Xlib を通じて IM サーバーと通信し，入力をフィルタリングする\n同期通信によるパフォーマンス低下や，UI 描画の柔軟性の欠如が課題\n\n\n\n\n\n    \n    user\n    \n    X Server\n    \n    \n        Application\n        (Xlib)\n    \n\n    XIM Server\n\n    日本語変換サーバー\n\n    1\n    2\n    3\n    4\n    5\n    6"
-  },
-  {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#x11-framework型fcitx5-ibus",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "X11 Framework型（Fcitx5 / IBus）",
-    "text": "X11 Framework型（Fcitx5 / IBus）\n\n\nX11 Framework Model\n\n\nD-Bus による疎結合化: XIMプロトコルに代わり，D-Bus で IM 通信を行うことで疎結合を実現\nIM Module の活用: アプリ側のツールキット（GTK/Qt）専用モジュールが D-Bus 通信を隠蔽する\n柔軟な描画: 候補ウィンドウを IM 側が独立した X11 ウィンドウとして表示するため，自由な UI 設計が可能\n\n\n\n\n\n        \n        \n            \n                \n                    \n                \n            \n\n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n            \n        \n\n        \n            user\n        \n\n        \n            D-Bus(Message Bus)\n        \n\n        \n            Application\n            (GTK / Qt IM Module)\n        \n\n        \n            IM Framework(Fcitx5 / IBus)\n        \n\n        \n            日本語変換エンジン(Mozc)\n        \n\n        1\n        2\n        3\n        4\n        5\n        6"
-  },
-  {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#wayland-input-method",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "Wayland Input Method",
-    "text": "Wayland Input Method\n\n\nWayland Input Method\n\n\ntext-input-v3 / input-method-v2 プロトコルで標準化された入力方式\nWayland compositor が入力を一元管理し，IM は compositor 経由でアプリと連携\nフォーカス管理とプロセス分離を前提としたセキュア設計\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        WaylandCompositor\n    \n\n    \n        Application\n    \n\n    \n        IM Service(Fcitx5 / IBus)\n    \n\n    \n        日本語変換エンジン(Mozc)\n    \n\n    1\n    2\n    3\n    4\n    5\n    6"
-  },
-  {
-    "objectID": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
-    "href": "posts/2026-02-16-input-method-for-japanese/index.html#組み込み型emacs-内蔵-im",
-    "title": "Linuxにおける日本語入力方式",
-    "section": "組み込み型（Emacs 内蔵 IM）",
-    "text": "組み込み型（Emacs 内蔵 IM）\n\n\nEmbedded Input Method Model\n\n\n自己完結型設計: アプリケーション（Emacs等）内部に Lisp などで実装された IM ライブラリを直接持つ\n外部依存ゼロ: コンポジタや IM フレームワークを介さず、OS からの未加工イベントを直接処理\nシームレスな統合: エディタのバッファ管理と IM 状態が直結しており、高度なカスタマイズが可能\n\n\n\n\n\n    \n    \n        user\n    \n\n    \n        \n            Application (e.g., Emacs)\n        \n    \n\n    \n        Internal IM(Leim / SKK)\n    \n\n    \n        Text Buffer /Core Logic\n    \n\n    \n        Dictionary File(.pwn / .jisyo)\n    \n\n    1\n    2\n    3\n    4"
-  },
-  {
-    "objectID": "template/pentagon-squared-box.html",
-    "href": "template/pentagon-squared-box.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/azureblue-summary.html#section-1",
-    "href": "template/azureblue-summary.html#section-1",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "場面に応じてスライド作成クオリティは異なる",
+    "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
   }
 ]
