@@ -1,0 +1,2327 @@
+---
+title: "通信を高速に，正確に"
+subtitle: "シャノンの通信モデル"
+author: "Ryo Nakagami"
+date: "2026-02-18"
+categories: [情報理論]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+  - pseudocode
+auto-agenda:
+  bullets: bullets
+---
+
+# シャノンの通信モデル
+
+## Executive Summary
+
+{{< reveal_vspace 1em >}}
+
+:::{.exec-summary-box}
+
+- シャノンは，価値ある情報を高速かつ正確に伝達するための原理を以下のように定式化
+
+  - 情報源から送信される通信の量を減らす
+  - 通信路の中で誤りを減らす
+
+{{< reveal_vspace 1em >}}
+
+- 通信の本質は，**「効率性（圧縮）」**と**「信頼性（耐性）」**のトレードオフを制御すること
+
+  - **情報源符号化:** 冗長性を排除し，データ転送効率を最大化する
+  - **通信路符号化:** 適切な冗長性を付加し，ノイズ環境下での正確性を担保する
+
+{{< reveal_vspace 1em >}}
+
+- 情報源符号化定理（シャノンの第一定理）: データの圧縮限界を**エントロピー（$H$）**として数学的に定義
+  - 効率を追求した結果の**平均符号長（$L$）**は，エントロピーより小さくすることはできない（$L \ge H$）
+  - 適切に設計された瞬時符号を用いれば、平均符号長をエントロピーに極限まで近づけることが可能
+  - 出現確率の大きな記号に短いビット列を割り当てるのが基本方針
+
+:::
+
+## シャノンの通信モデル
+
+:::::::::{.shannon-model .font-09}
+
+::::{.shannon-component}
+[情報源符号化]{.shannon-process-tag}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-database"></i>
+:::
+
+[情報源]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+
+- 一意復号可能
+- 瞬時符号
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+[通信路符号化]{.shannon-process-tag}
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-icon-box}
+
+<i class="fa-solid fa-tower-broadcast"></i>
+
+:::
+
+[送信機]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+
+- 通信量を減らす
+- 誤りを減らす
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+{{< reveal_vspace 2em >}}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-signal"></i>
+
+:::
+
+[通信路]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-noise-source .font-09}
+<div class="shannon-noise-arrow-up"></div>
+
+{{< reveal_vspace 0.5em >}}
+
+<i class="fa-solid fa-bolt"></i> 雑音(ノイズ)
+
+:::
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+
+[通信路復号]{.shannon-process-tag}
+
+{{< reveal_vspace 0.5em >}}
+
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-server"></i>
+:::
+
+[受信機]{.shannon-label}
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+[情報源復号]{.shannon-process-tag}
+
+{{< reveal_vspace 0.5em >}}
+
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-user-check"></i>
+:::
+
+[受信者]{.shannon-label}
+::::
+
+:::::::::
+
+:::{.shannon-overview-arrow .font-12}
+<div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-text">価値ある情報を高速に，正確に送る</div><div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-head"></div>
+:::
+
+{{< reveal_vspace 1.1em >}}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+:::: {.sidebar .font-09}
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+
+{{< bi scissors size=1.7em color=#003366 >}} 
+
+### [情報源符号化（情報を簡潔に言い表す）]{.ml-2}
+
+:::
+
+- **目的**: 冗長性を排除し，データ量を最小化する（**効率性の追求**）
+- **手法**: 出現頻度の高いデータに短い符号を割り当てる（例：ハフマン符号）
+- **役割**: ストレージの節約，転送時間の短縮
+
+符号化は，電話で言えば，音圧を電流に変換する過程．モールス信号であれば，メッセージをある決められた方式で短点・長点・空白の列に変換する過程．
+{{< reveal_vspace 0.8em >}}
+
+::::
+::::
+:::
+
+::: {.column width="50%"}
+
+:::: {.sidebar .font-09}
+
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+
+:::{.flex .items-center}
+{{< bi shield-check size=1.7em color=#0054a6 >}} 
+
+### [通信路符号化（間違いを直せるようにする）]{.ml-2}
+
+:::
+
+- **目的**: 意図的な冗長性を加え，エラー耐性を高める（**信頼性の担保**）
+- **手法**: 誤り訂正符号を付加し，ノイズによる変質を検知・修正する
+- **役割**: 不安定な通信路での正確なデータ伝送の維持
+
+分析発表では，理解力差や注意散漫といった認知ノイズの対策として，スライド整理や図解を行いますが，
+これは，メッセージが一部失われても意味を復元できるようにする**プレゼンにおける誤り訂正**
+
+::::
+::::
+:::
+
+::::
+
+## シャノン通信モデルによるプレゼン設計
+
+:::: {.columns}
+
+{{< reveal_vspace 1em >}}
+
+::: {.column width="47.5%"}
+
+### 送信側 Phase
+
+:::: {.sidebar .font-08}
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi scissors size=1.5em color=#003366 >}} 
+
+### [1. 情報源符号化 (Source)]{.ml-2}
+
+:::
+- **概念**: 伝えるべき本質情報の圧縮
+- **Protocol**: **用語・前提の事前共有（Semantic Alignment）**
+- **Action**: 前提を揃え，冗長説明を削減し，論点を構造化
+- **Goal**: 最小限の情報量で最大の意味を伝える
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi eye-fill size=1.5em color=#0054a6 >}} 
+
+### [2. 通信路符号化 (Channel)]{.ml-2}
+:::
+- **概念**: 認知ノイズに耐えるための冗長設計
+- **Protocol**: **提示フォーマットの統一（Formatting Convention）**
+- **Action**: アジェンダ提示，結論→根拠の型，図解・強調・再掲
+- **Goal**: 情報が一部欠落しても意味が復元可能な状態を作る
+::::
+
+::::
+:::
+
+::: {.column style="padding-left: 2.5%;"}
+
+### 受信側 Phase
+
+:::: {.sidebar .font-08}
+{{< reveal_vspace 0.35em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi cpu-fill size=1.5em color=#0054a6 >}} 
+
+### [3. 通信路復号化 (Channel)]{.ml-2}
+
+:::
+- **概念**: 構造と文脈に基づく意味の補完
+- **Protocol**: **質疑応答・確認（Feedback Loop）**
+- **Action**: 不明点の質問，提示形式に基づく理解補正
+- **Goal**: ノイズで歪んだ情報を正しく修復する
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+
+{{< bi check-circle-fill size=1.5em color=#003366 >}} 
+
+### [4. 情報源復号化 (Source)]{.ml-2}
+
+:::
+- **概念**: 情報を意思決定へ変換する最終解釈
+- **Protocol**: **評価基準の共有（Decision Criteria Alignment）**
+- **Action**: 合意された定義・基準に基づき，示唆を行動へ接続
+- **Goal**: 送り手の意図を組織の判断・実行に転換する
+::::
+
+::::
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[プロトコル詳細定義]{.mini-section}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::::{.width-100}
+
+:::{.regmonkey_abstract_summary}
+
+```yaml
+regmonkey_abstract_summary:
+  title_fontsize: 0.85em
+  bullet_fontsize: 0.7em
+  keystat_fontsize: 0.7em
+  children:
+    - title: Semantic Alignment Protocol（用語・前提同期）
+      description:
+        - 主要用語の定義を事前に明示
+        - 前提条件・分析スコープを明確化
+        - 「何を議論しないか」も明示
+      width: [50, 50]
+
+    - title: Formatting Convention Protocol（提示形式合意）
+      description:
+        - 結論→根拠→示唆の順序を固定
+        - スライド1枚1メッセージ原則
+        - 色・太字・アイコンの意味を統一
+      width: [50, 50]
+```
+
+:::
+::::
+
+:::
+::: {.column width="50%"}
+
+::::{.width-100}
+:::{.regmonkey_abstract_summary}
+
+```yaml
+regmonkey_abstract_summary:
+  title_fontsize: 0.85em
+  bullet_fontsize: 0.7em
+  keystat_fontsize: 0.7em
+  children:
+    - title: Feedback Loop Protocol<br>（確認・応答規約）
+      description:
+        - 要点ごとに理解確認ポイントを設置
+        - Q&Aの時間と形式を明示
+        - 不明点は即時再説明要求可能とする
+      width: [50, 50]
+
+    - title: Decision Criteria Alignment Protocol（評価基準共有）
+      description:
+        - 意思決定の判断軸を事前提示
+        - 成功指標（KPI）を明確化
+        - 最終アウトプットの期待水準を合意
+      width: [50, 50]
+```
+
+:::
+::::
+
+:::
+::::
+
+# 情報の価値
+
+## 個々の情報がもつ大きさ: 情報量
+[情報が出現する確率を用いて情報量を定式化する]{.h2-submessage}
+
+:::: {.def-block style="font-size:1.1em;"}
+[自己情報量（Shannon Information Content）]{.def-title}
+
+::: {.def-contents}
+
+事象 $x$ の生起確率を $P(x)$ としたとき，その事象がもつ **情報量** $I(x)$ は
+
+$$
+I(x) = -\log_2 P(x) \quad [\text{bit}]
+$$
+
+:::
+
+::::
+
+
+:::: {.columns .font-09}
+
+::: {.column width="50%"}
+
+[直感的理解]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+- **珍しい事象ほど情報量が大きい**
+  - 「明日太陽が昇る」($P \approx 1$) → 情報量 $\approx 0$
+  - 「明日雪が降る（沖縄）」($P \ll 1$) → 情報量 大
+
+[情報量の性質]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+- $I(x) \geq 0$（情報量は常に非負）
+- $P(x) \to 0 \Rightarrow I(x) \to \infty$
+- **独立な事象の情報量は加法的**
+  - $P(x, y) = P(x)P(y)$ のとき
+  - $I(x, y) = I(x) + I(y)$
+
+
+:::
+
+::: {.column width="50%"}
+
+{{< reveal_vspace 0.5em >}}
+
+```{python}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = ['Noto Sans JP', 'Noto Sans CJK JP', 'sans-serif']
+
+p = np.linspace(0.001, 1, 500)
+I = -np.log2(p)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+ax.plot(p, I, color='#0e3666', linewidth=2.5)
+ax.fill_between(p, I, alpha=0.08, color='#0e3666')
+
+ax.set_xlabel('生起確率 P(x)', fontsize=14, color='#333')
+ax.set_ylabel('情報量 I(x)  [bit]', fontsize=14, color='#333')
+ax.set_title('$I(x) = -\\log_2 P(x)$', fontsize=16, color='#0e3666',
+             fontweight='bold')
+
+ax.set_xlim(0, 1.05)
+ax.set_ylim(0, 10)
+
+ax.annotate('確実な事象\nI = 0 bit', xy=(1, 0), xytext=(0.75, 2.5),
+            fontsize=11, color='#555',
+            arrowprops=dict(arrowstyle='->', color='#555', lw=1.5),
+            ha='center')
+
+ax.annotate('コイン投げ (表)\nI = 1 bit', xy=(0.5, 1), xytext=(0.62, 4),
+            fontsize=11, color='#555',
+            arrowprops=dict(arrowstyle='->', color='#555', lw=1.5),
+            ha='center')
+
+ax.annotate('稀な事象\nI → ∞', xy=(0.05, 4.32), xytext=(0.25, 7),
+            fontsize=11, color='#d00',
+            arrowprops=dict(arrowstyle='->', color='#d00', lw=1.5),
+            ha='center')
+
+ax.axhline(y=1, color='#aaa', linestyle='--', linewidth=0.8)
+ax.axvline(x=0.5, color='#aaa', linestyle='--', linewidth=0.8)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.tick_params(labelsize=11)
+ax.grid(True, alpha=0.2)
+fig.tight_layout()
+plt.show()
+```
+
+:::
+
+::::
+
+## ワインの選択と情報量
+[ブラインドテイスティングで品種を当てたときの「驚き」の大きさ]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+:::{.info-box-title}
+設定
+:::
+:::{.info-contents .font-10}
+
+- ワインの出現確率比が **シャルドネ : アリゴテ : カベルネ : ピノノワール = 4 : 2 : 1 : 1** とする
+
+:::
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns .font-09}
+
+::: {.column width="55%"}
+
+```{python}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5.5
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = ['Noto Sans JP', 'Noto Sans CJK JP', 'sans-serif']
+
+wines = ['シャルドネ', 'アリゴテ', 'カベルネ', 'ピノノワール']
+ratios = np.array([4, 2, 1, 1])
+probs = ratios / ratios.sum()
+info = -np.log2(probs)
+
+colors = ['#0e3666', '#1a6baa', '#d00', '#d00']
+
+fig, ax = plt.subplots(figsize=(8, 5.5))
+bars = ax.bar(wines, info, color=colors, width=0.55, edgecolor='white', linewidth=1.5)
+
+for bar, i_val, p_val in zip(bars, info, probs):
+    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.08,
+            f'{i_val:.2f} bit', ha='center', va='bottom',
+            fontsize=14, fontweight='bold', color='#1a1a1a')
+    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2,
+            f'P = {p_val:.3f}', ha='center', va='center',
+            fontsize=12, color='white', fontweight='bold')
+
+ax.set_ylabel('自己情報量 I(x)  [bit]', fontsize=14, color='#333')
+ax.set_ylim(0, 3.8)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.tick_params(axis='x', labelsize=14)
+ax.tick_params(axis='y', labelsize=11)
+ax.grid(axis='y', alpha=0.2)
+fig.tight_layout()
+plt.show()
+```
+
+:::
+
+::: {.column width="45%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{.def-block style="font-size:1em;"}
+[計算]{.def-title}
+
+:::{.def-contents}
+
+| 品種 | $P(x)$ | $I(x) = -\log_2 P(x)$ |
+|:---|:---:|:---:|
+| シャルドネ | $\frac{4}{8} = 0.5$ | $1.00$ bit |
+| アリゴテ | $\frac{2}{8} = 0.25$ | $2.00$ bit |
+| カベルネ | $\frac{1}{8} = 0.125$ | $3.00$ bit |
+| ピノノワール | $\frac{1}{8} = 0.125$ | $3.00$ bit |
+
+:::
+:::
+
+{{< reveal_vspace 1em >}}
+
+:::{.info-box}
+:::{.info-box-title}
+解釈
+:::
+:::{.info-contents .font-10}
+
+- シャルドネを当てても驚きは **1 bit**（コイン投げ1回分）
+- カベルネ・ピノノワールを当てると **3 bit**（コイン投げ3回分の驚き）
+- **出にくいワインほど，当てたときの情報価値が高い**
+
+:::
+:::
+
+:::
+
+::::
+
+## 情報源全体の不確実性: 情報エントロピー
+[確率分布全体が持つ「平均的な情報量」を定式化する]{.h2-submessage}
+
+:::: {.def-block}
+[情報エントロピー（Shannon Entropy）]{.def-title}
+
+::: {.def-contents .padding-L-10 .font-08}
+
+確率分布 $P = \{P(x_1), P(x_2), \ldots, P(x_n)\}$ に対して，**情報エントロピー** $H(P)$ は
+
+$$
+H(P) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i) = \mathbb{E}[I(x)] \quad [\text{bit}]
+$$
+
+各事象の情報量 $I(x_i)$ を，その生起確率 $P(x_i)$ で重み付けした期待値
+
+:::
+
+::::
+
+:::: {.columns .font-09}
+
+::: {.column width="50%" .font-09}
+
+[エントロピーの性質]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+- $H(P) \geq 0$（常に非負）
+- $H(P) = 0 \Leftrightarrow$ 確実な事象（$P(x_i) = 1$ のみ）
+- **最大値**: $n$ 個の事象が一様分布のとき $H_{\max} = \log_2 n$
+  - 確率分布が一様に近いほど，エントロピーは大きい
+  - 特定の事象に偏っているほど，エントロピーは小さい
+
+{{< reveal_vspace 0.5em >}}
+
+- **例: コイン投げ**
+  - 公正なコイン ($P(表) = P(裏) = 0.5$)
+    → $H = 1$ bit（最大エントロピー）
+  - 偏ったコイン ($P(表) = 0.9, P(裏) = 0.1$)
+    → $H \approx 0.47$ bit（低エントロピー）
+
+:::
+
+::: {.column width="50%"}
+
+{{< reveal_vspace 0.5em >}}
+
+```{python}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = ['Noto Sans JP', 'Noto Sans CJK JP', 'sans-serif']
+
+# Binary entropy function H(p) = -p*log2(p) - (1-p)*log2(1-p)
+p = np.linspace(0.001, 0.999, 500)
+H = -p * np.log2(p) - (1 - p) * np.log2(1 - p)
+
+fig, ax = plt.subplots(figsize=(7, 5))
+ax.plot(p, H, color='#0e3666', linewidth=2.5)
+ax.fill_between(p, H, alpha=0.08, color='#0e3666')
+
+ax.set_xlabel('確率 P(表)', fontsize=14, color='#333')
+ax.set_ylabel('エントロピー H(P)  [bit]', fontsize=14, color='#333')
+ax.set_title('2値エントロピー関数', fontsize=16, color='#0e3666',
+             fontweight='bold')
+
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1.1)
+
+ax.annotate('最大エントロピー\nH = 1 bit', xy=(0.5, 1), xytext=(0.5, 0.7),
+            fontsize=11, color='#d00', fontweight='bold',
+            arrowprops=dict(arrowstyle='->', color='#d00', lw=1.8),
+            ha='center')
+
+ax.annotate('偏ったコイン\nH ≈ 0.47 bit', xy=(0.9, 0.469), xytext=(0.7, 0.25),
+            fontsize=11, color='#555',
+            arrowprops=dict(arrowstyle='->', color='#555', lw=1.5),
+            ha='center')
+
+ax.annotate('確実な事象\nH = 0 bit', xy=(0.999, 0.01), xytext=(0.8, 0.15),
+            fontsize=11, color='#555',
+            arrowprops=dict(arrowstyle='->', color='#555', lw=1.5),
+            ha='right')
+
+ax.axhline(y=1, color='#d00', linestyle='--', linewidth=1.2, alpha=0.6)
+ax.axvline(x=0.5, color='#aaa', linestyle='--', linewidth=0.8)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.tick_params(labelsize=11)
+ax.grid(True, alpha=0.2)
+fig.tight_layout()
+plt.show()
+```
+
+:::
+
+::::
+
+# 情報源符号化定理
+## アナログ信号からデジタルデータへ
+
+:::::::::{.shannon-model .font-09}
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-wave-square"></i>
+
+:::
+
+[アナログ信号]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+- 連続時間
+- 連続振幅
+:::
+::::
+
+:::{.shannon-arrow}
+{{< reveal_vspace 7em >}}
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box-channel}
+<i class="fa-solid fa-ellipsis-h"></i>
+
+:::
+
+[標本化 (Sampling)]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+- **離散時間**
+- 連続振幅
+:::
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box-channel}
+<i class="fa-solid  fa-chart-bar"></i> 
+
+:::
+[量子化]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+
+- 離散時間
+- **離散振幅**
+
+:::
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box-channel}
+
+<i class="fa-solid fa-barcode"></i>
+
+:::
+
+[符号化]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+- 2進数化
+- ビット列変換
+:::
+::::
+
+:::{.shannon-arrow}
+{{< reveal_vspace 7em >}}
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-microchip"></i>
+
+:::
+
+[デジタルデータ]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box}
+
+- 0/1 ビット列
+- 有限語長
+
+:::
+::::
+
+:::::::::
+
+:::{.shannon-overview-arrow .font-12 style="margin-top:0.75em !important;"}
+<div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-text">A/D変換: アナログ信号をデジタルデータへ</div><div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-head"></div>
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{python}
+# | echo: false
+# | fig-width: 13
+# | fig-height: 7
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams["font.family"] = ["Noto Sans JP", "Noto Sans CJK JP", "sans-serif"]
+
+n_samples = 10
+n_bits = 3
+n_levels = 2**n_bits
+
+t_cont = np.linspace(0, 1, 500)
+x_cont = np.sin(2 * np.pi * t_cont)
+
+t_samp = np.linspace(0.05, 0.95, n_samples)
+x_samp = np.sin(2 * np.pi * t_samp)
+
+x_q_int = np.clip(
+    np.round((x_samp + 1) / 2 * (n_levels - 1)).astype(int), 0, n_levels - 1
+)
+x_q_norm = x_q_int / (n_levels - 1) * 2 - 1
+binary_codes = [format(q, f"0{n_bits}b") for q in x_q_int]
+
+fig, axes = plt.subplots(1, 1, figsize=(13, 7))
+c_blue = "#2563eb"
+c_red = "#8B0000"
+c_green = "#1a6b35"
+
+# ── ① 標本化 ────────────────────────────────────────────────
+ax = axes
+ax.plot(t_cont, x_cont, color=c_red, linewidth=2.5, zorder=2, label="元の波形")
+for i, (ts, xs) in enumerate(zip(t_samp, x_samp)):
+    ax.vlines(
+        ts,
+        0,
+        xs,
+        color=c_blue,
+        linewidth=1.2,
+        linestyle="--",
+        alpha=0.6,
+        zorder=1,
+        label="標本化された波形" if i == 0 else None,
+    )
+    ax.plot(ts, xs, "o", color=c_blue, markersize=9, zorder=3)
+ax.axhline(0, color="#aaa", linewidth=0.8)
+ax.legend(fontsize=16, loc="upper right", framealpha=0.9)
+ax.annotate(
+    "",
+    xy=(t_samp[1], 1.42),
+    xytext=(t_samp[0], 1.42),
+    arrowprops=dict(arrowstyle="<->", color=c_blue, lw=1.5),
+)
+ax.text(
+    (t_samp[0] + t_samp[1]) / 2,
+    1.55,
+    "サンプリング周期 $T_s$",
+    fontsize=16,
+    ha="center",
+    color=c_blue,
+)
+ax.set_title(
+    "① 標本化（サンプリング）", fontsize=21, fontweight="bold", color=c_blue, pad=10
+)
+ax.set_xlabel("時間 $t$", fontsize=14)
+ax.set_ylabel("振幅", fontsize=14)
+ax.set_xlim(-0.02, 1.02)
+ax.set_ylim(-1.5, 1.75)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.tick_params(labelsize=12)
+fig.tight_layout()
+plt.show()
+```
+
+:::
+::: {.column width="50%"}
+
+```{python}
+# | echo: false
+# | fig-width: 13
+# | fig-height: 7
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams["font.family"] = ["Noto Sans JP", "Noto Sans CJK JP", "sans-serif"]
+
+n_samples = 10
+n_bits = 3
+n_levels = 2**n_bits
+
+t_cont = np.linspace(0, 1, 500)
+x_cont = np.sin(2 * np.pi * t_cont)
+
+t_samp = np.linspace(0.05, 0.95, n_samples)
+x_samp = np.sin(2 * np.pi * t_samp)
+
+x_q_int = np.clip(
+    np.round((x_samp + 1) / 2 * (n_levels - 1)).astype(int), 0, n_levels - 1
+)
+x_q_norm = x_q_int / (n_levels - 1) * 2 - 1
+binary_codes = [format(q, f"0{n_bits}b") for q in x_q_int]
+
+fig, axes = plt.subplots(1, 1, figsize=(13, 7))
+c_blue = "#2563eb"
+c_red = "#8B0000"
+c_green = "#1a6b35"
+# ── ② 量子化 ────────────────────────────────────────────────
+ax = axes
+bw = 0.8 * (t_samp[1] - t_samp[0])
+for ts, xs, xq in zip(t_samp, x_samp, x_q_norm):
+    ax.bar(
+        ts,
+        xq + 1,
+        width=bw,
+        bottom=-1,
+        color="#f5c518",
+        edgecolor="#b8960c",
+        linewidth=0.8,
+        alpha=0.85,
+        zorder=2,
+    )
+    ax.plot(ts, xs, "o", color=c_blue, markersize=8, zorder=4)
+for lv in range(n_levels + 1):
+    y = lv / n_levels * 2 - 1
+    ax.axhline(y, color="#999", linewidth=0.7, linestyle="-", alpha=0.6, zorder=1)
+ax.set_title(
+    f"② 量子化: {n_bits} ビット → {n_levels} 段階",
+    fontsize=20,
+    fontweight="bold",
+    color="#b45309",
+    pad=10,
+)
+ax.set_xlabel("時間 $t$", fontsize=14)
+ax.set_ylabel("量子化振幅", fontsize=14)
+ax.set_xlim(-0.02, 1.02)
+ax.set_ylim(-1.5, 1.75)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.tick_params(labelsize=12)
+
+fig.tight_layout()
+plt.show()
+```
+
+
+
+:::
+::::
+
+## 一意復号可能・瞬時符号可能
+[符号の性質による分類]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns .font-10}
+
+::: {.column width="40%"}
+
+{{< reveal_vspace 0.4em >}}
+
+:::{.def-block}
+
+[一意復号可能]{.def-title}
+
+:::{.def-contents}
+
+- 符号語の任意の有限連接が**ただ一通り**に復号できる
+- 符号語の連接 $c_1 c_2 \cdots = c_1' c_2' \cdots$ ならば $x_i = x_i'$
+:::
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.def-block}
+
+[瞬時符号（prefix-free）]{.def-title}
+
+:::{.def-contents}
+
+- どの符号語も他の符号語の**前置符号にならない**
+- 先読みなしに1語ずつ即時復号できる
+:::
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.def-block}
+
+[必要十分条件]{.def-title}
+
+:::{.def-contents}
+
+- 瞬時符号 $\Rightarrow$ 一意復号可能
+- 逆は必ずしも成立しない：Case 3
+
+:::
+:::
+
+:::
+
+::: {.column width="60%" .padding-L-10}
+
+{{< reveal_vspace 1em >}}
+
+```{=html}
+<div style="border-bottom: 2px solid #051C2C; padding-bottom: 10px; margin-bottom: 30px; text-align: left;">
+
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 1em;;">
+        <th style="padding: 15px; border: 1px solid #051C2C;">文字</th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 1<br><span style="font-size: 0.8em; font-weight: normal;">(等長符号)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 2<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 3<br><span style="font-size: 0.8em; font-weight: normal;">(前置符号)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 4<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 1em; text-align: center;">
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">A</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">00</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">B</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">1</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">C</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">D</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">111</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+      </tr>
+      <tr style="border-top: 3px solid #051C2C;">
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">一意復号可能</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">瞬時符号</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+      </tr>
+            <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">備考</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">等長符号</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">"011"=C or A+D	</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">A⊂B⊂C（前置）</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">"10"=C or B+A</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+:::
+
+::::
+
+
+[練習問題]{.mini-section}
+
+1. `01101011` というパターンの文字列が与えられた時，Case 3プロトコルを活用する時，復号可能か？
+2. Case 3の符号をツリーを用いて表現してください
+
+## 適切な符号長配分により，平均符号長をエントロピーまで近似可能
+
+:::: {.def-block style="font-size:1.2em;"}
+
+[平均符号長]{.def-title}
+
+::: {.def-contents}
+::: {.def-contents style="font-size:0.9em;"}
+
+- 各記号の出現確率 $p_i$ と，割り当てられた符号長 $l_i$ の期待値を平均符号長 $L$ と呼ぶ
+- $L$ が情報エントロピー $H$ に近いほど，伝送効率が高い
+
+$$
+L = \sum_{i=1}^np_il_i \ \ (\text{理論限界:} L \geq H)
+$$
+
+:::
+:::
+::::
+
+
+
+:::: {.columns}
+
+::: {.column width="100%"}
+
+{{< reveal_vspace 1em >}}
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+        <th style="padding: 12px; border: 1px solid #051C2C;">文字</th>
+        <th style="padding: 12px; border: 1px solid #051C2C;">出現確率 \(p_i\)<br><span style="font-size: 0.8em; font-weight: normal;">(偏りあり 4:2:1:1)</span></th>
+        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 1: 等長<br><span style="font-size: 0.8em; font-weight: normal;">(固定長 2bit)</span></th>
+        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 2: 最適化<br><span style="font-size: 0.8em; font-weight: normal;">(確率に比例)</span></th>
+        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 3: 逆配分<br><span style="font-size: 0.8em; font-weight: normal;">(非効率)</span></th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 0.95em; text-align: center;">
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">A</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>50%</strong> (1/2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">00 (2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0 (1)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">111 (3)</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">B</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>25%</strong> (1/4)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">01 (2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">110 (3)</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">C</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>12.5%</strong> (1/8)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">110 (3)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">D</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>12.5%</strong> (1/8)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">11 (2)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">111 (3)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0 (1)</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="2" style="padding: 15px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
+        <td style="padding: 15px; font-size: 1.1em;">2.00</td>
+        <td style="padding: 15px; font-size: 1.2em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">1.75</td>
+        <td style="padding: 15px; font-size: 1.1em; color: #dc2626;">2.625</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="2" style="padding: 10px; font-weight: bold; text-align: right;">情報エントロピー (\(H\))</td>
+        <td colspan="3" style="padding: 10px; font-size: 1.1em; letter-spacing: 1px;">
+          <strong>1.75 bits</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+:::
+
+::::
+
+## シャノン符号化法
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[シャノン符号化法]{.def-title}
+
+::: {.def-contents}
+::: {.def-contents style="font-size:1em;"}
+
+次の条件を満たす無記憶情報源の２元符号（シャノン符号）を構成する
+
+$$
+-\log P(s_k) \leq l_k < -\log P(s_k) + 1
+$$
+
+:::
+:::
+::::
+
+:::::{.font-08}
+
+[Setup]{.mini-section}
+
+{{< reveal_vspace 0.1em >}}
+
+情報源 $S = \{s_1, s_2, s_3, s_4, s_5\}$，各記号の発生確率:
+
+$$
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+$$
+
+[ステップ１]{.mini-section}
+
+{{< reveal_vspace 0.1em >}}
+
+発生確率の大きい順に並べる（上記は既にソート済み）
+
+{{< reveal_vspace 0.1em >}}
+
+[ステップ２: 符号長の決定]{.mini-section}
+
+{{< reveal_vspace 0.1em >}}
+
+次の条件を満たす正の整数を符号長 $(l_1, l_2, l_3, l_4, l_5)$ とする:
+
+$$
+-\log_2 P(s_k) \leq l_k < -\log_2 P(s_k) + 1
+$$
+
+:::: {.columns .font-09}
+
+::: {.column width="50%"}
+
+| 記号 | 条件 | 符号長 |
+|:---:|:---:|:---:|
+| $s_1$ | $-\log_2 0.4 \leq l_1 < -\log_2 0.4 + 1$ | $l_1 = 2$ |
+| $s_2$ | $-\log_2 0.3 \leq l_2 < -\log_2 0.3 + 1$ | $l_2 = 2$ |
+| $s_3$ | $-\log_2 0.15 \leq l_3 < -\log_2 0.15 + 1$ | $l_3 = 3$ |
+
+:::
+
+::: {.column width="50%"}
+
+| 記号 | 条件 | 符号長 |
+|:---:|:---:|:---:|
+| $s_4$ | $-\log_2 0.1 \leq l_4 < -\log_2 0.1 + 1$ | $l_4 = 4$ |
+| $s_5$ | $-\log_2 0.05 \leq l_5 < -\log_2 0.05 + 1$ | $l_5 = 5$ |
+
+:::
+
+::::
+
+:::::
+
+
+## シャノン符号化法: 符号の構成
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns .font-08}
+
+::: {.column width="45%"}
+
+[ステップ３: 累積確率の計算]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+\begin{aligned}
+P_1 &= 0 \\
+P_2 &= P_1 + P(s_1) = 0.4 \\
+P_3 &= P_2 + P(s_2) = 0.7 \\
+P_4 &= P_3 + P(s_3) = 0.85 \\
+P_5 &= P_4 + P(s_4) = 0.95
+\end{aligned}
+$$
+
+[ステップ４: ２進数展開]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+\begin{aligned}
+P_1 = 0 &\to 0.00000\ldots \\
+P_2 = 0.4 &\to 0.01100\ldots \\
+P_3 = 0.7 &\to 0.10110\ldots \\
+P_4 = 0.85 &\to 0.11011\ldots \\
+P_5 = 0.95 &\to 0.11110\ldots
+\end{aligned}
+$$
+
+:::
+
+::: {.column width="55%"}
+
+[ステップ５: 符号の割当]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+小数点以下 $l_k$ 桁を $s_k$ の符号とする:
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">累積確率(2進)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 0.95em; text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>00</strong>000…</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">00</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>01</strong>100…</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">01</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>101</strong>10…</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">101</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>1101</strong>1…</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1101</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>11110</strong>…</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">5</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">11110</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="4" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
+        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+L = 2 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 5 \times 0.05 = 2.5
+$$
+
+:::
+
+::::
+
+:::: {.callout-note}
+## [REMARKS]{.padding-L-05 .font-12}
+
+- シャノン符号は累積確率を２進数展開し，上位 $l_k$ 桁を符号とするアルゴリズム
+- 後述するシャノン・ファノ符号化法は記号を確率の合計がほぼ等しい２群に再帰的に分割し，各群に 0/1 を割り当てるトップダウン型のアルゴリズム
+- いずれも最適符号（ハフマン符号）とは限らない
+
+::::
+
+## シャノン・ファノ符号化法: 1/2
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[シャノン・ファノ符号]{.def-title}
+
+::: {.def-contents}
+::: {.def-contents style="font-size:0.9em;"}
+
+記号を発生確率の大きい順に並べ，確率の合計がほぼ等しくなるように**再帰的に２群に分割**し，各群に 0/1 を割り当てて符号を構成する
+
+:::
+:::
+::::
+
+
+[Setup]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+情報源 $S = \{s_1, s_2, s_3, s_4, s_5\}$，各記号の発生確率:
+
+$$
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+$$
+
+[分割手順]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+各ステップで確率の合計差が最小となる位置で分割し，上位群に `0`，下位群に `1` を割り当てる:
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">分割</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">上位群 (→0)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">下位群 (→1)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">確率差</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第1分割</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_1\}\)　合計 0.40</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_2, s_3, s_4, s_5\}\)　合計 0.60</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.20</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第2分割</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_2\}\)　合計 0.30</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_3, s_4, s_5\}\)　合計 0.30</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold;">0.00</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第3分割</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_3\}\)　合計 0.15</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_4, s_5\}\)　合計 0.15</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold;">0.00</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第4分割</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_4\}\)　合計 0.10</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_5\}\)　合計 0.05</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+
+## シャノン・ファノ符号化法: 2/2
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns .font-09}
+
+::: {.column width="45%"}
+
+[符号の構成過程]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+各分割で割り当てたビットを連結:
+
+$$
+\begin{aligned}
+s_1 &: \underbrace{0}_{\text{第1}} \to \texttt{0} \\
+s_2 &: \underbrace{1}_{\text{第1}}\underbrace{0}_{\text{第2}} \to \texttt{10} \\
+s_3 &: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{0}_{\text{第3}} \to \texttt{110} \\
+s_4 &: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{1}_{\text{第3}}\underbrace{0}_{\text{第4}} \to \texttt{1110} \\
+s_5 &: \underbrace{1}_{\text{第1}}\underbrace{1}_{\text{第2}}\underbrace{1}_{\text{第3}}\underbrace{1}_{\text{第4}} \to \texttt{1111}
+\end{aligned}
+$$
+
+:::
+
+::: {.column width="55%"}
+
+[結果]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 0.95em; text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1110</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1111</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="3" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
+        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.05</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 = 2.05
+$$
+
+:::
+
+::::
+
+:::: {.callout-note}
+## [REMARKS]{.padding-L-05 .font-12}
+
+- シャノン符号の平均符号長 $L = 2.5$ に対し，ファノ符号は $L = 2.05$ とエントロピー $H \approx 2.01$ により近い
+- ファノ符号は分割の自由度があるため，分割方法によって結果が異なりうる(同じ確率和の分割が複数ある場合)
+- いずれもハフマン符号のような最適性は保証されない
+
+::::
+
+
+## シャノン・ファノ符号化法とツリー図
+
+{{< reveal_vspace 0.5em >}}
+
+```{python}
+#| echo: false
+#| fig-width: 16
+#| fig-height: 8
+
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = ['Noto Sans JP', 'Noto Sans CJK JP', 'sans-serif']
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
+
+DARK  = '#051C2C'
+GREEN = '#16a34a'
+BLUE  = '#0e3666'
+RED   = '#b91c1c'
+GRAY  = '#ccc'
+
+def edge(ax, p1, p2, bit, alive=True):
+    ax.plot([p1[0], p2[0]], [p1[1], p2[1]],
+            ls='-' if alive else ':', color='#666' if alive else GRAY,
+            lw=2 if alive else 1, zorder=1)
+    mx, my = (p1[0]+p2[0])/2, (p1[1]+p2[1])/2
+    dx = -0.3 if p2[0] < p1[0] else 0.3
+    c = (BLUE if bit == '0' else RED) if alive else '#bbb'
+    ax.text(mx + dx, my + 0.12, bit, fontsize=18, ha='center',
+            fontweight='bold', color=c, zorder=10)
+
+def inode(ax, p):
+    ax.scatter(*p, s=80, color=DARK, edgecolors=DARK, lw=1.5, zorder=5)
+
+def leaf(ax, p, sym, code, prob):
+    ax.text(p[0], p[1], sym, fontsize=11, ha='center', va='center',
+            fontweight='bold', color='#15803d',
+            bbox=dict(boxstyle='round,pad=0.3', fc='#dcfce7', ec=GREEN, lw=1.5),
+            zorder=6)
+    ax.text(p[0], p[1] - 0.48, code, fontsize=10, ha='center', fontweight='bold',
+            color=BLUE, zorder=6)
+    ax.text(p[0], p[1] - 0.85, f'({prob})', fontsize=9, ha='center',
+            color='#555', zorder=6)
+
+def dead(ax, p):
+    ax.scatter(*p, s=50, color=GRAY, marker='x', lw=2, zorder=5)
+
+# ============================================================
+# シャノン符号ツリー
+# s1→00, s2→01, s3→101, s4→1101, s5→11110
+# ============================================================
+ax1.set_title('シャノン符号　L = 2.5', fontsize=21, fontweight='bold',
+              color=DARK, pad=15)
+
+sR    = (6, 6.5)
+sn0   = (2.5, 5.5);  sn1   = (9.5, 5.5)
+ss1   = (1, 4.5);    ss2   = (4, 4.5)
+sn10  = (8, 4.5);    sn11  = (11, 4.5)
+sx100 = (7, 3.5);    ss3   = (9, 3.5)
+sn110 = (10, 3.5);   sn111 = (12, 3.5)
+sx1100= (9.2, 2.5);  ss4   = (10.5, 2.5)
+sn1110= (11.5, 2.5); sx1111= (13, 2.5)
+sx11100=(10.8, 1.5);  ss5  = (12.2, 1.5)
+
+# 使用枝
+for p1, p2, b in [(sR,sn0,'0'), (sR,sn1,'1'),
+                   (sn0,ss1,'0'), (sn0,ss2,'1'),
+                   (sn1,sn10,'0'), (sn1,sn11,'1'),
+                   (sn10,ss3,'1'),
+                   (sn11,sn110,'0'), (sn11,sn111,'1'),
+                   (sn110,ss4,'1'),
+                   (sn111,sn1110,'0'),
+                   (sn1110,ss5,'1')]:
+    edge(ax1, p1, p2, b)
+
+# 未使用枝
+for p1, p2, b in [(sn10,sx100,'0'),
+                   (sn110,sx1100,'0'),
+                   (sn111,sx1111,'1'),
+                   (sn1110,sx11100,'0')]:
+    edge(ax1, p1, p2, b, alive=False)
+
+for p in [sR, sn0, sn1, sn10, sn11, sn110, sn111, sn1110]:
+    inode(ax1, p)
+
+for p in [sx100, sx1100, sx1111, sx11100]:
+    dead(ax1, p)
+
+leaf(ax1, ss1, 's₁', '00',    '0.40')
+leaf(ax1, ss2, 's₂', '01',    '0.30')
+leaf(ax1, ss3, 's₃', '101',   '0.15')
+leaf(ax1, ss4, 's₄', '1101',  '0.10')
+leaf(ax1, ss5, 's₅', '11110', '0.05')
+
+ax1.set_xlim(-0.5, 14)
+ax1.set_ylim(0.5, 7.3)
+ax1.axis('off')
+
+# ============================================================
+# ファノ符号ツリー (右)
+# s1→0, s2→10, s3→110, s4→1110, s5→1111
+# ============================================================
+ax2.set_title('ファノ符号　L = 2.05', fontsize=21, fontweight='bold',
+              color=DARK, pad=15)
+
+fR  = (5, 5.5)
+fA  = (2, 4.3)      # s1
+fB  = (7.5, 4.3)    # internal
+fC  = (6, 3.1)      # s2
+fD  = (9, 3.1)      # internal
+fE  = (8, 1.9)      # s3
+fF  = (10, 1.9)     # internal
+fG  = (9.2, 0.7)    # s4
+fH  = (10.8, 0.7)   # s5
+
+for p1, p2, b in [(fR,fA,'0'), (fR,fB,'1'), (fB,fC,'0'), (fB,fD,'1'),
+                   (fD,fE,'0'), (fD,fF,'1'), (fF,fG,'0'), (fF,fH,'1')]:
+    edge(ax2, p1, p2, b)
+
+for p in [fR, fB, fD, fF]:
+    inode(ax2, p)
+
+leaf(ax2, fA, 's₁', '0',    '0.40')
+leaf(ax2, fC, 's₂', '10',   '0.30')
+leaf(ax2, fE, 's₃', '110',  '0.15')
+leaf(ax2, fG, 's₄', '1110', '0.10')
+leaf(ax2, fH, 's₅', '1111', '0.05')
+
+ax2.set_xlim(0, 12.5)
+ax2.set_ylim(-0.2, 6.3)
+ax2.axis('off')
+
+fig.tight_layout()
+plt.show()
+```
+
+## ハフマン符号化法: 1/2
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[ハフマン符号]{.def-title}
+
+::: {.def-contents}
+::: {.def-contents style="font-size:0.9em;"}
+
+発生確率の小さい記号から順にペアにまとめ，**ボトムアップに２分木を構築**して最適な瞬時復号可能符号を得る
+
+:::
+:::
+::::
+
+
+[Setup]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+情報源 $S = \{s_1, s_2, s_3, s_4, s_5\}$，各記号の発生確率:
+
+$$
+P(s_1) = 0.4, \quad P(s_2) = 0.3, \quad P(s_3) = 0.15, \quad P(s_4) = 0.1, \quad P(s_5) = 0.05
+$$
+
+[マージ手順]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+各ステップで確率が最小の２ノードをマージし，新たなノードを作る:
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.8em;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">ステップ</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">マージ対象</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">新ノード</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">キュー（確率昇順）</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">初期</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_5\)(0.05), \(s_4\)(0.10), \(s_3\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_5\)(0.05) + \(s_4\)(0.10)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_1\)(0.15)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_3\)(0.15), \(n_1\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_3\)(0.15) + \(n_1\)(0.15)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_2\)(0.30)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(n_2\)(0.30), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(n_2\)(0.30) + \(s_2\)(0.30)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_3\)(0.60)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_1\)(0.40), \(n_3\)(0.60)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_1\)(0.40) + \(n_3\)(0.60)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">root(1.00)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">root(1.00)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+
+## ハフマン符号化法: 2/2
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns .font-09}
+
+::: {.column width="45%"}
+
+[符号の構成過程]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+各マージで左の子に `0`，右の子に `1` を割り当てる:
+
+$$
+\begin{aligned}
+s_1 &: \underbrace{0}_{\text{root左}} \to \texttt{0} \\
+s_2 &: \underbrace{1}_{\text{root右}}\underbrace{0}_{n_3\text{左}} \to \texttt{10} \\
+s_3 &: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{0}_{n_2\text{左}} \to \texttt{110} \\
+s_4 &: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{1}_{n_2\text{右}}\underbrace{1}_{n_1\text{右}} \to \texttt{1111} \\
+s_5 &: \underbrace{1}_{\text{root右}}\underbrace{1}_{n_3\text{右}}\underbrace{1}_{n_2\text{右}}\underbrace{0}_{n_1\text{左}} \to \texttt{1110}
+\end{aligned}
+$$
+
+:::
+
+::: {.column width="55%"}
+
+[結果]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 0.95em; text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1111</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1110</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="3" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
+        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.05</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 = 2.05
+$$
+
+:::
+
+::::
+
+:::: {.callout-note}
+## [REMARKS]{.padding-L-05 .font-12}
+
+- ハフマン符号は**最適な**瞬時復号可能符号であることが証明されている（$H \leq L < H + 1$）
+- 本例ではファノ符号と同じ符号長配分 $(1,2,3,4,4)$ となり $L = 2.05$（エントロピー $H \approx 2.01$）
+- シャノン符号（$L = 2.5$）に比べ，ハフマン・ファノはともにエントロピーに近い符号長を達成
+
+::::
+
+## ハフマン符号とブロック化
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[ブロック化（拡大情報源）]{.def-title}
+
+::: {.def-contents}
+::: {.def-contents style="font-size:0.9em;"}
+
+記号を $m$ 個ずつまとめた **ブロック** を新たな記号とみなしてハフマン符号化を行う．
+$m$ ブロックの平均符号長を $L_m$ とすると，**1記号あたりの平均符号長** $L_m/m$ は次を満たす:
+
+$$
+H(S) \leq \frac{L_m}{m} < H(S) + \frac{1}{m}
+$$
+
+:::
+:::
+::::
+
+
+[Setup]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+2値情報源 $S = \{0, 1\}$，$P(0) = 0.9,\ P(1) = 0.1$，$H(S) = 0.469$ bits/記号
+
+:::: {.columns .font-09}
+
+::: {.column width="45%"}
+
+[$m = 1$（記号単位）]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+- 記号が 2 種のみ → 各 1 bit しか割り当てられない
+- $L_1 = 1.0$，$L_1/1 = 1.0$ bits/記号
+- 符号化効率: $H/L = 0.469/1.0 = 46.9\%$
+
+:::
+
+::: {.column width="55%"}
+
+[$m = 2$（2記号ブロック）]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white;">
+        <th style="padding: 8px; border: 1px solid #051C2C;">ブロック</th>
+        <th style="padding: 8px; border: 1px solid #051C2C;">確率</th>
+        <th style="padding: 8px; border: 1px solid #051C2C;">符号</th>
+        <th style="padding: 8px; border: 1px solid #051C2C;">符号長</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr>
+        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">00</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.81</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">1</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.09</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">2</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">10</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.09</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">111</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">3</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">11</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.01</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
+        <td style="padding: 6px; border: 1px solid #D1D7DB;">3</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
+        <td colspan="3" style="padding: 8px; font-weight: bold; text-align: right; color: #475569;">\(L_2\)</td>
+        <td style="padding: 8px; font-weight: bold; color: #16a34a;">1.29</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+$L_2/2 = 0.645$ bits/記号（効率: $72.7\%$）
+
+:::
+
+::::
+
+
+## ハフマン符号とブロック化: 効率の改善
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns .font-09}
+
+::: {.column width="55%"}
+
+[ブロックサイズと符号化効率]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+```{=html}
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">ブロック長 \(m\)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">超記号数</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">\(L_m\)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">\(L_m / m\)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">上界 \(H + 1/m\)</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">効率</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 0.95em; text-align: center;">
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">1</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.00</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.000</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.469</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">46.9%</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.29</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.645</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.969</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">72.7%</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">8</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.60</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.533</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.802</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">88.0%</td>
+      </tr>
+      <tr style="border-top: 2px solid #051C2C; background-color: #f0fdf4;">
+        <td style="padding: 10px; font-weight: bold; border: 1px solid #D1D7DB;">\(m \to \infty\)</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">→ 0.469</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB;">→ 0.469</td>
+        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">→ 100%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+:::
+
+::: {.column width="45%"}
+
+{{< reveal_vspace 1em >}}
+
+```{python}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 5
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['font.family'] = ['Noto Sans JP', 'Noto Sans CJK JP', 'sans-serif']
+
+H = 0.469
+ms = np.array([1, 2, 3])
+Lm_per_m = np.array([1.000, 0.645, 0.533])
+upper = H + 1.0 / ms
+
+m_cont = np.linspace(1, 8, 200)
+upper_cont = H + 1.0 / m_cont
+
+fig, ax = plt.subplots(figsize=(6, 5))
+
+ax.fill_between(m_cont, H, upper_cont, alpha=0.10, color='#0e3666')
+ax.plot(m_cont, upper_cont, color='#b91c1c', linewidth=1.5, linestyle='--',
+        label='上界 $H + 1/m$')
+ax.axhline(y=H, color='#16a34a', linewidth=2, linestyle='-', label=f'$H = {H}$')
+ax.scatter(ms, Lm_per_m, s=120, color='#0e3666', zorder=5, label='$L_m / m$')
+
+for m, l in zip(ms, Lm_per_m):
+    ax.annotate(f'm={m}\n{l:.3f}', xy=(m, l), xytext=(m + 0.35, l + 0.06),
+                fontsize=10, color='#0e3666', fontweight='bold')
+
+ax.set_xlabel('ブロック長 $m$', fontsize=13, color='#333')
+ax.set_ylabel('1記号あたり平均符号長 $L_m / m$', fontsize=12, color='#333')
+ax.set_xlim(0.5, 5.5)
+ax.set_ylim(0.3, 1.15)
+ax.legend(fontsize=11, loc='upper right')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.tick_params(labelsize=11)
+ax.grid(True, alpha=0.2)
+fig.tight_layout()
+plt.show()
+```
+
+:::
+
+::::
+
+:::: {.callout-note}
+## [REMARKS]{.padding-L-05 .font-12}
+
+- $m$ を大きくすると $L_m/m \to H(S)$ に収束し，エントロピー限界に漸近的に到達可能
+- 代償として超記号数が $|S|^m$ に指数増大し，符号表のサイズと計算量が増大する
+- 前例の5記号情報源（$H \approx 2.01$）では $m=1$ で既に $L = 2.05$ と近いため，ブロック化の恩恵は小さい
+
+::::
+
+
+## ハフマン符号: 実装
+[ハフマン符号化は **①最小ヒープによる木の構築** と **②再帰的な符号語の生成** の2段階で実装できる]{.h2-submessage}
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+[擬似コード]{.mini-section}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.font-08}
+
+```pseudocode
+#| html-indent-size: "1em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+
+\begin{algorithm}
+\caption{Huffman Encoding}
+\begin{algorithmic}
+
+\Procedure{Encode}{$S$}
+    \State $C \gets \textsf{Counter}(S)$ \Comment{出現頻度を集計}
+    \State $Q \gets \textsf{MinHeap}(\{Node(k, v) \mid (k,v) \in C\})$ \Comment{最小ヒープ構築}
+    \While{$|Q| > 1$}
+        \State $l \gets \textsf{Pop}(Q)$
+        \State $r \gets \textsf{Pop}(Q)$
+        \State $m \gets Node(\emptyset, \; l.count + r.count, \; l, \; r)$
+        \State $\textsf{Push}(Q, \; m)$
+    \EndWhile
+    \State $root \gets Q[0]$
+    \State \Call{GenCode}{$root, \; \varepsilon$}
+    \Return $\textsf{join}(\text{dict}[c] : c \in S)$ \Comment{符号語に置換して連結}
+\EndProcedure
+
+\State
+
+\Procedure{GenCode}{$node, \; code$}
+    \If{$node.key \neq \emptyset$} \Comment{葉ノード}
+        \State $\text{dict}[node.key] \gets code$
+        \Return
+    \EndIf
+    \State \Call{GenCode}{$node.left, \; code \,\|\, \text{"0"}$} \Comment{左の子 → 0}
+    \State \Call{GenCode}{$node.right, \; code \,\|\, \text{"1"}$} \Comment{右の子 → 1}
+\EndProcedure
+
+\end{algorithmic}
+\end{algorithm}
+```
+:::
+
+:::
+
+::: {.column width="50%" .padding-L-10}
+
+[Python 実装]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+```{.python code-line-numbers="true" style="font-size: 0.75em;"}
+import heapq
+from collections import Counter
+
+class HuffmanNode:
+    def __init__(self, key=None, count=0, left=None, right=None):
+        self.key = key
+        self.count = count
+        self.left = left
+        self.right = right
+
+    def __lt__(self, other):           # ヒープの比較演算
+        return self.count < other.count
+
+class Huffman:
+    def encode(self, strings):
+        self.encode_dict = {}
+        self.decode_dict = {}
+
+        counter = Counter(strings)     # ①出現頻度を集計
+        heap = [HuffmanNode(k, v) for k, v in counter.items()]
+        heapq.heapify(heap)            # ②最小ヒープ構築
+
+        while len(heap) > 1:           # ③最小2ノードをマージ
+            left = heapq.heappop(heap)
+            right = heapq.heappop(heap)
+            merged = HuffmanNode(
+                None, left.count + right.count, left, right
+            )
+            heapq.heappush(heap, merged)
+
+        self.tree = heap[0]            # ④根ノード
+        self._generate_code(self.tree, "")
+
+        return "".join(               # ⑥符号語に置換
+            self.encode_dict[c] for c in strings
+        )
+
+    def _generate_code(self, node, code):  # ⑤再帰走査
+        if node.key is not None:       # 葉ノード
+            self.encode_dict[node.key] = code
+            self.decode_dict[code] = node.key
+            return
+        self._generate_code(node.left, code + "0")   # 左→"0"
+        self._generate_code(node.right, code + "1")   # 右→"1"
+```
+
+:::
+
+::::
+
+
+## ハフマン符号: 実行例
+
+{{< reveal_vspace 0.5em >}}
+
+先ほどの実装を用いた $S = \{s_1, s_2, s_3, s_4, s_5\}$, $P = (0.4, 0.3, 0.15, 0.1, 0.05)$ での実行例
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+[エンコード]{.mini-section}
+
+{{< reveal_vspace 0.3em >}}
+
+```{.python style="font-size: 1em;"}
+>>> huff = Huffman()
+>>> symbols = list("aaaaaaaaabbbbbbcccdde")  # 頻度比 = 9:6:3:2:1 ≈ P
+>>> encoded = huff.encode(symbols)
+>>> for k, v in sorted(huff.encode_dict.items()):
+...     print(f"  {k} -> {v}")
+  a -> 0
+  b -> 10
+  c -> 110
+  d -> 1110
+  e -> 1111
+>>> print(f"encoded = {encoded}")
+encoded = 000000000101010101010110110110111011101111
+>>> print(f"圧縮率: {len(encoded)}/{len(symbols)*3} "
+...       f"= {len(encoded)/(len(symbols)*3):.2%}")
+圧縮率: 42/60 = 70.00%
+```
+
+:::
+
+::: {.column width="50%"}
+
+[デコード]{.mini-section}
+
+{{< reveal_vspace 0.3em >}}
+
+```{.python style="font-size: 1em;"}
+>>> def decode(tree, bits):
+...     result = []
+...     node = tree
+...     for b in bits:
+...         node = node.left if b == "0" else node.right
+...         if node.key is not None:     # 葉に到達
+...             result.append(node.key)
+...             node = tree              # 根に戻る
+...     return "".join(result)
+
+>>> decoded = decode(huff.tree, encoded)
+>>> print(f"decoded = {decoded}")
+decoded = aaaaaaaaabbbbbbcccdde
+>>> decoded == "".join(symbols)
+True
+```
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+:::{.callout-note .font-12}
+## [REMARKS]{.padding-L-05}
+
+- 即時復号可能（prefix-free）なので，ビット列を先頭から読むだけで一意にデコードできる
+- 圧縮率 70% は，エントロピー $H \approx 1.96$ bit に対し平均符号長 $L = 2.1$ bit/symbol で情報理論的限界に近い
+:::
+
+:::

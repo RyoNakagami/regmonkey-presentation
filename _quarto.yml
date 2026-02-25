@@ -64,6 +64,7 @@ website:
 format:
   html:
     include-in-header: 
+      - include/head.html
       - include/setup_googletagmanager.html
       - include/custom_webfont.html
       - include/mathjax.html
