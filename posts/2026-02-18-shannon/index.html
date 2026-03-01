@@ -600,7 +600,7 @@ I(x) = -\log_2 P(x) \quad [\text{bit}]
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="28185e93" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="1">
+<div id="3b245eea" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -628,7 +628,7 @@ I(x) = -\log_2 P(x) \quad [\text{bit}]
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="columns font-09">
 <div class="column" style="width:55%;">
-<div id="98a24681" class="cell" data-fig-height="5.5" data-fig-width="8" data-execution_count="2">
+<div id="d9b12f54" class="cell" data-fig-height="5.5" data-fig-width="8" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -726,7 +726,7 @@ H(P) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i) = \mathbb{E}[I(x)] \quad [\text{bit}
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="a6403292" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="3">
+<div id="7fa99a22" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -854,7 +854,7 @@ A/D変換: アナログ信号をデジタルデータへ
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="9b4f1fe3" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="4">
+<div id="079be414" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -864,7 +864,7 @@ A/D変換: アナログ信号をデジタルデータへ
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="1db675fe" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="5">
+<div id="0d75a7b1" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1436,7 +1436,7 @@ L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 =
 <section id="シャノンファノ符号化法とツリー図" class="slide level2">
 <h2>シャノン・ファノ符号化法とツリー図</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="44f20082" class="cell" data-fig-height="8" data-fig-width="16" data-execution_count="6">
+<div id="2dc864c7" class="cell" data-fig-height="8" data-fig-width="16" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1741,7 +1741,7 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 </div>
 </div><div class="column" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div id="5ceb46da" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="7">
+<div id="b8f2f219" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1777,7 +1777,7 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 <p><span class="mini-section">擬似コード</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="font-08">
-<div class="pseudocode-container quarto-float" data-pseudocode-number="1" data-comment-delimiter="//" data-indent-size="1em" data-line-number-punc=":" data-caption-prefix="Algorithm" data-line-number="true" data-no-end="false">
+<div class="pseudocode-container quarto-float" data-comment-delimiter="//" data-line-number-punc=":" data-no-end="false" data-line-number="true" data-caption-prefix="Algorithm" data-pseudocode-number="1" data-indent-size="1em">
 <div class="pseudocode">
 \begin{algorithm} \caption{Huffman Encoding} \begin{algorithmic} \Procedure{Encode}{$S$} \State $C \gets \textsf{Counter}(S)$ \Comment{出現頻度を集計} \State $Q \gets \textsf{MinHeap}(\{Node(k, v) \mid (k,v) \in C\})$ \Comment{最小ヒープ構築} \While{$|Q| &gt; 1$} \State $l \gets \textsf{Pop}(Q)$ \State $r \gets \textsf{Pop}(Q)$ \State $m \gets Node(\emptyset, \; l.count + r.count, \; l, \; r)$ \State $\textsf{Push}(Q, \; m)$ \EndWhile \State $root \gets Q[0]$ \State \Call{GenCode}{$root, \; \varepsilon$} \Return $\textsf{join}(\text{dict}[c] : c \in S)$ \Comment{符号語に置換して連結} \EndProcedure \State \Procedure{GenCode}{$node, \; code$} \If{$node.key \neq \emptyset$} \Comment{葉ノード} \State $\text{dict}[node.key] \gets code$ \Return \EndIf \State \Call{GenCode}{$node.left, \; code \,\|\, \text{"0"}$} \Comment{左の子 → 0} \State \Call{GenCode}{$node.right, \; code \,\|\, \text{"1"}$} \Comment{右の子 → 1} \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
