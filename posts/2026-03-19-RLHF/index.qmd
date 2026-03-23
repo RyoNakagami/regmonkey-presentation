@@ -1,0 +1,154 @@
+---
+title: "Reinforcement Learning<br>from Human Feedback"
+subtitle: "ChatGPTの学習方針"
+author: "Ryo Nakagami"
+date: "2026-03-19"
+categories: [LLM]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Reinforcement Learning from Human Feedback
+[大規模言語モデルを人間のフィードバックを用いて微調整する学習フレームワーク]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- 事前学習済みモデルは「もっともらしいテキスト」を生成するが，有害な応答や事実と異なる出力を返す場合がある
+- **RLHF** は，人間の選好を学習信号として取り込み，モデルの振る舞いを人間の好みに沿うよう調整する手法
+- SFT → 報酬モデル学習 → 強化学習（PPO）の3段階で，**有用性（Helpful）**・**無害性（Harmless）**・**誠実性（Honest）** の3Hを追求
+
+:::
+
+:::
+
+{{< reveal_vspace 0.2em >}}
+
+::::{.step-container style="height: 90%" .padding-TB-none}
+
+:::{.step}
+
+[Step 1: 言語モデルの構築]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- プロンプトに対する理想的な応答を人間（ラベラー）が作成
+- この応答データで事前学習済みモデルを教師あり学習で調整(=**SFTモデル[^footer-sft]**)
+- **この段階では「チャットの応答」として良いモデルとは限らない**
+
+:::
+:::
+
+:::{.step}
+
+[Step 2: 報酬モデル学習]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- 同一プロンプト $x$ に対し SFTモデルが複数の応答 $y$ を生成
+- 人間が3Hの基準で応答を**ランキング**（例: $y_w \succ y_l$）
+- ペア比較データから報酬モデル $r_\theta(x, y)$ を学習
+
+{{< reveal_vspace 0.2em >}}
+
+[例: スコア差を確率化してlossを定義]{.mini-section}
+
+$$
+\mathcal{L} = -\mathbb{E}\!\left[\log \sigma\bigl(r_\theta(x, y_w) - r_\theta(x, y_l)\bigr)\right]
+$$
+
+
+:::
+:::
+
+:::{.step}
+
+[Step 3: PPOによる強化学習]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- SFTモデルを初期方策 $\pi_\text{RL}$ として [PPO](https://arxiv.org/abs/1707.06347) で最適化
+- 報酬モデルのスコアを報酬信号として利用
+- KLペナルティでSFTモデルからの過度な乖離を防止
+
+$$
+\max_{\pi_\text{RL}} \; \mathbb{E}\!\left[r_\theta(x,y) - \beta \, \text{KL}\bigl(\pi_\text{RL} \| \pi_\text{SFT}\bigr)\right]
+$$
+
+:::
+:::
+
+
+::::
+
+<!-- footer -->
+
+[^footer-sft]: Supervised Fine-Tuning
+
+
+# Appendix
+
+## Neural Scaling Laws
+[LLMの性能はパラメーター数・データサイズ・計算量の冪乗則に従う]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.def-block style="font-size:1.1em;"}
+[Scaling Law（Kaplan et al., 2020）]{.def-title}
+
+:::{.def-contents}
+
+他の2要素がボトルネックにならない条件下で，モデルの交差エントロピー損失 $L$ は各変数の冪乗則に従う
+
+$$
+L(N) \propto N^{-\alpha_N}, \quad L(D) \propto D^{-\alpha_D}, \quad L(C) \propto C^{-\alpha_C}
+$$
+
+- $N$: パラメーター数，$D$: データサイズ（トークン数），$C$: 計算量（FLOPs）
+
+:::
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns .font-09}
+
+::: {.column width="50%"}
+
+[冪乗則の意味]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+- 性能は各変数に対して**対数スケールで線形**に改善する
+- 10倍のパラメーターで一定幅の損失減少が得られる（収穫逓減）
+- 3変数のうち**最も制約の強い要素**がボトルネックとなる
+  - $N$ だけ増やしても $D$ が不足すれば性能は頭打ち
+
+:::
+
+::: {.column width="50%"}
+
+[[Chinchilla Optimal（Hoffmann et al., 2022）](https://arxiv.org/pdf/2203.15556)における学習方針]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+L(N, D) = 1.69 + \frac{406.4}{N^{0.34}} + \frac{410.7}{D^{0.28}}
+$$
+
+- 固定計算予算 $C$ のもとで $N \propto D$ が最も効率的
+- 大規模データの恩恵はデータ品質が高い場合に限られる可能性あり
+  - データが増えるほど，品質が下がるトレードオフに留意
+
+:::
+
+::::
