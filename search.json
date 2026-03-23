@@ -140,137 +140,305 @@
     "text": ".hop-step-jump-containerの構造解説\n\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\n.hop-step-jump-container\n\n\n\n.hop-step-jump-container\n\n.hop-step-jump-container-vannilaは背景矢印なしversion\ncolumn と組み合わせる場合，高さを指定する必要あり(style=\"height:640px;)\n\n.step-number\n\n各stepの色付きheader\n\n.step-title\n\n各stepのboldタイトル\n\n.info-content\n\n各stepの記述領域\n\n\n\n\n\n\ninfo-content block\nここにqmd形式で各ステップ内容を記述"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "Summary",
-    "text": "Summary\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする"
+    "objectID": "posts/2026-03-19-RLHF/index.html#reinforcement-learning-from-human-feedback",
+    "href": "posts/2026-03-19-RLHF/index.html#reinforcement-learning-from-human-feedback",
+    "title": "Reinforcement Learningfrom Human Feedback",
+    "section": "Reinforcement Learning from Human Feedback",
+    "text": "Reinforcement Learning from Human Feedback\n大規模言語モデルを人間のフィードバックを用いて微調整する学習フレームワーク\n\n\n\n\n\n事前学習済みモデルは「もっともらしいテキスト」を生成するが，有害な応答や事実と異なる出力を返す場合がある\nRLHF は，人間の選好を学習信号として取り込み，モデルの振る舞いを人間の好みに沿うよう調整する手法\nSFT → 報酬モデル学習 → 強化学習（PPO）の3段階で，有用性（Helpful）・無害性（Harmless）・誠実性（Honest） の3Hを追求\n\n\n\n\n\n\nStep 1: 言語モデルの構築\n\n\nプロンプトに対する理想的な応答を人間（ラベラー）が作成\nこの応答データで事前学習済みモデルを教師あり学習で調整(=SFTモデル1)\nこの段階では「チャットの応答」として良いモデルとは限らない\n\n\n\n\nStep 2: 報酬モデル学習\n\n\n同一プロンプト \\(x\\) に対し SFTモデルが複数の応答 \\(y\\) を生成\n人間が3Hの基準で応答をランキング（例: \\(y_w \\succ y_l\\)）\nペア比較データから報酬モデル \\(r_\\theta(x, y)\\) を学習\n\n\n例: スコア差を確率化してlossを定義\n\\[\n\\mathcal{L} = -\\mathbb{E}\\!\\left[\\log \\sigma\\bigl(r_\\theta(x, y_w) - r_\\theta(x, y_l)\\bigr)\\right]\n\\]\n\n\n\nStep 3: PPOによる強化学習\n\n\nSFTモデルを初期方策 \\(\\pi_\\text{RL}\\) として PPO で最適化\n報酬モデルのスコアを報酬信号として利用\nKLペナルティでSFTモデルからの過度な乖離を防止\n\n\\[\n\\max_{\\pi_\\text{RL}} \\; \\mathbb{E}\\!\\left[r_\\theta(x,y) - \\beta \\, \\text{KL}\\bigl(\\pi_\\text{RL} \\| \\pi_\\text{SFT}\\bigr)\\right]\n\\]\n\n\n\n\nSupervised Fine-Tuning"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
-    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\n① メッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化\n\n\n\n\n\n② ストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\n③ スライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成\n1スライド1メッセージ\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理"
+    "objectID": "posts/2026-03-19-RLHF/index.html#neural-scaling-laws",
+    "href": "posts/2026-03-19-RLHF/index.html#neural-scaling-laws",
+    "title": "Reinforcement Learningfrom Human Feedback",
+    "section": "Neural Scaling Laws",
+    "text": "Neural Scaling Laws\nLLMの性能はパラメーター数・データサイズ・計算量の冪乗則に従う\n\n\nScaling Law（Kaplan et al., 2020）\n\n他の2要素がボトルネックにならない条件下で，モデルの交差エントロピー損失 \\(L\\) は各変数の冪乗則に従う\n\\[\nL(N) \\propto N^{-\\alpha_N}, \\quad L(D) \\propto D^{-\\alpha_D}, \\quad L(C) \\propto C^{-\\alpha_C}\n\\]\n\n\\(N\\): パラメーター数，\\(D\\): データサイズ（トークン数），\\(C\\): 計算量（FLOPs）\n\n\n\n\n\n\n冪乗則の意味\n\n\n性能は各変数に対して対数スケールで線形に改善する\n10倍のパラメーターで一定幅の損失減少が得られる（収穫逓減）\n3変数のうち最も制約の強い要素がボトルネックとなる\n\n\\(N\\) だけ増やしても \\(D\\) が不足すれば性能は頭打ち\n\n\n\nChinchilla Optimal（Hoffmann et al., 2022）における学習方針\n\n\\[\nL(N, D) = 1.69 + \\frac{406.4}{N^{0.34}} + \\frac{410.7}{D^{0.28}}\n\\]\n\n固定計算予算 \\(C\\) のもとで \\(N \\propto D\\) が最も効率的\n大規模データの恩恵はデータ品質が高い場合に限られる可能性あり\n\nデータが増えるほど，品質が下がるトレードオフに留意"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "メッセージ作成の３つのキーポイント",
-    "text": "メッセージ作成の３つのキーポイント\n① メッセージの作成\n\n\n\n\n\n 明確な主張\n\n\n\n\nライドの目的は、意思決定に必要な情報を分かりやすく伝え、意思決定を促すこと\n明確な主張(Argument)にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n\n\n\n 筋の通った説明の流れ\n\n\n\n\n単に情報を並べるのではなく、情報を整理・構造化する\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n\n\n\n 結論に必要な情報だけ\n\n\n\n\n情報過多なスライドは、重要ポイントを埋もれさせ、判断を迷わせる\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
+    "title": "DSとしての語彙力",
+    "section": "「単語(word)」を知っているとは？",
+    "text": "「単語(word)」を知っているとは？\n知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される\n\n\n\n\n\n\n Form\n\n\n\n\n発音\n\n\n\n単語を「耳で聞いて理解し」「口で正しく発音できる」\n\n\n\n綴り(spelling)\n\n\n\n単語の視覚的な形（written form）を正しく知っている\n\n\n\n単語の構成要素\n\n\n\n単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している\n「単語の内部構造」を理解し，派生や意味の変化を読み取れる\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n語形と意味のつながり\n\n\n\n単語の「形」と「意味」が頭の中で結びついている\n\n\n\n概念と指示物\n\n\n\n単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている\n単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ\n\n\n\n連想 (association)\n\n\n\n単語がもつ感情・文化・意味ネットワークを理解している\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能\n\n\n\n単語が文の中でどのような文法的役割を果たすか理解している\n文中での位置（主語・動詞・目的語など）を理解している\n\n\n\nコロケーション\n\n\n\n自然な語の組み合わせ・共起関係を理解している\n\n\n\n使用制約\n\n\n\n単語を使う場面・文体・相手に応じて適切に使い分けられる"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "見出しと要点でストーリーを設計する",
-    "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n論理的な順序配置\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
+    "title": "DSとしての語彙力",
+    "section": "(参考) 「プログラミング言語」を知っているとは？",
+    "text": "(参考) 「プログラミング言語」を知っているとは？\nプログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる\n\n\n\n\n\n\n Form\n\n\n\n\n構文 (syntax)\n\n\n\nコードの正しい「形（文法）」を理解している\n例：for (let i=0; i&lt;10; i++) の括弧・セミコロンの役割を理解している\n\n\n\n記法 (spelling)\n\n\n\n言語特有のキーワードや識別子を正確に書ける\n\n\n\n構成要素 (structure)\n\n\n\n文や式がどのような要素で構成されるかを理解している\n例：関数＝宣言 + 引数 + 本体\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n概念と処理の対応\n\n\n\n言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している\n「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し\n\n\n\n連想 (association)\n\n\n\nコードから関連知識を連想できる\n例：append() → 「リスト操作」, 「破壊的変更」, 「配列末尾」\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能 (grammatical role)\n\n\n\nコード要素が文の中でどんな役割を果たすかを理解している\n例：変数は値の入れ物，関数は処理単位\n\n\n\nコロケーション (共起関係)\n\n\n\n自然なコードの組み合わせを理解している\n例：if ... else，try ... except，for ... in などのペアを正しく使える\n\n\n\n使用制約 (context constraints)\n\n\n\n構文・関数を適切な場面で使い分けられる\n例:\n\n同期処理と非同期処理の文脈の違い\nglobal変数の慎重な利用"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "スライドアウトライン設計例",
-    "text": "スライドアウトライン設計例\nスライドやドキュメントを作る前に、スライド構成を「ツリー型ロジック」で描くのが有効\n② ストーリーの骨子の構築\n\n\n\nスライド構成フォーマット\n\nhorizontal_tree:\n  - テーマ\n    - headings1\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n    - headings2\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n\n\nスライド構成例\n\n売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:\n  - 売上の全体傾向分析\n   - 売上は前年比▲12%、特に既存顧客売上が大幅減\n      - 全体売上と既存/新規の比較グラフ\n      - 時系列推移（過去12か月）\n  - 既存顧客離脱の要因分析\n    - 離脱要因は価格競争と顧客体験の低下\n      - 競合比較と価格感度分析\n  - リピート率改善の施策提案\n    - パーソナライズ施策が有効\n      - 類似顧客群へのキャンペーン効果の事例\n      - 実行計画・KPI設定案"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
+    "title": "DSとしての語彙力",
+    "section": "単語を使いこなす能力: receptive vs productive",
+    "text": "単語を使いこなす能力: receptive vs productive\n\n\n\n① Receptive knowledge\n\n\n使用場面: reading, listening skills\n提示された情報を理解できる力\n\n他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力\n他人のコード・APIドキュメントを読んで動作を理解できる\n\nForm → Meaning の対応を把握し，Usage は参照的に理解する段階\n\n\n\n\n\n② Productive knowledge\n\n\n使用場面: speaking, writing skills\n自分の考えや意図を表現できる力(= 状況に応じた創造的応用)\n\n単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力\n自分で関数やロジックを書き，再利用できる能力\n\nForm・Meaning・Usage をすべて統合して能動的に使える"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "明確なスライドメッセージのルール",
-    "text": "明確なスライドメッセージのルール\n③ スライド作成・資料化\n\n\n\n\n 1スライド1メッセージ\n\n\n\n\n主張や要点をひとつに絞る\n複数の情報を詰め込まず、聞き手の理解に集中を促す\n\n複数の主張や結論が同時にあると、聞き手が混乱してしまう\n\nMMUF(Main Message UpFront)\n\n\n\n\n\n\n オッカムの剃刀の原則\n\n\n\n\n聞き手が本質に集中する構成にする\n背景情報・前提知識は最低限にする\n伝えたい内容に直接関係しない情報は思い切って省く\n同じ情報を複数のスライドや文で繰り返さない\n\n\n\n\n\n\n メッセージと整合的な縦横軸\n\n\n\n\n秩序ある情報の列挙\n\n 大根, 手羽先, 手羽元, ネギ, 砂糖, 黒酢\n 骨付き鳥黒酢煮込みのための具材 肉: 手羽先, 手羽元 野菜: 大根, ネギ 調味料: 砂糖, 黒酢\n\nメッセージとスライド軸を合わせる\n\n論点別の「問い」「調査結果」を伝えるならば、縦に「論点軸」、横に「問い」と「調査結果」の比較があるべき"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
+    "title": "DSとしての語彙力",
+    "section": "✅ プログラミング言語理解チェックリスト",
+    "text": "✅ プログラミング言語理解チェックリスト\n\n\n\nrecord1:\n    観点: Form\n    children:\n      - チェック項目: syntax\n        Receptive skill:\n          - コードの構文構造を見て意味を理解できる\n          - 括弧やインデントの意味を理解できる\n        Productive skill:\n          - 正しい構文でコードを書ける\n          - 構文エラーを自力で修正できる\n      - チェック項目: spelling\n        Receptive skill:\n          - 言語特有のキーワードや識別子を見て意味を理解できる\n          - 大文字・小文字・予約語の違いを認識できる\n        Productive skill:\n          - キーワードや識別子を正確に書ける\n          - 命名規則に従って識別子を作れる\n\n      - チェック項目: structure\n        Receptive skill:\n          - 文や式の構成要素を理解できる\n          - 関数やクラスの構造を読み解ける\n        Productive skill:\n          - 再利用可能な関数を設計できる\n\nrecord2:\n    観点: Meaning\n    children:\n      - チェック項目: concept-behavior\n        Receptive skill:\n          - ループ・条件分岐・関数などの概念と挙動を理解できる\n          - コードの意味を説明できる\n        Productive skill:\n          - 概念をコードに正しく落とし込める\n          - 推定量→疑似コード→アルゴリズム実装の流れを実行できる\n      - チェック項目: association\n        Receptive skill:\n          - コードから関連知識を連想できる\n          - API名やメソッド名から用途を推測できる\n        Productive skill:\n          - 適切な関数やメソッドを選択できる\n          - 挙動と整合的な命名をすることができる\n\nrecord3:\n    観点: Usage\n    children:\n      - チェック項目: grammatical role\n        Receptive skill:\n          - 各構文要素がどんな役割を果たすか理解できる\n          - コード全体の構造を把握できる\n        Productive skill:\n          - 処理の意図に応じて構文を選択できる\n          - 構成要素を組み合わせてクラスを構築できる\n\n      - チェック項目: collocation\n        Receptive skill:\n          - よく使われる構文パターンを理解できる\n          - 組み合わせの自然さを判断できる\n        Productive skill:\n          - 自然なコードペアを使える（例：&lt;code&gt;if...else&lt;/code&gt;, &lt;code&gt;try...except&lt;/code&gt;, &lt;code&gt;for...in&lt;/code&gt;）\n\n      - チェック項目: context constraints\n        Receptive skill:\n          - 文脈に応じた構文や関数の使用制約を理解している\n          - 同期/非同期やスコープや名前空間などの制約を把握できる\n        Productive skill:\n          - 文脈に応じて適切な構文や関数を選択できる\n          - 設計上の制約を踏まえて安全なコードを書ける"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "1スライドに複数メッセージが入ってしまっている",
-    "text": "1スライドに複数メッセージが入ってしまっている\n\n人件費の上昇により売上拡大にも関わらず営業利益減少\n\n\n\n\n\n\n\n\n\n１つのスライドに２つのメッセージが含まれてしまっている\n\n売上上昇にもかかわらず営業利益が減少\n営業利益減少の主要因は人件費の増加\n\n\n\n\n「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、 2011~2018年の数値は本筋に対して過剰な情報\n\n\n\n\n図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭\n特定の行や列が強調されておらず、全体が等価に見えてしまい、何が重要情報なのかわからない"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
+    "title": "DSとしての語彙力",
+    "section": "Receptive → Productive → Scalableの順番で知識を確立する",
+    "text": "Receptive → Productive → Scalableの順番で知識を確立する\n\n\n\n\nLearn-by-Thinking\n\n\nReceptive Knowldgeの確立\n\n\n\n論文やOSSライブラリーを見て理解する\n理論や概念の背景を整理する\n単語・構文・仕組みを頭の中でマッピングする\n問題や課題の意味を解釈できるようになる\n\n\n\n\n\n\nLearn-by-Doing\n\n\nProductive Knowldgeの確立\n\n\n\n実際に手を動かしてコードを書く・課題を解く\nフィードバックを受けながら理解を修正する\n推定量→疑似コード→実装の流れを実現する\n課題解決や実務で活用可能なスキルへ昇華する\n\n\n\n\n\n\nExpand-your-knowledge\n\n\nScalable Knowldgeの確立\n\n\n\n習得した知見を整理し，関連知識と結びつける\n他の課題や領域への応用方法を考える\n自分の知識を言語化して共有する\n他人を巻き込み，知識をスケールさせる"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "1スライド1メッセージによる改善案",
-    "text": "1スライド1メッセージによる改善案\n1スライド1メッセージ\n\n\n\nここ10年で売上は19%拡大しているが、営業利益は34%の減少\n\n\n\n\n\n\n\n売上増減率\n+ 19%\n\nコスト増減率\n+ 38%\n\n営業利益増減率\n- 34%\n\n\n\n\nこのスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的\n「直感に反した情報」はシンプルかつ明快なロジックで説明したほうが良い"
+    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
+    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
+    "title": "DSとしての語彙力",
+    "section": "References",
+    "text": "References\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nWriting for Academic Purposes 英作文を卒業して英語論文を書く\n\n\n著者\n田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編\n\n\n発売日\n2010/4/1\n\n\nISBN\n978-4-89476-490-3\n\n\n体裁\n単行本，213ページ\n\n\n\nこの本の内容\n\n大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック\n「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "オッカムの剃刀の原則による改善案",
-    "text": "オッカムの剃刀の原則による改善案\nオッカムの剃刀の原則\n注目すべき情報だけに絞り、判断の迷いをなくす\n\n\n\n人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている\n\n\n\n\n\n前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「どのコストが特に増加したのか？」に答えることで論理的にスムーズな流れとなる"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
+    "title": "分析提案スライドの作成",
+    "section": "モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現",
+    "text": "モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現\nGoal Setting\n\n\n\n\n\nAS-IS\n\n\n\n\n\n\nsequenceDiagram\n    participant Chatbot\n    participant ModelTrainingService\n    participant ModelEvaluationService\n\n    Chatbot -&gt;&gt; ModelTrainingService: Provide preprocessed data\n\n    opt Train AI model\n        ModelTrainingService -&gt;&gt; ModelTrainingService: Train AI model\n        Note right of ModelTrainingService: モデルやパラメータのログは手動管理\n    end\n\n    ModelTrainingService -&gt;&gt; ModelEvaluationService: Evaluate model performance\n    ModelEvaluationService -&gt;&gt; ModelTrainingService: Provide evaluation results\n\n    ModelTrainingService -&gt;&gt; Chatbot: Deliver trained model\n    Note right of ModelTrainingService: 過去モデルの再デプロイは困難\n\n%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%% \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTO-BE\n\n\n\n\n\n\nsequenceDiagram\n    participant Chatbot\n    participant ModelTrainingService\n    participant ModelEvaluationService\n    participant MLflow\n\n    Chatbot -&gt;&gt; ModelTrainingService: Provide preprocessed data\n\n    opt Train AI model\n        ModelTrainingService -&gt;&gt; MLflow: Log experiment parameters\n        ModelTrainingService -&gt;&gt; ModelTrainingService: Train AI model\n        ModelTrainingService -&gt;&gt; MLflow: Log model, metrics, artifacts\n    end\n\n    ModelTrainingService -&gt;&gt; ModelEvaluationService: Evaluate model performance\n    ModelEvaluationService -&gt;&gt; MLflow: Log evaluation metrics\n    ModelEvaluationService -&gt;&gt; ModelTrainingService: Provide evaluation results\n\n    ModelTrainingService -&gt;&gt; MLflow: Register model version\n    Chatbot -&gt;&gt; MLflow: Request previous model version\n    MLflow -&gt;&gt; Chatbot: Provide historical model for deployment\n\n    ModelTrainingService -&gt;&gt; Chatbot: Deliver trained model\n\n%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(4) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%%"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "スライドに軸がなくメッセージが分かりづらい例",
-    "text": "スライドに軸がなくメッセージが分かりづらい例\n\nLNGの供給の安定供給にかかわる主な論点1\n\n\n\n① オペレーターの長期的な方針\n\n問: LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n調査結果: LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、カーボンニュートラルLNGの生産やメタンガスの排出量削減など、様々な取り組みを推進している\n\n\n\n② 収益性\n\n問: LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n調査結果:\n\nシェールガスのコスト競争力の高まりや従来のガスへの投資減少により、今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクトになり、生産拠点の集中度が高まる可能性がある\n原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\n\n\n\n③ LNGサプライサイド\n\n問: LNGインフラの潜在的なボトルネックとは何か\n調査結果:\n\nパイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される可能性がある\n\n\n\n\n問: 今後、世界のLNG供給構成はどう変化していくのか\n調査結果:\n\n世界のLNG生産量に占める米国の割合は、今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある\n現在、主要LNG輸入国は、調達先の多様化を進めており、複数の大陸にまたがる約10カ国からLNGを調達している\n従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる\n\n\n\n\n\n\n\n比較の困難さ\n\nカテゴリ軸と(「問」「調査結果」)の2軸が同じ縦軸のため、異なる主題間での「問」や「調査結果」の比較が煩雑\n\n視線の誘導の悪さ\n\n「オペレーターの長期的な方針」と「収益性」の各「調査結果」を比較する場合、縦に離れた位置にあるため、視線を大きく移動させる必要がある\n\n軸ラベルの冗長性\n\n同じ縦軸に異なる意味合いのラベル（「問」/「調査結果」）が何回も出現している\n重複排除の原則に反している\n\n\n\n\nエネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業より編集"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#problem-statement",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#problem-statement",
+    "title": "分析提案スライドの作成",
+    "section": "Problem Statement",
+    "text": "Problem Statement\nxxxxxxxx Problem Statement\n\n\n\nhorizontal_tree:\n  - テーマ\n    - breakdown 1\n        - problem 1.1\n        - problem 1.2\n          - problem 1.2.1\n          - problem 1.2.2\n        - problem 1.3\n    - breakdown 2\n        - problem 2.1\n        - problem 2.2\n\n\n\n\n\n\n\n\nProblem 1.1\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 1.2\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 1.3\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 2.1\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 2.2\n\n\nどのような技術障壁があるのか？\n現状のステータスは？"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "比較のためのスライド軸の導入と重複ラベルの排除",
-    "text": "比較のためのスライド軸の導入と重複ラベルの排除\nメッセージと整合的な縦横軸\n\n\nrecord1:\n  カテゴリー: オペレーターの&lt;br&gt;長期的な方針\n  Question: \n    - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n  調査結果: \n    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class=\"regmonkey-bold\"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している\n\nrecord2:\n  カテゴリー: 収益性\n  Question: \n    - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n  調査結果:\n    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class=\"regmonkey-bold\"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある\n    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\nrecord3:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - LNGインフラの潜在的なボトルネックとは何か\n  調査結果:\n      - &lt;span class=\"regmonkey-bold\"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある\nreocord4:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - 今後、世界のLNG供給構成はどう変化していくのか\n  調査結果:\n    - 世界のLNG生産量に占める米国の割合は、&lt;span class=\"regmonkey-bold\"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;\n    - 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class=\"regmonkey-bold\"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している\n    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#課題解決のステップ",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#課題解決のステップ",
+    "title": "分析提案スライドの作成",
+    "section": "課題解決のステップ",
+    "text": "課題解決のステップ\nObjectivesの整理\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "論文におけるHeadingsとTakeaways",
-    "text": "論文におけるHeadingsとTakeaways\n\n\n\n\n\nHeadings( 見出し )\n\n\n議論や情報を階層化するためのセクションタイトル\n\n「イントロ」「先行研究」「手法」「結果」「考察」「結論」\n\nHeadingsから関心部分にすぐアクセスできる\n\n\n\n\nTakeaways( 要点 )\n\n\n各セクションの要点や主張を示す\n通常はHeadingの直後に書かれる(MMUFの原則)\n\n全文を読まずに、素早く全体の骨子・要点をつかめる\n\n\n\n\n\n\n\n\n 3. Data and Methodology\n\n\n    We combine satellite imagery with city-level land-use data to model temperature variation.\n\n\n\n    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.\n\n\n 3.1 Data Sources\n\n\n  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.\n\n\n  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ..."
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
+    "title": "分析提案スライドの作成",
+    "section": "今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
+    "text": "今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す\nSolution提案\n\n\n\n\n\n\n\n開発課題（一般市場向け）\n\n\n\n① 実機テスト環境が市場条件を十分に再現できない\n\n実際の稼働環境では不具合が顕在化するリスク、設計と実利用の乖離\n\n\n\n\n② パラメータ調整が手作業で非効率\n\n調整作業に時間がかかり、設計サイクルが長期化\n\n\n\n\n③ デバイス単体での評価にとどまり、システム挙動が把握しづらい\n\n連携不具合や制御ロジックの不整合が開発後期まで見えにくい\n\n\n\n\n\n\n\n\n分析ソリューション（デジタルツイン導入）\n\n\n\n① デジタルツイン環境構築\n\n実市場に近い動的条件でシミュレーション可能\n\n効果：市場投入後の不具合低減、試験工数削減\n\n\n\n\n② パラメータ最適化アルゴリズムの導入\n\nML／PIML を用いた効率的な条件探索\n\n効果：調整時間を短縮し、開発リードタイムを圧縮\n\n\n\n\n③ システム全体の統合シミュレーション\n\nデバイス間連携や制御ロジックを再現\n\n効果：単体では見えない不具合の早期検出、信頼性向上"
   },
   {
-    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
-    "href": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
-    "title": "構造化されたストーリーとしてのスライド",
-    "section": "場面に応じてスライド作成クオリティは異なる",
-    "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析方針対応表",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析方針対応表",
+    "title": "分析提案スライドの作成",
+    "section": "分析方針対応表",
+    "text": "分析方針対応表\nSolution提案\n\n\nrecord1:\n  テーマ: テスト環境再現性向上\n  事業課題: \n    - \"&lt;strong&gt;実機テスト環境が市場条件を十分に再現できない&lt;/strong&gt;\" \n    - \"市場投入後の予期せぬトラブルによるリコールや追加対応のコスト増\"\n  受益者:\n    - 開発エンジニア\n    - テスト担当\n  取り組み提案:\n    - |\n      ① デジタルツイン環境を構築し、市場条件を忠実に再現するシミュレーションを実施。\n      これにより、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;\n      実環境に近い動的シミュレーション環境を提供し、設計・検証の精度を向上&lt;/span&gt;させる。\n  事業インパクト:\n    - 市場投入後の不具合低減\n    - 試験工数削減\n  想定期間: 3ヶ月\n\nrecord2:\n  テーマ: パラメータ最適化\n  事業課題: \n    - パラメータ調整が手作業で非効率\n    - 調整作業に時間がかかり、開発サイクルが長期化する\n    - 手作業による人為的ミスや調整のばらつきが発生しやすい\n  受益者:\n    - 品質保証部門\n    - 生産部門\n  取り組み提案:\n    - |\n      ② ML／PIML を用いた効率的な条件探索アルゴリズムを導入し、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;パラメータ最適化プロセスを構築&lt;/span&gt;します。\n  事業インパクト:\n    - 調整時間短縮\n    - 開発リードタイム圧縮\n  想定期間: 4ヶ月\n\nrecord2-2:\n  テーマ: システム統合評価\n  事業課題: \n    - デバイス単体での評価にとどまり、システム挙動が把握しづらい\n    - 連携不具合や制御ロジックの不整合が開発後期まで見えにくい\n    - 単体評価では検出できない問題が市場投入後に顕在化するリスク\n  受益者:\n    - 品質保証部門\n    - 顧客対応部門\n  取り組み提案:\n    - |\n      ③ デバイス間連携・制御ロジックを再現する統合シミュレーションを実施し、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;システム全体の統合テスト環境を構築&lt;/span&gt;します。\n\n  事業インパクト:\n    - 単体では見えない不具合の早期検出\n    - 信頼性向上\n  想定期間: 3ヶ月"
   },
   {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstractスライド４つの構成要素",
-    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ1",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ1",
+    "title": "分析提案スライドの作成",
+    "section": "分析アプローチ1",
+    "text": "分析アプローチ1\n必要データ，アルゴリズム概要，分析成果物概要及びその活用方法を記載\n\n\n\n\n\n\n\n\n\nData\n\n\n\n新市場環境に近い市場データや装置稼働データを収集し、解析用に整備\n\n\n\n\n\n\n\n\n\n\n\n\n\nサロゲートモデル\n\n\n\nデジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施\n\n\n\n\n\n\n\n\n\n\n\n\n\n成果物\n\n\n\n実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現\n\n\n\n\n\n\n\n製造装置・機器の稼働ログデータ（温度、圧力、流量など）\nセンサー・IoT データ（リアルタイム計測値、異常ログ）\n市場環境や使用条件データ（使用頻度、外気条件、負荷条件）\n過去の故障・不具合履歴、品質データ\n\n\n\n\nデジタルツインモデルの構築（装置・システム挙動を再現）\nML / PIML を用いたパラメータ最適化アルゴリズムの実装\nシステム統合シミュレーションにより、単体評価では見えない挙動を解析\n分析結果をもとに改善策や最適設定を抽出し、設計・検証の指針を生成\n\n\n\n\n実環境に近い動的シミュレーション環境（デジタルツイン）\n最適化済みパラメータセット、統合システム挙動の可視化レポート\n開発チームが設計・検証に活用、試験工数削減、リードタイム短縮\n結果を経営・製造・品質保証部門で共有し意思決定に反映"
   },
   {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide",
-    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#why-important",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#why-important",
+    "title": "分析提案スライドの作成",
+    "section": "Why important",
+    "text": "Why important\n分析手法1の成果物説明 ビジネスインパクトベースで\n\n\n\n\n\n試算根拠の記述\n\n\nxxxxx\nxxxxx\nxxxxx\nxxxxx\nxxxxx\n\n\n\n\n現状:\n  value: 100\n  custom_field: \"dsadsd\"\n  is_total: false\n  color: \"#E8F1FE\"\n'センサ・ログ&lt;br&gt;取得の自動化':\n  value: -10\n  custom_field: \"センサ・ログ取得の自動化\"\n  is_total: false\n  color: \"#E8F1FE\"\n前処理:\n  value: -8\n  custom_field: \"データクレンジング自動化\"\n  is_total: false\n  color: \"#B4D7FF\"\nモデル構築:\n  value: -12\n  custom_field: \"サロゲートモデル活用\"\n  is_total: false\n  color: \"#0E3666\"\nモデル評価:\n  value: -5\n  custom_field: \"テストデータ・理論値比較の効率化\"\n  is_total: false\n  color: \"#428CE6\"\nPoC実施:\n  value: -3\n  custom_field: \"小規模試験環境での迅速検証\"\n  is_total: false\n  color: \"#1A1A1A\"\n総合工数削減:\n  custom_field: \"合計工数削減\"\n  is_total: true\n  color: \"#D31804\""
   },
   {
-    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
-    "title": "分析Abstractスライドテンプレート",
-    "section": "分析Abstract Slide Pattern 2",
-    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1のmethodologyを紹介",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1のmethodologyを紹介",
+    "title": "分析提案スライドの作成",
+    "section": "分析アプローチ 1のMethodologyを紹介",
+    "text": "分析アプローチ 1のMethodologyを紹介\n３段階アプローチを用いて情報がWeb上にいつ現れたのかを判定する 分析手法紹介 1-1\n\n\n\n① 情報の包含判定\n\n\nWebページのクエリの包含度を計算\n\n\nTom fell in love with Naomi.\n\nTom bought Naomi many things.\n\nJewels, cars, and also a house.\n\n\nTom bought Naomi a mansion というクエリに対して，\n\n完全一致（ページ内に同じ語が存在）：1.0\n語形・同義語などの近似一致（編集距離や辞書ベースで判定）：0.5\n\nというルールで近似度を計算\n\\[\n1 + 1 + 1 + 1/2 = 7/2\n\\]\n\n\n\n② 公開日時の取得\n\n\nWebページのタイムスタンプを検出\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;meta name=\"article:published_time\" content=\"2025-09-30T14:05:00Z\"&gt;\n  &lt;title&gt;Sample Article&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;article&gt;\n    &lt;h1&gt;Sample News Article&lt;/h1&gt;\n    &lt;p class=\"date\"&gt;Published on September 30, 2025&lt;/p&gt;\n    &lt;time datetime=\"2025-09-30T14:05:00Z\"&gt;2025/09/30 14:05&lt;/time&gt;\n    &lt;p&gt;This is a short article body.&lt;/p&gt;\n  &lt;/article&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n日時表現がタイムスタンプらしいといえる要因を列挙し評価関数を作成\n\n\n\n\n③ ノイズの除去\n\n\n\n①と②を用いて情報のweb上の出現の時系列を取得\n時系列にはノイズが含まれるので，ガウシアンカーネル平滑化を用いてsmoothingを実施"
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index",
-    "href": "posts/2025-10-17-index-slide/index.html#index",
-    "title": "Indexスライドテンプレート",
-    "section": "Index",
-    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1の技術的特徴と強み",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1の技術的特徴と強み",
+    "title": "分析提案スライドの作成",
+    "section": "分析アプローチ 1の技術的特徴と強み",
+    "text": "分析アプローチ 1の技術的特徴と強み\n分析手法紹介 1続\n\n\n\n\n① 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善\n\n\n\nxxxx\nxxxx\nxxxx\n\n\n\n\n\n② フリークエンシーのモデリングによる上位ファネル動画の効果測定の改善\n\n\n\nxxxx\nxxxx\nxxxx\n\n\n\n\n\n③ 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善\n\n\n\nxxxx\nxxxx\nxxxx"
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index-1",
-    "href": "posts/2025-10-17-index-slide/index.html#index-1",
-    "title": "Indexスライドテンプレート",
-    "section": "Index",
-    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析１のタイムライン概要",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析１のタイムライン概要",
+    "title": "分析提案スライドの作成",
+    "section": "分析１のタイムライン概要",
+    "text": "分析１のタイムライン概要\nデータ収集 → 前処理 → モデリング → PoC検証の工程をトータル３ヶ月で完了させる\n\n\n\ndata1:\n  title: \"収集対象と範囲確定\"\n  content: \n    - '社内外のセンサーデータ、ログデータを収集'\n    - '必要に応じて外部データセットを取得'\n    - '&lt;span style=\"color: #D31804;\"&gt;xxxのリスクあり&lt;/span&gt;'\n  opposite: \"５月中旬完了見込み\"\n  color: \"#E8F1FE\"\n\nPreprocessing:\n  title: \"データクレンジング\"\n  content:\n    - '欠損値処理、異常値検出'\n    - '正規化・標準化・カテゴリ変換などの前処理'\n  opposite: \"５月下旬完了見込み\"\n  color: \"#B4D7FF\"\n\nModeling1:\n  title: \"モデル選択と構築\"\n  content:\n    - '機械学習／回帰モデルの構築'\n    - 'PIML／サロゲートモデルによる物理挙動の推定'\n  opposite: \"６月上旬Start\"\n  color: \"#0E3666\"\n\nModeling2:\n  title: \"モデル検証\"\n  content:\n    - 'テストデータによる性能評価'\n    - '理論値との比較および誤差分析'\n  opposite: \"7月上旬完了\"\n  color: \"#0E3666\"\nPoC1:\n  title: \"PoC\"\n  content:\n    - '小規模試験環境での検証'\n    - '実運用への適用可能性評価'\n  opposite: \"\"\n  color: \"#428CE6\""
   },
   {
-    "objectID": "posts/2025-10-17-index-slide/index.html#index-2",
-    "href": "posts/2025-10-17-index-slide/index.html#index-2",
-    "title": "Indexスライドテンプレート",
-    "section": "Index 2",
-    "text": "Index 2\n\n\n\n\n\n\n\n対象レベル\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n前提知識\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n必要環境\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#gantt",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#gantt",
+    "title": "分析提案スライドの作成",
+    "section": "Gantt",
+    "text": "Gantt\nぺっぺろぺー"
+  },
+  {
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析提案書チェックリスト",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#分析提案書チェックリスト",
+    "title": "分析提案スライドの作成",
+    "section": "分析提案書チェックリスト",
+    "text": "分析提案書チェックリスト\n\n\n\n\n\n形式だけでなく内容の質を高めることで説得力のある提案書にすることが重要\n下記の自己チェックに加えて，定期的な上長レビューと同僚からのフィードバックを活用してください\n\n\n\n\n\n\n\n① 分析の方向性・目的に関するチェック\n\n\n\n\n分析目的の明確性\n\n\n分析の目的が明確に記述されているか\n\n\n\n\n\n\nResearch Questionの明確性\n\n\n設定したRQが具体的で検証可能な形になっているか\n\n\n\n\n\n\n成果物の明確性\n\n\n分析によって得られる成果物が具体的に記述されているか?\n\n\n\n\n\n\n手法の妥当性\n\n\n選択した分析手法の理由と他手法との比較が記載されているか\n\n\n\n\n\n\nエビデンスの充実度\n\n\n主張を裏付ける参考文献や根拠が適切に引用されているか\n\n\n\n\n\n② 分析実施ロジに関するチェック\n\n\n\n\nリソース計画の現実性\n\n\n必要なデータ・計算環境・人的リソースが過不足なく記載されているか\n\n\n\n\n\n\n実現可能性の検討\n\n\n予想される制約や限界についても言及されているか\n\n\n\n\n\n\nタイムラインの具体性\n\n\n各工程の期間と全体スケジュールが明示されているか\n\n\n\n\n\n\nPoCの目的・範囲\n\n\nPoCで検証する業務フローや課題領域が明確に定義されているか\n\n\n\n\n\n\nPoC評価基準\n\n\nPoCの成果物や成功基準，評価方法が定義されているか"
+  },
+  {
+    "objectID": "posts/2025-10-01-research-proposal-template/index.html#test",
+    "href": "posts/2025-10-01-research-proposal-template/index.html#test",
+    "title": "分析提案スライドの作成",
+    "section": "Test",
+    "text": "Test"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
+    "title": "はじめてのGitHub",
+    "section": "GitHubが提供する機能",
+    "text": "GitHubが提供する機能\n\n\n\n\n\n Gitレポジトリホスティング\n\n\n\n\nソースコードの安全な保管\n\n\nクラウド上でコードを保存することで、紛失リスクを軽減\n\n\nバージョン管理の完全サポート\n\n\nGitを使った変更履歴の記録・追跡及び過去の状態への復元や変更内容の比較が可能\n\n\n\n\n\n\n\n 開発コラボレーション機能\n\n\n\n\nPull request(PR)\n\n\nコードの変更を提案し、他のメンバーと議論・承認を経てマージする機能\n\n\nIssue\n\n\nバグ報告やタスク、提案事項を管理する機能\n\n\nプロジェクト管理ボード\n\n\nKanbanスタイルのボードを使って、IssueやPRを視覚的に整理・進捗管理する機能\n\n\nWiki\n\n\nユーザーが自由に編集できるDocumentプラットフォーム\n\n\n\n\n\n\n\n CI/CDツール (GiHub Actions)\n\n\n\n\n自動テスト実行\n\n\nプッシュやPRのタイミングでユニットテストや統合テストを自動実行する機能\n\n\n自動デプロイ\n\n\n本番やステージング環境へ自動でコードをデプロイでき、リリース作業の効率と安定性を実現\n\n\nコンテナ化対応\n\n\nDockerなどのコンテナ技術と連携し、開発から本番まで一貫した環境構築と運用が可能"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#つのプラットフォームで開発ライフサイクル全体をサポート",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#つのプラットフォームで開発ライフサイクル全体をサポート",
+    "title": "はじめてのGitHub",
+    "section": "１つのプラットフォームで開発ライフサイクル全体をサポート",
+    "text": "１つのプラットフォームで開発ライフサイクル全体をサポート\n\n\n\n\n\n従来：個別ツールが必要\n\n\n\n\n\n\n\nVersion管理ツール\n\n\nGit、SVN、Mercurial等を別途導入\n\n\n\n\n\n\n\n\n\nBug tracker\n\n\nJIRA、Redmine、Bugzilla等を別途利用\n\n\n\n\n\n\n\n\n\nCode review tool\n\n\nReview Board、Crucible等を別途導入\n\n\n\n\n\n\n\n\n\nDocument管理ツール\n\n\nConfluence、SharePoint等を別途利用\n\n\n\n\n\n\n\n\n\nCI/CDツール\n\n\nJenkins、TeamCity等を別途構築\n\n\n\n\n\n\n\nGitHub：統合機能で提供\n\n\n\n\n\n\n\nGit\n\n\n分散型バージョン管理システム\n\n\n\n\n\n\n\n\n\nIssue\n\n\nバグ追跡・タスク管理・機能要求\n\n\n\n\n\n\n\n\n\nPull Request\n\n\nコードレビュー・議論・マージ管理\n\n\n\n\n\n\n\n\n\nWiki\n\n\nプロジェクトドキュメント管理\n\n\n\n\n\n\n\n\n\nGitHub Actions\n\n\nCI/CD・自動化ワークフロー"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueとは？",
+    "text": "GitHub Issueとは？\nGitHub Issue\nレポジトリ単位でタスク管理・バグ報告・アイデア共有などを行うために使用する機能\n\n\n\n\n\n\n\n\n\n\n\n\n\n構成要素\n説明\n\n\n\n\nタイトル\nIssueの要点や目的を一言で示す\n\n\n本文\n詳細な説明、再現手順、スクリーンショットなど\n\n\nLabel\n種別（bug、feature、help wantedなど）を色分けして分類\n\n\nAssignee\nIssueの対応担当者を割り当て\n\n\nマイルストーン\nリリースやスプリントなどの単位でグループ化可能\n\n\nコメント欄\nユーザーや開発者が議論・進捗報告を行う場所\n\n\nクローズ/オープン\n対応が完了したら「Closed」にすることで進捗管理が可能\n\n\nRelationship\nIssueやPull Request（PR）同士の依存関係を管理する項目"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueを用いたコミュニケーション例",
+    "text": "GitHub Issueを用いたコミュニケーション例\nGitHub Issue\n\n\n\n\n\n\n\n\n\n\nMention機能の活用\n\n@username 形式で、対象のユーザーに通知が飛ばせます\n\n\n\n\n\n\nLabelでIssueを分類\n\n議論内容を踏まえ、Labelの追加や削除をします\n\n\n\n\n\nCommitとの紐付けで進捗を自動追跡\n\n\nIssue番号をcommit messageに付与すると、自動的に紐付けができます\n左図ではIssue thread に commit-id 09d4a63が確認できる\n\n\ngit commit -m \"Fix connection timeout bug (#123)\"\n\n\n\n\n\n他のIssueやPRからの参照\n\nIssueやPRに #番号 を書くと、それがリンクになり相互参照ができます\n\nThis issue is related to #45 and blocked by #38.\n\n\n\n\n\nPRやcommitでのIssueステータス管理\n\n対応状況（Open/Clossed）をcommit messageで管理することができます\n\ngh pr create --base main --head feature \\\n  --title \"Fix login bug causing crash\" \\\n  --body \"Fixes #45\""
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
+    "title": "はじめてのGitHub",
+    "section": "GitHub Issueを用いたワークフロー例の紹介",
+    "text": "GitHub Issueを用いたワークフロー例の紹介\nGitHub Issue\n\n\n\n\nGitHub Issue活用ワークフロー例\n\n\n\n\n\n\n\nStep1: バグの発見とIssueの作成\n\n\n問題の言語化と可視化を通して、チーム全体が何が起きているか共有\n\n\n\n\n\n\n\n\n\nStep2: ラベルとメタ情報の整理\n\n\nラベル・マイルストンの明示によって、タスクを管理しやすくする\n\n\n\n\n\n\n\n\n\nStep3: 担当者の割り当てと作業開始\n\n\n担当者の明確化(@mention)により、進捗確認しやすくする\n\n\n\n\n\n\n\n\n\nStep4: Pull Requestを作成し、Issueと関連付け\n\n\n何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる\n\n\n\n\n\n\n\n\n\nStep5: PRマージとIssueの自動クローズ\n\n\n作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ\n\n\n\n\n\nGitHub Issue作成Tips\n\n\n\n\n① Issueの重複を回避する\n\n\n\nIssue作成前にキーワード検索して既存のIssueを確認\n既存Issueに追記する形が望ましい場合は、新規作成を避ける\n\n\n\n\n\n\n② チームで共通のLabelを定義・運用する\n\n\n\nカテゴリ・優先度・状態を表すラベルを整理（例：bug, preprocess, P1）\nチームでラベル運用ルールを文書化する\n\n\n\n\n\n\n③ Issue Templateを定義する\n\n\n\n.github/ISSUE_TEMPLATE にテンプレートファイルを作成\nバグ報告・機能提案など、用途ごとにテンプレートを分ける\n\n\n\n\n\n\n④ マイルストンを明確に設定する\n\n\n\nIssueごとにマイルストンを紐づける\nマイルストンごとの進捗率把握に役に立つ\n\n例: version 3.0 リリースに必要なタスクの95%が現在達成済み"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
+    "title": "はじめてのGitHub",
+    "section": "Kanbanを用いたGitHub Issueの管理",
+    "text": "Kanbanを用いたGitHub Issueの管理\nGitHub Issue\n\n\nGitHub Project Board\n\n\nGitHub では Projects（プロジェクトボード） 機能を使って、Kanbanスタイルで最新情報のIssue/PRを管理できます\nフィルタリング、並び替え、グループ化することでレイアウトを自由にカスタマイズできます"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
+    "title": "はじめてのGitHub",
+    "section": "Pull Requestとは？",
+    "text": "Pull Requestとは？\nあるブランチで行った変更について、別のブランチへのマージを依頼するGitHub上の仕組み1 Pull Request\n\n\n\nGitHub Pull Requestワークフロー\n\n\n\n\n\n\n\nStep1: ブランチ作成と作業開始\n\n\nトピックブランチ2を切り、独立して作業を進めることで本線に影響を与えず開発可能に\n\n\n\n\n\n\n\n\n\nStep2: コミットとプッシュ\n\n\n適切な粒度でコミットを行い、GitHubにプッシュして作業状況を共有する\n\n\n\n\n\n\n\n\n\nStep3: Pull Request（PR）を作成\n\n\nレビュー依頼・変更内容の記録・Issueとの関連付けなどを行う\n\n\n\n\n\n\n\n\n\nStep4: レビューとフィードバック対応\n\n\nコメント機能を活用し、コード品質と理解度を高めながら開発を進行\n\n\n\n\n\n\n\n\n\nStep5: Pull Requestをマージ\n\n\nPRを承認・マージし、関連Issueも自動クローズ\n\n\n\n\n\nGitHub PR活用Tips\n\n\n\n\n① PRとIssueを関連付ける\n\n\n\nPR本文に Fixes #123 を記述して、マージ時にIssueを自動Close\n複数Issueに関連する場合は箇条書きで整理\n\n\n\n\n\n\n② Draft PRを活用して作業途中でも共有\n\n\n\n作業中でも早期に可視化してコメントをもらえる\n[WIP]など作業中であることを明確にする\nレビューを踏まえた変更は同一ブランチにPush\n\n\n\n\n\n\n③ PRテンプレートを用意する\n\n\n\n.github/PULL_REQUEST_TEMPLATE.md にてPRテンプレート設定可能\n\n\n\n\n\n\n④ PRのサイズは小さく\n\n\n\n開発期間やコード量が大きいほど，レビューの負担は増す\n大きな変更は機能単位や修正単位で分割すること\n\n\n\n\n\nPull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み１つのトピックに集中して、他の作業は一切行わないブランチ．対義語は統合ブランチ(例: main や release)．"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-request-フィードバックポイント",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-request-フィードバックポイント",
+    "title": "はじめてのGitHub",
+    "section": "Pull Request フィードバックポイント",
+    "text": "Pull Request フィードバックポイント\nPull Request\n\n\n\n\n\n\n\n\nコードの可読性\n\n\nコーディング規則と整合的か\nコメントやドキュメントが適切か\n\n\n\n\n\n\n\n\n設計・アーキテクチャ\n\n\n無駄なく効率的な計算か\n再利用性・拡張性はあるか\n\n\n\n\n\n\n\n\n動作の正しさ\n\n\n要件や仕様を満たしているか\n境界条件や例外ケースの考慮があるか\n\n\n\n\n\n\n\n\nテスト\n\n\n単体テスト・統合テストが十分か\nカバレッジやケースの妥当性が確保されているか\nテストは再現可能な形で成功するか\n\n\n\n\n\n\n\n\nリファクタリング\n\n\n冗長なコードや重複が整理されているか\n関数やクラスの分割・抽象化が適切か\n技術的負債の返済につながっているか\n\n\n\n\n\n\n\n\nプロジェクトルール遵守\n\n\nコーディング規約・スタイルガイドに沿っているか\nGitのコミットメッセージ・ブランチ命名規則が守られているか"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-flow-リリース中心の開発スタイル",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-flow-リリース中心の開発スタイル",
+    "title": "はじめてのGitHub",
+    "section": "Git Flow: リリース中心の開発スタイル",
+    "text": "Git Flow: リリース中心の開発スタイル\nmain，develop，feature，release，hotfixに分けて管理するワークフロー\n\n\n\n開発の流れに応じたBranch切り替え\n\n\n\n\n\n\n\n%%{ init: {\n    'theme': 'default',\n    'themeVariables': { \n        'fontFamily': 'Meiryo'\n    },\n    'gitGraph': { \n        'orientation': 'LR', \n        'nodeSpacing': 150, \n        'mainBranchName': 'main' \n    }\n} }%%\ngitGraph\n   commit id: \"\" tag: \"v1.0.0\"\n\n   branch hotfix\n   checkout hotfix\n   commit id: \"BUGFIX\"\n\n   checkout main\n   branch develop\n   checkout develop\n   commit id: \"開発開始\"\n\n   branch feature/login\n   checkout feature/login\n   commit id: \"\"\n\n   checkout main\n   merge hotfix tag: \"v1.0.1\"\n\n   checkout develop\n   merge hotfix\n   commit id: \"incorporate hotfix\"\n   \n   checkout develop\n   merge feature/login\n   commit id: \"ログイン機能実装\"\n\n   branch release/1.1.x\n   checkout release/1.1.x\n   commit id: \"リリース準備\"\n   commit id: \"bugfix\"\n\n   checkout develop\n   merge release/1.1.x\n\n   checkout main\n   merge release/1.1.x  tag: \"v1.1.0\"\n\n   checkout develop\n   commit id: \"FEATURE\"\n\n\n\n\n\n\n\n\n各種ブランチの役割分担\n\n\n\n\n\n\n\n\nmain\n\n\n\n安定版を保持するブランチ\ngit push --tags でリモートレポジトリに tagsをpushする\n\n\n\n\n\n\n\n\n\n\ndevelop / feature\n\n\n\ndevelop は次期リリース向け統合ブランチ\nfeature は新機能開発用で、完成後 develop にマージ\n\n\n\n\n\n\n\n\n\n\nrelease\n\n\n\nリリース前のバグ修正や軽微な調整作業用ブランチ\n完了したら main と develop にマージしてタグ付け\n\n\n\n\n\n\n\n\n\n\nhotfix\n\n\n\n本番の緊急修正用ブランチ(例: hotfix/&lt;issue number&gt;-hogehoge)\nmain から派生し、修正後 main と develop にマージ"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#テスト駆動開発用git-flow",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#テスト駆動開発用git-flow",
+    "title": "はじめてのGitHub",
+    "section": "テスト駆動開発用Git Flow",
+    "text": "テスト駆動開発用Git Flow\n\n\n\n\n開発の流れに応じたBranch切り替え（テスト駆動）\n\n\n\n\n\n\n\n%%{ init: {\n    'theme': 'default',\n    'themeVariables': { \n        'fontFamily': 'Meiryo',\n    },\n    'gitGraph': { \n        'orientation': 'LR', \n        'nodeSpacing': 150, \n        'mainBranchName': 'main' \n    }\n} }%%\ngitGraph\n   commit id: \"\" tag: \"v1.0.0\"\n\n   branch hotfix/1\n   checkout hotfix/1\n   commit id: \"BUGFIX\"\n\n   checkout main\n   branch system\n   checkout system\n   commit id: \"システムテスト開始\"\n\n   branch unit/login\n   checkout unit/login\n   commit id: \"ユニットテスト駆動\"\n\n   checkout main\n   merge hotfix/1 tag: \"v1.0.1\"\n\n   checkout system\n   merge hotfix/1\n   commit id: \"Hotfix取り込み\"\n   \n   checkout system\n   merge unit/login\n   commit id: \"ログイン機能統合\"\n\n   branch release/1.1.x\n   checkout release/1.1.x\n   commit id: \"リリース準備\"\n   commit id: \"軽微な修正\"\n\n   checkout system\n   merge release/1.1.x\n\n   checkout main\n   merge release/1.1.x  tag: \"v1.1.0\"\n\n   checkout system\n   commit id: \"次期機能準備\"\n\n\n\n\n\n\n\nリモートリポジトリにはmain/release/systemブランチのみ存在\n他ブランチはPRマージ後に削除される想定\n\n\n\n各種ブランチの役割分担\n\n\n\n\n\n\n\n\n\nmain\n\n\n\n安定版を保持するブランチ\nリリース済みのコードを管理\n\n\n\n\n\n\n\n\n\n\nsystem / unit\n\n\n\nsystem は次期リリース向け統合ブランチでシステムテストを実施\nunit/* はユニットテスト駆動開発ブランチで、完成後に system にマージ\n\n\n\n\n\n\n\n\n\n\nrelease\n\n\n\nリリース前のバグ修正や軽微な調整作業用ブランチ\n完了後 main と system にマージしタグ付け\n\n\n\n\n\n\n\n\n\n\nhotfix/*\n\n\n\n本番の緊急修正用ブランチ"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
+    "title": "はじめてのGitHub",
+    "section": "サル先生のGit入門",
+    "text": "サル先生のGit入門\nGitの初心者から中級者までを対象に、バージョン管理の基礎から実践的な操作方法までを解説\n\n\n\n\n\nsaru-git\n\n\n\nサイトメタデータ\n\n\n\nサイト名\nサル先生のGit入門\n\n\nURL\nhttps://backlog.com/ja/git-tutorial/\n\n\n提供元\n株式会社ヌーラボ（プロジェクト管理ツール「Backlog」の開発元）\n\n\n書籍版\n『サルでもわかるGit入門』（インプレス刊）\n\n\n\nコンテンツ構成\n\n\n\nセクション\n内容\n\n\n\n\n入門編\nGitの基本操作（コミット、ブランチ作成など）を図解で解説\n\n\n発展編\nマージやリベース、コンフリクト解消など中級者向けの操作\n\n\nプルリクエスト編\nチーム開発でのプルリクエストの使い方とレビューの流れ\n\n\n逆引きGit\nやりたいことからコマンドを探せる便利な逆引きリファレンス"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
+    "title": "はじめてのGitHub",
+    "section": "OhGoshGit",
+    "text": "OhGoshGit\n初心者～中級者向けに「Git操作でやらかしがちなミスとその直し方」を解説したサイト\n\n\n\n\n\nOGG\n\n\n\nサイトメタデータ\n\n\n\n\n\n\n\nサイト名\nOhGoshGit!?!\n\n\nURL\nhttps://ohgoshgit.github.io/\n\n\n提供元\nOhGoshGit\n\n\nライセンス\nMIT License\n\n\n言語対応\n日本語対応セクションあり\n\n\n\nコンテンツ構成\n\nGit関連のトラブルシューティングや設定ミス対処法を解説\nHeaderから日本語選択可能\n具体的なトピック例\n\nリモートブランチへのpush/pullができない場合\n最新のコミットと作業中の変更との差分を確認方法\nGitHubリポジトリの名前を変更する方法"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
+    "title": "はじめてのGitHub",
+    "section": "Gitのバージョン管理の仕組み",
+    "text": "Gitのバージョン管理の仕組み\n\n\n\nGitコマンドと領域移動関係図\n\n\n\n\n\n\nsequenceDiagram\n\n  participant A as working directory&lt;br&gt;(working tree)\n  participant B as staging area&lt;br&gt;(index)\n  participant C as local repository&lt;br&gt;(local branch)\n  participant D as local repository&lt;br&gt;(tracking branch)\n  participant E as remote repository\n\n  A-&gt;&gt;B: git add/rm\n  B-&gt;&gt;C: git commit\n  C-&gt;&gt;E: git push\n  C-&gt;&gt;A: git switch -c&lt;br&gt;(checkout)\n  E-&gt;&gt;D: git fetch\n  D-&gt;&gt;A: git merge\n  E-&gt;&gt;A: git pull (実質的には git fetch + git merge)\n\n\n\n\n\n\n\n5つのGit管理領域\n\n\nworking directory (working tree)\n\n\nコードを編集する作業領域\n\n\n\n\n\nstaging area (index)\n\n\n次のコミットに含める変更を一時的に置く場所\n\n\n\n\n\nlocal repository (local branch)\n\n\n自分のPC上のGitリポジトリ。コミット履歴を保存\n\n\n\n\n\nlocal repository (tracking branch)\n\n\nリモートブランチを追跡しているローカルのブランチ\n\n\n\n\n\nremote repository\n\n\nサーバー上の共有リポジトリ（GitHub）"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
+    "title": "はじめてのGitHub",
+    "section": "Gitはsnapshot方式で全体の状態を記録",
+    "text": "Gitはsnapshot方式で全体の状態を記録\n\n\n\nSnapshot形式のデータ管理\n\n\n\n差分形式のデータ管理\n\n\n\n\n\n\n① 各コミットはTreeオブジェクトでディレクトリ構造を表現している\n\n\n② Git は各時点でのファイル状態をSnapshotで記録．各ツリーはsnapshotへの参照を保存している\n\n\n③ 更新がなかったファイルは、前回と同じ blob オブジェクトへの参照リンクを保存している\n\n\n④ Gitのオブジェクト（commit, tree, blobなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
+    "title": "はじめてのGitHub",
+    "section": "Git × 大容量ファイル ― やってはいけないアンチパターン",
+    "text": "Git × 大容量ファイル ― やってはいけないアンチパターン\n\n\n大容量ファイルをコミットするのは絶対にやってはいけない\n\n\n\nGitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび完全な新コピーをオブジェクト DB に追加してしまう\n特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる\n\n\n\n\n\n\n\n\n アンチパターン\n\n\n\n\n巨大バイナリをそのままコミット\n\n\nRAW 動画、可逆圧縮画像、機械学習モデルをcommit\n\n\n\n\n\n\n定期的に更新される生成物を履歴に残す\n\n\nPDF/PowerPoint, minified JS/CSS bundles, compiled binaries\n\n\n\n\n\n\n一時ファイルやキャッシュをうっかり追加\n\n\n.DS_Store, .idea, *.sqlite, *.log\n\n\n\n\n\n\n 発生する不具合\n\n\n\n\nリポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる\n\n\n1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り\n\n\n\n\n\n\n生成物が少しでも変わるたびにフルコピーされ履歴が膨張\n\n\nファイルの中の一部が変われば、新しい blob オブジェクトが生成される\n\n\n\n\n\n\n差分や履歴がノイズまみれになる\n\n\n開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
+    "title": "はじめてのGitHub",
+    "section": "git logコマンドでcommit logを確認する",
+    "text": "git logコマンドでcommit logを確認する\ngitコマンド\n\n\ngit log コマンドの基本動作\n\n\nSyntax:\n\ngit log [options] -- &lt;file&gt;\n\n誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=git rebaseやgit difftoolを使いこなすために必要)\nファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる\n\n\n\n\n\n\ngit log の挙動例\n\n\n$ git log --pretty=format:'%cs,%h,%an,%s'\n\n2025-09-21,ec4df50,Ryo Nak,Merge pull request #13\n2025-09-20,a1b2c3d,John Doe,BUGFIX: solve #11\n2025-09-19,9f8e7d6,Alice Smith,ENH: simplify OLS class\n2025-09-18,7e6d5c4,Bob Johnson,DOCS: adding README\n\n\n\n--pretty=format を用いることで，commit logを1行に要約して出力することができます\nFileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ形式で出力できます\n-p オプションを追加で付与することで，各コミットにおける差分も表示することができます\n\n\ngit log options\n\n\n\n\n\n\n\nオプション\n説明\n\n\n\n\n--pretty=format:\"%cs %h %an %s\"\n%cs: コミット日時（YYYY-MM-DD）%h: 短縮コミットID%an: Author名%s: コミットメッセージ\n\n\n-p\n各コミットにおける差分（パッチ）を表示\n\n\n--after=&lt;日付&gt;\n--after=\"2025-01-01\" で2025-01-01以降にフィルタリング（境界含む）\n\n\n--before=&lt;日付&gt;\n--before=\"2025-01-01\" で2025-01-01以前にフィルタリング （境界含む）"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitginoreの設定",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitginoreの設定",
+    "title": "はじめてのGitHub",
+    "section": ".gitginoreの設定",
+    "text": ".gitginoreの設定\ngitコマンド\n\n\n.gitignoreファイル\n\n\n不必要なcommitを避けることを目的にGitによる追跡対象としないファイルを指定するための設定ファイル\n.gitignore に記載された対象ファイルは、git add の実行時に、インデックスに追加されないようになる\n「これから追加しない」ための設定\n\n\n\n\n注意点\n\n\nすでに一度 git add を経験したファイルは、インデックスに追加され、Git 追跡対象に含まれてしまうので、後から.girignoreを変更しても意図した通りの動きをしないときがある\n\n\n\nすでに追加されたファイルの追跡を解除したい場合\n\n\ngit rm --cached &lt;FILENAME&gt;\n\n\n\n.gitignore に書かれたファイルを「今後追跡しない」状態に変更\nファイルはローカルには残る（削除されない）"
+  },
+  {
+    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#windows-powershellでのgit環境構築",
+    "href": "posts/2025-06-07-getting-started-with-github/index.html#windows-powershellでのgit環境構築",
+    "title": "はじめてのGitHub",
+    "section": "Windows + PowershellでのGit環境構築",
+    "text": "Windows + PowershellでのGit環境構築\n環境構築\n\n\n\n\n\n\n\n1 公式サイトからインストーラーをダウンロード\n\n\n\n\n2 インストールウィザードに従ってセットアップを進める\n\n\n\n\n\n\n\n\nGit Bash onlyを選択\n\n\n「Git Bash only」を選択しておくと環境がシンプルになります\n\n\n\n\n\n\n\n\n3 インストール完了後，PowerShell を開きPATHの確認\n\n\n\n\ngit --version\n\n\nバージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功\n\n\n\n\n\n4 PowerShellでのGitレポジトリ作成テスト\n\n\n\n\nPS&gt; cd ./Desktop\nPS&gt; mkdir ./test\nPS&gt; git init\nPS&gt; cd ..\nPS&gt; Remove-Item ./test -Recurse -Force\n\n\n上記がエラーなく実行できれば、Git の動作確認は完了\n\n\n\n\n\n\nPATHが通らない場合の対処法\n\n\n\n\n\nStep 1: 実行ファイルの場所を探す\n\n\n\ngit.exeの存在場所を確認する\n通常は D:\\Program Files\\Git\\bin\\git.exe\n\n\nTest-Path \"D:\\Program Files\\Git\\bin\\git.exe\"\n\n\n\n\n\n\nStep 2: 実行可能性のテスト\n\n\n\n& \"D:\\Program Files\\Git\\bin\\git.exe\" --version\n\n\nバージョン情報が出力されれば，次のステップ\n出力されない場合はGitの再インストール\n\n\n\n\n\n\nStep 3: PATHの追加\n\n\n\nTest-Path $PROFILE で表示されたprofileファイルに以下のラインを追加\n\n\nD:\\Program Files\\Git\\bin\\git.exe\n\n\n存在しない場合は，以下のコマンドで新規作成\n\n\nNew-Item -ItemType File -Path $PROFILE -Force"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "The Little Book of Research Writing",
+    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
+    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+  },
+  {
+    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
+    "title": "スライド作成に役に立つ書籍紹介",
+    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
+    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
+    "section": "",
+    "text": "Reinforcement Learningfrom Human Feedback\n\n\n\nLLM\n\n\n\n\n2026-03-19\n\n\n\n\n\n\n\n\n\n\n通信を高速に，正確に\n\n\n\n情報理論\n\n\n\n\n2026-02-18\n\n\n\n\n\n\n\n\n\n\nデータ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2026-02-18-shannon/index.html#executive-summary",
@@ -413,291 +581,137 @@
     "text": "ハフマン符号: 実行例\n\n先ほどの実装を用いた \\(S = \\{s_1, s_2, s_3, s_4, s_5\\}\\), \\(P = (0.4, 0.3, 0.15, 0.1, 0.05)\\) での実行例\n\n\n\nエンコード\n\n&gt;&gt;&gt; huff = Huffman()\n&gt;&gt;&gt; symbols = list(\"aaaaaaaaabbbbbbcccdde\")  # 頻度比 = 9:6:3:2:1 ≈ P\n&gt;&gt;&gt; encoded = huff.encode(symbols)\n&gt;&gt;&gt; for k, v in sorted(huff.encode_dict.items()):\n...     print(f\"  {k} -&gt; {v}\")\n  a -&gt; 0\n  b -&gt; 10\n  c -&gt; 110\n  d -&gt; 1110\n  e -&gt; 1111\n&gt;&gt;&gt; print(f\"encoded = {encoded}\")\nencoded = 000000000101010101010110110110111011101111\n&gt;&gt;&gt; print(f\"圧縮率: {len(encoded)}/{len(symbols)*3} \"\n...       f\"= {len(encoded)/(len(symbols)*3):.2%}\")\n圧縮率: 42/60 = 70.00%\n\nデコード\n\n&gt;&gt;&gt; def decode(tree, bits):\n...     result = []\n...     node = tree\n...     for b in bits:\n...         node = node.left if b == \"0\" else node.right\n...         if node.key is not None:     # 葉に到達\n...             result.append(node.key)\n...             node = tree              # 根に戻る\n...     return \"\".join(result)\n\n&gt;&gt;&gt; decoded = decode(huff.tree, encoded)\n&gt;&gt;&gt; print(f\"decoded = {decoded}\")\ndecoded = aaaaaaaaabbbbbbcccdde\n&gt;&gt;&gt; decoded == \"\".join(symbols)\nTrue\n\n\n\n\n\n\n\nREMARKS\n\n\n\n即時復号可能（prefix-free）なので，ビット列を先頭から読むだけで一意にデコードできる\n圧縮率 70% は，エントロピー \\(H \\approx 1.96\\) bit に対し平均符号長 \\(L = 2.1\\) bit/symbol で情報理論的限界に近い"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
-    "section": "",
-    "text": "通信を高速に，正確に\n\n\n\n情報理論\n\n\n\n\n2026-02-18\n\n\n\n\n\n\n\n\n\n\nデータ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index",
+    "href": "posts/2025-10-17-index-slide/index.html#index",
+    "title": "Indexスライドテンプレート",
+    "section": "Index",
+    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "href": "posts/2025-05-02-references/index.html#the-little-book-of-research-writing",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "The Little Book of Research Writing",
-    "text": "The Little Book of Research Writing\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nThe Little Book of Research Writing\n\n\n著者\nVaranya Chaubey (著)\n\n\n発売日\n2012/10/19\n\n\nISBN13\n978-4492557204\n\n\n体裁\n単行本, 159ページ\n\n\n\nこの本の内容\n\n様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説\nEconリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能\nメインメッセージの論理的明確性を確認する方法として，R(Research Question)・A(Answer)・P(Positioning Statement)フレームワークを紹介"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index-1",
+    "href": "posts/2025-10-17-index-slide/index.html#index-1",
+    "title": "Indexスライドテンプレート",
+    "section": "Index",
+    "text": "Index\n\n\n\n\n本研修の目的\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "href": "posts/2025-05-02-references/index.html#外資系コンサルのスライド作成術図解表現23のテクニック",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "外資系コンサルのスライド作成術―図解表現23のテクニック",
-    "text": "外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n\n\n\ngaicon-slide-book\n\n\n\n書籍情報\n\n\n\nタイトル\n外資系コンサルのスライド作成術―図解表現23のテクニック\n\n\n著者\n山口 周 (著)\n\n\n発売日\n2017/8/17\n\n\nISBN13\n978-1974673162\n\n\n体裁\n184ページ\n\n\n\nこの本の内容\n\nスライドが満たすべき必要条件を簡潔に解説\nスライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説\nカラー，フォントというスタイリング要素の解説は少ない"
+    "objectID": "posts/2025-10-17-index-slide/index.html#index-2",
+    "href": "posts/2025-10-17-index-slide/index.html#index-2",
+    "title": "Indexスライドテンプレート",
+    "section": "Index 2",
+    "text": "Index 2\n\n\n\n\n\n\n\n対象レベル\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n前提知識\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\n\n必要環境\n\n\nタスクは細かすぎず、大きすぎない適切な粒度に分解する（週次管理ならば1〜5日程度が目安）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. 分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        \n      width: [28, 72]\n    - title: 2. 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [28, 72]\n    - title: 3. 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      width: [28, 72]\n    - title: 4. 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [28, 72]"
   },
   {
-    "objectID": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "href": "posts/2025-05-02-references/index.html#学生研究者のための伝わる学会ポスターのデザイン術",
-    "title": "スライド作成に役に立つ書籍紹介",
-    "section": "学生・研究者のための伝わる！学会ポスターのデザイン術",
-    "text": "学生・研究者のための伝わる！学会ポスターのデザイン術\n\n\n\n\n\n\nposter-design-book\n\n\n\n書籍情報\n\n\n\nタイトル\n学生・研究者のための　伝わる！　学会ポスターのデザイン術\n\n\n著者\n宮野 公樹 (著)\n\n\n発売日\n2011/11/20\n\n\nISBN13\n978-4759814699\n\n\n体裁\nB5・144ページ\n\n\n\nこの本の内容\n\n研究内容の整理方法（フローチャート・プロセス・コンセプト形式）\nデザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介\n研究内容を伝えるための色・レイアウト・文章・図の工夫\nいろいろな分野におけるポスター例の紹介"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstractスライド４つの構成要素",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstractスライド４つの構成要素",
+    "text": "分析Abstractスライド４つの構成要素\n\n\n分析Abstractスライドのルール\n\n\n分析の目的・方法・主要結果・意義を簡潔に伝えることで、読者を分析に引き込む「入口」として機能すること\nIMRaD方式など分析内容を構造的に示した内容であること\nAbstract自体がself-contained(自己完結的)な文章であること\n\n\n\n\nIMRaD方式のAbstract構成要素1\n\n\n\n\n\n\n\n背景・目的\n\n\n\n分析の動機・背景を説明\n先行研究の限界，分析目的，明確な仮説，リサーチクエッション\n「何に取り組んだのか」「なぜこの分析を行うのか？」\n\n\n\n\n\n\n\n分析手法\n\n\n\n分析をどのように実施したか説明\n分析デザイン，データ取得⽅法，主要評価アウトカム，統計解析\n「どのように分析を行ったのか？」\n詳細よりも「方法の枠組み」を明確にする\n\n\n\n\n\n\n\n分析結果\n\n\n\n分析で得られた結果をできるだけ具体的に報告\n主な結果（表・図・統計指標）\n「何が分かったのか？」\n\n\n\n\n\n\n\n今後の展望\n\n\n\n結果をどのように解釈し，どのような意味があるか\n主な発見の解釈，先行研究との比較，限界，今後の展望\n「分析結果の示唆は？」\n\n\n\n\n\nIMRaD方式にこだわる必要はない．重要なのは，構造的に分析内容を整理・要約すること．単なる記述的な要約は望ましくない"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#githubが提供する機能",
-    "title": "はじめてのGitHub",
-    "section": "GitHubが提供する機能",
-    "text": "GitHubが提供する機能\n\n\n\n\n\n Gitレポジトリホスティング\n\n\n\n\nソースコードの安全な保管\n\n\nクラウド上でコードを保存することで、紛失リスクを軽減\n\n\nバージョン管理の完全サポート\n\n\nGitを使った変更履歴の記録・追跡及び過去の状態への復元や変更内容の比較が可能\n\n\n\n\n\n\n\n 開発コラボレーション機能\n\n\n\n\nPull request(PR)\n\n\nコードの変更を提案し、他のメンバーと議論・承認を経てマージする機能\n\n\nIssue\n\n\nバグ報告やタスク、提案事項を管理する機能\n\n\nプロジェクト管理ボード\n\n\nKanbanスタイルのボードを使って、IssueやPRを視覚的に整理・進捗管理する機能\n\n\nWiki\n\n\nユーザーが自由に編集できるDocumentプラットフォーム\n\n\n\n\n\n\n\n CI/CDツール (GiHub Actions)\n\n\n\n\n自動テスト実行\n\n\nプッシュやPRのタイミングでユニットテストや統合テストを自動実行する機能\n\n\n自動デプロイ\n\n\n本番やステージング環境へ自動でコードをデプロイでき、リリース作業の効率と安定性を実現\n\n\nコンテナ化対応\n\n\nDockerなどのコンテナ技術と連携し、開発から本番まで一貫した環境構築と運用が可能"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide",
+    "text": "分析Abstract Slide\n\n\n\nregmonkey_abstract_summary:\n  title_fontsize: 1.5em\n  bullet_fontsize: 0.8em\n  keystat_fontsize: 0.8em\n  children:\n    - title: 背景・分析目的\n      description:\n        - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n        - 多くの既存分析は北米・欧州の主要都市を対象とした単一都市の分析にとどまっている\n        - 都市間比較や地域特異性の視点が欠如\n        - 気温変化と電力需要の関係について、都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n      width: [25, 75]\n    - title: 分析手法\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n        - &lt;strong&gt;目的変数&lt;/strong&gt;：気温変化に応じた各都市の電力需要\n        - &lt;strong&gt;手法&lt;/strong&gt;：ARIMA + XGBoost モデルによる予測と比較分析\n      width: [25, 75]\n    - title: 分析結果\n      description:\n        - 東京は冷房需要が特に大きく増加\n        - 大阪・福岡は冷暖房の両面で変動が大きい\n        - 都市ごとに異なる対応が必要であることを示唆\n      keystat_header: 気温2度上昇時、夏季の&lt;br&gt;電力需要は最大\n      keystat: 15%&lt;span style=\"font-size:0.5em;\"&gt;上昇&lt;/span&gt;\n      width: [25, 55, 20]\n    - title: 今後の展望\n      description:\n        - 分析対象を全国レベル・他国都市へ拡張し、&lt;strong&gt;都市スケールでのエネルギー需給モデル&lt;/strong&gt;を構築\n        - 気象予測データや社会経済要因を組み合わせた&lt;strong&gt;構造推定モデル&lt;/strong&gt;による予測精度向上\n        - 政策立案支援・再エネ導入シナリオ評価への展開を目指す\n      width: [25, 75]"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#つのプラットフォームで開発ライフサイクル全体をサポート",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#つのプラットフォームで開発ライフサイクル全体をサポート",
-    "title": "はじめてのGitHub",
-    "section": "１つのプラットフォームで開発ライフサイクル全体をサポート",
-    "text": "１つのプラットフォームで開発ライフサイクル全体をサポート\n\n\n\n\n\n従来：個別ツールが必要\n\n\n\n\n\n\n\nVersion管理ツール\n\n\nGit、SVN、Mercurial等を別途導入\n\n\n\n\n\n\n\n\n\nBug tracker\n\n\nJIRA、Redmine、Bugzilla等を別途利用\n\n\n\n\n\n\n\n\n\nCode review tool\n\n\nReview Board、Crucible等を別途導入\n\n\n\n\n\n\n\n\n\nDocument管理ツール\n\n\nConfluence、SharePoint等を別途利用\n\n\n\n\n\n\n\n\n\nCI/CDツール\n\n\nJenkins、TeamCity等を別途構築\n\n\n\n\n\n\n\nGitHub：統合機能で提供\n\n\n\n\n\n\n\nGit\n\n\n分散型バージョン管理システム\n\n\n\n\n\n\n\n\n\nIssue\n\n\nバグ追跡・タスク管理・機能要求\n\n\n\n\n\n\n\n\n\nPull Request\n\n\nコードレビュー・議論・マージ管理\n\n\n\n\n\n\n\n\n\nWiki\n\n\nプロジェクトドキュメント管理\n\n\n\n\n\n\n\n\n\nGitHub Actions\n\n\nCI/CD・自動化ワークフロー"
+    "objectID": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "href": "posts/2025-10-10-abstract-slide/index.html#分析abstract-slide-pattern-2",
+    "title": "分析Abstractスライドテンプレート",
+    "section": "分析Abstract Slide Pattern 2",
+    "text": "分析Abstract Slide Pattern 2\n\n\n\nrecord1:\n  component: 背景・文脈\n  説明:\n    - 都市化とエネルギー需要の増加は、気候変動と密接に関係\n    - 多くの研究が「気温変化とエネルギー消費パターン」の相関を分析\n    - 北米・欧州の主要都市を対象とした研究が中心（Smith et al. 2020, Zhao et al. 2022）\n\nrecord2:\n  component: 課題・ギャップ\n  説明:\n    - 多くの研究は単一都市の分析にとどまっている\n    - 都市間比較や地域特異性の視点が欠如\n    - 日本を含むアジア都市の分析は不十分\n    - モデルの精度や変数選定にも課題\n\n\nrecord3:\n  component: 分析目的&lt;br&gt;アプローチ\n  説明:\n    - &lt;strong&gt;目的&lt;/strong&gt;： 都市ごとの特徴を明らかにし、気候適応戦略に示唆を与える\n    - &lt;strong&gt;対象&lt;/strong&gt;： 東京・大阪・福岡の3都市\n    - &lt;strong&gt;分析&lt;/strong&gt;： 気温変化と電力需要の関係を定量的に評価\n    - &lt;strong&gt;手法&lt;/strong&gt;： ARIMA + XGBoost モデルによる予測と比較分析\n\nrecord4:\n  component: 分析結果\n  説明:\n    - 東京は冷房需要が特に大きく増加\n    - 大阪・福岡は冷暖房の両面で変動が大きい\n    - 気温2度上昇時、夏季の電力需要は最大15%上昇\n    - 都市ごとに異なる対応が必要であることを示唆"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueとは",
-    "title": "はじめてのGitHub",
-    "section": "GitHub Issueとは？",
-    "text": "GitHub Issueとは？\nGitHub Issue\nレポジトリ単位でタスク管理・バグ報告・アイデア共有などを行うために使用する機能\n\n\n\n\n\n\n\n\n\n\n\n\n\n構成要素\n説明\n\n\n\n\nタイトル\nIssueの要点や目的を一言で示す\n\n\n本文\n詳細な説明、再現手順、スクリーンショットなど\n\n\nLabel\n種別（bug、feature、help wantedなど）を色分けして分類\n\n\nAssignee\nIssueの対応担当者を割り当て\n\n\nマイルストーン\nリリースやスプリントなどの単位でグループ化可能\n\n\nコメント欄\nユーザーや開発者が議論・進捗報告を行う場所\n\n\nクローズ/オープン\n対応が完了したら「Closed」にすることで進捗管理が可能\n\n\nRelationship\nIssueやPull Request（PR）同士の依存関係を管理する項目"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#summary",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\nスライド作成の基本\n\n\nプロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める\n\n\n\n\nメッセージ設計\n\n\n3W: 誰に(Who)、何を(What)、なぜ(Why)伝えるのかを明確化する\nRAPフレームワーク: Research Question, Answer, Positioning Statement\n\n\n\n\nストーリー構築\n\n\n論理的対話: 読み手の疑問を予測し、先回りして答える構成としてスライドパッケージを設計する\n\n\n\n\nスライド作成のルール\n\n\n1スライド1メッセージ: 主張を絞り、MMUF (Main Message UpFront) を徹底する\nオッカムの剃刀: 必要最小限の情報に絞り、冗長性を排除する\nメッセージと整合的な縦横軸: メッセージとスライド軸を合わせ、秩序ある情報の列挙にする"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたコミュニケーション例",
-    "title": "はじめてのGitHub",
-    "section": "GitHub Issueを用いたコミュニケーション例",
-    "text": "GitHub Issueを用いたコミュニケーション例\nGitHub Issue\n\n\n\n\n\n\n\n\n\n\nMention機能の活用\n\n@username 形式で、対象のユーザーに通知が飛ばせます\n\n\n\n\n\n\nLabelでIssueを分類\n\n議論内容を踏まえ、Labelの追加や削除をします\n\n\n\n\n\nCommitとの紐付けで進捗を自動追跡\n\n\nIssue番号をcommit messageに付与すると、自動的に紐付けができます\n左図ではIssue thread に commit-id 09d4a63が確認できる\n\n\ngit commit -m \"Fix connection timeout bug (#123)\"\n\n\n\n\n\n他のIssueやPRからの参照\n\nIssueやPRに #番号 を書くと、それがリンクになり相互参照ができます\n\nThis issue is related to #45 and blocked by #38.\n\n\n\n\n\nPRやcommitでのIssueステータス管理\n\n対応状況（Open/Clossed）をcommit messageで管理することができます\n\ngh pr create --base main --head feature \\\n  --title \"Fix login bug causing crash\" \\\n  --body \"Fixes #45\""
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージの全体像を書き起こしてからスライド作成にかかる",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "メッセージの全体像を書き起こしてから、スライド作成にかかる",
+    "text": "メッセージの全体像を書き起こしてから、スライド作成にかかる\n\n\n\n① メッセージの作成Planning an argument\n\nゴール: 伝えたい内容と目的の明確化\n\n\nメッセージ設計にあたって3Wを明確化\n\nWho: 誰を対象にしているか？どのような事前知識を持っているのか？\nWhy: 相手にどう行動してほしいのか？どんな印象や判断を促したいのか？\nWhat: どのような情報を伝えたいのか？\n\nテーマ・問題・主張・提案など、伝達したいコアメッセージを言語化\n\n\n\n\n\n② ストーリーの骨子の構築Building an outline\n\nゴール: スライド全体の設計図の構築\n\n\nComprehend as they read\n\n読み手が一度最後まで読み終えてから理解できるのではなく、読んでいる途中でその内容を把握していくことが可能な構成\n\nスライド全体を「読み手との論理的対話（logical dialogue）」として設計\n\nメインメッセージを見た読み手の疑問を予測し、先回りして答える構成で、話の道筋を明確にする\n\n\n\n\n\n\n③ スライド作成・資料化Drafting paragraphs\n\nゴール: 具体的な表現・可視化・構成\n\n\nすべてのスライドがメッセージとストーリーをサポートするように構成\n1スライド1メッセージ\nMMUF(Main Message UpFront)\n\nメインメッセージを先に示すと、後の詳細パートが理解しやすくなる\n\nスライド内のオブジェクトを、直感的に理解しやすいように配置・整理"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#github-issueを用いたワークフロー例の紹介",
-    "title": "はじめてのGitHub",
-    "section": "GitHub Issueを用いたワークフロー例の紹介",
-    "text": "GitHub Issueを用いたワークフロー例の紹介\nGitHub Issue\n\n\n\n\nGitHub Issue活用ワークフロー例\n\n\n\n\n\n\n\nStep1: バグの発見とIssueの作成\n\n\n問題の言語化と可視化を通して、チーム全体が何が起きているか共有\n\n\n\n\n\n\n\n\n\nStep2: ラベルとメタ情報の整理\n\n\nラベル・マイルストンの明示によって、タスクを管理しやすくする\n\n\n\n\n\n\n\n\n\nStep3: 担当者の割り当てと作業開始\n\n\n担当者の明確化(@mention)により、進捗確認しやすくする\n\n\n\n\n\n\n\n\n\nStep4: Pull Requestを作成し、Issueと関連付け\n\n\n何のための変更かを追跡でき、レビューや変更履歴の文脈が明確になる\n\n\n\n\n\n\n\n\n\nStep5: PRマージとIssueの自動クローズ\n\n\n作業の完了と状態管理の自動化によって、手動での管理ミスを防ぐ\n\n\n\n\n\nGitHub Issue作成Tips\n\n\n\n\n① Issueの重複を回避する\n\n\n\nIssue作成前にキーワード検索して既存のIssueを確認\n既存Issueに追記する形が望ましい場合は、新規作成を避ける\n\n\n\n\n\n\n② チームで共通のLabelを定義・運用する\n\n\n\nカテゴリ・優先度・状態を表すラベルを整理（例：bug, preprocess, P1）\nチームでラベル運用ルールを文書化する\n\n\n\n\n\n\n③ Issue Templateを定義する\n\n\n\n.github/ISSUE_TEMPLATE にテンプレートファイルを作成\nバグ報告・機能提案など、用途ごとにテンプレートを分ける\n\n\n\n\n\n\n④ マイルストンを明確に設定する\n\n\n\nIssueごとにマイルストンを紐づける\nマイルストンごとの進捗率把握に役に立つ\n\n例: version 3.0 リリースに必要なタスクの95%が現在達成済み"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#メッセージ作成の３つのキーポイント",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "メッセージ作成の３つのキーポイント",
+    "text": "メッセージ作成の３つのキーポイント\n① メッセージの作成\n\n\n\n\n\n 明確な主張\n\n\n\n\nライドの目的は、意思決定に必要な情報を分かりやすく伝え、意思決定を促すこと\n明確な主張(Argument)にはRAP1が整理されていることが望ましい\n\nR: Research Question、「何を明らかにしたいのか？」\nA: Answer、問いに対する答え\nP: Positioning Statement、この主張が全体の議論の中でどういう意味を持つか\n\n\n\n\n\n\n\n\n 筋の通った説明の流れ\n\n\n\n\n単に情報を並べるのではなく、情報を整理・構造化する\n結論を先に示し、その根拠を段階的に説明する descend structure が効果的\n\n\n\n\n\n\n\n 結論に必要な情報だけ\n\n\n\n\n情報過多なスライドは、重要ポイントを埋もれさせ、判断を迷わせる\nオッカムの剃刀: 「十分な説明が得られるなら、余計な要素を加えるべきではない」\n「情報を最小限に絞る」＝「本質に集中する作業」であり「情報の省略」ではない\n\n\n\n\n\nVaranya Chaubey, The Little Book of Research Writing (CreateSpace Independent Publishing Platform, 2018)"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#kanbanを用いたgithub-issueの管理",
-    "title": "はじめてのGitHub",
-    "section": "Kanbanを用いたGitHub Issueの管理",
-    "text": "Kanbanを用いたGitHub Issueの管理\nGitHub Issue\n\n\nGitHub Project Board\n\n\nGitHub では Projects（プロジェクトボード） 機能を使って、Kanbanスタイルで最新情報のIssue/PRを管理できます\nフィルタリング、並び替え、グループ化することでレイアウトを自由にカスタマイズできます"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#見出しと要点でストーリーを設計する",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "見出しと要点でストーリーを設計する",
+    "text": "見出しと要点でストーリーを設計する\n② ストーリーの骨子の構築\n\n\n全体像の分割（Headingsの定義）\n\n\n\nメインメッセージを、いくつかのグループ(見出し)に分ける \n専門家・一般読者の両方に通じる、明快な見出し配置を設計する\n\n誰にとっても自然な流れは論理の明快さを意味し、ストーリーの説得力を高める\n「次に何が来るのだろう？」と迷うことなく、「なるほど、次は当然この話だな」と感じられるような構成が理想\n\n\n\n\n\nTakeaways(要点)の明確化\n\n\n\n「言いたいこと」を主語＋動詞で、具体的かつ明確に表現 \nシンプルな文で表現\n\n長い文章だと記憶に残らない\n\n要点が、セクション全体の「だから何？(So what?)」という問いに明確に答えているかを確認\nメインメッセージとの関連を連想させるような表現\n\n「XがYを引き起こすことを示している」\n「XがYを引き起こすという主要結果を示している」\n\n\n\n\n\n論理的な順序配置\n\n\n\n見出しや要点は「理解しやすい順」に配置\n「聞き手との論理的対話」を意識\n\n話の導入・展開・結論と聞き手の疑問に先回りして答えるような流れを構築\n聞き手の事前知識を想定した上でのスムーズな論理構成"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-requestとは",
-    "title": "はじめてのGitHub",
-    "section": "Pull Requestとは？",
-    "text": "Pull Requestとは？\nあるブランチで行った変更について、別のブランチへのマージを依頼するGitHub上の仕組み1 Pull Request\n\n\n\nGitHub Pull Requestワークフロー\n\n\n\n\n\n\n\nStep1: ブランチ作成と作業開始\n\n\nトピックブランチ2を切り、独立して作業を進めることで本線に影響を与えず開発可能に\n\n\n\n\n\n\n\n\n\nStep2: コミットとプッシュ\n\n\n適切な粒度でコミットを行い、GitHubにプッシュして作業状況を共有する\n\n\n\n\n\n\n\n\n\nStep3: Pull Request（PR）を作成\n\n\nレビュー依頼・変更内容の記録・Issueとの関連付けなどを行う\n\n\n\n\n\n\n\n\n\nStep4: レビューとフィードバック対応\n\n\nコメント機能を活用し、コード品質と理解度を高めながら開発を進行\n\n\n\n\n\n\n\n\n\nStep5: Pull Requestをマージ\n\n\nPRを承認・マージし、関連Issueも自動クローズ\n\n\n\n\n\nGitHub PR活用Tips\n\n\n\n\n① PRとIssueを関連付ける\n\n\n\nPR本文に Fixes #123 を記述して、マージ時にIssueを自動Close\n複数Issueに関連する場合は箇条書きで整理\n\n\n\n\n\n\n② Draft PRを活用して作業途中でも共有\n\n\n\n作業中でも早期に可視化してコメントをもらえる\n[WIP]など作業中であることを明確にする\nレビューを踏まえた変更は同一ブランチにPush\n\n\n\n\n\n\n③ PRテンプレートを用意する\n\n\n\n.github/PULL_REQUEST_TEMPLATE.md にてPRテンプレート設定可能\n\n\n\n\n\n\n④ PRのサイズは小さく\n\n\n\n開発期間やコード量が大きいほど，レビューの負担は増す\n大きな変更は機能単位や修正単位で分割すること\n\n\n\n\n\nPull Requestは Git の機能ではなく、ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み１つのトピックに集中して、他の作業は一切行わないブランチ．対義語は統合ブランチ(例: main や release)．"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドアウトライン設計例",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドアウトライン設計例",
+    "text": "スライドアウトライン設計例\nスライドやドキュメントを作る前に、スライド構成を「ツリー型ロジック」で描くのが有効\n② ストーリーの骨子の構築\n\n\n\nスライド構成フォーマット\n\nhorizontal_tree:\n  - テーマ\n    - headings1\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n    - headings2\n      - key takeaways\n        - paragraph 1\n        - paragraph 2\n\n\nスライド構成例\n\n売上低迷の主因は既存顧客の離脱であり、リピート率改善が最優先課題である:\n  - 売上の全体傾向分析\n   - 売上は前年比▲12%、特に既存顧客売上が大幅減\n      - 全体売上と既存/新規の比較グラフ\n      - 時系列推移（過去12か月）\n  - 既存顧客離脱の要因分析\n    - 離脱要因は価格競争と顧客体験の低下\n      - 競合比較と価格感度分析\n  - リピート率改善の施策提案\n    - パーソナライズ施策が有効\n      - 類似顧客群へのキャンペーン効果の事例\n      - 実行計画・KPI設定案"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#pull-request-フィードバックポイント",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#pull-request-フィードバックポイント",
-    "title": "はじめてのGitHub",
-    "section": "Pull Request フィードバックポイント",
-    "text": "Pull Request フィードバックポイント\nPull Request\n\n\n\n\n\n\n\n\nコードの可読性\n\n\nコーディング規則と整合的か\nコメントやドキュメントが適切か\n\n\n\n\n\n\n\n\n設計・アーキテクチャ\n\n\n無駄なく効率的な計算か\n再利用性・拡張性はあるか\n\n\n\n\n\n\n\n\n動作の正しさ\n\n\n要件や仕様を満たしているか\n境界条件や例外ケースの考慮があるか\n\n\n\n\n\n\n\n\nテスト\n\n\n単体テスト・統合テストが十分か\nカバレッジやケースの妥当性が確保されているか\nテストは再現可能な形で成功するか\n\n\n\n\n\n\n\n\nリファクタリング\n\n\n冗長なコードや重複が整理されているか\n関数やクラスの分割・抽象化が適切か\n技術的負債の返済につながっているか\n\n\n\n\n\n\n\n\nプロジェクトルール遵守\n\n\nコーディング規約・スタイルガイドに沿っているか\nGitのコミットメッセージ・ブランチ命名規則が守られているか"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#明確なスライドメッセージのルール",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "明確なスライドメッセージのルール",
+    "text": "明確なスライドメッセージのルール\n③ スライド作成・資料化\n\n\n\n\n 1スライド1メッセージ\n\n\n\n\n主張や要点をひとつに絞る\n複数の情報を詰め込まず、聞き手の理解に集中を促す\n\n複数の主張や結論が同時にあると、聞き手が混乱してしまう\n\nMMUF(Main Message UpFront)\n\n\n\n\n\n\n オッカムの剃刀の原則\n\n\n\n\n聞き手が本質に集中する構成にする\n背景情報・前提知識は最低限にする\n伝えたい内容に直接関係しない情報は思い切って省く\n同じ情報を複数のスライドや文で繰り返さない\n\n\n\n\n\n\n メッセージと整合的な縦横軸\n\n\n\n\n秩序ある情報の列挙\n\n 大根, 手羽先, 手羽元, ネギ, 砂糖, 黒酢\n 骨付き鳥黒酢煮込みのための具材 肉: 手羽先, 手羽元 野菜: 大根, ネギ 調味料: 砂糖, 黒酢\n\nメッセージとスライド軸を合わせる\n\n論点別の「問い」「調査結果」を伝えるならば、縦に「論点軸」、横に「問い」と「調査結果」の比較があるべき"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-flow-リリース中心の開発スタイル",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-flow-リリース中心の開発スタイル",
-    "title": "はじめてのGitHub",
-    "section": "Git Flow: リリース中心の開発スタイル",
-    "text": "Git Flow: リリース中心の開発スタイル\nmain，develop，feature，release，hotfixに分けて管理するワークフロー\n\n\n\n開発の流れに応じたBranch切り替え\n\n\n\n\n\n\n\n%%{ init: {\n    'theme': 'default',\n    'themeVariables': { \n        'fontFamily': 'Meiryo'\n    },\n    'gitGraph': { \n        'orientation': 'LR', \n        'nodeSpacing': 150, \n        'mainBranchName': 'main' \n    }\n} }%%\ngitGraph\n   commit id: \"\" tag: \"v1.0.0\"\n\n   branch hotfix\n   checkout hotfix\n   commit id: \"BUGFIX\"\n\n   checkout main\n   branch develop\n   checkout develop\n   commit id: \"開発開始\"\n\n   branch feature/login\n   checkout feature/login\n   commit id: \"\"\n\n   checkout main\n   merge hotfix tag: \"v1.0.1\"\n\n   checkout develop\n   merge hotfix\n   commit id: \"incorporate hotfix\"\n   \n   checkout develop\n   merge feature/login\n   commit id: \"ログイン機能実装\"\n\n   branch release/1.1.x\n   checkout release/1.1.x\n   commit id: \"リリース準備\"\n   commit id: \"bugfix\"\n\n   checkout develop\n   merge release/1.1.x\n\n   checkout main\n   merge release/1.1.x  tag: \"v1.1.0\"\n\n   checkout develop\n   commit id: \"FEATURE\"\n\n\n\n\n\n\n\n\n各種ブランチの役割分担\n\n\n\n\n\n\n\n\nmain\n\n\n\n安定版を保持するブランチ\ngit push --tags でリモートレポジトリに tagsをpushする\n\n\n\n\n\n\n\n\n\n\ndevelop / feature\n\n\n\ndevelop は次期リリース向け統合ブランチ\nfeature は新機能開発用で、完成後 develop にマージ\n\n\n\n\n\n\n\n\n\n\nrelease\n\n\n\nリリース前のバグ修正や軽微な調整作業用ブランチ\n完了したら main と develop にマージしてタグ付け\n\n\n\n\n\n\n\n\n\n\nhotfix\n\n\n\n本番の緊急修正用ブランチ(例: hotfix/&lt;issue number&gt;-hogehoge)\nmain から派生し、修正後 main と develop にマージ"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに複数メッセージが入ってしまっている",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "1スライドに複数メッセージが入ってしまっている",
+    "text": "1スライドに複数メッセージが入ってしまっている\n\n人件費の上昇により売上拡大にも関わらず営業利益減少\n\n\n\n\n\n\n\n\n\n１つのスライドに２つのメッセージが含まれてしまっている\n\n売上上昇にもかかわらず営業利益が減少\n営業利益減少の主要因は人件費の増加\n\n\n\n\n「2010年から10年間売上増大したにもかかわらず営業利益が減少」がメインメッセージのとき、 2011~2018年の数値は本筋に対して過剰な情報\n\n\n\n\n図と表が並列に表示されていることで、どちらに注目すべきかが不明瞭\n特定の行や列が強調されておらず、全体が等価に見えてしまい、何が重要情報なのかわからない"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#テスト駆動開発用git-flow",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#テスト駆動開発用git-flow",
-    "title": "はじめてのGitHub",
-    "section": "テスト駆動開発用Git Flow",
-    "text": "テスト駆動開発用Git Flow\n\n\n\n\n開発の流れに応じたBranch切り替え（テスト駆動）\n\n\n\n\n\n\n\n%%{ init: {\n    'theme': 'default',\n    'themeVariables': { \n        'fontFamily': 'Meiryo',\n    },\n    'gitGraph': { \n        'orientation': 'LR', \n        'nodeSpacing': 150, \n        'mainBranchName': 'main' \n    }\n} }%%\ngitGraph\n   commit id: \"\" tag: \"v1.0.0\"\n\n   branch hotfix/1\n   checkout hotfix/1\n   commit id: \"BUGFIX\"\n\n   checkout main\n   branch system\n   checkout system\n   commit id: \"システムテスト開始\"\n\n   branch unit/login\n   checkout unit/login\n   commit id: \"ユニットテスト駆動\"\n\n   checkout main\n   merge hotfix/1 tag: \"v1.0.1\"\n\n   checkout system\n   merge hotfix/1\n   commit id: \"Hotfix取り込み\"\n   \n   checkout system\n   merge unit/login\n   commit id: \"ログイン機能統合\"\n\n   branch release/1.1.x\n   checkout release/1.1.x\n   commit id: \"リリース準備\"\n   commit id: \"軽微な修正\"\n\n   checkout system\n   merge release/1.1.x\n\n   checkout main\n   merge release/1.1.x  tag: \"v1.1.0\"\n\n   checkout system\n   commit id: \"次期機能準備\"\n\n\n\n\n\n\n\nリモートリポジトリにはmain/release/systemブランチのみ存在\n他ブランチはPRマージ後に削除される想定\n\n\n\n各種ブランチの役割分担\n\n\n\n\n\n\n\n\n\nmain\n\n\n\n安定版を保持するブランチ\nリリース済みのコードを管理\n\n\n\n\n\n\n\n\n\n\nsystem / unit\n\n\n\nsystem は次期リリース向け統合ブランチでシステムテストを実施\nunit/* はユニットテスト駆動開発ブランチで、完成後に system にマージ\n\n\n\n\n\n\n\n\n\n\nrelease\n\n\n\nリリース前のバグ修正や軽微な調整作業用ブランチ\n完了後 main と system にマージしタグ付け\n\n\n\n\n\n\n\n\n\n\nhotfix/*\n\n\n\n本番の緊急修正用ブランチ"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライド1メッセージによる改善案",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "1スライド1メッセージによる改善案",
+    "text": "1スライド1メッセージによる改善案\n1スライド1メッセージ\n\n\n\nここ10年で売上は19%拡大しているが、営業利益は34%の減少\n\n\n\n\n\n\n\n売上増減率\n+ 19%\n\nコスト増減率\n+ 38%\n\n営業利益増減率\n- 34%\n\n\n\n\nこのスライドでは「売上は増えているのに営業利益は減少している」という直感に反した情報を聞き手に理解してもらうことが目的\n「直感に反した情報」はシンプルかつ明快なロジックで説明したほうが良い"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#サル先生のgit入門",
-    "title": "はじめてのGitHub",
-    "section": "サル先生のGit入門",
-    "text": "サル先生のGit入門\nGitの初心者から中級者までを対象に、バージョン管理の基礎から実践的な操作方法までを解説\n\n\n\n\n\nsaru-git\n\n\n\nサイトメタデータ\n\n\n\nサイト名\nサル先生のGit入門\n\n\nURL\nhttps://backlog.com/ja/git-tutorial/\n\n\n提供元\n株式会社ヌーラボ（プロジェクト管理ツール「Backlog」の開発元）\n\n\n書籍版\n『サルでもわかるGit入門』（インプレス刊）\n\n\n\nコンテンツ構成\n\n\n\nセクション\n内容\n\n\n\n\n入門編\nGitの基本操作（コミット、ブランチ作成など）を図解で解説\n\n\n発展編\nマージやリベース、コンフリクト解消など中級者向けの操作\n\n\nプルリクエスト編\nチーム開発でのプルリクエストの使い方とレビューの流れ\n\n\n逆引きGit\nやりたいことからコマンドを探せる便利な逆引きリファレンス"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#オッカムの剃刀の原則による改善案",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "オッカムの剃刀の原則による改善案",
+    "text": "オッカムの剃刀の原則による改善案\nオッカムの剃刀の原則\n注目すべき情報だけに絞り、判断の迷いをなくす\n\n\n\n人件費の大幅な増加が利益率低下の主因であり、売上増分の約8割が人件費の増加によって相殺されている\n\n\n\n\n\n前のスライドの「売上が増加しているのに営業利益が減少した」に対するfollow-up question「どのコストが特に増加したのか？」に答えることで論理的にスムーズな流れとなる"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#ohgoshgit",
-    "title": "はじめてのGitHub",
-    "section": "OhGoshGit",
-    "text": "OhGoshGit\n初心者～中級者向けに「Git操作でやらかしがちなミスとその直し方」を解説したサイト\n\n\n\n\n\nOGG\n\n\n\nサイトメタデータ\n\n\n\n\n\n\n\nサイト名\nOhGoshGit!?!\n\n\nURL\nhttps://ohgoshgit.github.io/\n\n\n提供元\nOhGoshGit\n\n\nライセンス\nMIT License\n\n\n言語対応\n日本語対応セクションあり\n\n\n\nコンテンツ構成\n\nGit関連のトラブルシューティングや設定ミス対処法を解説\nHeaderから日本語選択可能\n具体的なトピック例\n\nリモートブランチへのpush/pullができない場合\n最新のコミットと作業中の変更との差分を確認方法\nGitHubリポジトリの名前を変更する方法"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#スライドに軸がなくメッセージが分かりづらい例",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "スライドに軸がなくメッセージが分かりづらい例",
+    "text": "スライドに軸がなくメッセージが分かりづらい例\n\nLNGの供給の安定供給にかかわる主な論点1\n\n\n\n① オペレーターの長期的な方針\n\n問: LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n調査結果: LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、カーボンニュートラルLNGの生産やメタンガスの排出量削減など、様々な取り組みを推進している\n\n\n\n② 収益性\n\n問: LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n調査結果:\n\nシェールガスのコスト競争力の高まりや従来のガスへの投資減少により、今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクトになり、生産拠点の集中度が高まる可能性がある\n原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\n\n\n\n③ LNGサプライサイド\n\n問: LNGインフラの潜在的なボトルネックとは何か\n調査結果:\n\nパイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される可能性がある\n\n\n\n\n問: 今後、世界のLNG供給構成はどう変化していくのか\n調査結果:\n\n世界のLNG生産量に占める米国の割合は、今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある\n現在、主要LNG輸入国は、調達先の多様化を進めており、複数の大陸にまたがる約10カ国からLNGを調達している\n従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる\n\n\n\n\n\n\n\n比較の困難さ\n\nカテゴリ軸と(「問」「調査結果」)の2軸が同じ縦軸のため、異なる主題間での「問」や「調査結果」の比較が煩雑\n\n視線の誘導の悪さ\n\n「オペレーターの長期的な方針」と「収益性」の各「調査結果」を比較する場合、縦に離れた位置にあるため、視線を大きく移動させる必要がある\n\n軸ラベルの冗長性\n\n同じ縦軸に異なる意味合いのラベル（「問」/「調査結果」）が何回も出現している\n重複排除の原則に反している\n\n\n\n\nエネルギー・トランジション時代に求められる資源ビジネスモデルの変化とファイナンスについての調査事業より編集"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitのバージョン管理の仕組み",
-    "title": "はじめてのGitHub",
-    "section": "Gitのバージョン管理の仕組み",
-    "text": "Gitのバージョン管理の仕組み\n\n\n\nGitコマンドと領域移動関係図\n\n\n\n\n\n\nsequenceDiagram\n\n  participant A as working directory&lt;br&gt;(working tree)\n  participant B as staging area&lt;br&gt;(index)\n  participant C as local repository&lt;br&gt;(local branch)\n  participant D as local repository&lt;br&gt;(tracking branch)\n  participant E as remote repository\n\n  A-&gt;&gt;B: git add/rm\n  B-&gt;&gt;C: git commit\n  C-&gt;&gt;E: git push\n  C-&gt;&gt;A: git switch -c&lt;br&gt;(checkout)\n  E-&gt;&gt;D: git fetch\n  D-&gt;&gt;A: git merge\n  E-&gt;&gt;A: git pull (実質的には git fetch + git merge)\n\n\n\n\n\n\n\n5つのGit管理領域\n\n\nworking directory (working tree)\n\n\nコードを編集する作業領域\n\n\n\n\n\nstaging area (index)\n\n\n次のコミットに含める変更を一時的に置く場所\n\n\n\n\n\nlocal repository (local branch)\n\n\n自分のPC上のGitリポジトリ。コミット履歴を保存\n\n\n\n\n\nlocal repository (tracking branch)\n\n\nリモートブランチを追跡しているローカルのブランチ\n\n\n\n\n\nremote repository\n\n\nサーバー上の共有リポジトリ（GitHub）"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#比較のためのスライド軸の導入と重複ラベルの排除",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "比較のためのスライド軸の導入と重複ラベルの排除",
+    "text": "比較のためのスライド軸の導入と重複ラベルの排除\nメッセージと整合的な縦横軸\n\n\nrecord1:\n  カテゴリー: オペレーターの&lt;br&gt;長期的な方針\n  Question: \n    - LNGサプライヤーのネットゼロ目標とは。目標達成に向けてどのような取り組みを推進しているのか\n  調査結果: \n    - LIOCと独立系石油会社は、2050年ネットゼロおよび石油・ガス分野の排出削減目標を定めており、&lt;span class=\"regmonkey-bold\"&gt;カーボンニュートラルLNGの生産やメタンガスの排出量削減&lt;/span&gt;など、様々な取り組みを推進している\n\nrecord2:\n  カテゴリー: 収益性\n  Question: \n    - LNGプロジェクトの今後の見通しとは。収益性を確保するうえでボトルネックは存在するのか\n  調査結果:\n    - シェールガスのコスト競争力の高まりや従来のガスへの投資減少により、&lt;span class=\"regmonkey-bold\"&gt;今後1~3年間で見込まれるFID (最終投資決定)の70%以上が米国のプロジェクト&lt;/span&gt;になり、生産拠点の集中度が高まる可能性がある\n    - 原材料費や人件費等の高騰により、ここ20年間、世界各地でLNGプロジェクトコストが膨れ上がっており、大きな課題となっている\n    - 米国については、他の地域に比べてコスト超過が発生するケースは少ないものの、米国以外のLNGプロジェクトの多くはコスト超過に陥っている\n\nrecord3:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - LNGインフラの潜在的なボトルネックとは何か\n  調査結果:\n      - &lt;span class=\"regmonkey-bold\"&gt;パイプラインプロジェクトが遅延あるいは中止となった場合、シェールガスの主な供給源であるアパラチアからメキシコ湾沿岸にかけてのパイプライン輸送能力に影響が生じ、2020年代後半にLNG液化基地へのガス供給量が限定される&lt;/span&gt;可能性がある\nreocord4:\n  カテゴリー: LNG&lt;br&gt;サプライサイド\n  Question: \n    - 今後、世界のLNG供給構成はどう変化していくのか\n  調査結果:\n    - 世界のLNG生産量に占める米国の割合は、&lt;span class=\"regmonkey-bold\"&gt;今後12年間でほぼ倍増し、2035年には約33%に達する可能性がある&lt;/span&gt;\n    - 現在、主要LNG輸入国は、調達先の多様化を進めており、&lt;span class=\"regmonkey-bold\"&gt;複数の大陸にまたがる約10カ国からLNGを調達&lt;/span&gt;している\n    - 従来のLNGプロジェクトへの投資を継続することで、調達先の多様性を確保できる"
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitはsnapshot方式で全体の状態を記録",
-    "title": "はじめてのGitHub",
-    "section": "Gitはsnapshot方式で全体の状態を記録",
-    "text": "Gitはsnapshot方式で全体の状態を記録\n\n\n\nSnapshot形式のデータ管理\n\n\n\n差分形式のデータ管理\n\n\n\n\n\n\n① 各コミットはTreeオブジェクトでディレクトリ構造を表現している\n\n\n② Git は各時点でのファイル状態をSnapshotで記録．各ツリーはsnapshotへの参照を保存している\n\n\n③ 更新がなかったファイルは、前回と同じ blob オブジェクトへの参照リンクを保存している\n\n\n④ Gitのオブジェクト（commit, tree, blobなど）は SHA-1 または SHA-256 のハッシュ値をキーとして保存している"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#論文におけるheadingsとtakeaways",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "論文におけるHeadingsとTakeaways",
+    "text": "論文におけるHeadingsとTakeaways\n\n\n\n\n\nHeadings( 見出し )\n\n\n議論や情報を階層化するためのセクションタイトル\n\n「イントロ」「先行研究」「手法」「結果」「考察」「結論」\n\nHeadingsから関心部分にすぐアクセスできる\n\n\n\n\nTakeaways( 要点 )\n\n\n各セクションの要点や主張を示す\n通常はHeadingの直後に書かれる(MMUFの原則)\n\n全文を読まずに、素早く全体の骨子・要点をつかめる\n\n\n\n\n\n\n\n\n 3. Data and Methodology\n\n\n    We combine satellite imagery with city-level land-use data to model temperature variation.\n\n\n\n    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.\n\n\n 3.1 Data Sources\n\n\n  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.\n\n\n  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ..."
   },
   {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-大容量ファイル-やってはいけないアンチパターン",
-    "title": "はじめてのGitHub",
-    "section": "Git × 大容量ファイル ― やってはいけないアンチパターン",
-    "text": "Git × 大容量ファイル ― やってはいけないアンチパターン\n\n\n大容量ファイルをコミットするのは絶対にやってはいけない\n\n\n\nGitは「スナップショット」を丸ごと保管するため、ファイルが変わるたび完全な新コピーをオブジェクト DB に追加してしまう\n特に差分アルゴリズムはテキスト向けで、バイナリはほぼ毎回フルサイズ扱いになる\n\n\n\n\n\n\n\n\n アンチパターン\n\n\n\n\n巨大バイナリをそのままコミット\n\n\nRAW 動画、可逆圧縮画像、機械学習モデルをcommit\n\n\n\n\n\n\n定期的に更新される生成物を履歴に残す\n\n\nPDF/PowerPoint, minified JS/CSS bundles, compiled binaries\n\n\n\n\n\n\n一時ファイルやキャッシュをうっかり追加\n\n\n.DS_Store, .idea, *.sqlite, *.log\n\n\n\n\n\n\n 発生する不具合\n\n\n\n\nリポジトリが雪だるま式に肥大化し、clone / fetch が遅くなる\n\n\n1ファイルでも複数回変更されると何倍にも膨れ上がるリスク有り\n\n\n\n\n\n\n生成物が少しでも変わるたびにフルコピーされ履歴が膨張\n\n\nファイルの中の一部が変われば、新しい blob オブジェクトが生成される\n\n\n\n\n\n\n差分や履歴がノイズまみれになる\n\n\n開発に不必要な履歴が大量に生成され、修正時系列把握が困難になる"
-  },
-  {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#git-logコマンドでcommit-logを確認する",
-    "title": "はじめてのGitHub",
-    "section": "git logコマンドでcommit logを確認する",
-    "text": "git logコマンドでcommit logを確認する\ngitコマンド\n\n\ngit log コマンドの基本動作\n\n\nSyntax:\n\ngit log [options] -- &lt;file&gt;\n\n誰がいつリポジトリにcommitして，どのような差分が発生したのかを確認できる(=git rebaseやgit difftoolを使いこなすために必要)\nファイルを指定した場合，指定ファイルに関わる変更履歴だけを抽出できる\n\n\n\n\n\n\ngit log の挙動例\n\n\n$ git log --pretty=format:'%cs,%h,%an,%s'\n\n2025-09-21,ec4df50,Ryo Nak,Merge pull request #13\n2025-09-20,a1b2c3d,John Doe,BUGFIX: solve #11\n2025-09-19,9f8e7d6,Alice Smith,ENH: simplify OLS class\n2025-09-18,7e6d5c4,Bob Johnson,DOCS: adding README\n\n\n\n--pretty=format を用いることで，commit logを1行に要約して出力することができます\nFileやDirectoryのPATHを指定すれば，current branchではなく，指定したPATHに絞ったlogを同じ形式で出力できます\n-p オプションを追加で付与することで，各コミットにおける差分も表示することができます\n\n\ngit log options\n\n\n\n\n\n\n\nオプション\n説明\n\n\n\n\n--pretty=format:\"%cs %h %an %s\"\n%cs: コミット日時（YYYY-MM-DD）%h: 短縮コミットID%an: Author名%s: コミットメッセージ\n\n\n-p\n各コミットにおける差分（パッチ）を表示\n\n\n--after=&lt;日付&gt;\n--after=\"2025-01-01\" で2025-01-01以降にフィルタリング（境界含む）\n\n\n--before=&lt;日付&gt;\n--before=\"2025-01-01\" で2025-01-01以前にフィルタリング （境界含む）"
-  },
-  {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#gitginoreの設定",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#gitginoreの設定",
-    "title": "はじめてのGitHub",
-    "section": ".gitginoreの設定",
-    "text": ".gitginoreの設定\ngitコマンド\n\n\n.gitignoreファイル\n\n\n不必要なcommitを避けることを目的にGitによる追跡対象としないファイルを指定するための設定ファイル\n.gitignore に記載された対象ファイルは、git add の実行時に、インデックスに追加されないようになる\n「これから追加しない」ための設定\n\n\n\n\n注意点\n\n\nすでに一度 git add を経験したファイルは、インデックスに追加され、Git 追跡対象に含まれてしまうので、後から.girignoreを変更しても意図した通りの動きをしないときがある\n\n\n\nすでに追加されたファイルの追跡を解除したい場合\n\n\ngit rm --cached &lt;FILENAME&gt;\n\n\n\n.gitignore に書かれたファイルを「今後追跡しない」状態に変更\nファイルはローカルには残る（削除されない）"
-  },
-  {
-    "objectID": "posts/2025-06-07-getting-started-with-github/index.html#windows-powershellでのgit環境構築",
-    "href": "posts/2025-06-07-getting-started-with-github/index.html#windows-powershellでのgit環境構築",
-    "title": "はじめてのGitHub",
-    "section": "Windows + PowershellでのGit環境構築",
-    "text": "Windows + PowershellでのGit環境構築\n環境構築\n\n\n\n\n\n\n\n1 公式サイトからインストーラーをダウンロード\n\n\n\n\n2 インストールウィザードに従ってセットアップを進める\n\n\n\n\n\n\n\n\nGit Bash onlyを選択\n\n\n「Git Bash only」を選択しておくと環境がシンプルになります\n\n\n\n\n\n\n\n\n3 インストール完了後，PowerShell を開きPATHの確認\n\n\n\n\ngit --version\n\n\nバージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功\n\n\n\n\n\n4 PowerShellでのGitレポジトリ作成テスト\n\n\n\n\nPS&gt; cd ./Desktop\nPS&gt; mkdir ./test\nPS&gt; git init\nPS&gt; cd ..\nPS&gt; Remove-Item ./test -Recurse -Force\n\n\n上記がエラーなく実行できれば、Git の動作確認は完了\n\n\n\n\n\n\nPATHが通らない場合の対処法\n\n\n\n\n\nStep 1: 実行ファイルの場所を探す\n\n\n\ngit.exeの存在場所を確認する\n通常は D:\\Program Files\\Git\\bin\\git.exe\n\n\nTest-Path \"D:\\Program Files\\Git\\bin\\git.exe\"\n\n\n\n\n\n\nStep 2: 実行可能性のテスト\n\n\n\n& \"D:\\Program Files\\Git\\bin\\git.exe\" --version\n\n\nバージョン情報が出力されれば，次のステップ\n出力されない場合はGitの再インストール\n\n\n\n\n\n\nStep 3: PATHの追加\n\n\n\nTest-Path $PROFILE で表示されたprofileファイルに以下のラインを追加\n\n\nD:\\Program Files\\Git\\bin\\git.exe\n\n\n存在しない場合は，以下のコマンドで新規作成\n\n\nNew-Item -ItemType File -Path $PROFILE -Force"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#モデル管理の自動化及び過去のモデルも容易に再デプロイできる開発体制をmlflow導入により実現",
-    "title": "分析提案スライドの作成",
-    "section": "モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現",
-    "text": "モデル管理の自動化、及び過去のモデルも容易に再デプロイできる開発体制をMLflow導入により実現\nGoal Setting\n\n\n\n\n\nAS-IS\n\n\n\n\n\n\nsequenceDiagram\n    participant Chatbot\n    participant ModelTrainingService\n    participant ModelEvaluationService\n\n    Chatbot -&gt;&gt; ModelTrainingService: Provide preprocessed data\n\n    opt Train AI model\n        ModelTrainingService -&gt;&gt; ModelTrainingService: Train AI model\n        Note right of ModelTrainingService: モデルやパラメータのログは手動管理\n    end\n\n    ModelTrainingService -&gt;&gt; ModelEvaluationService: Evaluate model performance\n    ModelEvaluationService -&gt;&gt; ModelTrainingService: Provide evaluation results\n\n    ModelTrainingService -&gt;&gt; Chatbot: Deliver trained model\n    Note right of ModelTrainingService: 過去モデルの再デプロイは困難\n\n%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%% \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTO-BE\n\n\n\n\n\n\nsequenceDiagram\n    participant Chatbot\n    participant ModelTrainingService\n    participant ModelEvaluationService\n    participant MLflow\n\n    Chatbot -&gt;&gt; ModelTrainingService: Provide preprocessed data\n\n    opt Train AI model\n        ModelTrainingService -&gt;&gt; MLflow: Log experiment parameters\n        ModelTrainingService -&gt;&gt; ModelTrainingService: Train AI model\n        ModelTrainingService -&gt;&gt; MLflow: Log model, metrics, artifacts\n    end\n\n    ModelTrainingService -&gt;&gt; ModelEvaluationService: Evaluate model performance\n    ModelEvaluationService -&gt;&gt; MLflow: Log evaluation metrics\n    ModelEvaluationService -&gt;&gt; ModelTrainingService: Provide evaluation results\n\n    ModelTrainingService -&gt;&gt; MLflow: Register model version\n    Chatbot -&gt;&gt; MLflow: Request previous model version\n    MLflow -&gt;&gt; Chatbot: Provide historical model for deployment\n\n    ModelTrainingService -&gt;&gt; Chatbot: Deliver trained model\n\n%%{init:{'themeCSS':'.messageLine0:nth-of-type(2) { stroke: red; }; g:nth-of-type(1) rect.actor { stroke:blue; fill: #B4D7FF ;}; g:nth-of-type(2) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(3) rect.actor { stroke:blue;fill: #B4D7FF ; };g:nth-of-type(4) rect.actor { stroke:blue;fill: #B4D7FF ; }; g:nth-of-type(5) .note { stroke:blue;fill: crimson; };#arrowhead path {stroke: #B4D7FF; fill:red;};'}}%%"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#problem-statement",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#problem-statement",
-    "title": "分析提案スライドの作成",
-    "section": "Problem Statement",
-    "text": "Problem Statement\nxxxxxxxx Problem Statement\n\n\n\nhorizontal_tree:\n  - テーマ\n    - breakdown 1\n        - problem 1.1\n        - problem 1.2\n          - problem 1.2.1\n          - problem 1.2.2\n        - problem 1.3\n    - breakdown 2\n        - problem 2.1\n        - problem 2.2\n\n\n\n\n\n\n\n\nProblem 1.1\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 1.2\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 1.3\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 2.1\n\n\nどのような技術障壁があるのか？\n現状のステータスは？\n\n\n\n\n\n\nProblem 2.2\n\n\nどのような技術障壁があるのか？\n現状のステータスは？"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#課題解決のステップ",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#課題解決のステップ",
-    "title": "分析提案スライドの作成",
-    "section": "課題解決のステップ",
-    "text": "課題解決のステップ\nObjectivesの整理\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx\n\n\n\n\n\n\nstep-number\n\n\nstep-title\n\n\n\nxxxxxx\nxxxxxx\nxxxxxx\nxxxxxx"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
-    "title": "分析提案スライドの作成",
-    "section": "今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す",
-    "text": "今フェーズでは一般市場向けの新車種開発期間中に利用可能なデジタルツイン環境構築を目指す\nSolution提案\n\n\n\n\n\n\n\n開発課題（一般市場向け）\n\n\n\n① 実機テスト環境が市場条件を十分に再現できない\n\n実際の稼働環境では不具合が顕在化するリスク、設計と実利用の乖離\n\n\n\n\n② パラメータ調整が手作業で非効率\n\n調整作業に時間がかかり、設計サイクルが長期化\n\n\n\n\n③ デバイス単体での評価にとどまり、システム挙動が把握しづらい\n\n連携不具合や制御ロジックの不整合が開発後期まで見えにくい\n\n\n\n\n\n\n\n\n分析ソリューション（デジタルツイン導入）\n\n\n\n① デジタルツイン環境構築\n\n実市場に近い動的条件でシミュレーション可能\n\n効果：市場投入後の不具合低減、試験工数削減\n\n\n\n\n② パラメータ最適化アルゴリズムの導入\n\nML／PIML を用いた効率的な条件探索\n\n効果：調整時間を短縮し、開発リードタイムを圧縮\n\n\n\n\n③ システム全体の統合シミュレーション\n\nデバイス間連携や制御ロジックを再現\n\n効果：単体では見えない不具合の早期検出、信頼性向上"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析方針対応表",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析方針対応表",
-    "title": "分析提案スライドの作成",
-    "section": "分析方針対応表",
-    "text": "分析方針対応表\nSolution提案\n\n\nrecord1:\n  テーマ: テスト環境再現性向上\n  事業課題: \n    - \"&lt;strong&gt;実機テスト環境が市場条件を十分に再現できない&lt;/strong&gt;\" \n    - \"市場投入後の予期せぬトラブルによるリコールや追加対応のコスト増\"\n  受益者:\n    - 開発エンジニア\n    - テスト担当\n  取り組み提案:\n    - |\n      ① デジタルツイン環境を構築し、市場条件を忠実に再現するシミュレーションを実施。\n      これにより、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;\n      実環境に近い動的シミュレーション環境を提供し、設計・検証の精度を向上&lt;/span&gt;させる。\n  事業インパクト:\n    - 市場投入後の不具合低減\n    - 試験工数削減\n  想定期間: 3ヶ月\n\nrecord2:\n  テーマ: パラメータ最適化\n  事業課題: \n    - パラメータ調整が手作業で非効率\n    - 調整作業に時間がかかり、開発サイクルが長期化する\n    - 手作業による人為的ミスや調整のばらつきが発生しやすい\n  受益者:\n    - 品質保証部門\n    - 生産部門\n  取り組み提案:\n    - |\n      ② ML／PIML を用いた効率的な条件探索アルゴリズムを導入し、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;パラメータ最適化プロセスを構築&lt;/span&gt;します。\n  事業インパクト:\n    - 調整時間短縮\n    - 開発リードタイム圧縮\n  想定期間: 4ヶ月\n\nrecord2-2:\n  テーマ: システム統合評価\n  事業課題: \n    - デバイス単体での評価にとどまり、システム挙動が把握しづらい\n    - 連携不具合や制御ロジックの不整合が開発後期まで見えにくい\n    - 単体評価では検出できない問題が市場投入後に顕在化するリスク\n  受益者:\n    - 品質保証部門\n    - 顧客対応部門\n  取り組み提案:\n    - |\n      ③ デバイス間連携・制御ロジックを再現する統合シミュレーションを実施し、&lt;span style=\"color: #206f83; font-weight: bold !important;\"&gt;システム全体の統合テスト環境を構築&lt;/span&gt;します。\n\n  事業インパクト:\n    - 単体では見えない不具合の早期検出\n    - 信頼性向上\n  想定期間: 3ヶ月"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ1",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ1",
-    "title": "分析提案スライドの作成",
-    "section": "分析アプローチ1",
-    "text": "分析アプローチ1\n必要データ，アルゴリズム概要，分析成果物概要及びその活用方法を記載\n\n\n\n\n\n\n\n\n\nData\n\n\n\n新市場環境に近い市場データや装置稼働データを収集し、解析用に整備\n\n\n\n\n\n\n\n\n\n\n\n\n\nサロゲートモデル\n\n\n\nデジタルツイン環境を構築し、ML／PIML を用いて最適条件探索を実施\n\n\n\n\n\n\n\n\n\n\n\n\n\n成果物\n\n\n\n実環境に近い動的シミュレーション環境を提供し、開発効率の向上を実現\n\n\n\n\n\n\n\n製造装置・機器の稼働ログデータ（温度、圧力、流量など）\nセンサー・IoT データ（リアルタイム計測値、異常ログ）\n市場環境や使用条件データ（使用頻度、外気条件、負荷条件）\n過去の故障・不具合履歴、品質データ\n\n\n\n\nデジタルツインモデルの構築（装置・システム挙動を再現）\nML / PIML を用いたパラメータ最適化アルゴリズムの実装\nシステム統合シミュレーションにより、単体評価では見えない挙動を解析\n分析結果をもとに改善策や最適設定を抽出し、設計・検証の指針を生成\n\n\n\n\n実環境に近い動的シミュレーション環境（デジタルツイン）\n最適化済みパラメータセット、統合システム挙動の可視化レポート\n開発チームが設計・検証に活用、試験工数削減、リードタイム短縮\n結果を経営・製造・品質保証部門で共有し意思決定に反映"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#why-important",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#why-important",
-    "title": "分析提案スライドの作成",
-    "section": "Why important",
-    "text": "Why important\n分析手法1の成果物説明 ビジネスインパクトベースで\n\n\n\n\n\n試算根拠の記述\n\n\nxxxxx\nxxxxx\nxxxxx\nxxxxx\nxxxxx\n\n\n\n\n現状:\n  value: 100\n  custom_field: \"dsadsd\"\n  is_total: false\n  color: \"#E8F1FE\"\n'センサ・ログ&lt;br&gt;取得の自動化':\n  value: -10\n  custom_field: \"センサ・ログ取得の自動化\"\n  is_total: false\n  color: \"#E8F1FE\"\n前処理:\n  value: -8\n  custom_field: \"データクレンジング自動化\"\n  is_total: false\n  color: \"#B4D7FF\"\nモデル構築:\n  value: -12\n  custom_field: \"サロゲートモデル活用\"\n  is_total: false\n  color: \"#0E3666\"\nモデル評価:\n  value: -5\n  custom_field: \"テストデータ・理論値比較の効率化\"\n  is_total: false\n  color: \"#428CE6\"\nPoC実施:\n  value: -3\n  custom_field: \"小規模試験環境での迅速検証\"\n  is_total: false\n  color: \"#1A1A1A\"\n総合工数削減:\n  custom_field: \"合計工数削減\"\n  is_total: true\n  color: \"#D31804\""
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1のmethodologyを紹介",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1のmethodologyを紹介",
-    "title": "分析提案スライドの作成",
-    "section": "分析アプローチ 1のMethodologyを紹介",
-    "text": "分析アプローチ 1のMethodologyを紹介\n３段階アプローチを用いて情報がWeb上にいつ現れたのかを判定する 分析手法紹介 1-1\n\n\n\n① 情報の包含判定\n\n\nWebページのクエリの包含度を計算\n\n\nTom fell in love with Naomi.\n\nTom bought Naomi many things.\n\nJewels, cars, and also a house.\n\n\nTom bought Naomi a mansion というクエリに対して，\n\n完全一致（ページ内に同じ語が存在）：1.0\n語形・同義語などの近似一致（編集距離や辞書ベースで判定）：0.5\n\nというルールで近似度を計算\n\\[\n1 + 1 + 1 + 1/2 = 7/2\n\\]\n\n\n\n② 公開日時の取得\n\n\nWebページのタイムスタンプを検出\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;meta name=\"article:published_time\" content=\"2025-09-30T14:05:00Z\"&gt;\n  &lt;title&gt;Sample Article&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;article&gt;\n    &lt;h1&gt;Sample News Article&lt;/h1&gt;\n    &lt;p class=\"date\"&gt;Published on September 30, 2025&lt;/p&gt;\n    &lt;time datetime=\"2025-09-30T14:05:00Z\"&gt;2025/09/30 14:05&lt;/time&gt;\n    &lt;p&gt;This is a short article body.&lt;/p&gt;\n  &lt;/article&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n日時表現がタイムスタンプらしいといえる要因を列挙し評価関数を作成\n\n\n\n\n③ ノイズの除去\n\n\n\n①と②を用いて情報のweb上の出現の時系列を取得\n時系列にはノイズが含まれるので，ガウシアンカーネル平滑化を用いてsmoothingを実施"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1の技術的特徴と強み",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析アプローチ-1の技術的特徴と強み",
-    "title": "分析提案スライドの作成",
-    "section": "分析アプローチ 1の技術的特徴と強み",
-    "text": "分析アプローチ 1の技術的特徴と強み\n分析手法紹介 1続\n\n\n\n\n① 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善\n\n\n\nxxxx\nxxxx\nxxxx\n\n\n\n\n\n② フリークエンシーのモデリングによる上位ファネル動画の効果測定の改善\n\n\n\nxxxx\nxxxx\nxxxx\n\n\n\n\n\n③ 最新の測定手法のベストプラクティスに基づくキャリブレーションによるMMM精度の改善\n\n\n\nxxxx\nxxxx\nxxxx"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析１のタイムライン概要",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析１のタイムライン概要",
-    "title": "分析提案スライドの作成",
-    "section": "分析１のタイムライン概要",
-    "text": "分析１のタイムライン概要\nデータ収集 → 前処理 → モデリング → PoC検証の工程をトータル３ヶ月で完了させる\n\n\n\ndata1:\n  title: \"収集対象と範囲確定\"\n  content: \n    - '社内外のセンサーデータ、ログデータを収集'\n    - '必要に応じて外部データセットを取得'\n    - '&lt;span style=\"color: #D31804;\"&gt;xxxのリスクあり&lt;/span&gt;'\n  opposite: \"５月中旬完了見込み\"\n  color: \"#E8F1FE\"\n\nPreprocessing:\n  title: \"データクレンジング\"\n  content:\n    - '欠損値処理、異常値検出'\n    - '正規化・標準化・カテゴリ変換などの前処理'\n  opposite: \"５月下旬完了見込み\"\n  color: \"#B4D7FF\"\n\nModeling1:\n  title: \"モデル選択と構築\"\n  content:\n    - '機械学習／回帰モデルの構築'\n    - 'PIML／サロゲートモデルによる物理挙動の推定'\n  opposite: \"６月上旬Start\"\n  color: \"#0E3666\"\n\nModeling2:\n  title: \"モデル検証\"\n  content:\n    - 'テストデータによる性能評価'\n    - '理論値との比較および誤差分析'\n  opposite: \"7月上旬完了\"\n  color: \"#0E3666\"\nPoC1:\n  title: \"PoC\"\n  content:\n    - '小規模試験環境での検証'\n    - '実運用への適用可能性評価'\n  opposite: \"\"\n  color: \"#428CE6\""
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#gantt",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#gantt",
-    "title": "分析提案スライドの作成",
-    "section": "Gantt",
-    "text": "Gantt\nぺっぺろぺー"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#分析提案書チェックリスト",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#分析提案書チェックリスト",
-    "title": "分析提案スライドの作成",
-    "section": "分析提案書チェックリスト",
-    "text": "分析提案書チェックリスト\n\n\n\n\n\n形式だけでなく内容の質を高めることで説得力のある提案書にすることが重要\n下記の自己チェックに加えて，定期的な上長レビューと同僚からのフィードバックを活用してください\n\n\n\n\n\n\n\n① 分析の方向性・目的に関するチェック\n\n\n\n\n分析目的の明確性\n\n\n分析の目的が明確に記述されているか\n\n\n\n\n\n\nResearch Questionの明確性\n\n\n設定したRQが具体的で検証可能な形になっているか\n\n\n\n\n\n\n成果物の明確性\n\n\n分析によって得られる成果物が具体的に記述されているか?\n\n\n\n\n\n\n手法の妥当性\n\n\n選択した分析手法の理由と他手法との比較が記載されているか\n\n\n\n\n\n\nエビデンスの充実度\n\n\n主張を裏付ける参考文献や根拠が適切に引用されているか\n\n\n\n\n\n② 分析実施ロジに関するチェック\n\n\n\n\nリソース計画の現実性\n\n\n必要なデータ・計算環境・人的リソースが過不足なく記載されているか\n\n\n\n\n\n\n実現可能性の検討\n\n\n予想される制約や限界についても言及されているか\n\n\n\n\n\n\nタイムラインの具体性\n\n\n各工程の期間と全体スケジュールが明示されているか\n\n\n\n\n\n\nPoCの目的・範囲\n\n\nPoCで検証する業務フローや課題領域が明確に定義されているか\n\n\n\n\n\n\nPoC評価基準\n\n\nPoCの成果物や成功基準，評価方法が定義されているか"
-  },
-  {
-    "objectID": "posts/2025-10-01-research-proposal-template/index.html#test",
-    "href": "posts/2025-10-01-research-proposal-template/index.html#test",
-    "title": "分析提案スライドの作成",
-    "section": "Test",
-    "text": "Test"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語wordを知っているとは",
-    "title": "DSとしての語彙力",
-    "section": "「単語(word)」を知っているとは？",
-    "text": "「単語(word)」を知っているとは？\n知識としての語彙力はForm・Meaning・Usageの３つの観点の理解力から構成される\n\n\n\n\n\n\n Form\n\n\n\n\n発音\n\n\n\n単語を「耳で聞いて理解し」「口で正しく発音できる」\n\n\n\n綴り(spelling)\n\n\n\n単語の視覚的な形（written form）を正しく知っている\n\n\n\n単語の構成要素\n\n\n\n単語を構成する内部要素（語幹・接頭辞・接尾辞など）を理解している\n「単語の内部構造」を理解し，派生や意味の変化を読み取れる\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n語形と意味のつながり\n\n\n\n単語の「形」と「意味」が頭の中で結びついている\n\n\n\n概念と指示物\n\n\n\n単語が表す抽象的な「概念」と，現実世界の「対象」との関係が整理できている\n単語の意味は「言葉 ⇔ 概念 ⇔ 現実」の三者関係で成り立つ\n\n\n\n連想 (association)\n\n\n\n単語がもつ感情・文化・意味ネットワークを理解している\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能\n\n\n\n単語が文の中でどのような文法的役割を果たすか理解している\n文中での位置（主語・動詞・目的語など）を理解している\n\n\n\nコロケーション\n\n\n\n自然な語の組み合わせ・共起関係を理解している\n\n\n\n使用制約\n\n\n\n単語を使う場面・文体・相手に応じて適切に使い分けられる"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#参考-プログラミング言語を知っているとは",
-    "title": "DSとしての語彙力",
-    "section": "(参考) 「プログラミング言語」を知っているとは？",
-    "text": "(参考) 「プログラミング言語」を知っているとは？\nプログラミング言語の理解力も，Form・Meaning・Usage の3観点から理解することができる\n\n\n\n\n\n\n Form\n\n\n\n\n構文 (syntax)\n\n\n\nコードの正しい「形（文法）」を理解している\n例：for (let i=0; i&lt;10; i++) の括弧・セミコロンの役割を理解している\n\n\n\n記法 (spelling)\n\n\n\n言語特有のキーワードや識別子を正確に書ける\n\n\n\n構成要素 (structure)\n\n\n\n文や式がどのような要素で構成されるかを理解している\n例：関数＝宣言 + 引数 + 本体\n\n\n\n\n\n\n\n\n Meaning\n\n\n\n\n概念と処理の対応\n\n\n\n言語を通して，プログラムの概念（ループ・条件分岐・関数）と実際の挙動（処理内容）を結びつけて理解している\n「抽象的な概念」⇔「プログラミング」⇔「具体的な挙動（output）」の橋渡し\n\n\n\n連想 (association)\n\n\n\nコードから関連知識を連想できる\n例：append() → 「リスト操作」, 「破壊的変更」, 「配列末尾」\n\n\n\n\n\n\n\n\n Usage\n\n\n\n\n文法的機能 (grammatical role)\n\n\n\nコード要素が文の中でどんな役割を果たすかを理解している\n例：変数は値の入れ物，関数は処理単位\n\n\n\nコロケーション (共起関係)\n\n\n\n自然なコードの組み合わせを理解している\n例：if ... else，try ... except，for ... in などのペアを正しく使える\n\n\n\n使用制約 (context constraints)\n\n\n\n構文・関数を適切な場面で使い分けられる\n例:\n\n同期処理と非同期処理の文脈の違い\nglobal変数の慎重な利用"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#単語を使いこなす能力-receptive-vs-productive",
-    "title": "DSとしての語彙力",
-    "section": "単語を使いこなす能力: receptive vs productive",
-    "text": "単語を使いこなす能力: receptive vs productive\n\n\n\n① Receptive knowledge\n\n\n使用場面: reading, listening skills\n提示された情報を理解できる力\n\n他者が書いたコード・文章・発話を見聞きして，文脈を踏まえて正しく理解できる能力\n他人のコード・APIドキュメントを読んで動作を理解できる\n\nForm → Meaning の対応を把握し，Usage は参照的に理解する段階\n\n\n\n\n\n② Productive knowledge\n\n\n使用場面: speaking, writing skills\n自分の考えや意図を表現できる力(= 状況に応じた創造的応用)\n\n単に意味を知っているだけでなく，文法・語感・使用制約を踏まえて「適切にアウトプットできる」能力\n自分で関数やロジックを書き，再利用できる能力\n\nForm・Meaning・Usage をすべて統合して能動的に使える"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#プログラミング言語理解チェックリスト",
-    "title": "DSとしての語彙力",
-    "section": "✅ プログラミング言語理解チェックリスト",
-    "text": "✅ プログラミング言語理解チェックリスト\n\n\n\nrecord1:\n    観点: Form\n    children:\n      - チェック項目: syntax\n        Receptive skill:\n          - コードの構文構造を見て意味を理解できる\n          - 括弧やインデントの意味を理解できる\n        Productive skill:\n          - 正しい構文でコードを書ける\n          - 構文エラーを自力で修正できる\n      - チェック項目: spelling\n        Receptive skill:\n          - 言語特有のキーワードや識別子を見て意味を理解できる\n          - 大文字・小文字・予約語の違いを認識できる\n        Productive skill:\n          - キーワードや識別子を正確に書ける\n          - 命名規則に従って識別子を作れる\n\n      - チェック項目: structure\n        Receptive skill:\n          - 文や式の構成要素を理解できる\n          - 関数やクラスの構造を読み解ける\n        Productive skill:\n          - 再利用可能な関数を設計できる\n\nrecord2:\n    観点: Meaning\n    children:\n      - チェック項目: concept-behavior\n        Receptive skill:\n          - ループ・条件分岐・関数などの概念と挙動を理解できる\n          - コードの意味を説明できる\n        Productive skill:\n          - 概念をコードに正しく落とし込める\n          - 推定量→疑似コード→アルゴリズム実装の流れを実行できる\n      - チェック項目: association\n        Receptive skill:\n          - コードから関連知識を連想できる\n          - API名やメソッド名から用途を推測できる\n        Productive skill:\n          - 適切な関数やメソッドを選択できる\n          - 挙動と整合的な命名をすることができる\n\nrecord3:\n    観点: Usage\n    children:\n      - チェック項目: grammatical role\n        Receptive skill:\n          - 各構文要素がどんな役割を果たすか理解できる\n          - コード全体の構造を把握できる\n        Productive skill:\n          - 処理の意図に応じて構文を選択できる\n          - 構成要素を組み合わせてクラスを構築できる\n\n      - チェック項目: collocation\n        Receptive skill:\n          - よく使われる構文パターンを理解できる\n          - 組み合わせの自然さを判断できる\n        Productive skill:\n          - 自然なコードペアを使える（例：&lt;code&gt;if...else&lt;/code&gt;, &lt;code&gt;try...except&lt;/code&gt;, &lt;code&gt;for...in&lt;/code&gt;）\n\n      - チェック項目: context constraints\n        Receptive skill:\n          - 文脈に応じた構文や関数の使用制約を理解している\n          - 同期/非同期やスコープや名前空間などの制約を把握できる\n        Productive skill:\n          - 文脈に応じて適切な構文や関数を選択できる\n          - 設計上の制約を踏まえて安全なコードを書ける"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#receptive-productive-scalableの順番で知識を確立する",
-    "title": "DSとしての語彙力",
-    "section": "Receptive → Productive → Scalableの順番で知識を確立する",
-    "text": "Receptive → Productive → Scalableの順番で知識を確立する\n\n\n\n\nLearn-by-Thinking\n\n\nReceptive Knowldgeの確立\n\n\n\n論文やOSSライブラリーを見て理解する\n理論や概念の背景を整理する\n単語・構文・仕組みを頭の中でマッピングする\n問題や課題の意味を解釈できるようになる\n\n\n\n\n\n\nLearn-by-Doing\n\n\nProductive Knowldgeの確立\n\n\n\n実際に手を動かしてコードを書く・課題を解く\nフィードバックを受けながら理解を修正する\n推定量→疑似コード→実装の流れを実現する\n課題解決や実務で活用可能なスキルへ昇華する\n\n\n\n\n\n\nExpand-your-knowledge\n\n\nScalable Knowldgeの確立\n\n\n\n習得した知見を整理し，関連知識と結びつける\n他の課題や領域への応用方法を考える\n自分の知識を言語化して共有する\n他人を巻き込み，知識をスケールさせる"
-  },
-  {
-    "objectID": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
-    "href": "posts/2025-10-15-vocabulary-knowledge/index.html#references",
-    "title": "DSとしての語彙力",
-    "section": "References",
-    "text": "References\n\n\n\n\n\nresearch-writing\n\n\n\n書籍情報\n\n\n\nタイトル\nWriting for Academic Purposes 英作文を卒業して英語論文を書く\n\n\n著者\n田地野 彰，ティム・スチュワート，デビッド・ダルスキー 編\n\n\n発売日\n2010/4/1\n\n\nISBN\n978-4-89476-490-3\n\n\n体裁\n単行本，213ページ\n\n\n\nこの本の内容\n\n大学・大学院生を対象とした，英語によるアカデミックライティングのガイドブック\n「学術的文章の基礎理解 → 実践的執筆スキル → 執筆現場での応用」という三段構成で，アカデミックライティングの実践の仕方を解説"
+    "objectID": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
+    "href": "posts/2025-05-07-how-to-write-slide/index.html#場面に応じてスライド作成クオリティは異なる",
+    "title": "構造化されたストーリーとしてのスライド",
+    "section": "場面に応じてスライド作成クオリティは異なる",
+    "text": "場面に応じてスライド作成クオリティは異なる\n\n\nrecord1:\n  MTG: ステコミ\n  目的:\n    - 意思決定の支援\n    - 重要案件の承認\n  オーディエンス:\n    - クライアント経営層\n    - 細かいところまでは把握していない\n  ポイント:\n    - 情報の簡潔性（1枚で要点を伝える）\n    - ビジュアル重視（図・表・チャート）\n    - 論理の一貫性と構成力\n    - 誤字・フォーマットも厳しくチェックされる\n\nrecord2:\n  MTG: 定例会\n  目的:\n    - 進捗報告\n    - 課題共有\n    - 方向性の確認\n  オーディエンス:\n    - クライアント + 社内チームメンバー\n    - PJ背景情報まで把握している\n  ポイント:\n    - 要点を絞った報告\n    - タスク・KPIに対する進捗の見える化\n    - 情報の網羅性を重視\n\nrecord3:\n  MTG: 社内MTG\n  目的:\n    - 知見の共有\n    - よもやま相談\n  オーディエンス:\n    - 社内の人\n    - 社内用語なり事前情報・価値観が揃っている\n  ポイント:\n    - ストーリー性や具体例が大切\n    - 手書き風や口頭中心もOK"
   },
   {
     "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",

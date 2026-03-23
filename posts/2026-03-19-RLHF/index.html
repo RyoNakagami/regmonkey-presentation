@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – 公開鍵暗号と公開鍵認証の概要</title>
+  <title>Presentation for Regession Monkey – Reinforcement Learning from Human Feedback</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -139,10 +139,6 @@
       margin-right: 0; 
     }
   </style>
-  <meta name="mermaid-theme" content="default">
-  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
@@ -167,8 +163,8 @@
   <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
-<meta property="og:title" content="公開鍵暗号と公開鍵認証の概要 – Presentation for Regession Monkey">
-<meta property="og:description" content="Linux101">
+<meta property="og:title" content="Reinforcement Learningfrom Human Feedback – Presentation for Regession Monkey">
+<meta property="og:description" content="ChatGPTの学習方針">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
 <body class="quarto-light">
@@ -176,8 +172,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">公開鍵暗号と公開鍵認証の概要</h1>
-  <p class="subtitle">Linux101</p>
+  <h1 class="title">Reinforcement Learning<br>from Human Feedback</h1>
+  <p class="subtitle">ChatGPTの学習方針</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -187,318 +183,123 @@ Ryo Nakagami
 </div>
 </div>
 
-  <p class="date">2026年02月10日</p>
+  <p class="date">2026年03月19日</p>
 </section>
-<section id="公開鍵暗号の概要" class="slide level2">
-<h2>公開鍵暗号の概要</h2>
+<section id="reinforcement-learning-from-human-feedback" class="slide level2">
+<h2>Reinforcement Learning from Human Feedback</h2>
+<p><span class="h2-submessage">大規模言語モデルを人間のフィードバックを用いて微調整する学習フレームワーク</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="def-block" style="font-size:1.1em;">
-<p><span class="def-title">公開鍵暗号</span></p>
-<div class="def-contents">
+<div class="info-box">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-contents font-10 padding-L-05">
 <ul>
-<li>非対称型暗号方式とも呼ばれる</li>
-<li>秘密鍵を乱数で生成し，公開鍵は秘密鍵から，素数の席や離散対数により生成される</li>
-<li>データをやり取りする際に，公開鍵で暗号化し，秘密鍵で復号する</li>
+<li>事前学習済みモデルは「もっともらしいテキスト」を生成するが，有害な応答や事実と異なる出力を返す場合がある</li>
+<li><strong>RLHF</strong> は，人間の選好を学習信号として取り込み，モデルの振る舞いを人間の好みに沿うよう調整する手法</li>
+<li>SFT → 報酬モデル学習 → 強化学習（PPO）の3段階で，<strong>有用性（Helpful）</strong>・<strong>無害性（Harmless）</strong>・<strong>誠実性（Honest）</strong> の3Hを追求</li>
 </ul>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section">公開鍵暗号方式の仕組み</span></p>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="pki-diagram">
-<div class="pki-section">
-<div class="pki-grid">
-<div class="pki-side-title">
-<p>データ送信側</p>
-</div>
-<div>
-
-</div>
-<div class="pki-side-title">
-<p>データ受信側</p>
-</div>
-<div>
-
-</div>
-<div class="pki-outer-box" style="grid-column: 1; grid-row: 2 / 5; width:15em; height: 12.5em;">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="pki-box" style="width:10em;">
-<p>公開鍵</p>
-</div>
-<div class="pki-v-arrow">
-<p>③暗号化</p>
-<div class="pki-v-arrow-shaft">
-<div class="pki-v-arrow-line" style="height:4em;">
-
-</div>
-<div class="pki-v-arrow-head">
-
+<div class="reveal_vspace" style="--vspace-height: 0.2em;"></div>
+<div class="step-container padding-TB-none" style="height: 90%">
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 1: 言語モデルの構築</span></p>
+<div class="step-label">
+<ul>
+<li>プロンプトに対する理想的な応答を人間（ラベラー）が作成</li>
+<li>この応答データで事前学習済みモデルを教師あり学習で調整(=<strong>SFTモデル<sup>1</sup></strong>)</li>
+<li><strong>この段階では「チャットの応答」として良いモデルとは限らない</strong></li>
+</ul>
 </div>
 </div>
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 2: 報酬モデル学習</span></p>
+<div class="step-label">
+<ul>
+<li>同一プロンプト <span class="math inline">\(x\)</span> に対し SFTモデルが複数の応答 <span class="math inline">\(y\)</span> を生成</li>
+<li>人間が3Hの基準で応答を<strong>ランキング</strong>（例: <span class="math inline">\(y_w \succ y_l\)</span>）</li>
+<li>ペア比較データから報酬モデル <span class="math inline">\(r_\theta(x, y)\)</span> を学習</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.2em;"></div>
+<p><span class="mini-section">例: スコア差を確率化してlossを定義</span></p>
+<p><span class="math display">\[
+\mathcal{L} = -\mathbb{E}\!\left[\log \sigma\bigl(r_\theta(x, y_w) - r_\theta(x, y_l)\bigr)\right]
+\]</span></p>
 </div>
-<div class="pki-box" style="width:10em;">
-<p>データ</p>
 </div>
-</div>
-<div class="pki-h-arrow" style="grid-column: 2; grid-row: 2;">
-<div class="pki-h-arrow-label">
-<p>②公開鍵をコピー</p>
-</div>
-<div class="pki-h-arrow-shaft">
-<div class="pki-h-arrow-head-left">
-
-</div>
-<div class="pki-h-arrow-line">
-
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 3: PPOによる強化学習</span></p>
+<div class="step-label">
+<ul>
+<li>SFTモデルを初期方策 <span class="math inline">\(\pi_\text{RL}\)</span> として <a href="https://arxiv.org/abs/1707.06347">PPO</a> で最適化</li>
+<li>報酬モデルのスコアを報酬信号として利用</li>
+<li>KLペナルティでSFTモデルからの過度な乖離を防止</li>
+</ul>
+<p><span class="math display">\[
+\max_{\pi_\text{RL}} \; \mathbb{E}\!\left[r_\theta(x,y) - \beta \, \text{KL}\bigl(\pi_\text{RL} \| \pi_\text{SFT}\bigr)\right]
+\]</span></p>
 </div>
 </div>
 </div>
-<div class="pki-outer-box" style="grid-column: 3; grid-row: 2 / 5; width:15em; height: 12.5em;">
-<p>①キーペア作成</p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="pki-keypair-box" style="grid-column: 3; grid-row: 2; width:10em;">
-<div class="pki-keypair-row">
-<p>公開鍵</p>
-</div>
-<div class="pki-keypair-row">
-<p>秘密鍵</p>
-</div>
-</div>
-<div class="pki-v-arrow" style="height:2em;">
-<p>⑤ 復号</p>
-<div class="pki-v-arrow-shaft">
-<div class="pki-v-arrow-line">
-
-</div>
-<div class="pki-v-arrow-head">
-
-</div>
-</div>
-</div>
-<div class="pki-box" style="width:10em;">
-<p>データ</p>
-</div>
-</div>
-<div class="pki-h-arrow" style="grid-column: 2; grid-row: 3;">
-<div class="reveal_vspace" style="--vspace-height: 5em;"></div>
-<div class="pki-h-arrow-label">
-<p>④暗号化したデータを送信</p>
-</div>
-<div class="pki-h-arrow-shaft">
-<div class="pki-h-arrow-line">
-
-</div>
-<div class="pki-h-arrow-head-right">
-
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Supervised Fine-Tuning</p></li></ol></aside></section>
+<section>
+<section id="appendix" class="title-slide slide level1 agenda-slide center">
+<h1>Appendix</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Appendix</p>
+</div></li>
+</ul>
 </div>
 </section>
-<section id="公開鍵認証の概要" class="slide level2">
-<h2>公開鍵認証の概要</h2>
+<section id="neural-scaling-laws" class="slide level2">
+<h2>Neural Scaling Laws</h2>
+<p><span class="h2-submessage">LLMの性能はパラメーター数・データサイズ・計算量の冪乗則に従う</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="def-block" style="font-size:1.1em;">
-<p><span class="def-title">公開鍵認証</span></p>
+<p><span class="def-title">Scaling Law（Kaplan et al., 2020）</span></p>
 <div class="def-contents">
+<p>他の2要素がボトルネックにならない条件下で，モデルの交差エントロピー損失 <span class="math inline">\(L\)</span> は各変数の冪乗則に従う</p>
+<p><span class="math display">\[
+L(N) \propto N^{-\alpha_N}, \quad L(D) \propto D^{-\alpha_D}, \quad L(C) \propto C^{-\alpha_C}
+\]</span></p>
 <ul>
-<li>公開鍵暗号の鍵ペアを用いて，通信相手の正当性を検証する仕組み</li>
-<li>被認証側が秘密鍵で認証データを作成し，認証側が公開鍵で検証する</li>
-<li>SSH接続<sup>1</sup>やデジタル署名などで広く利用される</li>
+<li><span class="math inline">\(N\)</span>: パラメーター数，<span class="math inline">\(D\)</span>: データサイズ（トークン数），<span class="math inline">\(C\)</span>: 計算量（FLOPs）</li>
 </ul>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section">公開鍵認証の仕組み</span></p>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="pki-diagram">
-<div class="pki-section">
-<div class="pki-grid">
-<div class="pki-side-title">
-<p>認証側</p>
-</div>
-<div>
-
-</div>
-<div class="pki-side-title">
-<p>被認証側</p>
-</div>
-<div>
-
-</div>
-<div class="pki-outer-box" style="grid-column: 1; grid-row: 2 / 5; width:15em; height: 12.5em;">
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="pki-box" style="width:10em;">
-<p>公開鍵</p>
-</div>
-<div class="pki-v-arrow">
-<p>⑤検証</p>
-<div class="pki-v-arrow-shaft">
-<div class="pki-v-arrow-line" style="height:4em;">
-
-</div>
-<div class="pki-v-arrow-head">
-
-</div>
-</div>
-</div>
-<div class="pki-box" style="width:10em;">
-<p>認証データ</p>
-</div>
-</div>
-<div class="pki-h-arrow" style="grid-column: 2; grid-row: 2;">
-<div class="pki-h-arrow-label">
-<p>②公開鍵をコピー<sup>2</sup></p>
-</div>
-<div class="pki-h-arrow-shaft">
-<div class="pki-h-arrow-head-left">
-
-</div>
-<div class="pki-h-arrow-line">
-
-</div>
-</div>
-</div>
-<div class="pki-outer-box" style="grid-column: 3; grid-row: 2 / 5; width:15em; height: 12.5em;">
-<p>①キーペア作成<sup>3</sup></p>
+<div class="columns font-09">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">冪乗則の意味</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="pki-keypair-box" style="grid-column: 3; grid-row: 2; width:10em;">
-<div class="pki-keypair-row">
-<p>公開鍵</p>
-</div>
-<div class="pki-keypair-row">
-<p>秘密鍵</p>
-</div>
-</div>
-<div class="pki-v-arrow" style="height:2em;">
-<p>③作成</p>
-<div class="pki-v-arrow-shaft">
-<div class="pki-v-arrow-line">
-
-</div>
-<div class="pki-v-arrow-head">
-
-</div>
-</div>
-</div>
-<div class="pki-box" style="width:10em;">
-<p>認証データ</p>
-</div>
-</div>
-<div class="pki-h-arrow" style="grid-column: 2; grid-row: 3;">
-<div class="reveal_vspace" style="--vspace-height: 5em;"></div>
-<div class="pki-h-arrow-label">
-<p>④認証データを送信</p>
-</div>
-<div class="pki-h-arrow-shaft">
-<div class="pki-h-arrow-head-left">
-
-</div>
-<div class="pki-h-arrow-line">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>OpenSSHではサーバー側に登録された公開鍵情報を用いてクライアント認証を行い，その後，公開鍵暗号でセッション鍵を安全に交換して暗号化通信を行う</p></li><li id="fn2"><p>サーバー側の<code>~/.ssh/authorized_keys</code>に公開鍵を登録</p></li><li id="fn3"><p>コマンド例: <code>ssh-keygen -t ed25519 -C "hoshinokirby@pupupupu.com" -f ~/.ssh/id_ed25519_github</code></p></li></ol></aside></section>
-<section id="ホスト認証とクライアント認証の違い" class="slide level2">
-<h2>ホスト認証とクライアント認証の違い</h2>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="def-block" style="font-size:1.1em;">
-<p><span class="def-title">SSH接続における二段階の認証</span></p>
-<div class="def-contents">
 <ul>
-<li><strong>ホスト認証</strong>: クライアントが接続先サーバーの正当性を確認する</li>
-<li><strong>クライアント認証</strong>: サーバーがクライアント（ユーザー）の正当性を確認する</li>
-<li>SSH接続時，ホスト認証 → クライアント認証の順で実行される</li>
+<li>性能は各変数に対して<strong>対数スケールで線形</strong>に改善する</li>
+<li>10倍のパラメーターで一定幅の損失減少が得られる（収穫逓減）</li>
+<li>3変数のうち<strong>最も制約の強い要素</strong>がボトルネックとなる
+<ul>
+<li><span class="math inline">\(N\)</span> だけ増やしても <span class="math inline">\(D\)</span> が不足すれば性能は頭打ち</li>
+</ul></li>
 </ul>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section"><a href="https://arxiv.org/pdf/2203.15556">Chinchilla Optimal（Hoffmann et al., 2022）</a>における学習方針</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section">ホスト認証 vs クライアント認証</span></p>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div style="font-size:0.85em; line-height: 1.5em;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">ホスト認証</th>
-<th style="text-align: left;">クライアント認証</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">目的</td>
-<td style="text-align: left;">サーバーの正当性を確認</td>
-<td style="text-align: left;">クライアントの正当性を確認</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">検証する側</td>
-<td style="text-align: left;">クライアント</td>
-<td style="text-align: left;">サーバー</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">鍵ペアの所有者</td>
-<td style="text-align: left;">サーバー</td>
-<td style="text-align: left;">クライアント</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">公開鍵の保管場所</td>
-<td style="text-align: left;"><code>~/.ssh/known_hosts</code></td>
-<td style="text-align: left;"><code>~/.ssh/authorized_keys</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">防ぐ脅威</td>
-<td style="text-align: left;">中間者攻撃（なりすましサーバー）</td>
-<td style="text-align: left;">不正ユーザーのアクセス</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column position-top-30" style="width:40%;">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    participant C as Client
-    participant S as Server
-
-    C-&gt;&gt;S: TCP接続
-
-    Note over C,S: 1. ホスト認証 (Server Authentication)
-    S-&gt;&gt;C: サーバ公開鍵送信
-    C-&gt;&gt;C: サーバ鍵を known_hosts と照合
-
-    C-&gt;S: セッション鍵生成 &amp; 交換
-
-    Note over C,S: 2. クライアント認証 (Client Authentication)
-    C-&gt;&gt;S: ユーザ名送信
-    S-&gt;&gt;C: 認証方式要求 (password / publickey )
-    C-&gt;&gt;S: 公開鍵署名送信
-    S-&gt;&gt;S: 署名を公開鍵で検証
-    S-&gt;&gt;C: Authentication OK &amp; セッション開始
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p><span class="math display">\[
+L(N, D) = 1.69 + \frac{406.4}{N^{0.34}} + \frac{410.7}{D^{0.28}}
+\]</span></p>
+<ul>
+<li>固定計算予算 <span class="math inline">\(C\)</span> のもとで <span class="math inline">\(N \propto D\)</span> が最も効率的</li>
+<li>大規模データの恩恵はデータ品質が高い場合に限られる可能性あり
+<ul>
+<li>データが増えるほど，品質が下がるトレードオフに留意</li>
+</ul></li>
+</ul>
 </div></div>
 
 
 
-</section>
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
