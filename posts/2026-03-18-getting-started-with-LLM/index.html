@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – スライド作成に役に立つ書籍紹介</title>
+  <title>Presentation for Regession Monkey – LLMはどのようにして動いているのか？</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -163,8 +163,8 @@
   <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
-<meta property="og:title" content="スライド作成に役に立つ書籍紹介 – Presentation for Regession Monkey">
-<meta property="og:description" content="ドラフト中">
+<meta property="og:title" content="LLMはどのようにして動いているのか？ – Presentation for Regession Monkey">
+<meta property="og:description" content="LLM101">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
 <body class="quarto-light">
@@ -172,8 +172,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">スライド作成に役に立つ書籍紹介</h1>
-  <p class="subtitle">ドラフト中</p>
+  <h1 class="title">LLMはどのようにして動いているのか？</h1>
+  <p class="subtitle">LLM101</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -183,196 +183,455 @@ Ryo Nakagami
 </div>
 </div>
 
-  <p class="date">2025年05月02日</p>
+  <p class="date">2026年03月18日</p>
 </section>
-<section>
-<section id="メッセージ構成参考文献" class="title-slide slide level1 agenda-slide center">
-<h1>メッセージ構成参考文献</h1>
-<div class="agenda">
+<section id="llmはプロンプトに対して順当な続きを出力している" class="slide level2">
+<h2>LLMはプロンプトに対して順当な続きを出力している</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05">
 <ul>
-<li><div class="agenda-active">
-<p>メッセージ構成参考文献</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>スライド構成参考文献</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>スライドスタイリング参考文献</p>
-</div></li>
+<li>LLMは入力テキスト（プロンプト）に対して, <strong>次に来る可能性が高いトークンを確率的に予測</strong>し, 順番に出力している</li>
+<li>各ステップで語彙全体に対する確率分布を計算し, そこからトークンをサンプリングする</li>
 </ul>
 </div>
-</section>
-<section id="the-little-book-of-research-writing" class="slide level2">
-<h2>The Little Book of Research Writing</h2>
-<div class="columns">
-<div class="column book-image">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./research-writing.png"></p>
-<figcaption>research-writing</figcaption>
-</figure>
 </div>
-</div><div class="column book-info">
-<h3 id="書籍情報">書籍情報</h3>
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td>タイトル</td>
-<td><a href="https://www.amazon.co.jp/-/en/Varanya-Chaubey/dp/1974673162">The Little Book of Research Writing</a></td>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<p><span class="mini-section">例: The best thing about AI is its ability to …</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div>
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
+<thead>
+<tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
+<th style="padding: 10px; border: 1px solid #051C2C;">
+次のトークン候補
+</th>
+<th style="padding: 10px; border: 1px solid #051C2C;">
+確率
+</th>
 </tr>
-<tr class="even">
-<td>著者</td>
-<td>Varanya Chaubey (著)</td>
+</thead>
+<tbody style="font-size: 0.95em; text-align: center;">
+<tr>
+<td style="padding: 8px; background-color: #f0fdf4; font-weight: bold; border: 1px solid #D1D7DB; color: #16a34a;">
+learn
+</td>
+<td style="padding: 8px; background-color: #f0fdf4; font-weight: bold; border: 1px solid #D1D7DB; color: #16a34a;">
+0.42
+</td>
 </tr>
-<tr class="odd">
-<td>発売日</td>
-<td>2012/10/19</td>
+<tr>
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">
+generate
+</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB;">
+0.25
+</td>
 </tr>
-<tr class="even">
-<td>ISBN13</td>
-<td>978-4492557204</td>
+<tr>
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">
+process
+</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB;">
+0.15
+</td>
 </tr>
-<tr class="odd">
-<td>体裁</td>
-<td>単行本, 159ページ</td>
+<tr>
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">
+understand
+</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB;">
+0.10
+</td>
+</tr>
+<tr>
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">
+adapt
+</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB;">
+0.05
+</td>
+</tr>
+<tr>
+<td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">
+…
+</td>
+<td style="padding: 8px; border: 1px solid #D1D7DB;">
+0.03
+</td>
 </tr>
 </tbody>
 </table>
-<h3 id="この本の内容">この本の内容</h3>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
-<li>様々な情報を理路整然としたストーリーフレームに落とし込むための方法論を解説</li>
-<li>Econリサーチライティングを対象としているが，ビジネスにおけるDS分析コミュニケーションのストーリーアウトライン設計にも応用可能</li>
-<li>メインメッセージの論理的明確性を確認する方法として，<strong>R</strong>(Research Question)・<strong>A</strong>(Answer)・<strong>P</strong>(Positioning Statement)フレームワークを紹介</li>
+<li>プロンプトに対して，上記のように次のトークンを１つずつサンプリングし続けることで文章を生成している</li>
+<li>常に「ランクの高い」トークンを選び続けると単調な文章が生成される傾向があるので，ランクの低い単語を選ぶ余地を残すことも重要</li>
+</ul>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<p><span class="mini-section">トークンとは？</span></p>
+<ul>
+<li>テキストを分割した最小単位（単語・サブワード・文字など）</li>
+<li>例: <code>"learning"</code> → <code>["learn", "ing"]</code></li>
+<li>LLMは文字ではなくトークン単位で処理を行う</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">温度パラメター（Temperature）</span></p>
+<ul>
+<li>サンプリング時の確率分布の<strong>鋭さ</strong>を制御するパラメター</li>
+<li><strong>Temperature = 0</strong>: 最も確率の高いトークンを常に選択（決定的）</li>
+<li><strong>Temperature → 高</strong>: 確率分布が平坦化し，低確率のトークンも選ばれやすくなる（多様性↑）</li>
+<li>創造的なタスクでは高め，正確性が求められるタスクでは低めに設定する</li>
+<li>Claude Codeでは，明示パラメータではなく「プロンプト設計で制御するもの」という方針</li>
 </ul>
 </div></div>
-</section></section>
-<section>
-<section id="スライド構成参考文献" class="title-slide slide level1 agenda-slide center">
-<h1>スライド構成参考文献</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>メッセージ構成参考文献</p>
-</div></li>
-<li><div class="agenda-active">
-<p>スライド構成参考文献</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>スライドスタイリング参考文献</p>
-</div></li>
-</ul>
-</div>
 </section>
-<section id="外資系コンサルのスライド作成術図解表現23のテクニック" class="slide level2">
-<h2>外資系コンサルのスライド作成術―図解表現23のテクニック</h2>
-<div class="columns">
-<div class="column book-image">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./gaicon-slide-book.png"></p>
-<figcaption>gaicon-slide-book</figcaption>
-</figure>
-</div>
-</div><div class="column book-info">
-<h3 id="書籍情報-1">書籍情報</h3>
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td>タイトル</td>
-<td><a href="https://str.toyokeizai.net/books/9784492557204/">外資系コンサルのスライド作成術―図解表現23のテクニック</a></td>
-</tr>
-<tr class="even">
-<td>著者</td>
-<td>山口 周 (著)</td>
-</tr>
-<tr class="odd">
-<td>発売日</td>
-<td>2017/8/17</td>
-</tr>
-<tr class="even">
-<td>ISBN13</td>
-<td>978-1974673162</td>
-</tr>
-<tr class="odd">
-<td>体裁</td>
-<td>184ページ</td>
-</tr>
-</tbody>
-</table>
-<h3 id="この本の内容-1">この本の内容</h3>
+<section id="数えられない確率をモデルで近似する" class="slide level2">
+<h2>数えられない確率を，モデルで近似する</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<p><span class="mini-section">Key Takeaways</span></p>
+<div class="info-contents font-10 padding-L-05">
 <ul>
-<li>スライドが満たすべき必要条件を簡潔に解説</li>
-<li>スライドパッケージ全体の作成技術の解説は少ないが、可視化を伴うスライド１枚の作り方を事例を交えて解説</li>
-<li>カラー，フォントというスタイリング要素の解説は少ない</li>
-</ul>
-</div></div>
-</section></section>
-<section>
-<section id="スライドスタイリング参考文献" class="title-slide slide level1 agenda-slide center">
-<h1>スライドスタイリング参考文献</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>メッセージ構成参考文献</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>スライド構成参考文献</p>
-</div></li>
-<li><div class="agenda-active">
-<p>スライドスタイリング参考文献</p>
-</div></li>
+<li>次のトークンを予測するには「あるトークン列の後に各トークンが出現する確率」が必要</li>
+<li>しかし，語彙数が膨大なため全パターンの頻度をデータから直接数え上げることは不可能</li>
+<li>出現確率を<strong>ニューラルネットワークでモデル化</strong>するアプローチが採用された</li>
 </ul>
 </div>
-</section>
-<section id="学生研究者のための伝わる学会ポスターのデザイン術" class="slide level2">
-<h2>学生・研究者のための伝わる！学会ポスターのデザイン術</h2>
+</div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="columns">
-<div class="column book-image">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./poster-design-book.png"></p>
-<figcaption>poster-design-book</figcaption>
-</figure>
+<div class="column" style="width:50%;">
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left">
+<p>課題: 組合せ爆発</p>
 </div>
-</div><div class="column book-info">
-<h3 id="書籍情報-2">書籍情報</h3>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li>語彙数 <span class="math inline">\(V = 40{,}000\)</span> トークンの場合</li>
+<li>2-gramモデル（直前1トークンから予測）でも <span class="math inline">\(V^2 = 1.6 \times 10^{9}\)</span>（<strong>16億パターン</strong>）</li>
+<li><span class="math inline">\(n\)</span>-gramでは <span class="math inline">\(V^n\)</span> で指数的に増加</li>
+<li>現実的なコーパスではほとんどのパターンが未出現となり，頻度ベースの確率推定は破綻する</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>解決策: 確率のモデル化</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>全パターンを数え上げる代わりに，<strong>出現確率そのものをモデルで近似</strong>する</li>
+<li>ニューラルネットワークにトークン列を入力し，次トークンの確率分布を出力させる</li>
+<li>モデルのパラメータ<sup>1</sup>を大量のテキストデータで学習（＝<strong>言語モデル</strong>）</li>
+<li>これにより未知のパターンに対しても汎化した予測が可能になった</li>
+</ul>
+</div>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>footer-params</p></li></ol></aside></section>
+<section id="llmは知っていることを引き出せないことがある" class="slide level2">
+<h2>LLMは「知っていること」を引き出せないことがある</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05">
+<ul>
+<li>LLMは膨大な学習データから知識を獲得しているが，<strong>プロンプトの書き方次第で正しい知識を引き出せない</strong>ことがある</li>
+<li>ユーザーが「LLMが本来知っていること」を適切に引き出せていないことに気づかない状態が<strong>Unknown Knowns問題</strong></li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column font-09" style="width:52.5%;">
+<p><span class="mini-section">プロンプトから応答生成までの流れとUnknown Knowns</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left">
+<p>プロンプト → トークン予測 → 応答生成</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ol type="1">
+<li>ユーザーがプロンプト（質問・指示）を入力</li>
+<li>LLMは入力トークン列に対して，次トークンの確率分布を計算</li>
+<li>確率分布からトークンをサンプリングし応答を生成</li>
+<li>しかし，プロンプトが<strong>曖昧・不十分</strong>だと，モデルが持つ知識のうち<strong>最適な部分が活性化されない</strong></li>
+<li>結果として，本来正しく答えられるはずの問いに対して<strong>不完全・不正確な応答</strong>が返る</li>
+</ol>
+</div>
+</div>
+</div><div class="column padding-L-12 font-09" style="width:47.5%;">
+<p><span class="mini-section">Unknown Knowns問題の具体例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>モデルは知っているのに引き出せない</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<p><strong>プロンプト設計の問題</strong></p>
+<ul>
+<li>「要約して」→ どの粒度？ 誰向け？</li>
+<li>文脈・制約が不足すると，モデルは汎用的な応答にフォールバックする</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><strong>出力形式の暗黙の期待</strong></p>
+<ul>
+<li>ユーザーが期待する形式（表，箇条書き，コード等）を明示しないと，モデルは自由形式で応答する</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="llmを使いこなすにあたって" class="slide level2">
+<h2>LLMを使いこなすにあたって</h2>
+<p><span class="h2-submessage">Known-Unknownsフレームワークで整理するLLMとの付き合い方</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="grid grid-cols-2 gap-6 mb-6" style="font-size: 0.85em;">
+<!-- Known Knowns -->
+<div class="component-card p-3">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-check-circle text-white"></i></p>
+</div>
+<h3 id="known-knowns既知の既知">Known Knowns（既知の既知）</h3>
+</div>
+<p>LLMが知っていることを知っている状態</p>
+<ul>
+<li>カスタマイズなしのLLMでも対応可能</li>
+</ul>
+</div>
+<!-- Known Unknowns -->
+<div class="component-card p-3">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-search text-white"></i></p>
+</div>
+<h3 id="known-unknowns既知の未知">Known Unknowns（既知の未知）</h3>
+</div>
+<p>自分が知らないと自覚していること</p>
+<ul>
+<li>適切な情報が学習データに含まれていないため適切な推論ができない状態</li>
+<li><strong>RAG（検索拡張生成）</strong> で外部知識を動的参照</li>
+</ul>
+</div>
+<!-- Unknown Knowns -->
+<div class="component-card p-3">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-eye-slash text-white"></i></p>
+</div>
+<h3 id="unknown-knowns未知の既知">Unknown Knowns（未知の既知）</h3>
+</div>
+<p>知っていることを知らない状態</p>
+<ul>
+<li>学習済みの知識を引き出せずに適切な推論が行えていない</li>
+<li>プロンプト設計やClaude Codeのskillsで対応可能</li>
+</ul>
+</div>
+<!-- Unknown Unknowns -->
+<div class="component-card p-3">
+<div class="flex items-center mb-2">
+<div class="bg-blue-500 p-2 rounded-full mr-3">
+<p><i class="fas fa-exclamation-triangle text-white"></i></p>
+</div>
+<h3 id="unknown-unknowns未知の未知">Unknown Unknowns（未知の未知）</h3>
+</div>
+<p>知らないことすら気づいていない領域</p>
+<ul>
+<li>ハルシネーションが起きる前提で使用する</li>
+<li><strong>Fine-tuning</strong> でモデル自体の知識・推論能力を底上げ</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="appendix" class="title-slide slide level1 agenda-slide center">
+<h1>Appendix</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Appendix</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="単語をベクトルで表現する-word-embedding" class="slide level2">
+<h2>単語をベクトルで表現する: Word Embedding</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05">
+<ul>
+<li>単語の意味は<strong>その単語が使われる文脈（周囲の単語）によって決まる</strong>（分布仮説）<sup>1</sup></li>
+<li>この考えに基づき，単語を<strong>低次元の実数ベクトル（密ベクトル）</strong>で表現する手法がWord Embedding</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left">
+<p>課題: One-hot表現の限界</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li>従来のone-hot表現では，各単語は語彙数 <span class="math inline">\(V\)</span> 次元のスパースベクトル</li>
+<li>例: <span class="math inline">\(\mathbf{w}_{\text{debt}} = [0, 0, 1, 0, \ldots, 0]\)</span></li>
+<li>任意の2単語間の<strong>コサイン類似度が常に0</strong>になり，単語間の意味的類似性を表現できない</li>
+<li>語彙数が大きいほどベクトルが高次元・スパースになり非効率</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>解決策: 密ベクトル表現</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li>単語を<strong>50〜300次元程度の密ベクトル</strong>で表現</li>
+<li>例: <span class="math inline">\(\mathbf{w}_{\text{debt}} = [0.73, 0.04, -0.18, 0.81, \ldots]\)</span></li>
+<li>意味の近い単語は<strong>ベクトルも近い</strong>
+<ul>
+<li><span class="math inline">\(\cos(\mathbf{w}_{\text{taxes}}, \mathbf{w}_{\text{tax}}) = 0.84\)</span></li>
+</ul></li>
+<li>LLMでは入力トークンをまずこのEmbeddingに変換してからモデルに渡す</li>
+</ul>
+</div>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>footer-firth</p></li></ol></aside></section>
+<section id="word2vec-文脈から単語ベクトルを学習する" class="slide level2">
+<h2>Word2Vec: 文脈から単語ベクトルを学習する</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05">
+<ul>
+<li>大量のテキストデータ上で「<strong>ある単語の周囲にどの単語が出現しやすいか</strong>」を予測するタスクを解くことで，各単語のベクトル表現を獲得する（Mikolov et al., 2013）</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<p><span class="mini-section">Skip-gramモデルの学習手順</span></p>
+<ol type="1">
+<li>大規模コーパス（例: Wikipedia全文）を用意</li>
+<li>各単語のベクトルをランダムに初期化</li>
+<li>テキスト中の各位置で，<strong>中心語</strong> <span class="math inline">\(w_t\)</span> と<strong>文脈語</strong> <span class="math inline">\(w_{t+j}\)</span>（ウィンドウ幅 <span class="math inline">\(c\)</span> 以内）のペアを作成</li>
+<li>中心語ベクトル <span class="math inline">\(\mathbf{v}_{w_t}\)</span> から文脈語の出現確率を計算:</li>
+</ol>
+<p><span class="math display">\[p(w_{t+j} \mid w_t) = \frac{\exp(\mathbf{u}_{w_{t+j}}^\top \mathbf{v}_{w_t})}{\sum_{w=1}^{V} \exp(\mathbf{u}_w^\top \mathbf{v}_{w_t})}\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{v}_w\)</span>: 単語 <span class="math inline">\(w\)</span> の<strong>中心語ベクトル</strong></li>
+<li><span class="math inline">\(\mathbf{u}_w\)</span>: 単語 <span class="math inline">\(w\)</span> の<strong>文脈語ベクトル</strong></li>
+</ul>
+<ol start="5" type="1">
+<li>真の文脈語の確率が高くなるよう <span class="math inline">\(\mathbf{v}, \mathbf{u}\)</span> を更新</li>
+</ol>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<p><span class="mini-section">学習されたベクトルの性質</span></p>
+<ul>
+<li>意味の近い単語はベクトルも近くなる
+<ul>
+<li><span class="math inline">\(\cos(\mathbf{v}_{\text{taxes}}, \mathbf{v}_{\text{tax}}) = 0.84\)</span></li>
+</ul></li>
+<li>ベクトル演算で類推が可能<sup>1</sup>
+<ul>
+<li><span class="math inline">\(\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} + \mathbf{v}_{\text{woman}} \approx \mathbf{v}_{\text{queen}}\)</span></li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<p><span class="mini-section">コンテキストウィンドウサイズの影響</span></p>
+<ul>
+<li><strong>小さい</strong>（<span class="math inline">\(\pm 1\)</span>〜<span class="math inline">\(3\)</span>）: 構文的類似性を捉える</li>
+<li><strong>中程度</strong>（<span class="math inline">\(\pm 5\)</span>〜<span class="math inline">\(10\)</span>）: 意味的類似性を捉える</li>
+<li><strong>大きい</strong>（<span class="math inline">\(\pm 10\)</span>〜）: トピック的類似性を捉える</li>
+</ul>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>footer-negative-sampling</p></li></ol></aside></section>
+<section id="gptにおけるembeddingの役割" class="slide level2">
+<h2>GPTにおけるEmbeddingの役割</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05">
+<ul>
+<li>GPT（Generative Pre-trained Transformer）は，Word2Vecで確立されたEmbeddingの考え方を発展させ，<strong>文脈に応じて動的に変化するベクトル表現</strong>を実現した</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<p><span class="mini-section">Word2Vec → GPT: Embeddingの進化</span></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Word2Vec</th>
+<th style="text-align: left;">GPT</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>タイトル</td>
-<td><a href="https://www.kagakudojin.co.jp/book/b93739.html">学生・研究者のための　伝わる！　学会ポスターのデザイン術</a></td>
+<td style="text-align: left;">ベクトル</td>
+<td style="text-align: left;">単語ごとに<strong>固定</strong></td>
+<td style="text-align: left;">文脈に応じて<strong>動的</strong></td>
 </tr>
 <tr class="even">
-<td>著者</td>
-<td>宮野 公樹 (著)</td>
+<td style="text-align: left;">「bank」の表現</td>
+<td style="text-align: left;">常に同じベクトル</td>
+<td style="text-align: left;">「river bank」と「bank account」で異なる</td>
 </tr>
 <tr class="odd">
-<td>発売日</td>
-<td>2011/11/20</td>
+<td style="text-align: left;">学習タスク</td>
+<td style="text-align: left;">周囲の単語を予測</td>
+<td style="text-align: left;"><strong>次のトークンを予測</strong></td>
 </tr>
 <tr class="even">
-<td>ISBN13</td>
-<td>978-4759814699</td>
-</tr>
-<tr class="odd">
-<td>体裁</td>
-<td>B5・144ページ</td>
+<td style="text-align: left;">構造</td>
+<td style="text-align: left;">浅いネットワーク</td>
+<td style="text-align: left;">Transformer（多層Self-Attention）</td>
 </tr>
 </tbody>
 </table>
-<h3 id="この本の内容-2">この本の内容</h3>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
-<li>研究内容の整理方法（フローチャート・プロセス・コンセプト形式）</li>
-<li>デザインの基本原則と3つの技術（コントラスト／グルーピング／イラスト）の紹介</li>
-<li>研究内容を伝えるための色・レイアウト・文章・図の工夫</li>
-<li>いろいろな分野におけるポスター例の紹介</li>
+<li>Word2Vecは「単語の意味をベクトルで表現できる」ことを示した</li>
+<li>GPTはその着想をTransformerアーキテクチャで拡張した</li>
+</ul>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<p><span class="mini-section">GPTの処理フロー</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ol type="1">
+<li><strong>トークン化</strong>: テキストをトークン列に分割</li>
+<li><strong>Token Embedding</strong>: 各トークンを密ベクトル <span class="math inline">\(\mathbf{e}_i\)</span> に変換（学習済みEmbedding行列 <span class="math inline">\(E \in \mathbb{R}^{V \times d}\)</span>）</li>
+<li><strong>Positional Encoding</strong>: 位置情報 <span class="math inline">\(\mathbf{p}_i\)</span> を加算し，語順を表現</li>
+</ol>
+<p><span class="math display">\[\mathbf{h}_i^{(0)} = \mathbf{e}_i + \mathbf{p}_i\]</span></p>
+<ol start="4" type="1">
+<li><strong>Transformer層</strong>（<span class="math inline">\(\times N\)</span>層）: Self-Attentionにより文脈を反映した表現 <span class="math inline">\(\mathbf{h}_i^{(N)}\)</span> を生成</li>
+<li><strong>出力層</strong>: <span class="math inline">\(\mathbf{h}_i^{(N)}\)</span> から次トークンの確率分布を計算</li>
+</ol>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>Embedding行列 <span class="math inline">\(E\)</span> のパラメータはTransformer全体と<strong>同時に学習</strong>される<sup>1</sup></li>
 </ul>
 </div></div>
+<!-- footer -->
 
 
 
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>footer-embedding-dim</p></li></ol></aside></section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – 分析提案スライドの作成</title>
@@ -1097,7 +1097,7 @@ Ryo Nakagami
       overflow: auto;
       text-align: center;
     }
-    
+
     .orgchart {
       box-sizing: border-box;
       display: inline-block;
@@ -1110,46 +1110,46 @@ Ryo Nakagami
       border: 1px dashed rgba(0, 0, 0, 0);
       padding: 20px;
     }
-    
+
     .orgchart table {
       border-spacing: 0;
       border-collapse: separate;
     }
-    
+
     .orgchart > table {
       margin: 20px auto;
     }
-    
+
     .orgchart td {
       text-align: center;
       vertical-align: top;
       padding: 0;
     }
-    
+
     .orgchart .lines td {
       box-sizing: border-box;
       height: 20px;
     }
-    
+
     .orgchart .lines .topLine {
       border-top: 2px solid #428CE6;
     }
-    
+
     .orgchart .lines .rightLine {
       border-right: 1px solid #428CE6;
     }
-    
+
     .orgchart .lines .leftLine {
       border-left: 1px solid #428CE6;
     }
-    
+
     .orgchart .lines .downLine {
       background-color: #428CE6;
       margin: 0 auto;
       height: 20px;
       width: 2px;
     }
-    
+
     .orgchart .node {
       box-sizing: border-box;
       display: inline-block;
@@ -1161,13 +1161,13 @@ Ryo Nakagami
       width: 130px;
       transition: background-color 0.3s;
     }
-    
+
     .orgchart .node:hover {
       background-color: rgba(238, 217, 54, 0.5);
       cursor: pointer;
       z-index: 20;
     }
-    
+
     .orgchart .node .title {
       text-align: center;
       font-size: 12px;
@@ -1181,7 +1181,7 @@ Ryo Nakagami
       color: #fff;
       border-radius: 4px 4px 0 0;
     }
-    
+
     .orgchart .node .content {
       box-sizing: border-box;
       width: 100%;
@@ -1224,7 +1224,7 @@ Ryo Nakagami
     }
   </style>
 <div id="svgContainer"></div>
-  
+
 
 <script>
 // sample org data
@@ -1301,39 +1301,39 @@ function createNodeSVG(node) {
   return `
         <g class="node-box">
           <!-- 背景 -->
-          <rect 
-            x="${x - halfWidth}" 
-            y="${y}" 
-            width="${config.nodeWidth}" 
-            height="${config.nodeHeight}" 
+          <rect
+            x="${x - halfWidth}"
+            y="${y}"
+            width="${config.nodeWidth}"
+            height="${config.nodeHeight}"
             fill="white"
             stroke="#428CE6"
             stroke-width="2"
             rx="4"
           />
           <!-- タイトル部分 -->
-          <rect 
-            x="${x - halfWidth}" 
-            y="${y}" 
-            width="${config.nodeWidth}" 
-            height="${config.titleHeight}" 
+          <rect
+            x="${x - halfWidth}"
+            y="${y}"
+            width="${config.nodeWidth}"
+            height="${config.titleHeight}"
             fill="#428CE6"
             rx="4"
           />
-          <text 
+          <text
             class="node-title"
-            x="${x}" 
-            y="${y + 16}" 
+            x="${x}"
+            y="${y + 16}"
             text-anchor="middle"
             fill="white"
             font-size="14"
             font-weight="bold"
           >${node.name}</text>
           <!-- コンテンツ部分 -->
-          <text 
+          <text
             class="node-content"
-            x="${x}" 
-            y="${y + 38}" 
+            x="${x}"
+            y="${y + 38}"
             text-anchor="middle"
             fill="#333"
             font-size="12"
@@ -1431,6 +1431,7 @@ function displaySVG() {
 
 displaySVG();
 </script>
+
 
 
 

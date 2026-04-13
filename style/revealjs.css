@@ -885,6 +885,47 @@ svg.fas {
   margin-bottom: 0;
 }
 
+/* ---- status boxes (success / warning / caution / danger) ---------- */
+
+.success-box,
+.warning-box,
+.caution-box,
+.danger-box {
+  margin-top: 0.3rem;
+  padding-top: 0.025em;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1;
+  position: relative;
+  font-size: 0.9em;
+}
+
+.success-box { background-color: #e6f4ea; }
+.warning-box { background-color: #fef7e0; }
+.caution-box { background-color: #fff3e0; }
+.danger-box  { background-color: #fde8e8; }
+
+.success-box::before,
+.warning-box::before,
+.caution-box::before,
+.danger-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.4em;
+  bottom: 0;
+}
+
+.success-box::before { background-color: #1e8e3e; }
+.warning-box::before { background-color: #f9ab00; }
+.caution-box::before { background-color: #e8710a; }
+.danger-box::before  { background-color: #d93025; }
+
 /* ------------------------------------------------------------------- */
 /*                            tool grid                                */
 /* ------------------------------------------------------------------- */

@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Linuxにおける日本語入力方式</title>
@@ -356,7 +356,7 @@ Ryo Nakagami
 </div>
 </div>
 <div style="position: relative; width: 1100px; height: 450px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
-    
+
     <div style="position: absolute; left: 11px; top: 275px; width: 154px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
         user
     </div>
@@ -386,14 +386,15 @@ Ryo Nakagami
         </defs>
 
         <line x1="165" y1="330" x2="407" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)"></line>
-        
+
         <line x1="473" y1="264" x2="473" y2="143" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)"></line>
-        
+
         <line x1="517" y1="143" x2="517" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)"></line>
-        
+
         <line x1="583" y1="330" x2="858" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_fep)"></line>
     </svg>
 </div>
+
 <ul>
 <li>FEPは単なる仲介者ではなく，サーバーへの<strong>リクエスト(②)</strong>と<strong>レスポンス(③)</strong>を制御する中心核として機能</li>
 <li>アプリケーションへの<strong>最終配送(④)</strong>までを一気通貫で管理する独立したプロトコル・スタックを形成している</li>
@@ -414,11 +415,11 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div style="position: relative; width: 1000px; height: 450px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
-    
+
     <div style="position: absolute; left: 22px; top: 77px; width: 143px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">user</div>
-    
+
     <div style="position: absolute; left: 368px; top: 77px; width: 143px; height: 110px; border: 1.7px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1; font-size: 1em;">X Server</div>
-    
+
     <div style="position: absolute; left: 341px; top: 275px; width: 198px; height: 132px; border: 3.3px solid #002d72; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; background: #eaf6fa; z-index: 1;">
         Application
         <span style="font-size: 0.7em; font-weight: normal; color: #555;">(Xlib)</span>
@@ -443,18 +444,19 @@ Ryo Nakagami
         </defs>
 
         <line x1="165" y1="132" x2="363" y2="132" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)"></line>
-        
+
         <line x1="440" y1="187" x2="440" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)"></line>
-        
+
         <line x1="539" y1="330" x2="693" y2="330" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)"></line>
 
         <line x1="803" y1="264" x2="803" y2="143" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)"></line>
-        
+
         <line x1="847" y1="143" x2="847" y2="264" stroke="#002d72" stroke-width="2.2" marker-end="url(#arrowhead_xim)"></line>
-        
+
         <path d="M 715 374 Q 605 440 495 374" stroke="#002d72" stroke-width="2.2" fill="none" marker-end="url(#arrowhead_xim)"></path>
     </svg>
 </div>
+
 </section>
 <section id="x11-framework型fcitx5-ibus" class="slide level2">
 <h2>X11 Framework型（Fcitx5 / IBus）</h2>
@@ -471,7 +473,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 3em;"></div>
 <div style="position: relative; width: 1100px; height: 500px; margin: 0 auto; background: #fff;">
-        
+
         <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;">
             <defs>
                 <marker id="arrowhead" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto">
@@ -480,15 +482,15 @@ Ryo Nakagami
             </defs>
 
             <line x1="180" y1="310" x2="400" y2="310" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)"></line>
-            
+
             <line x1="520" y1="260" x2="520" y2="180" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)"></line>
-            
+
             <line x1="640" y1="130" x2="780" y2="130" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)"></line>
-            
+
             <line x1="880" y1="80" x2="880" y2="30" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)"></line>
-            
+
             <line x1="930" y1="30" x2="930" y2="80" stroke="#002d72" stroke-width="2" marker-end="url(#arrowhead)"></line>
-            
+
             <path d="M 830 180 Q 680 250 560 180" stroke="#002d72" stroke-width="2" fill="none" marker-end="url(#arrowhead)"></path>
         </svg>
 
@@ -520,6 +522,7 @@ Ryo Nakagami
         <div style="position: absolute; left: 950px; top: 40px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">5</div>
         <div style="position: absolute; left: 680px; top: 210px; background: #00a9e0; color: white; width: 24px; height: 24px; border-radius: 50%; font-size: 0.65em; display: flex; align-items: center; justify-content: center; z-index: 3;">6</div>
     </div>
+
 </section>
 <section id="wayland-input-method" class="slide level2">
 <h2>Wayland Input Method</h2>
@@ -536,7 +539,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 4em;"></div>
 <div style="position: relative; width: 1100px; height: 520px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
-    
+
     <div style="position: absolute; left: 10px; top: 70px; width: 170px; height: 100px; border: 2px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
         user
     </div>
@@ -572,18 +575,19 @@ Ryo Nakagami
         </defs>
 
         <line x1="180" y1="120" x2="395" y2="120" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)"></line>
-        
+
         <line x1="510" y1="175" x2="510" y2="255" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)"></line>
-        
+
         <line x1="625" y1="110" x2="775" y2="110" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)"></line>
-        
+
         <line x1="860" y1="80" x2="860" y2="35" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)"></line>
-        
+
         <line x1="950" y1="35" x2="950" y2="80" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_final)"></line>
-        
+
         <path d="M 820 195 Q 700 280 550 200" stroke="#002d72" stroke-width="2.5" fill="none" marker-end="url(#arrowhead_final)"></path>
     </svg>
 </div>
+
 </section>
 <section id="組み込み型emacs-内蔵-im" class="slide level2">
 <h2>組み込み型（Emacs 内蔵 IM）</h2>
@@ -600,7 +604,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 2em;"></div>
 <div style="position: relative; width: 1100px; height: 520px; margin: 0 auto; background: #fff; font-family: sans-serif; overflow: visible;">
-    
+
     <div style="position: absolute; left: 10px; top: 120px; width: 170px; height: 100px; border: 2px solid #002d72; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; background: white; z-index: 1;">
         user
     </div>
@@ -636,15 +640,16 @@ Ryo Nakagami
         </defs>
 
         <line x1="180" y1="170" x2="345" y2="170" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_embedded)"></line>
-        
+
         <path d="M 350 120 Q 400 120 450 175" stroke="#002d72" stroke-width="2.5" fill="none" marker-end="url(#arrowhead_embedded)"></path>
-        
+
         <line x1="480" y1="305" x2="480" y2="395" stroke="#002d72" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrowhead_embedded)"></line>
         <line x1="540" y1="395" x2="540" y2="305" stroke="#002d72" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrowhead_embedded)"></line>
-        
+
         <line x1="625" y1="240" x2="715" y2="240" stroke="#002d72" stroke-width="2.5" marker-end="url(#arrowhead_embedded)"></line>
     </svg>
 </div>
+
 
 
 
