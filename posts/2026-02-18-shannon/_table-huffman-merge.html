@@ -1,0 +1,44 @@
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.8em;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white;">
+        <th style="padding: 10px; border: 1px solid #051C2C;">ステップ</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">マージ対象</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">新ノード</th>
+        <th style="padding: 10px; border: 1px solid #051C2C;">キュー（確率昇順）</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">初期</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_5\)(0.05), \(s_4\)(0.10), \(s_3\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">1</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_5\)(0.05) + \(s_4\)(0.10)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_1\)(0.15)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_3\)(0.15), \(n_1\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">2</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_3\)(0.15) + \(n_1\)(0.15)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_2\)(0.30)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(n_2\)(0.30), \(s_2\)(0.30), \(s_1\)(0.40)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">3</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(n_2\)(0.30) + \(s_2\)(0.30)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_3\)(0.60)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_1\)(0.40), \(n_3\)(0.60)</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">4</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_1\)(0.40) + \(n_3\)(0.60)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">root(1.00)</td>
+        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">root(1.00)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

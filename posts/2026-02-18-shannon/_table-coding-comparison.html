@@ -1,0 +1,65 @@
+<div style="border-bottom: 2px solid #051C2C; padding-bottom: 10px; margin-bottom: 30px; text-align: left;">
+
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #051C2C; color: white; font-size: 1em;;">
+        <th style="padding: 15px; border: 1px solid #051C2C;">文字</th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 1<br><span style="font-size: 0.8em; font-weight: normal;">(等長符号)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 2<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 3<br><span style="font-size: 0.8em; font-weight: normal;">(前置符号)</span></th>
+        <th style="padding: 15px; border: 1px solid #051C2C;">Case 4<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 1em; text-align: center;">
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">A</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">00</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">B</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">1</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">C</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">D</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">111</td>
+        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
+      </tr>
+      <tr style="border-top: 3px solid #051C2C;">
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">一意復号可能</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+      </tr>
+      <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">瞬時符号</td>
+        <td style="color: #16a34a; font-weight: bold;">✔</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+        <td style="color: #dc2626; font-weight: bold;">✘</td>
+      </tr>
+            <tr>
+        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">備考</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">等長符号</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">"011"=C or A+D	</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">A⊂B⊂C（前置）</td>
+        <td style="font-size: 0.7em; padding-left: 0.8em;">"10"=C or B+A</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
