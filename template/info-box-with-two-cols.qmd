@@ -1,0 +1,71 @@
+## xxxx
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.info-box style="font-size: 1.1em;"}
+
+[<!-- concept  -->]{.info-box-title}
+
+::: {.info-contents .pl-5}
+
+- xxxxx
+- xxxxx
+- xxxxx
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+{{< reveal_vspace 1em >}}
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header-left}
+
+AAAA
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+
+**Hogehoge**
+
+- 1111
+- 2222
+- 3333
+
+:::
+
+::::
+
+:::
+::: {.column width="50%" .padding-L-12 .font-09}
+
+
+{{< reveal_vspace 1em >}}
+
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header-left}
+
+BBBB
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+
+**Hogehoge**
+
+- 1111
+- 2222
+- 3333
+
+:::
+
+::::
+
+:::
+::::
