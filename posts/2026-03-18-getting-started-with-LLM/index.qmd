@@ -1,0 +1,495 @@
+---
+title: "LLMはどのようにして動いているのか？"
+subtitle: "LLM101"
+author: "Ryo Nakagami"
+date: "2026-03-18"
+categories: [LLM]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## LLMはプロンプトに対して順当な続きを出力している
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- LLMは入力テキスト（プロンプト）に対して, **次に来る可能性が高いトークンを確率的に予測**し, 順番に出力している
+- 各ステップで語彙全体に対する確率分布を計算し, そこからトークンをサンプリングする
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+[例: The best thing about AI is its ability to ...]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+{{< include _table-next-token-probability.html >}}
+
+{{< reveal_vspace 0.25em >}}
+
+- プロンプトに対して，上記のように次のトークンを１つずつサンプリングし続けることで文章を生成している
+- 常に「ランクの高い」トークンを選び続けると単調な文章が生成される傾向があるので，ランクの低い単語を選ぶ余地を残すことも重要
+
+:::
+::: {.column width="50%" .padding-L-12 .font-09}
+
+[トークンとは？]{.mini-section}
+
+- テキストを分割した最小単位（単語・サブワード・文字など）
+- 例: `"learning"` → `["learn", "ing"]`
+- LLMは文字ではなくトークン単位で処理を行う
+
+{{< reveal_vspace 0.5em >}}
+
+[温度パラメター（Temperature）]{.mini-section}
+
+- サンプリング時の確率分布の**鋭さ**を制御するパラメター
+- **Temperature = 0**: 最も確率の高いトークンを常に選択（決定的）
+- **Temperature → 高**: 確率分布が平坦化し，低確率のトークンも選ばれやすくなる（多様性↑）
+- 創造的なタスクでは高め，正確性が求められるタスクでは低めに設定する
+- Claude Codeでは，明示パラメータではなく「プロンプト設計で制御するもの」という方針
+
+:::
+::::
+
+## 数えられない確率を，モデルで近似する
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+[Key Takeaways]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- 次のトークンを予測するには「あるトークン列の後に各トークンが出現する確率」が必要
+- しかし，語彙数が膨大なため全パターンの頻度をデータから直接数え上げることは不可能
+- 出現確率を**ニューラルネットワークでモデル化**するアプローチが採用された
+
+:::
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+
+課題: 組合せ爆発
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 語彙数 $V = 40{,}000$ トークンの場合
+- 2-gramモデル（直前1トークンから予測）でも $V^2 = 1.6 \times 10^{9}$（**16億パターン**）
+- $n$-gramでは $V^n$ で指数的に増加
+- 現実的なコーパスではほとんどのパターンが未出現となり，頻度ベースの確率推定は破綻する
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header-left}
+
+解決策: 確率のモデル化
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+
+- 全パターンを数え上げる代わりに，**出現確率そのものをモデルで近似**する
+- ニューラルネットワークにトークン列を入力し，次トークンの確率分布を出力させる
+- モデルのパラメータ^[footer-params]を大量のテキストデータで学習（＝**言語モデル**）
+- これにより未知のパターンに対しても汎化した予測が可能になった
+
+:::
+
+::::
+:::::
+::::::
+
+## LLMは「知っていること」を引き出せないことがある
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- LLMは膨大な学習データから知識を獲得しているが，**プロンプトの書き方次第で正しい知識を引き出せない**ことがある
+- ユーザーが「LLMが本来知っていること」を適切に引き出せていないことに気づかない状態が**Unknown Knowns問題**
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="52.5%" .font-09}
+
+[プロンプトから応答生成までの流れとUnknown Knowns]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+
+プロンプト → トークン予測 → 応答生成
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+1. ユーザーがプロンプト（質問・指示）を入力
+2. LLMは入力トークン列に対して，次トークンの確率分布を計算
+3. 確率分布からトークンをサンプリングし応答を生成
+4. しかし，プロンプトが**曖昧・不十分**だと，モデルが持つ知識のうち**最適な部分が活性化されない**
+5. 結果として，本来正しく答えられるはずの問いに対して**不完全・不正確な応答**が返る
+
+:::
+
+::::
+
+:::
+::: {.column width="47.5%" .padding-L-12 .font-09}
+
+[Unknown Knowns問題の具体例]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header-left}
+
+モデルは知っているのに引き出せない
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+
+**プロンプト設計の問題**
+
+- 「要約して」→ どの粒度？ 誰向け？
+- 文脈・制約が不足すると，モデルは汎用的な応答にフォールバックする
+
+{{< reveal_vspace 0.5em >}}
+
+**出力形式の暗黙の期待**
+
+- ユーザーが期待する形式（表，箇条書き，コード等）を明示しないと，モデルは自由形式で応答する
+
+:::
+
+::::
+
+:::
+::::
+
+## LLMを使いこなすにあたって
+
+[Known-Unknownsフレームワークで整理するLLMとの付き合い方]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::::{.grid .grid-cols-2 .gap-6 .mb-6 style="font-size: 0.85em;"}
+
+<!-- Known Knowns -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+
+{{< fas fa-check-circle text-white >}}
+
+:::
+
+### Known Knowns（既知の既知）
+
+:::
+
+LLMが知っていることを知っている状態
+
+- カスタマイズなしのLLMでも対応可能
+
+::::
+
+<!-- Known Unknowns -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+
+{{< fas fa-search text-white >}}
+
+:::
+
+### Known Unknowns（既知の未知）
+
+:::
+
+自分が知らないと自覚していること
+
+- 適切な情報が学習データに含まれていないため適切な推論ができない状態
+- **RAG（検索拡張生成）** で外部知識を動的参照
+
+::::
+
+<!-- Unknown Knowns -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+
+{{< fas fa-eye-slash text-white >}}
+
+:::
+
+### Unknown Knowns（未知の既知）
+
+:::
+
+知っていることを知らない状態
+
+- 学習済みの知識を引き出せずに適切な推論が行えていない
+- プロンプト設計やClaude Codeのskillsで対応可能
+
+::::
+
+<!-- Unknown Unknowns -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.bg-blue-500 .p-2 .rounded-full .mr-3}
+
+{{< fas fa-exclamation-triangle text-white >}}
+
+:::
+
+### Unknown Unknowns（未知の未知）
+
+:::
+
+知らないことすら気づいていない領域
+
+- ハルシネーションが起きる前提で使用する
+- **Fine-tuning** でモデル自体の知識・推論能力を底上げ
+
+::::
+
+:::::
+
+# Appendix
+
+## 単語をベクトルで表現する: Word Embedding
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- 単語の意味は**その単語が使われる文脈（周囲の単語）によって決まる**（分布仮説）^[footer-firth]
+- この考えに基づき，単語を**低次元の実数ベクトル（密ベクトル）**で表現する手法がWord Embedding
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+
+課題: One-hot表現の限界
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 従来のone-hot表現では，各単語は語彙数 $V$ 次元のスパースベクトル
+- 例: $\mathbf{w}_{\text{debt}} = [0, 0, 1, 0, \ldots, 0]$
+- 任意の2単語間の**コサイン類似度が常に0**になり，単語間の意味的類似性を表現できない
+- 語彙数が大きいほどベクトルが高次元・スパースになり非効率
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header-left}
+
+解決策: 密ベクトル表現
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 単語を**50〜300次元程度の密ベクトル**で表現
+- 例: $\mathbf{w}_{\text{debt}} = [0.73, 0.04, -0.18, 0.81, \ldots]$
+- 意味の近い単語は**ベクトルも近い**
+  - $\cos(\mathbf{w}_{\text{taxes}}, \mathbf{w}_{\text{tax}}) = 0.84$
+- LLMでは入力トークンをまずこのEmbeddingに変換してからモデルに渡す
+
+:::
+
+::::
+:::::
+::::::
+
+## Word2Vec: 文脈から単語ベクトルを学習する
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- 大量のテキストデータ上で「**ある単語の周囲にどの単語が出現しやすいか**」を予測するタスクを解くことで，各単語のベクトル表現を獲得する（Mikolov et al., 2013）
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+[Skip-gramモデルの学習手順]{.mini-section}
+
+1. 大規模コーパス（例: Wikipedia全文）を用意
+2. 各単語のベクトルをランダムに初期化
+3. テキスト中の各位置で，**中心語** $w_t$ と**文脈語** $w_{t+j}$（ウィンドウ幅 $c$ 以内）のペアを作成
+4. 中心語ベクトル $\mathbf{v}_{w_t}$ から文脈語の出現確率を計算:
+
+$$p(w_{t+j} \mid w_t) = \frac{\exp(\mathbf{u}_{w_{t+j}}^\top \mathbf{v}_{w_t})}{\sum_{w=1}^{V} \exp(\mathbf{u}_w^\top \mathbf{v}_{w_t})}$$
+
+- $\mathbf{v}_w$: 単語 $w$ の**中心語ベクトル**
+- $\mathbf{u}_w$: 単語 $w$ の**文脈語ベクトル**
+
+5. 真の文脈語の確率が高くなるよう $\mathbf{v}, \mathbf{u}$ を更新
+
+:::
+::: {.column width="50%" .padding-L-12 .font-09}
+
+[学習されたベクトルの性質]{.mini-section}
+
+- 意味の近い単語はベクトルも近くなる
+  - $\cos(\mathbf{v}_{\text{taxes}}, \mathbf{v}_{\text{tax}}) = 0.84$
+- ベクトル演算で類推が可能^[footer-negative-sampling]
+  - $\mathbf{v}_{\text{king}} - \mathbf{v}_{\text{man}} + \mathbf{v}_{\text{woman}} \approx \mathbf{v}_{\text{queen}}$
+
+{{< reveal_vspace 0.25em >}}
+
+[コンテキストウィンドウサイズの影響]{.mini-section}
+
+- **小さい**（$\pm 1$〜$3$）: 構文的類似性を捉える
+- **中程度**（$\pm 5$〜$10$）: 意味的類似性を捉える
+- **大きい**（$\pm 10$〜）: トピック的類似性を捉える
+
+:::
+::::
+
+## GPTにおけるEmbeddingの役割
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- GPT（Generative Pre-trained Transformer）は，Word2Vecで確立されたEmbeddingの考え方を発展させ，**文脈に応じて動的に変化するベクトル表現**を実現した
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+[Word2Vec → GPT: Embeddingの進化]{.mini-section}
+
+| | Word2Vec | GPT |
+|:---|:---|:---|
+| ベクトル | 単語ごとに**固定** | 文脈に応じて**動的** |
+| 「bank」の表現 | 常に同じベクトル | 「river bank」と「bank account」で異なる |
+| 学習タスク | 周囲の単語を予測 | **次のトークンを予測** |
+| 構造 | 浅いネットワーク | Transformer（多層Self-Attention） |
+
+{{< reveal_vspace 0.25em >}}
+
+- Word2Vecは「単語の意味をベクトルで表現できる」ことを示した
+- GPTはその着想をTransformerアーキテクチャで拡張した
+
+:::
+::: {.column width="50%" .padding-L-12 .font-09}
+
+[GPTの処理フロー]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+1. **トークン化**: テキストをトークン列に分割
+2. **Token Embedding**: 各トークンを密ベクトル $\mathbf{e}_i$ に変換（学習済みEmbedding行列 $E \in \mathbb{R}^{V \times d}$）
+3. **Positional Encoding**: 位置情報 $\mathbf{p}_i$ を加算し，語順を表現
+
+$$\mathbf{h}_i^{(0)} = \mathbf{e}_i + \mathbf{p}_i$$
+
+4. **Transformer層**（$\times N$層）: Self-Attentionにより文脈を反映した表現 $\mathbf{h}_i^{(N)}$ を生成
+5. **出力層**: $\mathbf{h}_i^{(N)}$ から次トークンの確率分布を計算
+
+{{< reveal_vspace 0.25em >}}
+
+- Embedding行列 $E$ のパラメータはTransformer全体と**同時に学習**される^[footer-embedding-dim]
+
+:::
+::::
+
+<!-- footer -->
+
+[^footer-params]: GPT-3では1750億個といわれている
+[^footer-firth]: "You shall know a word by the company it keeps!" --- J.R. Firth (1957)
+[^footer-negative-sampling]: 実際の学習では全語彙に対するsoftmax計算のコストを避けるため，**負例サンプリング（Negative Sampling）**が用いられる。真の文脈語（正例）に対してランダムに選んだ非文脈語（負例）を対比し，正例ペアの内積を大きく・負例ペアの内積を小さくするロジスティック回帰として学習する
+[^footer-embedding-dim]: GPT-3では $d = 12{,}288$ 次元，語彙数 $V = 50{,}257$ トークン

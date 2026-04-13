@@ -1045,71 +1045,7 @@ plt.show()
 {{< reveal_vspace 1em >}}
 
 ```{=html}
-<div style="border-bottom: 2px solid #051C2C; padding-bottom: 10px; margin-bottom: 30px; text-align: left;">
-
-  <table style="width: 100%; border-collapse: collapse;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 1em;;">
-        <th style="padding: 15px; border: 1px solid #051C2C;">文字</th>
-        <th style="padding: 15px; border: 1px solid #051C2C;">Case 1<br><span style="font-size: 0.8em; font-weight: normal;">(等長符号)</span></th>
-        <th style="padding: 15px; border: 1px solid #051C2C;">Case 2<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
-        <th style="padding: 15px; border: 1px solid #051C2C;">Case 3<br><span style="font-size: 0.8em; font-weight: normal;">(前置符号)</span></th>
-        <th style="padding: 15px; border: 1px solid #051C2C;">Case 4<br><span style="font-size: 0.8em; font-weight: normal;">(非一意)</span></th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 1em; text-align: center;">
-      <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">A</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">00</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">0</td>
-      </tr>
-      <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">B</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">01</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">1</td>
-      </tr>
-      <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">C</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">011</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">10</td>
-      </tr>
-      <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">D</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">111</td>
-        <td style="padding-left: 0.8em; border: 1px solid #D1D7DB;">11</td>
-      </tr>
-      <tr style="border-top: 3px solid #051C2C;">
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">一意復号可能</td>
-        <td style="color: #16a34a; font-weight: bold;">✔</td>
-        <td style="color: #dc2626; font-weight: bold;">✘</td>
-        <td style="color: #16a34a; font-weight: bold;">✔</td>
-        <td style="color: #dc2626; font-weight: bold;">✘</td>
-      </tr>
-      <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">瞬時符号</td>
-        <td style="color: #16a34a; font-weight: bold;">✔</td>
-        <td style="color: #dc2626; font-weight: bold;">✘</td>
-        <td style="color: #dc2626; font-weight: bold;">✘</td>
-        <td style="color: #dc2626; font-weight: bold;">✘</td>
-      </tr>
-            <tr>
-        <td style="padding-left: 0.8em; padding-top: 0.4em; padding-bottom: 0.4em; font-size: 0.8em; color: #555; text-align: left;">備考</td>
-        <td style="font-size: 0.7em; padding-left: 0.8em;">等長符号</td>
-        <td style="font-size: 0.7em; padding-left: 0.8em;">"011"=C or A+D	</td>
-        <td style="font-size: 0.7em; padding-left: 0.8em;">A⊂B⊂C（前置）</td>
-        <td style="font-size: 0.7em; padding-left: 0.8em;">"10"=C or B+A</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-coding-comparison.html >}}
 ```
 
 :::
@@ -1151,61 +1087,7 @@ $$
 {{< reveal_vspace 1em >}}
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
-        <th style="padding: 12px; border: 1px solid #051C2C;">文字</th>
-        <th style="padding: 12px; border: 1px solid #051C2C;">出現確率 \(p_i\)<br><span style="font-size: 0.8em; font-weight: normal;">(偏りあり 4:2:1:1)</span></th>
-        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 1: 等長<br><span style="font-size: 0.8em; font-weight: normal;">(固定長 2bit)</span></th>
-        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 2: 最適化<br><span style="font-size: 0.8em; font-weight: normal;">(確率に比例)</span></th>
-        <th style="padding: 12px; border: 1px solid #051C2C; background-color: #051C2C;">Case 3: 逆配分<br><span style="font-size: 0.8em; font-weight: normal;">(非効率)</span></th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 0.95em; text-align: center;">
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">A</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>50%</strong> (1/2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">00 (2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0 (1)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">111 (3)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">B</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>25%</strong> (1/4)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">01 (2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">110 (3)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">C</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>12.5%</strong> (1/8)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">110 (3)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">10 (2)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">D</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;"><strong>12.5%</strong> (1/8)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">11 (2)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">111 (3)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0 (1)</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="2" style="padding: 15px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
-        <td style="padding: 15px; font-size: 1.1em;">2.00</td>
-        <td style="padding: 15px; font-size: 1.2em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">1.75</td>
-        <td style="padding: 15px; font-size: 1.1em; color: #dc2626;">2.625</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="2" style="padding: 10px; font-weight: bold; text-align: right;">情報エントロピー (\(H\))</td>
-        <td colspan="3" style="padding: 10px; font-size: 1.1em; letter-spacing: 1px;">
-          <strong>1.75 bits</strong>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-average-code-length.html >}}
 ```
 
 :::
@@ -1336,60 +1218,7 @@ $$
 小数点以下 $l_k$ 桁を $s_k$ の符号とする:
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">累積確率(2進)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 0.95em; text-align: center;">
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>00</strong>000…</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">00</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>01</strong>100…</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">01</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>101</strong>10…</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">101</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>1101</strong>1…</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1101</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.<strong>11110</strong>…</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">5</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">11110</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="4" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
-        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.5</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-shannon-code-result.html >}}
 ```
 
 {{< reveal_vspace 0.5em >}}
@@ -1446,44 +1275,7 @@ $$
 各ステップで確率の合計差が最小となる位置で分割し，上位群に `0`，下位群に `1` を割り当てる:
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">分割</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">上位群 (→0)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">下位群 (→1)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">確率差</th>
-      </tr>
-    </thead>
-    <tbody style="text-align: center;">
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第1分割</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_1\}\)　合計 0.40</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_2, s_3, s_4, s_5\}\)　合計 0.60</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.20</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第2分割</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_2\}\)　合計 0.30</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_3, s_4, s_5\}\)　合計 0.30</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold;">0.00</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第3分割</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_3\}\)　合計 0.15</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_4, s_5\}\)　合計 0.15</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; color: #16a34a; font-weight: bold;">0.00</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">第4分割</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_4\}\)　合計 0.10</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(\{s_5\}\)　合計 0.05</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-shannon-fano-partition.html >}}
 ```
 
 
@@ -1520,54 +1312,7 @@ $$
 {{< reveal_vspace 0.5em >}}
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 0.95em; text-align: center;">
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1110</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1111</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="3" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
-        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.05</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-shannon-fano-result.html >}}
 ```
 
 {{< reveal_vspace 0.5em >}}
@@ -1762,50 +1507,7 @@ $$
 各ステップで確率が最小の２ノードをマージし，新たなノードを作る:
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.8em;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">ステップ</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">マージ対象</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">新ノード</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">キュー（確率昇順）</th>
-      </tr>
-    </thead>
-    <tbody style="text-align: center;">
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">初期</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">—</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_5\)(0.05), \(s_4\)(0.10), \(s_3\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_5\)(0.05) + \(s_4\)(0.10)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_1\)(0.15)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_3\)(0.15), \(n_1\)(0.15), \(s_2\)(0.30), \(s_1\)(0.40)</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_3\)(0.15) + \(n_1\)(0.15)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_2\)(0.30)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(n_2\)(0.30), \(s_2\)(0.30), \(s_1\)(0.40)</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(n_2\)(0.30) + \(s_2\)(0.30)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">\(n_3\)(0.60)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">\(s_1\)(0.40), \(n_3\)(0.60)</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">\(s_1\)(0.40) + \(n_3\)(0.60)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold;">root(1.00)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; text-align: left;">root(1.00)</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-huffman-merge.html >}}
 ```
 
 
@@ -1842,54 +1544,7 @@ $$
 {{< reveal_vspace 0.5em >}}
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">記号</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">確率</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号長</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">符号</th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 0.95em; text-align: center;">
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_1\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_2\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_3\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.15</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">3</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_4\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.1</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1111</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">\(s_5\)</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">0.05</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 8px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">1110</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="3" style="padding: 12px; font-weight: bold; text-align: right; color: #475569;">平均符号長 (\(L\))</td>
-        <td style="padding: 12px; font-size: 1.1em; font-weight: bold; color: #16a34a; background-color: #f0fdf4;">2.05</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-huffman-result.html >}}
 ```
 
 {{< reveal_vspace 0.5em >}}
@@ -1961,48 +1616,7 @@ $$
 {{< reveal_vspace 0.5em >}}
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB; font-size: 0.85em;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white;">
-        <th style="padding: 8px; border: 1px solid #051C2C;">ブロック</th>
-        <th style="padding: 8px; border: 1px solid #051C2C;">確率</th>
-        <th style="padding: 8px; border: 1px solid #051C2C;">符号</th>
-        <th style="padding: 8px; border: 1px solid #051C2C;">符号長</th>
-      </tr>
-    </thead>
-    <tbody style="text-align: center;">
-      <tr>
-        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">00</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.81</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">0</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">1</td>
-      </tr>
-      <tr>
-        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">01</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.09</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">10</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">2</td>
-      </tr>
-      <tr>
-        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">10</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.09</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">111</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">3</td>
-      </tr>
-      <tr>
-        <td style="padding: 6px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">11</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">0.01</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">110</td>
-        <td style="padding: 6px; border: 1px solid #D1D7DB;">3</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f8f9fa;">
-        <td colspan="3" style="padding: 8px; font-weight: bold; text-align: right; color: #475569;">\(L_2\)</td>
-        <td style="padding: 8px; font-weight: bold; color: #16a34a;">1.29</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-block-coding-m2.html >}}
 ```
 
 $L_2/2 = 0.645$ bits/記号（効率: $72.7\%$）
@@ -2025,54 +1639,7 @@ $L_2/2 = 0.645$ bits/記号（効率: $72.7\%$）
 {{< reveal_vspace 0.5em >}}
 
 ```{=html}
-<div>
-  <table style="width: 100%; border-collapse: collapse; border: 1px solid #D1D7DB;">
-    <thead>
-      <tr style="background-color: #051C2C; color: white; font-size: 0.9em;">
-        <th style="padding: 10px; border: 1px solid #051C2C;">ブロック長 \(m\)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">超記号数</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">\(L_m\)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">\(L_m / m\)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">上界 \(H + 1/m\)</th>
-        <th style="padding: 10px; border: 1px solid #051C2C;">効率</th>
-      </tr>
-    </thead>
-    <tbody style="font-size: 0.95em; text-align: center;">
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">1</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.00</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.000</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.469</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">46.9%</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">2</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">4</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.29</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.645</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.969</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">72.7%</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; background-color: #F0F4F7; font-weight: bold; border: 1px solid #D1D7DB;">3</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">8</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">1.60</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.533</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">0.802</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">88.0%</td>
-      </tr>
-      <tr style="border-top: 2px solid #051C2C; background-color: #f0fdf4;">
-        <td style="padding: 10px; font-weight: bold; border: 1px solid #D1D7DB;">\(m \to \infty\)</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">—</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">—</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">→ 0.469</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB;">→ 0.469</td>
-        <td style="padding: 10px; border: 1px solid #D1D7DB; font-weight: bold; color: #16a34a;">→ 100%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< include _table-block-efficiency.html >}}
 ```
 
 :::
@@ -2191,6 +1758,7 @@ plt.show()
 \end{algorithmic}
 \end{algorithm}
 ```
+
 :::
 
 :::

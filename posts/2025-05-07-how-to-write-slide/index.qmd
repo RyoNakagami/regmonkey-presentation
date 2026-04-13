@@ -757,28 +757,7 @@ reocord4:
 ::: {.column style="width: 40%"}
 
 ```{=html}
-<div class="research-paper-style">
-<h3 id="heading-box1"> 3. Data and Methodology</h3>
-
-<div class="takeaway" id="takeaway-box1">
-    We combine satellite imagery with city-level land-use data to model temperature variation.
-</div>
-
-<p>
-    This section describes the datasets used and the modeling techniques applied to quantify urban heat island effects.
-</p>
-
-<h4 id="heading-box2"> 3.1 Data Sources</h4>
-
-<div class="takeaway" id="takeaway-box2">
-  We utilized satellite thermal data and open geospatial datasets to quantify urban heat islands, focusing on five major cities and temporal alignment of vegetation indices with land surface temperature.
-</div>
-<p>
-  To conduct a comprehensive analysis of urban heat island (UHI) effects, we assembled a multi-source dataset ...
-</p>
-
-
-</div>
+{{< include _research-paper-example.html >}}
 ```
 
 :::

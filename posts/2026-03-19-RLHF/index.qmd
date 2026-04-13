@@ -1,6 +1,6 @@
 ---
 title: "Reinforcement Learning<br>from Human Feedback"
-subtitle: "ChatGPTの学習方針"
+subtitle: "LLM101"
 author: "Ryo Nakagami"
 date: "2026-03-19"
 categories: [LLM]

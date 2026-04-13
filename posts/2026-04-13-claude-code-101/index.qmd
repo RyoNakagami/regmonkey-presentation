@@ -1,0 +1,530 @@
+---
+title: "はじめてのClaude Code"
+subtitle: "LLM101"
+author: "Ryo Nakagami"
+date: "2026-04-13"
+categories: [LLM, claude]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## コーディングエージェントとは何か？
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- コーディングエージェントとは，[LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント]{.regmonkey-bold}のこと
+- ユーザーの指示を受けて「[計画 → 実行 → 検証 → 修正]{.regmonkey-bold}」のループを自走し，タスク完了まで反復する
+  - 従来ソフトウェア: 人間が アルゴリズム・分岐・例外処理を事前にすべて設計し，その手順に従う
+  - コーディングエージェント: 手順そのものを動的に生成・修正
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[コーディングエージェントの進化[^footer1]]{.mini-section}
+
+::::{ .width-105 .position-left-10 .font-09}
+:::{.vuetify-timeline-container}
+
+```yml
+pipeline:
+  title: "LLM登場前"
+  content:
+    - 'バッチ処理やワークフローによる処理自動化'
+    - '処理は自動化されるがロジックは固定'
+  opposite: "2010年代後半"
+  color: "#B4D7FF"
+
+copilot:
+  title: "LLMコーディング支援"
+  content:
+    - 'コード補完・生成（Copilot, ChatGPTなど）'
+    - 'コード補完や関数の生成'
+    - '試行錯誤は人間が実施'
+  opposite: "2020年代前半"
+  color: "#0E3666"
+
+agent_v1:
+  title: "対話型エージェント"
+  content:
+    - 'IDE + AIモデル(Cursorが代表例)'
+    - 'レポジトリ内容を踏まえて，コード生成と実行を自動化'
+    - 対話的な開発フロー中心
+  opposite: "2023〜2024"
+  color: "#0E3666"
+
+agent_v2:
+  title: "自律型エージェント"
+  content:
+    - 'Devin, Claude Code'
+    - '計画→実行→検証→修正のループを確立'
+    - 'バックグラウンド実行，非同期・並列実行'
+  opposite: "2024〜"
+  color: "#428CE6"
+
+```
+:::
+::::
+
+<!-- footer -->
+
+[^footer1]: 進化の背景にはLLMの推論性能の向上(ゴールを踏まえた計画の立案力)や長文コンテキスト対応(レポジトリ内容の理解力)といった技術的進歩がある
+
+
+## コーディングエージェントの特徴
+[「計画 → 実行 → 検証 → 修正」の自律ループで動く]{.h2-submessage}
+
+:::::::::{.shannon-model .font-09}
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-bullseye"></i>
+:::
+
+[指示・ゴール]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- ユーザー要件
+- 成功条件の把握
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+
+<i class="fa-solid fa-list-check"></i>
+
+:::
+
+[計画立案]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- タスク分解・要件具体化
+- 手順の動的設計
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-terminal"></i>
+
+:::
+
+[実行]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- Read/Edit/Bash
+- 環境への作用
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-eye"></i>
+:::
+
+[検証]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 出力・エラー確認
+- テスト結果検証
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-arrows-rotate"></i>
+:::
+
+[修正・再計画]{.shannon-label}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 誤り訂正
+- 方針転換
+
+:::
+
+::::
+
+:::::::::
+
+:::{.shannon-overview-arrow .font-11}
+<div class="shannon-overview-arrow-head" style="border-left: none; border-right: 10px solid #0e3666;"></div><div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-text">フィードバックループ：完了条件を満たすまで自走反復</div><div class="shannon-overview-arrow-line"></div>
+:::
+
+{{< reveal_vspace 1em >}}
+
+[コーディングエージェントの中核機能]{.mini-section .font-09}
+
+{{< reveal_vspace 0.25em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::::{.width-100}
+
+:::{.regmonkey_abstract_summary}
+
+```yaml
+regmonkey_abstract_summary:
+  title_fontsize: 1em
+  bullet_fontsize: 0.8em
+  keystat_fontsize: 0.8em
+  children:
+    - title: 目的駆動
+      description:
+        - 操作ではなく「やりたいこと（Goal）」を与える
+        - 完了条件・成功基準をもとに自走
+      width: [25,75]
+
+    - title: 動的生成
+      description:
+        - 手順・コード・コマンドを状況に応じて生成
+        - 固定ロジックではなく都度設計・変更
+      width: [25,75]
+```
+
+:::
+::::
+
+:::
+::: {.column width="50%"}
+
+::::{.width-100}
+:::{.regmonkey_abstract_summary}
+
+```yaml
+regmonkey_abstract_summary:
+  title_fontsize: 1em
+  bullet_fontsize: 0.8em
+  keystat_fontsize: 0.8em
+  children:
+    - title: ツール実行
+      description:
+        - Git，APIなどのツールを自律的に操作
+        - ファイル操作・シェル実行・検索を使い分け
+      width: [25,75]
+
+    - title: 自己修正
+      description:
+        - 実行結果を確認し，エラーに応じて修正
+        - 完了条件を満たすまで反復
+      width: [25,75]
+```
+
+:::
+::::
+
+:::
+::::
+
+## コーディングエージェントを使いこなすには？
+
+[仕様書駆動（Spec-Driven）でエージェントのコンテキストを整える]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+[Key Takeaways]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- エージェントは**コンテキストの質で精度が決まる** ⇔ 曖昧な指示は動的生成を暴走させる
+- **コードではなく仕様書を「正」として扱い**，仕様 → 実装の方向性を固定することでズレを抑える
+- **小さく切った仕様**に沿わせることで自律ループの予測可能性が高まる
+
+:::
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+:::::{.grid .grid-cols-2 .gap-4 .mb-4 style="font-size: 0.85em;"}
+
+<!-- 仕様書を先に書く -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.p-2 .rounded-full .mr-3}
+
+
+:::
+
+### 📋 仕様書を先に書く
+
+:::
+
+- **REQUIREMENTS → DESIGN → TASKS[^footer-docs]** の順で書く
+- コードより仕様書を「正」として扱う
+- 実装詳細ではなく意図と制約を明文化
+
+::::
+
+<!-- 仕様書をコンテキストとして渡す -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.p-2 .rounded-full .mr-3}
+
+
+:::
+
+### 🤖 仕様書をコンテキストとして渡す
+
+:::
+
+- 会話のたびに仕様書を参照させる(`CLAUD.md`で制御)
+- エージェントの**外部記憶**として機能させる
+- セッション間での一貫性を担保
+
+::::
+
+<!-- 変更は仕様書から -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.p-2 .rounded-full .mr-3}
+
+
+:::
+
+### 🔄 変更は仕様書から
+
+:::
+
+- 要件変更があれば**仕様書を先に更新**
+- コードへの直接パッチは仕様との乖離を生む
+- 仕様 ↔ 実装の整合性を維持
+
+::::
+
+<!-- タスクを細かく切る -->
+
+::::{.component-card .p-3}
+
+:::{.flex .items-center .mb-2}
+
+:::{.p-2 .rounded-full .mr-3}
+
+:::
+
+### 📏 タスクを細かく切る
+
+:::
+
+- **小さなタスク = 高い予測可能性**
+- エージェントが迷わず実装できる粒度に分解
+- 検証・修正ループを短く保つ
+
+::::
+
+:::::
+
+<!-- footer -->
+
+[^footer-docs]: REQURIEMENTS:機能要件・制約・完了定義． DESIGN: アーキテクチャ・API設計． TASKS: 具体実装チェックリスト
+
+
+## Appendix: REQUIREMENTS → DESIGN → TASKS
+
+{{< reveal_vspace 1em >}}
+
+:::: {.info-box}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.info-contents .font-10 .padding-L-10}
+
+- コードを書く前に機械が読める以下の仕様書を作ることで，仕様書をエージェントの「外部記憶」として機能させる
+- 一義的には，人間のためのドキュメントではなく，エージェントのためのコンテキストとして設計
+- 変更が起きたらコードより仕様書を先に更新すること
+
+:::
+::::
+
+::: {.columns}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.column width="33.3%"}
+
+[WHATの明確化]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+```md
+# REQUIREMENTS.md
+
+## ゴール
+
+CSV をアップロードし
+グラフを生成・DLできるアプリ
+
+## 機能要件
+
+- [ ] ドラッグ&ドロップでCSV読込
+- [ ] X/Y 軸を選択できる
+- [ ] 折れ線・棒・散布図に対応
+- [ ] PNG/SVG でダウンロード
+
+## 非機能要件
+
+- 1,000行以下は 300ms 以内
+- サーバーレス（フロントのみ）
+
+## 制約
+
+- 外部APIへのデータ送信禁止
+
+## 完了の定義（DoD）
+
+- 全要件の [ ] が ✅ になること
+```
+
+
+:::
+::: {.column width="33.3%" height="70%"}
+
+[HOWの明確化]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+```md
+# DESIGN.md
+
+## アーキテクチャ
+
+単一HTML + Vanilla JS + d3.js
+
+## コンポーネント構成
+
+┌────────────────────┐
+│ DropZone     │ CSV受け取り
+├────────────────────┤
+│ AxisSelector │ 列選択UI
+├────────────────────┤
+│ ChartRenderer│ d3で描画
+├────────────────────┤
+│ ExportButton │ PNG/SVG出力
+└────────────────────┘
+
+## データフロー
+
+CSV → Papa.parse → rawData[]
+→ { xCol, yCol, chartType }
+→ d3.select('#chart') → SVG
+```
+
+:::
+
+::: {.column width="33.2%"}
+
+[TODOの明確化]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+```md
+# TASKS.md
+
+## Phase 1: 基盤構築
+
+- [x] index.html 骨格作成
+- [x] d3.js CDN 動作確認
+- [ ] CSS Grid レイアウト
+
+## Phase 2: CSV処理
+
+- [ ] DropZone 実装
+  - [ ] drag/drop イベント
+  - [ ] File API 読み込み
+  - [ ] Papa.parse で変換
+- [ ] 数値列の自動検出
+
+## Phase 3: 可視化
+
+- [ ] 折れ線グラフ（d3.line）
+- [ ] 棒グラフ（d3.scaleBand）
+- [ ] 散布図（d3.scaleLinear）
+```
+
+
+:::
+:::
+<!-- end columns -->
