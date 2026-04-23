@@ -2,9 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-04-22-ambient-agent/index.html",
+      "/posts/2026-04-14-how-to-use-skilltool/index.html",
       "/posts/2026-04-13-claude-code-101/index.html",
       "/posts/2026-03-19-RLHF/index.html",
       "/posts/2026-03-18-getting-started-with-LLM/index.html",
+      "/posts/2026-02-19-linux-memory-swap/index.html",
       "/posts/2026-02-18-shannon/index.html",
       "/posts/2026-02-17-law-cases/index.html",
       "/posts/2026-02-16-input-method-for-japanese/index.html",

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="560" viewBox="0 0 540 560" preserveAspectRatio="xMidYMid meet" style="font-family:'Meiryo','Hiragino Kaku Gothic ProN','Yu Gothic UI',sans-serif;">
+  <defs>
+    <marker id="arrow-hitl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0E3666"/>
+    </marker>
+  </defs>
+
+  <!-- Start -->
+  <rect x="180" y="10" width="180" height="38" rx="19" ry="19" fill="#fff" stroke="#0E3666" stroke-width="2"/>
+  <text x="270" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#0E3666">📨 イベント受信</text>
+
+  <!-- Start -> Q1 -->
+  <line x1="270" y1="48" x2="270" y2="78" stroke="#0E3666" stroke-width="1.8" marker-end="url(#arrow-hitl)"/>
+
+  <!-- Q1 Diamond -->
+  <polygon points="270,80 370,135 270,190 170,135" fill="#fff" stroke="#0E3666" stroke-width="2"/>
+  <text x="270" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">Agent単独で</text>
+  <text x="270" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">処理可能？</text>
+
+  <!-- Q1 -No-> Notify -->
+  <path d="M 170 135 L 110 135 L 110 175" stroke="#0E3666" stroke-width="1.8" fill="none" marker-end="url(#arrow-hitl)"/>
+  <rect x="120" y="124" width="22" height="14" fill="#FAFBFD"/>
+  <text x="131" y="135" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#C0392B">No</text>
+
+  <!-- Notify -->
+  <rect x="30" y="178" width="160" height="52" rx="6" fill="#FDECEC" stroke="#C0392B" stroke-width="2"/>
+  <text x="110" y="201" text-anchor="middle" font-size="13" font-weight="700" fill="#C0392B">🔔 Notify</text>
+  <text x="110" y="219" text-anchor="middle" font-size="10" font-weight="500" fill="#9C2A1F">人に知らせる</text>
+
+  <!-- Q1 -Yes-> Q2 -->
+  <line x1="270" y1="190" x2="270" y2="225" stroke="#0E3666" stroke-width="1.8" marker-end="url(#arrow-hitl)"/>
+  <rect x="278" y="198" width="26" height="14" fill="#FAFBFD"/>
+  <text x="291" y="209" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#028090">Yes</text>
+
+  <!-- Q2 Diamond -->
+  <polygon points="270,227 370,282 270,337 170,282" fill="#fff" stroke="#0E3666" stroke-width="2"/>
+  <text x="270" y="277" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">情報は</text>
+  <text x="270" y="295" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">十分？</text>
+
+  <!-- Q2 -No-> Question -->
+  <path d="M 170 282 L 110 282 L 110 325" stroke="#0E3666" stroke-width="1.8" fill="none" marker-end="url(#arrow-hitl)"/>
+  <rect x="120" y="271" width="22" height="14" fill="#FAFBFD"/>
+  <text x="131" y="282" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#C0392B">No</text>
+
+  <!-- Question -->
+  <rect x="30" y="328" width="160" height="52" rx="6" fill="#FEF5E7" stroke="#B7791F" stroke-width="2"/>
+  <text x="110" y="351" text-anchor="middle" font-size="13" font-weight="700" fill="#B7791F">❓ Question</text>
+  <text x="110" y="369" text-anchor="middle" font-size="10" font-weight="500" fill="#8B5A0F">人へ確認</text>
+
+  <!-- Q2 -Yes-> Q3 -->
+  <line x1="270" y1="337" x2="270" y2="372" stroke="#0E3666" stroke-width="1.8" marker-end="url(#arrow-hitl)"/>
+  <rect x="278" y="345" width="26" height="14" fill="#FAFBFD"/>
+  <text x="291" y="356" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#028090">Yes</text>
+
+  <!-- Q3 Diamond -->
+  <polygon points="270,374 370,429 270,484 170,429" fill="#fff" stroke="#0E3666" stroke-width="2"/>
+  <text x="270" y="424" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">不可逆 or</text>
+  <text x="270" y="442" text-anchor="middle" font-size="12" font-weight="700" fill="#0E3666">外部影響？</text>
+
+  <!-- Q3 -Yes-> Review -->
+  <path d="M 170 429 L 110 429 L 110 475" stroke="#0E3666" stroke-width="1.8" fill="none" marker-end="url(#arrow-hitl)"/>
+  <rect x="115" y="418" width="32" height="14" fill="#FAFBFD"/>
+  <text x="131" y="429" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#028090">Yes</text>
+
+  <!-- Review -->
+  <rect x="30" y="478" width="160" height="52" rx="6" fill="#E8F4F0" stroke="#028090" stroke-width="2"/>
+  <text x="110" y="501" text-anchor="middle" font-size="13" font-weight="700" fill="#028090">✅ Review</text>
+  <text x="110" y="519" text-anchor="middle" font-size="10" font-weight="500" fill="#015B66">人が承認</text>
+
+  <!-- Q3 -No-> Auto -->
+  <path d="M 370 429 L 430 429 L 430 475" stroke="#0E3666" stroke-width="1.8" fill="none" marker-end="url(#arrow-hitl)"/>
+  <rect x="395" y="418" width="22" height="14" fill="#FAFBFD"/>
+  <text x="406" y="429" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="700" fill="#C0392B">No</text>
+
+  <!-- Auto -->
+  <rect x="350" y="478" width="160" height="52" rx="6" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+  <text x="430" y="501" text-anchor="middle" font-size="13" font-weight="700" fill="#0E3666">⚡ Auto</text>
+  <text x="430" y="519" text-anchor="middle" font-size="10" font-weight="500" fill="#5A6B80">自動実行</text>
+</svg>
