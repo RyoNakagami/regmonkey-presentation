@@ -1,0 +1,451 @@
+---
+title: "LinuxのSwapを正しく理解する"
+subtitle: "Linux 101"
+author: "Ryo Nakagami"
+date: "2026-02-19"
+categories: [Linux, memory, swap]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Key Takeaways
+
+[メモリ圧がかかった → reclaim発動 → coldなanonymousページをswapへ]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar .font-10}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi hdd-stack-fill size=1.5em color=#003366 >}}
+
+### [1. Swapの本質]{.ml-2}
+
+:::
+
+- **役割**: 使われていない[**Anonymousページの退避先**]{.regmonkey-bold}
+- **誤解**: 「メモリが足りない時の追加メモリ」ではない
+- **本質**: ホット/コールドの優先度調整の道具
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi lightning-charge-fill size=1.5em color=#0054a6 >}}
+
+### [2. 起動条件: メモリ圧がないと使われない]{.ml-2}
+:::
+- **契機**: メモリ回収（reclaim）の一環として発生
+- **条件**: [**メモリ圧**]{.regmonkey-bold}がかからない限り swap は不使用
+- **帰結**: 物理メモリが十分ならほぼ使われない
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-0 .pb-0 .border-blue-500}
+:::{.flex .items-center}
+{{< bi check-circle-fill size=1.5em color=#003366 >}}
+
+### [3. 実用上の結論]{.ml-2}
+
+:::
+- **実態**: 16GB以上あれば swap は実際にはほぼ使われない
+- **判断**: 有効化しておいて困ることは稀
+- **例外**: 暗号化環境 / ストレージ逼迫時
+::::
+
+::::
+
+## メモリ階層の基礎: なぜswapが必要になるか
+
+[L1/L2/L3 ← 物理メモリ ← Swap（ディスク）の5段階キャッシュ構造]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+
+- CPUが扱えるのは[**CPU内蔵メモリ**]{.regmonkey-bold}のみ．物理メモリ（DRAM）ですらCPUから見れば**外部**
+- 各段は[**速度を犠牲に容量を稼ぐ**]{.regmonkey-bold}構造．上位段では載らないものを下位段に置く
+- swap は**5段目**に位置する．貴重な物理メモリを有効活用するためのバッファ
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::::::::{.shannon-model .font-09 style="padding-top: 0.5em;"}
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-microchip"></i>
+:::
+
+[L1/L2 Cache]{.shannon-label}
+
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 数KB〜数MB
+- 〜1ns
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-layer-group"></i>
+:::
+
+[L3 Cache]{.shannon-label}
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 数MB〜数十MB
+- 〜10ns
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-memory"></i>
+:::
+
+[物理メモリ (DRAM)]{.shannon-label}
+
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 数GB〜数百GB
+- 〜100ns
+
+:::
+
+::::
+
+:::{.shannon-arrow}
+
+{{< reveal_vspace 7em >}}
+
+<i class="fa-solid fa-arrow-right"></i>
+
+:::
+
+::::{.shannon-component}
+
+:::{.shannon-icon-box}
+<i class="fa-solid fa-hard-drive"></i>
+:::
+
+[Swap (SSD/HDD)]{.shannon-label}
+
+
+:::{.shannon-annotation-box style="border: none"}
+
+- 数GB〜数百GB
+- μs〜ms
+
+:::
+
+::::
+
+:::::::::
+
+:::{.shannon-overview-arrow .font-11 style="margin-top: 0.5em"}
+<div class="shannon-overview-arrow-head" style="border-left: none; border-right: 10px solid #0e3666;"></div><div class="shannon-overview-arrow-line"></div><div class="shannon-overview-arrow-text">上位ほど高速・小容量 ／ 下位ほど低速・大容量</div><div class="shannon-overview-arrow-line"></div>
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.callout-note}
+## [REMARKS: 大皿と取皿と冷蔵庫]{.padding-L-05 .font-12}
+
+:::{.padding-L-10}
+
+- CPUキャッシュ = 取皿，物理メモリ = 大皿と考えると理解しやすい
+- 取皿に載り切らないものは大皿から取ってきては捨てる．だから[**大皿（メモリ）は速度が重要**]{.regmonkey-bold}
+- swap は大皿に置ききれないものを[**冷蔵庫に入れておく**]{.regmonkey-bold}ようなもの．取り出しは遅いが無駄を減らせる
+
+:::
+
+::::
+
+
+## Swap の正体: Anonymous ページの退避先
+
+[「メモリ不足の増設」ではなく「メモリから捨てられない不活発なデータの置き場」]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 style="line-height:1.2"}
+
+- Linuxのメモリページは大きく[**File-backed**（ファイル起源） と **Anonymous**（プロセスが確保）]{.regmonkey-bold}の2種
+- メモリ回収時，Fileページは[**捨てるだけで済む**]{.regmonkey-bold}（ディスクに実体があるため再読込可能）
+- Anonページは実体がないので[**捨てると失われる**]{.regmonkey-bold} → だから swap に退避する必要がある
+- swapがなければ Anonページは退避できず，[**メモリ解放の手段が File ページ破棄のみ**]{.regmonkey-bold}に限定される
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[File-backed ページ]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.component-card .p-3 style="height: 10em; border: 2px solid #0E3666; display: flex; flex-direction: column;" .font-09}
+
+- 実行ファイル・ライブラリ・ページキャッシュなど，[**ディスク上にマスターが存在**]{.regmonkey-bold}
+- メモリ回収時は[**ただ破棄するだけで良い**]{.regmonkey-bold}（再読込可）
+- 例: `/usr/bin/` のバイナリ，読み込み中のファイル
+::::
+
+:::
+::: {.column width="50%"}
+
+[Anonymous ページ]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.component-card .p-3 style="height: 10em; border: 2px solid #C0392B; display: flex; flex-direction: column;" .font-09}
+
+- プロセスが `malloc` 等で確保した[**ディスクに実体がない**]{.regmonkey-bold}メモリ
+- 捨てるとプロセスが壊れる．だから[**swapに退避**]{.regmonkey-bold}するしかない
+- swapがなければメモリ上に居座り続ける
+- 例: プロセスのヒープ，スタック
+
+::::
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.callout-note}
+## [REMARKS: swapがないと何が困るか]{.padding-L-05 .font-12}
+
+:::{.padding-L-10}
+
+- メモリが逼迫した時，**swap あり** なら「使われていないAnonページ」を退避して，よく使うFileページをメモリに残せる
+- **swap なし** だと，メモリを空けるには「Fileページ破棄」しか選択肢がない ⇒ **ページキャッシュ消失で I/O 激増**
+- wap は「メモリの増量」ではなく[**ホット／コールドの優先度調整**]{.regmonkey-bold}の道具
+
+:::
+
+::::
+
+## Swap は必要か？
+
+[「必要不可欠」ではないが「あって困ることは稀」]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 style="line-height:1.2"}
+
+- swap があって悪いことはないが， 暗号化環境のみ注意
+- 現代のデスクトップ用途（16GB以上）では[**swapが実際に使われる場面は少ない**]{.regmonkey-bold}
+- ハイバネーション（休止状態）を使うなら[**メモリ以上のswapサイズが必須**]{.regmonkey-bold}
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header .font-10}
+
+Pros — swap を有効にしておく理由
+
+:::
+
+:::{.squaredmark style="font-size: 1em; padding-left: 0.5em;"}
+
+1. メモリ圧時に[**FileページよりAnonページを退避**]{.regmonkey-bold}できる選択肢が増える
+2. swap がないとメモリ圧時に[**システムが死ぬ**]{.regmonkey-bold}可能性が高まる
+3. [**ハイバネーション**]{.regmonkey-bold}の退避領域として必要
+4. Linux 4.0 以降は大きめ swap でも実害なし
+
+:::
+
+::::
+
+:::
+::: {.column width="50%" .padding-L-12 .font-09}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{ .square-box-500}
+
+:::{.border-bottom-header}
+
+Cons — swap が問題になるケース
+
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+
+**暗号化環境**
+
+- swap も[**暗号化対象**]{.regmonkey-bold}にしなければならない
+- 暗号化コストが高く，swap 出入りで計算リソースを消費
+- 場合によっては swap を切った方が速い
+
+{{< reveal_vspace 0.5em >}}
+
+**ストレージ容量が厳しい場合**
+
+- 256GB SSD に 128GB swap は現実的でない
+- 高速SSDの容量増加がRAMに追いついていない
+
+:::
+
+::::
+
+:::
+::::
+
+
+## Swappiness の正しい理解
+
+[「swapしやすさ」ではなく「fileページの代わりにanonを解放する度合い」]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05}
+
+- メモリ回収が必要になった時，カーネルは2択を迫られる
+  - (A) [**Fileページを捨てる**]{.regmonkey-bold}（＝ page cache を減らす）
+  - (B) [**Anonページを swap に退避する**]{.regmonkey-bold}（＝ swap を使う）
+- swappiness は**(B)を優先する割合**．200 スケールの重み付けと理解する[^footer-swappiness]
+- `vm.swappiness = 0` は特別扱いで，[**anonページのスキャン自体を避ける**]{.regmonkey-bold}
+  - `0` に設定しても OOM 寸前には使われる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+[swappiness の挙動]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 style="line-height: `1.2;"}
+
+| 値 | 挙動 | 向いている用途 |
+|:---|:-----|:---------------|
+| **0** | anonスキャン自体を避ける | 絶対に swap させたくない DB サーバ等 |
+| **1-60** | Fileページ破棄を優先 | デスクトップ（defaultはだいだい60） |
+| **100** | File/Anon を同程度にスキャン | バランス型 |
+| **200** | anon 退避を強く優先 | page cache を最大化したいワークロード |
+
+: {tbl-colwidths="[10,46,44]"}
+
+:::
+
+:::
+::: {.column width="45%"}
+
+[確認・変更方法]{.mini-section}
+
+{{< reveal_vspace 0.20em >}}
+
+:::{.font-09 .padding-L-20}
+
+[**現在値の確認**]{.font-09}
+
+:::{style="font-size:1.3em; width: 95%"}
+
+```bash
+$ cat /proc/sys/vm/swappiness
+60
+```
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[**恒久変更（`/etc/sysctl.d/` 配下）**]{.font-09}
+
+
+:::{style="font-size:1.3em; width: 95%"}
+
+```bash
+# /etc/sysctl.d/99-swappiness.conf
+vm.swappiness = 10
+```
+
+:::
+
+[反映は `sudo sysctl --system`]{.font-08}
+
+
+:::
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+<!-- footer -->
+
+[^footer-swappiness]: swappiness が 200 スケールなのは `file_prio + anon_prio = 200` という内部の重み配分に由来する．詳細はカーネルソース `mm/vmscan.c` の `get_scan_count()` 参照
