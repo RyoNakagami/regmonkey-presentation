@@ -1,0 +1,2747 @@
+---
+title: "regmonkey-gitcommand 解説"
+subtitle: "git command 201"
+author: "Ryo Nakagami"
+date: "2026-04-23"
+categories: [git, cli, datascience]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+# はじめに
+
+## regmonkey-gitcommand とは
+
+[Linux/macOS上で日々のGit運用を高速化するヘルパースクリプト集]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `regmonkey-gitcommand` は[**Git標準コマンドでは面倒な作業を1コマンド化**]{.regmonkey-bold}したシェルスクリプト集
+- リポジトリ: [RyoNakagami/regmonkey-gitcommand](https://github.com/RyoNakagami/regmonkey-gitcommand)
+- `PATH` に `src/` を追加すれば `git-<name>` として実行可能．`.gitconfig` の `[alias]` に登録すれば `git <name>` で呼び出せる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[インストール手順]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 1. clone
+git clone https://github.com/RyoNakagami/regmonkey-gitcommand.git ~/.tool.d/regmonkey-gitcommand
+
+# 2. dependency check (optional)
+bash ~/.tool.d/regmonkey-gitcommand/setup_dependency.sh
+
+# 3. PATH 追加（.zshrc / .bashrc）
+export PATH="$PATH:$HOME/.tool.d/regmonkey-gitcommand/src"
+
+# 4. 実行権限付与
+chmod +x ~/.tool.d/regmonkey-gitcommand/src/*
+```
+
+:::
+
+## コマンド一覧
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%" .font-09}
+
+[ステージング・コミット (5)]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+- `git-add-newline` — 末尾改行の自動追加
+- `git-add-patch` — 対話的ステージング
+- `git-gen-commit` — Claudeでコミットメッセージ生成
+- `git-sprint-commit` — スプリント週番号付きコミット
+- `git-newline-check` — 末尾改行欠落検査
+
+[閲覧・差分 (4)]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+- `git-check-commitsize` — 巨大コミットの検出
+- `git-lastdiff` — ファイル最終変更差分
+- `git-tree` — git管理ファイルだけのtree表示
+- `git-whoami` — Git User 表示
+
+[ブランチ管理 (4)]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+- `git-delete-obsolete-branch` — gone branch 削除
+- `git-delete-remote-branch` — リモートブランチ削除
+- `git-tmp-checkout` — WIPを新ブランチに退避
+- `git-browse` — ブラウザでリポジトリを開く
+
+:::
+::: {.column width="50%" .font-09}
+
+[クローン・リモート (4)]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+- `git-sparse-checkout` — 部分クローン
+- `git-ssh-clone-from-https` — HTTPS→SSH変換クローン
+- `git-push-multiple-remotes` — 全remoteへpush
+- `git-repo-update` — YAML起点のメタデータ更新
+
+[GitHub連携 (3)]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+- `git-create-repo` — YAMLからGitHubリポジトリ作成
+- `git-delete-current-repo` — 現リポジトリの削除
+- `git-issue2pr` — IssueをPRに変換
+
+
+:::
+::::
+
+
+# ステージング・コミット
+
+## `git-add-newline`: 末尾改行の自動追加
+
+[`tracked` な全ファイルに末尾改行を付与し，ファイルフォーマットの乱れを排除]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- Git管理下のすべてのトラック済みファイルをスキャンし，[**末尾改行が欠けているテキストファイルに自動で改行を追加**]{.regmonkey-bold}
+- バイナリ・SVG は自動スキップ．POSIX 準拠のファイル整形を保つための定型作業
+- `-i PATTERN` で除外パターンを複数指定可能
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# すべてのトラック済みファイルを処理
+git-add-newline
+
+# マークダウンを除外
+git-add-newline -i "*.md"
+
+# 画像系を複数除外
+git-add-newline -i "*.jpg" -i "*.png"
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# tracked files で末尾改行が欠けているものを検出 → echo で追記
+git ls-files | while read f; do
+  [ -s "$f" ] && [ -n "$(tail -c1 "$f")" ] && echo >> "$f"
+done
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-h`, `--help` | ヘルプ表示 |
+| `-i PATTERN` | 除外パターン（複数可） |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+:::{.padding-L-10}
+
+- バイナリ・SVGは MIME判定で自動除外
+- 処理後に変更ファイル一覧をレポート
+
+:::
+
+:::
+::::
+
+
+## `git-add-newline`: DS文脈の活用例
+
+[ノートブック変換CSVや集計結果の末尾改行を揃え，diff ノイズを削減]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- データサイエンス現場では，[**スクリプトが自動生成したCSV・JSON・ログ**]{.regmonkey-bold}の末尾改行欠落が頻発
+- PR差分時に `\ No newline at end of file` が出てレビューしにくくなる問題を一掃
+- pandas `to_csv()` や R `write.csv()` は改行を付けるが，独自書き出しロジックだと欠落することも
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 分析成果物の整形]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 前処理: 大容量pkl・parquetは除外し，ソースコードと結果だけ対象に
+git-add-newline -i "*.pkl" -i "*.parquet" -i "*.ipynb_checkpoints/*"
+
+# pre-commitフックとして仕込めば，コミット時に自動整形
+echo 'git-add-newline -i "*.pkl" -i "*.parquet"' > .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+
+- **効果**: `git diff` がクリーンになりレビュー効率UP．CIで linter が失敗しなくなる
+
+
+
+## `git-add-patch`: 対話的ステージング
+
+[変更ファイルをディレクトリ・キーワードで絞り込み，`git add -p` で部分ステージング]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 標準の `git add -p` は[**全変更ファイルが対象**]{.regmonkey-bold}で大規模リポジトリだと面倒
+- このコマンドは[**ディレクトリ指定・キーワード検索でファイル集合を絞ってから対話的ステージ**]{.regmonkey-bold}できる
+- `-a` オプションで変更全ファイルを一括ステージ（`git add -u` + untracked）
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 全変更ファイルをステージ
+git-add-patch -a
+
+# 特定ディレクトリの変更のみ対話的に
+git-add-patch -d src/models/
+
+# ファイル名キーワードで絞る
+git-add-patch -s "feature_"
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# ディレクトリ指定
+git diff --name-only -- src/models/ | xargs git add -p
+
+# キーワードで絞る
+git diff --name-only | grep feature_ | xargs git add -p
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-a` | 全変更ファイルを一括ステージ |
+| `-d <dir>` | ディレクトリ指定 |
+| `-s <keyword>` | ファイル名キーワードで絞込 |
+| `-h` | ヘルプ表示 |
+
+:::
+
+:::
+::::
+
+
+## `git-add-patch`: DS文脈の活用例
+
+[分析コードとノートブックを分けてコミットし，レビューしやすい履歴に]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSプロジェクトでは[**1回の作業で複数の関心事**]{.regmonkey-bold}（特徴量追加・モデル更新・可視化修正）が混ざる
+- モジュール毎に分けて `git-add-patch -d` でステージすれば，[**1PR=1テーマ**]{.regmonkey-bold}の原則を守れる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 前処理とモデルを別コミットに]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 1コミット目: 前処理の変更だけ
+git-add-patch -d src/preprocess/
+git commit -m "feat(preprocess): add outlier clipping"
+
+# 2コミット目: モデル側の変更
+git-add-patch -d src/models/
+git commit -m "feat(model): switch to lightgbm"
+
+# 3コミット目: ノートブックの結果更新
+git-add-patch -s ".ipynb"
+git commit -m "docs(notebook): refresh eval results"
+```
+
+:::
+
+
+## `git-gen-commit`: Claudeでコミットメッセージ生成
+
+[`git diff --cached` を Claude CLI にパイプし，ワンラインコミット文を自動生成]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- ステージ済みの差分を `claude -p <prompt>` に流し，[**1行コミットメッセージを生成**]{.regmonkey-bold}
+- `--rule <path>` でプロジェクト独自ルール（Conventional Commits等）を追加プロンプトとして注入可能
+- `--dryrun` で生成結果のみ確認．納得したら実コミット
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 生成してそのままコミット
+git add -p src/
+git-gen-commit
+
+# 生成結果だけ確認（コミットしない）
+git-gen-commit --dryrun
+
+# プロジェクトのルールを適用
+git-gen-commit --rule .claude/commit-rule.md
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# staged diff を Claude に渡してコミット
+MSG=$(git diff --cached \
+      | claude -p 'generate a one-line conventional commit')
+git commit -m "$MSG"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `--dryrun` | メッセージのみ出力（コミットなし） |
+| `--rule <path>` | 追加プロンプトファイル |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 依存: `claude` CLI が PATH 上にあり，API設定済
+- ステージ未確定だとエラー終了
+
+:::
+
+:::
+::::
+
+
+## `git-gen-commit`: DS文脈の活用例
+
+[ノートブックの大量セル変更から要点を抽出し，意味のあるコミットメッセージに]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- ノートブック変更は[**JSON diff がノイズだらけ**]{.regmonkey-bold}で「update notebook」のような雑なメッセージになりがち
+- Claudeに要約させれば「`feat: EDA: 売上に対する曜日効果の可視化追加`」のような[**実質的な変更点**]{.regmonkey-bold}を抽出可能
+- プロジェクトルール（`.claude/commit-rule.md`）で prefix・フォーマットを統一
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 実験ループでの高速コミット]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 実験1サイクル: 変更 → ステージ → Claudeで要約 → コミット
+jupyter nbconvert --execute analysis.ipynb --to notebook --inplace
+git-add-patch -s "analysis.ipynb"
+git-gen-commit --rule .claude/ds-commit-rule.md
+
+# 生成例:
+#  "feat(eda): add seasonality decomposition for sales series"
+```
+
+:::
+
+
+## `git-sprint-commit`: スプリント週番号付きコミット
+
+[ISO週番号 `sprint-YYYY-WWw` をプレフィックスにしたコミットを自動生成]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `date +%Y-%Vw` でISO週番号を取得し，[**`sprint-2026-17w` のような週バケツ**]{.regmonkey-bold}をコミット名に
+- `-m <msg>` で詳細を追記可能．[**1日に複数コミットしても同じ週番号で揃う**]{.regmonkey-bold}
+- スプリント運用や継続研究の進捗トラッキングに便利
+- ステージ済みの変更が無い場合は空コミット
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 週番号のみのコミット
+git-sprint-commit
+#  -> sprint-2026-17w
+
+# メッセージ付き
+git-sprint-commit -m "eda round 2"
+#  -> sprint-2026-17w: eda round 2
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 週番号のみ（空コミット）
+git commit --allow-empty -m "sprint-$(date +%Y-%Vw)"
+
+# メッセージ付き
+git commit -m "sprint-$(date +%Y-%Vw): eda round 2"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-m`, `--message <msg>` | 追加メッセージ |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+
+
+
+:::
+::::
+
+
+## `git-sprint-commit`: DS文脈の活用例
+
+[週次ベースの実験進捗を時系列で追跡．振り返りやレポートにそのまま使える]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 研究プロジェクトでは[**日々の実験ログを残したい**]{.regmonkey-bold}が，コミットメッセージに日付を手書きするのは面倒
+- 週番号で揃えれば `git log --grep "sprint-2026-17"` で[**その週の試行錯誤を一括抽出**]{.regmonkey-bold}できる
+- 振り返りMTG・月次レポートの素材として活用可能
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 週次レポート自動化]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 今週の実験ログをまとめて抽出
+CURRENT_WEEK=$(date +%Y-%Vw)
+git log --oneline --grep "sprint-${CURRENT_WEEK}"
+
+# ログ出力例:
+#  a4f2c13 sprint-2026-17w: lightgbm round1 0.82 auc
+#  b8d1e5f sprint-2026-17w: add feature interaction
+#  c2a9f88 sprint-2026-17w
+```
+
+:::
+
+
+## `git-newline-check`: 末尾改行欠落検査
+
+[末尾改行が欠けているファイルを一覧表示．CI の pre-check に最適]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git-add-newline` の[**検査のみ版**]{.regmonkey-bold} ── 自動修正せず報告だけ
+- バイナリ・SVG は自動スキップ．`-i` で任意の除外パターンを追加可能
+- exit code が欠落ありで非ゼロ扱いなので [**CIワークフローに組み込める**]{.regmonkey-bold}
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 全トラック済みファイルを検査
+git-newline-check
+
+# 画像とデータ系を除外
+git-newline-check -i "*.csv" -i "*.png"
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 末尾改行が欠けているファイルを一覧
+git ls-files | while read f; do
+  [ -s "$f" ] && [ -n "$(tail -c1 "$f")" ] && echo "$f"
+done
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-h`, `--help` | ヘルプ表示 |
+| `-i PATTERN` | 除外パターン（複数可） |
+
+:::
+
+:::
+::::
+
+
+## `git-newline-check`: DS文脈の活用例
+
+[GitHub Actions に組み込み，データファイル・ノートブックの整形を CI レベルで保証]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- Data scienceリポジトリに[**手動/自動生成ファイル**]{.regmonkey-bold}が混在する場合，整形基準をCIで担保したい
+- コミット時点ではなく **push → PR** のタイミングで検査すればレビュワーの手間を減らせる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: GitHub Actions での整形チェック]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+
+:::{.font-12}
+
+```yaml
+# .github/workflows/lint.yml
+name: lint
+on: [pull_request]
+jobs:
+  newline-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check trailing newlines
+        run: |
+          bash ~/.tool.d/regmonkey-gitcommand/src/git-newline-check.sh \
+            -i "*.parquet" -i "*.pkl" -i "*.ipynb_checkpoints/*"
+```
+
+:::
+
+
+# 閲覧・差分
+
+## `git-check-commitsize`: 巨大コミットの検出
+
+[指定期間内で閾値以上のサイズを持つコミットを列挙．リポジトリ肥大化を早期発見]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- Perlスクリプト．`--unit` でサイズ単位，`--lowersize` で閾値，`--days` で期間を指定
+- 出力: `commit-size / commit-id / file-number / commit-date` の4カラム
+- [**誤って巨大データを含めたコミット**]{.regmonkey-bold}を後追いで検出できる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 過去10日の3MB超コミット
+git-check-commitsize -u MB -l 3 -d 10
+
+# 過去60日の3KB超
+git check-commitsize -u KB -l 3 -d 60
+#  commit-size  commit-id  file-number  commit-date
+#  14KB         096b7bfd   6            2025-10-23
+#  10KB         cf906f92   3            2025-09-16
+#  23KB         dbd7014a   14           2025-09-16
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 直近30日で50MB超のコミットを size 降順で列挙
+git log --since='30 days ago' \
+    --format='%H %ad' --date=short \
+  | while read h d; do
+      s=$(git diff-tree --no-commit-id --numstat $h \
+          | awk '{a+=$1+$2} END{print a+0}')
+      [ "$s" -gt 50000 ] && echo "$s $h $d"
+    done | sort -rn
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-u`, `--unit <B/KB/MB/GB>` | サイズ単位 |
+| `-l`, `--lowersize <N>` | 下限閾値 |
+| `-d`, `--days <N>` | 何日前までを対象にするか |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+:::
+::::
+
+
+## `git-check-commitsize`: DS文脈の活用例
+
+[誤コミットされた学習データ・モデル重みを検出し，`git-filter-repo` で除去する入口]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSリポジトリは[**うっかり大容量アセットをコミット**]{.regmonkey-bold}しがち（pkl/parquet/h5/checkpoint）
+- clone時間・ストレージを肥大化させる原因．定期的に検査して早期発見
+- 検出 → `git filter-repo --path <file> --invert-paths` で履歴から除去のワークフローに使える
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 月次の肥大化監査]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 過去30日で50MB以上のコミットを列挙
+git-check-commitsize -u MB -l 50 -d 30
+
+# 見つかったコミットを調査
+git show --stat <commit-id>
+
+# 履歴から問題ファイルを完全除去（バックアップ必須）
+git filter-repo --path models/big_model.pt --invert-paths
+```
+
+:::
+
+
+## `git-lastdiff`: ファイル最終変更差分
+
+[指定ファイルの最新コミット vs 現在の差分を difftool で視覚的に比較]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 最新コミットでそのファイルが触られた時点との diff を表示（未コミット変更含む）
+- `-n <N>` でN個前のコミットを基準にできる．[**「前回いじった時との差を知りたい」**]{.regmonkey-bold}用途にフィット
+- `--no-tool` で difftool なしの通常 `git diff` 出力に切替
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 最終変更との差分
+git-lastdiff src/feature.py
+
+# 2個前の変更との差分
+git-lastdiff src/feature.py -n 2
+
+# difftool を使わずプレーン
+git-lastdiff src/feature.py --no-tool
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# そのファイルに最後に触れたコミットの親 vs HEAD
+F=src/feature.py
+git difftool "$(git log -1 --format=%H -- "$F")^" HEAD -- "$F"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-n <N>` | N個前のコミットを基準 (既定: 1) |
+| `--no-tool` | `git diff` で出力 (difftoolなし) |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+:::
+::::
+
+
+## `git-lastdiff`: DS文脈の活用例
+
+[ノートブック/モデル定義の「前回実装」との差分確認．実験の進化過程を可視化]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- モデル定義ファイルや特徴量生成コードは[**何度も書き換え続ける**]{.regmonkey-bold}ので「前回との差」を日常的に見たい
+- `git log -p -- <file>` は冗長．`git-lastdiff` なら[**1コマンドで直近差分**]{.regmonkey-bold}を視覚表示
+- difftool 設定で meld/VS Code 等を使えばビジュアル差分に
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: モデル改善履歴の確認]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 現在のモデル定義 vs 前バージョン
+git-lastdiff src/models/lightgbm_tuner.py
+
+# 3回前のパラメータ探索ロジックと比較
+git-lastdiff src/models/lightgbm_tuner.py -n 3
+
+# difftool設定例（~/.gitconfig）
+# [diff]
+#     tool = vscode
+# [difftool "vscode"]
+#     cmd = code --wait --diff $LOCAL $REMOTE
+```
+
+:::
+
+
+## `git-tree`: git管理ファイルだけのtree表示
+
+[`tree --fromfile` を使い，`.gitignore` 準拠で git-tracked ファイルだけを階層表示]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 通常の `tree` は `node_modules/` `.venv/` `data/` など[**無視したいディレクトリまで表示**]{.regmonkey-bold}する
+- `git-tree` は `git ls-tree -r --name-only HEAD` を使い，[**本当に管理下のファイルのみ**]{.regmonkey-bold}を表示
+- 引数で特定フォルダに絞ることも可能
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 全体の構造
+git-tree
+
+# 特定ディレクトリのみ
+git-tree src/models/
+
+# エラー: 非gitリポ or 管理外ディレクトリ
+git-tree notebooks/  # → 空出力
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# git管理ファイルを tree --fromfile に渡す
+git ls-tree -r --name-only HEAD | tree --fromfile
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 依存: `tree`, `gh` CLI
+- `.gitignore` と厳密に整合
+
+:::
+
+:::
+::::
+
+
+## `git-tree`: DS文脈の活用例
+
+[README/ドキュメントに貼り付ける「プロジェクト構造」を `.venv` や `data/raw/` を除去して取得]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSリポジトリの README に構成図を載せたいが，普通の `tree` だと巨大で読めなくなる
+- `git-tree` なら[**ソース・設定・notebook だけ**]{.regmonkey-bold}が出るので，そのまま貼れる
+- 新規メンバーのオンボーディングやプロジェクト引継ぎにも
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: README 生成補助]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# README に構造を埋める
+echo '## Project Structure' >> README.md
+echo '```' >> README.md
+git-tree >> README.md
+echo '```' >> README.md
+
+# 出力例:
+#  .
+#  ├── src
+#  │   ├── features
+#  │   │   └── build.py
+#  │   └── models
+#  │       └── train.py
+#  └── notebooks
+#      └── 01_eda.ipynb
+```
+
+:::
+
+
+## `git-whoami`: Git User 表示
+
+[現在の Git 設定の `user.name` と `user.email` を表示．ミスコミット防止に]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git config user.name` と `user.email` を[**1コマンドでまとめて表示**]{.regmonkey-bold}
+- 両方設定されているかチェックしたうえで `username (email@example.com)` 形式で出力
+- 未設定ならエラー終了
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 現設定の確認
+git-whoami
+#  Ryo Nakagami (ryo.nakagami@jdsc.ai)
+
+# help
+git-whoami -h
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# user.name と user.email を1行で
+echo "$(git config user.name) ($(git config user.email))"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-h` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- exit code で `name`/`email` 未設定を検知可能
+- shell プロンプトに組み込むのもあり
+
+:::
+
+:::
+::::
+
+
+## `git-whoami`: DS文脈の活用例
+
+[企業内リポジトリと個人リポジトリを往復する際の ID 取り違えを防止]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DS分析者は[**企業GitHub / 個人GitHub**]{.regmonkey-bold}をまたぐことが多く，コミット identity の取り違えで機密漏洩や公開ミスが起きやすい
+- `includeIf` で directory ごとに切替設定しても，[**意図通り適用されているか確認したい**]{.regmonkey-bold}
+- push 前に `git-whoami` を呼ぶだけで事故を予防
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: push前のガード]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# ~/.gitconfig
+# [includeIf "gitdir:~/work/"]
+#     path = ~/.gitconfig-work
+# [includeIf "gitdir:~/personal/"]
+#     path = ~/.gitconfig-personal
+
+# push 前のチェック
+git-whoami && git push
+
+# alias 化してしまうのも有効
+# alias gpush='git-whoami && git push'
+```
+
+:::
+
+
+# ブランチ管理
+
+## `git-delete-obsolete-branch`: gone branch 削除
+
+[リモート追跡が切れたローカルブランチ（`gone`）を検出して一括削除]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git fetch --prune` 実行後，[**リモートが消えたローカル追跡ブランチ**]{.regmonkey-bold}を一覧
+- 対話・Dry-run・強制削除の3モード．`git branch -d` による安全削除（merge済みのみ）
+- [**PR merge 後に滞留するブランチの掃除**]{.regmonkey-bold}を習慣化しやすい
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 確認だけ（削除しない）
+git-delete-obsolete-branch --dry
+
+# 一気に削除
+git-delete-obsolete-branch --yes
+
+# 対話モード (既定)
+git-delete-obsolete-branch
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# gone 印のついたローカルブランチを一括削除
+git fetch -p
+git branch -vv | awk '/: gone]/{print $1}' | xargs -r git branch -d
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `--dry` | dry-run（削除しない） |
+| `--yes` | 確認なしで削除 |
+| `-h` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- `git branch -d` なので unmerged は保護される
+
+:::
+
+:::
+::::
+
+
+## `git-delete-obsolete-branch`: DS文脈の活用例
+
+[実験ブランチの墓場を整理．`feat/exp-xxx` ブランチで溢れたリポジトリを一掃]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSプロジェクトでは[**1試行=1ブランチ**]{.regmonkey-bold}で実験することが多く，数十本のブランチが溜まる
+- リモートで既に削除済みなのにローカルに残ると `git branch` がノイズだらけに
+- 週次でこのコマンドを走らせる運用が有効
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 週次のブランチ整理]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 金曜日の振り返り時に
+git fetch --prune --all
+git-delete-obsolete-branch --dry     # 先に見る
+git-delete-obsolete-branch --yes     # 納得したら削除
+
+# cron で自動化
+# 0 18 * * 5 cd ~/projects/ml-pipeline && git-delete-obsolete-branch --yes
+```
+
+:::
+
+
+## `git-delete-remote-branch`: リモートブランチ削除
+
+[対話不要で指定リモートブランチを削除．`--with-local` でローカルも同時削除]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git push <remote> --delete <branch>` の**安全ラッパー**．dry-run・remote指定・local同時削除に対応
+- ブランチ存在チェックを行ってから実行するのでミス削除を防ぐ
+- PR merge 後の `feature/*` の掃除などに
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# originから消す
+git-delete-remote-branch feature/foo
+
+# upstream 指定
+git-delete-remote-branch feature/foo --remote upstream
+
+# dry-run で確認
+git-delete-remote-branch feature/foo --dry
+
+# ローカルも合わせて削除
+git-delete-remote-branch feature/foo --with-local
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# リモートブランチ削除
+git push origin --delete feature/foo
+
+# ローカルも合わせて削除
+git push origin --delete feature/foo && git branch -D feature/foo
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `--remote <name>` | remote名 (既定: origin) |
+| `--dry` | dry-run |
+| `--with-local` | ローカルも削除 |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+:::
+::::
+
+
+## `git-delete-remote-branch`: DS文脈の活用例
+
+[実験完了後の「本家リモート + ミラーリモート」両方のブランチを整理]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 企業DS現場では[**社内GitLab + 社外GitHub ミラー**]{.regmonkey-bold}のような複数リモート運用が一般的
+- PR merge 後に両方から branch を消したい時，手動だと忘れがち
+- `--remote` を使い分けて順次消せばクリーン
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: マルチリモート環境での掃除]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 確認
+git-delete-remote-branch feature/exp-v3 --remote origin   --dry
+git-delete-remote-branch feature/exp-v3 --remote upstream --dry
+
+# 実行 + ローカルも削除
+git-delete-remote-branch feature/exp-v3 --remote origin   --with-local
+git-delete-remote-branch feature/exp-v3 --remote upstream
+```
+
+:::
+
+
+## `git-tmp-checkout`: WIPを新ブランチに退避
+
+[現在の作業木（untracked含む）をstash→新ブランチ作成→stash適用．作業を失わず分岐]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git stash push -a` で[**tracked + untracked の全変更**]{.regmonkey-bold}を退避
+- `git switch -c <new_branch>` で新ブランチ作成，その上に stash を apply
+- [**間違ったブランチで作業していた**]{.regmonkey-bold}時の救済・試行的な枝分かれに便利
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 新ブランチ名だけ指定
+git-tmp-checkout -c feature/wip
+
+# stashメッセージも指定
+git-tmp-checkout -m "wip: refactor" -c feature/wip
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# stash → 新ブランチ → apply
+git stash push -a -m "wip: refactor"
+git switch -c feature/wip
+git stash apply stash@{0}
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-m <msg>` | stashメッセージ（省略時は自動） |
+| `-c <branch>` | 作成するブランチ名 (必須) |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- stash は apply 後も残る．不要なら手動 drop
+- git >= 2.23 必須
+
+:::
+
+:::
+::::
+
+
+## `git-tmp-checkout`: DS文脈の活用例
+
+[`main` でノートブック試行錯誤してしまった時に，実験ブランチに無痛退避]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSあるある: [**`main` のノートブックを直接いじって実験してしまう**]{.regmonkey-bold}
+- そのまま commit すると履歴が汚れるので，`git-tmp-checkout` で変更を保ったまま実験ブランチに移動
+- untracked（新規CSV等）も一緒に退避されるのがポイント
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 誤ったブランチで始めた実験の退避]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 状況: main で analysis.ipynb をいじりまくった後に気づく
+git branch --show-current
+#  main
+
+# 変更を保ったまま新ブランチへ
+git-tmp-checkout -m "wip: 線形回帰 vs lgbm比較" -c exp/lgbm-compare
+
+# 作業継続．必要なら stash を drop
+git stash drop stash@{0}
+```
+
+:::
+
+
+## `git-browse`: ブラウザでリポジトリを開く
+
+[GitHub / GitLab / Bitbucket の remote URL を自動判定しブラウザで開く]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `-b` でブラウザ指定（firefox / chrome / chromium）．既定は `git web--browse` に委譲
+- `-r <ref>` で[**特定のブランチ・タグ・コミット**]{.regmonkey-bold}のURLに直飛び
+- SSH URL は自動的に HTTPS に変換．複数remoteがあれば対話選択
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# デフォルトブラウザで開く
+git-browse
+
+# Firefox で main ブランチを
+git-browse -b firefox -r main
+
+# 特定コミット
+git-browse -r 1234abc
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# SSH URL を HTTPS に変換して開く
+URL=$(git remote get-url origin \
+      | sed -E 's#git@([^:]+):#https://\1/#; s#\.git$##')
+git web--browse "$URL"
+
+# 特定ブランチ
+git web--browse "$URL/tree/main"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-b <browser>` | firefox/chrome/chromium |
+| `-r <ref>` | branch/tag/commit |
+| `-h` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- GitHub `/tree/`, GitLab `/-/tree/`, Bitbucket `/src/` を自動判別
+
+:::
+
+:::
+::::
+
+
+## `git-browse`: DS文脈の活用例
+
+[実験ブランチのリンクをSlackで即共有．レビュー依頼の起点に]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- コードレビューやMTG中に[**「このブランチの notebook 見ておいて」**]{.regmonkey-bold}と URL を共有する機会は多い
+- ターミナルから1コマンドでブラウザを開き，URLをコピー＆ペーストできる
+- 特定コミットのURL共有は「このコミットの結果を確認したい」用途にフィット
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 実験結果のシェア]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 現在作業中のブランチを誰かに見てもらう
+CURRENT=$(git branch --show-current)
+git-browse -r "$CURRENT"
+
+# 特定の試行が成功した時点のスナップショット
+git-browse -r $(git log --grep "auc 0.85" -n 1 --format=%h)
+```
+
+:::
+
+
+# クローン・リモート
+
+## `git-sparse-checkout`: 部分クローン
+
+[モノレポから `src/` や特定パスだけを取得．`--bare` でメタ情報のみ取得も可能]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git clone --no-checkout --filter=blob:none` + `core.sparseCheckout=true` の[**コンボを1コマンド化**]{.regmonkey-bold}
+- `-p` でコロン区切りのパスを複数指定．`-s` で top-level のみの骨格クローン
+- 大容量リポジトリでも[**必要最小限**]{.regmonkey-bold}のクローンで済む
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# src/a と docs だけクローン
+git-sparse-checkout -u git@github.com:owner/repo.git \
+  -d ./repo -b main -p "src/a:docs"
+
+# topレベル + 空ディレクトリ骨格だけ
+git-sparse-checkout -u git@github.com:owner/repo.git \
+  -d ./repo -b main -s
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# blobless clone + sparse-checkout
+git clone --filter=blob:none --no-checkout \
+  git@github.com:owner/repo.git ./repo
+cd ./repo
+git sparse-checkout init --no-cone
+printf 'src/a\ndocs\n' > .git/info/sparse-checkout
+git checkout main
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-u <url>` | clone URL (必須) |
+| `-d <dir>` | target directory (必須) |
+| `-b <branch>` | branch (必須) |
+| `-p <paths>` | `:`区切りパス |
+| `-s` | bare mode |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+:::
+::::
+
+
+## `git-sparse-checkout`: DS文脈の活用例
+
+[巨大モノレポから必要なノートブック群だけを取得．データ/モデル重みを除外し高速クローン]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 企業DSリポジトリは[**ノートブック・データ・モデル・インフラ設定が全部入り**]{.regmonkey-bold}で数GB以上になりがち
+- 自分が触る `notebooks/` や `src/features/` だけあれば十分なケースが多い
+- `--filter=blob:none` と併用でblobを遅延取得，初回クローン時間を大幅短縮
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 分析担当者ごとの軽量clone]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 特徴量担当: features と共通スクリプトだけ取得
+git-sparse-checkout \
+  -u git@github.com:acme/ml-platform.git \
+  -d ./ml-platform-slim -b main \
+  -p "src/features:src/utils:notebooks/feature-eng"
+
+# CI担当: workflow とインフラだけ
+git-sparse-checkout \
+  -u git@github.com:acme/ml-platform.git \
+  -d ./ml-infra -b main \
+  -p ".github:infra:Dockerfile"
+```
+
+:::
+
+
+## `git-ssh-clone-from-https`: HTTPS→SSH変換クローン
+
+[GitHub のURLを貼るだけでSSHクローン．hostname指定で複数SSHキー運用にも対応]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- ブラウザからコピーしたHTTPS URL (`https://github.com/user/repo.git`) を[**そのまま渡してSSHでclone**]{.regmonkey-bold}
+- `-h` で SSH config のhostnameを指定可能（`github-work` 等で複数キー切替）
+- `-d` で clone 先ディレクトリ指定
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 通常のSSH clone
+git-ssh-clone-from-https \
+  https://github.com/user/repo.git
+
+# SSH configの別エイリアスを使う
+git-ssh-clone-from-https \
+  -h github-work \
+  -d ./my-fork \
+  https://github.com/user/repo.git
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# HTTPS → SSH URL 変換して clone
+URL=https://github.com/user/repo.git
+git clone "$(echo $URL | sed -E 's#https://([^/]+)/#git@\1:#')"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-h <hostname>` | SSH host alias（既定: `github.com`） |
+| `-d <directory>` | clone 先 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- `-h` は標準のHELPではなくhostname指定．ヘルプは引数なしで呼び出し
+
+:::
+
+:::
+::::
+
+
+## `git-ssh-clone-from-https`: DS文脈の活用例
+
+[会社用と個人用のSSHキーを切り替えながら，HTTPS URLコピペでcloneできる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DS現場では[**個人GitHub / 会社GitHub / 別クライアントGitHub**]{.regmonkey-bold}を横断することが多い
+- SSH config で `github-work` / `github-personal` を分けて鍵を切替えるのが定番
+- HTTPS URL をそのまま扱えるので[**ブラウザからの貼り付け運用**]{.regmonkey-bold}が崩れない
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: マルチアカウント運用]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# ~/.ssh/config
+# Host github-work
+#     HostName github.com
+#     IdentityFile ~/.ssh/id_ed25519_work
+# Host github-personal
+#     HostName github.com
+#     IdentityFile ~/.ssh/id_ed25519_personal
+
+# 会社リポジトリ
+git-ssh-clone-from-https -h github-work \
+  https://github.com/acme/ml-pipeline.git
+
+# 個人リポジトリ
+git-ssh-clone-from-https -h github-personal \
+  https://github.com/ryonakagami/side-project.git
+```
+
+:::
+
+
+## `git-push-multiple-remotes`: 全remoteへpush
+
+[設定済みremoteすべてに同じブランチを順次push．ミラー運用の定型化]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `git remote` で取得した全リモートに対し，指定ブランチを順次 `git push`
+- シンプルな実装（約30行のシェル）．複雑な条件分岐なし
+- ミラー運用（社内 → バックアップ → 公開）の定型作業を1コマンドに
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# main ブランチを全remoteへpush
+git-push-multiple-remotes main
+
+# feature ブランチも同様
+git-push-multiple-remotes feature/v2
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 全 remote に対し順次 push
+git remote | xargs -I{} git push {} main
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| 引数 | 説明 |
+|:-----|:-----|
+| `$1` | branch name (必須) |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- remoteが未設定ならエラー
+- 途中失敗してもループは継続
+
+:::
+
+:::
+::::
+
+
+## `git-push-multiple-remotes`: DS文脈の活用例
+
+[社内GitLab + 社外GitHub + バックアップのミラー運用．実験スナップショットを冗長化]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 企業DS現場では[**社内GitLab → 社外GitHub（PR レビュー用） → S3ミラー**]{.regmonkey-bold}のような多段ミラーが定番
+- `git push origin && git push mirror && git push backup` を手で打つのは面倒
+- 1コマンドで全remote同期．push忘れによるインシデント防止
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: 3-way ミラー運用]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 設定済みremote一覧
+git remote -v
+#  origin     git@gitlab.corp.internal:ml/pipeline.git (push)
+#  mirror     git@github.com:acme/pipeline.git         (push)
+#  backup     git@backup-host:ml/pipeline.git          (push)
+
+# 全部にpush
+git-push-multiple-remotes $(git branch --show-current)
+```
+
+:::
+
+
+## `git-repo-update`: YAML起点のメタデータ更新
+
+[`gh_repo.yml` の description/topics を読み `gh repo edit` でリポジトリメタを反映]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- プロジェクト直下の `.github/repository_metadata/gh_repo.yml` を読み込み
+- YAMLに書いた `description` / `topics` を `gh repo edit` で反映
+- リポジトリの[**メタデータをコード管理下に置ける**]{.regmonkey-bold}（IaC的な運用）
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 既定のYAMLを読む
+git-repo-update
+
+# カスタムファイル指定
+git-repo-update /path/to/meta.yml
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# gh repo edit に YAML の内容を流し込む
+DESC=$(yamlcli -f gh_repo.yml -k description)
+TOPICS=$(yamlcli -f gh_repo.yml -k topics | paste -sd,)
+gh repo edit --description "$DESC" --add-topic "$TOPICS"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[YAMLスキーマ例]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```yaml
+# .github/repository_metadata/gh_repo.yml
+description: "ML pipeline for churn prediction"
+topics:
+  - machine-learning
+  - churn
+  - lightgbm
+```
+
+:::
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 依存: `gh` CLI，`yamlcli`，`jq`
+
+
+:::
+
+
+## `git-repo-update`: DS文脈の活用例
+
+[プロジェクト仕様書と同期してGitHubのdescription/topicsを更新．ドキュメント追従の自動化]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSプロジェクトは[**タスク・スコープが頻繁に変わる**]{.regmonkey-bold}が，GitHubのdescriptionは手で更新しがち
+- 仕様 yaml を一次情報にして CI で `git-repo-update` を走らせれば，[**実態とGitHub表示がズレない**]{.regmonkey-bold}
+- topics で検索しやすくなり，社内の類似プロジェクト横断も改善
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: CI でメタデータ同期]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```yaml
+# .github/workflows/sync-repo-meta.yml
+on:
+  push:
+    branches: [main]
+    paths: ['.github/repository_metadata/gh_repo.yml']
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ~/.tool.d/regmonkey-gitcommand/src/git-repo-update.sh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+:::
+
+
+# GitHub連携
+
+## `git-create-repo`: YAMLからGitHubリポジトリ作成
+
+[`gh_repo.yml` を元に `gh repo create` でリポジトリ新規作成．テンプレ化に最適]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- プロジェクト配下の `.github/repository_metadata/gh_repo.yml` を読み込み
+- `name` / `visibility` 等を `gh repo create` に渡してリポジトリを[**YAMLベースで作成**]{.regmonkey-bold}
+- 引数でYAMLパス指定も可能
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 既定のYAMLで作成
+git-create-repo
+
+# 別パスのYAMLを使う
+git-create-repo ./meta/newproject.yml
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# YAML から name/visibility を読んで作成
+NAME=$(yamlcli -f gh_repo.yml -k name)
+VIS=$(yamlcli -f gh_repo.yml -k visibility)
+gh repo create "$NAME" --"$VIS"
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[YAMLスキーマ例]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```yaml
+# .github/repository_metadata/gh_repo.yml
+name: ml-churn-prediction
+visibility: private
+description: "ML pipeline for churn"
+topics:
+  - machine-learning
+  - churn
+```
+
+:::
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 依存: `gh` CLI 認証済，`yamlcli`
+- tags にスペースは不可
+
+:::
+
+
+## `git-create-repo`: DS文脈の活用例
+
+[新規実験プロジェクトのリポジトリを YAML テンプレから一発生成．ブートストラップ高速化]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 「新しい分析タスクが来たら毎回リポジトリを作る」DS運用では，ブートストラップが煩雑
+- テンプレートYAMLを用意し，[**プロジェクト名だけ差し替えて即座に作成**]{.regmonkey-bold}
+- 初期構造・命名規約・topic を組織全体で統一できる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: プロジェクトscaffold]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# テンプレ配布
+cp -r ~/.template/ds-project ./analysis-2026-Q2-customer-churn
+cd ./analysis-2026-Q2-customer-churn
+
+# YAML書き換え（name だけ変えればOK）
+sed -i 's/__PROJECT_NAME__/analysis-2026-Q2-customer-churn/' \
+  .github/repository_metadata/gh_repo.yml
+
+# 一発生成
+git-create-repo
+git-repo-update
+```
+
+:::
+
+
+## `git-delete-current-repo`: 現リポジトリの削除
+
+[現在のローカル Git リポジトリに対応するGitHubリポジトリを確認付きで削除]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- `gh repo view` で所属を取得し，[**`<OWNER/REPO>` 形式の対象リポジトリを削除**]{.regmonkey-bold}
+- 実行時にY/N確認．`-n` で dry-run
+- ローカルファイルには影響なし．GitHub側のみ削除
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 確認付きで削除
+git-delete-current-repo
+
+# dry-run で対象確認
+git-delete-current-repo -n
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 現在のローカルから OWNER/REPO を解決して削除
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+gh repo delete "$REPO" --yes
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-n` | dry-run |
+| `-h` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 削除は **不可逆** なので慎重に
+- 依存: `gh` CLI 認証済
+
+:::
+
+:::
+::::
+
+
+## `git-delete-current-repo`: DS文脈の活用例
+
+[実験打ち切り・再構築時のcleanup．アーカイブではなく削除という選択肢が必要な場面に]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 探索的な DS プロジェクトは[**放棄・再構築**]{.regmonkey-bold}が起きやすい．scaffoldミスで作り直すことも
+- `gh repo archive` ではなく完全削除したいケース（個人サンドボックス等）
+- ブラウザで GitHub → Settings → Delete の手順が不要
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: scaffoldミスの即時再作成]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# 間違ったvisibilityで作ってしまった場合
+git-create-repo  # private と public を間違えて作成
+
+# dry-run で対象確認
+git-delete-current-repo -n
+#  [Dry run] The following repository would be deleted: user/wrong-visibility
+
+# 削除 → YAML直して再作成
+git-delete-current-repo
+vi .github/repository_metadata/gh_repo.yml
+git-create-repo
+```
+
+:::
+
+
+## `git-issue2pr`: IssueをPRに変換
+
+[既存のGitHub Issueを `gh api` 経由でPullRequestに変換．Issue本文を引き継げる]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- GitHub REST API の [**「IssueをPRに変換する」機能**]{.regmonkey-bold}を CLI ラップ
+- 現在のブランチが head，`-b` で指定したブランチが base，`-i` でIssue番号を指定
+- Issue の議論履歴がそのままPRに引き継がれるのが最大のメリット
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[Usage]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# Issue #42 を main 向けPRに
+git-issue2pr -b main -i 42
+
+# upstream fork ワークフロー
+git-issue2pr -b develop -i 7 -r upstream
+```
+
+:::
+
+[One-liner equivalent]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# gh api で issue を PR に変換（同一ブランチ前提）
+OWNER_REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+gh api "repos/$OWNER_REPO/pulls" \
+  -f head=$(git branch --show-current) -f base=main -F issue=42
+```
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[Options]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09}
+
+| Option | 説明 |
+|:-------|:-----|
+| `-b <branch>` | base branch (必須) |
+| `-i <issue>` | Issue番号 (必須) |
+| `-r <remote>` | remote名 (既定: origin) |
+| `-h`, `--help` | ヘルプ表示 |
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[REMARKS]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.padding-L-10}
+
+- 事前に現ブランチをpush済みであること
+
+:::
+
+:::
+::::
+
+
+## `git-issue2pr`: DS文脈の活用例
+
+[タスクissueのまま議論 → 実装が固まった瞬間にPR化，議論ログを無駄なく継承]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- DSタスクは「何を作るか」よりも[**どう評価するか・どのデータを使うか**]{.regmonkey-bold}の議論が重い
+- Issueで議論 → 実装が見えてきた段階で PR 化すれば，[**レビュワーは議論の文脈ごと**]{.regmonkey-bold}受け取れる
+- PRを新規作成して引用する運用より情報密度が高い
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[ユースケース: RFC → 実装フロー]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```bash
+# Step1: Issue作成で設計議論（評価方法/ベースライン/データソース等）
+gh issue create --title "[RFC] 解約予測モデルv2" --body "..."
+
+# Step2: 実装ブランチで作業
+git switch -c feat/churn-v2
+# ... 実装・commit・push ...
+
+# Step3: Issue #42 をそのままPR化
+git push -u origin feat/churn-v2
+git-issue2pr -b main -i 42
+```
+
+:::
+
+
+# まとめ
+
+## 学習コストと導入効果
+
+[CLIとしてPATH追加すれば即使える．`.gitconfig` alias 化で `git <name>` へ昇格]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 20コマンド全てが[**単一シェル/Perlスクリプト**]{.regmonkey-bold}で完結．依存は `git` / `gh` / `tree` / `yamlcli` / `claude` 程度
+- まずは頻度の高い `git-add-patch` / `git-gen-commit` / `git-delete-obsolete-branch` / `git-tree` から導入すると効果を実感しやすい
+- DS業務では[**ノートブックの乱雑な差分と大量の実験ブランチ**]{.regmonkey-bold}を整理する道具として特に有効
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[おすすめ .gitconfig alias]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-12}
+
+```ini
+[alias]
+  # regmonkey-gitcommand
+  add-newline = "!git-add-newline.sh"
+  add-patch = "!git-add-patch.sh"
+  browse = "!git-browse.sh"
+  check-commitsize = "!git-check-commitsize.sh"
+  delete-current-repo = "!git-delete-current-repo.sh"
+  delete-obsolete-branch = "!git-delete-obsolete-branch.sh"
+  issue2pr = "!git-issue2pr.sh"
+  lastdiff = "!git-lastdiff.sh"
+  newline-check = "!git-newline-check.sh"
+  sprint-commit = "!git-sprint-commit.sh"
+  tree = "!git-tree.sh"
+  tmp-checkout = "!git-tmp-checkout.sh"
+  whoami = "!git-whoami.sh"
+```
+
+:::
+
+<!-- footer -->
+
+[^footer-repo]: Source: [RyoNakagami/regmonkey-gitcommand](https://github.com/RyoNakagami/regmonkey-gitcommand) (main branch, as of 2026-04-23)
