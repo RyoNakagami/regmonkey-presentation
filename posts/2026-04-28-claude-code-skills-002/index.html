@@ -9,11 +9,12 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – Claude Code Skills とは何か</title>
+  <title>Presentation for Regession Monkey – Skill を自作する</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -229,7 +230,7 @@
   <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
-<meta property="og:title" content="Claude Code Skills とは何か – Presentation for Regession Monkey">
+<meta property="og:title" content="Skill を自作する – Presentation for Regession Monkey">
 <meta property="og:description" content="claude-code 101">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
@@ -238,7 +239,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Claude Code Skills とは何か</h1>
+  <h1 class="title">Skill を自作する</h1>
   <p class="subtitle">claude-code 101</p>
 
 <div class="quarto-title-authors">
@@ -251,121 +252,193 @@ Ryo Nakagami
 
   <p class="date">2026年04月28日</p>
 </section>
-<section>
-<section id="skill-の基礎" class="title-slide slide level1 agenda-slide center">
-<h1>Skill の基礎</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-active">
-<p>Skill の基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>他のカスタマイズ手段との比較</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>まとめ</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="skill-とは何か" class="slide level2">
-<h2>Skill とは何か</h2>
-<p><span class="h2-submessage">同じ説明を毎回繰り返さず，Claudeに「やり方」を一度だけ教え込む仕組み</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-box">
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05" style="line-height: 1.2">
-<ul>
-<li>Skillとは，Claude Codeが<span class="regmonkey-bold"><strong>特定タスクを正確にこなすための指示・リソースをまとめたフォルダ</strong></span></li>
-<li>各Skillは <code>SKILL.md</code> 一枚を中核とし，frontmatterの <code>name</code> / <code>description</code> でClaudeに自身の役割を共有する</li>
-<li>ユーザーの依頼内容と <code>description</code> がマッチすると，<span class="regmonkey-bold"><strong>Claudeが自動的に該当Skillを読み込んで適用</strong></span>する</li>
-<li>コミットメッセージ・PRレビュー・コーディング規約など，<span class="regmonkey-bold"><strong>毎回説明していた内容</strong></span>を一度書けば永続化できる</li>
-</ul>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<section id="index" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index</h2>
 <div class="columns">
-<div class="column font-09" style="width:50%;">
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="pentagon-box-500">
-<div class="border-bottom-header font-10">
-<p>Skillなしの世界 = 同じ指示を毎セッション再入力</p>
-</div>
-<div class="squaredmark" style="font-size: 1em; padding-left: 0.5em; line-height: 2">
-<ol type="1">
-<li>PRレビュー時に<strong>毎回フォーマット</strong>を再説明</li>
-<li>コミットメッセージのスタイルを<strong>毎回</strong>注意</li>
-<li>コーディング規約を<strong>毎回</strong>伝える</li>
-<li>同じ説明をチームメンバーが<strong>個別に</strong>反復</li>
-<li>ナレッジが個人セッションに閉じ込められる</li>
-</ol>
-</div>
-</div>
-</div><div class="column padding-L-12 font-09" style="width:50.0%;">
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="square-box-500">
-<div class="border-bottom-header">
-<p>Skillありの世界 = 自動マッチ＆オンデマンド適用</p>
-</div>
-<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div><div class="column" style="width:30%;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section"><strong>起動の仕組み</strong></span></p>
-<div class="padding-L-10">
+<div class="sidebar">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-bullseye " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="学習目標">学習目標</h3>
+</div>
 <ul>
-<li>Claudeが<code>description</code>を見て自動判定</li>
-<li>関連タスク発生時のみ読み込まれる</li>
+<li>SKILL.md をスクラッチで作成・検証できる</li>
+<li>マッチング機構と優先順位を説明できる</li>
 </ul>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section"><strong>運用上のメリット</strong></span></p>
-<div class="padding-L-10">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-person " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="対象レベル">対象レベル</h3>
+</div>
 <ul>
-<li>個人 / プロジェクト単位で<strong>切り替え可能</strong></li>
-<li>Git管理でき<strong>チーム横断で共有</strong>できる</li>
+<li>Claude Code を触ったことがある人</li>
+<li>自分の作業を Skill 化したい開発者・データ分析者</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="前提知識-必要環境">前提知識 &amp; 必要環境</h3>
+</div>
+<ul>
+<li>claude-code 101「Skill とは何か」を読了</li>
+<li><code>~/.claude/skills/</code> への書き込み権限</li>
 </ul>
 </div>
 </div>
+</div><div class="column" style="padding-left:1em;">
+<div class="regmonkey_index" style="width:1100px; line-height: 1.1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Skill 作成の実践</span></span>
+<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ディレクトリ作成 → &lt;strong&gt;SKILL.md&lt;/strong&gt; 編集 → 再起動の3ステップで完成</span></span>
+<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> frontmatter（&lt;strong&gt;name・description&lt;/strong&gt;）と本文（指示書）の二層構造</span></span>
+<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 動作確認</span></span>
+<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 自然文「What skills are available?」で &lt;strong&gt;登録一覧を取得&lt;/strong&gt;</span></span>
+<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 実依頼を投げ，IDE に Skill 名と説明が出れば &lt;strong&gt;auto-match 成功&lt;/strong&gt;</span></span>
+<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一覧に出ない・発火しない場合は &lt;strong&gt;frontmatter 構文・再起動忘れ&lt;/strong&gt;を疑う</span></span>
+<span id="cb1-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. ロードとマッチング</span></span>
+<span id="cb1-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> スキャン対象は Enterprise・Personal・Project・Plugins の &lt;strong&gt;4ヶ所&lt;/strong&gt;</span></span>
+<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 起動時は &lt;strong&gt;name + description のみ先読み&lt;/strong&gt;，本文は遅延ロード</span></span>
+<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 依頼との &lt;strong&gt;意味マッチで発火&lt;/strong&gt; → 確認プロンプト → 本文展開</span></span>
+<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 運用とTips</span></span>
+<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 更新は SKILL.md 編集，削除はディレクトリ削除，&lt;strong&gt;どちらも再起動が必須&lt;/strong&gt;</span></span>
+<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 誤発火・空振りを観察して &lt;strong&gt;description を磨き続ける&lt;/strong&gt;運用が鍵</span></span>
+<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
-<section id="skill-の構造" class="slide level2">
-<h2>Skill の構造</h2>
-<p><span class="h2-submessage"><code>SKILL.md</code> の frontmatter が “看板”，本文が “中身”</span></p>
+<section>
+<section id="skill-作成の実践" class="title-slide slide level1 agenda-slide center">
+<h1>Skill 作成の実践</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Skill 作成の実践</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>動作確認</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ロード &amp; マッチング</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>運用とTips</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="skill-作成はディレクトリ-skill.md-再起動の3ステップ" class="slide level2">
+<h2>Skill 作成は「ディレクトリ → SKILL.md → 再起動」の3ステップ</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="hop-step-jump-container">
+<div class="step step-1">
+<div class="step-number">
+<p>Step 1</p>
+</div>
+<div class="step-title">
+<p>ディレクトリを作成</p>
+</div>
+<div class="info-content">
+<ul>
+<li>配置先：<code>~/.claude/skills/&lt;skill-name&gt;/</code></li>
+<li>ディレクトリ名は <strong><code>name</code> と一致</strong>させる</li>
+<li>例：<code>mkdir -p ~/.claude/skills/pr-description</code></li>
+</ul>
+</div>
+</div>
+<div class="step step-2">
+<div class="step-number">
+<p>Step 2</p>
+</div>
+<div class="step-title">
+<p><code>SKILL.md</code> を作成</p>
+</div>
+<div class="info-content">
+<ul>
+<li>frontmatter に <code>name</code> と <code>description</code> を記述</li>
+<li><code>---</code> 以降に <strong>Claude への指示書本文</strong></li>
+<li>description は「Use when …」を含めると誤発火が減る</li>
+</ul>
+</div>
+</div>
+<div class="step step-3">
+<div class="step-number">
+<p>Step 3</p>
+</div>
+<div class="step-title">
+<p>Claude Code を再起動</p>
+</div>
+<div class="info-content">
+<ul>
+<li>Skill は <strong>起動時にスキャン</strong>される</li>
+<li>利用可能 Skill 一覧で名前を確認</li>
+<li>自然文で依頼してロードされるか検証</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="skill.md-はfrontmatter-看板本文-中身の二層構造" class="slide level2">
+<h2><code>SKILL.md</code> は「frontmatter = 看板」「本文 = 中身」の二層構造</h2>
+<p><span class="h2-submessage"><code>name</code> は識別子，<code>description</code> がマッチングキー，本文が指示書</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <div class="info-contents font-10 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
-<li>Skillは<span class="regmonkey-bold"><strong>フォルダ単位で構成され，<code>SKILL.md</code> をエントリーポイント</strong></span>とする</li>
-<li>frontmatterの <code>description</code> は<span class="regmonkey-bold"><strong>Claudeが「このSkillを使うか」を判断する唯一のキー</strong></span>．具体的に書くほど誤発火が減る</li>
-<li>frontmatter以下の本文に，チェックリスト・整形ルール・出力テンプレートなど Claude に知って欲しい中身を記述する</li>
+<li>frontmatter は <code>---</code> で囲み，<code>name</code>（kebab-case<sup>1</sup>）と <code>description</code>（自然文）を必ず書く</li>
+<li>frontmatter 以下は <span class="regmonkey-bold"><strong>Claude が Skill を発火したときに読み込む指示書</strong></span></li>
+<li>description は具体的に書くほど <span class="regmonkey-bold"><strong>意図したタイミングだけで起動</strong></span>するようになる</li>
 </ul>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span class="mini-section">SKILL.md の最小例</span></p>
+<p><span class="mini-section">最小構造の例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="co">---</span></span>
-<span id="cb1-2"><a></a><span class="an">name:</span><span class="co"> pr-review</span></span>
-<span id="cb1-3"><a></a><span class="an">description:</span><span class="co"> Reviews pull requests for code</span></span>
-<span id="cb1-4"><a></a><span class="co">  quality. Use when reviewing PRs or</span></span>
-<span id="cb1-5"><a></a><span class="co">  checking code changes.</span></span>
-<span id="cb1-6"><a></a><span class="co">---</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="fu"># PR Review Checklist</span></span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="ss">1. </span>Type safety: 型推論・narrowing が</span>
-<span id="cb1-11"><a></a>   壊れていないか</span>
-<span id="cb1-12"><a></a><span class="ss">2. </span>Error handling: 例外パスが網羅されているか</span>
-<span id="cb1-13"><a></a><span class="ss">3. </span>Test coverage: テストが追加されているか</span>
-<span id="cb1-14"><a></a><span class="ss">4. </span>...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="font-10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="co">---</span></span>
+<span id="cb2-2"><a></a><span class="an">name:</span><span class="co"> pr-description</span></span>
+<span id="cb2-3"><a></a><span class="an">description:</span><span class="co"> Writes pull request descriptions.</span></span>
+<span id="cb2-4"><a></a><span class="co">  Use when creating a PR, writing a PR, or when</span></span>
+<span id="cb2-5"><a></a><span class="co">  the user asks to summarize changes for a pull</span></span>
+<span id="cb2-6"><a></a><span class="co">  request.</span></span>
+<span id="cb2-7"><a></a><span class="co">---</span></span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a>When writing a PR description:</span>
+<span id="cb2-10"><a></a></span>
+<span id="cb2-11"><a></a><span class="ss">1. </span>Run <span class="in">`git diff main...HEAD`</span> to see all changes</span>
+<span id="cb2-12"><a></a><span class="ss">2. </span>Write a description following this format:</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="fu">## What</span></span>
+<span id="cb2-15"><a></a>One sentence explaining what this PR does.</span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a><span class="fu">## Why</span></span>
+<span id="cb2-18"><a></a>Brief context on why this change is needed.</span>
+<span id="cb2-19"><a></a></span>
+<span id="cb2-20"><a></a><span class="fu">## Changes</span></span>
+<span id="cb2-21"><a></a><span class="ss">- </span>Bullet points of specific changes made</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">フィールドの役割</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09" style="line-height: 1.8">
+<div class="font-09 lh-16">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -378,397 +451,360 @@ Ryo Nakagami
 <tr class="odd">
 <td style="text-align: left;"><code>name</code></td>
 <td style="text-align: left;">識別子</td>
-<td style="text-align: left;">kebab-case，ユニーク</td>
+<td style="text-align: left;">kebab-case，<strong>ディレクトリ名と一致</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;">マッチング用</td>
-<td style="text-align: left;">“Use when …” を含める</td>
+<td style="text-align: left;">マッチング</td>
+<td style="text-align: left;">“Use when …” を含め具体的に</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">本文</td>
-<td style="text-align: left;">指示の中身</td>
-<td style="text-align: left;">チェックリスト形式が読みやすい</td>
+<td style="text-align: left;">指示書</td>
+<td style="text-align: left;">手順・出力テンプレを明示</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">コツ</span></p>
+<div class="padding-L-10 font-09 lh-16">
 <ul>
-<li>初期ロードは<code>name</code> + <code>description</code>のみ．本文は<span class="regmonkey-bold"><strong>マッチ後に遅延ロード</strong></span>される</li>
-<li>そのため大量のSkillを置いてもコンテキストを圧迫しない</li>
+<li>frontmatter を変えたら <span class="regmonkey-bold"><strong>Claude Code を再起動</strong></span>しないと反映されない</li>
+<li>本文はマッチ後に遅延ロード．長くてもコンテキストを圧迫しない</li>
+</ul>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn1"><p>最大64文字．小文字，数字，ハイフンのみ使用可能．先頭．末尾ハイフン禁止 <code>^[a-z0-9]+(-[a-z0-9]+)*$</code></p></li></ol></aside></section></section>
+<section>
+<section id="動作確認" class="title-slide slide level1 agenda-slide center">
+<h1>動作確認</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skill 作成の実践</p>
+</div></li>
+<li><div class="agenda-active">
+<p>動作確認</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ロード &amp; マッチング</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>運用とTips</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="skill-一覧の質問とターミナル出力で登録を目視確認" class="slide level2">
+<h2>「Skill 一覧の質問」と「ターミナル出力」で登録を目視確認</h2>
+<p><span class="h2-submessage">作成直後はまず一覧で名前が出るかを見る．これで frontmatter 構文ミスを早期検知できる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">① 自然文で問い合わせる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<p><img data-src="./what-skills-are-available.png" style="width:100.0%" alt="Claude Code に What skills are available? と問い合わせている画面"></p>
+<div class="font-09 padding-L-05 lh-14">
+<ul>
+<li><code>What skills are available?</code> と聞くだけ</li>
+<li>スラッシュコマンドではなく <span class="regmonkey-bold"><strong>自然文で OK</strong></span></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">② 一覧出力を確認</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<p><img data-src="./available-skills-list.png" style="width:100.0%" alt="Skill 一覧（documentation・debugging・pr-description 等）が表示された画面"></p>
+<div class="font-09 padding-L-05 lh-14">
+<ul>
+<li><code>Skill: &lt;name&gt;</code> と <code>Description: ...</code> が並ぶ</li>
+<li>期待した <span class="regmonkey-bold"><strong><code>pr-description</code> が含まれているか</strong></span>を目視</li>
+<li>出ていなければ frontmatter 構文・ディレクトリ名を疑う</li>
 </ul>
 </div>
 </div></div>
 </section>
-<section id="実例-skill-が自動で読み込まれる様子" class="slide level2">
-<h2>実例: Skill が自動で読み込まれる様子</h2>
-<p><span class="h2-submessage"><code>description</code> にマッチした瞬間，Claude Code が該当Skillを識別しターミナルに表示</span></p>
+<section id="指示に応じて-skill-が自動マッチされロードログが可視化される" class="slide level2">
+<h2>指示に応じて Skill が自動マッチされロードログが可視化される</h2>
+<p><span class="h2-submessage">Skill 名を呼ばずとも．<code>description</code> の意味マッチで Claude が選定し，ログ表示される</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><img data-src="./skill-auto-load.png" style="width:100.0%" alt="Claude Code が pr-review Skill を自動でロードする様子"></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<p><img data-src="./how-to-use-skills.png" style="width:100.0%" alt="VS Code 上で Skill が auto-load されている様子"></p>
 </div><div class="column font-09" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<p><span class="mini-section">読み込みまでの3ステップ</span></p>
-<div class="padding-L-10 lh-12">
+<p><span class="mini-section">起動の流れ</span></p>
+<div class="padding-L-10 lh-14">
 <ol type="1">
-<li>ユーザーが<strong>自然言語で依頼</strong>を入力
+<li>ユーザーが <span class="regmonkey-bold"><strong>自然文で依頼</strong></span>を入力
 <ul>
-<li>例: <code>Can you review the pull request on branch sg-221?</code></li>
+<li>例：<code>Write a PR description for my changes.</code></li>
 </ul></li>
-<li>Claude Code が登録されたSkillの <strong><code>description</code> と照合</strong> → <code>pr-review</code> を自動選定</li>
-<li>ターミナルに <code>Skill(pr-review)</code> と<span class="regmonkey-bold"><strong>ロードログが可視化</strong></span>され，本文がコンテキストに展開される</li>
+<li>Claude Code が登録 Skill の <code>description</code> と意味マッチ</li>
+<li>マッチした Skill 名と説明が <span class="regmonkey-bold"><strong>IDE 上に表示</strong></span>される</li>
+<li>確認後，本文がコンテキストに展開され実行される</li>
 </ol>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<p><span class="mini-section">ここがSkillsの本質</span></p>
-<div class="padding-L-10" style="line-height: 1.6">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">ここがデバッグの勘所</span></p>
+<div class="padding-L-10 lh-14">
 <ul>
-<li>ユーザーは <strong><code>/pr-review</code> を明示的に呼んでいない</strong>のに自動マッチ</li>
-<li>ロードが<strong>視覚的に確認できる</strong>ので「期待した Skill が起動したか」をその場でデバッグ可能</li>
-<li>不発火なら <code>description</code> の文言を見直すサイン</li>
+<li>表示が出れば <span class="regmonkey-bold"><strong><code>description</code> が効いている</strong></span>証拠</li>
+<li>出ない・別 Skill が出る → description の文言を見直す</li>
 </ul>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="ロード-マッチング" class="title-slide slide level1 agenda-slide center">
+<h1>ロード &amp; マッチング</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skill 作成の実践</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>動作確認</p>
+</div></li>
+<li><div class="agenda-active">
+<p>ロード &amp; マッチング</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>運用とTips</p>
+</div></li>
+</ul>
+</div>
 </section>
-<section id="skill-の保管場所" class="slide level2">
-<h2>Skill の保管場所</h2>
-<p><span class="h2-submessage">個人用は <code>~/.claude/skills</code>，プロジェクト用は <code>.claude/skills</code></span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<section id="claude-code-は4ヶ所をスキャンしname-descriptionだけを先読みする" class="slide level2">
+<h2>Claude Code は4ヶ所をスキャンし「name + description」だけを先読みする</h2>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="columns">
 <div class="column font-09" style="width:50%;">
 <div class="pentagon-box-500">
-<div class="border-bottom-header font-10">
-<p>Personal skills = 個人の作法を全プロジェクトに</p>
+<div class="border-bottom-header-left font-10">
+<p>起動時：軽量メタロード</p>
 </div>
-<div class="squaredmark" style="font-size: 0.95em; padding-left: 0.5em; line-height: 1.8">
+<div class="squaredmark" style="font-size: 0.95em; padding-left: 0.5em; line-height: 1.6">
 <ul>
-<li>配置先: <code>~/.claude/skills/&lt;skill-name&gt;/</code></li>
-<li>Windows: <code>C:/Users/&lt;user&gt;/.claude/skills</code></li>
-<li>自分のあらゆるClaude Code実行で<span class="regmonkey-bold"><strong>自動的に有効</strong></span></li>
-<li>ユースケース:
+<li>スキャン対象は4ヶ所
 <ul>
-<li>コミットメッセージの個人的な好み</li>
-<li>文書スタイル</li>
-<li>コードの説明レベルの調整</li>
+<li><code>managed-settings.json</code>（Enterprise）</li>
+<li><code>~/.claude/skills/</code>（Personal）</li>
+<li><code>&lt;repo&gt;/.claude/skills/</code>（Project）</li>
+<li><code>&lt;repo&gt;/.claude-plugin/plugin.json</code>（Plugins）</li>
 </ul></li>
+<li>各 SKILL.md から <span class="regmonkey-bold"><strong><code>name</code> と <code>description</code> のみ</strong></span>を読む</li>
+<li>本文はこの段階では読み込まない</li>
 </ul>
 </div>
 </div>
 </div><div class="column padding-L-12 font-09" style="width:50%;">
 <div class="square-box-500">
-<div class="border-bottom-header">
-<p>Project skills = チーム標準をリポジトリと同梱</p>
+<div class="border-bottom-header-left">
+<p>リクエスト時：意味マッチ + 確認</p>
 </div>
-<div class="squaredmark" style="font-size: 0.95em; padding-right: 1em; line-height: 1.8">
+<div class="squaredmark" style="font-size: 0.95em; padding-right: 1em; line-height: 1.6">
 <ul>
-<li>配置先: <code>&lt;repo&gt;/.claude/skills/&lt;skill-name&gt;/</code></li>
-<li>リポジトリにcommitすれば<span class="regmonkey-bold"><strong>clone した全員に同じSkillが配布</strong></span></li>
-<li>ユースケース:
-<ul>
-<li>チームのコードレビュー基準</li>
-<li>PRテンプレート / ブランチ命名規則</li>
-<li>会社のブランドガイドライン</li>
-<li>特定フレームワーク向けデバッグチェックリスト</li>
-</ul></li>
+<li>ユーザー依頼を <span class="regmonkey-bold"><strong>全 description と意味的に照合</strong></span></li>
+<li>例：「この関数を説明して」と「explain code with diagrams」が一致</li>
+<li>マッチした Skill はロード前に <span class="regmonkey-bold"><strong>確認プロンプト</strong></span>が出る</li>
+<li>承認後に本文が読み込まれ，指示書に従って実行</li>
 </ul>
 </div>
 </div>
 </div></div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09 lh-14">
+<ul>
+<li>メタ情報だけ先読みする設計のおかげで，<span class="regmonkey-bold"><strong>何十個 Skill を置いてもコンテキストを圧迫しない</strong></span></li>
+<li>確認プロンプトがあるので「どの Skill が動いたか」を毎回ユーザーが把握できる</li>
+</ul>
+</div>
 </section>
-<section id="skill-の優先順位と4階層" class="slide level2">
-<h2>Skill の優先順位と4階層</h2>
-<p><span class="h2-submessage">名前衝突時は Enterprise &gt; Personal &gt; Project，Plugin は名前空間で隔離</span></p>
+<section id="同名-skill-衝突はenterprise-personal-project-plugins-の順で優先される" class="slide level2">
+<h2>同名 Skill 衝突は，Enterprise → Personal → Project → Plugins の順で優先される</h2>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="info-box">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-contents font-10 padding-L-05 lh-14">
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 32%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">順位</th>
+<th style="text-align: left;">種別</th>
+<th style="text-align: left;">配置場所</th>
+<th style="text-align: left;">役割</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1st</td>
+<td style="text-align: left;"><span class="regmonkey-bold"><strong>Enterprise</strong></span></td>
+<td style="text-align: left;"><code>managed-settings.json</code></td>
+<td style="text-align: left;">組織が強制する標準（全社統一のレビュー基準など）</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2nd</td>
+<td style="text-align: left;"><span class="regmonkey-bold"><strong>Personal</strong></span></td>
+<td style="text-align: left;"><code>~/.claude/skills/</code></td>
+<td style="text-align: left;">個人の作法を全プロジェクトに適用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3rd</td>
+<td style="text-align: left;"><span class="regmonkey-bold"><strong>Project</strong></span></td>
+<td style="text-align: left;"><code>&lt;repo&gt;/.claude/skills/</code></td>
+<td style="text-align: left;">リポジトリ同梱でチームに配布</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4th</td>
+<td style="text-align: left;"><span class="regmonkey-bold"><strong>Plugins</strong></span></td>
+<td style="text-align: left;"><code>&lt;repo&gt;/.claude-plugin/plugin.json</code></td>
+<td style="text-align: left;">インストールしたプラグイン由来</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">衝突を避ける命名のコツ</span></p>
+<div class="padding-L-10 font-09 lh-16">
+<ul>
+<li>汎用的な名前（例：<code>review</code>）は避ける</li>
+<li>用途を含めて命名：<code>frontend-review</code>，<code>backend-review</code></li>
+<li>チーム独自なら <code>&lt;team&gt;-&lt;task&gt;</code> の prefix も有効</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">この順序の意図</span></p>
+<div class="padding-L-10 font-09 lh-16">
+<ul>
+<li>Enterprise が最優先：<span class="regmonkey-bold"><strong>組織の合意がローカル設定に勝つ</strong></span>思想</li>
+<li>Plugins が最下位：<span class="regmonkey-bold"><strong>個人・プロジェクト側で上書き可能</strong></span>な拡張ポイント</li>
+<li>衝突時の解は <span class="regmonkey-bold"><strong>命名整理</strong></span>が原則</li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="運用とtips" class="title-slide slide level1 agenda-slide center">
+<h1>運用とTips</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skill 作成の実践</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>動作確認</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ロード &amp; マッチング</p>
+</div></li>
+<li><div class="agenda-active">
+<p>運用とTips</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="skill.md-更新削除はどちらもセッション再起動が必須" class="slide level2">
+<h2><code>SKILL.md</code> 更新・削除は，どちらもセッション再起動が必須</h2>
+<p><span class="h2-submessage">ファイル操作はシンプルだが「再起動忘れ」が最頻出のハマりポイント</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>更新したいとき：<code>SKILL.md</code> を編集して <span class="regmonkey-bold"><strong>Claude Code を再起動</strong></span></li>
+<li>削除したいとき：Skill ディレクトリを丸ごと削除して <span class="regmonkey-bold"><strong>再起動</strong></span></li>
+<li>description だけの変更でも再起動が必要．<strong>起動時にしかメタを読み直さない</strong>ため</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">よくある事故</span></p>
+<div class="padding-L-10 font-09 lh-16">
+<ul>
+<li>編集したのに古い挙動 → <span class="regmonkey-bold"><strong>再起動漏れ</strong></span></li>
+<li>起動しなくなった → ディレクトリ名と <code>name</code> の不一致</li>
+<li>想定外に発火する → <code>description</code> が抽象的すぎ</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">改善サイクル</span></p>
+<div class="padding-L-10 font-09 lh-16">
+<ul>
+<li>誤発火・空振りを観察し description を磨く</li>
+<li>本文は試行を重ねながら手順を具体化</li>
+<li>安定したら個人 → プロジェクトへ昇格も検討</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="良い-description-は何をするといつ使うを両方含む" class="slide level2">
+<h2>良い description は「何をする」と「いつ使う」を両方含む</h2>
+<p><span class="h2-submessage">漠然とした description は誤発火・空振りの元．具体的なキーワードと発動条件をセットで書く</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <div class="info-contents font-10 padding-L-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
-<li>Skillの配置先は<span class="regmonkey-bold"><strong>Enterprise / Personal / Project / Plugin の4階層</strong></span>に分かれており，それぞれ適用範囲が異なる</li>
-<li>同名 Skill が複数レベルに存在する場合，<span class="regmonkey-bold"><strong>上位レベルが下位を上書き</strong></span>する（IT管理の Enterprise 設定が個人や Project の設定より優先される）</li>
-<li>Plugin Skill のみ <code>&lt;plugin&gt;:&lt;skill&gt;</code> の名前空間を持つため他レベルと衝突しない</li>
+<li>description は Claude が<span class="regmonkey-bold"><strong>マッチングに使う唯一の手がかり</strong></span>．本文は読まれない</li>
+<li>What（何をする Skill か）と When（いつ使うか）を両方書く．<code>Use when ...</code> は便利なテンプレ</li>
+<li>発火しないときは<span class="regmonkey-bold"><strong>ユーザーが実際に使う言い回し</strong></span>を description に追記する</li>
 </ul>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="columns">
-<div class="column font-09" style="width:58%;">
-<div class="font-09" style="line-height: 1.5">
-<table class="caption-top">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 42%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">レベル</th>
-<th style="text-align: left;">配置パス</th>
-<th style="text-align: left;">適用範囲</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Enterprise</strong></td>
-<td style="text-align: left;">managed settings 参照（IT管理）</td>
-<td style="text-align: left;">組織内の<span class="regmonkey-bold"><strong>全ユーザー</strong></span>に適用</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Personal</strong></td>
-<td style="text-align: left;"><code>~/.claude/skills/&lt;name&gt;/SKILL.md</code></td>
-<td style="text-align: left;">自分の<span class="regmonkey-bold"><strong>全プロジェクト</strong></span>に適用</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Project</strong></td>
-<td style="text-align: left;"><code>.claude/skills/&lt;name&gt;/SKILL.md</code></td>
-<td style="text-align: left;"><span class="regmonkey-bold"><strong>そのリポジトリ内のみ</strong></span>に適用</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Plugin</strong></td>
-<td style="text-align: left;"><code>&lt;plugin&gt;/skills/&lt;name&gt;/SKILL.md</code></td>
-<td style="text-align: left;">plugin が<span class="regmonkey-bold"><strong>有効な場所</strong></span>すべてに適用</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div><div class="column font-09" style="width:42%;">
-<p><span class="mini-section">使い分けの指針</span></p>
-<div class="padding-L-10" style="line-height: 1.6">
-<ul>
-<li><strong>Personal</strong>: コミット文体・説明レベルなど自分の作法</li>
-<li><strong>Project</strong>: チームのレビュー基準・ブランドガイド（repo に commit して配布）</li>
-<li><strong>Enterprise</strong>: 全社統一ルール（IT 部門が managed settings で配布）</li>
-<li><strong>Plugin</strong>: <code>skilltool</code> や OSS 経由で配布する再利用 Skill</li>
-</ul>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="他のカスタマイズ手段との比較" class="title-slide slide level1 agenda-slide center">
-<h1>他のカスタマイズ手段との比較</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Skill の基礎</p>
-</div></li>
-<li><div class="agenda-active">
-<p>他のカスタマイズ手段との比較</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>まとめ</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="skills-vs-claude.md-vs-slash-commands" class="slide level2">
-<h2>Skills vs CLAUDE.md vs Slash Commands</h2>
-<p><span class="h2-submessage">「いつロードされるか」と「誰が起動するか」が3者の本質的な違い</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="font-09" style="line-height: 1.8">
-<table class="caption-top">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 32%">
-<col style="width: 18%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">仕組み</th>
-<th style="text-align: left;">ロードのタイミング</th>
-<th style="text-align: left;">起動者</th>
-<th style="text-align: left;">主なユースケース</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>CLAUDE.md</strong></td>
-<td style="text-align: left;">全会話の冒頭で<strong>常時ロード</strong></td>
-<td style="text-align: left;">自動（不可避）</td>
-<td style="text-align: left;">プロジェクト全体に必ず守って欲しい絶対ルール（例: <code>strict</code> モード必須）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Skill</strong></td>
-<td style="text-align: left;">descriptionがマッチした時だけ<strong>オンデマンド</strong></td>
-<td style="text-align: left;">Claudeが自動判定</td>
-<td style="text-align: left;">特定タスクで必要な専門知識（PRレビュー基準・ブランドガイド等）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Slash command</strong></td>
-<td style="text-align: left;">ユーザーが <code>/cmd</code> と打った時のみ</td>
-<td style="text-align: left;">ユーザーが明示起動</td>
-<td style="text-align: left;">確定的に呼び出したい定型ワークフロー（<code>/review</code> <code>/security-review</code>等）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span class="mini-section">使い分けの原則</span></p>
-<div class="padding-L-10 font-09" style="line-height: 1.8">
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left font-10">
+<p>弱い description（誤発火しやすい）</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5">
 <ul>
-<li><strong>必ず守らせたい</strong> → <code>CLAUDE.md</code></li>
-<li><strong>状況依存で適用したい</strong> → Skill</li>
-<li><strong>明示的に呼び出したい</strong> → Slash command</li>
+<li><code>Helps with docs.</code>
+<ul>
+<li>何を「help」するかが不明瞭</li>
+<li>「docs」もカバー範囲が広すぎる</li>
+</ul></li>
+<li>結果：<span class="regmonkey-bold"><strong>意図しない依頼</strong></span>でも発火しがち</li>
 </ul>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
-<p><span class="mini-section">コンテキスト消費の観点</span></p>
-<div class="padding-L-10 font-09" style="line-height: 1.8">
+<div class="square-box-500">
+<div class="border-bottom-header-left font-10">
+<p>強い description（誤発火しにくい）</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5">
 <ul>
-<li><code>CLAUDE.md</code> は<span class="regmonkey-bold"><strong>全会話で消費</strong></span> → 肥大化に注意</li>
-<li>Skillは<span class="regmonkey-bold"><strong>マッチ時のみ消費</strong></span> → 大量に置けるのが強み</li>
-<li>Slash commandも<span class="regmonkey-bold"><strong>呼び出し時のみ</strong></span></li>
+<li><code>Writes pull request descriptions. Use when creating a PR or summarizing changes for review.</code>
+<ul>
+<li>What：「PR description を書く」</li>
+<li>When：「PR を作るとき」「変更を要約するとき」</li>
+</ul></li>
 </ul>
+</div>
 </div>
 </div></div>
-</section>
-<section id="いつ-skill-にすべきか" class="slide level2">
-<h2>いつ Skill にすべきか</h2>
-<p><span class="h2-submessage">「同じ説明を2回以上した」が Skill 化のシグナル</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
-<ul>
-<li>Skill化の判断基準はシンプル: <span class="regmonkey-bold"><strong>「自分が同じ説明をClaudeに繰り返している」と気づいた瞬間</strong></span>が，それは Skill になるべき知識</li>
-<li>一般のCLAUDE.mdに入れるには<strong>特定的すぎる</strong>が，毎回手で説明するには<strong>汎用的すぎる</strong> → そのスイートスポットがSkill</li>
-<li>チームで共有したいか，個人だけで使うかで保管場所を切り替える</li>
-</ul>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="columns">
-<div class="column font-09" style="width:50%;">
-<p><span class="mini-section">Skill化に向いているもの</span></p>
-<div class="padding-L-10" style="line-height: 1.8">
-<ul>
-<li>チームのコードレビュー基準</li>
-<li>好みのコミットメッセージ書式</li>
-<li>組織のブランドガイドライン</li>
-<li>特定文書タイプのテンプレート</li>
-<li>フレームワーク固有のデバッグ手順</li>
-<li>リリースノート整形ルール</li>
-</ul>
-</div>
-</div><div class="column font-09" style="width:50%;">
-<p><span class="mini-section">Skill化に向かないもの</span></p>
-<div class="padding-L-10" style="line-height: 1.8">
-<ul>
-<li>プロジェクト全体で<strong>常に</strong>守って欲しい掟 → <code>CLAUDE.md</code></li>
-<li>一回限りのタスク → 直接プロンプト</li>
-<li>確定的に毎回呼び出したい処理 → Slash command</li>
-<li>コード本体に書くべきロジック</li>
-</ul>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="まとめ" class="title-slide slide level1 agenda-slide center">
-<h1>まとめ</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Skill の基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>他のカスタマイズ手段との比較</p>
-</div></li>
-<li><div class="agenda-active">
-<p>まとめ</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="skill-導入の3ステップ" class="slide level2">
-<h2>Skill 導入の3ステップ</h2>
-<p><span class="h2-submessage">「気づく → 書く → 置く」のサイクルを回せば，Claude Codeの再現性が劇的に上がる</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="shannon-model font-09">
-<div class="shannon-component">
-<div class="shannon-icon-box">
-<p><i class="fa-solid fa-magnifying-glass"></i></p>
-</div>
-<p><span class="shannon-label">気づく</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="shannon-annotation-box" style="border: none">
-<ul>
-<li>同じ説明の繰り返しを検知</li>
-<li>「またこれ書いてる」を捉える</li>
-</ul>
-</div>
-</div>
-<div class="shannon-arrow">
-<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
-<p><i class="fa-solid fa-arrow-right"></i></p>
-</div>
-<div class="shannon-component">
-<div class="shannon-icon-box">
-<p><i class="fa-solid fa-pen-to-square"></i></p>
-</div>
-<p><span class="shannon-label">書く</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="shannon-annotation-box" style="border: none">
-<ul>
-<li><code>SKILL.md</code> を作成</li>
-<li><code>description</code> を具体的に</li>
-</ul>
-</div>
-</div>
-<div class="shannon-arrow">
-<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
-<p><i class="fa-solid fa-arrow-right"></i></p>
-</div>
-<div class="shannon-component">
-<div class="shannon-icon-box">
-<p><i class="fa-solid fa-folder-tree"></i></p>
-</div>
-<p><span class="shannon-label">置く</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="shannon-annotation-box" style="border: none">
-<ul>
-<li>個人なら <code>~/.claude/skills</code></li>
-<li>チームなら <code>.claude/skills</code></li>
-</ul>
-</div>
-</div>
-<div class="shannon-arrow">
-<div class="reveal_vspace" style="--vspace-height: 7em;"></div>
-<p><i class="fa-solid fa-arrow-right"></i></p>
-</div>
-<div class="shannon-component">
-<div class="shannon-icon-box">
-<p><i class="fa-solid fa-rotate"></i></p>
-</div>
-<p><span class="shannon-label">改善</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="shannon-annotation-box" style="border: none">
-<ul>
-<li>誤発火・空振りを観察</li>
-<li><code>description</code> を磨き続ける</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section">Key Takeaways</span></p>
-<div class="padding-L-10 font-10" style="line-height: 1.2">
-<ul>
-<li>Skillとは「<span class="regmonkey-bold"><strong>Claudeに一度だけやり方を教えるmarkdownファイル</strong></span>」．以降は自動適用</li>
-<li>frontmatterの <code>description</code> がマッチング鍵 — 具体的に書くこと</li>
-<li>個人用は <code>~/.claude/skills</code>，チーム用は repo の <code>.claude/skills</code></li>
-<li>CLAUDE.md（常時） / Slash command（明示起動）と違い，<span class="regmonkey-bold"><strong>状況に応じて自動ロード</strong></span>される</li>
-<li>同じ説明を繰り返している自分に気づいたら，それは新しいSkillの種</li>
-</ul>
-</div>
 
 
 
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
