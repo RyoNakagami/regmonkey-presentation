@@ -187,6 +187,53 @@ description: Reviews pull requests for code
 ::::
 
 
+## 実例: Skill が自動で読み込まれる様子
+
+[`description` にマッチした瞬間，Claude Code が該当Skillを識別しターミナルに表示]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+{{< reveal_vspace 0.5em >}}
+
+![](./skill-auto-load.png){fig-alt="Claude Code が pr-review Skill を自動でロードする様子" width="100%"}
+
+:::
+::: {.column width="45%" .font-09}
+
+{{< reveal_vspace 0.25em >}}
+
+[読み込みまでの3ステップ]{.mini-section}
+
+:::{.padding-L-10 .lh-12}
+
+
+1. ユーザーが**自然言語で依頼**を入力
+    - 例: `Can you review the pull request on branch sg-221?`
+2. Claude Code が登録されたSkillの **`description` と照合** → `pr-review` を自動選定
+3. ターミナルに `Skill(pr-review)` と[**ロードログが可視化**]{.regmonkey-bold}され，本文がコンテキストに展開される
+
+:::
+
+
+{{< reveal_vspace 0.3em >}}
+
+[ここがSkillsの本質]{.mini-section}
+
+:::{.padding-L-10 style="line-height: 1.6"}
+
+- ユーザーは **`/pr-review` を明示的に呼んでいない**のに自動マッチ
+- ロードが**視覚的に確認できる**ので「期待した Skill が起動したか」をその場でデバッグ可能
+- 不発火なら `description` の文言を見直すサイン
+
+:::
+
+:::
+::::
+
+
 ## Skill の保管場所
 
 [個人用は `~/.claude/skills`，プロジェクト用は `.claude/skills`]{.h2-submessage}
