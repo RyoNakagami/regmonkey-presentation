@@ -1,0 +1,14 @@
+[skill]
+name        = "regmonkey-slide-skill"
+version     = "0.1.0"
+description = "Author Quarto Reveal.js slide decks for the regmonkey-presentation site (style/revealjs.css). Use whenever the user wants to create, edit, or extend a slide in this repo — especially when they say 'スライド', 'qmd', 'deck', 'プレゼン', 'セクションを足して', '対比で見せて', 'AS-IS / TO-BE', or reference any house pattern (pentagon-box, square-box, hop-step-jump, info-box, summary, Index, Abstract)."
+author      = "Ryo Nakagami"
+entry       = "SKILL.md"
+include = [
+    "SKILL.md",
+    "references/*.md",
+    "templates/*.qmd",
+    "templates/*.txt",
+    "README.md"
+]
+tags = ["quarto", "revealjs", "slides", "regmonkey", "presentation"]

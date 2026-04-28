@@ -293,16 +293,59 @@ Project skills = チーム標準をリポジトリと同梱
 :::
 ::::
 
-{{< reveal_vspace 1em >}}
+## Skill の優先順位と4階層
 
-[REMARKS]{.mini-section}
+[名前衝突時は Enterprise > Personal > Project，Plugin は名前空間で隔離]{.h2-submessage}
 
-:::{.info-contents .font-09 .padding-L-10 .lh-12}
+{{< reveal_vspace 0.3em >}}
 
-- 同名Skillが両方に存在する場合，**プロジェクト側が優先**される（チームの合意がローカル設定に勝つ）
-- リポジトリ間で共通化したい場合は個人側に，リポジトリ固有なら必ずプロジェクト側に置くのが原則
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- Skillの配置先は[**Enterprise / Personal / Project / Plugin の4階層**]{.regmonkey-bold}に分かれており，それぞれ適用範囲が異なる
+- 同名 Skill が複数レベルに存在する場合，[**上位レベルが下位を上書き**]{.regmonkey-bold}する（IT管理の Enterprise 設定が個人や Project の設定より優先される）
+- Plugin Skill のみ `<plugin>:<skill>` の名前空間を持つため他レベルと衝突しない
 
 :::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="58%" .font-09}
+
+:::{.font-09 style="line-height: 1.5"}
+
+| レベル | 配置パス | 適用範囲 |
+|:------|:---------|:---------|
+| **Enterprise** | managed settings 参照（IT管理） | 組織内の[**全ユーザー**]{.regmonkey-bold}に適用 |
+| **Personal** | `~/.claude/skills/<name>/SKILL.md` | 自分の[**全プロジェクト**]{.regmonkey-bold}に適用 |
+| **Project** | `.claude/skills/<name>/SKILL.md` | [**そのリポジトリ内のみ**]{.regmonkey-bold}に適用 |
+| **Plugin** | `<plugin>/skills/<name>/SKILL.md` | plugin が[**有効な場所**]{.regmonkey-bold}すべてに適用 |
+
+: {tbl-colwidths="[18,42,40]"}
+
+:::
+:::
+::: {.column width="42%" .font-09}
+
+[使い分けの指針]{.mini-section}
+
+:::{.padding-L-10 style="line-height: 1.6"}
+
+- **Personal**: コミット文体・説明レベルなど自分の作法
+- **Project**: チームのレビュー基準・ブランドガイド（repo に commit して配布）
+- **Enterprise**: 全社統一ルール（IT 部門が managed settings で配布）
+- **Plugin**: `skilltool` や OSS 経由で配布する再利用 Skill
+
+:::
+
+:::
+::::
 
 
 # 他のカスタマイズ手段との比較
