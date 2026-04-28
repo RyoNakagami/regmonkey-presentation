@@ -48,3 +48,4 @@ __pycache__/
 /.luarc.json
 
 **/*.quarto_ipynb
+**/*.quarto_ipynb_*
