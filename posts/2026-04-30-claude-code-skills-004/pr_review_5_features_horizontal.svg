@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1100 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PRレビューフローでの5機能の役割分担">
+  <title>PRレビューフローでの5機能の役割分担</title>
+  <desc>主軸はHooks→Skills→MCP serversの時系列。SkillsからSubagentsへ別軸で委譲。CLAUDE.mdは全工程に適用される土台</desc>
+
+  <defs>
+    <marker id="arrow-pr-axis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#0e3666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-sub" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#0e3666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <style>
+    .pr-svg text { font-family: Meiryo, "メイリオ", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; fill: #1a1a1a; }
+    .t-title { font-size: 18px; font-weight: 700; }
+    .t-body  { font-size: 14px; font-weight: 400; }
+    .t-axis  { font-size: 13px; font-weight: 500; }
+    .t-anno  { font-size: 12px; font-weight: 500; }
+  </style>
+
+  <g class="pr-svg">
+
+    <!-- CLAUDE.md foundation banner (always-on, full width) -->
+    <rect x="30" y="12" width="1040" height="56" rx="9" fill="none" stroke="#0e3666" stroke-width="1.2"/>
+    <text x="54" y="40" class="t-title">CLAUDE.md</text>
+    <text x="54" y="61" class="t-body">恒久標準・全PRで常時適用（例：TypeScript strict / DBスキーマ直接変更禁止）</text>
+
+    <!-- Timeline axis -->
+    <line x1="50" y1="92" x2="1050" y2="92" stroke="#0e3666" stroke-width="0.9" stroke-dasharray="3 3"/>
+    <circle cx="60"   cy="92" r="3.6" fill="#0e3666"/>
+    <text   x="60"   y="84" class="t-axis" text-anchor="middle">PR作成</text>
+    <circle cx="1040" cy="92" r="3.6" fill="#0e3666"/>
+    <text   x="1040" y="84" class="t-axis" text-anchor="middle">マージ</text>
+    <text   x="550"  y="84" class="t-anno" text-anchor="middle">主軸（時系列）</text>
+
+    <!-- Hooks (event-driven) -->
+    <g>
+      <rect x="80" y="106" width="220" height="120" rx="9" fill="none" stroke="#0e3666" stroke-width="1.2"/>
+      <text x="100" y="134" class="t-title">Hooks</text>
+      <text x="100" y="160" class="t-body">保存時に自動起動</text>
+      <text x="100" y="182" class="t-body">lint / format / 型チェック</text>
+      <text x="100" y="204" class="t-body">トリビアな指摘を消す</text>
+    </g>
+
+    <!-- Skills (on-demand) -->
+    <g>
+      <rect x="430" y="106" width="220" height="120" rx="9" fill="none" stroke="#0e3666" stroke-width="1.2"/>
+      <text x="450" y="134" class="t-title">Skills</text>
+      <text x="450" y="160" class="t-body">レビュー依頼時に起動</text>
+      <text x="450" y="182" class="t-body">pr-review スキル</text>
+      <text x="450" y="204" class="t-body">観点リスト・コメント書式</text>
+    </g>
+
+    <!-- MCP servers (external) -->
+    <g>
+      <rect x="780" y="106" width="220" height="120" rx="9" fill="none" stroke="#0e3666" stroke-width="1.2"/>
+      <text x="800" y="134" class="t-title">MCP servers</text>
+      <text x="800" y="160" class="t-body">Jira 連携で仕様参照</text>
+      <text x="800" y="182" class="t-body">コメントにチケット</text>
+      <text x="800" y="204" class="t-body">番号を埋め込む</text>
+    </g>
+
+    <!-- Main-axis arrows -->
+    <line x1="300" y1="166" x2="426" y2="166" stroke="#0e3666" stroke-width="2" marker-end="url(#arrow-pr-axis)"/>
+    <line x1="650" y1="166" x2="776" y2="166" stroke="#0e3666" stroke-width="2" marker-end="url(#arrow-pr-axis)"/>
+
+    <!-- Skills ⇄ Subagents arrows (delegate / return) -->
+    <path d="M 510 228 L 510 250" fill="none" stroke="#0e3666" stroke-width="1.8" marker-end="url(#arrow-sub)"/>
+    <path d="M 570 250 L 570 228" fill="none" stroke="#0e3666" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arrow-sub)"/>
+    <text x="500" y="244" class="t-anno" text-anchor="end">委譲</text>
+    <text x="580" y="244" class="t-anno">結果</text>
+
+    <!-- Subagents (delegation, full-size box matching the others) -->
+    <g>
+      <rect x="430" y="252" width="220" height="120" rx="9" fill="none" stroke="#0e3666" stroke-width="1.2"/>
+      <text x="450" y="280" class="t-title">Subagents</text>
+      <text x="450" y="306" class="t-body">差分が大きい時に</text>
+      <text x="450" y="328" class="t-body">code-reviewer に委譲</text>
+      <text x="450" y="350" class="t-body">本会話のコンテキスト保護</text>
+    </g>
+
+    <!-- Side annotation -->
+    <text x="680" y="320" class="t-anno">Skills の内部処理として</text>
+    <text x="680" y="340" class="t-anno">Subagents を呼び出す</text>
+
+  </g>
+</svg>
