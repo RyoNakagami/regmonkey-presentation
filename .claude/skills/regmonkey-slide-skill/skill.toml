@@ -9,6 +9,7 @@ include = [
     "references/*.md",
     "templates/*.qmd",
     "templates/*.txt",
+    "subagents/*.md",
     "README.md"
 ]
 tags = ["quarto", "revealjs", "slides", "regmonkey", "presentation"]
