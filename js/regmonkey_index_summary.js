@@ -1,3 +1,16 @@
+// Convert Pandoc-style math delimiters ($...$ / $$...$$) into MathJax-default
+// delimiters (\(...\) / \[...\]) so runtime-injected content typesets correctly.
+// Pandoc rewrites $-math at compile time, but YAML inside .regmonkey_index is
+// parsed by JS at runtime, so we must do the conversion here.
+function convertMathDelimiters(text) {
+  if (typeof text !== "string") return text;
+  // Display math first to avoid being captured by the inline pattern.
+  text = text.replace(/\$\$([\s\S]+?)\$\$/g, "\\[$1\\]");
+  // Inline math: avoid spanning newlines and avoid empty matches.
+  text = text.replace(/\$([^\$\n]+?)\$/g, "\\($1\\)");
+  return text;
+}
+
 function renderRegmonkeyIndex(el) {
   const codeBlock = el.querySelector("pre code");
   if (!codeBlock) return;
@@ -26,10 +39,10 @@ function renderRegmonkeyIndex(el) {
       if (child.description) {
         if (Array.isArray(child.description)) {
           html += "<ul>";
-          child.description.forEach(d => html += `<li>${d}</li>`);
+          child.description.forEach(d => html += `<li>${convertMathDelimiters(d)}</li>`);
           html += "</ul>";
         } else {
-          html += `<p>${child.description}</p>`;
+          html += `<p>${convertMathDelimiters(child.description)}</p>`;
         }
       }
 
@@ -43,10 +56,12 @@ function renderRegmonkeyIndex(el) {
       const wRight = widths[2] || "0%";
 
       const left = `<div class="flex flex-col justify-center" style="width:${wLeft};">
-<div class="title" style="font-size:${data.title_fontsize}; color: #0e3666; font-weight: bold !important;">${child.title}</div>
+<div class="title" style="font-size:${data.title_fontsize}; color: #0e3666; font-weight: bold !important;">${convertMathDelimiters(child.title)}</div>
 </div>`;
 
-      const bullets = child.description.map(li => `<li>${li}</li>`).join("\n");
+      const bullets = child.description
+        .map(li => `<li>${convertMathDelimiters(li)}</li>`)
+        .join("\n");
       const middle = `<div class="flex flex-col justify-center" style="width:${wMid};">
 <ul class="bullet-points content-text" style="font-size:${data.bullet_fontsize};">
 ${bullets}
@@ -72,9 +87,16 @@ ${right}
   // Replace original code block with generated HTML
   el.innerHTML = html;
 
-  // --- MathJax typeset immediately after DOM insertion ---
+  // MathJax 3 may not be fully loaded at DOMContentLoaded. Wait for the startup
+  // promise before calling typesetPromise, then fall back to a direct call.
   if (window.MathJax) {
-    MathJax.typesetPromise([el]).catch(console.error);
+    if (MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise
+        .then(() => MathJax.typesetPromise([el]))
+        .catch(console.error);
+    } else if (typeof MathJax.typesetPromise === "function") {
+      MathJax.typesetPromise([el]).catch(console.error);
+    }
   }
 }
 
@@ -83,7 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (window.Reveal && window.MathJax) {
     Reveal.on("slidechanged", function (event) {
-      MathJax.typesetPromise([event.currentSlide]).catch(console.error);
+      if (typeof MathJax.typesetPromise === "function") {
+        MathJax.typesetPromise([event.currentSlide]).catch(console.error);
+      }
     });
   }
 });

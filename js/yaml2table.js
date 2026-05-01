@@ -1,3 +1,16 @@
+// Convert Pandoc-style math delimiters ($...$ / $$...$$) into MathJax-default
+// delimiters (\(...\) / \[...\]) so runtime-injected content typesets correctly.
+// Pandoc rewrites $-math at compile time, but YAML inside .yaml2table is parsed
+// by JS at runtime, so we must do the conversion here.
+function convertMathDelimiters(text) {
+  if (typeof text !== "string") return text;
+  // Display math first to avoid being captured by the inline pattern.
+  text = text.replace(/\$\$([\s\S]+?)\$\$/g, "\\[$1\\]");
+  // Inline math: avoid spanning newlines and avoid empty matches.
+  text = text.replace(/\$([^\$\n]+?)\$/g, "\\($1\\)");
+  return text;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".yaml2table").forEach((el) => {
     const rawYaml = el.innerText.trim();
@@ -12,6 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inject the generated table into the HTML
     el.innerHTML = htmlTable;
+
+    // MathJax 3 may not be fully loaded at DOMContentLoaded. Wait for the
+    // startup promise before calling typesetPromise, then fall back to a
+    // direct call if startup is not exposed.
+    if (window.MathJax) {
+      if (MathJax.startup && MathJax.startup.promise) {
+        MathJax.startup.promise
+          .then(() => MathJax.typesetPromise([el]))
+          .catch(console.error);
+      } else if (typeof MathJax.typesetPromise === "function") {
+        MathJax.typesetPromise([el]).catch(console.error);
+      }
+    }
   });
 });
 
@@ -46,7 +72,7 @@ function generateTable(data, columnWidths) {
                           columnWidths && columnWidths[0]
                             ? ` style="width: ${columnWidths[0]}%;"`
                             : ""
-                        }>${firstKey}</th>`; // Use the first key as column name
+                        }>${convertMathDelimiters(firstKey)}</th>`; // Use the first key as column name
 
   let headerIndex = 1;
   allHeaders.forEach((h) => {
@@ -54,7 +80,7 @@ function generateTable(data, columnWidths) {
       columnWidths && columnWidths[headerIndex]
         ? ` style="width: ${columnWidths[headerIndex]}%;"`
         : ""
-    }>${h}</th>`;
+    }>${convertMathDelimiters(h)}</th>`;
     headerIndex++;
   });
   table += "</tr></thead><tbody>";
@@ -70,7 +96,7 @@ function generateTable(data, columnWidths) {
           columnWidths && columnWidths[0]
             ? ` style="width: ${columnWidths[0]}%;"`
             : ""
-        }>${component[recordIndex]}</td>`;
+        }>${convertMathDelimiters(component[recordIndex])}</td>`;
       }
 
       let cellIndex = 1;
@@ -88,7 +114,7 @@ function generateTable(data, columnWidths) {
         } else if (value === null) {
           table += `<td${cellStyle}><p style="vertical-align: middle;">-</p></td>`;
         } else {
-          table += `<td${cellStyle}>${value}</td>`;
+          table += `<td${cellStyle}>${convertMathDelimiters(value)}</td>`;
         }
         cellIndex++;
       });
@@ -108,7 +134,7 @@ function generateNestedList(data) {
       if (typeof item === "object" && item !== null) {
         return `<li>${generateNestedList(item)}</li>`;
       } else {
-        return `<li>${item}</li>`;
+        return `<li>${convertMathDelimiters(item)}</li>`;
       }
     }).join("")}</ul>`;
   }
@@ -116,10 +142,10 @@ function generateNestedList(data) {
   if (typeof data === "object" && data !== null) {
     let listItems = "";
     for (const key in data) {
-      listItems += `<li>${key}${generateNestedList(data[key])}</li>`;
+      listItems += `<li>${convertMathDelimiters(key)}${generateNestedList(data[key])}</li>`;
     }
     return `<ul>${listItems}</ul>`;
   }
 
-  return `<ul><li>${data}</li></ul>`;
+  return `<ul><li>${convertMathDelimiters(data)}</li></ul>`;
 }

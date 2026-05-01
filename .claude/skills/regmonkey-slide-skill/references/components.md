@@ -327,6 +327,28 @@ Nested bullets automatically degrade to `disc` (one level) and the parent marker
 
 For YAML-driven tables, write YAML inside a fenced code block and the JS converts it at render time. See `posts/2025-10-17-index-slide/index.qmd` for a full example.
 
+### `.yaml2table .yaml2table-custom-top` の第1列ルール
+
+`.yaml2table .yaml2table-custom-top` では，**各レコードの最初のキーの値（= 第1列・行ラベル）に `regmonkey-bold` クラスを付けない**．第1列は CSS 側で太字・色付けされた行ラベルとして既にスタイルが当たっており，ここに `<span class="regmonkey-bold">...</span>` を重ねると以下の問題が起きる：
+
+- 行ラベル本来のスタイルと色が衝突して見た目が壊れる
+- すべての行が均一に強調されることで「強調すべき箇所」の情報がなくなる
+- `regmonkey-bold` の意味的な役割（本文中で特に注目させたい語）と矛盾する
+
+```yaml
+# NG ────────────────────────────────────────
+record1:
+  雑音モデル: <span class="regmonkey-bold">独立等分散（homoskedastic）</span>
+  ...
+
+# OK ────────────────────────────────────────
+record1:
+  雑音モデル: 独立等分散（homoskedastic）
+  ...
+```
+
+`regmonkey-bold` を使うのは **2 列目以降の本文セルの中**で，1 文の中の特定の語句を目立たせたいときだけにする．
+
 ---
 
 ## Index slide
