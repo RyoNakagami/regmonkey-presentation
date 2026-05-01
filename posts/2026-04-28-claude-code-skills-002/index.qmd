@@ -105,6 +105,7 @@ regmonkey_index:
       description:
         - 更新は SKILL.md 編集，削除はディレクトリ削除，<strong>どちらも再起動が必須</strong>
         - 誤発火・空振りを観察して <strong>description を磨き続ける</strong>運用が鍵
+        - <strong>成果物・タスク・ドメイン</strong>の3観点で Skill を切り分ける
       width: [38, 62]
 ```
 
@@ -575,6 +576,136 @@ Brief context on why this change is needed.
 :::
 
 ::::
+
+:::
+::::
+
+## Skill は「成果物・タスク・ドメイン」の3観点で切り分ける
+
+[「何を作るか」「どう動くか」「どの領域か」のどれを軸にするかで Skill の粒度と再利用性が決まる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::: {.columns}
+:::: {.column style="width: 33.3%; height:100%"}
+
+::::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi file-earmark-text-fill size=1.6em color=#428CE6 >}} 成果物単位
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.block .squaredmark style="font-size:0.85em; padding-right:0.5em;"}
+
+- [**「何を作るか」**]{.regmonkey-bold}で Skill を切る
+- 最終的に生まれるファイル・ドキュメントのフォーマットを軸にする
+- 例：API仕様書，テスト計画書，運用手順書
+
+:::
+
+::::
+
+::::
+:::: {.column style="width: 33.3%; height:100%"}
+
+::::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi gear-fill size=1.6em color=#428CE6 >}} タスク単位
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.block .squaredmark style="font-size:0.85em; padding-right:0.5em;"}
+
+- [**「どういう作業をするか」**]{.regmonkey-bold}で Skill を切る
+- 手順・判断分岐・典型的な失敗回避を資産化できる
+- 例：パフォーマンステスト実行，DBマイグレーション，セキュリティスキャン
+
+:::
+
+::::
+
+::::
+:::: {.column style="width: 33.3%; height:100%"}
+
+::::{.horizontal-keypoints-block-no-border style="height:60%;"}
+
+:::{.block-header}
+{{< bi globe2 size=1.6em color=#428CE6 >}} ドメイン単位
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.block .squaredmark style="font-size:0.85em; padding-right:0.5em;"}
+
+- [**「どの分野・領域か」**]{.regmonkey-bold}で Skill を切る
+- 専門用語・業務慣習・固有ルール・規制要件を集約
+- Claude の事前知識が古い・不足する領域を埋めるのに有効
+
+:::
+
+::::
+
+::::
+:::::
+
+## 複数観点が重なる実タスクは，層に分けた Skill を組み合わせる
+
+[一つの巨大 Skill に詰め込むより，観点ごとに分けるほうが再利用性も保守性も上がる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-14}
+
+{{< reveal_vspace 0.25em >}}
+
+- 例：「規制対象プロダクトのリリース前チェック」は [**ドメイン × タスク × 成果物の3層が同時に走る**]{.regmonkey-bold}
+- 1つの Skill に詰め込むと [**他のプロダクトや別タスクで再利用できなくなる**]{.regmonkey-bold}
+- 層ごとに分けておけば [**ドメインだけ差し替え・タスクだけ流用**]{.regmonkey-bold}が可能になる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[3層に分解した例：規制対象プロダクトのリリース前チェック]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-skill-design-layers data-col-widths="[20, 32, 48]"}
+
+```yaml
+record1:
+  層: ドメイン Skill
+  Skill の責務:
+    - 領域固有の知識・規制を集約
+  このケースでの中身:
+    - 案件特有の規制要件
+    - プロダクト固有ルール
+
+record2:
+  層: タスク Skill
+  Skill の責務:
+    - 作業手順・判断分岐を資産化
+  このケースでの中身:
+    - セキュリティスキャンの実行手順
+    - 失敗パターンと回避手順
+
+record3:
+  層: 成果物 Skill
+  Skill の責務:
+    - 出力フォーマットを統一
+  このケースでの中身:
+    - 運用手順書としてまとめる
+    - 提出用ドキュメントの体裁を整える
+```
 
 :::
 ::::
