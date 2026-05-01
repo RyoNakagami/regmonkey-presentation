@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – Skillと他カスタマイズ機能の使い分け</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="../../style/revealjs.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+<meta property="og:title" content="Skillと他カスタマイズ機能の使い分け – Presentation for Regession Monkey">
+<meta property="og:description" content="claude-code 101">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Skillと他カスタマイズ機能の使い分け</h1>
+  <p class="subtitle">claude-code 101</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年04月30日</p>
+</section>
+<section id="index" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index</h2>
+<div class="columns">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div><div class="column" style="width:30%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="sidebar">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-bullseye " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="学習目標">学習目標</h3>
+</div>
+<ul>
+<li>5つのカスタマイズ機能の役割の違いを説明できる</li>
+<li>ユースケースに対し適切な機能を選べる</li>
+<li>複数機能を組み合わせた設計ができる</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-person " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="対象レベル">対象レベル</h3>
+</div>
+<ul>
+<li>Skill 自作の運用経験がある開発者</li>
+<li>どの機能をどこに置くか迷うことがある</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="前提知識-必要環境">前提知識 &amp; 必要環境</h3>
+</div>
+<ul>
+<li>CLAUDE.md・hooks・MCPの存在を知っている</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="padding-left:0.5em;">
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="regmonkey_index" style="width:1200px; line-height: 1.1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 5つの機能の全体像</span></span>
+<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Claude Codeのカスタマイズ手段は &lt;strong&gt;5種類&lt;/strong&gt;．それぞれが固有の専門領域を持つ</span></span>
+<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず，&lt;strong&gt;適材適所で組み合わせる&lt;/strong&gt;のが基本</span></span>
+<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Skills vs CLAUDE.md</span></span>
+<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> CLAUDE.mdは&lt;strong&gt;常時ロード&lt;/strong&gt;．プロジェクト共通の恒久ルール向け</span></span>
+<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;オンデマンド&lt;/strong&gt;．タスク特有の専門知識を必要時のみ</span></span>
+<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Skills vs Subagents</span></span>
+<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;現セッションに知識を追加&lt;/strong&gt;．推論をその場で補強する</span></span>
+<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Subagentsは&lt;strong&gt;別コンテキストで委譲&lt;/strong&gt;．独立した作業として隔離</span></span>
+<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Skills vs Hooks</span></span>
+<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;リクエスト駆動&lt;/strong&gt;．依頼内容に応じて起動</span></span>
+<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Hooksは&lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しで発火</span></span>
+<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Skills vs MCP servers</span></span>
+<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;指示・手順の知識&lt;/strong&gt;を与える</span></span>
+<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> MCPは&lt;strong&gt;外部ツール・統合&lt;/strong&gt;を提供</span></span>
+<span id="cb1-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section>
+<section id="つの機能の全体像" class="title-slide slide level1 agenda-slide center">
+<h1>5つの機能の全体像</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>5つの機能の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs CLAUDE.md</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs Subagents</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs Hooks</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs MCP servers</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="機能はそれぞれ独自の専門領域を持つ組み合わせて使う" class="slide level2">
+<h2>機能はそれぞれ独自の専門領域を持つ：組み合わせて使う</h2>
+<p><span class="h2-submessage">1機能に詰め込まず，常時ロード・オンデマンド・隔離実行・イベント駆動・外部統合を適材適所で配置する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="width-100">
+<div class="regmonkey_abstract_summary">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
+<span id="cb2-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;常時ロード&lt;/strong&gt;．全セッションの冒頭に必ず読み込まれる</span></span>
+<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロジェクト共通の&lt;strong&gt;恒久ルール&lt;/strong&gt;（標準・制約・スタイル）を置く</span></span>
+<span id="cb2-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Skills</span></span>
+<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;オンデマンドロード&lt;/strong&gt;．リクエストにマッチしたときだけセッションに合流</span></span>
+<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> タスク特有の&lt;strong&gt;専門知識・手順&lt;/strong&gt;を必要時に注入する</span></span>
+<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Subagents</span></span>
+<span id="cb2-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;隔離コンテキスト&lt;/strong&gt;で作業を委譲し，結果だけ回収する</span></span>
+<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 別ツール権限・並列実行・本セッションの&lt;strong&gt;コンテキスト保護&lt;/strong&gt;に有効</span></span>
+<span id="cb2-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Hooks</span></span>
+<span id="cb2-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しの前後で自動発火</span></span>
+<span id="cb2-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> lint/format・事前検証など「毎回走らせたい」副作用を仕込む</span></span>
+<span id="cb2-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> MCP servers</span></span>
+<span id="cb2-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;外部ツール・統合&lt;/strong&gt;を Claude に接続する：使える道具を増やす</span></span>
+<span id="cb2-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DB等への API 接続，標準ツールにない追加機能</span></span>
+<span id="cb2-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="claude-code-機能の使い分け判断の3原則" class="slide level2">
+<h2>Claude Code 機能の使い分け判断の3原則</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box" style="font-size: 1.0em;">
+<p><span class="info-box-title">判断の3原則</span></p>
+<div class="info-contents pl-5 font-09 lh-12">
+<ul>
+<li>「<span class="regmonkey-bold"><strong>いつロードされるか</strong></span>」「<span class="regmonkey-bold"><strong>何を提供するか</strong></span>」の2軸で機能を区別する</li>
+<li>各機能は<span class="regmonkey-bold"><strong>専門領域が重ならない</strong></span>：別の機能で代替するのは無理がある</li>
+<li>1つで賄おうとせず，複数を<span class="regmonkey-bold"><strong>重ねて構成</strong></span>するのが現実的な使い方</li>
+</ul>
+</div>
+</div>
+<p><span class="mini-section">具体例：PR レビュー支援フローでの5機能の役割分担</span></p>
+<div style="text-align:center;">
+<p><img data-src="./pr_review_5_features_horizontal.svg" style="width:100.0%" alt="PRレビューフローでの5機能の役割分担。CLAUDE.mdが土台として常時適用され，主軸はHooks→Skills→MCP serversの時系列。SkillsからSubagentsへ別軸で委譲"></p>
+</div>
+</section></section>
+<section>
+<section id="skills-vs-claude.md" class="title-slide slide level1 agenda-slide center">
+<h1>Skills vs CLAUDE.md</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>5つの機能の全体像</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Skills vs CLAUDE.md</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs Subagents</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs Hooks</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs MCP servers</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="常時ロードのclaude.md-と-必要時のみのskills" class="slide level2">
+<h2>常時ロードのCLAUDE.md と 必要時のみのSkills</h2>
+<p><span class="h2-submessage">全セッション共通ルールはCLAUDE.mdへ．セッションに応じた必要専門知識はSkillsに分離</span></p>
+<div class="info-box" style="font-size: 1.0em;">
+<p><span class="info-box-title">ロードのタイミングが本質的な違い</span></p>
+<div class="info-contents pl-5 font-09 lh-14">
+<ul>
+<li>CLAUDE.md<sup>1</sup>は<span class="regmonkey-bold"><strong>セッションの開始時</strong></span>に必ず読み込まれる：プロジェクト全体の前提</li>
+<li>Skillsは<span class="regmonkey-bold"><strong>マッチしたときだけ</strong></span>セッションに追加される：必要なときに必要な知識</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>CLAUDE.md を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>プロジェクト全体に<span class="regmonkey-bold"><strong>常に適用される</strong></span>標準
+<ul>
+<li>例：TypeScriptはstrictモードで書く</li>
+</ul></li>
+<li>「<span class="regmonkey-bold"><strong>絶対にやってはいけない</strong></span>」制約
+<ul>
+<li>例：DBスキーマを直接変更しない</li>
+</ul></li>
+<li>フレームワーク選定・コーディングスタイル</li>
+</ul>
+<p><span class="mini-section">Tips</span></p>
+<ul>
+<li><span class="regmonkey-bold"><strong>複数ステップの手順</strong></span>や<span class="regmonkey-bold"><strong>一部のコードのみに関わる事項</strong></span>は CLAUDE.md ではなく，Skill か path-scoped rule（ネストした CLAUDE.md）へ移す</li>
+</ul>
+</div>
+</div>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Skills を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>特定タスクのときだけ必要な<span class="regmonkey-bold"><strong>専門知識</strong></span>
+<ul>
+<li>例：PRレビュー用のチェックリスト</li>
+</ul></li>
+<li>一部の場面でのみ意味を持つ知識</li>
+<li><span class="regmonkey-bold"><strong>コンテキストを圧迫</strong></span>する可能性のある詳細な手順
+<ul>
+<li>skillsは常に読み込まれるのではなく，タスクマッチ時点で全文が読み込まれる（=<strong>段階的開示（progressive disclosure）</strong>で動作）</li>
+<li>タスクに応じて呼び出す形にするとContext Windowsを節約できる</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Claude Code が読むのは <code>CLAUDE.md</code>．他ツールで採用される <code>AGENTS.md</code> ではない点に注意．</p></li></ol></aside></section></section>
+<section>
+<section id="skills-vs-subagents" class="title-slide slide level1 agenda-slide center">
+<h1>Skills vs Subagents</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>5つの機能の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs CLAUDE.md</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Skills vs Subagents</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs Hooks</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs MCP servers</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="別コンテキストで実行するsubagents" class="slide level2">
+<h2>別コンテキストで実行するSubagents</h2>
+<p><span class="h2-submessage">Skillsは推論をその場で強化．Subagentsは作業を委譲して結果だけを受け渡す</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box" style="font-size: 1.0em;">
+<p><span class="info-box-title">コンテキストの扱いが本質的な違い</span></p>
+<div class="info-contents pl-5 font-09 lh-14">
+<ul>
+<li>Subagentsは<span class="regmonkey-bold"><strong>独立コンテキストで実行</strong></span>：タスクを渡して結果を回収する</li>
+<li>Subagentsが大量のログを読み込んでも，親エージェントのコンテキストには影響しない（<span class="regmonkey-bold">メモリ汚染の防止</span>）</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Subagents を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>作業を<span class="regmonkey-bold"><strong>別コンテキスト</strong></span>に委譲したい
+<ul>
+<li>例：広範な検索・調査の並列実行</li>
+</ul></li>
+<li>異なる<span class="regmonkey-bold"><strong>ツール権限</strong></span>を与えたい</li>
+<li>委譲作業と本セッションの<span class="regmonkey-bold"><strong>コンテキスト分離</strong></span>が必要</li>
+</ul>
+<p><span class="mini-section">REMARKS</span></p>
+<ul>
+<li>Subagentsは<span class="regmonkey-bold">親エージェントのコンテキストを参照できない</span></li>
+<li>情報を共有させたい場合は相互に参照できるログファイルを媒体にして，情報連携したりする</li>
+</ul>
+</div>
+</div>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Skills を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>現タスクの<span class="regmonkey-bold"><strong>Claudeの知識を補強</strong></span>したい
+<ul>
+<li>例：自社流のスライド作法をセッションに注入</li>
+</ul></li>
+<li>専門知識を<span class="regmonkey-bold"><strong>セッション全体</strong></span>で参照する</li>
+<li>隔離せず<span class="regmonkey-bold"><strong>継続して使う</strong></span>知識・指示</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="サブエージェントによるコンテキスト分離" class="slide level2">
+<h2>サブエージェントによるコンテキスト分離</h2>
+<p><span class="h2-submessage">親はタスクを委譲し，サブエージェントが独立コンテキストで作業．本コンテキストには要約だけが返る</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./subagent_context_separation.svg" style="width:100.0%" alt="親エージェントが3つのサブエージェント（A・B・C）にタスクを委譲し，それぞれが独立コンテキストで作業した結果の要約だけを親が受領する図"></p>
+</div>
+<p><span class="mini-section">もしSubAgentsがなかったら</span></p>
+<div class="padding-L-10">
+<ol type="1">
+<li>膨大なログ分析やテスト実行ログを読み込むことでAgentのメモリが汚染</li>
+<li>重要な要件や設計判断が圧縮<sup>1</sup>で失われる</li>
+<li>重要度の低い情報に引きずられることで推論の一貫性が崩れる</li>
+</ol>
+</div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn2"><p>コンテキストウィンドウの容量が限界(デフォルトでは95%)に近づいたときに，セッション履歴を要約して記憶管理すること</p></li></ol></aside></section></section>
+<section>
+<section id="skills-vs-hooks" class="title-slide slide level1 agenda-slide center">
+<h1>Skills vs Hooks</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>5つの機能の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs CLAUDE.md</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs Subagents</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Skills vs Hooks</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Skills vs MCP servers</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="リクエスト駆動のskills-と-イベント駆動のhooks" class="slide level2">
+<h2>リクエスト駆動のSkills と イベント駆動のHooks</h2>
+<p><span class="h2-submessage">何を依頼されたかで動くのがSkills．何が起きたかで動くのがHooks．発火条件のレイヤーが違う</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box" style="font-size: 1.0em;">
+<p><span class="info-box-title">起動トリガーが本質的な違い</span></p>
+<div class="info-contents pl-5 font-09 lh-14">
+<ul>
+<li>Hooksは<span class="regmonkey-bold"><strong>イベントで発火</strong></span>：ファイル保存・ツール呼び出しの前後で自動実行
+<ul>
+<li>プロンプトとしてではなく，プログラムとして動作する</li>
+</ul></li>
+<li>Skillsは<span class="regmonkey-bold"><strong>リクエストで発火</strong></span>：ユーザーの依頼内容にマッチして起動</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Hooks を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>ファイル編集・保存ごとに走らせたい<span class="regmonkey-bold"><strong>自動処理</strong></span>
+<ul>
+<li>例：保存時にlint・formatを自動実行</li>
+</ul></li>
+<li>特定ツール呼び出し前の<span class="regmonkey-bold"><strong>事前検証</strong></span>
+<ul>
+<li>例: Bash呼び出し時に，実行予定スクリプトをログに吐き出す</li>
+</ul></li>
+<li>Claude Codeの作業状態の通知
+<ul>
+<li>例: Slackに長時間タスクの完了通知を投げる</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Skills を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>リクエストの<span class="regmonkey-bold"><strong>処理方針</strong></span>を変える知識
+<ul>
+<li>例：レビュー依頼時のみチェック観点を提供</li>
+</ul></li>
+<li>状況に応じて，Claudeの<span class="regmonkey-bold"><strong>推論を導く</strong></span>ガイドライン</li>
+<li>「やるかどうか」自体をリクエストに応じてモデルが<span class="regmonkey-bold"><strong>判定する</strong></span></li>
+</ul>
+<p><span class="mini-section">REMARKS</span></p>
+<ul>
+<li>Hooksと異なり，スキル実行の判断はモデルが行うので，「絶対xxxしろ」とSKILLに記述したとしても，100%遵守の保証はない</li>
+<li>確実に走らせたい処理はHooks，文脈に応じた知識注入はSkills</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="hookの種類セッションプロンプト系" class="slide level2">
+<h2>Hookの種類：セッション・プロンプト系</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:70%; font-size: 0.9em !important;">
+<div id="yaml-hooks-1" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionStart</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション開始時・再開時</span></span>
+<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 開発コンテキスト（Issue・最近の変更など）の読み込み、環境変数のセットアップ</span></span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Setup</span></span>
+<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;--init-only&lt;/code&gt; または &lt;code&gt;-p&lt;/code&gt; モードで &lt;code&gt;--init&lt;/code&gt; / &lt;code&gt;--maintenance&lt;/code&gt; 起動時</span></span>
+<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> CIやスクリプトから明示的にトリガーする一回限りの依存関係インストール・スケジュールクリーンアップ</span></span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptSubmit</span></span>
+<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがプロンプトを送信し、Claudeが処理する前</span></span>
+<span id="cb3-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> プロンプトに基づくコンテキスト追加・プロンプトの検証・特定種類のプロンプトのブロック</span></span>
+<span id="cb3-18"><a></a></span>
+<span id="cb3-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptExpansion</span></span>
+<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> スラッシュコマンドがプロンプトに展開され、Claudeに届く前</span></span>
+<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb3-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 特定コマンドの直接呼び出しブロック・スキル用コンテキスト注入・コマンド利用ログ</span></span>
+<span id="cb3-24"><a></a></span>
+<span id="cb3-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionEnd</span></span>
+<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッションが終了したとき</span></span>
+<span id="cb3-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> セッション終了ログ・後処理</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="hookの種類ツール実行系" class="slide level2">
+<h2>Hookの種類：ツール実行系</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
+<div id="yaml-hooks-2" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreToolUse</span></span>
+<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claudeがツールパラメータを生成した後、ツール呼び出しの処理前</span></span>
+<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 危険コマンドのブロック・ツール入力の修正・許可/拒否/確認の制御</span></span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionRequest</span></span>
+<span id="cb4-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 権限ダイアログが表示されるとき</span></span>
+<span id="cb4-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザの代わりに権限を自動承認・拒否、カスタムロジックによるツール権限制御</span></span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionDenied</span></span>
+<span id="cb4-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> auto modeのclassifierがツール呼び出しを拒否したとき</span></span>
+<span id="cb4-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 拒否ログ記録・設定調整・モデルへのリトライ指示</span></span>
+<span id="cb4-18"><a></a></span>
+<span id="cb4-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUse</span></span>
+<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツールが正常に完了した直後</span></span>
+<span id="cb4-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル自動フォーマット・ツール出力の置換・Claudeへのフィードバック追加</span></span>
+<span id="cb4-24"><a></a></span>
+<span id="cb4-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb4-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUseFailure</span></span>
+<span id="cb4-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツール実行が失敗したとき</span></span>
+<span id="cb4-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 失敗ログ・アラート送信・Claudeへの修正フィードバック</span></span>
+<span id="cb4-30"><a></a></span>
+<span id="cb4-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb4-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolBatch</span></span>
+<span id="cb4-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 並列ツール呼び出しのバッチ全体が解決した後、次のモデル呼び出し前</span></span>
+<span id="cb4-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> バッチ単位でのコンテキスト注入・エージェントループの停止</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="hookの種類タスクsubagent停止系" class="slide level2">
+<h2>Hookの種類：タスク・SubAgent・停止系</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
+<div id="yaml-hooks-3" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Notification</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claude Codeが通知を送るとき</span></span>
+<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 外部サービス（Slack・デスクトップ通知など）への通知転送</span></span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStart</span></span>
+<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agentツール経由で SubAgent が起動したとき</span></span>
+<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent へのコンテキスト注入・起動ログ</span></span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStop</span></span>
+<span id="cb5-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> SubAgent が応答を終えたとき</span></span>
+<span id="cb5-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent の停止防止・結果の検証</span></span>
+<span id="cb5-18"><a></a></span>
+<span id="cb5-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCreated</span></span>
+<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> TaskCreateツール経由でタスクが作成されるとき</span></span>
+<span id="cb5-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 命名規則の強制・タスク説明の必須化・特定タスクの作成防止</span></span>
+<span id="cb5-24"><a></a></span>
+<span id="cb5-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb5-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCompleted</span></span>
+<span id="cb5-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> タスクが完了としてマークされるとき</span></span>
+<span id="cb5-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> テスト・lint通過などの完了基準の強制</span></span>
+<span id="cb5-30"><a></a></span>
+<span id="cb5-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb5-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Stop</span></span>
+<span id="cb5-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Main agent が応答を終えたとき</span></span>
+<span id="cb5-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 停止前の品質ゲート・デスクトップ通知・タスク完了確認</span></span>
+<span id="cb5-36"><a></a></span>
+<span id="cb5-37"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb5-38"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> StopFailure</span></span>
+<span id="cb5-39"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> APIエラーで応答が終わったとき</span></span>
+<span id="cb5-40"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-41"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> レート制限・認証エラーなどの失敗ログ・アラート・リカバリ</span></span>
+<span id="cb5-42"><a></a></span>
+<span id="cb5-43"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb5-44"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TeammateIdle</span></span>
+<span id="cb5-45"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agent Teamのチームメイトがアイドルに移行する直前</span></span>
+<span id="cb5-46"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> アイドル前の品質ゲート（lint、ビルド成果物の確認など）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="hookの種類コンテキスト環境拡張系" class="slide level2">
+<h2>Hookの種類：コンテキスト・環境・拡張系</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:90%; font-size: 0.9em !important;">
+<div id="yaml-hooks-4" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> InstructionsLoaded</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;CLAUDE.md&lt;/code&gt; や &lt;code&gt;.claude/rules/*.md&lt;/code&gt; がコンテキストに読み込まれたとき</span></span>
+<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 監査ログ・コンプライアンス追跡・観測性</span></span>
+<span id="cb6-6"><a></a></span>
+<span id="cb6-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ConfigChange</span></span>
+<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション中に設定ファイルが変更されたとき</span></span>
+<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 設定変更の検証・不正な変更のブロック</span></span>
+<span id="cb6-12"><a></a></span>
+<span id="cb6-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> CwdChanged</span></span>
+<span id="cb6-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 作業ディレクトリが変わったとき（&lt;code&gt;cd&lt;/code&gt; コマンド実行時など）</span></span>
+<span id="cb6-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> direnvなどによるリアクティブな環境管理</span></span>
+<span id="cb6-18"><a></a></span>
+<span id="cb6-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> FileChanged</span></span>
+<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 監視対象ファイルがディスク上で変更されたとき</span></span>
+<span id="cb6-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル変更の検知・環境再読み込み</span></span>
+<span id="cb6-24"><a></a></span>
+<span id="cb6-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeCreate</span></span>
+<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> worktree作成時</span></span>
+<span id="cb6-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> デフォルトのgit動作を置き換えるカスタムworktree作成</span></span>
+<span id="cb6-30"><a></a></span>
+<span id="cb6-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeRemove</span></span>
+<span id="cb6-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション終了時や SubAgent 完了時にworktreeが削除されるとき</span></span>
+<span id="cb6-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> worktreeクリーンアップ</span></span>
+<span id="cb6-36"><a></a></span>
+<span id="cb6-37"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreCompact</span></span>
+<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮前</span></span>
+<span id="cb6-40"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-41"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮前のバックアップ・圧縮の防止</span></span>
+<span id="cb6-42"><a></a></span>
+<span id="cb6-43"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb6-44"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostCompact</span></span>
+<span id="cb6-45"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮の完了後</span></span>
+<span id="cb6-46"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮後の状態ログ</span></span>
+<span id="cb6-48"><a></a></span>
+<span id="cb6-49"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb6-50"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Elicitation</span></span>
+<span id="cb6-51"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> MCPサーバがツール呼び出し中にユーザ入力を要求したとき</span></span>
+<span id="cb6-52"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-53"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> MCPのelicitationリクエストのインターセプト・自動応答</span></span>
+<span id="cb6-54"><a></a></span>
+<span id="cb6-55"><a></a><span class="fu">record10</span><span class="kw">:</span></span>
+<span id="cb6-56"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ElicitationResult</span></span>
+<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがMCPのelicitationに応答した後、サーバへ返却される前</span></span>
+<span id="cb6-58"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-59"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザ応答の上書き・修正</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="hook-exit-code" class="slide level2">
+<h2>Hook Exit Code</h2>
+<p><span class="h2-submessage">Hook コマンドの exit code が，Claude Code の次の挙動（続行・ブロック・無視）を決める</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.8em !important;">
+<div id="yaml-hook-exitcode" class="yaml2table yaml2table-custom-top" data-col-widths="[10, 22, 68]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 成功（処理続行）</span></span>
+<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout の JSON output フィールドを解釈．&lt;span class="regmonkey-bold"&gt;JSON は exit 0 のときだけ処理される&lt;/span&gt;</span></span>
+<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 多くのイベントでは stdout はデバッグログのみに書かれ，transcript には出ない</span></span>
+<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例外：&lt;code&gt;UserPromptSubmit&lt;/code&gt;・&lt;code&gt;UserPromptExpansion&lt;/code&gt;・&lt;code&gt;SessionStart&lt;/code&gt; は stdout が &lt;span class="regmonkey-bold"&gt;Claude のコンテキストとして読み込まれ&lt;/span&gt;，モデルが見て応答に反映できる</span></span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-12"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブロッキングエラー</span></span>
+<span id="cb7-14"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout（JSON も含めて）は&lt;span class="regmonkey-bold"&gt;無視される&lt;/span&gt;</span></span>
+<span id="cb7-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stderr の内容が Claude にエラーメッセージとしてフィードバックされる</span></span>
+<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> イベント別効果：&lt;code&gt;PreToolUse&lt;/code&gt; はツール呼び出しをブロック，&lt;code&gt;UserPromptSubmit&lt;/code&gt; はプロンプトを拒否，等</span></span>
+<span id="cb7-18"><a></a></span>
+<span id="cb7-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-20"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> その他</span></span>
+<span id="cb7-21"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 非ブロッキングエラー</span></span>
+<span id="cb7-23"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> transcript に「&lt;code&gt;&amp;lt;hook name&amp;gt; hook error&lt;/code&gt;」通知＋stderr の1行目が表示される（&lt;code&gt;--debug&lt;/code&gt; なしで原因確認できる）</span></span>
+<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実行は&lt;span class="regmonkey-bold"&gt;継続&lt;/span&gt;される（ブロックしない）</span></span>
+<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 完全な stderr はデバッグログに記録される</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="skills-vs-mcp-servers" class="title-slide slide level1 agenda-slide center">
+<h1>Skills vs MCP servers</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>5つの機能の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs CLAUDE.md</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs Subagents</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Skills vs Hooks</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Skills vs MCP servers</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="指示知識を与えるskills-と-外部ツールを提供するmcp" class="slide level2">
+<h2>指示・知識を与えるSkills と 外部ツールを提供するMCP</h2>
+<p><span class="h2-submessage">SkillsはClaudeに「どう振る舞うか」を教える．MCPは「使える道具」を増やす．</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box" style="font-size: 1.0em;">
+<p><span class="info-box-title">提供するものが本質的に異なる</span></p>
+<div class="info-contents pl-5 font-09 lh-14">
+<ul>
+<li>Skillsは<span class="regmonkey-bold"><strong>指示・知識・手順</strong></span>をセッションに追加する：振る舞いの方針</li>
+<li>MCPは<span class="regmonkey-bold"><strong>外部ツール・統合</strong></span>をClaudeに接続する：実行可能な道具</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>MCP servers を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>外部システムとの<span class="regmonkey-bold"><strong>統合</strong></span>
+<ul>
+<li>例：Jira・Slack・社内DBへのアクセス</li>
+</ul></li>
+<li>標準ツールにない<span class="regmonkey-bold"><strong>追加機能</strong></span>を提供</li>
+<li>データ取得・操作のための<span class="regmonkey-bold"><strong>API接続</strong></span></li>
+</ul>
+</div>
+</div>
+</div><div class="column padding-L-12 font-09" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>Skills を使う場面</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
+<ul>
+<li>「<span class="regmonkey-bold"><strong>どう書くか</strong></span>」「<span class="regmonkey-bold"><strong>どう判断するか</strong></span>」の手順
+<ul>
+<li>例：自社のスライド作法・レビュー基準</li>
+</ul></li>
+<li>特定領域の<span class="regmonkey-bold"><strong>専門知識</strong></span>の付与</li>
+<li>ツールではなく<span class="regmonkey-bold"><strong>振る舞い</strong></span>の指示</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mcpは外部システムとaiアプリケーションの接続プロトコル" class="slide level2">
+<h2>MCPは外部システムとAIアプリケーションの接続プロトコル</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./mcp_diagram.svg" style="width:100.0%" alt="MCP HOST（AIアプリケーション）が MCP Client を介してローカルおよびリモートの MCP Server に接続し，さらにブラウザ・DB・GitHub 等の外部システムに到達するアーキテクチャ図"></p>
+</div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:80%; font-size: 0.7em !important;">
+<div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 32, 50]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
+<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;常時ロード&lt;/span&gt;．プロジェクト共通の恒久ルールを置く</span></span>
+<span id="cb8-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに必ず適用される標準・制約・スタイルを記述</span></span>
+<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> セッションによって不要になる詳細は &lt;code&gt;Skills&lt;/code&gt; に逃がす</span></span>
+<span id="cb8-8"><a></a></span>
+<span id="cb8-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Skills</span></span>
+<span id="cb8-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;オンデマンドロード&lt;/span&gt;．タスク特有の専門知識を必要時に注入する</span></span>
+<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PRレビュー・スライド作成など「特定タスク向け」の手順を整理</span></span>
+<span id="cb8-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> description で発火条件を明示しマッチしたときだけセッションに合流</span></span>
+<span id="cb8-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに常駐させると邪魔な詳細・チェックリストはここに置く</span></span>
+<span id="cb8-17"><a></a></span>
+<span id="cb8-18"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-19"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Subagents</span></span>
+<span id="cb8-20"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;隔離コンテキスト&lt;/span&gt;で作業を委譲し結果だけ受け取る</span></span>
+<span id="cb8-22"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 広範な検索・調査・並列タスクを別コンテキストで実行</span></span>
+<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 委譲作業に異なるツール権限を与えたいときに有効</span></span>
+<span id="cb8-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 本セッションのコンテキストを汚さず結果のみ回収する</span></span>
+<span id="cb8-26"><a></a></span>
+<span id="cb8-27"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb8-28"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Hooks</span></span>
+<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;イベント駆動&lt;/span&gt;．ファイル保存・ツール呼び出しで自動発火</span></span>
+<span id="cb8-31"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 保存時のlint・formatなど「毎回走らせたい」処理を自動化</span></span>
+<span id="cb8-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 特定ツール呼び出し前の事前検証・ガードレール</span></span>
+<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claudeの行動に対する自動の副作用を仕込む</span></span>
+<span id="cb8-35"><a></a></span>
+<span id="cb8-36"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb8-37"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MCP&lt;br&gt;servers</span></span>
+<span id="cb8-38"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;外部ツール・統合&lt;/span&gt;を提供．Skillsとは異なるカテゴリ</span></span>
+<span id="cb8-40"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DBなど外部システムへの接続</span></span>
+<span id="cb8-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準にない追加ツール・API機能を Claude に与える</span></span>
+<span id="cb8-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「振る舞い」ではなく「使える道具」を増やす目的で導入</span></span>
+<span id="cb8-44"><a></a></span>
+<span id="cb8-45"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb8-46"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 組み合わせの&lt;br&gt;原則</span></span>
+<span id="cb8-47"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず&lt;span class="regmonkey-bold"&gt;専門領域ごとに分担&lt;/span&gt;させる</span></span>
+<span id="cb8-49"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CLAUDE.mdは恒久ルール・Skillsはタスク特有・Subagentsは委譲</span></span>
+<span id="cb8-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Hooksはイベント自動処理・MCPは外部統合</span></span>
+<span id="cb8-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重ねて構成しそれぞれの強みが活きる配置を取る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+
+
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

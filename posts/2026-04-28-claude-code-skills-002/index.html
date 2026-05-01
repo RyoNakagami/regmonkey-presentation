@@ -318,7 +318,8 @@ Ryo Nakagami
 <span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
 <span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 更新は SKILL.md 編集，削除はディレクトリ削除，&lt;strong&gt;どちらも再起動が必須&lt;/strong&gt;</span></span>
 <span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 誤発火・空振りを観察して &lt;strong&gt;description を磨き続ける&lt;/strong&gt;運用が鍵</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;成果物・タスク・ドメイン&lt;/strong&gt;の3観点で Skill を切り分ける</span></span>
+<span id="cb1-27"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -800,6 +801,100 @@ Ryo Nakagami
 </div>
 </div>
 </div></div>
+</section>
+<section id="skill-は成果物タスクドメインの3観点で切り分ける" class="slide level2">
+<h2>Skill は「成果物・タスク・ドメイン」の3観点で切り分ける</h2>
+<p><span class="h2-submessage">「何を作るか」「どう動くか」「どの領域か」のどれを軸にするかで Skill の粒度と再利用性が決まる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width: 33.3%; height:100%">
+<div class="horizontal-keypoints-block" style="height:60%;">
+<div class="block-header">
+<p><i class="bi-file-earmark-text-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> 成果物単位</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="block squaredmark" style="font-size:0.85em; padding-right:0.5em;">
+<ul>
+<li><span class="regmonkey-bold"><strong>「何を作るか」</strong></span>で Skill を切る</li>
+<li>最終的に生まれるファイル・ドキュメントのフォーマットを軸にする</li>
+<li>例：API仕様書，テスト計画書，運用手順書</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="horizontal-keypoints-block" style="height:60%;">
+<div class="block-header">
+<p><i class="bi-gear-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> タスク単位</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="block squaredmark" style="font-size:0.85em; padding-right:0.5em;">
+<ul>
+<li><span class="regmonkey-bold"><strong>「どういう作業をするか」</strong></span>で Skill を切る</li>
+<li>手順・判断分岐・典型的な失敗回避を資産化できる</li>
+<li>例：パフォーマンステスト実行，DBマイグレーション，セキュリティスキャン</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="horizontal-keypoints-block-no-border" style="height:60%;">
+<div class="block-header">
+<p><i class="bi-globe2 " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> ドメイン単位</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="block squaredmark" style="font-size:0.85em; padding-right:0.5em;">
+<ul>
+<li><span class="regmonkey-bold"><strong>「どの分野・領域か」</strong></span>で Skill を切る</li>
+<li>専門用語・業務慣習・固有ルール・規制要件を集約</li>
+<li>Claude の事前知識が古い・不足する領域を埋めるのに有効</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="複数観点が重なる実タスクは層に分けた-skill-を組み合わせる" class="slide level2">
+<h2>複数観点が重なる実タスクは，層に分けた Skill を組み合わせる</h2>
+<p><span class="h2-submessage">一つの巨大 Skill に詰め込むより，観点ごとに分けるほうが再利用性も保守性も上がる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>例：「規制対象プロダクトのリリース前チェック」は <span class="regmonkey-bold"><strong>ドメイン × タスク × 成果物の3層が同時に走る</strong></span></li>
+<li>1つの Skill に詰め込むと <span class="regmonkey-bold"><strong>他のプロダクトや別タスクで再利用できなくなる</strong></span></li>
+<li>層ごとに分けておけば <span class="regmonkey-bold"><strong>ドメインだけ差し替え・タスクだけ流用</strong></span>が可能になる</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">3層に分解した例：規制対象プロダクトのリリース前チェック</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.9em !important;">
+<div id="yaml-skill-design-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 32, 48]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> ドメイン Skill</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 領域固有の知識・規制を集約</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 案件特有の規制要件</span></span>
+<span id="cb3-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロダクト固有ルール</span></span>
+<span id="cb3-8"><a></a></span>
+<span id="cb3-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> タスク Skill</span></span>
+<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 作業手順・判断分岐を資産化</span></span>
+<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> セキュリティスキャンの実行手順</span></span>
+<span id="cb3-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 失敗パターンと回避手順</span></span>
+<span id="cb3-16"><a></a></span>
+<span id="cb3-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> 成果物 Skill</span></span>
+<span id="cb3-19"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力フォーマットを統一</span></span>
+<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 運用手順書としてまとめる</span></span>
+<span id="cb3-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 提出用ドキュメントの体裁を整える</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 
 
 

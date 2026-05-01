@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1920 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="サブエージェントによるコンテキスト分離">
+  <title>サブエージェントによるコンテキスト分離</title>
+  <desc>親エージェントが3つのサブエージェントにタスクを委譲し，それぞれが独立コンテキストで作業した結果の要約のみを親が受領する流れ</desc>
+
+  <defs>
+    <marker id="arrow-main" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#0E3666" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <style>
+    .slide-svg text { font-family: Meiryo, "メイリオ", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; fill: #1A1A1A; }
+    .t-title { font-size: 26px; font-weight: 700; }
+    .t-body  { font-size: 20px; font-weight: 400; }
+    .t-anno  { font-size: 18px; font-weight: 500; }
+  </style>
+
+  <g class="slide-svg">
+
+    <!-- Main agent (caller, left) -->
+    <rect x="40" y="180" width="320" height="140" rx="9" fill="none" stroke="#0E3666" stroke-width="1.4"/>
+    <text x="200" y="222" class="t-title" text-anchor="middle">Main agent</text>
+    <text x="200" y="258" class="t-body"  text-anchor="middle">タスクを委譲</text>
+    <text x="200" y="290" class="t-body"  text-anchor="middle">マネジメント役</text>
+
+    <!-- SubAgent A (top) -->
+    <rect x="600" y="10" width="720" height="140" rx="9" fill="none" stroke="#0E3666" stroke-width="1.4"/>
+    <text x="960" y="50" class="t-title" text-anchor="middle">SubAgent A</text>
+    <text x="960" y="86" class="t-body"  text-anchor="middle">「私はアーキテクチャを設計しますね」</text>
+    <text x="960" y="122" class="t-anno" text-anchor="middle">独立コンテキスト：大量データ処理</text>
+
+    <!-- SubAgent B (middle) -->
+    <rect x="600" y="180" width="720" height="140" rx="9" fill="none" stroke="#0E3666" stroke-width="1.4"/>
+    <text x="960" y="220" class="t-title" text-anchor="middle">SubAgent B</text>
+    <text x="960" y="256" class="t-body"  text-anchor="middle">「私はログを分析しますね」</text>
+    <text x="960" y="292" class="t-anno" text-anchor="middle">独立コンテキスト：数万トークン</text>
+
+    <!-- SubAgent C (bottom) -->
+    <rect x="600" y="350" width="720" height="140" rx="9" fill="none" stroke="#0E3666" stroke-width="1.4"/>
+    <text x="960" y="390" class="t-title" text-anchor="middle">SubAgent C</text>
+    <text x="960" y="426" class="t-body"  text-anchor="middle">「私はテストを実行しますね」</text>
+    <text x="960" y="462" class="t-anno" text-anchor="middle">独立コンテキスト：テスト実行ログ</text>
+
+    <!-- Main agent (receiver, right) -->
+    <rect x="1560" y="180" width="320" height="140" rx="9" fill="none" stroke="#0E3666" stroke-width="1.4"/>
+    <text x="1720" y="222" class="t-title" text-anchor="middle">Main agent</text>
+    <text x="1720" y="258" class="t-body"  text-anchor="middle">簡潔な結果を受領</text>
+    <text x="1720" y="290" class="t-body"  text-anchor="middle">本コンテキストを圧迫しない</text>
+
+    <!-- Delegation arrows: left parent → 3 subagents -->
+    <line x1="362" y1="220" x2="596" y2="80"  stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <line x1="362" y1="250" x2="596" y2="250" stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <line x1="362" y1="280" x2="596" y2="420" stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <text x="478" y="135" class="t-anno" text-anchor="middle">委譲</text>
+    <text x="478" y="240" class="t-anno" text-anchor="middle">委譲</text>
+    <text x="478" y="365" class="t-anno" text-anchor="middle">委譲</text>
+
+    <!-- Return arrows: 3 subagents → right parent (要約のみ) -->
+    <line x1="1322" y1="80"  x2="1556" y2="220" stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <line x1="1322" y1="250" x2="1556" y2="250" stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <line x1="1322" y1="420" x2="1556" y2="280" stroke="#0E3666" stroke-width="2" marker-end="url(#arrow-main)"/>
+    <text x="1442" y="135" class="t-anno" text-anchor="middle">要約のみ</text>
+    <text x="1442" y="240" class="t-anno" text-anchor="middle">要約のみ</text>
+    <text x="1442" y="365" class="t-anno" text-anchor="middle">要約のみ</text>
+
+  </g>
+</svg>
