@@ -1,0 +1,765 @@
+---
+title: "ガウス過程：多変量正規分布の関数空間への拡張"
+subtitle: "Bayesian Optimization 第2章"
+author: "Ryo Nakagami"
+date: "2026-04-27"
+categories: [statistics, gaussian-process, bayesian, machine-learning]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+  - pseudocode
+auto-agenda:
+  bullets: bullets
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 1em >}}
+
+:::: {.column width="32%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### 学習目標
+
+:::
+
+- ガウス過程の定義と基本的性質を説明できる
+- 観測条件付き事後 GP を導出・解釈できる
+- 加法ガウスNoiseモデルとの違いを理解できる
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi person size=1.7em color=#428CE6 >}}
+
+### 対象レベル
+
+:::
+
+- ベイズ最適化の数理的基礎を整理したい方
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi book size=1.7em color=#428CE6 >}}
+
+### 前提知識
+
+:::
+
+- 多変量正規分布の周辺・条件付き分布
+- 線形代数（逆行列・正定値性）
+- ベイズの定理と事前・事後分布の概念
+
+::::
+
+::::
+::::
+
+::: {.column width="68%" style="padding-left:1em;"}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.regmonkey_index style="width:1100px; line-height: 1.2"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.1em
+  bullet_fontsize: 0.9em
+  children:
+    - title: 1. ガウス過程の定義
+      description:
+        - 任意有限部分集合の周辺分布が <strong>多変量正規</strong>となる確率過程
+        - 平均関数 $\mu$ と共分散関数 $K$ で <strong>完全に指定</strong>される
+      width: [38, 62]
+    - title: 2. Exact観測下の事後 GP
+      description:
+        - 観測 $\mathcal{D}=(\mathbf{x},\boldsymbol{\phi})$ で事後 GP は <strong>Cloased form</strong>で書ける
+        - 観測点で <strong>事後分散はゼロ</strong>，平均は観測値を補間する
+      width: [38, 62]
+    - title: 3. 加法ガウスNoise下の事後 GP
+      description:
+        - $\mathbf{y}=\boldsymbol{\phi}+\boldsymbol{\varepsilon}$ では $\boldsymbol{\Sigma}\to\boldsymbol{\Sigma}+\mathbf{N}$ に置換するだけ
+        - SN 比に応じて観測の影響が <strong>連続的に減衰</strong>
+      width: [38, 62]
+    - title: 4. 事後モーメントの解釈
+      description:
+        - 事後平均は <strong>z-score × 相関 $\rho$</strong> による更新公式で書ける
+        - 事後標準偏差は $\rho$ にのみ依存（観測値には依存しない）
+      width: [38, 62]
+    - title: 5. Coding Example
+      description:
+        - 結合 GP で $f$ と $g$ の事後を <strong>NumPy で同時推論</strong>する実装
+        - $K_{fg}=0.9K$ のクロス共分散経由で <strong>$g$ の観測が $f$ の事後も update</strong>
+      width: [38, 62]
+```
+
+:::
+:::
+:::::
+
+# 1. ガウス過程の定義
+
+## ガウス過程は多変量正規分布の関数空間への拡張である
+
+[任意の有限部分集合に対して周辺分布が多変量正規となる確率過程として定義される]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[Definition：ガウス過程]{.def-title}
+
+::: {.def-contents}
+
+関数 $f\colon \mathcal{X} \to \mathbb{R}$ 上の確率過程 $p(f) = \mathcal{GP}(f;\mu, K)$ が[**ガウス過程**]{.regmonkey-bold}であるとは，
+
+- 平均関数 $\mu\colon \mathcal{X}\to\mathbb{R}$ 
+- positive semidefiniteの共分散関数 $K\colon \mathcal{X}\times\mathcal{X}\to\mathbb{R}$ 
+
+が存在して，任意の有限点列 $\mathbf{x}=(x_1,\dots,x_n)\subset\mathcal{X}$ に対し関数値ベクトル $\boldsymbol{\phi}=f(\mathbf{x})$ が次を満たすことをいう：
+
+$$
+p(\boldsymbol{\phi} \mid \mathbf{x}) \;=\; \mathcal{N}(\boldsymbol{\phi}; \boldsymbol{\mu}, \boldsymbol{\Sigma}), \qquad \boldsymbol{\mu} = \mu(\mathbf{x}),\ \ \boldsymbol{\Sigma} = \operatorname{cov}[\boldsymbol{\phi}; \vert \mathbf{x}] = K(\mathbf{x}, \mathbf{x}).
+$$
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+- [**Kolmogorov 拡張定理**]{.regmonkey-bold}により，有限次元周辺分布の整合的な族から無限次元の確率過程を構成できる
+- $\mathcal{X}$ が有限集合のときは多変量正規分布と区別がない[^def-footer]
+  - 多変量正規分布の場合はインデックスは有限．例: $n$ 次元の多変量正規分布であれば，インデックスは $\{1,2,\cdots,n\}$ という有限集合
+
+<!-- footer -->
+
+[^def-footer]: 出典：R. Garnett (2023) *Bayesian Optimization*, Cambridge University Press, §2.1 (pp. 16-17)．
+
+## 共分散関数 $K$ の基本的性質
+
+[二乗指数カーネルを例に，距離 $|x-x'|$ と相関の関係を確認する]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left .font-10}
+カーネルの設計
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5"}
+
+- [**二乗指数共分散（squared exponential）**]{.regmonkey-bold}：
+$$
+K(x, x') = \exp\!\left(-\tfrac{1}{2}\,|x - x'|^2\right)
+$$
+- 周辺分散：$\mathrm{var}[\phi \mid x] = K(x, x) = 1$
+- 相関：$\mathrm{corr}[\phi, \phi' \mid x, x']$ は[**距離 $|x-x'|$ のみの関数**]{.regmonkey-bold}
+
+:::
+
+::::
+
+:::
+::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left .font-10}
+サンプル経路の振る舞い
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5"}
+
+- $|x-x'|\to 0$ で相関 $\to 1$：[**近傍点は強く依存**]{.regmonkey-bold}し，関数は連続・滑らか
+- $|x-x'|\gtrsim 3$ で相関 $\to 0$：[**遠い点は実質独立**]{.regmonkey-bold}
+- 結果として，観測点は[**近傍にだけ非自明な情報**]{.regmonkey-bold}を提供する
+
+:::
+
+::::
+
+:::
+::::
+
+# 2. Exact観測下の事後 GP
+
+## 観測 $\mathcal{D}=(\mathbf{x},\boldsymbol{\phi})$ で条件付けた事後 GP はCloased formで書ける
+
+[多変量正規の自己共役性により，事後過程もガウス過程となる]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-14}
+
+{{< reveal_vspace 0.25em >}}
+
+- 事前 GP $p(f) = \mathcal{GP}(f;\mu, K)$ にExact観測 $\boldsymbol{\phi} = f(\mathbf{x})$ を条件付けると，[**事後も GP**]{.regmonkey-bold}：
+$$
+p(f \mid \mathcal{D}) \;=\; \mathcal{GP}(f;\,\mu_{\mathcal{D}},\,K_{\mathcal{D}})
+$$
+- 事後の平均関数・共分散関数は[**多変量正規の条件付き分布の公式**]{.regmonkey-bold}そのもの：
+$$
+\begin{aligned}
+\mu_{\mathcal{D}}(x) &= \mu(x) + K(x,\mathbf{x})\,\boldsymbol{\Sigma}^{-1}(\boldsymbol{\phi} - \boldsymbol{\mu}) \\
+K_{\mathcal{D}}(x,x') &= K(x,x') - K(x,\mathbf{x})\,\boldsymbol{\Sigma}^{-1}K(\mathbf{x},x')
+\end{aligned}
+$$
+- $\boldsymbol{\Sigma} = K(\mathbf{x},\mathbf{x})$ は観測点における[**Gram 行列**]{.regmonkey-bold}
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[補間性]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- 観測位置 $x_i$ では $\mu_{\mathcal{D}}(x_i) = \phi_i$，$K_{\mathcal{D}}(x_i, x_i) = 0$
+- 95% 信用区間は[**観測点で縮小**]{.regmonkey-bold}し，離れるほど広がる
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[影響範囲]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- 観測の影響は $K(x,\mathbf{x})$ が[**非自明な相関を持つ範囲**]{.regmonkey-bold}にだけ及ぶ
+- 相関が消える領域では事前分布のまま
+
+:::
+
+:::
+::::
+
+# 3. 加法ガウスNoise下の事後 GP
+
+## ノイズ共分散 $\mathbf{N}$ を加えるだけでNoise観測に拡張できる
+
+[$\mathbf{y} = \boldsymbol{\phi} + \boldsymbol{\varepsilon}$, $\boldsymbol{\varepsilon} \sim \mathcal{N}(\mathbf{0},\mathbf{N})$ のとき，$\boldsymbol{\Sigma} \to \boldsymbol{\Sigma}+\mathbf{N}$ に置換するだけで事後公式が成立]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+
+:::{.border-bottom-header-left .font-10}
+Noise観測モデル
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5"}
+
+- 観測： $\mathbf{y} = \boldsymbol{\phi} + \boldsymbol{\varepsilon}$
+- Noise： $p(\boldsymbol{\varepsilon} \mid \mathbf{N}) = \mathcal{N}(\boldsymbol{\varepsilon};\mathbf{0},\mathbf{N})$
+  - $\mathbf{N}$ は既知の共分散行列とする
+- $\boldsymbol{\varepsilon}$ は $\boldsymbol{\phi}$ から[**独立**]{.regmonkey-bold}と仮定
+
+:::
+
+
+:::
+::: {.column width="50%"}
+
+:::{.border-bottom-header-left .font-10}
+事後 GP の更新公式
+:::
+
+:::{.squaredmark style="font-size: 0.85em; padding-left: 0.5em; line-height: 1.5"}
+
+$$
+\begin{aligned}
+\mu_{\mathcal{D}}(x) &= \mu(x) + K(x,\mathbf{x})(\boldsymbol{\Sigma}+\mathbf{N})^{-1}(\mathbf{y}-\boldsymbol{\mu}) \\
+K_{\mathcal{D}}(x,x') &= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\mathbf{N})^{-1}K(\mathbf{x},x')
+\end{aligned}
+$$
+
+- $\mathbf{N}\to\mathbf{0}$ で[**Exact観測の式に一致**]{.regmonkey-bold}
+- $\mathbf{N}$ が大きいと観測の影響が[**弱まる**]{.regmonkey-bold}
+
+:::
+
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[実務でよく使う2つのNoiseモデル]{.mini-section}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-noise-models data-col-widths="[28, 32, 40]"}
+
+```yaml
+record1:
+  Noiseモデル: 独立等分散（homoskedastic）
+  共分散行列:
+    - $\mathbf{N} = \sigma_n^2\,\mathbf{I}$
+  特徴:
+    - Noise強度が位置によらず一定
+    - 解析・実装ともに最単純
+
+record2:
+  Noiseモデル: 独立非等分散（heteroskedastic）
+  共分散行列:
+    - $\mathbf{N} = \mathrm{diag}\bigl(\sigma_n^2(\mathbf{x})\bigr)$
+  特徴:
+    - Noise強度が観測位置 $x$ に依存
+    - 領域ごとの SN 比の違いを表現できる
+```
+
+:::
+::::
+
+# 4. 事後モーメントの解釈
+
+## 事後平均は「z-score × 相関 $\rho$」による更新公式で書ける
+
+[スカラ観測で事後の動きを分解すると，事前モーメントと観測の「驚きの度合い」に分かれる]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-14}
+
+{{< reveal_vspace 0.25em >}}
+
+- 事前： $\phi \sim \mathcal{N}(\mu, \sigma^2)$，観測： $y \sim \mathcal{N}(m, s^2)$，相関 $\rho = \mathrm{corr}[y, \phi \mid x]$ とする
+- 観測値 $y$ の[**z-score**]{.regmonkey-bold}を $z = (y - m)/s$ と定義すると，事後モーメントは：
+$$
+\mathbb{E}[\phi \mid y, x] \;=\; \mu + \sigma\rho z, \qquad \mathrm{sd}[\phi \mid y, x] \;=\; \sigma\sqrt{1-\rho^2}
+$$
+- $z$ は観測の[**意外性の大きさ**]{.regmonkey-bold}を，$\rho$ は[**観測値が関数値をどれだけ語るか**]{.regmonkey-bold}を表す
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+[3 つの極端ケース]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- $\rho = 0$：観測は無関係 → [**事前のまま**]{.regmonkey-bold}
+- $|\rho| = 1$：観測は完全に決定的 → 平均は $z$ 標準偏差分シフト，標準偏差 $\to 0$
+- $|z|$ が大きい：意外な観測 → [**事後平均が大きく動く**]{.regmonkey-bold}
+
+:::
+
+:::
+::: {.column width="50%"}
+
+[ベクトル観測への一般化]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- $\mathbf{y}$ を観測したときの事後平均は同じ形：
+$$
+\mu + \sigma\,\boldsymbol{\rho}^{\!\top}\mathbf{P}^{-1}\mathbf{z}
+$$
+- $\mathbf{P}=\mathrm{corr}[\mathbf{y}]$ が[**観測間の依存性**]{.regmonkey-bold}を補正
+
+:::
+
+:::
+::::
+
+## 事後標準偏差は相関 $\rho$ にのみ依存する
+
+[観測値そのものは事後分散に影響を与えない]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-14}
+
+{{< reveal_vspace 0.25em >}}
+
+- スカラ観測の事後標準偏差：
+$$
+\mathrm{sd}[\phi \mid y, x] \;=\; \sigma\sqrt{1-\rho^2}
+$$
+- 値 $y$ は[**式に現れない**]{.regmonkey-bold}
+- 不確実性の縮小は[**観測の精度（相関の強さ）のみ**]{.regmonkey-bold}が決める
+
+:::
+
+:::
+
+{{< reveal_vspace 1em >}}
+
+[実務的含意]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-14}
+
+- ベイズ最適化の獲得関数評価では，観測前から[**事後分散を計算可能**]{.regmonkey-bold}
+- Noise観測 $\mathbf{N}$ を含む場合：
+$$
+\bigl|K(\mathbf{x},\mathbf{x}) - \kappa^{\!\top}(\mathbf{C}+\mathbf{N})^{-1}\kappa\bigr| \;\le\; |K(\mathbf{x},\mathbf{x})|
+$$
+- Noise観測はExact観測より[**情報量が少ない**]{.regmonkey-bold}
+
+:::
+
+
+# 5. Coding Example
+
+## Setup：結合 GP で $f$ と $g$ を共通領域上で同時推論する
+
+[$f$ を直接観測する点と，$g$（関数変換を噛ませた別関数）を観測する点が異なる場面を扱う]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-14}
+
+{{< reveal_vspace 0.25em >}}
+
+- 共通領域 $\mathcal{X} = [0, 30]$ 上に，2 つの関数 $f, g$ を結合 GP として置く
+- 周辺は両方とも同じ事前：$\mu \equiv 0$ と二乗指数カーネル $K(x, x') = \exp\!\bigl(-\tfrac{1}{2}|x-x'|^2\bigr)$
+- クロス共分散 $K_{fg}(x, x') = 0.9\,K(x, x')$ で[**強くカップリング**]{.regmonkey-bold}（$\mathrm{corr}[\phi(x), \gamma(x)\mid x] = 0.9$）
+- 観測パターン：$f$ は領域の[**左半分**]{.regmonkey-bold}で 5 点 (direct)，$g$ は[**右半分**]{.regmonkey-bold}で 5 点 (other function)
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+$$
+p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}0\\0\end{bmatrix},\,\begin{bmatrix}K & K_{fg}\\ K_{gf} & K\end{bmatrix}\right),\qquad K_{gf}(x,x') = K_{fg}(x',x)
+$$
+
+{{< reveal_vspace 0.3em >}}
+
+[ねらい]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- 直接観測のない領域でも，[**カップリング経由で他関数の belief が事後を引き締める**]{.regmonkey-bold}様子を確認する
+
+:::
+
+## 学習アルゴリズム：観測を1本のベクトルに束ねて閉形式公式に流す
+
+[結合 GP の事後は，多変量正規の条件付き分布の公式 (2.10) を観測ベクトル $\mathbf{a}=[\boldsymbol{\phi};\boldsymbol{\gamma}]$ にそのまま適用するだけ]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{.font-08}
+
+```pseudocode
+#| html-indent-size: "1em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+
+\begin{algorithm}
+\caption{Joint GP Posterior Inference}
+\begin{algorithmic}
+
+\Procedure{JointGPPosterior}{$x^*,\, (x_f, \phi),\, (x_g, \gamma)$}
+    \State $a \gets [\phi;\, \gamma]$ \Comment{観測ベクトルを連結}
+    \State $C \gets \begin{bmatrix} K(x_f, x_f) & K_{fg}(x_f, x_g) \\ K_{fg}(x_g, x_f) & K(x_g, x_g) \end{bmatrix}$ \Comment{結合カーネル}
+    \State $\kappa_f \gets [\,K(x^*, x_f),\; K_{fg}(x^*, x_g)\,]$
+    \State $\kappa_g \gets [\,K_{fg}(x^*, x_f),\; K(x^*, x_g)\,]$
+    \State $L \gets \textsf{Cholesky}(C)$ \Comment{$O(n^3)$ で安定に解く}
+    \State $\alpha \gets \textsf{Solve}(L^\top,\; \textsf{Solve}(L,\, a))$
+    \State $\mu_f^* \gets \kappa_f\, \alpha,\quad \mu_g^* \gets \kappa_g\, \alpha$ \Comment{事後 mean}
+    \State $V_f \gets \textsf{Solve}(L,\, \kappa_f^\top),\quad V_g \gets \textsf{Solve}(L,\, \kappa_g^\top)$
+    \State $\sigma_f^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_f^2)$ \Comment{事後 variance}
+    \State $\sigma_g^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_g^2)$
+    \Return $(\mu_f^*, \sigma_f^*),\; (\mu_g^*, \sigma_g^*)$
+\EndProcedure
+
+\end{algorithmic}
+\end{algorithm}
+```
+
+:::
+
+:::
+::: {.column width="45%"}
+
+[Keypoiints]{.mini-section}
+
+:::{.padding-L-10 .font-09 .lh-16}
+
+- 結合 GP の観測は[**1 本の多変量正規ベクトル**]{.regmonkey-bold}に積み上げる
+- カーネル行列 $C$ は[**4 つのブロック**]{.regmonkey-bold}：自己ブロック 2 つとクロスブロック 2 つ
+- 評価点ごとのクロスカーネル $\kappa_f, \kappa_g$ は，[**問い合わせる関数に応じて行を切り替える**]{.regmonkey-bold}
+- $f$ を問うとき：$x^\ast$ vs $x_f$ は自己，$x^\ast$ vs $x_g$ はクロス
+- 数値的には $\mathrm{inv}(C)$ ではなく $\mathrm{solve}(C, \cdot)$ で[**Cholesky 分解**]{.regmonkey-bold}を用いるのが望ましい
+
+:::
+
+:::
+::::
+
+## Python 実装：NumPy で結合カーネル → 事後 mean / variance を計算
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.font-09}
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ------ kernel functions ------
+def K(x1, x2):
+    """Squared exponential covariance, shape (len(x1), len(x2))."""
+    return np.exp(-0.5 * (x1[:, None] - x2[None, :]) ** 2)
+
+def K_fg(x1, x2, rho=0.9):
+    """Cross-covariance between f and g."""
+    return rho * K(x1, x2)
+
+# ------ setup ------
+rng = np.random.default_rng(0)
+x_grid = np.linspace(0, 30, 200)
+xf_obs = np.array([2.0, 5.0, 8.0, 11.0, 14.0])     # f: 左半分
+xg_obs = np.array([16.0, 19.0, 22.0, 25.0, 28.0])  # g: 右半分
+
+# 真の (f, g) を joint prior からサンプリングして観測値を生成
+n = len(x_grid)
+mu_joint = np.zeros(2 * n)
+cov_joint = np.block([[K(x_grid, x_grid),       K_fg(x_grid, x_grid)],
+                      [K_fg(x_grid, x_grid).T, K(x_grid, x_grid)   ]])
+sample = rng.multivariate_normal(mu_joint, cov_joint + 1e-8 * np.eye(2 * n))
+f_true, g_true = sample[:n], sample[n:]
+phi_obs   = np.interp(xf_obs, x_grid, f_true)
+gamma_obs = np.interp(xg_obs, x_grid, g_true)
+
+# ------ 結合カーネル行列 C と観測ベクトル a ------
+C = np.block([[K(xf_obs, xf_obs),       K_fg(xf_obs, xg_obs)],
+              [K_fg(xf_obs, xg_obs).T, K(xg_obs, xg_obs)    ]])
+a = np.concatenate([phi_obs, gamma_obs])
+
+# ------ 評価点でのクロスカーネル ------
+kappa_f = np.hstack([K(x_grid, xf_obs),    K_fg(x_grid, xg_obs)])
+kappa_g = np.hstack([K_fg(x_grid, xf_obs), K(x_grid, xg_obs)])
+
+# ------ 事後 mean & variance（Cholesky で解く）------
+L = np.linalg.cholesky(C + 1e-10 * np.eye(C.shape[0]))
+alpha = np.linalg.solve(L.T, np.linalg.solve(L, a))
+v_f   = np.linalg.solve(L, kappa_f.T)
+v_g   = np.linalg.solve(L, kappa_g.T)
+
+mu_f_post  = kappa_f @ alpha
+mu_g_post  = kappa_g @ alpha
+var_f_post = np.diag(K(x_grid, x_grid)) - np.sum(v_f ** 2, axis=0)
+var_g_post = np.diag(K(x_grid, x_grid)) - np.sum(v_g ** 2, axis=0)
+
+# ============================================================
+# 比較用: g の観測を使わずに f だけで f の事後を計算
+# (cross-covariance の効きを示すため)
+# ============================================================
+C_f_only = K(xf_obs, xf_obs)
+L_f = np.linalg.cholesky(C_f_only + 1e-10 * np.eye(len(xf_obs)))
+alpha_f_only = np.linalg.solve(L_f.T, np.linalg.solve(L_f, phi_obs))
+kappa_f_only = K(x_grid, xf_obs)
+v_f_only = np.linalg.solve(L_f, kappa_f_only.T)
+mu_f_only  = kappa_f_only @ alpha_f_only
+var_f_only = np.diag(K(x_grid, x_grid)) - np.sum(v_f_only ** 2, axis=0)
+ 
+# 同様に g だけで g の事後
+C_g_only = K(xg_obs, xg_obs)
+L_g = np.linalg.cholesky(C_g_only + 1e-10 * np.eye(len(xg_obs)))
+alpha_g_only = np.linalg.solve(L_g.T, np.linalg.solve(L_g, gamma_obs))
+kappa_g_only = K(x_grid, xg_obs)
+v_g_only = np.linalg.solve(L_g, kappa_g_only.T)
+mu_g_only  = kappa_g_only @ alpha_g_only
+var_g_only = np.diag(K(x_grid, x_grid)) - np.sum(v_g_only ** 2, axis=0)
+ 
+# ============================================================
+# 事後同時分布からのサンプル経路
+# ============================================================
+# 評価点での事後共分散行列 (f と g 両方)
+K_grid = K(x_grid, x_grid)
+K_fg_grid = K_fg(x_grid, x_grid)
+prior_cov_full = np.block([[K_grid,       K_fg_grid],
+                           [K_fg_grid.T, K_grid   ]])
+kappa_full = np.vstack([kappa_f, kappa_g])              # (2n, 10)
+V = np.linalg.solve(L, kappa_full.T)                    # (10, 2n)
+post_cov_full = prior_cov_full - V.T @ V
+post_mean_full = np.concatenate([mu_f_post, mu_g_post])
+ 
+n_samples = 5
+post_samples = rng.multivariate_normal(
+    post_mean_full, post_cov_full + 1e-8 * np.eye(2 * n), size=n_samples
+)
+ 
+# ============================================================
+# 描画
+# ============================================================
+fig, axes = plt.subplots(1, 2, figsize=(16, 6.5), sharey=True)
+ 
+# 色
+c_f = "#1f77b4"   # f: 青
+c_g = "#d62728"   # g: 赤
+c_truth = "0.45"
+c_only  = "#888888"
+ 
+std_f = np.sqrt(np.maximum(var_f_post, 0))
+std_g = np.sqrt(np.maximum(var_g_post, 0))
+std_f_only = np.sqrt(np.maximum(var_f_only, 0))
+std_g_only = np.sqrt(np.maximum(var_g_only, 0))
+ 
+# --- f のパネル ---
+ax = axes[0]
+# joint posterior からのサンプル
+for s in post_samples:
+    ax.plot(x_grid, s[:n], color=c_f, alpha=0.18, lw=0.9)
+# 「f の観測だけ」の事後 (比較)
+ax.plot(x_grid, mu_f_only, ls="--", color=c_only, lw=1.3,
+        label="posterior mean (f obs only)")
+ax.fill_between(x_grid, mu_f_only - 2*std_f_only, mu_f_only + 2*std_f_only,
+                color=c_only, alpha=0.10)
+# joint posterior
+ax.fill_between(x_grid, mu_f_post - 2*std_f, mu_f_post + 2*std_f,
+                color=c_f, alpha=0.20, label="±2σ (joint posterior)")
+ax.plot(x_grid, mu_f_post, color=c_f, lw=2.2, label="posterior mean (joint)")
+# 真値
+ax.plot(x_grid, f_true, color=c_truth, lw=1.0, alpha=0.7, label="true f")
+# 観測点
+ax.scatter(xf_obs, phi_obs, color=c_f, s=55, zorder=5,
+           edgecolor="white", lw=1.2, label="f observations")
+# g の観測位置を縦線で示す（情報源として効いていることを視覚化）
+for xg in xg_obs:
+    ax.axvline(xg, color=c_g, alpha=0.12, lw=1.0, ls=":")
+ 
+ax.set_title(r"posterior of $f$  —  ρ=0.9 cross-correlation pulls $f$ toward $g$'s evidence on the right")
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$f(x)$")
+ax.margins(y=0.30)   # legend と曲線が重ならないよう上下に余白を確保
+ax.legend(loc="upper right", fontsize=9, framealpha=0.95, ncol=2)
+ax.grid(alpha=0.25)
+
+# --- g のパネル ---
+ax = axes[1]
+for s in post_samples:
+    ax.plot(x_grid, s[n:], color=c_g, alpha=0.18, lw=0.9)
+ax.plot(x_grid, mu_g_only, ls="--", color=c_only, lw=1.3,
+        label="posterior mean (g obs only)")
+ax.fill_between(x_grid, mu_g_only - 2*std_g_only, mu_g_only + 2*std_g_only,
+                color=c_only, alpha=0.10)
+ax.fill_between(x_grid, mu_g_post - 2*std_g, mu_g_post + 2*std_g,
+                color=c_g, alpha=0.20, label="±2σ (joint posterior)")
+ax.plot(x_grid, mu_g_post, color=c_g, lw=2.2, label="posterior mean (joint)")
+ax.plot(x_grid, g_true, color=c_truth, lw=1.0, alpha=0.7, label="true g")
+ax.scatter(xg_obs, gamma_obs, color=c_g, s=55, zorder=5,
+           edgecolor="white", lw=1.2, label="g observations")
+for xf in xf_obs:
+    ax.axvline(xf, color=c_f, alpha=0.12, lw=1.0, ls=":")
+ 
+ax.set_title(r"posterior of $g$  —  $f$'s evidence on the left tightens $g$ where $g$ has no data")
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$g(x)$")
+ax.margins(y=0.30)   # legend と曲線が重ならないよう上下に余白を確保
+ax.legend(loc="upper right", fontsize=9, framealpha=0.95, ncol=2)
+ax.grid(alpha=0.25)
+ 
+fig.suptitle("Joint GP posterior on (f, g) with cross-covariance",
+             fontsize=12, y=1.00)
+fig.tight_layout()
+```
+
+:::
+
+## 結果の解釈：$g$ の観測が $f$ の事後にも情報を伝える
+
+[直接観測のない領域でも，cross-covariance 経由で belief が引き締まる：これが結合 GP の本質]{.h2-submessage}
+
+{{< reveal_vspace 0.3em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header-left .font-10}
+$f$ の事後 $p(f \mid \mathcal{D})$
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5"}
+
+- 左半分 $x \in [2, 14]$：直接観測 5 点で[**事後分散が縮小し，平均は観測値を補間**]{.regmonkey-bold}
+- 右半分 $x \in [16, 28]$：直接観測なし．しかし $g$ の観測経由で[**事後分散が事前より小さくなる**]{.regmonkey-bold}
+- $\rho = 0.9$ なので $g$ の観測 1 点が $f$ の同位置の belief を約 9 割語る
+
+:::
+
+
+:::
+::: {.column width="50%"}
+
+
+:::{.border-bottom-header-left .font-10}
+$g$ の事後 $p(g \mid \mathcal{D})$
+:::
+
+:::{.squaredmark style="font-size: 0.9em; padding-left: 0.5em; line-height: 1.5"}
+
+- 右半分：直接観測 5 点で[**信用区間が縮小**]{.regmonkey-bold}
+- 左半分：$f$ の観測経由で[**事後分散が縮小**]{.regmonkey-bold}し，事後平均が $f$ の観測値方向にシフト
+- 結果として $f$ と $g$ の事後 mean は領域全体で[**強く相関した形**]{.regmonkey-bold}になる
+
+:::
+
+
+:::
+::::
+
+{{< reveal_vspace 2.0em >}}
+
+
+- $\rho \to 0$ の極限では $K_{fg} = 0$ となり，[**結合 GP は 2 つの独立 GP に分解**]{.regmonkey-bold}：$f$ と $g$ を別々に推論したのと結果が一致する
+- $|\rho| \to 1$ の極限では $f$ と $g$ は[**ほぼ同じ関数**]{.regmonkey-bold}になり，どちらの観測も両方の belief を等しく update する
