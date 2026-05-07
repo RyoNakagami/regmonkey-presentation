@@ -373,7 +373,7 @@ record3:
 - 専門領域ごとに[**作業を隔離して委譲**]{.regmonkey-bold}したいとき：本セッションのコンテキストを汚さずに済む
 - フロントレビュアー・バックレビュアーのように[**異なるSkillセット**]{.regmonkey-bold}を持たせられる
 - プロンプトに頼らず，[**標準を委譲作業に強制**]{.regmonkey-bold}できる：エージェント定義に組み込めば毎回適用される
-
+- 意図しないSubagentsの起動を防ぐ
 
 
 ## 組み込みエージェントとカスタムエージェントの差
@@ -425,6 +425,12 @@ record3:
 - frontmatterの `skills:` フィールドで[**ロードしたいSkillを明示**]{.regmonkey-bold}
 - 列挙されたSkillだけが委譲時にロードされる
 - フロント用・バック用などタスク別に[**異なるSkill構成**]{.regmonkey-bold}を組める
+
+{{< reveal_vspace 1.0em >}}
+
+[REMARKS]{.mini-section}
+
+- プロジェクトレベルのSubagentsは，ユーザーレベルのSubagentsよりも優先される
 
 :::
 

@@ -1,0 +1,134 @@
+<svg viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skill不調の4カテゴリ">
+  <title>Skill不調の4カテゴリ</title>
+  <desc>trigger, load, コンフリクト・priority, runtimeの4つの失敗地点をフロー上に示した図</desc>
+
+  <defs>
+    <marker id="arrow-cat" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-fail" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <style>
+    .cat-svg text { font-family: Meiryo, "メイリオ", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; fill: #1A1A1A; }
+    .row-head  { font-size: 13px; font-weight: 700; }
+    .row-desc  { font-size: 12px; font-weight: 400; fill: #333; }
+    .box-title { font-size: 12px; font-weight: 600; }
+    .box-sub   { font-size: 11px; font-weight: 400; fill: #555; }
+    .legend    { font-size: 11px; font-weight: 400; fill: #555; }
+    .num       { font-size: 13px; font-weight: 700; fill: #0E3666; }
+    .x-mark    { font-size: 16px; font-weight: 700; fill: #A32D2D; text-anchor: middle; }
+  </style>
+
+  <g class="cat-svg">
+
+    <!-- (1) trigger ============================================== -->
+    <text x="40" y="18" class="num">(1)</text>
+    <text x="68" y="18" class="row-head">trigger</text>
+    <text x="118" y="18" class="row-desc">：Skillは存在するが想定の依頼で呼び出されない</text>
+
+    <rect x="40" y="26" width="130" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="105" y="42" text-anchor="middle" class="box-title">Skill一覧</text>
+    <text x="105" y="55" text-anchor="middle" class="box-sub">登録済み</text>
+
+    <line x1="170" y1="44" x2="225" y2="44" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#arrow-cat)"/>
+
+    <rect x="240" y="26" width="155" height="36" rx="6" fill="none" stroke="#A32D2D" stroke-width="1.5"/>
+    <text x="317" y="42" text-anchor="middle" class="box-title">trigger判定</text>
+    <text x="317" y="55" text-anchor="middle" class="box-sub" style="fill:#A32D2D">description不一致</text>
+
+    <line x1="395" y1="44" x2="450" y2="44" stroke="#A32D2D" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="422" y="39" class="x-mark">✕</text>
+
+    <rect x="465" y="26" width="100" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>
+    <text x="515" y="48" text-anchor="middle" class="box-sub" opacity="0.6">load実体</text>
+
+    <rect x="585" y="26" width="55" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>
+    <text x="612" y="48" text-anchor="middle" class="box-sub" opacity="0.6">実行</text>
+
+    <!-- (2) load ================================================= -->
+    <text x="40" y="110" class="num">(2)</text>
+    <text x="68" y="110" class="row-head">load</text>
+    <text x="105" y="110" class="row-desc">：そもそも一覧に表示されず読み込まれていない</text>
+
+    <rect x="40" y="118" width="130" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="105" y="134" text-anchor="middle" class="box-title">Skillファイル</text>
+    <text x="105" y="147" text-anchor="middle" class="box-sub">ディスク上に存在</text>
+
+    <line x1="170" y1="136" x2="225" y2="136" stroke="#A32D2D" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="197" y="131" class="x-mark">✕</text>
+
+    <rect x="240" y="118" width="130" height="36" rx="6" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="305" y="134" text-anchor="middle" class="box-title" style="fill:#A32D2D">Skill一覧</text>
+    <text x="305" y="147" text-anchor="middle" class="box-sub" style="fill:#A32D2D">未掲載</text>
+
+    <rect x="395" y="118" width="120" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>
+    <text x="455" y="140" text-anchor="middle" class="box-sub" opacity="0.6">trigger判定</text>
+
+    <rect x="535" y="118" width="105" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>
+    <text x="587" y="140" text-anchor="middle" class="box-sub" opacity="0.6">実行</text>
+
+    <!-- (3) コンフリクト・priority =============================== -->
+    <text x="40" y="200" class="num">(3)</text>
+    <text x="68" y="200" class="row-head">コンフリクト・priority</text>
+    <text x="208" y="200" class="row-desc">：別の似たSkillや上位スコープのSkillに上書きされる</text>
+
+    <rect x="40" y="228" width="115" height="40" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="97" y="252" text-anchor="middle" class="box-sub">依頼内容</text>
+
+    <line x1="155" y1="248" x2="200" y2="248" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#arrow-cat)"/>
+
+    <rect x="215" y="210" width="155" height="34" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="292" y="224" text-anchor="middle" class="box-title">Skill A</text>
+    <text x="292" y="238" text-anchor="middle" class="box-sub">本来呼びたい</text>
+
+    <rect x="215" y="252" width="155" height="34" rx="6" fill="none" stroke="#A32D2D" stroke-width="1.5"/>
+    <text x="292" y="266" text-anchor="middle" class="box-title" style="fill:#A32D2D">Skill B</text>
+    <text x="292" y="280" text-anchor="middle" class="box-sub" style="fill:#A32D2D">上位スコープが勝つ</text>
+
+    <line x1="292" y1="244" x2="292" y2="252" stroke="#A32D2D" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="378" y="224" class="row-desc" style="fill:#A32D2D; font-size:10px">優先度で負ける</text>
+
+    <line x1="370" y1="269" x2="425" y2="269" stroke="#A32D2D" stroke-width="1.6" marker-end="url(#arrow-fail)"/>
+
+    <rect x="440" y="252" width="200" height="34" rx="6" fill="none" stroke="#A32D2D" stroke-width="1.5"/>
+    <text x="540" y="266" text-anchor="middle" class="box-title" style="fill:#A32D2D">Bが実行される</text>
+    <text x="540" y="280" text-anchor="middle" class="box-sub" style="fill:#A32D2D">想定と違う挙動</text>
+
+    <!-- (4) runtime ============================================== -->
+    <text x="40" y="336" class="num">(4)</text>
+    <text x="68" y="336" class="row-head">runtime</text>
+    <text x="120" y="336" class="row-desc">：読み込まれて起動はするが実行中に失敗する</text>
+
+    <rect x="40" y="344" width="115" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="97" y="366" text-anchor="middle" class="box-sub">trigger一致</text>
+
+    <line x1="155" y1="362" x2="200" y2="362" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#arrow-cat)"/>
+
+    <rect x="215" y="344" width="115" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="272" y="366" text-anchor="middle" class="box-sub">load成功</text>
+
+    <line x1="330" y1="362" x2="375" y2="362" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#arrow-cat)"/>
+
+    <rect x="390" y="344" width="115" height="36" rx="6" fill="none" stroke="#0E3666" stroke-width="1"/>
+    <text x="447" y="366" text-anchor="middle" class="box-sub">起動</text>
+
+    <line x1="505" y1="362" x2="548" y2="362" stroke="#A32D2D" stroke-width="2"/>
+    <text x="527" y="357" class="x-mark" style="font-size:18px">✕</text>
+
+    <rect x="555" y="344" width="85" height="36" rx="6" fill="none" stroke="#A32D2D" stroke-width="1.5"/>
+    <text x="597" y="360" text-anchor="middle" class="box-title" style="fill:#A32D2D">実行中</text>
+    <text x="597" y="374" text-anchor="middle" class="box-sub" style="fill:#A32D2D">エラー</text>
+
+    <text x="447" y="398" text-anchor="middle" class="legend">権限・依存・パス・引数などで停止</text>
+
+    <!-- legend -->
+    <line x1="40" y1="424" x2="60" y2="424" stroke="#A32D2D" stroke-width="2"/>
+    <text x="68" y="428" class="legend">失敗が起きる地点</text>
+    <line x1="200" y1="424" x2="220" y2="424" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#arrow-cat)"/>
+    <text x="228" y="428" class="legend">正常に進む遷移</text>
+
+  </g>
+</svg>
