@@ -1,6 +1,6 @@
 ---
 title: "Claude Code Skills とは何か"
-subtitle: "claude-code 101"
+subtitle: "claude-code skills 101"
 author: "Ryo Nakagami"
 date: "2026-04-28"
 categories: [LLM, claude, claude-code, skills]

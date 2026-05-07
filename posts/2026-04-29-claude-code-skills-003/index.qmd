@@ -1,6 +1,6 @@
 ---
 title: "Skillを自作する：Options活用編"
-subtitle: "claude-code 101"
+subtitle: "claude-code skills 101"
 author: "Ryo Nakagami"
 date: "2026-04-29"
 categories: [LLM, claude, claude-code, skills]
@@ -76,7 +76,7 @@ auto-agenda:
 ::::
 ::::
 
-::: {.column width="75%" style="padding-left:0.5em;"}
+::: {.column style="width:75%; padding-left:0.5em;"}
 
 {{< reveal_vspace 0.5em >}}
 

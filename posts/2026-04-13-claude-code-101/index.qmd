@@ -1,6 +1,6 @@
 ---
 title: "はじめてのClaude Code"
-subtitle: "LLM101"
+subtitle: "claude-code 101"
 author: "Ryo Nakagami"
 date: "2026-04-13"
 categories: [LLM, claude, claude code]
@@ -11,6 +11,8 @@ filters:
 auto-agenda:
   bullets: bullets
 ---
+
+
 
 # コーディングエージェント概論
 
@@ -315,7 +317,7 @@ sequenceDiagram
     participant L as LLM
 
     U->>L: what's written in main.go?
-    L-->>U: ファイル参照手段を持たず<br/>内容を貼り付けるよう促すしかない
+    L-->>U: テキストの入出力しか扱えず<br/>外部システムと直接やり取りすることはできない<br>=ファイル参照手段を持たない
 ```
 
 :::: {.message-box style="font-size:0.8em; position: absolute; top: 65%; right: 50%" #focus-message}

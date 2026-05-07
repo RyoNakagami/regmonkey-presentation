@@ -1,6 +1,6 @@
 ---
 title: "Skillと他カスタマイズ機能の使い分け"
-subtitle: "claude-code 101"
+subtitle: "claude-code skills 101"
 author: "Ryo Nakagami"
 date: "2026-04-30"
 categories: [LLM, claude, claude-code, skills]
@@ -76,7 +76,7 @@ auto-agenda:
 ::::
 ::::
 
-::: {.column width="70%" style="padding-left:0.5em;"}
+::: {.column style="width:70%; padding-left:0.5em;"}
 
 {{< reveal_vspace 1.0em >}}
 
