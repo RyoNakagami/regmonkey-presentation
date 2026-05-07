@@ -15,7 +15,7 @@ function renderRegmonkeyIndex(el) {
   const codeBlock = el.querySelector("pre code");
   if (!codeBlock) return;
 
-  const rawYaml = codeBlock.innerText.trim();
+  const rawYaml = codeBlock.textContent.trim();
   let parsedData;
   try {
     parsedData = jsyaml.load(rawYaml);

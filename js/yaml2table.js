@@ -13,7 +13,7 @@ function convertMathDelimiters(text) {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".yaml2table").forEach((el) => {
-    const rawYaml = el.innerText.trim();
+    const rawYaml = el.textContent.trim();
     const columnWidthsAttr = el.getAttribute("data-col-widths");
     const columnWidths = columnWidthsAttr ? JSON.parse(columnWidthsAttr) : null;
 

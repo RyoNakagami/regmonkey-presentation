@@ -2,8 +2,11 @@ function renderAbstractSummary(el) {
   const codeBlock = el.querySelector("pre code");
   if (!codeBlock) return;
 
-  const rawYaml = codeBlock.innerText.trim();
+  // textContent (not innerText): innerText returns "" before layout is computed,
+  // which happens for code blocks at DOMContentLoaded under Reveal's ?print-pdf mode.
+  const rawYaml = codeBlock.textContent.trim();
   const parsedData = jsyaml.load(rawYaml);
+  if (!parsedData) return;
   const data = parsedData.regmonkey_abstract_summary;
   if (!data || !data.children) return;
 
