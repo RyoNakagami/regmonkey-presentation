@@ -9,7 +9,8 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Ryo Nakagami">
@@ -205,6 +206,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="default">
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
@@ -251,6 +256,26 @@ Ryo Nakagami
 
   <p class="date">2026年04月13日</p>
 </section>
+<section>
+<section id="コーディングエージェント概論" class="title-slide slide level1 agenda-slide center">
+<h1>コーディングエージェント概論</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>コーディングエージェント概論</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>標準ワークフローと活用</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Context Management</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Appendix</p>
+</div></li>
+</ul>
+</div>
+</section>
 <section id="コーディングエージェントとは何か" class="slide level2">
 <h2>コーディングエージェントとは何か？</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -258,7 +283,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-contents font-10 padding-L-05">
 <ul>
-<li>コーディングエージェントとは，<span class="regmonkey-bold">LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント</span>のこと</li>
+<li>コーディングエージェントとは，<span class="regmonkey-bold">LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント<sup>1</sup></span>のこと</li>
 <li>ユーザーの指示を受けて「<span class="regmonkey-bold">計画 → 実行 → 検証 → 修正</span>」のループを自走し，タスク完了まで反復する
 <ul>
 <li>従来ソフトウェア: 人間が アルゴリズム・分岐・例外処理を事前にすべて設計し，その手順に従う</li>
@@ -268,7 +293,7 @@ Ryo Nakagami
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<p><span class="mini-section">コーディングエージェントの進化<sup>1</sup></span></p>
+<p><span class="mini-section">コーディングエージェントの進化<sup>2</sup></span></p>
 <div class="width-105 position-left-10 font-09">
 <div class="vuetify-timeline-container">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">pipeline</span><span class="kw">:</span></span>
@@ -308,10 +333,10 @@ Ryo Nakagami
 </div>
 </div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn1"><p>進化の背景にはLLMの推論性能の向上(ゴールを踏まえた計画の立案力)や長文コンテキスト対応(レポジトリ内容の理解力)といった技術的進歩がある</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>AIエージェントとは，環境と相互作用しながら，定義された目標を達成するために行動を実行できるソフトウェアのこと</p></li><li id="fn2"><p>進化の背景にはLLMの推論性能の向上(ゴールを踏まえた計画の立案力)や長文コンテキスト対応(レポジトリ内容の理解力)といった技術的進歩がある</p></li></ol></aside></section>
 <section id="コーディングエージェントの特徴" class="slide level2">
 <h2>コーディングエージェントの特徴</h2>
-<p><span class="h2-submessage">「計画 → 実行 → 検証 → 修正」の自律ループで動く</span></p>
+<p><span class="h2-submessage">「計画 → 実行 → 検証 → 修正」の自律ループ<sup>1</sup>で動く</span></p>
 <div class="shannon-model font-09">
 <div class="shannon-component">
 <div class="shannon-icon-box">
@@ -456,13 +481,148 @@ Ryo Nakagami
 </div>
 </div>
 </div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn3"><p>プロンプト以降の「計画立案・実行・検証」Loopを特にAgentic Loopと呼ぶ場合がある</p></li></ol></aside></section>
+<section id="bare-llm-vs-coding-assistant" class="slide level2">
+<h2>Bare LLM vs Coding Assistant</h2>
+<p><span class="h2-submessage">ファイル読込など環境作用が必要な質問は、LLM単体では完結せずアシスタント層が必須</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">Bare LLM：ファイルにアクセスできない</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant U as User
+    participant L as LLM
+
+    U-&gt;&gt;L: what's written in main.go?
+    L--&gt;&gt;U: ファイル参照手段を持たず&lt;br/&gt;内容を貼り付けるよう促すしかない
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div id="focus-message" class="message-box" style="font-size:0.8em; position: absolute; top: 65%; right: 50%">
+<ul>
+<li>コーディングアシスタントは，リクエストにツール利用指示(<code>ReadFile</code>)を付加</li>
+<li>Claude 系モデル（Opus / Sonnet / Haiku）は，ツールの役割の充実という強みがある</li>
+<li>新しいツールを容易に追加できるという意味で，拡張可能性もある</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">Coding Assistant：ツール経由でファイルを読む</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant U as User
+    participant CA as Coding Assistant
+    participant L as LLM
+
+    U-&gt;&gt;CA: what's written in main.go?
+    CA-&gt;&gt;L: what's written in main.go?&lt;br/&gt;If you want to read a file,&lt;br/&gt;respond with "ReadFile: name"
+    L--&gt;&gt;CA: ReadFile: main.go
+    Note over CA: read main.go
+    CA-&gt;&gt;L: &lt;Contents of main.go&gt;
+    L--&gt;&gt;CA: ファイル内容に基づく回答
+    CA--&gt;&gt;U: 回答を表示
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+<p><span id="read-note-anchor" style="position: absolute; top: 45%; left: 76%; width: 1px; height: 1px; display: block;"></span></p>
+<p><span class="leaderline" start="#focus-message" data-end="#read-note-anchor" color="#1a1a1a" size="2" data-dash="true" data-start-socket="right" data-end-socket="left" data-path="straight" data-end-plug="arrow1"></span></p>
+</section></section>
+<section>
+<section id="標準ワークフローと活用" class="title-slide slide level1 agenda-slide center">
+<h1>標準ワークフローと活用</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>コーディングエージェント概論</p>
+</div></li>
+<li><div class="agenda-active">
+<p>標準ワークフローと活用</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Context Management</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Appendix</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="explore-plan-code-commit-workflow" class="slide level2">
+<h2>Explore → Plan → Code → Commit Workflow</h2>
+<p><span class="h2-submessage">いきなり実装ではなく，Plan Modeで設計を固めてから実装・レビューに進める4段の標準フロー</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-contents pl-5 font-10 lh-14">
+<ul>
+<li>いきなり実装依頼に進むと<span class="regmonkey-bold"><strong>後工程の軌道修正コスト</strong></span>が大きくなる：先に Explore / Plan で固める</li>
+<li>Plan の段階で確定した方針が，Code 以降の<span class="regmonkey-bold"><strong>Claudeの判断軸</strong></span>として効き続ける</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:65%; font-size: 0.8em !important;">
+<div id="yaml-epcc-workflow" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 35, 47]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Explore</span></span>
+<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関連ファイル・依存関係を&lt;span class="regmonkey-bold"&gt;読み取り専用&lt;/span&gt;で網羅させる</span></span>
+<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「実装場所・依存追加要否・アプローチ」をまとめて指示</span></span>
+<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 計画前提でなくてもexploreサブエージェント単体で起動可</span></span>
+<span id="cb4-8"><a></a></span>
+<span id="cb4-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Plan</span></span>
+<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;コードを書く前&lt;/span&gt;に方針をレビュー・修正する</span></span>
+<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;Enter&lt;/code&gt;でPlanモードに切り替え</span></span>
+<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 提案された計画を読み，妥当性を確認</span></span>
+<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不足箇所は「ここを直して」と指摘して再提案させる</span></span>
+<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> approve / 個別修正 / 質問 を選んで進行を制御</span></span>
+<span id="cb4-18"><a></a></span>
+<span id="cb4-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Code</span></span>
+<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;「正しい」の定義&lt;/span&gt;を渡し，検証可能な状態を保つ</span></span>
+<span id="cb4-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 成功条件を明示：何をもって完了とするか定義</span></span>
+<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 信頼できるテストスイートを継続検証の拠り所に</span></span>
+<span id="cb4-26"><a></a></span>
+<span id="cb4-27"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-28"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Commit</span></span>
+<span id="cb4-29"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;第三者視点&lt;/span&gt;で差分を確認してからpushする</span></span>
+<span id="cb4-31"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;code-reviewer&lt;/code&gt; サブエージェントに新コンテキストでレビュー</span></span>
+<span id="cb4-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スタイルを指定してClaudeにcommit messageを生成</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
 <section id="コーディングエージェントを使いこなすには" class="slide level2">
 <h2>コーディングエージェントを使いこなすには？</h2>
 <p><span class="h2-submessage">仕様書駆動（Spec-Driven）でエージェントのコンテキストを整える</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<p><span class="mini-section">Key Takeaways</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-contents font-10 padding-L-05">
 <ul>
 <li>エージェントは<strong>コンテキストの質で精度が決まる</strong> ⇔ 曖昧な指示は動的生成を暴走させる</li>
@@ -531,9 +691,301 @@ Ryo Nakagami
 </div>
 </div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn2"><p>REQURIEMENTS:機能要件・制約・完了定義． DESIGN: アーキテクチャ・API設計． TASKS: 具体実装チェックリスト</p></li></ol></aside></section>
-<section id="appendix-requirements-design-tasks" class="slide level2">
-<h2>Appendix: REQUIREMENTS → DESIGN → TASKS</h2>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>REQURIEMENTS:機能要件・制約・完了定義． DESIGN: アーキテクチャ・API設計． TASKS: 具体実装チェックリスト</p></li></ol></aside></section></section>
+<section>
+<section id="context-management" class="title-slide slide level1 agenda-slide center">
+<h1>Context Management</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>コーディングエージェント概論</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>標準ワークフローと活用</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Context Management</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Appendix</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="context-windowは入出力が共有する作業メモリ" class="slide level2">
+<h2>Context Windowは入出力が共有する作業メモリ</h2>
+<p><span class="h2-submessage">エージェントの「作業メモリ」として，あらゆる入出力が同じ有限リソースを共有する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>Context Window = エージェントが <span class="regmonkey-bold">一度の会話で参照できるトークンの上限</span></li>
+<li>ユーザー入力・ツール結果・読込ファイル・MCPツール定義が<span class="regmonkey-bold">同じリソースを共有</span>する</li>
+<li>容量に限りがあるため，<span class="regmonkey-bold">何を入れ・何を残すか</span>を能動的に設計する必要がある</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./context-window-example.png"></p>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">Context Windowを消費する代表的な要素</span></p>
+<div class="font-09 padding-L-05 lh-14">
+<ul>
+<li>ユーザープロンプト・アシスタント応答</li>
+<li><code>Read</code> / <code>Bash</code> / <code>Grep</code> などツール実行結果</li>
+<li>システムプロンプト・組み込みツール定義</li>
+<li>MCPサーバーが提供するツール一覧</li>
+<li>Skill / Subagent の読み込み内容</li>
+<li>自動Compactionバッファ領域</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="上限到達時は自動compactionで要約圧縮される" class="slide level2">
+<h2>上限到達時は自動Compactionで要約圧縮される</h2>
+<p><span class="h2-submessage">会話は途切れず継続できるが，要約により細部の情報が落ちるリスクがある</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<p><span class="info-box-title">Compactionの仕組み</span></p>
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>上限に近づくと Claude Code は <span class="regmonkey-bold">重要情報を要約し，古いツール結果を捨てる</span></li>
+<li>圧縮後の要約が新しい文脈として保持され，会話を中断せずに作業を継続できる</li>
+<li>画面上には <code>Compacting conversation...</code> と表示され，要約結果が直後に展開される</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="caution-box">
+<p><span class="info-box-title">詳細喪失のリスク</span></p>
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>要約は <span class="regmonkey-bold">固有値・コードの細部・微妙なやり取りを取りこぼす</span>ことがある</li>
+<li>重要な仕様・前提条件は <span class="regmonkey-bold">Compaction前に <code>CLAUDE.md</code> やファイルへ書き出す</span>べき</li>
+<li>自動任せにせず，区切りで <code>/compact</code> か <code>/clear</code> を能動的に呼ぶ方が安全</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="つのスラッシュコマンドで容量を能動管理" class="slide level2">
+<h2>3つのスラッシュコマンドで容量を能動管理</h2>
+<p><span class="h2-submessage"><code>/context</code> で現状把握 → 状況に応じて <code>/compact</code> か <code>/clear</code> を使い分ける</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:75%; font-size: 0.85em !important;">
+<div id="yaml-context-commands" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 35, 47]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> /context</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在のコンテキスト使用量を&lt;span class="regmonkey-bold"&gt;カテゴリ別に可視化&lt;/span&gt;する</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> System prompt / Tools / Messages / Free space の内訳をバーで確認</span></span>
+<span id="cb5-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> どのカテゴリが圧迫しているかを特定し，対策の起点にする</span></span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> /compact</span></span>
+<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> その時点までの会話を&lt;span class="regmonkey-bold"&gt;手動で要約・圧縮&lt;/span&gt;する</span></span>
+<span id="cb5-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同一feature内で作業を続けたい時に空き容量を確保</span></span>
+<span id="cb5-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動Compactionより制御性が高く，区切りを意図的に置ける</span></span>
+<span id="cb5-16"><a></a></span>
+<span id="cb5-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> /clear</span></span>
+<span id="cb5-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 会話を&lt;span class="regmonkey-bold"&gt;完全にリセット&lt;/span&gt;し，記憶を持ち越さない</span></span>
+<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 別タスクへ切り替える時に前文脈のバイアスを断つ</span></span>
+<span id="cb5-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 永続化したい知識は &lt;code&gt;CLAUDE.md&lt;/code&gt; に書き出してから実行</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="feature継続ならcompact切替ならclear" class="slide level2">
+<h2>feature継続なら/compact，切替なら/clear</h2>
+<p><span class="h2-submessage">作業が続くか切り替わるかでコマンドを選び，永続記憶は <code>CLAUDE.md</code> に逃がす</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left">
+<p>同じfeatureを継続したい</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li><code>/compact</code> を使う：<span class="regmonkey-bold">直近の作業文脈を要約として残す</span></li>
+<li>同じ実装タスクの途中で容量が逼迫してきた時に有効</li>
+<li>設計判断・既読ファイル・進捗の文脈が引き継がれる</li>
+<li>自動Compactionを待たず，<span class="regmonkey-bold">キリの良いタイミングで自分で発火</span>するのが安全</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p>別タスク・別featureへ切り替える</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li><code>/clear</code> を使う：<span class="regmonkey-bold">過去の文脈を一切持ち越さない</span></li>
+<li>前タスクの想定や思い込みが新タスクに混入しない</li>
+<li>セッション間で覚えていてほしい知識は <span class="regmonkey-bold"><code>CLAUDE.md</code> に書く</span>
+<ul>
+<li>起動時に自動読み込みされ，毎回の再発見コストを削減</li>
+</ul></li>
+<li>プロジェクト共通のコマンド・規約・アーキテクチャを集約</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="コンテキスト節約は具体性mcp整理委譲" class="slide level2">
+<h2>コンテキスト節約は具体性・MCP整理・委譲</h2>
+<p><span class="h2-submessage">曖昧な指示・不要なMCP・本体での雑用がコンテキストを最も食う</span></p>
+<div class="columns">
+<div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="horizontal-keypoints-block" style="height:65%;">
+<div class="block-header">
+<p><i class="bi-signpost-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> 具体的に書く</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="block checkmark" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>曖昧プロンプトはClaudeが探索・推論で<span class="regmonkey-bold">逆に消費</span></li>
+<li>ファイル名・関数名・成功条件を明示</li>
+<li>詳細プロンプトの方が結果として節約</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="horizontal-keypoints-block" style="height:65%;">
+<div class="block-header">
+<p><i class="bi-funnel-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> MCPサーバーを管理</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="block checkmark" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>MCPは全ツール定義を<span class="regmonkey-bold">起動時にロード</span></li>
+<li>不要なサーバーは無効化する</li>
+<li>Skillsはon-demandで読み込まれ常駐しない</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="horizontal-keypoints-block-no-border" style="height:65%;">
+<div class="block-header">
+<p><i class="bi-diagram-3-fill " style="font-size: 1.6em;color: #428CE6;" role="img" aria-hidden="true"></i> サブエージェントに委譲</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 10%;"></div>
+<div class="block checkmark" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>別コンテキストで実行し<span class="regmonkey-bold">要約だけ親に返す</span></li>
+<li>「認証エンドポイントの場所」など探索系で有効</li>
+<li>親コンテキストを汚さずに調査結果を取得</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 no-auto-agenda center">
+<h1>Appendix</h1>
+
+</section>
+<section id="プロンプトトラブルシューティング" class="slide level2">
+<h2>プロンプトトラブルシューティング</h2>
+<p><span class="h2-submessage">Claudeの返答が期待と外れた時に，原因と対処を症状別に切り分ける早見表</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:80%; font-size: 0.78em !important;">
+<div id="yaml-prompt-troubleshooting" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 33, 47]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 返答が&lt;br&gt;抽象的すぎる</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロンプトに&lt;span class="regmonkey-bold"&gt;具体的状況の文脈&lt;/span&gt;が不足している</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対象読者・役割・制約条件などの詳細を追加する</span></span>
+<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「遅延メールを書いて」→「ソフト統合が2週間遅れる旨を伝える，2回目の遅延，謝意を含むプロフェッショナルなトーン」と具体化</span></span>
+<span id="cb6-8"><a></a></span>
+<span id="cb6-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 返答が&lt;br&gt;長すぎる/短すぎる</span></span>
+<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claudeが&lt;span class="regmonkey-bold"&gt;適切な長さを推測&lt;/span&gt;するしかない状態</span></span>
+<span id="cb6-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「2段落で要約して」「100語以内」など長さを具体的に明示する</span></span>
+<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 詳細解析が必要なら「長さは気にせず包括的に」と逆方向にも指定</span></span>
+<span id="cb6-16"><a></a></span>
+<span id="cb6-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 指定フォーマットに&lt;br&gt;従わない</span></span>
+<span id="cb6-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「何を」は理解したが「&lt;span class="regmonkey-bold"&gt;どう提示するか&lt;/span&gt;」が伝わっていない</span></span>
+<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フォーマット例を直接見せるか，構造を明示する</span></span>
+<span id="cb6-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「各セクションに太字見出しを付けた箇条書きで書いて」</span></span>
+<span id="cb6-24"><a></a></span>
+<span id="cb6-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 自信ありげに&lt;br&gt;誤情報を出す</span></span>
+<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 専門領域や具体事実で&lt;span class="regmonkey-bold"&gt;もっともらしい誤答&lt;/span&gt;を生成しうる</span></span>
+<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要用途では重要事実を独立に検証する</span></span>
+<span id="cb6-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;出典提示&lt;/code&gt;や&lt;code&gt;確信度表示&lt;/code&gt;を要求する</span></span>
+<span id="cb6-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web検索を有効化して最新情報に基づかせる</span></span>
+<span id="cb6-33"><a></a></span>
+<span id="cb6-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> トーンが&lt;br&gt;合わない</span></span>
+<span id="cb6-36"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> デフォルトの&lt;span class="regmonkey-bold"&gt;親切でプロフェッショナル&lt;/span&gt;な口調が目的と合わない</span></span>
+<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「もっと会話的に」「権威的でフォーマルに」と自然言語でトーンを説明</span></span>
+<span id="cb6-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 望む文体の例を与える</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="ai-fluencyの4d-framework4d-framework" class="slide level2">
+<h2>AI Fluencyの4D Framework<sup>1</sup></h2>
+<p><span class="h2-submessage">Delegation・Description・Discernment・Diligence の4つでAI協働の能力を分解する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="width-100">
+<div class="regmonkey_abstract_summary">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.95em</span></span>
+<span id="cb7-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb7-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Delegation</span></span>
+<span id="cb7-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 何を人，何をAI，どう分担するかを&lt;strong&gt;戦略的に決める&lt;/strong&gt;</span></span>
+<span id="cb7-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 自分のゴール・AIの能力・タスクの性質を踏まえて配分</span></span>
+<span id="cb7-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 例：下書き・要約はAI，最終レビューと意思決定は人で切り分ける</span></span>
+<span id="cb7-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb7-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Description</span></span>
+<span id="cb7-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> AIシステムと&lt;strong&gt;効果的に意思疎通&lt;/strong&gt;する技能</span></span>
+<span id="cb7-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 出力の定義・プロセスの誘導・望ましい挙動の指定</span></span>
+<span id="cb7-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 例：制約条件・フォーマット・トーンを明示して精度を高める</span></span>
+<span id="cb7-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Discernment</span></span>
+<span id="cb7-18"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> AIの出力・プロセス・挙動を&lt;strong&gt;批判的に評価&lt;/strong&gt;する</span></span>
+<span id="cb7-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 品質・正確性・適切性を見極め，改善点を特定</span></span>
+<span id="cb7-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 例：ハルシネーションや論理破綻を検知して修正する</span></span>
+<span id="cb7-22"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb7-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Diligence</span></span>
+<span id="cb7-24"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> AIを&lt;strong&gt;責任を持って倫理的に使う&lt;/strong&gt;</span></span>
+<span id="cb7-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 透明性・説明責任・人による最終確認を維持</span></span>
+<span id="cb7-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 例：機密情報・著作権・バイアスへの配慮を行う</span></span>
+<span id="cb7-28"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Prof.&nbsp;Rick Dakan (Ringling College of Art and Design) と Prof.&nbsp;Joseph Feller (University College Cork) の共同研究に基づくフレームワーク</p></li></ol></aside></section>
+<section id="requirements-design-tasks" class="slide level2">
+<h2>REQUIREMENTS → DESIGN → TASKS</h2>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -549,88 +1001,88 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div><div class="column" style="width:33.3%;">
 <p><span class="mini-section">WHATの明確化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a><span class="fu"># REQUIREMENTS.md</span></span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="fu">## ゴール</span></span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a>CSV をアップロードし</span>
-<span id="cb4-6"><a></a>グラフを生成・DLできるアプリ</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a><span class="fu">## 機能要件</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a><span class="ss">- </span><span class="va">[ ]</span> ドラッグ&amp;ドロップでCSV読込</span>
-<span id="cb4-11"><a></a><span class="ss">- </span><span class="va">[ ]</span> X/Y 軸を選択できる</span>
-<span id="cb4-12"><a></a><span class="ss">- </span><span class="va">[ ]</span> 折れ線・棒・散布図に対応</span>
-<span id="cb4-13"><a></a><span class="ss">- </span><span class="va">[ ]</span> PNG/SVG でダウンロード</span>
-<span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a><span class="fu">## 非機能要件</span></span>
-<span id="cb4-16"><a></a></span>
-<span id="cb4-17"><a></a><span class="ss">- </span>1,000行以下は 300ms 以内</span>
-<span id="cb4-18"><a></a><span class="ss">- </span>サーバーレス（フロントのみ）</span>
-<span id="cb4-19"><a></a></span>
-<span id="cb4-20"><a></a><span class="fu">## 制約</span></span>
-<span id="cb4-21"><a></a></span>
-<span id="cb4-22"><a></a><span class="ss">- </span>外部APIへのデータ送信禁止</span>
-<span id="cb4-23"><a></a></span>
-<span id="cb4-24"><a></a><span class="fu">## 完了の定義（DoD）</span></span>
-<span id="cb4-25"><a></a></span>
-<span id="cb4-26"><a></a><span class="ss">- </span>全要件の <span class="co">[ ]</span> が ✅ になること</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="fu"># REQUIREMENTS.md</span></span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a><span class="fu">## ゴール</span></span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a>CSV をアップロードし</span>
+<span id="cb8-6"><a></a>グラフを生成・DLできるアプリ</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="fu">## 機能要件</span></span>
+<span id="cb8-9"><a></a></span>
+<span id="cb8-10"><a></a><span class="ss">- </span><span class="va">[ ]</span> ドラッグ&amp;ドロップでCSV読込</span>
+<span id="cb8-11"><a></a><span class="ss">- </span><span class="va">[ ]</span> X/Y 軸を選択できる</span>
+<span id="cb8-12"><a></a><span class="ss">- </span><span class="va">[ ]</span> 折れ線・棒・散布図に対応</span>
+<span id="cb8-13"><a></a><span class="ss">- </span><span class="va">[ ]</span> PNG/SVG でダウンロード</span>
+<span id="cb8-14"><a></a></span>
+<span id="cb8-15"><a></a><span class="fu">## 非機能要件</span></span>
+<span id="cb8-16"><a></a></span>
+<span id="cb8-17"><a></a><span class="ss">- </span>1,000行以下は 300ms 以内</span>
+<span id="cb8-18"><a></a><span class="ss">- </span>サーバーレス（フロントのみ）</span>
+<span id="cb8-19"><a></a></span>
+<span id="cb8-20"><a></a><span class="fu">## 制約</span></span>
+<span id="cb8-21"><a></a></span>
+<span id="cb8-22"><a></a><span class="ss">- </span>外部APIへのデータ送信禁止</span>
+<span id="cb8-23"><a></a></span>
+<span id="cb8-24"><a></a><span class="fu">## 完了の定義（DoD）</span></span>
+<span id="cb8-25"><a></a></span>
+<span id="cb8-26"><a></a><span class="ss">- </span>全要件の <span class="co">[ ]</span> が ✅ になること</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" height="70%" style="width:33.3%;">
 <p><span class="mini-section">HOWの明確化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a><span class="fu"># DESIGN.md</span></span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a><span class="fu">## アーキテクチャ</span></span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>単一HTML + Vanilla JS + d3.js</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="fu">## コンポーネント構成</span></span>
-<span id="cb5-8"><a></a></span>
-<span id="cb5-9"><a></a>┌────────────────────┐</span>
-<span id="cb5-10"><a></a>│ DropZone     │ CSV受け取り</span>
-<span id="cb5-11"><a></a>├────────────────────┤</span>
-<span id="cb5-12"><a></a>│ AxisSelector │ 列選択UI</span>
-<span id="cb5-13"><a></a>├────────────────────┤</span>
-<span id="cb5-14"><a></a>│ ChartRenderer│ d3で描画</span>
-<span id="cb5-15"><a></a>├────────────────────┤</span>
-<span id="cb5-16"><a></a>│ ExportButton │ PNG/SVG出力</span>
-<span id="cb5-17"><a></a>└────────────────────┘</span>
-<span id="cb5-18"><a></a></span>
-<span id="cb5-19"><a></a><span class="fu">## データフロー</span></span>
-<span id="cb5-20"><a></a></span>
-<span id="cb5-21"><a></a>CSV → Papa.parse → rawData[]</span>
-<span id="cb5-22"><a></a>→ { xCol, yCol, chartType }</span>
-<span id="cb5-23"><a></a>→ d3.select('#chart') → SVG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a></a><span class="fu"># DESIGN.md</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a><span class="fu">## アーキテクチャ</span></span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a>単一HTML + Vanilla JS + d3.js</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="fu">## コンポーネント構成</span></span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a>┌────────────────────┐</span>
+<span id="cb9-10"><a></a>│ DropZone     │ CSV受け取り</span>
+<span id="cb9-11"><a></a>├────────────────────┤</span>
+<span id="cb9-12"><a></a>│ AxisSelector │ 列選択UI</span>
+<span id="cb9-13"><a></a>├────────────────────┤</span>
+<span id="cb9-14"><a></a>│ ChartRenderer│ d3で描画</span>
+<span id="cb9-15"><a></a>├────────────────────┤</span>
+<span id="cb9-16"><a></a>│ ExportButton │ PNG/SVG出力</span>
+<span id="cb9-17"><a></a>└────────────────────┘</span>
+<span id="cb9-18"><a></a></span>
+<span id="cb9-19"><a></a><span class="fu">## データフロー</span></span>
+<span id="cb9-20"><a></a></span>
+<span id="cb9-21"><a></a>CSV → Papa.parse → rawData[]</span>
+<span id="cb9-22"><a></a>→ { xCol, yCol, chartType }</span>
+<span id="cb9-23"><a></a>→ d3.select('#chart') → SVG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:33.2%;">
 <p><span class="mini-section">TODOの明確化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a><span class="fu"># TASKS.md</span></span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a><span class="fu">## Phase 1: 基盤構築</span></span>
-<span id="cb6-4"><a></a></span>
-<span id="cb6-5"><a></a><span class="ss">- </span><span class="va">[x]</span> index.html 骨格作成</span>
-<span id="cb6-6"><a></a><span class="ss">- </span><span class="va">[x]</span> d3.js CDN 動作確認</span>
-<span id="cb6-7"><a></a><span class="ss">- </span><span class="va">[ ]</span> CSS Grid レイアウト</span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a><span class="fu">## Phase 2: CSV処理</span></span>
-<span id="cb6-10"><a></a></span>
-<span id="cb6-11"><a></a><span class="ss">- </span><span class="va">[ ]</span> DropZone 実装</span>
-<span id="cb6-12"><a></a><span class="ss">  - </span><span class="va">[ ]</span> drag/drop イベント</span>
-<span id="cb6-13"><a></a><span class="ss">  - </span><span class="va">[ ]</span> File API 読み込み</span>
-<span id="cb6-14"><a></a><span class="ss">  - </span><span class="va">[ ]</span> Papa.parse で変換</span>
-<span id="cb6-15"><a></a><span class="ss">- </span><span class="va">[ ]</span> 数値列の自動検出</span>
-<span id="cb6-16"><a></a></span>
-<span id="cb6-17"><a></a><span class="fu">## Phase 3: 可視化</span></span>
-<span id="cb6-18"><a></a></span>
-<span id="cb6-19"><a></a><span class="ss">- </span><span class="va">[ ]</span> 折れ線グラフ（d3.line）</span>
-<span id="cb6-20"><a></a><span class="ss">- </span><span class="va">[ ]</span> 棒グラフ（d3.scaleBand）</span>
-<span id="cb6-21"><a></a><span class="ss">- </span><span class="va">[ ]</span> 散布図（d3.scaleLinear）</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a></a><span class="fu"># TASKS.md</span></span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="fu">## Phase 1: 基盤構築</span></span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="ss">- </span><span class="va">[x]</span> index.html 骨格作成</span>
+<span id="cb10-6"><a></a><span class="ss">- </span><span class="va">[x]</span> d3.js CDN 動作確認</span>
+<span id="cb10-7"><a></a><span class="ss">- </span><span class="va">[ ]</span> CSS Grid レイアウト</span>
+<span id="cb10-8"><a></a></span>
+<span id="cb10-9"><a></a><span class="fu">## Phase 2: CSV処理</span></span>
+<span id="cb10-10"><a></a></span>
+<span id="cb10-11"><a></a><span class="ss">- </span><span class="va">[ ]</span> DropZone 実装</span>
+<span id="cb10-12"><a></a><span class="ss">  - </span><span class="va">[ ]</span> drag/drop イベント</span>
+<span id="cb10-13"><a></a><span class="ss">  - </span><span class="va">[ ]</span> File API 読み込み</span>
+<span id="cb10-14"><a></a><span class="ss">  - </span><span class="va">[ ]</span> Papa.parse で変換</span>
+<span id="cb10-15"><a></a><span class="ss">- </span><span class="va">[ ]</span> 数値列の自動検出</span>
+<span id="cb10-16"><a></a></span>
+<span id="cb10-17"><a></a><span class="fu">## Phase 3: 可視化</span></span>
+<span id="cb10-18"><a></a></span>
+<span id="cb10-19"><a></a><span class="ss">- </span><span class="va">[ ]</span> 折れ線グラフ（d3.line）</span>
+<span id="cb10-20"><a></a><span class="ss">- </span><span class="va">[ ]</span> 棒グラフ（d3.scaleBand）</span>
+<span id="cb10-21"><a></a><span class="ss">- </span><span class="va">[ ]</span> 散布図（d3.scaleLinear）</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <!-- end columns -->
 
 
 
-</section>
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
