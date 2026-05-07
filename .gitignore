@@ -45,6 +45,10 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints
 
+# node
+node_modules/
+npm-debug.log*
+
 /.luarc.json
 
 **/*.quarto_ipynb
