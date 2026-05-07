@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
   document.querySelectorAll('.regmonkey-waterfall-container').forEach(container => {
-    const rawYaml = container.innerText.trim();
+    const rawYaml = container.textContent.trim();
     if (!rawYaml) return;
     const parsedYaml = jsyaml.load(rawYaml);
 

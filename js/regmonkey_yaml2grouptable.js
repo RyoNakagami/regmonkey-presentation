@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const codeBlock = el.querySelector("pre code"); // code 要素を取得
     if (!codeBlock) return;
 
-    const rawYaml = codeBlock.innerText.trim();
+    const rawYaml = codeBlock.textContent.trim();
     const columnWidthsAttr = el.getAttribute("data-col-widths");
     const columnWidths = columnWidthsAttr ? JSON.parse(columnWidthsAttr) : null;
 
