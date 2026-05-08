@@ -546,6 +546,157 @@ record4:
 
 [^footer-docs]: REQURIEMENTS:機能要件・制約・完了定義． DESIGN: アーキテクチャ・API設計． TASKS: 具体実装チェックリスト
 
+# プロンプトエンジニアリング基礎
+
+## プロンプトとはAIへの効果的な指示設計
+
+[人間への指示と同じ原則にAI固有の留意点を組み合わせる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- プロンプトエンジニアリング = [AIから望ましい応答を引き出すための指示文を設計する実践]{.regmonkey-bold}
+- 出力の質は [プロンプトの具体性・構造・前提情報の与え方]{.regmonkey-bold} に強く依存する
+- 人間への依頼と通じる原則(背景・例・制約)に，AI固有の考慮(役割設定・思考時間・反復改善)を重ねる
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[AI Fluency 4D Framework における位置づけ[^footer-prompt-4d]]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+
+- プロンプティングは [Description（AIとの効果的な意思疎通）]{.regmonkey-bold} に該当する技能
+- Delegation で何を任せるか決め，Description で伝え方を設計し，Discernment で出力を評価する
+- 一連のサイクルで初めてAIを使いこなせる ⇔ プロンプト単独では完結しない
+
+:::
+
+<!-- footer -->
+
+[^footer-prompt-4d]: 4D Framework の詳細は Appendix の「AI Fluencyの4D Framework」スライドを参照
+
+## 人間への依頼との共通点と相違点を理解する
+
+[文脈・例示・制約は共通．役割設定・思考時間はAI固有の考慮]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+人間への依頼と共通する原則
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- [背景・目的の説明]{.regmonkey-bold}：何のために何が欲しいかを冒頭で示す
+- [望ましい出力の例示]{.regmonkey-bold}：完成イメージのサンプルを添える
+- [要件・制約の明文化]{.regmonkey-bold}：フォーマット・分量・口調を指定する
+- [複雑な依頼の分解]{.regmonkey-bold}：手順や中間成果物を順序づけて渡す
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+AI固有の考慮事項
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- [役割・トーンの定義]{.regmonkey-bold}：「あなたは〜の専門家」と立場を与える
+- [推論時間の確保]{.regmonkey-bold}：結論前に思考過程を書かせる(`Think step-by-step`)
+- [反復改善が前提]{.regmonkey-bold}：初稿を見て指示を調整する協働プロセス
+- [AI自身に改善依頼]{.regmonkey-bold}：プロンプトの不足点をAIに指摘させる
+
+:::
+
+::::
+:::::
+::::::
+
+## 6つの基本テクで指示の質を上げる
+
+[文脈・例示・制約・分解・思考・役割を組み合わせて使う]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:75%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-prompting-techniques data-col-widths="[23, 32, 45]"}
+
+```yaml
+record1:
+  category: Give context
+  rule:
+    - 何を・なぜ・どんな背景でかを<span class="regmonkey-bold">冒頭で明示</span>する
+  actions:
+    - 目的・前提・対象データ・成功条件を最初に書く
+    - 関連ファイル・既知の制約・想定読者を添える
+
+record2:
+  category: Show examples
+  rule:
+    - 望ましい出力の<span class="regmonkey-bold">形を具体例で見せる</span>
+  actions:
+    - Few-shot examples（入出力ペアを2〜3組）
+    - 完成サンプル・参考フォーマットを添付
+
+record3:
+  category: Specify constraints
+  rule:
+    - フォーマット・長さ・口調を<span class="regmonkey-bold">数値や形式で固定</span>する
+  actions:
+    - JSON形式・箇条書き・xx語以内など出力形式を指定
+    - 含めるもの・含めないものを明記
+
+record4:
+  category: Break complex tasks into steps
+  rule:
+    - 複雑な依頼を<span class="regmonkey-bold">段階的なサブタスクに分ける</span>
+  actions:
+    - Step 1・Step 2 ... と順序を明示
+    - 中間成果物の確認ポイントを置く
+
+record5:
+  category: Ask the AI to think first
+  rule:
+    - 結論前に<span class="regmonkey-bold">推論プロセスを書かせる</span>余地を与える
+  actions:
+    - 「Think step-by-step」「まず計画を立ててから」と指示
+    - チェーン・オブ・ソートで途中経過を出させる
+
+record6:
+  category: Define the AI's role
+  rule:
+    - AIの<span class="regmonkey-bold">立場・専門性・トーン</span>を定義する
+  actions:
+    - 「あなたは〜の専門家として回答してください」
+    - 想定読者に合わせた説明の粒度を指定
+```
+
+:::
+::::
+
+
 # Context Management
 
 ## Context Windowは入出力が共有する作業メモリ
