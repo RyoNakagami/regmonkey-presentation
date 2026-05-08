@@ -28,7 +28,7 @@ local function get_header_text(el)
 end
 
 local function scan_headers(el)
-  if el.level == 1  then
+  if el.level == 1 and not el.attr.classes:includes("no-auto-agenda") then
     headers:insert(get_header_text(el))
   end
 end
