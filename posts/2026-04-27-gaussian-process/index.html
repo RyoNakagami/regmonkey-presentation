@@ -104,8 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
-  <link rel="stylesheet" href="../../style/revealjs.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-96b4647d34406405c4daf677098db5f8.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -711,7 +710,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="font-08">
-<div class="pseudocode-container quarto-float" data-indent-size="1em" data-no-end="false" data-line-number="true" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-pseudocode-number="1" data-line-number-punc=":">
+<div class="pseudocode-container quarto-float" data-no-end="false" data-pseudocode-number="1" data-caption-prefix="Algorithm" data-indent-size="1em" data-comment-delimiter="//" data-line-number-punc=":" data-line-number="true">
 <div class="pseudocode">
 \begin{algorithm} \caption{Joint GP Posterior Inference} \begin{algorithmic} \Procedure{JointGPPosterior}{$x^*,\, (x_f, \phi),\, (x_g, \gamma)$} \State $a \gets [\phi;\, \gamma]$ \Comment{観測ベクトルを連結} \State $C \gets \begin{bmatrix} K(x_f, x_f) &amp; K_{fg}(x_f, x_g) \\ K_{fg}(x_g, x_f) &amp; K(x_g, x_g) \end{bmatrix}$ \Comment{結合カーネル} \State $\kappa_f \gets [\,K(x^*, x_f),\; K_{fg}(x^*, x_g)\,]$ \State $\kappa_g \gets [\,K_{fg}(x^*, x_f),\; K(x^*, x_g)\,]$ \State $L \gets \textsf{Cholesky}(C)$ \Comment{$O(n^3)$ で安定に解く} \State $\alpha \gets \textsf{Solve}(L^\top,\; \textsf{Solve}(L,\, a))$ \State $\mu_f^* \gets \kappa_f\, \alpha,\quad \mu_g^* \gets \kappa_g\, \alpha$ \Comment{事後 mean} \State $V_f \gets \textsf{Solve}(L,\, \kappa_f^\top),\quad V_g \gets \textsf{Solve}(L,\, \kappa_g^\top)$ \State $\sigma_f^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_f^2)$ \Comment{事後 variance} \State $\sigma_g^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_g^2)$ \Return $(\mu_f^*, \sigma_f^*),\; (\mu_g^*, \sigma_g^*)$ \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
@@ -734,7 +733,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 <h2>Python 実装：NumPy で結合カーネル → 事後 mean / variance を計算</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="font-09">
-<div id="31a66dd7" class="cell" data-execution_count="1">
+<div id="10242e43" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
