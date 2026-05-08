@@ -8,7 +8,7 @@ freeze: true
 title-block-banner: true
 
 # Presentation-specific options
-format: 
+format:
   revealjs:
-    css: ../../style/revealjs.css
+    theme: ../../style/revealjs.scss
 metadata-files: [../_slide.yml]
