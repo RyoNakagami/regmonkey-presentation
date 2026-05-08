@@ -102,7 +102,10 @@ const externals = await page.$$eval('a[href^="http"]', as =>
 stats.externalLinks = externals.length;
 
 // ---- 7. コンテンツ溢れ ----
-const overflowing = await page.$$eval('section.slide, .pdf-page', sections =>
+// 注: `.pdf-page` を含めるとReveal `?print-pdf` モードの section 配置
+// (top:45px / bottom:-45px)で systematic な 45px 偽陽性が出るため、
+// 実際にコンテンツが溢れている `section.slide` のみを計測する。
+const overflowing = await page.$$eval('section.slide', sections =>
   sections
     .map(s => ({
       title: s.querySelector('h1,h2,h3')?.textContent?.trim() || '(no title)',
@@ -112,7 +115,7 @@ const overflowing = await page.$$eval('section.slide, .pdf-page', sections =>
     .filter(o => o.overflowY > 5 || o.overflowX > 5)
 );
 overflowing.forEach(o => issues.warning.push({ kind: 'content-overflow', ...o }));
-stats.slides = await page.locator('section.slide, .pdf-page').count();
+stats.slides = await page.locator('section.slide').count();
 
 // ---- 8. 日本語tofu検出(簡易) ----
 // 文字幅0のテキストノードを検出

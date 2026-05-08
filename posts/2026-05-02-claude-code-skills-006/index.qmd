@@ -10,6 +10,7 @@ filters:
   - regmonkey_slide_editing
 auto-agenda:
   bullets: bullets
+chalkboard: false  # 一時的に切ってみる
 ---
 
 ## Index {.regmonkey-index-slide-no-title}
