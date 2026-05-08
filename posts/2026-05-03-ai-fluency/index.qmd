@@ -30,7 +30,7 @@ auto-agenda:
 
 {{< bi bullseye size=1.7em color=#428CE6 >}}
 
-### 学習目標
+### [学習目標]{.padding-L-05}
 
 :::
 
@@ -47,7 +47,7 @@ auto-agenda:
 
 {{< bi person size=1.7em color=#428CE6 >}}
 
-### 対象レベル
+### [対象レベル]{.padding-L-05}
 
 :::
 
@@ -64,7 +64,7 @@ auto-agenda:
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### 前提知識
+### [前提知識]{.padding-L-05}
 
 :::
 
@@ -225,9 +225,9 @@ record4:
 
 ## AI協働の実装層: どの技術がどの観点を支えるか
 
-{{< reveal_vspace 0.3em >}}
+{{< reveal_vspace 0.25em >}}
 
-:::{style="position:absolute; left:0; right:0; width:1800px; text-align:center;"}
+:::{style="position:absolute; left:0; right:0; width:1700px; text-align:center;"}
 
 ![](./ai_fluency_4e_pivot_svg_larger.svg){width="100%"}
 
