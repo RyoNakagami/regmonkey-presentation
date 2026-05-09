@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – claude-stdin-prompt 解説</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b59f05617a78783f365c8aec2217faf2.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"></script>
+      <style>.ps-comment { padding-left: 1em; }</style>
+    
+<meta property="og:title" content="claude-stdin-prompt 解説 – Presentation for Regession Monkey">
+<meta property="og:description" content="自作shellscript">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">claude-stdin-prompt 解説</h1>
+  <p class="subtitle">自作shellscript</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年05月09日</p>
+</section>
+<section>
+<section id="はじめに" class="title-slide slide level1 agenda-slide center">
+<h1>はじめに</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>はじめに</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>使い方</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ユースケース</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="claude-stdin-prompt-とは" class="slide level2">
+<h2>claude-stdin-prompt とは</h2>
+<p><span class="h2-submessage">stdin と prompt を結合し <code>claude --print</code> に流す bash ラッパー</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="info-box">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li><code>claude-stdin-prompt</code> は<span class="regmonkey-bold"><strong>pipe で受けたデータと prompt を1つに結合し，<code>claude --print</code> に渡すシェルスクリプト</strong></span></li>
+<li><code>-p</code>/<code>--prompt</code> 以外の全フラグ（<code>--model</code>・<code>--output-format</code>・<code>--debug</code> 等）はそのまま claude へ転送</li>
+<li><code>prompt</code> の値が<span class="regmonkey-bold"><strong>既存ファイルパスならその中身</strong></span>を，そうでなければリテラル文字列をプロンプトとして使用</li>
+<li>stdin が TTY（対話端末）だと起動拒否：必ず pipe か redirect で材料を渡す前提</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<p><span class="mini-section">基本形</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># git diff をネタに commit message を生成</span></span>
+<span id="cb1-2"><a></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> sonnet <span class="at">-p</span> <span class="st">"commit message を作成してください"</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># memo.md を要約</span></span>
+<span id="cb1-5"><a></a><span class="ex">claude-stdin-prompt</span> <span class="at">-p</span> <span class="st">"要約して"</span> <span class="op">&lt;</span> memo.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="なぜラッパーが必要か" class="slide level2">
+<h2>なぜラッパーが必要か</h2>
+<p><span class="h2-submessage"><code>claude --print</code> の引数結合・stdin 連携の煩雑さを Unix 流に整理</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="pentagon-box-500">
+<div class="border-bottom-header-left">
+<p><code>claude --print</code> 単体運用の課題</p>
+</div>
+<div class="squaredmark" style="font-size: 0.85em">
+<ul>
+<li>prompt と入力データを毎回<span class="regmonkey-bold"><strong>1つの引数文字列に詰め直す</strong></span>必要
+<ul>
+<li>shell escape・改行・バッククォートに気を使う</li>
+</ul></li>
+<li>「指示は引数・データはパイプ」という Unix 流の<span class="regmonkey-bold"><strong>書き分けが直接できない</strong></span></li>
+<li>ステージ済み diff やログを流す場面で<span class="regmonkey-bold"><strong>変数経由のコマンド合成</strong></span>が必須となり可読性低下</li>
+<li>prompt をファイル化したい場合，毎回 <code>$(cat prompts/x.md)</code> の手書きが必要</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-500">
+<div class="border-bottom-header-left">
+<p><code>claude-stdin-prompt</code> が提供する解決</p>
+</div>
+<div class="squaredmark" style="font-size: 0.85em">
+<ul>
+<li>stdin を読み，prompt の後ろに<span class="regmonkey-bold"><strong>自動で連結</strong></span>し <code>claude --print</code> に exec</li>
+<li>prompt 引数が<span class="regmonkey-bold"><strong>既存ファイルなら自動で中身に展開</strong></span></li>
+<li>TTY からの誤実行をブロック：必ず pipe・redirect 強制</li>
+<li>claude の全オプションは<span class="regmonkey-bold"><strong>素通しで転送</strong></span>：機能を失わない</li>
+<li>結果として <code>cmd | claude-stdin-prompt -p "指示"</code> の<span class="regmonkey-bold"><strong>ワンライナー化</strong></span>が成立</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="使い方" class="title-slide slide level1 agenda-slide center">
+<h1>使い方</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>はじめに</p>
+</div></li>
+<li><div class="agenda-active">
+<p>使い方</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ユースケース</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="基本的な使い方" class="slide level2">
+<h2>基本的な使い方</h2>
+<p><span class="h2-submessage">位置引数または <code>-p</code> で指示を渡し，stdin で材料を流す</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li><code>claude-stdin-prompt</code> は<span class="regmonkey-bold"><strong>指示（prompt）と材料（stdin）を分離</strong></span>して受け取る</li>
+<li>stdin が空・TTY のとき，あるいは prompt 未指定のときは<span class="regmonkey-bold"><strong>起動を拒否</strong></span>してエラー終了</li>
+<li>claude のオプションはすべて<span class="regmonkey-bold"><strong>そのまま転送</strong></span>されるので <code>claude --help</code> の機能をそのまま利用可</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="mini-section">Usage</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># commit メッセージ生成</span></span>
+<span id="cb2-2"><a></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="dt">\</span></span>
+<span id="cb2-3"><a></a>  <span class="at">--model</span> sonnet <span class="at">-p</span> <span class="st">"commit message を作成して"</span></span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co"># prompt をファイルから読み込み</span></span>
+<span id="cb2-6"><a></a><span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> opus <span class="dt">\</span></span>
+<span id="cb2-7"><a></a>  <span class="at">-p</span> prompts/review.md <span class="op">&lt;</span> diff.patch</span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a><span class="co"># release note を JSON 形式で</span></span>
+<span id="cb2-10"><a></a><span class="fu">git</span> log <span class="at">-n</span> 20 <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="dt">\</span></span>
+<span id="cb2-11"><a></a>  <span class="at">--output-format</span> json <span class="at">-p</span> <span class="st">"リリースノート作成"</span></span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a><span class="co"># 位置引数として prompt を渡す</span></span>
+<span id="cb2-14"><a></a><span class="fu">cat</span> data.csv <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="dt">\</span></span>
+<span id="cb2-15"><a></a>  <span class="at">--model</span> sonnet <span class="st">"外れ値を指摘して"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><span class="mini-section">claude 標準のみで書いた等価形</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># stdin と prompt を自前で結合する必要がある</span></span>
+<span id="cb3-2"><a></a><span class="va">PROMPT</span><span class="op">=</span><span class="st">"commit message を作成して"</span></span>
+<span id="cb3-3"><a></a><span class="va">INPUT</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="fu">git</span> diff <span class="at">--cached</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="ex">claude</span> <span class="at">--print</span> <span class="at">--model</span> sonnet <span class="st">"</span><span class="va">${PROMPT}</span></span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="st">---</span></span>
+<span id="cb3-8"><a></a><span class="st"># stdin</span></span>
+<span id="cb3-9"><a></a><span class="va">${INPUT}</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09">
+<ul>
+<li>変数経由・heredoc・引用符に気を使う必要が消える</li>
+<li>ラッパー側でエラー検出（TTY・prompt 欠如）も担保</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="オプション体系ラッパー所有-vs-claude-転送" class="slide level2">
+<h2>オプション体系：ラッパー所有 vs claude 転送</h2>
+<p><span class="h2-submessage">wrapper が消費するのは2種類のみ・残りは claude –help の全機能をそのまま利用可</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><span class="mini-section">ラッパーが消費するオプション</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-09">
+<table class="caption-top">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>-p</code>, <code>--prompt &lt;text\|file&gt;</code></td>
+<td style="text-align: left;">プロンプト文字列・またはプロンプトファイルパス</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>-h</code>, <code>--help</code></td>
+<td style="text-align: left;">ヘルプ表示</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--</code></td>
+<td style="text-align: left;">以降を claude へ verbatim 転送</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09">
+<ul>
+<li>真偽値フラグの直後に裸の位置引数を置くと<span class="regmonkey-bold"><strong>flag の値</strong></span>と誤解される場合あり</li>
+<li>曖昧さは <code>-p</code> を明示するか <code>--</code> で区切ると解消
+<ul>
+<li>例：<code>claude-stdin-prompt --debug -p "PROMPT"</code></li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:52%;">
+<p><span class="mini-section">claude へ素通しされるオプション例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-09">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>--model sonnet\|opus\|haiku-...</code></td>
+<td style="text-align: left;">モデル選択</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--output-format json\|text</code></td>
+<td style="text-align: left;">出力フォーマット</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--append-system-prompt &lt;text&gt;</code></td>
+<td style="text-align: left;">system prompt 追記</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--add-dir &lt;path&gt;</code></td>
+<td style="text-align: left;">参照ディレクトリ追加</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--max-budget-usd &lt;N&gt;</code></td>
+<td style="text-align: left;">予算上限</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>--json-schema &lt;path&gt;</code></td>
+<td style="text-align: left;">出力スキーマ強制</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>--debug</code></td>
+<td style="text-align: left;">デバッグログ表示</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="padding-L-10 font-09">
+<ul>
+<li>全リストは <code>claude --help</code> を参照</li>
+<li>未知のフラグは<span class="regmonkey-bold"><strong>フラグ＋次の非フラグ引数を1組にして転送</strong></span>するヒューリスティクスで処理</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="動作フローstdin-と-prompt-の合流" class="slide level2">
+<h2>動作フロー：stdin と prompt の合流</h2>
+<p><span class="h2-submessage">4ステップで「pipe された材料 + 指示」を <code>claude --print</code> に exec</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ol type="1">
+<li><strong>オプション解析</strong>：<code>-h</code>/<code>-p</code> を消費，他は <code>PASSTHRU</code> 配列に転送用として蓄積</li>
+<li><strong>prompt 解決</strong>：値が既存ファイルなら <code>cat</code> で中身に展開，そうでなければリテラル文字列</li>
+<li><strong>stdin 取り込み</strong>：TTY なら即エラー終了．それ以外は <code>cat</code> で全量読み込み</li>
+<li><strong>claude 起動</strong>：<code>exec claude --print [PASSTHRU...] "&lt;combined&gt;"</code>（プロセス置換でシェル離脱）</li>
+</ol>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<p><span class="mini-section">claude へ渡される最終的な引数文字列</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>&lt;PROMPT 本文&gt;</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a>---</span>
+<span id="cb4-4"><a></a># stdin</span>
+<span id="cb4-5"><a></a>&lt;STDIN の内容&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="padding-L-10 font-09">
+<ul>
+<li>区切りは <code>---</code> ＋ Markdown 見出し <code># stdin</code>：claude 側がプロンプトとデータを文脈的に区別しやすい</li>
+<li>claude 側のレスポンスは<span class="regmonkey-bold"><strong>そのまま stdout</strong></span>に流れる：パイプ後段で <code>jq</code> 等にも繋げられる</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="ユースケース" class="title-slide slide level1 agenda-slide center">
+<h1>ユースケース</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>はじめに</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>使い方</p>
+</div></li>
+<li><div class="agenda-active">
+<p>ユースケース</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="commit-メッセージ生成staged-diff-を要約しコミットまで" class="slide level2">
+<h2>① Commit メッセージ生成：staged diff を要約しコミットまで</h2>
+<p><span class="h2-submessage">ノートブック JSON diff のノイズから実質的な変更点だけを抽出し，そのまま <code>git commit</code> へ</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>ノートブック差分は<span class="regmonkey-bold"><strong>JSON のノイズが多く <code>update notebook</code> のような雑メッセージ</strong></span>になりがち</li>
+<li>claude に要約を任せると <code>feat(eda): 売上の曜日効果を可視化</code> のような<span class="regmonkey-bold"><strong>実質的な変更点</strong></span>を抽出可能</li>
+<li>出力を pipe で <code>git commit -F -</code> に直結すれば<span class="regmonkey-bold"><strong>メッセージ手書き不要</strong></span>でワンライン化</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="mini-section">Pipeline：diff → 要約 → コミット</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="co"># 標準ルート：そのままコミット</span></span>
+<span id="cb5-2"><a></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="dt">\</span></span>
+<span id="cb5-3"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> sonnet <span class="dt">\</span></span>
+<span id="cb5-4"><a></a>      <span class="at">-p</span> prompts/commit.md <span class="dt">\</span></span>
+<span id="cb5-5"><a></a>  <span class="kw">|</span> <span class="fu">git</span> commit <span class="at">-F</span> <span class="at">-</span></span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="co"># 確認したい場合は tee で分岐</span></span>
+<span id="cb5-8"><a></a><span class="fu">git</span> diff <span class="at">--cached</span> <span class="dt">\</span></span>
+<span id="cb5-9"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> sonnet <span class="dt">\</span></span>
+<span id="cb5-10"><a></a>      <span class="at">-p</span> prompts/commit.md <span class="dt">\</span></span>
+<span id="cb5-11"><a></a>  <span class="kw">|</span> <span class="fu">tee</span> /tmp/last-commit-msg.txt <span class="dt">\</span></span>
+<span id="cb5-12"><a></a>  <span class="kw">|</span> <span class="fu">git</span> commit <span class="at">-F</span> <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><span class="mini-section"><code>prompts/commit.md</code> の例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>あなたは Conventional Commits の専門家です。</span>
+<span id="cb6-2"><a></a>以下のステージ済み diff を分析し，</span>
+<span id="cb6-3"><a></a>1行のコミットメッセージのみ出力してください。</span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>- 形式: &lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</span>
+<span id="cb6-6"><a></a>- type: feat/fix/refactor/docs/test/chore</span>
+<span id="cb6-7"><a></a>- scope: 主要な変更モジュール</span>
+<span id="cb6-8"><a></a>- 50字以内・命令形・末尾ピリオドなし</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09">
+<ul>
+<li><code>--output-format text</code>（既定）の出力は<span class="regmonkey-bold"><strong>そのまま下流コマンドの引数</strong></span>に流せる</li>
+<li>prompt はファイル化しチーム共通規約として共有</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="release-note-自動化git-log-を-changelog-release-へ" class="slide level2">
+<h2>② Release note 自動化：git log を CHANGELOG / Release へ</h2>
+<p><span class="h2-submessage">2タグ間の <code>git log</code> をユーザー視点のリリースノートに変換し，そのまま GitHub Release に投稿</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>「リリース毎に変更点を整理して書き直す作業」は<span class="regmonkey-bold"><strong>手作業だと負荷が高い</strong></span></li>
+<li><code>git log v1.0..v1.1 --oneline</code> を投げて<span class="regmonkey-bold"><strong>Features / Fixes / Internal の3カテゴリ整形</strong></span>を AI に依頼</li>
+<li>出力を <code>gh release create --notes-file -</code> に直結すれば<span class="regmonkey-bold"><strong>1パイプでリリース完了</strong></span></li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="mini-section">Pipeline：log → 整形 → Release 投稿</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="co"># git log → claude → GitHub Release を一気通貫</span></span>
+<span id="cb7-2"><a></a><span class="fu">git</span> log v1.2.0..v1.3.0 <span class="at">--oneline</span> <span class="dt">\</span></span>
+<span id="cb7-3"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> opus <span class="dt">\</span></span>
+<span id="cb7-4"><a></a>      <span class="at">-p</span> prompts/release-note.md <span class="dt">\</span></span>
+<span id="cb7-5"><a></a>  <span class="kw">|</span> <span class="ex">gh</span> release create v1.3.0 <span class="dt">\</span></span>
+<span id="cb7-6"><a></a>      <span class="at">--title</span> <span class="st">"v1.3.0"</span> <span class="at">--notes-file</span> <span class="at">-</span></span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a><span class="co"># CHANGELOG.md に追記する亜種</span></span>
+<span id="cb7-9"><a></a><span class="fu">git</span> log v1.2.0..v1.3.0 <span class="at">--oneline</span> <span class="dt">\</span></span>
+<span id="cb7-10"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">-p</span> prompts/release-note.md <span class="dt">\</span></span>
+<span id="cb7-11"><a></a>  <span class="kw">|</span> <span class="fu">tee</span> <span class="at">-a</span> CHANGELOG.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><span class="mini-section"><code>prompts/release-note.md</code> の例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a></a>以下の git log（oneline）を読み，</span>
+<span id="cb8-2"><a></a>ユーザー視点のリリースノートを Markdown で生成。</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a>セクション構成：</span>
+<span id="cb8-5"><a></a>## ✨ Features</span>
+<span id="cb8-6"><a></a>## 🐛 Fixes</span>
+<span id="cb8-7"><a></a>## 🔧 Internal</span>
+<span id="cb8-8"><a></a></span>
+<span id="cb8-9"><a></a>各項目は1行・体言止め・PR番号は保持。</span>
+<span id="cb8-10"><a></a>内部リファクタはユーザー無関係なら省略。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09">
+<ul>
+<li><code>--max-budget-usd 0.5</code> で<span class="regmonkey-bold"><strong>長尺ログ送信時のコスト天井</strong></span>を設定</li>
+<li>投稿前に <code>tee</code> でローカル保存しておくと再投稿しやすい</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="コードレビュー補助pr-diff-から自動レビュー投稿" class="slide level2">
+<h2>③ コードレビュー補助：PR diff から自動レビュー投稿</h2>
+<p><span class="h2-submessage"><code>gh pr diff</code> を観点付きでレビュー → そのまま <code>gh pr comment</code> で PR にコメント投稿</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>大型 PR の<span class="regmonkey-bold"><strong>初手レビュー観点抽出</strong></span>を AI に並走させ，人間レビュアーは判断に集中</li>
+<li><code>prompts/review.md</code> に観点（セキュリティ・テスト・命名・性能）を<span class="regmonkey-bold"><strong>チーム標準として集約</strong></span></li>
+<li>出力を <code>gh pr comment --body-file -</code> に直結すれば<span class="regmonkey-bold"><strong>自動投稿</strong></span>まで1パイプ</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="mini-section">Pipeline：PR diff → レビュー → PR コメント</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="co"># PR diff を取得 → claude → PR にコメント投稿</span></span>
+<span id="cb9-2"><a></a><span class="ex">gh</span> pr diff 123 <span class="dt">\</span></span>
+<span id="cb9-3"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> opus <span class="dt">\</span></span>
+<span id="cb9-4"><a></a>      <span class="at">-p</span> prompts/review.md <span class="dt">\</span></span>
+<span id="cb9-5"><a></a>  <span class="kw">|</span> <span class="ex">gh</span> pr comment 123 <span class="at">--body-file</span> <span class="at">-</span></span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># 投稿はせずローカル確認 (glow で markdown 整形)</span></span>
+<span id="cb9-8"><a></a><span class="ex">gh</span> pr diff 123 <span class="dt">\</span></span>
+<span id="cb9-9"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> opus <span class="dt">\</span></span>
+<span id="cb9-10"><a></a>      <span class="at">-p</span> prompts/review.md <span class="dt">\</span></span>
+<span id="cb9-11"><a></a>  <span class="kw">|</span> <span class="fu">tee</span> review.md <span class="dt">\</span></span>
+<span id="cb9-12"><a></a>  <span class="kw">|</span> <span class="ex">glow</span> <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><span class="mini-section"><code>prompts/review.md</code> の例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>あなたはシニアエンジニア。以下の PR diff を</span>
+<span id="cb10-2"><a></a>次の観点でレビューしてください。</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a>1. セキュリティ：認証・認可・入力検証</span>
+<span id="cb10-5"><a></a>2. テスト：カバレッジ・境界条件</span>
+<span id="cb10-6"><a></a>3. 命名・可読性</span>
+<span id="cb10-7"><a></a>4. 性能：N+1・メモリ・I/O</span>
+<span id="cb10-8"><a></a></span>
+<span id="cb10-9"><a></a>各観点は ## 見出しで分け，問題なしなら省略。</span>
+<span id="cb10-10"><a></a>指摘は file:line 形式で具体的に。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">REMARKS</span></p>
+<div class="padding-L-10 font-09">
+<ul>
+<li><code>--add-dir .</code> で<span class="regmonkey-bold"><strong>リポジトリ全体の文脈</strong></span>を補強</li>
+<li><code>glow</code> は terminal 上で markdown を整形表示する CLI</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="データ要約csv-を-json-出力し-jq-で後段処理" class="slide level2">
+<h2>④ データ要約：CSV を JSON 出力し <code>jq</code> で後段処理</h2>
+<p><span class="h2-submessage"><code>--output-format json</code> ＋ <code>--json-schema</code> で型固定し，<code>jq</code> 経由で集計・可視化スクリプトへ</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="info-box">
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>DB クエリ結果や CSV を流し，<span class="regmonkey-bold"><strong>外れ値・トレンド・相関</strong></span>の初手分析を AI に依頼</li>
+<li><code>--output-format json</code> ＋ <code>--json-schema</code> で<span class="regmonkey-bold"><strong>型固定の構造化出力</strong></span>に統一</li>
+<li><code>jq</code> でフィールド抽出すれば<span class="regmonkey-bold"><strong>後段の集計・通知・可視化スクリプト</strong></span>にそのまま連結可</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="mini-section">Pipeline：query → 構造化要約 → jq → 下流</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="co"># DB → claude (JSON) → jq → 集計</span></span>
+<span id="cb11-2"><a></a><span class="ex">psql</span> <span class="at">-A</span> <span class="at">-F,</span> <span class="at">-c</span> <span class="st">"SELECT date, sales FROM orders"</span> <span class="dt">\</span></span>
+<span id="cb11-3"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--output-format</span> json <span class="dt">\</span></span>
+<span id="cb11-4"><a></a>      <span class="at">--json-schema</span> schemas/outliers.json <span class="dt">\</span></span>
+<span id="cb11-5"><a></a>      <span class="at">-p</span> <span class="st">"外れ値の日付を outliers 配列で返して"</span> <span class="dt">\</span></span>
+<span id="cb11-6"><a></a>  <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.outliers[] | .date'</span> <span class="dt">\</span></span>
+<span id="cb11-7"><a></a>  <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> python plot_outlier.py {}</span>
+<span id="cb11-8"><a></a></span>
+<span id="cb11-9"><a></a><span class="co"># CSV → 自然文要約 → Slack 投稿</span></span>
+<span id="cb11-10"><a></a><span class="fu">cat</span> sales.csv <span class="dt">\</span></span>
+<span id="cb11-11"><a></a>  <span class="kw">|</span> <span class="ex">claude-stdin-prompt</span> <span class="at">--model</span> sonnet <span class="dt">\</span></span>
+<span id="cb11-12"><a></a>      <span class="at">-p</span> <span class="st">"曜日効果を箇条書きで要約"</span> <span class="dt">\</span></span>
+<span id="cb11-13"><a></a>  <span class="kw">|</span> <span class="ex">slack-cli</span> post <span class="at">--channel</span> <span class="st">"#data-analysis"</span> <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><span class="mini-section"><code>schemas/outliers.json</code></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a></a><span class="fu">{</span></span>
+<span id="cb12-2"><a></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"object"</span><span class="fu">,</span></span>
+<span id="cb12-3"><a></a>  <span class="dt">"required"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"outliers"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb12-4"><a></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-5"><a></a>    <span class="dt">"outliers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-6"><a></a>      <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"array"</span><span class="fu">,</span></span>
+<span id="cb12-7"><a></a>      <span class="dt">"items"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-8"><a></a>        <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"object"</span><span class="fu">,</span></span>
+<span id="cb12-9"><a></a>        <span class="dt">"required"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"date"</span><span class="ot">,</span> <span class="st">"reason"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb12-10"><a></a>        <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-11"><a></a>          <span class="dt">"date"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"string"</span><span class="fu">},</span></span>
+<span id="cb12-12"><a></a>          <span class="dt">"reason"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"string"</span><span class="fu">}</span></span>
+<span id="cb12-13"><a></a>        <span class="fu">}</span></span>
+<span id="cb12-14"><a></a>      <span class="fu">}</span></span>
+<span id="cb12-15"><a></a>    <span class="fu">}</span></span>
+<span id="cb12-16"><a></a>  <span class="fu">}</span></span>
+<span id="cb12-17"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="padding-L-10 font-09">
+<ul>
+<li>schema 強制で<span class="regmonkey-bold"><strong>parse 失敗による下流クラッシュ</strong></span>を防止</li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 no-auto-agenda center">
+<h1>Appendix</h1>
+
+</section>
+<section id="全体の処理の流れ概念図" class="slide level2">
+<h2>全体の処理の流れ：概念図</h2>
+<p><span class="h2-submessage">2系統の入力（stdin・CLI 引数）を結合し，<code>exec</code> で claude プロセスに置換</span></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><img data-src="./claude_stdin_prompt_pipeline.svg"></p>
+</div><div class="column" style="width:30%;">
+<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
+<div class="font-09">
+<ul>
+<li>入力は<span class="regmonkey-bold"><strong>stdin（材料）と CLI 引数（指示・制御）の2系統</strong></span>・出力は claude の stdout</li>
+<li><code>claude</code> コマンドに割ったす直前に，<code>stdin</code> と <code>prompt</code> を結合させ，それを<code>claude</code>に渡す</li>
+<li>ラッパーは状態を持たず<span class="regmonkey-bold"><strong>1度の起動で1度だけ exec</strong></span> する非常駐コマンド</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="設計上の工夫" class="slide level2">
+<h2>設計上の工夫</h2>
+<p><span class="h2-submessage">小さな実装に Unix 流のセーフティと拡張性を凝縮</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="info-box-bare" style="min-height: 220px;">
+<p><span class="info-box-title">① <code>exec</code> でプロセス置換</span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>最終行 <code>exec claude ...</code> で<span class="regmonkey-bold"><strong>bash プロセスを claude に置換</strong></span></li>
+<li>claude の signal handling・終了コードがそのまま呼び元に伝わる</li>
+<li>中間プロセスを残さず PID も1段階で済む</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-box-bare" style="min-height: 220px;">
+<p><span class="info-box-title">② PREV_WAS_FLAG ヒューリスティクス</span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>未知の <code>-flag</code> の<span class="regmonkey-bold"><strong>直後の非フラグトークンを value として組にする</strong></span></li>
+<li>claude 側の全フラグ仕様を知らずに <code>--model sonnet</code> 等を正しく転送可</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-box-bare" style="min-height: 250px;">
+<p><span class="info-box-title">③ <code>-p</code> 1引数で2モード</span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>値が<span class="regmonkey-bold"><strong>既存ファイルなら中身展開・そうでなければリテラル</strong></span></li>
+<li><code>-f</code> 別フラグを増やさず短く保つ（同名ファイルが偶然存在する場合の挙動変化はトレードオフ）</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="info-box-bare" style="min-height: 220px;">
+<p><span class="info-box-title">④ TTY ガード <code>[ -t 0 ]</code></span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>stdin が対話端末なら即エラー終了</li>
+<li>claude の<span class="regmonkey-bold"><strong>対話モード誤起動</strong></span>を1行で防止</li>
+<li>pipe・redirect を強制し用途を明確化</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-box-bare" style="min-height: 220px;">
+<p><span class="info-box-title">⑤ <code>--</code> 強制エスケープ</span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>引数衝突時の<span class="regmonkey-bold"><strong>脱出口</strong></span>を確保：<code>--</code> 以降は無条件で claude へ転送</li>
+<li>ヒューリスティクスが誤判断する場面でも<span class="regmonkey-bold"><strong>強制的に正しい挙動</strong></span>を取れる</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="info-box-bare" style="min-height: 250px;">
+<p><span class="info-box-title">⑥ <code>---</code> ＋ Markdown 見出し区切り</span></p>
+<div class="info-contents font-09 lh-14">
+<ul>
+<li>prompt と stdin の境界を <code>\n\n---\n# stdin\n</code> で明示</li>
+<li>claude にとって<span class="regmonkey-bold"><strong>Markdown ネイティブな構造</strong></span>でデータ範囲を解釈しやすい</li>
+<li>XML タグ等の独自境界より周辺ツールとも親和的</li>
+</ul>
+</div>
+</div>
+</div></div>
+
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+        <script type="text/javascript">
+        function _pseudocodeRenderAll() {
+          // Patch KaTeX to support commands not natively available
+          if (typeof katex !== "undefined" && !katex._pseudocodePatched) {
+            var _origRenderToString = katex.renderToString;
+            katex.renderToString = function(tex, options) {
+              options = options || {};
+              options.macros = Object.assign(options.macros || {}, {
+                "\\textsc": "\\textsf"
+              });
+              return _origRenderToString.call(katex, tex, options);
+            };
+            katex._pseudocodePatched = true;
+          }
+
+          document.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            if (el.querySelector(".ps-root")) return;
+            var pseudocodeOptions = {
+              indentSize: el.dataset.indentSize || "1.2em",
+              commentDelimiter: el.dataset.commentDelimiter || "//",
+              lineNumber: el.dataset.lineNumber === "true" ? true : false,
+              lineNumberPunc: el.dataset.lineNumberPunc || ":",
+              noEnd: el.dataset.noEnd === "true" ? true : false,
+              titlePrefix: el.dataset.captionPrefix || "Algorithm"
+            };
+            try {
+              pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+            } catch (e) {
+              console.error("pseudocode render error:", e);
+            }
+          });
+          document.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            var captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+            if (captionSpan !== null) {
+              var captionPrefix = el.dataset.captionPrefix + " ";
+              var captionNumber = "";
+              if (el.dataset.pseudocodeNumber) {
+                captionNumber = el.dataset.pseudocodeNumber + " ";
+                if (el.dataset.chapterLevel) {
+                  captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+                }
+              }
+              captionSpan.innerHTML = captionPrefix + captionNumber;
+            }
+          });
+        }
+        if (document.readyState === "complete") {
+          _pseudocodeRenderAll();
+        } else {
+          window.addEventListener("load", _pseudocodeRenderAll);
+        }
+        </script>
+      
+    
+
+</body></html>
