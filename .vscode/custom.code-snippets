@@ -54,6 +54,14 @@
     ],
     "description": "slide tag for quarto slide"
   },
+  "no-auto-agenda": {
+    "scope": "quarto",
+    "prefix": "no-auto-agenda",
+    "body": [
+      "{.no-auto-agenda}"
+    ],
+    "description": "disable auto-agenda for the slide"
+  },
   // --------------------------------------------
   // main-message
   // --------------------------------------------
@@ -95,7 +103,7 @@
     ],
     "description": "▶ section header"
   },
-    "mini-section": {
+  "mini-section": {
     "scope": "quarto",
     "prefix": "mini-section",
     "body": [
@@ -106,7 +114,7 @@
   // --------------------------------------------
   // blocks
   // --------------------------------------------
-    "def-block":{
+  "def-block": {
     "scope": "quarto",
     "prefix": "def-block",
     "body": [
@@ -125,11 +133,8 @@
       "::::"
     ],
     "description": "definition block"
-    },
-
-
-
-    "info-box": {
+  },
+  "info-box": {
     "scope": "quarto",
     "prefix": "info-box",
     "body": [
@@ -145,8 +150,7 @@
     ],
     "description": "info box"
   },
-
-  "message-box":{
+  "message-box": {
     "scope": "quarto",
     "prefix": "message-box",
     "body": [
@@ -159,8 +163,6 @@
     ],
     "description": "message box"
   },
-
-
   // --------------------------------------------
   // header
   // --------------------------------------------
@@ -176,7 +178,6 @@
     ],
     "description": "border bottom header"
   },
-  
   // --------------------------------------------
   // horizontal keypoints block
   // --------------------------------------------

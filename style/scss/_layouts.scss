@@ -494,6 +494,7 @@
 /*                          info box                                   */
 /* ------------------------------------------------------------------- */
 
+.info-box-bare,
 .info-box {
   margin-top: 0.3rem;
   background-color: #e8f1fe;
@@ -525,6 +526,7 @@
   /* Your desired border color */
 }
 
+.info-box-bare-title,
 .info-box-title {
   font-size: 1em;
   font-weight: bold;
@@ -536,6 +538,7 @@
   /* Add some space below the border */
 }
 
+.info-box-bare-title .info-content,
 .info-box .info-contents {
   font-size: 0.8em;
   padding-bottom: 0;
@@ -941,4 +944,3 @@
   border-color: transparent $brand-primary;
   right: -0.9821em;
 }
-
