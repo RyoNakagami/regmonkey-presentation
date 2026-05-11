@@ -1,0 +1,651 @@
+---
+title: "Claude Code 認証方式"
+subtitle: "claude-code 101"
+author: "Ryo Nakagami"
+date: "2026-04-26"
+categories: [claude code, authentication]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 2em >}}
+
+:::: {.column width="25%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### [学習目標]{.padding-L-05}
+
+:::
+
+- Claude Code の認証方式を理解する
+- ユースケースに合うプランと切替時の注意点を判断できる
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi person size=1.7em color=#428CE6 >}}
+
+### [対象レベル]{.padding-L-05}
+
+:::
+
+- Claude Code を触り始めたエンジニア
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi book size=1.7em color=#428CE6 >}}
+
+### [前提知識]{.padding-L-05}
+
+:::
+
+- ターミナル操作
+- `claude` インストール経験
+
+::::
+
+::::
+::::
+
+::: {.column width="75%" style="padding-left:0.5em;"}
+
+{{< reveal_vspace 1em >}}
+
+::: {.regmonkey_index style="width:1100px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.2em
+  bullet_fontsize: 0.9em
+  children:
+    - title: 1. ３つの認証方式
+      description:
+        - "Claude.ai Subscription・Claude Console・クラウドプロバイダ"
+      width: [45,55]
+    - title: 2. Claude.ai Subscription
+      description:
+        - "Pro・Max・Team・Enterprise の料金と Claude Code 利用範囲"
+        - "使用量は Claude.ai と共有プールで管理される"
+      width: [45,55]
+    - title: 3. Claude Console<br><span style="margin-left:1.2em;"></span>(Claude API)
+      description:
+        - "ANTHROPIC_API_KEY を渡す従量課金モデル"
+        - "自動チャージ ON 時の請求リスクと Spend limit"
+      width: [45,55]
+    - title: 4. クラウドプロバイダ
+      description:
+        - "環境変数1つで切替・プライベート接続と監査要件向け"
+      width: [45,55]
+    - title: 5. 切り替えの注意点<br><span style="margin-left:1.4em;"></span>& プラン選定
+      description:
+        - "認証6段階の優先順位と環境変数の落とし穴"
+        - "利用形態とコンプラ要件によるプラン推奨表"
+      width: [45,55]
+```
+
+:::
+:::
+:::::
+
+## 認証方式はClaude.ai・Console・クラウドの3方式
+
+[個人・開発者・組織のどれを起点にするかで経路が決まる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:70%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-three-routes data-col-widths="[18, 33, 49]"}
+
+```yaml
+record1:
+  category: Claude.ai<br>Subsucription
+  rule:
+    - Pro・Max・Team・Enterprise の有料プラン
+  actions:
+    - 月額固定で Claude Code と Claude.ai の使用量プールを共有
+    - 個人ヘビーユース・組織導入に向く
+
+record2:
+  category: Claude Console<br> (API)
+  rule:
+    - 環境変数 <code>ANTHROPIC_API_KEY</code> で従量課金
+  actions:
+    - PoC・コスト最適化・副業利用に向く
+    - 自動チャージ運用には Spend limit が必須
+
+record3:
+  category: クラウドプロバイダ
+  rule:
+    - Bedrock・Vertex AI・Foundry のいずれかから選ぶ
+  actions:
+    - 環境変数 1 つで切り替え・既存 IAM で認証
+    - プライベート接続と監査要件を満たす大規模組織向け
+```
+
+:::
+::::
+
+# Claude.ai Subscription
+
+## Pro以上のClaude.aiプランでClaude Codeが使える
+
+[Free は対象外・Max は Pro の5x・20x・Team と Enterprise は管理機能を上乗せ[^footer-pricing]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:75%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-claudeai-plans data-col-widths="[12, 30, 58]"}
+
+```yaml
+record1:
+  category: Free
+  rule:
+    - Web・モバイルチャットのみ
+  actions:
+    - <span class="regmonkey-bold">Claude Code は利用不可</span>
+
+record2:
+  category: Pro
+  rule:
+    - "&#36;17/月 (年払)・&#36;20/月 (月払)"
+  actions:
+    - Claude Code 利用可・Claude.ai と<span class="regmonkey-bold">使用量プールを共有</span>
+    - 個人開発・学習用途の入口プラン
+
+record3:
+  category: Max
+  rule:
+    - "&#36;100/月 (5x) または &#36;200/月 (20x)"
+  actions:
+    - Pro の<span class="regmonkey-bold">5倍または20倍</span>の使用量上限
+    - 高トラフィック時の優先アクセス・先行機能アクセス
+
+record4:
+  category: Team
+  rule:
+    - Standard &#36;20/seat<br>Premium &#36;150/seat (年払)
+  actions:
+    - チーム管理ダッシュボード・SSO・<span class="regmonkey-bold">学習対象外</span>保証
+    - Claude Code に加え Claude on web も含む
+
+record5:
+  category: Enterprise
+  rule:
+    - &#36;20/seat + API 従量
+  actions:
+    - SCIM・監査ログ・コンプライアンス API・HIPAA 対応オプション
+    - 大規模組織・規制業種向け (Sales 経由)
+```
+
+:::
+::::
+
+## Claude Codeの使用量はClaude.aiと共有プール
+
+[5時間ローリングと7日週次の二層構造でモデルとツール量に応じ重み付け消費される[^footer-pro-max]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+
+[共有プールの構造]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- Claude Code・Claude.ai (Web)・Desktop・モバイルは[単一プールから消費]{.regmonkey-bold}される
+- 上限は[二層構造]{.regmonkey-bold}で，独立にカウントされ独立にリセットされる
+  - 5 時間ローリングのセッション枠
+  - 7 日間の週次枠 (さらに [Opus 専用枠]{.regmonkey-bold} と それ以外モデル枠 に分割)
+- 公式は[具体的な数値上限を公開していない]{.regmonkey-bold}：使用率で把握する運用が前提
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[消費を重く動かす要因]{.mini-section}
+
+:::{.info-contents .padding-L-05}
+
+- モデル選択：[Opus > Sonnet > Haiku]{.regmonkey-bold} の順に大きく消費される
+- 会話履歴は毎ターン[全体が再送される]{.regmonkey-bold}：セッションが長いほど1メッセージあたり重くなる
+- ツール呼び出し数・MCP コネクタ数・添付ファイル・extended thinking の有効化も上乗せ
+- Claude Code は agentic 動作のため，[ブラウザ会話より単位プロンプトあたり重い]{.regmonkey-bold}
+
+:::
+
+## 使用量は/usageで確認・上限到達はソフトブロック
+
+[上限到達時はリセット待ち・上位プラン・Extra usage・API fallback の4択が提示される[^footer-pro-max]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[残量の確認手段]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- Claude Code 内 [`/usage`]{.regmonkey-bold} (エイリアス `/cost`・`/stats`)：セッションコスト・各枠への進捗を表示
+- コンテキスト埋まり具合は [`/context`]{.regmonkey-bold} で別途確認
+- ブラウザ側は [Settings > Usage]{.regmonkey-bold} で同じプールの消費状況をプログレスバー表示
+- v2.x 以降は statusline 経由で `rate_limits.five_hour`・`seven_day` の `used_percentage`・`resets_at` を常時表示できる
+
+:::
+
+
+{{< reveal_vspace 0.5em >}}
+
+
+[上限到達時の4つの選択肢]{.mini-section}
+
+:::{.info-contents .padding-L-05}
+
+- [上位プランへのアップグレード]{.regmonkey-bold}：Pro → Max 5x → Max 20x
+- [Extra usage を有効化]{.regmonkey-bold}：標準 API レートでプラン枠外を継続消費
+- [Claude Console の API クレジットへフォールバック]{.regmonkey-bold}：Console アカウント必要・課金は別建て
+- [リセット待ち]{.regmonkey-bold}：セッションは5時間後・週次は7日後の自分のサイクルに連動
+
+
+:::
+
+
+# Claude Console (Claude API)
+
+## ConsoleはAPI Keyで認証する従量課金モデル
+
+[ロールは「Claude Code」と「Developer」の2種で発行範囲を絞れる[^footer-auth]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[ロールの種類]{.mini-section}
+
+Console 管理者が[組織メンバーを招待]{.regmonkey-bold}し，ロールを割り当てる
+  - `Claude Code` ロール：Claude Code 用 API キーのみ発行可
+  - `Developer` ロール：任意の API キーを発行可
+
+{{< reveal_vspace 0.5em >}}
+
+[起動方法]{.mini-section}
+
+環境変数 [`ANTHROPIC_API_KEY`]{.regmonkey-bold} を設定して `claude` を起動する
+
+{{< reveal_vspace 0.5em >}}
+
+[認証情報の保管場所]{.mini-section}
+
+認証情報は OS の安全領域に保存される
+  - macOS：Keychain
+  - Linux：`~/.claude/.credentials.json` (mode 0600)
+  - Windows：`%USERPROFILE%\.claude\.credentials.json`
+
+
+
+{{< reveal_vspace 0.5em >}}
+
+[起動例]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.font-14}
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+claude
+```
+
+:::
+
+## Claude APIは入力・出力の単価で従量課金される
+
+[Opus 4.7・Sonnet 4.6・Haiku 4.5 はモデルごとに 5 倍ずつ価格差がある[^footer-api]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:65%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-api-pricing data-col-widths="[15, 25, 60]"}
+
+```yaml
+record1:
+  category: Opus 4.7
+  rule:
+    - 最も高性能・複雑タスク向け
+  actions:
+    - 入力 <span class="regmonkey-bold">&#36;5 / MTok</span>・出力 <span class="regmonkey-bold">&#36;25 / MTok</span>
+    - 設計・大規模リファクタ・難題解決に向く
+
+record2:
+  category: Sonnet 4.6
+  rule:
+    - 性能とコストのバランス
+  actions:
+    - 入力 <span class="regmonkey-bold">&#36;3 / MTok</span>・出力 <span class="regmonkey-bold">&#36;15 / MTok</span>
+    - 日常の Claude Code 作業のデフォルト想定
+
+record3:
+  category: Haiku 4.5
+  rule:
+    - 軽量・高速・低コスト
+  actions:
+    - 入力 <span class="regmonkey-bold">&#36;1 / MTok</span>・出力 <span class="regmonkey-bold">&#36;5 / MTok</span>
+    - サブエージェント・短文処理・分類タスク
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.font-08 .padding-L-05}
+
+共通割引：Prompt cache は[書込が標準入力の20%・読込が10%]{.regmonkey-bold}，Batch 処理は[50% off]{.regmonkey-bold}，US-only 推論は 1.1x
+
+:::
+
+## 自動チャージONならSpend limit設定が必須
+
+[クレジット枯渇時に自動補充されると上限なく請求が積み上がる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[Claude Console の請求リスク]{.mini-section}
+
+:::{.info-contents .padding-L-05 .lh-14}
+
+- 自動チャージ (Auto Reload) を有効にしたまま運用すると，[使用量に比例して請求が継続的に発生]{.regmonkey-bold}する
+- 暴走したサブエージェントや長尺ループで意図しない高額請求が起きうる
+- Claude Console の[Spend limits・Budgets で月次上限を必ず設定]{.regmonkey-bold}する
+- 開発者個人で使う場合は，自動チャージを OFF にして都度入金する選択肢もある
+
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[サブスクとの違い]{.mini-section}
+
+:::{.info-contents .padding-L-05}
+
+- Claude.ai サブスク (Pro・Max) は[月額固定]{.regmonkey-bold}：上限到達で停止・追加課金は発生しない
+- 「上限を予測しづらい想定外利用への耐性」を最優先するならサブスクが安全
+
+:::
+
+# クラウドプロバイダ
+
+## クラウドプロバイダは環境変数1つで切替えられる
+
+[Bedrock・Vertex AI・Foundry のどれも `CLAUDE_CODE_USE_*` で切替可能[^footer-3rd]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:75%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-cloud-providers data-col-widths="[15, 30, 55]"}
+
+```yaml
+record1:
+  category: Amazon<br>Bedrock
+  rule:
+    - AWS ネイティブな組織向け
+  actions:
+    - 環境変数 <code>CLAUDE_CODE_USE_BEDROCK=1</code> + <code>AWS_REGION</code>
+    - AWS クレデンシャル (IAM ロール) で認証
+    - 監査は CloudTrail・課金は AWS Cost Explorer
+
+record2:
+  category: Google<br>Vertex AI
+  rule:
+    - GCP ネイティブな組織向け
+  actions:
+    - 環境変数 <code>CLAUDE_CODE_USE_VERTEX=1</code> + <code>CLOUD_ML_REGION</code> + <code>ANTHROPIC_VERTEX_PROJECT_ID</code>
+    - GCP クレデンシャル (IAM ロール) で認証
+    - 監査は Cloud Audit Logs・課金は GCP Billing
+
+record3:
+  category: Microsoft<br>Foundry
+  rule:
+    - Azure ネイティブな組織向け
+  actions:
+    - 環境変数 <code>CLAUDE_CODE_USE_FOUNDRY=1</code> + <code>ANTHROPIC_FOUNDRY_RESOURCE</code>
+    - API key または Microsoft Entra ID で認証
+    - 監査は Azure Monitor・課金は Azure Cost Management
+```
+
+:::
+::::
+
+## クラウド経由はプライベート接続で監査要件を満たす
+
+[クラウド契約の枠内で完結するためデータ境界・課金・監査が既存基盤に揃う]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[クラウドプロバイダ経由の利点]{.mini-section}
+
+:::{.info-contents .padding-L-05 .lh-14}
+
+- 通信が[クラウド契約のプライベート網内で完結]{.regmonkey-bold}し，Anthropic へのインターネット経由送信が発生しない
+- リージョン選択で[データ所在地のコンプラ要件]{.regmonkey-bold}を満たせる
+- 認証・権限は既存の IAM (AWS・GCP・Entra ID) に統合される
+- 監査ログ・コスト追跡は[既存のクラウド管理ツール]{.regmonkey-bold}にそのまま乗る
+
+:::
+
+
+{{< reveal_vspace 0.3em >}}
+
+[補足：モデル版固定の推奨]{.mini-section}
+
+:::{.info-contents .padding-L-05}
+
+- クラウド経由では `ANTHROPIC_DEFAULT_OPUS_MODEL` 等で[モデル ID を pin する]{.regmonkey-bold}と，新リリースが各クラウドで有効化されるタイミングを制御できる
+
+:::
+
+
+# Claude.ai と Console の切り替え
+
+## 認証は6段階の優先順位で1つだけ選択される
+
+[複数の認証情報が共存する環境では上位が無条件で勝つ仕様[^footer-auth]]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:75%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-auth-precedence data-col-widths="[8, 40, 52]"}
+
+```yaml
+record1:
+  priority: 1
+  rule:
+    - クラウドプロバイダ env (<code>CLAUDE_CODE_USE_BEDROCK</code>・<code>VERTEX</code>・<code>FOUNDRY</code>)
+  actions:
+    - クラウド経由で実行したいときに有効化
+
+record2:
+  priority: 2
+  rule:
+    - 環境変数 <code>ANTHROPIC_AUTH_TOKEN</code> (Bearer ヘッダ)
+  actions:
+    - LLM gateway・プロキシ経由で Bearer 認証を使うとき
+
+record3:
+  priority: 3
+  rule:
+    - 環境変数 <code>ANTHROPIC_API_KEY</code> (X-Api-Key ヘッダ)
+  actions:
+    - <span class="regmonkey-bold">Claude Console 直接利用</span>・対話モードで初回承認が必要
+
+record4:
+  priority: 4
+  rule:
+    - 設定 <code>apiKeyHelper</code> スクリプト出力
+  actions:
+    - Vault からの短命トークン取得などローテーション運用
+
+record5:
+  priority: 5
+  rule:
+    - 環境変数 <code>CLAUDE_CODE_OAUTH_TOKEN</code> (長命 OAuth)
+  actions:
+    - CI・スクリプト用 (<code>claude setup-token</code> で発行・1 年有効)
+
+record6:
+  priority: 6
+  rule:
+    - コマンド <code>/login</code> のサブスク OAuth
+  actions:
+    - <span class="regmonkey-bold">Claude.ai (Pro・Max・Team・Enterprise) のデフォルト</span>
+```
+
+:::
+::::
+
+## サブスク利用時はAPI Keyを必ず外す
+
+[`ANTHROPIC_API_KEY` が環境に残っているとサブスクが無視され API 課金に切り替わる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-600}
+:::{.border-bottom-header-left}
+Problem：意図しない API 課金
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- Pro/Max を契約済みなのに `ANTHROPIC_API_KEY` がシェルに残っている
+  - API キーが優先され，[サブスクが使われない]{.regmonkey-bold}
+  - 認証失敗時に「無効な組織です」と表示されて気付くケースも
+
+{{< reveal_vspace 0.3em >}}
+
+- 失効した組織の API キーを引いてしまうと，Claude Code が[起動できなくなる]{.regmonkey-bold}
+
+{{< reveal_vspace 0.3em >}}
+
+- 切替を意識せず複数アカウントを行き来し，課金経路が把握できなくなる
+
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+::::{.square-box-600}
+:::{.border-bottom-header-left}
+対策：明示切替の3ステップ
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- Step 1：環境変数を外す
+  - `unset ANTHROPIC_API_KEY`
+  - `unset ANTHROPIC_AUTH_TOKEN`
+
+{{< reveal_vspace 0.3em >}}
+
+- Step 2：[`/status`]{.regmonkey-bold} で現在の認証方式を確認
+
+{{< reveal_vspace 0.3em >}}
+
+- Step 3：必要なら [`/logout` → `/login`]{.regmonkey-bold} で再認証
+
+{{< reveal_vspace 0.3em >}}
+
+- 対話モードで API キー承認を取り消したい場合は，`/config` の「Use custom API key」をオフにする
+
+:::
+::::
+:::::
+::::::
+
+# プラン選定
+
+## プランは利用形態とコンプラ要件で選ぶ
+
+[個人ヘビーユースなら Max・組織導入は Team/Enterprise・コスト最適化は API が基本軸]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:80%; font-size: 0.85em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-plan-recommendation data-col-widths="[18, 22, 60]"}
+
+```yaml
+record1:
+  category: 個人入門<br>学習用途
+  rule:
+    - <span class="regmonkey-bold">Claude.ai Pro</span>
+  actions:
+    - "&#36;17/月から開始でき，Claude.ai と使用量を共有"
+    - 想定外課金が起きない月額固定が魅力
+
+record2:
+  category: 個人<br>ヘビーユース
+  rule:
+    - <span class="regmonkey-bold">Claude.ai Max (5x・20x)</span>
+  actions:
+    - Pro の 5〜20 倍の使用量・高トラフィック時の優先アクセス
+    - 1 日中 Claude Code を走らせる開発スタイル向け
+
+record3:
+  category: 小〜中規模<br>チーム
+  rule:
+    - <span class="regmonkey-bold">Claude for Teams</span>
+  actions:
+    - SSO・チーム管理・学習対象外保証で「導入が一番速い」
+    - Standard &#36;20/seat または Premium &#36;150/seat
+
+record4:
+  category: 大規模・<br>コンプラ要件
+  rule:
+    - <span class="regmonkey-bold">Enterprise またはクラウド経由</span>
+  actions:
+    - SCIM・監査ログ・HIPAA 対応が必要なら Enterprise
+    - データ所在地・プライベート接続必須なら Bedrock・Vertex・Foundry
+
+record5:
+  category: コスト最適化<br>個人開発者
+  rule:
+    - <span class="regmonkey-bold">Claude Console (API)</span>
+  actions:
+    - 使った分だけ課金・小規模 PoC や副業利用に向く
+    - 必ず Spend limit を設定して暴走課金を防ぐ
+```
+
+:::
+::::
+
+
+<!-- footer -->
+
+[^footer-pricing]: Claude プラン料金: <https://claude.com/pricing> (取得日 2026-05-11)
+[^footer-api]: Claude API 料金: <https://claude.com/platform/api> (取得日 2026-05-11)
+[^footer-auth]: Claude Code 認証ドキュメント: <https://code.claude.com/docs/en/authentication> (取得日 2026-05-11)
+[^footer-3rd]: Claude Code 3rd-party integrations: <https://code.claude.com/docs/en/third-party-integrations> (取得日 2026-05-11)
+[^footer-pro-max]: Pro/Max での Claude Code 利用: <https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan> (取得日 2026-05-11)
