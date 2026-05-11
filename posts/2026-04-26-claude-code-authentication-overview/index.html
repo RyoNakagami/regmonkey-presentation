@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – Claude Code 認証方式</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-1d99df42765753cae8b6a0ee0af6dcd8.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+<meta property="og:title" content="Claude Code 認証方式 – Presentation for Regession Monkey">
+<meta property="og:description" content="claude-code 101">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Claude Code 認証方式</h1>
+  <p class="subtitle">claude-code 101</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年04月26日</p>
+</section>
+<section id="index" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index</h2>
+<div class="columns">
+<div class="reveal_vspace" style="--vspace-height: 2em;"></div><div class="column" style="width:25%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="sidebar">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-bullseye " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="学習目標"><span class="padding-L-05">学習目標</span></h3>
+</div>
+<ul>
+<li>Claude Code の認証方式を理解する</li>
+<li>ユースケースに合うプランと切替時の注意点を判断できる</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-person " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="対象レベル"><span class="padding-L-05">対象レベル</span></h3>
+</div>
+<ul>
+<li>Claude Code を触り始めたエンジニア</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="前提知識"><span class="padding-L-05">前提知識</span></h3>
+</div>
+<ul>
+<li>ターミナル操作</li>
+<li><code>claude</code> インストール経験</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="padding-left:0.5em;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="regmonkey_index" style="width:1100px">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. ３つの認証方式</span></span>
+<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Claude.ai Subscription・Claude Console・クラウドプロバイダ"</span></span>
+<span id="cb1-8"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Claude.ai Subscription</span></span>
+<span id="cb1-10"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-11"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Pro・Max・Team・Enterprise の料金と Claude Code 利用範囲"</span></span>
+<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"使用量は Claude.ai と共有プールで管理される"</span></span>
+<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Claude Console&lt;br&gt;&lt;span style="margin-left:1.2em;"&gt;&lt;/span&gt;(Claude API)</span></span>
+<span id="cb1-15"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"ANTHROPIC_API_KEY を渡す従量課金モデル"</span></span>
+<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"自動チャージ ON 時の請求リスクと Spend limit"</span></span>
+<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. クラウドプロバイダ</span></span>
+<span id="cb1-20"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"環境変数1つで切替・プライベート接続と監査要件向け"</span></span>
+<span id="cb1-22"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. 切り替えの注意点&lt;br&gt;&lt;span style="margin-left:1.4em;"&gt;&lt;/span&gt;&amp; プラン選定</span></span>
+<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"認証6段階の優先順位と環境変数の落とし穴"</span></span>
+<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"利用形態とコンプラ要件によるプラン推奨表"</span></span>
+<span id="cb1-27"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="認証方式はclaude.aiconsoleクラウドの3方式" class="slide level2">
+<h2>認証方式はClaude.ai・Console・クラウドの3方式</h2>
+<p><span class="h2-submessage">個人・開発者・組織のどれを起点にするかで経路が決まる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:70%; font-size: 0.9em !important;">
+<div id="yaml-three-routes" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 33, 49]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Claude.ai&lt;br&gt;Subsucription</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Pro・Max・Team・Enterprise の有料プラン</span></span>
+<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 月額固定で Claude Code と Claude.ai の使用量プールを共有</span></span>
+<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人ヘビーユース・組織導入に向く</span></span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Claude Console&lt;br&gt; (API)</span></span>
+<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;ANTHROPIC_API_KEY&lt;/code&gt; で従量課金</span></span>
+<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PoC・コスト最適化・副業利用に向く</span></span>
+<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動チャージ運用には Spend limit が必須</span></span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb2-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> クラウドプロバイダ</span></span>
+<span id="cb2-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Bedrock・Vertex AI・Foundry のいずれかから選ぶ</span></span>
+<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 1 つで切り替え・既存 IAM で認証</span></span>
+<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プライベート接続と監査要件を満たす大規模組織向け</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section>
+<section id="claude.ai-subscription" class="title-slide slide level1 agenda-slide center">
+<h1>Claude.ai Subscription</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Claude.ai Subscription</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Claude Console (Claude API)</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>クラウドプロバイダ</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Claude.ai と Console の切り替え</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プラン選定</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="pro以上のclaude.aiプランでclaude-codeが使える" class="slide level2">
+<h2>Pro以上のClaude.aiプランでClaude Codeが使える</h2>
+<p><span class="h2-submessage">Free は対象外・Max は Pro の5x・20x・Team と Enterprise は管理機能を上乗せ<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:75%; font-size: 0.85em !important;">
+<div id="yaml-claudeai-plans" class="yaml2table yaml2table-custom-top" data-col-widths="[12, 30, 58]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Free</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web・モバイルチャットのみ</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude Code は利用不可&lt;/span&gt;</span></span>
+<span id="cb3-7"><a></a></span>
+<span id="cb3-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Pro</span></span>
+<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&amp;#36;17/月 (年払)・&amp;#36;20/月 (月払)"</span></span>
+<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claude Code 利用可・Claude.ai と&lt;span class="regmonkey-bold"&gt;使用量プールを共有&lt;/span&gt;</span></span>
+<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人開発・学習用途の入口プラン</span></span>
+<span id="cb3-15"><a></a></span>
+<span id="cb3-16"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Max</span></span>
+<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&amp;#36;100/月 (5x) または &amp;#36;200/月 (20x)"</span></span>
+<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Pro の&lt;span class="regmonkey-bold"&gt;5倍または20倍&lt;/span&gt;の使用量上限</span></span>
+<span id="cb3-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 高トラフィック時の優先アクセス・先行機能アクセス</span></span>
+<span id="cb3-23"><a></a></span>
+<span id="cb3-24"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-25"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Team</span></span>
+<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Standard &amp;</span><span class="co">#36;20/seat&lt;br&gt;Premium &amp;#36;150/seat (年払)</span></span>
+<span id="cb3-28"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム管理ダッシュボード・SSO・&lt;span class="regmonkey-bold"&gt;学習対象外&lt;/span&gt;保証</span></span>
+<span id="cb3-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claude Code に加え Claude on web も含む</span></span>
+<span id="cb3-31"><a></a></span>
+<span id="cb3-32"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-33"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Enterprise</span></span>
+<span id="cb3-34"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="ot">&amp;#36;20/seat</span><span class="at"> + API 従量</span></span>
+<span id="cb3-36"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SCIM・監査ログ・コンプライアンス API・HIPAA 対応オプション</span></span>
+<span id="cb3-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大規模組織・規制業種向け (Sales 経由)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Claude プラン料金: <a href="https://claude.com/pricing" class="uri">https://claude.com/pricing</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="claude-codeの使用量はclaude.aiと共有プール" class="slide level2">
+<h2>Claude Codeの使用量はClaude.aiと共有プール</h2>
+<p><span class="h2-submessage">5時間ローリングと7日週次の二層構造でモデルとツール量に応じ重み付け消費される<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">共有プールの構造</span></p>
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>Claude Code・Claude.ai (Web)・Desktop・モバイルは<span class="regmonkey-bold">単一プールから消費</span>される</li>
+<li>上限は<span class="regmonkey-bold">二層構造</span>で，独立にカウントされ独立にリセットされる
+<ul>
+<li>5 時間ローリングのセッション枠</li>
+<li>7 日間の週次枠 (さらに <span class="regmonkey-bold">Opus 専用枠</span> と それ以外モデル枠 に分割)</li>
+</ul></li>
+<li>公式は<span class="regmonkey-bold">具体的な数値上限を公開していない</span>：使用率で把握する運用が前提</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">消費を重く動かす要因</span></p>
+<div class="info-contents padding-L-05">
+<ul>
+<li>モデル選択：<span class="regmonkey-bold">Opus &gt; Sonnet &gt; Haiku</span> の順に大きく消費される</li>
+<li>会話履歴は毎ターン<span class="regmonkey-bold">全体が再送される</span>：セッションが長いほど1メッセージあたり重くなる</li>
+<li>ツール呼び出し数・MCP コネクタ数・添付ファイル・extended thinking の有効化も上乗せ</li>
+<li>Claude Code は agentic 動作のため，<span class="regmonkey-bold">ブラウザ会話より単位プロンプトあたり重い</span></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Pro/Max での Claude Code 利用: <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" class="uri">https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="使用量はusageで確認上限到達はソフトブロック" class="slide level2">
+<h2>使用量は/usageで確認・上限到達はソフトブロック</h2>
+<p><span class="h2-submessage">上限到達時はリセット待ち・上位プラン・Extra usage・API fallback の4択が提示される<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">残量の確認手段</span></p>
+<div class="info-contents font-10 padding-L-05 lh-12">
+<ul>
+<li>Claude Code 内 <span class="regmonkey-bold"><code>/usage</code></span> (エイリアス <code>/cost</code>・<code>/stats</code>)：セッションコスト・各枠への進捗を表示</li>
+<li>コンテキスト埋まり具合は <span class="regmonkey-bold"><code>/context</code></span> で別途確認</li>
+<li>ブラウザ側は <span class="regmonkey-bold">Settings &gt; Usage</span> で同じプールの消費状況をプログレスバー表示</li>
+<li>v2.x 以降は statusline 経由で <code>rate_limits.five_hour</code>・<code>seven_day</code> の <code>used_percentage</code>・<code>resets_at</code> を常時表示できる</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">上限到達時の4つの選択肢</span></p>
+<div class="info-contents padding-L-05">
+<ul>
+<li><span class="regmonkey-bold">上位プランへのアップグレード</span>：Pro → Max 5x → Max 20x</li>
+<li><span class="regmonkey-bold">Extra usage を有効化</span>：標準 API レートでプラン枠外を継続消費</li>
+<li><span class="regmonkey-bold">Claude Console の API クレジットへフォールバック</span>：Console アカウント必要・課金は別建て</li>
+<li><span class="regmonkey-bold">リセット待ち</span>：セッションは5時間後・週次は7日後の自分のサイクルに連動</li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Pro/Max での Claude Code 利用: <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" class="uri">https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan</a> (取得日 2026-05-11)</p></li></ol></aside></section></section>
+<section>
+<section id="claude-console-claude-api" class="title-slide slide level1 agenda-slide center">
+<h1>Claude Console (Claude API)</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude.ai Subscription</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Claude Console (Claude API)</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>クラウドプロバイダ</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Claude.ai と Console の切り替え</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プラン選定</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="consoleはapi-keyで認証する従量課金モデル" class="slide level2">
+<h2>ConsoleはAPI Keyで認証する従量課金モデル</h2>
+<p><span class="h2-submessage">ロールは「Claude Code」と「Developer」の2種で発行範囲を絞れる<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">ロールの種類</span></p>
+<p>Console 管理者が<span class="regmonkey-bold">組織メンバーを招待</span>し，ロールを割り当てる - <code>Claude Code</code> ロール：Claude Code 用 API キーのみ発行可 - <code>Developer</code> ロール：任意の API キーを発行可</p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">起動方法</span></p>
+<p>環境変数 <span class="regmonkey-bold"><code>ANTHROPIC_API_KEY</code></span> を設定して <code>claude</code> を起動する</p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">認証情報の保管場所</span></p>
+<p>認証情報は OS の安全領域に保存される - macOS：Keychain - Linux：<code>~/.claude/.credentials.json</code> (mode 0600) - Windows：<code>%USERPROFILE%\.claude\.credentials.json</code></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">起動例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="font-14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="bu">export</span> <span class="va">ANTHROPIC_API_KEY</span><span class="op">=</span><span class="st">"sk-ant-..."</span></span>
+<span id="cb4-2"><a></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Claude Code 認証ドキュメント: <a href="https://code.claude.com/docs/en/authentication" class="uri">https://code.claude.com/docs/en/authentication</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="claude-apiは入力出力の単価で従量課金される" class="slide level2">
+<h2>Claude APIは入力・出力の単価で従量課金される</h2>
+<p><span class="h2-submessage">Opus 4.7・Sonnet 4.6・Haiku 4.5 はモデルごとに 5 倍ずつ価格差がある<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:65%; font-size: 0.85em !important;">
+<div id="yaml-api-pricing" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 25, 60]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Opus 4.7</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 最も高性能・複雑タスク向け</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 入力 &lt;span class="regmonkey-bold"&gt;&amp;</span><span class="co">#36;5 / MTok&lt;/span&gt;・出力 &lt;span class="regmonkey-bold"&gt;&amp;#36;25 / MTok&lt;/span&gt;</span></span>
+<span id="cb5-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 設計・大規模リファクタ・難題解決に向く</span></span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Sonnet 4.6</span></span>
+<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 性能とコストのバランス</span></span>
+<span id="cb5-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 入力 &lt;span class="regmonkey-bold"&gt;&amp;</span><span class="co">#36;3 / MTok&lt;/span&gt;・出力 &lt;span class="regmonkey-bold"&gt;&amp;#36;15 / MTok&lt;/span&gt;</span></span>
+<span id="cb5-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 日常の Claude Code 作業のデフォルト想定</span></span>
+<span id="cb5-16"><a></a></span>
+<span id="cb5-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Haiku 4.5</span></span>
+<span id="cb5-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb5-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 軽量・高速・低コスト</span></span>
+<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb5-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 入力 &lt;span class="regmonkey-bold"&gt;&amp;</span><span class="co">#36;1 / MTok&lt;/span&gt;・出力 &lt;span class="regmonkey-bold"&gt;&amp;#36;5 / MTok&lt;/span&gt;</span></span>
+<span id="cb5-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サブエージェント・短文処理・分類タスク</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="font-08 padding-L-05">
+<p>共通割引：Prompt cache は<span class="regmonkey-bold">書込が標準入力の20%・読込が10%</span>，Batch 処理は<span class="regmonkey-bold">50% off</span>，US-only 推論は 1.1x</p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Claude API 料金: <a href="https://claude.com/platform/api" class="uri">https://claude.com/platform/api</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="自動チャージonならspend-limit設定が必須" class="slide level2">
+<h2>自動チャージONならSpend limit設定が必須</h2>
+<p><span class="h2-submessage">クレジット枯渇時に自動補充されると上限なく請求が積み上がる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">Claude Console の請求リスク</span></p>
+<div class="info-contents padding-L-05 lh-14">
+<ul>
+<li>自動チャージ (Auto Reload) を有効にしたまま運用すると，<span class="regmonkey-bold">使用量に比例して請求が継続的に発生</span>する</li>
+<li>暴走したサブエージェントや長尺ループで意図しない高額請求が起きうる</li>
+<li>Claude Console の<span class="regmonkey-bold">Spend limits・Budgets で月次上限を必ず設定</span>する</li>
+<li>開発者個人で使う場合は，自動チャージを OFF にして都度入金する選択肢もある</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">サブスクとの違い</span></p>
+<div class="info-contents padding-L-05">
+<ul>
+<li>Claude.ai サブスク (Pro・Max) は<span class="regmonkey-bold">月額固定</span>：上限到達で停止・追加課金は発生しない</li>
+<li>「上限を予測しづらい想定外利用への耐性」を最優先するならサブスクが安全</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="クラウドプロバイダ" class="title-slide slide level1 agenda-slide center">
+<h1>クラウドプロバイダ</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude.ai Subscription</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude Console (Claude API)</p>
+</div></li>
+<li><div class="agenda-active">
+<p>クラウドプロバイダ</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Claude.ai と Console の切り替え</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プラン選定</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="クラウドプロバイダは環境変数1つで切替えられる" class="slide level2">
+<h2>クラウドプロバイダは環境変数1つで切替えられる</h2>
+<p><span class="h2-submessage">Bedrock・Vertex AI・Foundry のどれも <code>CLAUDE_CODE_USE_*</code> で切替可能<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:75%; font-size: 0.85em !important;">
+<div id="yaml-cloud-providers" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 30, 55]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Amazon&lt;br&gt;Bedrock</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AWS ネイティブな組織向け</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;CLAUDE_CODE_USE_BEDROCK=1&lt;/code&gt; + &lt;code&gt;AWS_REGION&lt;/code&gt;</span></span>
+<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AWS クレデンシャル (IAM ロール) で認証</span></span>
+<span id="cb6-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監査は CloudTrail・課金は AWS Cost Explorer</span></span>
+<span id="cb6-9"><a></a></span>
+<span id="cb6-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Google&lt;br&gt;Vertex AI</span></span>
+<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> GCP ネイティブな組織向け</span></span>
+<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;CLAUDE_CODE_USE_VERTEX=1&lt;/code&gt; + &lt;code&gt;CLOUD_ML_REGION&lt;/code&gt; + &lt;code&gt;ANTHROPIC_VERTEX_PROJECT_ID&lt;/code&gt;</span></span>
+<span id="cb6-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> GCP クレデンシャル (IAM ロール) で認証</span></span>
+<span id="cb6-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監査は Cloud Audit Logs・課金は GCP Billing</span></span>
+<span id="cb6-18"><a></a></span>
+<span id="cb6-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Microsoft&lt;br&gt;Foundry</span></span>
+<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Azure ネイティブな組織向け</span></span>
+<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;CLAUDE_CODE_USE_FOUNDRY=1&lt;/code&gt; + &lt;code&gt;ANTHROPIC_FOUNDRY_RESOURCE&lt;/code&gt;</span></span>
+<span id="cb6-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> API key または Microsoft Entra ID で認証</span></span>
+<span id="cb6-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監査は Azure Monitor・課金は Azure Cost Management</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Claude Code 3rd-party integrations: <a href="https://code.claude.com/docs/en/third-party-integrations" class="uri">https://code.claude.com/docs/en/third-party-integrations</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="クラウド経由はプライベート接続で監査要件を満たす" class="slide level2">
+<h2>クラウド経由はプライベート接続で監査要件を満たす</h2>
+<p><span class="h2-submessage">クラウド契約の枠内で完結するためデータ境界・課金・監査が既存基盤に揃う</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">クラウドプロバイダ経由の利点</span></p>
+<div class="info-contents padding-L-05 lh-14">
+<ul>
+<li>通信が<span class="regmonkey-bold">クラウド契約のプライベート網内で完結</span>し，Anthropic へのインターネット経由送信が発生しない</li>
+<li>リージョン選択で<span class="regmonkey-bold">データ所在地のコンプラ要件</span>を満たせる</li>
+<li>認証・権限は既存の IAM (AWS・GCP・Entra ID) に統合される</li>
+<li>監査ログ・コスト追跡は<span class="regmonkey-bold">既存のクラウド管理ツール</span>にそのまま乗る</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<p><span class="mini-section">補足：モデル版固定の推奨</span></p>
+<div class="info-contents padding-L-05">
+<ul>
+<li>クラウド経由では <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code> 等で<span class="regmonkey-bold">モデル ID を pin する</span>と，新リリースが各クラウドで有効化されるタイミングを制御できる</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="claude.ai-と-console-の切り替え" class="title-slide slide level1 agenda-slide center">
+<h1>Claude.ai と Console の切り替え</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude.ai Subscription</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude Console (Claude API)</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>クラウドプロバイダ</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Claude.ai と Console の切り替え</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プラン選定</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="認証は6段階の優先順位で1つだけ選択される" class="slide level2">
+<h2>認証は6段階の優先順位で1つだけ選択される</h2>
+<p><span class="h2-submessage">複数の認証情報が共存する環境では上位が無条件で勝つ仕様<sup>1</sup></span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:75%; font-size: 0.85em !important;">
+<div id="yaml-auth-precedence" class="yaml2table yaml2table-custom-top" data-col-widths="[8, 40, 52]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クラウドプロバイダ env (&lt;code&gt;CLAUDE_CODE_USE_BEDROCK&lt;/code&gt;・&lt;code&gt;VERTEX&lt;/code&gt;・&lt;code&gt;FOUNDRY&lt;/code&gt;)</span></span>
+<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クラウド経由で実行したいときに有効化</span></span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-9"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-10"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;ANTHROPIC_AUTH_TOKEN&lt;/code&gt; (Bearer ヘッダ)</span></span>
+<span id="cb7-12"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> LLM gateway・プロキシ経由で Bearer 認証を使うとき</span></span>
+<span id="cb7-14"><a></a></span>
+<span id="cb7-15"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-16"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb7-17"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;ANTHROPIC_API_KEY&lt;/code&gt; (X-Api-Key ヘッダ)</span></span>
+<span id="cb7-19"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude Console 直接利用&lt;/span&gt;・対話モードで初回承認が必要</span></span>
+<span id="cb7-21"><a></a></span>
+<span id="cb7-22"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb7-23"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb7-24"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 設定 &lt;code&gt;apiKeyHelper&lt;/code&gt; スクリプト出力</span></span>
+<span id="cb7-26"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Vault からの短命トークン取得などローテーション運用</span></span>
+<span id="cb7-28"><a></a></span>
+<span id="cb7-29"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb7-30"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb7-31"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境変数 &lt;code&gt;CLAUDE_CODE_OAUTH_TOKEN&lt;/code&gt; (長命 OAuth)</span></span>
+<span id="cb7-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CI・スクリプト用 (&lt;code&gt;claude setup-token&lt;/code&gt; で発行・1 年有効)</span></span>
+<span id="cb7-35"><a></a></span>
+<span id="cb7-36"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb7-37"><a></a><span class="at">  </span><span class="fu">priority</span><span class="kw">:</span><span class="at"> </span><span class="dv">6</span></span>
+<span id="cb7-38"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> コマンド &lt;code&gt;/login&lt;/code&gt; のサブスク OAuth</span></span>
+<span id="cb7-40"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude.ai (Pro・Max・Team・Enterprise) のデフォルト&lt;/span&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p>Claude Code 認証ドキュメント: <a href="https://code.claude.com/docs/en/authentication" class="uri">https://code.claude.com/docs/en/authentication</a> (取得日 2026-05-11)</p></li></ol></aside></section>
+<section id="サブスク利用時はapi-keyを必ず外す" class="slide level2">
+<h2>サブスク利用時はAPI Keyを必ず外す</h2>
+<p><span class="h2-submessage"><code>ANTHROPIC_API_KEY</code> が環境に残っているとサブスクが無視され API 課金に切り替わる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="pentagon-box-600">
+<div class="border-bottom-header-left">
+<p>Problem：意図しない API 課金</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li>Pro/Max を契約済みなのに <code>ANTHROPIC_API_KEY</code> がシェルに残っている
+<ul>
+<li>API キーが優先され，<span class="regmonkey-bold">サブスクが使われない</span></li>
+<li>認証失敗時に「無効な組織です」と表示されて気付くケースも</li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li>失効した組織の API キーを引いてしまうと，Claude Code が<span class="regmonkey-bold">起動できなくなる</span></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li>切替を意識せず複数アカウントを行き来し，課金経路が把握できなくなる</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-600">
+<div class="border-bottom-header-left">
+<p>対策：明示切替の3ステップ</p>
+</div>
+<div class="squaredmark" style="font-size: 0.9em">
+<ul>
+<li>Step 1：環境変数を外す
+<ul>
+<li><code>unset ANTHROPIC_API_KEY</code></li>
+<li><code>unset ANTHROPIC_AUTH_TOKEN</code></li>
+</ul></li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li>Step 2：<span class="regmonkey-bold"><code>/status</code></span> で現在の認証方式を確認</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li>Step 3：必要なら <span class="regmonkey-bold"><code>/logout</code> → <code>/login</code></span> で再認証</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li>対話モードで API キー承認を取り消したい場合は，<code>/config</code> の「Use custom API key」をオフにする</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="プラン選定" class="title-slide slide level1 agenda-slide center">
+<h1>プラン選定</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude.ai Subscription</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude Console (Claude API)</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>クラウドプロバイダ</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Claude.ai と Console の切り替え</p>
+</div></li>
+<li><div class="agenda-active">
+<p>プラン選定</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="プランは利用形態とコンプラ要件で選ぶ" class="slide level2">
+<h2>プランは利用形態とコンプラ要件で選ぶ</h2>
+<p><span class="h2-submessage">個人ヘビーユースなら Max・組織導入は Team/Enterprise・コスト最適化は API が基本軸</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:80%; font-size: 0.85em !important;">
+<div id="yaml-plan-recommendation" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 22, 60]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 個人入門&lt;br&gt;学習用途</span></span>
+<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude.ai Pro&lt;/span&gt;</span></span>
+<span id="cb8-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&amp;#36;17/月から開始でき，Claude.ai と使用量を共有"</span></span>
+<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 想定外課金が起きない月額固定が魅力</span></span>
+<span id="cb8-8"><a></a></span>
+<span id="cb8-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 個人&lt;br&gt;ヘビーユース</span></span>
+<span id="cb8-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude.ai Max (5x・20x)&lt;/span&gt;</span></span>
+<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Pro の 5〜20 倍の使用量・高トラフィック時の優先アクセス</span></span>
+<span id="cb8-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1 日中 Claude Code を走らせる開発スタイル向け</span></span>
+<span id="cb8-16"><a></a></span>
+<span id="cb8-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 小〜中規模&lt;br&gt;チーム</span></span>
+<span id="cb8-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude for Teams&lt;/span&gt;</span></span>
+<span id="cb8-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SSO・チーム管理・学習対象外保証で「導入が一番速い」</span></span>
+<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Standard &amp;</span><span class="co">#36;20/seat または Premium &amp;#36;150/seat</span></span>
+<span id="cb8-24"><a></a></span>
+<span id="cb8-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb8-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 大規模・&lt;br&gt;コンプラ要件</span></span>
+<span id="cb8-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Enterprise またはクラウド経由&lt;/span&gt;</span></span>
+<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SCIM・監査ログ・HIPAA 対応が必要なら Enterprise</span></span>
+<span id="cb8-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データ所在地・プライベート接続必須なら Bedrock・Vertex・Foundry</span></span>
+<span id="cb8-32"><a></a></span>
+<span id="cb8-33"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb8-34"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> コスト最適化&lt;br&gt;個人開発者</span></span>
+<span id="cb8-35"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Claude Console (API)&lt;/span&gt;</span></span>
+<span id="cb8-37"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使った分だけ課金・小規模 PoC や副業利用に向く</span></span>
+<span id="cb8-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必ず Spend limit を設定して暴走課金を防ぐ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<!-- footer -->
+
+
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
