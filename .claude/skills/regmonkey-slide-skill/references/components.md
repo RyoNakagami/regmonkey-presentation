@@ -349,6 +349,29 @@ record1:
 
 `regmonkey-bold` を使うのは **2 列目以降の本文セルの中**で，1 文の中の特定の語句を目立たせたいときだけにする．
 
+### yaml2table の YAML 値で `` ` `` で始まる行を禁止
+
+`.yaml2table` / `.yaml2grouptable` の YAML ブロックでは，**配列要素の値を `` ` `` (バックティック) で開始してはいけない**．YAML 1.2 仕様で `` ` `` と `@` は予約済み indicator のため，値の冒頭に置くと js-yaml が `bad indentation of a sequence entry` 等のパース失敗を出す．エラーは隠れた `<script>` レベルで起きるため，`quarto render` は通り，ブラウザコンソールに `pageerror` が出るまで気付きにくい．**`` `foo` `` と書きたい箇所は `<code>foo</code>` に置き換える**．`<code>` は CSS でインラインコードとして整形され見た目もほぼ同等．
+
+```yaml
+# NG ────────────────────────────────────────
+record1:
+  category: Bedrock
+  actions:
+    - `CLAUDE_CODE_USE_BEDROCK=1` + `AWS_REGION`     # 行頭が `` ` `` でパース失敗
+    - `ANTHROPIC_API_KEY` を環境から外す             # 同上
+
+# OK ────────────────────────────────────────
+record1:
+  category: Bedrock
+  actions:
+    - 環境変数 <code>CLAUDE_CODE_USE_BEDROCK=1</code> + <code>AWS_REGION</code>
+    - <code>ANTHROPIC_API_KEY</code> を環境から外す  # 行頭が日本語/英数なら mid-string `` ` `` でも OK だが
+                                                     # ハウス統一のため `<code>` を推奨
+```
+
+迷ったら **yaml2table の YAML 内では `` `…` `` を使わず `<code>…</code>` に統一**．Markdown 本文（フェンス div の中など）では `` `foo` `` のままで構わない — この制約は yaml2table の YAML 値に限る．
+
 ---
 
 ## Index slide

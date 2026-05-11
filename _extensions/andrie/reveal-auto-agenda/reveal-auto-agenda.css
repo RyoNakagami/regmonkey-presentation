@@ -1,10 +1,9 @@
-/* Done display slide header on auto-agenda slides */
+/* Hide the original H1 (section title) on auto-agenda slides */
 .agenda-slide h1 {
-  size: 0em;
   display: none;
 }
 
-/* The agenda heading, if specified */
+/* The agenda heading, if specified via auto-agenda.heading */
 .agenda-heading {
   font-size: 1.25em;
   font-weight: bold;
@@ -13,6 +12,30 @@
 
 /* The container class for auto-agenda */
 .agenda {
+}
+
+/* Auto-injected "Agenda" header.
+   Styled to match .reveal h2 (40pt navy bold, left-aligned, h2 margins)
+   plus a navy underline bar below the text. */
+.agenda::before {
+  content: "Agenda";
+  display: block;
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif;
+  color: #0e3666;
+  font-size: 40pt;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 0.1em;
+  margin-bottom: 0.3em;
+  border-bottom: 4px solid #0e3666;
+  width: 100%;
+}
+
+/* If the deck sets auto-agenda.heading, the lua plugin inserts
+   <div class="agenda-heading"> right before .agenda. In that case the
+   plugin-inserted heading wins and we suppress the ::before to avoid duplication. */
+.agenda-heading + .agenda::before {
+  content: none;
 }
 
 .agenda-active {
@@ -29,4 +52,9 @@
 
 .agenda-post-active {
   /* color: #2222b2; */
+}
+
+.reveal .slides section.agenda-slide,
+.reveal .slides section.agenda-slide.center {
+  top: 0 !important;
 }

@@ -285,6 +285,7 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 - **散文の中で `/` を区切りに使う．** `Python / SQL / R` は誤．`Python・SQL・R` と書く．コード/パス/URL 内はそのまま OK．
 - **フェンス colon 数の不整合．** ネストが壊れたらパッチではなくテンプレートをコピー．
 - **`.yaml2table .yaml2table-custom-top` の第1列に `regmonkey-bold` を付ける．** 第1列は CSS 側で行ラベル用のスタイルが既に当たっており，`<span class="regmonkey-bold">…</span>` を重ねるとスタイル衝突・全行均一強調・意味の希釈が起きる．第1列は素のテキスト．`regmonkey-bold` は 2 列目以降の本文セル中で特定の語句を目立たせたいときだけ使う．詳細は `references/components.md` の Tables セクション．
+- **yaml2table の YAML 値を `` ` `` で始める．** YAML 1.2 で `` ` `` は予約 indicator なので，配列要素の冒頭が `` `foo` `` だと js-yaml が `bad indentation of a sequence entry` で落ちる．`quarto render` は通るがブラウザコンソールに `pageerror` が出る．yaml2table の YAML 内では `` `foo` `` を **`<code>foo</code>` に置き換える**．詳細は `references/components.md` の Tables セクション．
 
 ## 新規パターンが必要なとき
 
