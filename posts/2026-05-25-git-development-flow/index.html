@@ -651,8 +651,8 @@ gitGraph
 <li>実装とローカルテストを並行する</li>
 </ul>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> checkout develop <span class="kw">&amp;&amp;</span> <span class="fu">git</span> pull</span>
-<span id="cb4-2"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> feat/login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> switch develop <span class="kw">&amp;&amp;</span> <span class="fu">git</span> pull</span>
+<span id="cb4-2"><a></a><span class="fu">git</span> switch <span class="at">-c</span> feat/login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1351,7 +1351,7 @@ gitGraph
 <ul>
 <li><code>main</code> を <code>develop</code> にマージして hotfix を取り込む
 <ul>
-<li><code>git checkout develop &amp;&amp; git merge --no-ff main</code></li>
+<li><code>git switch develop &amp;&amp; git merge --no-ff main</code></li>
 </ul></li>
 <li><span class="regmonkey-bold">メリット：commit hash が保たれる</span>
 <ul>
@@ -1371,7 +1371,7 @@ gitGraph
 <ul>
 <li>hotfix コミットだけを <code>develop</code> に取り込む
 <ul>
-<li><code>git checkout develop &amp;&amp; git cherry-pick &lt;hash&gt;</code></li>
+<li><code>git switch develop &amp;&amp; git cherry-pick &lt;hash&gt;</code></li>
 </ul></li>
 <li>メリット：取り込む変更を1コミット単位で選べる</li>
 <li><span class="regmonkey-bold">デメリット：commit hash が変わる</span>
