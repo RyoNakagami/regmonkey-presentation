@@ -1,0 +1,1216 @@
+---
+title: "小規模ProjectにおけるGit開発フロー"
+subtitle: "Git Development Flow"
+author: "Ryo Nakagami"
+date: "2026-05-25"
+categories: [git, development, workflow]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 3em >}}
+
+:::: {.column width="30%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi chat-square-text size=1.7em color=#428CE6 >}}
+
+### [モチベーション]{.padding-L-05}
+
+:::
+
+- PR 作成・レビュー・マージの流れを標準化したい
+- 開発ルールはできるだけシンプルに
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### [Goal]{.padding-L-05}
+
+:::
+
+- `main` を常にデプロイ可能に保つ
+- 履歴を将来の自分が読める形にする
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi book size=1.7em color=#428CE6 >}}
+
+### [前提条件]{.padding-L-05}
+
+:::
+
+- <code>git branch</code>・<code>merge</code>・<code>rebase</code> の基本操作
+- PRレビューの一般的な流れ
+
+::::
+
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.regmonkey_index style="width:1150px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.8em
+  title_position: -0.5em
+  bullet_position: 1.5em
+  children:
+    - title: 1. ブランチ設計
+      description:
+        - ブランチ戦略3系統の比較と Git Flow variant 採用理由
+        - 統合ブランチとトピックブランチの責務分離
+      width: [40,60]
+    - title: 2. 開発の流れ
+      description:
+        - 通常開発と緊急修正（hotfix）の2系統
+        - トピックブランチの粒度の目安
+      width: [40,60]
+    - title: 3. コミット・マージ戦略
+      description:
+        - <strong>git rebase -i</strong> によるコミット整形
+        - Conventional Commits と squash・no-ff の使い分け
+      width: [40,60]
+    - title: 4. バージョニングと<br>[リリース]{style="padding-left:1.1em;"}
+      description:
+        - Semantic Versioning と CHANGELOG 運用
+        - tag と Release は CI で自動生成
+      width: [40,60]
+    - title: 5. レビュー方針
+      description:
+        - レビューの優先順位とコメント規約
+        - レビューは，コードに向けて書き，人格に向けて書かない
+      width: [40,60]
+    - title: 6. Summary & Appendix
+      description:
+        - 運用原則のまとめ
+        - tag/Release の違い
+        - back-merge vs cherry-pick
+      width: [40,60]
+```
+
+:::
+:::
+:::::
+
+# ブランチ設計
+
+## ブランチ戦略の種類
+[本フローは明示的バージョニングと並行リリースが必要な小規模プロジェクト向けに Git Flow を簡略化した variant を採る]{.h2-submessage}
+
+
+::::{.custom-table style="width:100%; height:70%; font-size: 0.78em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[18, 32, 50]"}
+
+```yaml
+record1:
+  category: GitHub Flow
+  rule:
+    - <code>main</code> + 短命 feat ブランチのみ
+  actions:
+    - 継続デリバリ・Webサービス向け，リリース＝<code>main</code> へのマージ
+    - 採用しない理由：明示的バージョン管理・並行リリースが弱い
+
+record2:
+  category: GitLab Flow
+  rule:
+    - <code>main</code> + 環境別ブランチ<br>（<code>pre-production</code>・<code>production</code>）
+  actions:
+    - 環境とブランチを1対1で対応させ，後方へのみマージする upstream-first
+    - 採用しない理由：環境別ブランチ運用は対象スコープに対して重い
+
+record4:
+  category: Git Flow
+  rule:
+    - <code>main</code> + <code>develop</code> + <code>feat</code>・<code>release</code>・<code>hotfix</code>・<code>support</code>
+  actions:
+    - 明示的なリリース準備ブランチと長期サポートを許容するフル構成
+    - 採用しない理由：ブランチ種別が多く，本スコープでは <code>release</code>・<code>support</code> が過剰
+
+record5:
+  category: OneFlow
+  rule:
+    - <code>main</code> 1系統 + <code>feat</code>・<code>hotfix</code>，rebase 前提
+  actions:
+    - <code>develop</code> を廃し，tag でリリース境界を表現する Git Flow の簡素版
+    - 採用しない理由：強制 rebase の習熟コストと並行リリース運用が弱い
+
+record6:
+  category: Git Flow variant<br>（今回紹介）
+  rule:
+    - <code>main</code> + <code>develop</code> + topic の2系統 + <code>hotfix</code>
+  actions:
+    - <span class="regmonkey-bold">採用理由：リリース境界を tag で残し，hotfix 経路を明示できる</span>
+    - オリジナルの Git Flow から <code>release</code>・<code>support</code> を省略して簡略化
+```
+
+:::
+::::
+
+## 統合ブランチとトピックブランチを責務で分けて，開発と統合を疎結合に保つ
+
+[統合ブランチには基本，直接コミットせず，変更は必ずトピックブランチ経由でPRする]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+統合ブランチ（Integration Branch）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 複数の開発者・複数トピックの成果を [集約・統合する役割]{.regmonkey-bold}
+  - 直接 `main` では開発作業は行わない
+  - 複数トピック統合時に必要となる競合解消，設定調整，リリース準備，統合検証に伴う軽微な修正は`develop`では許容
+- このフローでの統合ブランチ
+  - `develop`：次リリースに向けた全トピックの統合先
+  - `main`：リリース済み本番コードの統合先
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+トピックブランチ（Topic Branch）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- [1つの目的に専念する短命なブランチ]{.regmonkey-bold}
+  - 統合ブランチから切り，目的達成後にマージして削除
+- 特性：短命・独立・使い捨て
+  - `feat/*`：新機能（`develop`分岐・`develop`マージ）
+  - `bugfix/*`：通常バグ修正（同上）
+  - `hotfix/*`：本番緊急修正（`main`分岐・`main`→`develop`マージ）
+
+:::
+
+::::
+:::::
+::::::
+
+## `develop` で許容するのは「統合のための作業」だけ
+
+[競合解消・設定調整・リリース準備・統合検証の微修正のみ <code>develop</code> 上で許容する]{.h2-submessage}
+
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:75%; font-size: 0.82em !important;"}
+:::{.yaml2table .yaml2table-custom-top data-col-widths="[28, 12, 60]" data-centered-cols="[1]"}
+
+```yaml
+record1:
+  category: マージ・統合作業
+  rule: <span style="color:#0E8A3E;font-weight:bold; font-size:1.2em;">○</span>
+  actions:
+    - <code>feat</code> → <code>develop</code> のマージ
+
+record2:
+  category: 統合時の競合解消
+  rule: <span style="color:#0E8A3E;font-weight:bold; font-size:1.2em;">○</span>
+  actions:
+    - 複数トピック合流時のコンフリクト修正
+
+record3:
+  category: 軽微な設定調整
+  rule: <span style="color:#0E8A3E;font-weight:bold; font-size:1.2em;">○</span>
+  actions:
+    - CI 設定・feat flag・バージョン更新
+
+record4:
+  category: リリース準備
+  rule: <span style="color:#0E8A3E;font-weight:bold; font-size:1.2em;">○</span>
+  actions:
+    - CHANGELOG 更新・依存更新
+
+record5:
+  category: 動作確認用の微修正
+  rule: <span style="color:#C77700;font-weight:bold; font-size:1.2em;">△</span>
+  actions:
+    - 統合テストで必要な範囲のみ，原則はトピックに戻して修正
+
+record6:
+  category: 新機能実装
+  rule: <span style="color:#C00000;font-weight:bold; font-size:1.2em;">×</span>
+  actions:
+    - 新しい画面・ロジック追加は <code>feat/*</code> で
+
+record7:
+  category: 大きなリファクタ
+  rule: <span style="color:#C00000;font-weight:bold; font-size:1.2em;">×</span>
+  actions:
+    - 構造変更は <code>feat/*</code> で隔離する
+
+record8:
+  category: 実験・検証コード
+  rule: <span style="color:#C00000;font-weight:bold; font-size:1.2em;">×</span>
+  actions:
+    - <code>develop</code> 上で直接試さない，PoC ブランチを切る
+```
+
+:::
+::::
+
+## ブランチ構成は5種類だけ：本番系は直接pushを禁止しPRで守る
+
+[`main` と `develop` は直接pushを禁止・PR経由のみ受け入れる]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="55%"}
+
+:::{.border-bottom-header .mb-0}
+
+開発フローイメージ図
+
+:::
+
+
+```{mermaid}
+%%| fig-width: 22
+%%| fig-height: 22
+%%{ init: {
+    'theme': 'default',
+    'themeVariables': {
+        'fontFamily': 'Meiryo',
+        'commitLabelFontSize': '18px',
+        'tagLabelFontSize': '18px'
+    },
+    'gitGraph': {
+        'orientation': 'LR',
+        'nodeSpacing': 80,
+        'mainBranchName': 'main'
+    }
+} }%%
+gitGraph
+   commit id: "v1.0.0" tag: "v1.0.0"
+   branch develop
+   checkout develop
+   commit id: "next"
+   branch feat/login
+   checkout feat/login
+   commit id: "ui"
+   commit id: "api"
+   checkout develop
+   merge feat/login id: "squash"
+   checkout main
+   branch hotfix/bug
+   checkout hotfix/bug
+   commit id: "fix"
+   checkout main
+   merge hotfix/bug tag: "v1.0.1"
+   checkout develop
+   merge hotfix/bug
+   branch bugfix/typo
+   checkout bugfix/typo
+   commit id: "typo"
+   checkout develop
+   merge bugfix/typo
+   checkout main
+   merge develop tag: "v1.1.0"
+```
+
+::::
+
+:::: {.column width="45%"}
+
+:::{.border-bottom-header .mb-0}
+
+ブランチ運用ルール
+
+:::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+① mainのブランチ保護ルール
+
+:::
+::: {.tool-description style="font-size:0.9em;color: black !important"}
+
+`hotfix/*`・`develop` からのPRのみ受け付け，CI全パス + 1名以上のレビュー承認を必須にする
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+② トピックブランチ（push可）
+
+:::
+::: {.tool-description style="font-size:0.9em; color: black !important"}
+
+`feat/*`（新機能）・`bugfix/*`（通常バグ修正）・`hotfix/*`（本番緊急修正）の3系統で運用する
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+③ squash・merge commitの使い分け
+
+:::
+::: {.tool-description style="font-size:0.9em;color: black !important"}
+
+- `feat`・`bugfix` → `develop` は **squash**
+- `hotfix` → `main` と `develop` → `main` は **no-ff merge** + tag を付与
+
+:::
+:::
+::::
+
+:::::
+::::::
+
+# 開発の流れ
+
+## develop起点でtopicを切り，squash mergeで履歴を整える
+
+[`feat/*`・`bugfix/*` は `develop` から派生し，squash merge で統合する]{.h2-submessage}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.step-container style="height: 40%" .padding-TB-none}
+
+:::{.step}
+
+[① develop から topic を切る]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- `develop` から `feat/*`・`bugfix/*` を分岐
+- [1ブランチ = 1つの変更の理由]{.regmonkey-bold} を守る
+- 実装とローカルテストを並行する
+
+:::{.font-14}
+
+```bash
+git checkout develop && git pull
+git checkout -b feat/login
+```
+
+:::
+
+:::
+:::
+
+:::{.step}
+
+[② rebase -i でコミット整形]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- 共有前に [自分の topic ブランチ上で]{.regmonkey-bold} rebase
+- `wip`・`tmp` などの作業ログを潰す
+- 1コミット = 1つの意図に揃える
+
+:::{.font-14}
+
+```bash
+git fetch origin
+git rebase -i origin/develop
+```
+:::
+
+
+:::
+:::
+
+:::{.step}
+
+[③ PR → squash merge → main]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+
+- `develop` へ PR・レビュー・[**squash merge**]{.regmonkey-bold}
+- リリース時に `develop` → `main` を [**no-ff merge** + tag]{.regmonkey-bold} で接続
+- `main` への直接 push は禁止（保護ルールで強制）
+
+:::
+:::
+::::
+
+{{< reveal_vspace 1em >}}
+
+[rebase・squash・no-ff mergeの採用]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+
+- **PR 前の整形**：`git rebase -i` または `git reset --soft <hash>` で WIP コミットを潰し，意図のある単位に再コミットする
+  - レビュアーは [1 コミット = 1 つの意図]{.regmonkey-bold} を前提に差分を追えるので，[レビューしやすくなる]{.regmonkey-bold}
+  - 整形しないと「途中の試行錯誤」も差分に含まれ，レビュアーが本質的な変更を切り出す負荷を負う
+- **squash merge**：PR 前に整形しきれなくても，`develop` への取り込み時に [1 PR = 1 コミット]{.regmonkey-bold} に圧縮されるので保険になる
+- **no-ff merge**：`develop` → `main` の境界をマージコミットで明示し，[Annotated tag を打つアンカー]{.regmonkey-bold} にする
+
+:::
+
+## mainから直接hotfixを切り，修正後はdevelopにも反映する
+
+[やばいバグが出たらまず `git revert` で本番を安全な状態に戻し，その後に根本修正]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+:::{.border-bottom-header .mb-0}
+
+hotfix フローイメージ図
+
+:::
+
+:::{.hotfix-mermaid-wrap style="width:100%"}
+
+```{mermaid}
+%%| fig-width: 16
+%%| fig-height: 11
+%%{ init: {
+    'theme': 'default',
+    'themeVariables': {
+        'fontFamily': 'Meiryo',
+        'commitLabelFontSize': '14px',
+        'tagLabelFontSize': '14px'
+    },
+    'gitGraph': {
+        'orientation': 'LR',
+        'nodeSpacing': 110,
+        'mainBranchName': 'main'
+    }
+} }%%
+gitGraph
+   commit id: "v1.0.0" tag: "v1.0.0"
+   branch develop
+   checkout develop
+   commit id: "next"
+   checkout main
+   commit id: "revert" tag: "v1.0.1"
+   branch hotfix/bug
+   checkout hotfix/bug
+   commit id: "root-fix"
+   checkout main
+   merge hotfix/bug tag: "v1.0.2"
+   checkout develop
+   merge main
+```
+
+:::
+
+::::
+
+:::: {.column width="50%"}
+
+:::{.border-bottom-header .mb-0}
+
+hotfix 運用ルール
+
+:::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+① まず `main` に revert を当てる
+
+:::
+::: {.tool-description style="font-size:0.9em;color: black !important"}
+
+- 重大バグは [`main` に直接 `git revert` を当てて即 tag]{.regmonkey-bold}（前提：原因特定可・後続依存なし）で本番を最速安定化
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+② その後 hotfix で根本修正
+
+:::
+::: {.tool-description style="font-size:0.9em; color: black !important"}
+
+- `main` から `hotfix/*` を分岐し，PR・マージ後 **Annotated tag** を付与（落ち着いて根本原因を直す）
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-2 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+③ main と develop の同期
+
+:::
+::: {.tool-description style="font-size:0.9em;color: black !important"}
+
+- `main` で tag を打ち，[同内容を `develop` に back-merge]{.regmonkey-bold} して 2 系統を同期
+- revert commit は履歴に残す（履歴改ざんはしない）
+
+:::
+:::
+::::
+
+:::::
+::::::
+
+## 1ブランチ = 1つの変更：PRタイトルが1行で書けるかが目安
+
+{{< reveal_vspace 1em >}}
+
+[① 細かく切る（推奨）]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 1機能でも [「API追加」「UI実装」「テスト追加」は分けられる]{.regmonkey-bold}：レビュー負荷が下がり，CIの失敗箇所も特定しやすい
+- `develop` への小まめなマージで [コンフリクトのリスクを下げる]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[② まとめてよい]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 切り離すと片方だけでは動かない場合（モデルとマイグレーション等）
+- 変更行数の目安（Google Eng Practices）：理想は [200行未満・500行で分割検討]{.regmonkey-bold}
+- 判断軸：[PRタイトルを1行で書けるか]{.regmonkey-bold}・書けないなら分割
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[③ PR description（PR本文）の規約]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 1行目はサマリ（コミット要約と同質）・本文には [「何を」ではなく「なぜ」]{.regmonkey-bold} を書く
+- [Test plan]{.regmonkey-bold} セクションを必ず含める：レビュアーが検証範囲を判断できるように
+- 関連 issue・破壊的変更・ロールバック手順があれば明記する
+:::
+
+# コミット運用とマージ戦略
+
+## git rebase -i でレビュアーが読みやすい単位にコミットを整形する
+
+[`wip` や `fix typo` などの作業ログを統合先（`develop`・`main`）の履歴に混入させない]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[大原則]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 目的：[1 コミット = 1 つの意図]{.regmonkey-bold} に整える（レビュアーが差分を意図単位で読める状態）
+- rebase は [自分の topic ブランチ上でのみ]{.regmonkey-bold} 実行する
+- 基本的には `pick`, `squash` のみを利用
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[実行前の前提：作業ツリーをクリーンにする]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 未コミット変更があると rebase は失敗する：
+  
+  :::{.font-15}
+  ```text
+  $ git rebase -i HEAD~10
+  error: cannot rebase: Your index contains uncommitted changes.
+  error: Please commit or stash them.
+  ```
+  :::
+
+- 対処は 2 つ：[作業中の変更を `git stash` で退避]{.regmonkey-bold} するか，[途中段階を一旦コミットして後で squash で潰す]{.regmonkey-bold}
+  - `git stash push -m "wip"` → rebase 完了後 `git stash pop` で戻す
+  - stash一覧の確認は `git stash list`
+:::
+
+
+## Conventional Commits で type を揃える
+
+[仕様本体が必須とするのは <code>feat</code>・<code>fix</code> の2つ・他は Angular convention 由来で本フローも Angular 慣例に従う]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:70%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[18, 32, 50]"}
+
+```yaml
+record1:
+  category: feat
+  rule:
+    - 新機能の追加で <span class="regmonkey-bold">MINOR</span> を上げる
+  actions:
+    - "<code>feat(scope): subject</code> 形式で記述する"
+    - 後方互換を保った機能拡張に限定する
+
+record2:
+  category: fix
+  rule:
+    - バグ修正で <span class="regmonkey-bold">PATCH</span> を上げる
+  actions:
+    - 既存仕様を壊さない修正に限定する
+    - 再現テストを先に書く（Red → Green）
+
+record3:
+  category: docs / refactor / test / chore
+  rule:
+    - 機能変更を伴わない変更には version を上げない
+  actions:
+    - <code>docs</code>：ドキュメントのみの変更
+    - <code>refactor</code>：機能変更・バグ修正を含まない
+    - <code>test</code>：テストの追加・修正
+    - <code>chore</code>：ビルド・CI設定など
+
+record4:
+  category: BREAKING<br>CHANGE
+  rule:
+    - 後方互換を壊す変更で <span class="regmonkey-bold">MAJOR</span> を上げる
+  actions:
+    - "フッターに <code>BREAKING CHANGE: ...</code> を明示する"
+    - 移行手順・影響範囲を本文に記述する
+```
+
+:::
+::::
+
+## squash merge と no-ff merge を統合先で使い分ける
+
+[統合ブランチへのマージでは fast-forward を選ばない・マージ境界＝レビュー単位／リリース単位を履歴に残すための運用方針]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:60%; font-size: 0.95em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[25, 25, 50]"}
+
+```yaml
+record1:
+  category: develop ← topic
+  rule:
+    - <span class="regmonkey-bold">squash merge</span>
+  actions:
+    - topic ブランチの作業ログを潰し履歴を1コミット=1機能にする
+    - <code>develop</code> の履歴を一覧で読める状態に保つ
+
+record2:
+  category: main ← develop
+  rule:
+    - <span class="regmonkey-bold">no-ff merge</span>
+  actions:
+    - リリース単位を明示するマージコミットを残す
+    - マージコミットに対してAnnotated tagを付与する
+
+record3:
+  category: main ← hotfix
+  rule:
+    - <span class="regmonkey-bold">no-ff merge</span>
+  actions:
+    - 同内容を <code>develop</code> に cherry-pick または merge で反映する
+    - 緊急修正の境界を履歴上に残す
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.font-09 .padding-L-05}
+- 本フローでは統合ブランチへのマージで fast-forward を選ばない：マージ境界＝レビュー単位／リリース単位を履歴に残すため（Git 仕様上の禁則ではなく運用方針）
+:::
+
+# バージョニングとリリース
+
+## Versioning：BREAKING・feat・fix から version を自動決定
+
+[優先度は MAJOR > MINOR > PATCH の順で 1 つを選ぶ]{.h2-submessage}
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi exclamation-octagon-fill size=1.6em color=#C00000 >}}
+MAJOR
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.9em; padding-right:0.5em;" .lh-15}
+
+- 1件でも [`BREAKING CHANGE`]{.regmonkey-bold} があれば MAJOR
+- <code>MAJOR</code> を +1 し，<code>MINOR</code>・<code>PATCH</code> は 0 に戻す
+- 移行ガイドをリリースノートに含める
+- 例外：<code>0.y.z</code> は初期開発期で何が変わってもよい（厳密適用は <code>1.0.0</code> 以降）
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::{.block-header}
+{{< bi plus-circle-fill size=1.6em color=#428CE6 >}}
+MINOR
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.9em; padding-right:0.5em;" .lh-15}
+
+- 1件以上の [`feat`]{.regmonkey-bold} を含む
+- `BREAKING CHANGE` は含まない（後方互換を保つ）
+- <code>MINOR</code> を +1 し，<code>PATCH</code> は 0 に戻す
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block-no-border style="height:60%;"}
+
+:::{.block-header}
+{{< bi wrench-adjustable size=1.6em color=#0E8A3E >}}
+PATCH
+:::
+
+{{< reveal_vspace 15% >}}
+
+:::{.block .checkmark style="font-size:0.9em; padding-right:0.5em;" .lh-15}
+
+- [`fix`・`hotfix` のみ]{.regmonkey-bold} が含まれる
+- 後方互換は保たれている
+- `MAJOR.MINOR.PATCH` のうち <code>PATCH</code> を +1
+
+:::
+
+:::
+::::
+
+:::::
+
+## CHANGELOG は PR ごとに育て，リリースの tag と Release は CI が打つ
+
+[手作業は CHANGELOG への追記だけ．tag / Release / Release Notes は CI 側で完結する]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[① PR ごとにやる：CHANGELOG.md の `[Unreleased]` に追記]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- `develop` への squash merge ごとに [`[Unreleased]` セクションに 1 行追記]{.regmonkey-bold}
+- 6 カテゴリ（Keep a Changelog 準拠）：`Added` / `Changed` / `Deprecated` / `Removed` / `Fixed` / `Security`
+- Conventional Commits 対応：[`feat`→Added・`fix`→Fixed・BREAKING→Removed/Changed・deprecation→Deprecated・CVE→Security]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[② リリース時に CI が自動でやる：tag と GitHub Release]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- `develop` → `main` のマージを起点に CI が実行：
+  - `CHANGELOG.md` の `[Unreleased]` を [`[X.Y.Z]` に置き換え]{.regmonkey-bold}
+  - [Annotated tag]{.regmonkey-bold} を付与（`git tag -a vX.Y.Z`）
+  - GitHub Release を作成し，[Release Notes は該当セクションを抽出]{.regmonkey-bold}
+- 人手で tag・Release を打つ運用にはしない：[漏れと手順ミスを防ぐため]{.regmonkey-bold}
+:::
+
+# レビュー方針
+
+## コードレビューの目的：完璧を目指さず，少しずつ改善していく
+
+[「マージ前より少しでも良くなるか」を判断軸にする・完璧を待たない]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+[① 目指すこと]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 判断軸はただ 1 つ：[マージ後にコードベース全体が良くなるか]{.regmonkey-bold}
+- 完璧でなくても [全体として改善する PR はマージしてよい]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[② レビュアーがやらないこと]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- 機能の正しさを手で再確認する：それは [テストの役割]{.regmonkey-bold}（レビュアー≠QA）
+- 完璧を求めて PR を何週間も止める
+- 自分の好みを正解として押し付ける（[現実的な改善案]{.regmonkey-bold} があるときだけ指摘）
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[③ レビュー速度の原則（Google Engineering Practices より）]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-14}
+- PR が来たら [1 営業日以内に最初のレスポンス]{.regmonkey-bold} を返す
+- フォーカス中のタスクがある場合は区切りをつけてから着手する
+- 細かいコメントだけ残っているなら `LGTM with comments` で承認してよい
+:::
+
+## レビューは設計レベルから詳細へ：8観点を優先順位順に確認する
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:70%; font-size: 0.69em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[15, 35, 50]"}
+
+```yaml
+record1:
+  category: 1. 設計
+  rule:
+    - この変更はシステムに属するか・必要以上に複雑でないか
+  actions:
+    - 他コンポーネントとの統合は適切か
+    - 今やるべき変更か（タイミングの妥当性）
+    - 過剰設計（YAGNI 違反）はないか
+
+record2:
+  category: 2. 機能
+  rule:
+    - 意図した通りに動くか
+  actions:
+    - エンドユーザー・将来の開発者にとって良い動作か
+    - エッジケース・並行処理の問題はないか
+
+record3:
+  category: 3. テスト
+  rule:
+    - 適切なテストが含まれているか
+  actions:
+    - テスト自体が正しく設計されているか
+    - 壊れたときに失敗するテストか
+
+record4:
+  category: 4. 命名
+  rule:
+    - 命名は意図を明確に伝えているか
+  actions:
+    - 略語・曖昧語を避け，変数・関数名から責務が読み取れるか
+    - 命名規約（snake_case / camelCase 等）はリポジトリ内で揃っているか
+
+record5:
+  category: 5. コメント
+  rule:
+    - コメントは「なぜ」を説明しているか（「何を」ではなく）
+  actions:
+    - 自明な処理の説明コメントを残していないか
+    - 制約・前提・トレードオフなど読み手が知り得ない情報が記述されているか
+
+record6:
+  category: 6. スタイル
+  rule:
+    - スタイルガイドに沿っているか
+  actions:
+    - スタイルの問題のみでマージをブロックしない
+    - <code>Nit:</code> プレフィックスで残し linter での自動化を優先する
+    - 将来の開発者が理解・修正できるか
+
+record7:
+  category: 7. 一貫性
+  rule:
+    - 既存コードのパターンと整合しているか
+  actions:
+    - 既存と異なる方針を取るなら理由を PR 本文に明記する
+    - 既存パターン自体が悪い場合は別 PR でリファクタする
+
+record8:
+  category: 8. ドキュメント
+  rule:
+    - ユーザー向け・開発者向けドキュメントが更新されているか
+  actions:
+    - 振る舞いを変えた場合は <code>README</code>・<code>CHANGELOG</code> を併せて更新する
+    - 廃止 API には deprecation notice を付ける
+```
+
+:::
+::::
+
+## レビューコメント: コードに向けて書き，人格に向けて書かない
+
+[重要度プレフィックスで意図を明確にし，必須／任意の誤解を防ぐ]{.h2-submessage}
+
+{{< reveal_vspace 1.0em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+Bad：人格に向けたコメント
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 「なぜここでスレッドを使ったんですか？明らかに意味がないのに」
+- 攻撃的・断定的・著者の判断を否定する
+- 重要度のプレフィックスがない
+  - 受け手は全てを必須と誤解する
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+Good：コードに向けたコメント
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 「この並行処理モデルは実際のパフォーマンス改善なしに複雑さを増しています。シングルスレッドにすればコードが単純になります」
+- [重要度プレフィックスを明示する]{.regmonkey-bold}
+  - （なし）：必須の修正
+  - `Nit:`：細かい改善点・対応は任意
+  - `Optional:`・`Consider:`：提案
+  - `FYI:`：将来の参考に
+
+:::
+
+::::
+:::::
+::::::
+
+# Summary & Appendix
+
+## Summary：mainを常にデプロイ可能に保つ最小限のガードレールで運用する
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.custom-table style="width:100%; height:80%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[18, 32, 50]"}
+
+```yaml
+record1:
+  category: ブランチ設計
+  rule:
+    - 統合ブランチ（<code>main</code>・<code>develop</code>）は<span class="regmonkey-bold">PR必須</span>で守る
+  actions:
+    - トピックブランチは短命・独立・使い捨てに保つ
+    - 1ブランチ = 1つの変更の理由を徹底する
+
+record2:
+  category: コミット
+  rule:
+    - PR前に <code>git rebase -i</code> で<span class="regmonkey-bold">1コミット=1意図</span>に整える
+  actions:
+    - Conventional Commits 形式で type を揃える
+    - 共有ブランチへの force push は禁止
+
+record3:
+  category: マージ
+  rule:
+    - <code>develop</code> は squash，<code>main</code> は no-ff
+  actions:
+    - fast-forward は使わない（境界が消えるため）
+    - リリース境界に Annotated tag を打つ
+
+record4:
+  category: テスト・レビュー
+  rule:
+    - テストは実装と<span class="regmonkey-bold">同時に書く</span>，レビューは設計から詳細へ
+  actions:
+    - Unit・Integration は全PRで実行
+    - レビューは1営業日以内に初動レスポンス
+    - コメントには重要度プレフィックスを付ける
+```
+
+:::
+::::
+
+## Appendix：Git tag と GitHub Release は別概念
+
+[tag は Git の機能，Release は GitHub のUI・両方を CI で自動生成する]{.h2-submessage}
+
+{{< reveal_vspace 1.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+
+:::{.border-bottom-header-left}
+Git tag（Git の機能）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- 特定コミットに名前を付ける [ポインタ]{.regmonkey-bold}・GitHub に依存しない
+- [Annotated tag を使う]{.regmonkey-bold}
+  - 作成者・日時・GPG 署名・メッセージを持つ独立オブジェクト
+  - `git tag -a vX.Y.Z -m "Release vX.Y.Z"`
+- tag は明示的に push する：`git push origin vX.Y.Z`
+
+:::
+
+:::::
+
+::::: {.column width="50%"}
+
+
+:::{.border-bottom-header-left}
+GitHub Release（GitHub の UI）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- Git tag をベースに [リリース情報を付加した概念]{.regmonkey-bold}
+- 構成要素：tag・タイトル・Release Notes・アセット・Pre-release / Latest フラグ
+- Release Notes は [CHANGELOG.md から該当セクションを抽出]{.regmonkey-bold} して使う
+- ソースコード（.zip / .tar.gz）は自動添付される
+
+:::
+
+:::::
+::::::
+
+
+
+
+## Appendix：hotfix の develop 反映は back-merge を基本，cherry-pick は例外
+
+[両者は履歴の見え方・追跡性が異なる・基本は back-merge，cherry-pick は develop が大幅に先行している場合に限定]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+back-merge（基本）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- `main` を `develop` にマージして hotfix を取り込む
+  - `git checkout develop && git merge --no-ff main`
+- [メリット：commit hash が保たれる]{.regmonkey-bold}
+  - 同一 commit が両ブランチに存在する状態を回避
+  - 履歴の追跡が容易
+- デメリット：`develop` に `main` 由来の他コミットも巻き込む可能性
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+cherry-pick（例外）
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- hotfix コミットだけを `develop` に取り込む
+  - `git checkout develop && git cherry-pick <hash>`
+- メリット：取り込む変更を1コミット単位で選べる
+- [デメリット：commit hash が変わる]{.regmonkey-bold}
+  - 同一意図のコミットが2つ存在する状態に
+  - `git log --cherry-pick` 等のオプションが必要
+- 使いどころ：`develop` が `main` から大きく先行し back-merge が荒れるとき
+
+:::
+
+::::
+:::::
+::::::
