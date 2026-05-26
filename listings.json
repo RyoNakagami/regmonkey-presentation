@@ -2,14 +2,15 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-05-25-git-development-flow/index.html",
       "/posts/2026-05-09-claude-with-stdin/index.html",
       "/posts/2026-05-03-ai-fluency/index.html",
       "/posts/2026-05-02-claude-code-skills-006/index.html",
       "/posts/2026-05-01-claude-code-skills-005/index.html",
       "/posts/2026-04-30-claude-code-skills-004/index.html",
       "/posts/2026-04-29-claude-code-skills-003/index.html",
-      "/posts/2026-04-28-claude-code-skills-002/index.html",
       "/posts/2026-04-28-claude-code-skills/index.html",
+      "/posts/2026-04-28-claude-code-skills-002/index.html",
       "/posts/2026-04-27-gaussian-process/index.html",
       "/posts/2026-04-26-claude-code-authentication-overview/index.html",
       "/posts/2026-04-23-custom-git-command/index.html",
