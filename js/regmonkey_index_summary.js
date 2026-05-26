@@ -11,6 +11,48 @@ function convertMathDelimiters(text) {
   return text;
 }
 
+// Convert Pandoc-style bracketed spans ([text]{.cls #id key="val"}) into
+// <span class="cls" id="id" style="...">text</span>. YAML inline strings are
+// parsed at runtime, so Pandoc never sees them — handle the common attributes
+// (class, id, style, plus any key="value" or key='value' pairs) here.
+function convertPandocSpans(text) {
+  if (typeof text !== "string") return text;
+  return text.replace(/\[([^\[\]\n]+?)\]\{([^{}\n]+?)\}/g, (_, inner, attrs) => {
+    const classes = [];
+    let id = "";
+    const styles = [];
+    const others = [];
+    const tokenRe = /(?:[#.][\w-]+)|(?:[\w-]+=(?:"[^"]*"|'[^']*'))/g;
+    let m;
+    while ((m = tokenRe.exec(attrs)) !== null) {
+      const tok = m[0];
+      if (tok.startsWith(".")) {
+        classes.push(tok.slice(1));
+      } else if (tok.startsWith("#")) {
+        id = tok.slice(1);
+      } else {
+        const eq = tok.indexOf("=");
+        const key = tok.slice(0, eq);
+        const val = tok.slice(eq + 2, -1);
+        if (key === "style") styles.push(val);
+        else if (key === "class") classes.push(...val.split(/\s+/).filter(Boolean));
+        else if (key === "id") id = val;
+        else others.push(`${key}="${val.replace(/"/g, "&quot;")}"`);
+      }
+    }
+    const attrParts = [];
+    if (classes.length) attrParts.push(`class="${classes.join(" ")}"`);
+    if (id) attrParts.push(`id="${id}"`);
+    if (styles.length) attrParts.push(`style="${styles.join("; ")}"`);
+    attrParts.push(...others);
+    return `<span ${attrParts.join(" ")}>${inner}</span>`;
+  });
+}
+
+function renderInline(text) {
+  return convertPandocSpans(convertMathDelimiters(text));
+}
+
 function renderRegmonkeyIndex(el) {
   const codeBlock = el.querySelector("pre code");
   if (!codeBlock) return;
@@ -39,10 +81,10 @@ function renderRegmonkeyIndex(el) {
       if (child.description) {
         if (Array.isArray(child.description)) {
           html += "<ul>";
-          child.description.forEach(d => html += `<li>${convertMathDelimiters(d)}</li>`);
+          child.description.forEach(d => html += `<li>${renderInline(d)}</li>`);
           html += "</ul>";
         } else {
-          html += `<p>${convertMathDelimiters(child.description)}</p>`;
+          html += `<p>${renderInline(child.description)}</p>`;
         }
       }
 
@@ -56,14 +98,14 @@ function renderRegmonkeyIndex(el) {
       const wRight = widths[2] || "0%";
 
       const left = `<div class="flex flex-col justify-center" style="width:${wLeft};">
-<div class="title" style="font-size:${data.title_fontsize}; color: #0e3666; font-weight: bold !important;">${convertMathDelimiters(child.title)}</div>
+<div class="title" style="font-size:${data.title_fontsize}; margin-left:${data.title_position || '0em'}!important; color: #0e3666; font-weight: bold !important;">${renderInline(child.title)}</div>
 </div>`;
 
       const bullets = child.description
-        .map(li => `<li>${convertMathDelimiters(li)}</li>`)
+        .map(li => `<li>${renderInline(li)}</li>`)
         .join("\n");
       const middle = `<div class="flex flex-col justify-center" style="width:${wMid};">
-<ul class="bullet-points content-text" style="font-size:${data.bullet_fontsize};">
+<ul class="bullet-points content-text" style="font-size:${data.bullet_fontsize}; margin-left:${data.bullet_position || '1em'}!important;">
 ${bullets}
 </ul>
 </div>`;

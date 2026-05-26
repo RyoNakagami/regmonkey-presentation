@@ -1,3 +1,8 @@
+<!-- サイドバーカードのタイトル・アイコンは deck の性質に応じて差し替える
+  Lecture系   : 対象レベル(person) / 前提知識(book) / 必要環境(terminal)
+  ガイドライン系: モチベーション(chat-square-text) / Goal(bullseye) / 前提条件(book)
+  分析・リサーチ系: 背景・課題(search) / 目的(bullseye) / 前提・制約(exclamation-triangle)
+-->
 ## Index {.regmonkey-index-slide-no-title}
 
 ::::: {.columns}

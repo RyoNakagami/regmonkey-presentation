@@ -372,6 +372,22 @@ record1:
 
 迷ったら **yaml2table の YAML 内では `` `…` `` を使わず `<code>…</code>` に統一**．Markdown 本文（フェンス div の中など）では `` `foo` `` のままで構わない — この制約は yaml2table の YAML 値に限る．
 
+### yaml2table の列を垂直中央寄せ — `data-centered-cols`
+
+`.yaml2table` には列ごとの**垂直中央寄せ**を宣言する属性 `data-centered-cols` がある．**`○`・`△`・`×` の判定列のように，隣の列に複数行の箇条書きが入り行高が縦に伸びるとき**，記号セルが上端に張り付くと視線移動が増えて読みづらい．`data-col-widths` と同じく**0-indexed の列番号を JSON 配列で渡す**と，対応する `<th>` と `<td>` に `vertical-align: middle;` が適用される（水平方向の整列は既存スタイルのまま変えない）．
+
+使用例（属性のみ抜粋）：
+
+```qmd
+:::{.yaml2table .yaml2table-custom-top data-col-widths="[28, 12, 60]" data-centered-cols="[1]"}
+```
+
+- `data-centered-cols="[1]"` → 2 列目（`rule`）のみ垂直中央寄せ
+- `data-centered-cols="[1, 2]"` → 2 列目と 3 列目を垂直中央寄せ
+- 水平方向の整列は変えない（既存 CSS のまま）．水平中央寄せが必要ならセル内に `<div style="text-align:center">…</div>` で局所対応する
+- 用途は **隣の列が縦に伸びるテーブルで，短いラベル・記号・数値の列を行の中央高さに揃える**こと．箇条書きが入る列に当てると `<ul>` 全体が中央高さで詰まるので避ける
+- 実例：`posts/2026-05-25-git-development-flow/index.qmd` の「`develop` で許容するのは…」スライド（`○`／`△`／`×` の判定列を垂直中央寄せ）
+
 ---
 
 ## Index slide

@@ -956,6 +956,120 @@ MCPサーバーを管理
 
 :::::
 
+# Pricing
+
+
+## Claude Code Tokenコストの目安
+
+[1 MTok = 100万トークン；Input・Cache Write・Cache Hit・Output それぞれの消費量に課金される]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+[モデル別コストテーブル(単位はすべてMTok)]{.mini-section}
+
+::::{.custom-table style="width:100%; height:50%; font-size: 1em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-api-pricing data-col-widths="[30, 12, 13, 13, 13, 19]"}
+
+```yaml
+record1:
+  モデル: Claude Opus 4.7
+  Input: $5 
+  "Cache (5m)": $6.25 
+  "Cache (1h)": $10 
+  "Cache Hit": $0.50 
+  Output: $25 
+
+record2:
+  モデル: Claude Opus 4.6
+  Input: $5 
+  "Cache (5m)": $6.25 
+  "Cache (1h)": $10 
+  "Cache Hit": $0.50 
+  Output: $25 
+
+record3:
+  モデル: Claude Opus 4.5
+  Input: $5 
+  "Cache (5m)": $6.25 
+  "Cache (1h)": $10 
+  "Cache Hit": $0.50 
+  Output: $25 
+
+record6:
+  モデル: Claude Sonnet 4.6
+  Input: $3 
+  "Cache (5m)": $3.75 
+  "Cache (1h)": $6 
+  "Cache Hit": $0.30 
+  Output: $15 
+
+record7:
+  モデル: Claude Sonnet 4.5
+  Input: $3 
+  "Cache (5m)": $3.75 
+  "Cache (1h)": $6 
+  "Cache Hit": $0.30 
+  Output: $15 
+
+record9:
+  モデル: Claude Haiku 4.5
+  Input: $1 
+  "Cache (5m)": $1.25 
+  "Cache (1h)": $2 
+  "Cache Hit": $0.10 
+  Output: $5 
+
+```
+
+:::
+::::
+
+
+
+## プロンプトキャッシュでAPI コストを約74%削減できる
+
+[Claude Sonnet 4.6：入力10万tokens・出力2,000tokensの場合；キャッシュ比率90%で合計コストが\$0.330 → \$0.087]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+キャッシュなし（全量を新規入力）
+:::
+:::{.squaredmark style="font-size: 0.90em"}
+- Input 100,000 tokens
+  - \$3 per MTok  × 100,000 = [\$0.300]{.regmonkey-bold}
+- Output 2,000 tokens
+  - \$15 per MTok × 2,000 = [\$0.030]{.regmonkey-bold}
+
+{{< reveal_vspace 0.3em >}}
+
+[合計：\$0.330 / リクエスト]{.regmonkey-bold}
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+キャッシュ活用（90%がキャッシュヒット）
+:::
+:::{.squaredmark style="font-size: 0.90em"}
+- Base Input 10,000 tokens（新規）
+  - \$3 per MTok × 10,000 = [\$0.030]{.regmonkey-bold}
+- Cache Hit 90,000 tokens（ヒット）
+  - \$0.30 per MTok × 90,000 = [\$0.027]{.regmonkey-bold}
+- Output 2,000 tokens
+  - \$15 per MTok × 2,000 = [\$0.030]{.regmonkey-bold}
+
+{{< reveal_vspace 0.3em >}}
+
+[合計：\$0.087 / リクエスト（約74%削減）]{.regmonkey-bold}
+:::
+::::
+:::::
+::::::
 
 
 
@@ -1066,6 +1180,7 @@ regmonkey_abstract_summary:
 
 
 [^4d-framework]: Prof. Rick Dakan (Ringling College of Art and Design) と Prof. Joseph Feller (University College Cork) の共同研究に基づくフレームワーク
+
 
 ## REQUIREMENTS → DESIGN → TASKS
 

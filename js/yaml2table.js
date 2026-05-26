@@ -16,12 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const rawYaml = el.textContent.trim();
     const columnWidthsAttr = el.getAttribute("data-col-widths");
     const columnWidths = columnWidthsAttr ? JSON.parse(columnWidthsAttr) : null;
+    // data-centered-cols="[1]" などで 0-indexed の列番号を渡すと、
+    // 対応する <th>/<td> に vertical-align: middle を適用する（水平は左寄せのまま）。
+    const centeredColsAttr = el.getAttribute("data-centered-cols");
+    const centeredCols = centeredColsAttr ? JSON.parse(centeredColsAttr) : [];
 
     // Parse YAML string into a JavaScript object
     const parsedData = jsyaml.load(rawYaml);
 
     // Generate HTML table from parsed data
-    const htmlTable = generateTable(parsedData, columnWidths);
+    const htmlTable = generateTable(parsedData, columnWidths, centeredCols);
 
     // Inject the generated table into the HTML
     el.innerHTML = htmlTable;
@@ -41,7 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function generateTable(data, columnWidths) {
+function generateTable(data, columnWidths, centeredCols = []) {
+  const centeredSet = new Set(centeredCols);
+  const cellStyleFor = (idx) => {
+    const widthPart =
+      columnWidths && columnWidths[idx] != null
+        ? `width: ${columnWidths[idx]}%;`
+        : "";
+    const alignPart = centeredSet.has(idx) ? "vertical-align: middle !important;" : "";
+    const combined = [widthPart, alignPart].filter(Boolean).join(" ");
+    return combined ? ` style="${combined}"` : "";
+  };
+
   const grouped = {};
 
   // Group components by the first key in each record as the 'record_index'
@@ -68,19 +83,11 @@ function generateTable(data, columnWidths) {
   let table = `<table style="width: 100%; height: 100%; border-collapse: collapse;">
                     <thead>
                       <tr>
-                        <th${
-                          columnWidths && columnWidths[0]
-                            ? ` style="width: ${columnWidths[0]}%;"`
-                            : ""
-                        }>${convertMathDelimiters(firstKey)}</th>`; // Use the first key as column name
+                        <th${cellStyleFor(0)}>${convertMathDelimiters(firstKey)}</th>`; // Use the first key as column name
 
   let headerIndex = 1;
   allHeaders.forEach((h) => {
-    table += `<th${
-      columnWidths && columnWidths[headerIndex]
-        ? ` style="width: ${columnWidths[headerIndex]}%;"`
-        : ""
-    }>${convertMathDelimiters(h)}</th>`;
+    table += `<th${cellStyleFor(headerIndex)}>${convertMathDelimiters(h)}</th>`;
     headerIndex++;
   });
   table += "</tr></thead><tbody>";
@@ -92,11 +99,7 @@ function generateTable(data, columnWidths) {
       table += "<tr>";
       if (idx === 0) {
         const recordIndex = Object.keys(component)[0];
-        table += `<td rowspan="${rows.length}"${
-          columnWidths && columnWidths[0]
-            ? ` style="width: ${columnWidths[0]}%;"`
-            : ""
-        }>${convertMathDelimiters(component[recordIndex])}</td>`;
+        table += `<td rowspan="${rows.length}"${cellStyleFor(0)}>${convertMathDelimiters(component[recordIndex])}</td>`;
       }
 
       let cellIndex = 1;
@@ -104,10 +107,7 @@ function generateTable(data, columnWidths) {
 
       headersArray.forEach((header) => {
         const value = component[header];
-        const cellStyle =
-          columnWidths && columnWidths[cellIndex]
-            ? ` style="width: ${columnWidths[cellIndex]}%;"`
-            : "";
+        const cellStyle = cellStyleFor(cellIndex);
 
         if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
           table += `<td${cellStyle}>${generateNestedList(value)}</td>`;
