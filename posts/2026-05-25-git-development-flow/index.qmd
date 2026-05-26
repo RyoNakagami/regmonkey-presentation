@@ -440,8 +440,8 @@ gitGraph
 :::{.font-14}
 
 ```bash
-git checkout develop && git pull
-git checkout -b feat/login
+git switch develop && git pull
+git switch -c feat/login
 ```
 
 :::
@@ -1180,7 +1180,7 @@ back-merge（基本）
 :::{.squaredmark style="font-size: 0.9em"}
 
 - `main` を `develop` にマージして hotfix を取り込む
-  - `git checkout develop && git merge --no-ff main`
+  - `git switch develop && git merge --no-ff main`
 - [メリット：commit hash が保たれる]{.regmonkey-bold}
   - 同一 commit が両ブランチに存在する状態を回避
   - 履歴の追跡が容易
@@ -1202,7 +1202,7 @@ cherry-pick（例外）
 :::{.squaredmark style="font-size: 0.9em"}
 
 - hotfix コミットだけを `develop` に取り込む
-  - `git checkout develop && git cherry-pick <hash>`
+  - `git switch develop && git cherry-pick <hash>`
 - メリット：取り込む変更を1コミット単位で選べる
 - [デメリット：commit hash が変わる]{.regmonkey-bold}
   - 同一意図のコミットが2つ存在する状態に
