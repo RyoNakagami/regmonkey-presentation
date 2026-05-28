@@ -329,6 +329,7 @@ record8:
 } }%%
 gitGraph
    commit id: "v1.0.0" tag: "v1.0.0"
+   branch hotfix/bug
    branch develop
    checkout develop
    commit id: "next"
@@ -339,13 +340,13 @@ gitGraph
    checkout develop
    merge feat/login id: "squash"
    checkout main
-   branch hotfix/bug
+   commit id: "revert"
    checkout hotfix/bug
-   commit id: "fix"
+   commit id: "root-fix"
    checkout main
    merge hotfix/bug tag: "v1.0.1"
    checkout develop
-   merge hotfix/bug
+   merge main
    branch bugfix/typo
    checkout bugfix/typo
    commit id: "typo"
@@ -370,12 +371,12 @@ gitGraph
 ::: {.tool-content}
 ::: {.tool-name}
 
-① mainのブランチ保護ルール
+① 本番系（`main`・`develop`）の保護ルール
 
 :::
 ::: {.tool-description style="font-size:0.9em;color: black !important"}
 
-`hotfix/*`・`develop` からのPRのみ受け付け，CI全パス + 1名以上のレビュー承認を必須にする
+- 直接pushを禁止し，[`hotfix/*`・`develop` からのPRのみ受け付ける]{.regmonkey-bold}（CI全パス + 1名以上のレビュー承認を必須）
 
 :::
 :::
@@ -386,12 +387,13 @@ gitGraph
 ::: {.tool-content}
 ::: {.tool-name}
 
-② トピックブランチ（push可）
+② トピックブランチ（push可）の3系統
 
 :::
 ::: {.tool-description style="font-size:0.9em; color: black !important"}
 
-`feat/*`（新機能）・`bugfix/*`（通常バグ修正）・`hotfix/*`（本番緊急修正）の3系統で運用する
+- [`feat/*`（新機能）・`bugfix/*`（通常バグ修正）・`hotfix/*`（本番緊急修正）]{.regmonkey-bold}
+- 統合ブランチ2種と合わせて計5種類で運用する
 
 :::
 :::
@@ -536,16 +538,16 @@ hotfix フローイメージ図
 } }%%
 gitGraph
    commit id: "v1.0.0" tag: "v1.0.0"
+   branch hotfix/bug
    branch develop
    checkout develop
    commit id: "next"
    checkout main
-   commit id: "revert" tag: "v1.0.1"
-   branch hotfix/bug
+   commit id: "revert"
    checkout hotfix/bug
    commit id: "root-fix"
    checkout main
-   merge hotfix/bug tag: "v1.0.2"
+   merge hotfix/bug tag: "v1.0.1"
    checkout develop
    merge main
 ```
@@ -572,7 +574,7 @@ hotfix 運用ルール
 :::
 ::: {.tool-description style="font-size:0.9em;color: black !important"}
 
-- 重大バグは [`main` に直接 `git revert` を当てて即 tag]{.regmonkey-bold}（前提：原因特定可・後続依存なし）で本番を最速安定化
+- 重大バグは [`main` に直接 `git revert` を当てて本番を最速安定化]{.regmonkey-bold}：[tag は付けない]{.regmonkey-bold}（緊急避難であり正式リリースではない）
 
 :::
 :::
@@ -588,7 +590,7 @@ hotfix 運用ルール
 :::
 ::: {.tool-description style="font-size:0.9em; color: black !important"}
 
-- `main` から `hotfix/*` を分岐し，PR・マージ後 **Annotated tag** を付与（落ち着いて根本原因を直す）
+- [`v1.0.0` から]{.regmonkey-bold} `hotfix/*` を分岐し，根本修正後の no-ff merge に **Annotated tag** `v1.0.1` を付与（落ち着いて根本原因を直す）
 
 :::
 :::

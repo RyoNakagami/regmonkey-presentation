@@ -1165,7 +1165,7 @@ echo '```' >> README.md
 ```bash
 # 現設定の確認
 git-whoami
-#  Ryo Nakagami (ryo.nakagami@jdsc.ai)
+#  Ryo Nakagami (hogehoge@email.com)
 
 # help
 git-whoami -h
