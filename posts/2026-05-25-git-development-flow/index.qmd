@@ -1164,6 +1164,348 @@ GitHub Release（GitHub の UI）
 
 
 
+## Appendix：マージコンフリクトは4ステップで解決する
+[コンフリクト解消]{.topleftbox}
+
+<!-- column start -->
+:::::: {.columns}
+
+<!-- 1st column start -->
+::::: {.column width="65%" .pr-5}
+
+:::::{.manual-template .font-09}
+
+::::{.step}
+
+:::{.step-title}
+
+[1]{.step-number} `git status` で競合ファイルを確認する
+
+:::
+
+
+:::{.pl-15}
+::: {.font-15}
+
+```bash
+git status
+# Unmerged paths:
+#   both modified: src/app.py
+```
+:::
+
+- `Unmerged paths:` セクションに競合ファイルが一覧表示される
+:::
+::::
+
+::::{.step}
+
+:::{.step-title}
+
+[2]{.step-number} コンフリクトマーカーを編集して解決する
+
+:::
+
+
+:::{.pl-15}
+
+- `<<<<<<< HEAD` ／ `=======` ／ `>>>>>>>` の3行を意図した内容に書き直す
+- 一方を丸ごと採用するなら `git restore --ours` or`--theirs` を使う
+
+::: {.font-15}
+
+```bash
+git restore --theirs src/app.py
+```
+:::
+:::
+::::
+
+::::{.step}
+
+:::{.step-title}
+
+[3]{.step-number} 解決済みとして `git add` でステージングする
+
+:::
+
+:::{.pl-15}
+
+- マーカー残りが無いことを確認してからステージング
+
+::: {.font-15}
+
+```bash
+grep -rn "<<<<<<" .
+git add src/app.py
+```
+:::
+:::
+::::
+
+::::{.step}
+
+:::{.step-title}
+
+[4]{.step-number} `git commit` でマージコミットを作成する
+
+:::
+
+
+:::{.pl-15}
+
+::: {.font-15}
+
+```bash
+git commit
+# Merge branch 'feature/x' into main
+```
+:::
+
+- メッセージは自動生成される・中止したい場合は `git merge --abort`
+:::
+::::
+
+:::::
+:::::
+
+<!-- 2nd column start -->
+:::::{.column width="35%"}
+
+:::{.border-bottom-header}
+
+うまく解決できないときの対処法
+
+:::
+
+<!-- sidebar start -->
+::::: {.sidebar .font-09}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-2 .border-gray-500}
+
+:::{.flex .items-center .title}
+
+Step 1: マーカー残りを検出する
+
+:::
+
+:::{.pl-5}
+
+- マーカーが残ったままでも `git add` は通るので注意
+- コミット前に必ず grep で確認する
+
+:::{.font-13}
+
+```bash
+grep -rn "<<<<<<" .
+```
+
+:::
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .border-gray-500}
+
+:::{.flex .items-center .mb-3 .title}
+
+Step 2: 解決を中止して元に戻す
+
+:::
+
+:::{.pl-5}
+
+- 解決途中で中断したい場合は実行前の状態に戻せる
+
+:::{.font-13 .pt-1}
+
+```bash
+git merge --abort
+git rebase --abort
+```
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-gray-500}
+
+:::{.flex .items-center .title}
+
+Step 3: マージツールで GUI 解決
+
+:::
+
+:::{.pl-5 .pb-1}
+
+- VSCode 等で Accept Current / Incoming / Both を選んで解決
+
+:::{.font-13 .pt-1}
+
+```bash
+git mergetool
+```
+:::
+
+- 事前設定の例：
+
+:::{.font-13 .pt-2 .mb-1}
+
+```bash
+git config --global merge.tool vscode
+```
+:::
+:::
+
+::::
+
+<!-- sidebar end -->
+:::::
+
+<!-- column end -->
+
+:::::
+::::::
+
+## Appendix：マーカーを全削除して意図した内容に書き直す
+
+[`<<<<<<<` ／ `=======` ／ `>>>>>>>` の3行を全削除するのが解決の基本動作]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-600}
+
+:::{.border-bottom-header-left}
+AS-IS：マーカー入りファイル
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- マーカーの構造
+  - `<<<<<<< HEAD`：[現在のブランチの変更ここから]{.regmonkey-bold}
+  - `=======`：境界線
+  - `>>>>>>> ブランチ名`：[マージ元の変更ここまで]{.regmonkey-bold}
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-14}
+
+```python
+<<<<<<< HEAD
+def greet(name):
+    return f"Hello, {name}!"
+=======
+def greet(name, lang="en"):
+    return f"Hi, {name}!" if lang == "en" \
+        else f"Bonjour, {name}!"
+>>>>>>> feature/i18n
+```
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-600}
+
+:::{.border-bottom-header-left}
+TO-BE：編集で解決
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- 解決の手順
+  - [3つのマーカー行を全削除]{.regmonkey-bold}
+  - 両ブランチの意図を踏まえて最終形に書き直す
+- 1つを丸ごと採用したい場合は `git restore --ours` or`--theirs` を使うほうが速い
+
+:::
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-14}
+
+```python
+def greet(name, lang="en"):
+    return f"Hello, {name}!" if lang == "en" \
+        else f"Bonjour, {name}!"
+```
+
+:::
+
+::::
+:::::
+::::::
+
+## Appendix：コンフリクト予防は「小さく・早く」が鉄則
+
+[ブランチを長期間放置するほど競合が増える・小まめなマージで予防する]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:65%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tidy-table data-col-widths="[28, 32, 40]"}
+
+```yaml
+record1:
+  category: 小さく・早くマージ
+  rule:
+    - ブランチを長期間放置しない
+  actions:
+    - 1ブランチ = 1つの変更に絞る
+    - <code>develop</code> への小まめなマージで競合面を最小化
+
+record2:
+  category: 作業前に最新を取り込む
+  rule:
+    - <code>git fetch</code> + <code>rebase</code> を習慣化
+  actions:
+    - 着手前に <code>develop</code> の最新を取り込む
+    - 長期作業中は1日1回は同期する
+
+record3:
+  category: ファイルの責務分離
+  rule:
+    - 1ファイルを複数人で大改修しない
+  actions:
+    - 変更範囲を疎結合に保つ
+    - 大規模リファクタは別 PR で先行する
+
+record4:
+  category: マージ戦略の固定
+  rule:
+    - <code>.gitattributes</code> で自動解決を設定
+  actions:
+    - 自動生成ファイル等は常に一方を優先
+    - <code>merge=ours</code> 等の戦略を明示する
+
+record5:
+  category: 早期レビュー
+  rule:
+    - 方向性の食い違いを実装前に検知
+  actions:
+    - Draft PR で早めに方針を共有する
+    - 大きな設計変更は事前合意してから着手
+```
+
+:::
+::::
+
 ## Appendix：hotfix の develop 反映は back-merge を基本，cherry-pick は例外
 
 [両者は履歴の見え方・追跡性が異なる・基本は back-merge，cherry-pick は develop が大幅に先行している場合に限定]{.h2-submessage}

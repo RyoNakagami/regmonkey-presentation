@@ -44,7 +44,7 @@ auto-agenda:
 :::: {.columns}
 ::: {.column width="50%"}
 
-![](./init_command_flow_jdsc_simple.svg)
+![](./init_command_flow_simple.svg)
 
 
 :::
