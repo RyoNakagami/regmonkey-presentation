@@ -210,6 +210,27 @@
     "text": "Appendix：Git tag と GitHub Release は別概念\ntag は Git の機能，Release は GitHub のUI・両方を CI で自動生成する\n\n\n\n\nGit tag（Git の機能）\n\n\n\n特定コミットに名前を付ける ポインタ・GitHub に依存しない\nAnnotated tag を使う\n\n作成者・日時・GPG 署名・メッセージを持つ独立オブジェクト\ngit tag -a vX.Y.Z -m \"Release vX.Y.Z\"\n\ntag は明示的に push する：git push origin vX.Y.Z\n\n\n\n\nGitHub Release（GitHub の UI）\n\n\n\nGit tag をベースに リリース情報を付加した概念\n構成要素：tag・タイトル・Release Notes・アセット・Pre-release / Latest フラグ\nRelease Notes は CHANGELOG.md から該当セクションを抽出 して使う\nソースコード（.zip / .tar.gz）は自動添付される"
   },
   {
+    "objectID": "posts/2026-05-25-git-development-flow/index.html#appendixマージコンフリクトは4ステップで解決する",
+    "href": "posts/2026-05-25-git-development-flow/index.html#appendixマージコンフリクトは4ステップで解決する",
+    "title": "小規模ProjectにおけるGit開発フロー",
+    "section": "Appendix：マージコンフリクトは4ステップで解決する",
+    "text": "Appendix：マージコンフリクトは4ステップで解決する\nコンフリクト解消\n\n\n\n\n\n\n1 git status で競合ファイルを確認する\n\n\n\ngit status\n# Unmerged paths:\n#   both modified: src/app.py\n\n\nUnmerged paths: セクションに競合ファイルが一覧表示される\n\n\n\n\n\n2 コンフリクトマーカーを編集して解決する\n\n\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD ／ ======= ／ &gt;&gt;&gt;&gt;&gt;&gt;&gt; の3行を意図した内容に書き直す\n一方を丸ごと採用するなら git restore --ours or--theirs を使う\n\n\ngit restore --theirs src/app.py\n\n\n\n\n\n3 解決済みとして git add でステージングする\n\n\n\nマーカー残りが無いことを確認してからステージング\n\n\ngrep -rn \"&lt;&lt;&lt;&lt;&lt;&lt;\" .\ngit add src/app.py\n\n\n\n\n\n4 git commit でマージコミットを作成する\n\n\n\ngit commit\n# Merge branch 'feature/x' into main\n\n\nメッセージは自動生成される・中止したい場合は git merge --abort\n\n\n\n\n\n\nうまく解決できないときの対処法\n\n\n\n\n\nStep 1: マーカー残りを検出する\n\n\n\nマーカーが残ったままでも git add は通るので注意\nコミット前に必ず grep で確認する\n\n\ngrep -rn \"&lt;&lt;&lt;&lt;&lt;&lt;\" .\n\n\n\n\n\n\nStep 2: 解決を中止して元に戻す\n\n\n\n解決途中で中断したい場合は実行前の状態に戻せる\n\n\ngit merge --abort\ngit rebase --abort\n\n\n\n\n\n\n\nStep 3: マージツールで GUI 解決\n\n\n\nVSCode 等で Accept Current / Incoming / Both を選んで解決\n\n\ngit mergetool\n\n\n事前設定の例：\n\n\ngit config --global merge.tool vscode"
+  },
+  {
+    "objectID": "posts/2026-05-25-git-development-flow/index.html#appendixマーカーを全削除して意図した内容に書き直す",
+    "href": "posts/2026-05-25-git-development-flow/index.html#appendixマーカーを全削除して意図した内容に書き直す",
+    "title": "小規模ProjectにおけるGit開発フロー",
+    "section": "Appendix：マーカーを全削除して意図した内容に書き直す",
+    "text": "Appendix：マーカーを全削除して意図した内容に書き直す\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; ／ ======= ／ &gt;&gt;&gt;&gt;&gt;&gt;&gt; の3行を全削除するのが解決の基本動作\n\n\n\n\n\nAS-IS：マーカー入りファイル\n\n\n\nマーカーの構造\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD：現在のブランチの変更ここから\n=======：境界線\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; ブランチ名：マージ元の変更ここまで\n\n\n\n\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\ndef greet(name):\n    return f\"Hello, {name}!\"\n=======\ndef greet(name, lang=\"en\"):\n    return f\"Hi, {name}!\" if lang == \"en\" \\\n        else f\"Bonjour, {name}!\"\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/i18n\n\n\n\n\n\nTO-BE：編集で解決\n\n\n\n解決の手順\n\n3つのマーカー行を全削除\n両ブランチの意図を踏まえて最終形に書き直す\n\n1つを丸ごと採用したい場合は git restore --ours or--theirs を使うほうが速い\n\n\n\n\ndef greet(name, lang=\"en\"):\n    return f\"Hello, {name}!\" if lang == \"en\" \\\n        else f\"Bonjour, {name}!\""
+  },
+  {
+    "objectID": "posts/2026-05-25-git-development-flow/index.html#appendixコンフリクト予防は小さく早くが鉄則",
+    "href": "posts/2026-05-25-git-development-flow/index.html#appendixコンフリクト予防は小さく早くが鉄則",
+    "title": "小規模ProjectにおけるGit開発フロー",
+    "section": "Appendix：コンフリクト予防は「小さく・早く」が鉄則",
+    "text": "Appendix：コンフリクト予防は「小さく・早く」が鉄則\nブランチを長期間放置するほど競合が増える・小まめなマージで予防する\n\n\n\nrecord1:\n  category: 小さく・早くマージ\n  rule:\n    - ブランチを長期間放置しない\n  actions:\n    - 1ブランチ = 1つの変更に絞る\n    - &lt;code&gt;develop&lt;/code&gt; への小まめなマージで競合面を最小化\n\nrecord2:\n  category: 作業前に最新を取り込む\n  rule:\n    - &lt;code&gt;git fetch&lt;/code&gt; + &lt;code&gt;rebase&lt;/code&gt; を習慣化\n  actions:\n    - 着手前に &lt;code&gt;develop&lt;/code&gt; の最新を取り込む\n    - 長期作業中は1日1回は同期する\n\nrecord3:\n  category: ファイルの責務分離\n  rule:\n    - 1ファイルを複数人で大改修しない\n  actions:\n    - 変更範囲を疎結合に保つ\n    - 大規模リファクタは別 PR で先行する\n\nrecord4:\n  category: マージ戦略の固定\n  rule:\n    - &lt;code&gt;.gitattributes&lt;/code&gt; で自動解決を設定\n  actions:\n    - 自動生成ファイル等は常に一方を優先\n    - &lt;code&gt;merge=ours&lt;/code&gt; 等の戦略を明示する\n\nrecord5:\n  category: 早期レビュー\n  rule:\n    - 方向性の食い違いを実装前に検知\n  actions:\n    - Draft PR で早めに方針を共有する\n    - 大きな設計変更は事前合意してから着手"
+  },
+  {
     "objectID": "posts/2026-05-25-git-development-flow/index.html#appendixhotfix-の-develop-反映は-back-merge-を基本cherry-pick-は例外",
     "href": "posts/2026-05-25-git-development-flow/index.html#appendixhotfix-の-develop-反映は-back-merge-を基本cherry-pick-は例外",
     "title": "小規模ProjectにおけるGit開発フロー",

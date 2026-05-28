@@ -1343,6 +1343,236 @@ gitGraph
 </div>
 </div></div>
 </section>
+<section id="appendixマージコンフリクトは4ステップで解決する" class="slide level2">
+<h2>Appendix：マージコンフリクトは4ステップで解決する</h2>
+<p><span class="topleftbox">コンフリクト解消</span></p>
+<!-- column start -->
+<div class="columns">
+<!-- 1st column start --><div class="column pr-5" style="width:65%;">
+<div class="manual-template font-09">
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">1</span> <code>git status</code> で競合ファイルを確認する</p>
+</div>
+<div class="pl-15">
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">git</span> status</span>
+<span id="cb11-2"><a></a><span class="co"># Unmerged paths:</span></span>
+<span id="cb11-3"><a></a><span class="co">#   both modified: src/app.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><code>Unmerged paths:</code> セクションに競合ファイルが一覧表示される</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">2</span> コンフリクトマーカーを編集して解決する</p>
+</div>
+<div class="pl-15">
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ／ <code>=======</code> ／ <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> の3行を意図した内容に書き直す</li>
+<li>一方を丸ごと採用するなら <code>git restore --ours</code> or<code>--theirs</code> を使う</li>
+</ul>
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">git</span> restore <span class="at">--theirs</span> src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">3</span> 解決済みとして <code>git add</code> でステージングする</p>
+</div>
+<div class="pl-15">
+<ul>
+<li>マーカー残りが無いことを確認してからステージング</li>
+</ul>
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span>
+<span id="cb13-2"><a></a><span class="fu">git</span> add src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="step">
+<div class="step-title">
+<p><span class="step-number">4</span> <code>git commit</code> でマージコミットを作成する</p>
+</div>
+<div class="pl-15">
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="fu">git</span> commit</span>
+<span id="cb14-2"><a></a><span class="co"># Merge branch 'feature/x' into main</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>メッセージは自動生成される・中止したい場合は <code>git merge --abort</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div><!-- 2nd column start --><div class="column" style="width:35%;">
+<div class="border-bottom-header">
+<p>うまく解決できないときの対処法</p>
+</div>
+<!-- sidebar start -->
+<div class="sidebar font-09">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-2 border-gray-500">
+<div class="flex items-center title">
+<p>Step 1: マーカー残りを検出する</p>
+</div>
+<div class="pl-5">
+<ul>
+<li>マーカーが残ったままでも <code>git add</code> は通るので注意</li>
+<li>コミット前に必ず grep で確認する</li>
+</ul>
+<div class="font-13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 border-gray-500">
+<div class="flex items-center mb-3 title">
+<p>Step 2: 解決を中止して元に戻す</p>
+</div>
+<div class="pl-5">
+<ul>
+<li>解決途中で中断したい場合は実行前の状態に戻せる</li>
+</ul>
+<div class="font-13 pt-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
+<span id="cb16-2"><a></a><span class="fu">git</span> rebase <span class="at">--abort</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-gray-500">
+<div class="flex items-center title">
+<p>Step 3: マージツールで GUI 解決</p>
+</div>
+<div class="pl-5 pb-1">
+<ul>
+<li>VSCode 等で Accept Current / Incoming / Both を選んで解決</li>
+</ul>
+<div class="font-13 pt-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="fu">git</span> mergetool</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>事前設定の例：</li>
+</ul>
+<div class="font-13 pt-2 mb-1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="fu">git</span> config <span class="at">--global</span> merge.tool vscode</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<!-- sidebar end -->
+</div>
+<!-- column end -->
+</div></div>
+</section>
+<section id="appendixマーカーを全削除して意図した内容に書き直す" class="slide level2">
+<h2>Appendix：マーカーを全削除して意図した内容に書き直す</h2>
+<p><span class="h2-submessage"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> ／ <code>=======</code> ／ <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> の3行を全削除するのが解決の基本動作</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="pentagon-box-600">
+<div class="border-bottom-header-left">
+<p>AS-IS：マーカー入りファイル</p>
+</div>
+<div class="squaredmark" style="font-size: 0.85em">
+<ul>
+<li>マーカーの構造
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>：<span class="regmonkey-bold">現在のブランチの変更ここから</span></li>
+<li><code>=======</code>：境界線</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ブランチ名</code>：<span class="regmonkey-bold">マージ元の変更ここまで</span></li>
+</ul></li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb19-2"><a></a><span class="kw">def</span> greet(name):</span>
+<span id="cb19-3"><a></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb19-4"><a></a><span class="op">=======</span></span>
+<span id="cb19-5"><a></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
+<span id="cb19-6"><a></a>    <span class="cf">return</span> <span class="ss">f"Hi, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
+<span id="cb19-7"><a></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb19-8"><a></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature<span class="op">/</span>i18n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="square-box-600">
+<div class="border-bottom-header-left">
+<p>TO-BE：編集で解決</p>
+</div>
+<div class="squaredmark" style="font-size: 0.85em">
+<ul>
+<li>解決の手順
+<ul>
+<li><span class="regmonkey-bold">3つのマーカー行を全削除</span></li>
+<li>両ブランチの意図を踏まえて最終形に書き直す</li>
+</ul></li>
+<li>1つを丸ごと採用したい場合は <code>git restore --ours</code> or<code>--theirs</code> を使うほうが速い</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<div class="font-14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
+<span id="cb20-2"><a></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
+<span id="cb20-3"><a></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="appendixコンフリクト予防は小さく早くが鉄則" class="slide level2">
+<h2>Appendix：コンフリクト予防は「小さく・早く」が鉄則</h2>
+<p><span class="h2-submessage">ブランチを長期間放置するほど競合が増える・小まめなマージで予防する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:65%; font-size: 0.9em !important;">
+<div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[28, 32, 40]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb21-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 小さく・早くマージ</span></span>
+<span id="cb21-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブランチを長期間放置しない</span></span>
+<span id="cb21-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ブランチ = 1つの変更に絞る</span></span>
+<span id="cb21-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; への小まめなマージで競合面を最小化</span></span>
+<span id="cb21-8"><a></a></span>
+<span id="cb21-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb21-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 作業前に最新を取り込む</span></span>
+<span id="cb21-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;git fetch&lt;/code&gt; + &lt;code&gt;rebase&lt;/code&gt; を習慣化</span></span>
+<span id="cb21-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 着手前に &lt;code&gt;develop&lt;/code&gt; の最新を取り込む</span></span>
+<span id="cb21-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 長期作業中は1日1回は同期する</span></span>
+<span id="cb21-16"><a></a></span>
+<span id="cb21-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb21-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイルの責務分離</span></span>
+<span id="cb21-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ファイルを複数人で大改修しない</span></span>
+<span id="cb21-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変更範囲を疎結合に保つ</span></span>
+<span id="cb21-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大規模リファクタは別 PR で先行する</span></span>
+<span id="cb21-24"><a></a></span>
+<span id="cb21-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb21-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ戦略の固定</span></span>
+<span id="cb21-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.gitattributes&lt;/code&gt; で自動解決を設定</span></span>
+<span id="cb21-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動生成ファイル等は常に一方を優先</span></span>
+<span id="cb21-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;merge=ours&lt;/code&gt; 等の戦略を明示する</span></span>
+<span id="cb21-32"><a></a></span>
+<span id="cb21-33"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb21-34"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 早期レビュー</span></span>
+<span id="cb21-35"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の食い違いを実装前に検知</span></span>
+<span id="cb21-37"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Draft PR で早めに方針を共有する</span></span>
+<span id="cb21-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大きな設計変更は事前合意してから着手</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
 <section id="appendixhotfix-の-develop-反映は-back-merge-を基本cherry-pick-は例外" class="slide level2">
 <h2>Appendix：hotfix の develop 反映は back-merge を基本，cherry-pick は例外</h2>
 <p><span class="h2-submessage">両者は履歴の見え方・追跡性が異なる・基本は back-merge，cherry-pick は develop が大幅に先行している場合に限定</span></p>
