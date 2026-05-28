@@ -69,6 +69,11 @@ function renderRegmonkeyIndex(el) {
   const data = parsedData.regmonkey_index;
   if (!data || !data.children) return;
 
+  // numbering: true で各 title の先頭に "1." 〜 "N." を自動付与．
+  // 折返し2行目以降は番号分の左余白で hanging-indent して
+  // タイトル本文の左端に揃える（left-aligned）．既定は false．
+  const numbering = data.numbering === true;
+
   let html = "";
 
   data.children.forEach((child, idx) => {
@@ -97,8 +102,16 @@ function renderRegmonkeyIndex(el) {
       const wMid = widths[1];
       const wRight = widths[2] || "0%";
 
+      // numbering: true のときは number を固定幅スロット，title を flex:1 で
+      // 並べる．title 側は text-align:left + 折返し時もタイトル本文の左端に揃う．
+      const titleInner = numbering
+        ? `<div style="display:flex; align-items:baseline; gap:0.3em;">
+<span style="flex:0 0 auto; min-width:1.4em;">${idx + 1}.</span>
+<span style="flex:1; text-align:left;">${renderInline(child.title)}</span>
+</div>`
+        : renderInline(child.title);
       const left = `<div class="flex flex-col justify-center" style="width:${wLeft};">
-<div class="title" style="font-size:${data.title_fontsize}; margin-left:${data.title_position || '0em'}!important; color: #0e3666; font-weight: bold !important;">${renderInline(child.title)}</div>
+<div class="title" style="font-size:${data.title_fontsize}; margin-left:${data.title_position || '0em'}!important; color: #0e3666; font-weight: bold !important;">${titleInner}</div>
 </div>`;
 
       const bullets = child.description
@@ -113,7 +126,7 @@ ${bullets}
       let right = "";
 
       html += `<div class="slide-container flex flex-col" id="slide${idx + 1}">
-<div class="flex flex-row justify-between h-full px-12 pt-1 pb-1">
+<div class="flex flex-row justify-between h-full px-5 pt-1 pb-1">
 ${left}
 ${middle}
 ${right}
