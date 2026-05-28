@@ -1,0 +1,1885 @@
+---
+title: "ミッションドリブンなモニタリング"
+subtitle: "入門監視"
+author: "Ryo Nakagami"
+date: "2026-05-28"
+categories: [monitoring, SRE, observability]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 3em >}}
+
+:::: {.column width="30%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi chat-square-text size=1.7em color=#428CE6 >}}
+
+### モチベーション
+
+:::
+
+- 監視を「習慣で動かすツール群」から「意思決定につながる観測体制」に組み替えたい
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### Goal
+
+:::
+
+- アンチパターン・デザインパターン・アラート設計・KPIまでを横断的に整理
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi book size=1.7em color=#428CE6 >}}
+
+### 参考
+
+:::
+
+- 『入門 監視』Mike Julian 著（[practicalmonitoring.com](https://www.practicalmonitoring.com)）
+
+::::
+
+::::
+::::
+
+
+::: {.column width="70%" style="padding-left:1em;"}
+::: {.regmonkey_index style="width:1100px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.85em
+  numbering: true
+  children:
+    - title: 監視とは何か
+      description:
+        - 監視の定義・目的・スコープを整理する
+        - Issue Finding から Action までを射程に入れる
+      width: [48, 52]
+    - title: 監視のアンチパターン
+      description:
+        - ツール依存・監視のための監視を避ける
+        - 「動いている」の定義から始める
+      width: [48, 52]
+    - title: 監視のデザインパターン
+      description:
+        - 組み合わせ可能な監視・ユーザー視点・SaaS活用
+        - 可用性とサンプリングの考え方
+      width: [48, 52]
+    - title: アラート・オンコール・<br>インシデント管理
+      description:
+        - 良いアラートの条件と手順書の骨格
+        - インシデント管理プロセスと役割分担
+      width: [48, 52]
+    - title: ビジネス監視・<br>フロントエンド監視
+      description:
+        - Business KPI で観測を経営に接続する
+        - RUM・Synthetic Monitoring でユーザー体感を測る
+      width: [48, 52]
+    - title: Appendix
+      description:
+        - 可用性とサンプリング定理
+      width: [48, 52]
+```
+
+:::
+:::
+:::::
+
+# 監視とは何か
+
+## 監視はシステムの振る舞いを観察し続ける行為
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.def-block style="font-size:1.1em;"}
+
+[監視（Monitoring）]{.def-title}
+
+::: {.def-contents}
+
+- [あるシステムやそのコンポーネントの振る舞いや出力を，観察しチェックし続ける行為]{.regmonkey-bold}（Mike Julian『入門 監視』）
+- 監視は単一の問題ではなく [非常に大きな問題の塊]{.regmonkey-bold}
+  - サーバ監視ひとつとってもハードウェア・OS・メトリクス・ログ・サービス・ネットワークを考えなくてはならない
+- 複雑な問題に対処するため，[問題解決に繋がるツール]{.regmonkey-bold} を使用すること
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+[4つのルール]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::: {.columns}
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi speedometer2 size=1.6em color=#428CE6 >}}
+パフォーマンス管理
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- [計測なくして改善なし]{.regmonkey-bold}：レイテンシ・スループット・エラー率を継続観測する
+- 単発障害だけでなく [トレンドと劣化兆候]{.regmonkey-bold} を捉える
+- SLI・SLO で「[許容できる劣化]{.regmonkey-bold}」の線を引く
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi shield-check size=1.6em color=#428CE6 >}}
+本番の前提
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- [監視されるまで本番ではない]{.regmonkey-bold}（"not in prod until monitored"）
+- テスト環境では [再現しない問題]{.regmonkey-bold} は本番監視でしか捉えられない
+- 監視は [プロダクトの一部]{.regmonkey-bold}．デプロイと同時に組み込む
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi people-fill size=1.6em color=#428CE6 >}}
+全員で実施
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- 監視は [SRE 専任の仕事ではない]{.regmonkey-bold}．開発・運用・ビジネス共通の責務
+- [You build it, you run it]{.regmonkey-bold}：作った人が観測まで責任を負う
+- サイロ化した監視は [Insight の共有を妨げる]{.regmonkey-bold}
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block-no-border style="height:95%;"}
+
+:::{.block-header}
+{{< bi lightbulb-fill size=1.6em color=#428CE6 >}}
+Action に接続
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- 監視は [Issue Finding]{.regmonkey-bold}．発見だけでは価値は生まれない
+- [Insight → Decision → Action]{.regmonkey-bold} の連鎖まで設計する
+- 手順書のないアラートは [alert fatigue]{.regmonkey-bold} を招く
+
+:::
+
+:::
+::::
+
+:::::
+
+# 監視のアンチパターン
+
+## アンチパターンは「習慣」と「FUD」から生まれる
+
+{{< reveal_vspace 1.0em >}}
+
+:::{.main-message-box .font-11}
+
+[ミッションではなく現状維持がドライバになってはいけない]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- [「いつもやっていることだから」]{.regmonkey-bold} という理由で過去の手法を惰性で踏襲する
+- [FUD（Fear・Uncertainty・Doubt）]{.regmonkey-bold} によりレガシーな監視構成の修正を躊躇する
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[データサイエンスの現場でよく見られるアンチパターン]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.7em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-ds-antipattern data-col-widths="[20, 40, 40]"}
+
+```yaml
+record1:
+  アンチパターン: ツール先行導入
+  ルール・観点:
+    - 監視 SaaS や MLOps プラットフォームを<span class="regmonkey-bold">先に決めてから</span>運用設計に入る
+  発生するペイン:
+    - ツール機能に合わせた指標しか出せない
+    - <span class="regmonkey-bold">ビジネス KPI と分離</span>して意思決定に届かない
+
+record2:
+  アンチパターン: モデル精度<br>だけを監視
+  ルール・観点:
+    - 学習時の精度・AUC ばかり追い，<span class="regmonkey-bold">本番のデータ分布</span>を観測しない
+  発生するペイン:
+    - <span class="regmonkey-bold">data drift・concept drift</span> に気付けない
+    - 静かな劣化が長期間放置される
+
+record4:
+  アンチパターン: 学習パイプライン<br>を目的なく監視
+  ルール・観点:
+    - バッチ学習・特徴量生成の<span class="regmonkey-bold">成功/失敗ログ</span>しか取らない
+  発生するペイン:
+    - 「動いている」が壊れていないとは限らない
+    - <span class="regmonkey-bold">特徴量の欠損率</span>急増を見逃す
+
+record5:
+  アンチパターン: ダッシュボード乱立
+  ルール・観点:
+    - 各 PJ が<span class="regmonkey-bold">独自ダッシュボード</span>を作り横断視点がない
+  発生するペイン:
+    - 数字の定義が PJ ごとにバラバラ
+    - 経営報告時に<span class="regmonkey-bold">数字が合わない</span>
+
+record7:
+  アンチパターン: A/B テスト<br>の事後解析依存
+  ルール・観点:
+    - 配信中の指標を観測せず<span class="regmonkey-bold">終了後にまとめて分析</span>する
+  発生するペイン:
+    - 致命的な逆効果に気付かず<span class="regmonkey-bold">損失が拡大</span>
+    - 早期停止判断の機会を逃す
+```
+
+:::
+::::
+
+## アンチパターン1：ツール依存はミッションを矮小化する
+
+[ツールから業務を組み立てると，ツールの機能と制限がそのまま組織の限界になる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+
+ツール駆動チームに起きること
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- [業務の前にツールを買う発想]{.regmonkey-bold}
+  - 「ログ管理システムを買う必要がある」
+  - 「アンチウィルス専任を1人置く」
+- 動かしているソフトウェアが [ミッションを定義してしまう]{.regmonkey-bold}
+- アナリストが [ツールの機能・制限事項に囚われる]{.regmonkey-bold}
+- 結果として [効率はミッションドリブンを越えない]{.regmonkey-bold}
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+
+ミッション駆動チームに切り替える
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- ミッションを [遂行するために何が必要か]{.regmonkey-bold} で発想する
+- 要求に見合うツールを [見つかるまで探し続ける]{.regmonkey-bold}
+- 場合によっては [自分でツールを作る]{.regmonkey-bold} 判断もする
+- ツールは [要求を満たす手段]{.regmonkey-bold} であって目的ではない
+
+:::
+
+::::
+:::::
+::::::
+
+## ツール依存の裏返し：観察者効果を恐れてツールを忌避しない
+
+[エージェント常駐の負荷は小さい．観測しないリスクの方が圧倒的に大きい]{.h2-submessage}
+
+{{< reveal_vspace 1.0em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+観察者効果（Observer Effect）への過剰反応
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- 観察者効果＝[監視行為自体が監視対象の挙動を変えてしまう]{.regmonkey-bold} 現象
+- 「エージェントを入れると本番が重くなる」という [FUD]{.regmonkey-bold} でツールを入れない
+- 「常駐プロセスを増やすと運用が複雑になる」と [構成管理を避ける]{.regmonkey-bold}
+- 結果として [本番が観測不能になる]{.regmonkey-bold}：ツール依存とは逆ベクトルの自滅
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+現代インフラでの実態と対処
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- 現代のサーバ・コンテナ環境では [エージェント負荷は実用上無視できる]{.regmonkey-bold}
+- エージェントの管理・設定は [構成管理ツール（Ansible・Chef・Puppet 等）]{.regmonkey-bold} で吸収
+- クラウドの [標準エージェント]{.regmonkey-bold} を入口にする（例：Cloud Monitoring[^cmagent]）
+- 「観測しないリスク」と「観測する負荷」を [非対称に評価]{.regmonkey-bold} する
+
+:::
+
+::::
+:::::
+::::::
+
+<!-- footer -->
+
+[^cmagent]: [Cloud Monitoring エージェント — Google Cloud](https://cloud.google.com/monitoring/agent?hl=ja)：collectd ベースのデーモンで，VM インスタンスのディスク・CPU・ネットワーク・プロセス指標をデフォルトで収集．
+
+## アンチパターン2：監視のための監視は意思決定に届かない
+
+[メトリクスを記録しているが「何が起きたか」が説明できない状態は監視と呼べない]{.h2-submessage}
+
+{{< reveal_vspace 1.0em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+監視のための監視に陥っている症状
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- システム負荷・CPU・メモリは記録しているが [ダウンした理由を説明できない]{.regmonkey-bold}
+- 誤検知が多すぎ [アラートを常に無視する]{.regmonkey-bold} 状態
+- 各メトリクスを [5分以上の間隔]{.regmonkey-bold} でしか取得していない（推奨は最低 60 秒）
+- メトリクスの履歴を [保存していない]{.regmonkey-bold} ため事後分析できない
+- 「[監視タスクをこなすため]{.regmonkey-bold}」に監視が独立目的化している
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+パフォーマンス管理・意思決定起点で再設計
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+
+- 監視は [パフォーマンスの管理・改善]{.regmonkey-bold} のために行う
+- どの監視体制が [どの意思決定・アクション]{.regmonkey-bold} に接続するかを起点に設計
+- 「タスクとしての監視」ではなく [システムの挙動理解]{.regmonkey-bold} を前提に置く
+- メトリクスは [60 秒以下の高解像度]{.regmonkey-bold} で取得し，履歴は数か月以上保持
+- アラートは [Action 可能なもの]{.regmonkey-bold} だけ残し，他はチューニングして消す
+
+:::
+
+::::
+:::::
+::::::
+
+## 処方箋の起点は「動いている」の定義をオーナーと合意すること
+
+[CPU 使用率の閾値ではなく，サービスが提供できているかを監視軸にする]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box}
+
+[「動いている」をオーナーと最初に合意する]{.info-box-title}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 監視対象が [「動いている」とはどういう状態か]{.regmonkey-bold} を最初に定義する
+- 定義は [サービス・アプリケーションのオーナーに聞く]{.regmonkey-bold} ところから始める
+- 監視は [「動いている」ベース]{.regmonkey-bold} で設計し，副次指標（CPU・メモリ等）は支援指標として位置付ける
+
+:::
+
+:::
+
+{{< reveal_vspace 1.0em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+[よくある誤り：CPU 使用率を主指標にする]{.mini-section}
+
+:::{.info-contents .padding-L-05 .font-09 .lh-14}
+- 単独の高 CPU をアラート化 → [誤検知でアラート疲れ]{.regmonkey-bold}
+- CPU の数字だけでは [ユーザー体感と無関係]{.regmonkey-bold}
+- 何を意思決定したいかの設計が抜けたままダッシュボード化
+:::
+
+
+:::::
+::::: {.column width="50%"}
+
+
+[正しい扱い：補助指標としての CPU]{.mini-section}
+
+:::{.info-contents .padding-L-05 .font-09 .lh-14}
+- 「動いている」なら [CPU が高くても問題ではない]{.regmonkey-bold}：処理をしているだけ
+- パフォーマンス影響のある [負荷の急変化・トレンド]{.regmonkey-bold} は確認
+- 主指標は [HTTP コード・レイテンシ・エラー率]{.regmonkey-bold} 等のユーザー視点指標
+:::
+
+
+:::::
+::::::
+
+# 監視のデザインパターン
+
+## 4つのデザインパターンで観測体制を組み上げる
+
+[専門ツールの組み合わせ・ユーザー視点・SaaS活用・継続的改善が柱]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.72em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-design-pattern-overview data-col-widths="[20, 45, 35]"}
+
+```yaml
+record1:
+  デザインパターン: 組み合わせ可能<br>な監視
+  ルール:
+    - 専門特化したツールを<span class="regmonkey-bold">疎結合で束ね</span>，監視「プラットフォーム」として運用する
+    - 一枚岩の万能ツールではなく，<span class="regmonkey-bold">交換可能な部品</span>の集合として設計する
+  代表アクション:
+    - UNIX 哲学に倣う
+    - 収集・蓄積・可視化・通知を分離
+    - API 連携・標準フォーマット（OpenMetrics 等）
+
+record2:
+  デザインパターン: ユーザー視点<br>の監視
+  ルール:
+    - 実装の内部状態ではなく <span class="regmonkey-bold">サービスが使えるか</span> を測る
+    - 内部メトリクスは <span class="regmonkey-bold">原因分析の補助</span> として位置付ける
+  代表アクション:
+    - HTTP レスポンスコード・レイテンシ
+    - エラー率・スループット
+    - RUM / Synthetic で実体感を計測
+
+record3:
+  デザインパターン: 作るのではなく<br>買う
+  ルール:
+    - ユニークな問題以外は <span class="regmonkey-bold">SaaS 監視ツールを購入</span> する
+    - 自前開発は <span class="regmonkey-bold">人時・逸失利益</span> を含めると割高になりがち
+  代表アクション:
+    - Datadog・New Relic・Splunk
+    - Grafana Cloud・Honeycomb
+    - 標準は SaaS，差別化要件のみ内製
+
+record4:
+  デザインパターン: 継続的改善
+  ルール:
+    - 監視ニーズの変化に合わせ <span class="regmonkey-bold">柔軟に組み替える</span> 組織を作る
+    - <span class="regmonkey-bold">アラート・ダッシュボードを定期棚卸し</span>し，陳腐化を防ぐ
+  代表アクション:
+    - 毎日アラート一覧をレビュー
+    - 四半期ごとに SLO・閾値を見直す
+    - ポストモーテムを次の監視設計に反映
+```
+
+:::
+::::
+
+## パターン1：6コンポーネントの組み合わせた監視
+
+[UNIX 哲学に倣い，専門ツールを疎結合で束ねる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box .font-11}
+
+[UNIX 哲学：1つのことを行い，またそれをうまくやるプログラムを書け．協調して動くプログラムを書け．]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- 監視も同じで [1つのツールに全てを背負わせない]{.regmonkey-bold}．収集・蓄積・可視化・通知をそれぞれ得意なツールに任せる
+- ツール間は [標準フォーマット・API]{.regmonkey-bold} で接続し，1つを差し替えても全体が壊れない構成にする
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.tools-grid style="height:60%; font-size: 0.95em;"}
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi database-fill size=1.2em color=#0E3666 >}}
+[① データ収集・蓄積系]{.pl-5}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+データ収集
+:::
+::: {.tool-description}
+エージェント・Exporter で指標を集める（node_exporter・collectd）
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+メトリクス
+:::
+::: {.tool-description}
+イベントを時系列の数値として符号化（Prometheus・Cloud Monitoring）
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+データストレージ
+:::
+::: {.tool-description}
+時系列 DB・ログ基盤に長期保存（InfluxDB・Loki・Elasticsearch）
+:::
+:::
+:::
+
+::::
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi bar-chart-line-fill size=1.2em color=#0E3666 >}}
+[② 可視化・通知系]{.pl-5 .align-top}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+可視化
+:::
+::: {.tool-description}
+ダッシュボードで人が読める形に（Grafana・Kibana・Datadog）
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+分析・レポート
+:::
+::: {.tool-description}
+トレンド分析・SLO レポート・キャパシティ計画（BI・Looker）
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+アラート
+:::
+::: {.tool-description}
+閾値・異常検知から Action へ通知（Alertmanager・PagerDuty・Opsgenie）
+:::
+:::
+:::
+
+::::
+::::
+
+## 監視プラットフォーム × 一枚岩
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box .font-11}
+
+[1つのツールに全機能を背負わせるのは絶対にやってはいけない]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- オールインワン製品は [初期構築は速い]{.regmonkey-bold} が，変化に弱く Lock-in が強い
+- 監視ニーズはプロダクト成熟・組織成長で変わる：[部品を交換できる構成]{.regmonkey-bold} が前提
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.tools-grid style="height:60%; font-size: 0.85em;"}
+
+:::: {.tools-column}
+::: {.column-title .before-title}
+{{< bi x-circle-fill size=1.2em >}}
+[アンチパターン]{.pl-5}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+オールインワンで全機能を1製品に集約
+:::
+::: {.tool-description}
+収集・蓄積・可視化・通知を1ベンダーに丸投げする
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+ログとメトリクスを同じツールに無理やり押し込む
+:::
+::: {.tool-description}
+保持期間・スキーマ要件が違うのに単一基盤で処理する
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+独自フォーマットで他ツールと接続できない
+:::
+::: {.tool-description}
+標準（OpenMetrics・OTLP）を採用せず内製形式で構築する
+:::
+:::
+:::
+
+::::
+
+:::: {.tools-column .tools-column-after style="height:90%"}
+::: {.column-title}
+{{< bi exclamation-octagon-fill size=1.2em color=#0E3666 >}}
+[発生する不具合]{.pl-5 .align-top}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+ベンダー Lock-in でツール変更コストが跳ね上がる
+:::
+::: {.tool-description}
+データのエクスポート・再構築に数か月単位のプロジェクトが必要になる
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+不要機能のライセンス費を払い続ける
+:::
+::: {.tool-description}
+使わない機能を含めた一括契約で TCO が膨張する
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+他チーム・他プロダクトとのデータ連携が困難
+:::
+::: {.tool-description}
+横断分析・ポストモーテム時にデータを統合できない
+:::
+:::
+:::
+::::
+
+
+:::{.integration-arrow .absolute .left-49 style="top:55%"}
+
+<svg width="40" height="250" viewBox="0 0 40 250" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="0,0 40,125 0,250" fill="#0E3666" />
+</svg>
+
+:::
+::::
+
+## ログは構造化・非構造化の2種類で扱い分ける
+
+[時系列イベントを起点に，パース可能性で出力先と用途を切り分ける]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box .font-11}
+
+[ログ：タイムスタンプ付きの連続イベント．監視プラットフォームではメトリクスと並ぶ第2の柱]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- 基本は [連続した文字列]{.regmonkey-bold} に [タイムスタンプ]{.regmonkey-bold} が紐付いたもの．[パース可能性]{.regmonkey-bold} で扱いが大きく変わる
+- 用途に応じて [構造化・非構造化を使い分ける]{.regmonkey-bold}（集計重視か可読性重視か）
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.tools-grid style="height:55%; font-size: 0.85em;"}
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi file-text size=1.2em color=#0E3666 >}}
+[① 非構造化ログ]{.pl-5}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+テキスト行の連なり
+:::
+::: {.tool-description}
+人が読みやすいが機械的な集計には正規表現・パーサが必要
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+適する用途
+:::
+::: {.tool-description}
+人手での障害調査・小規模ツールの一時ログ・既存システムの出力
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+出力例
+:::
+::: {.tool-description}
+`2026-05-28 12:00:00 ERROR connection refused from 10.0.0.1`
+:::
+:::
+:::
+
+::::
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi braces size=1.2em color=#0E3666 >}}
+[② 構造化ログ]{.pl-5 .align-top}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+Key-Value ペア（多くは JSON）
+:::
+::: {.tool-description}
+集計・検索・フィルタリングが高速．BI・ログ基盤との相性が良い
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+適する用途
+:::
+::: {.tool-description}
+大規模システムの可観測性・SLO 計測・相関 ID によるトレース
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+出力例
+:::
+::: {.tool-description}
+`{"ts":"2026-05-28T12:00:00Z","level":"ERROR","msg":"connection refused","src":"10.0.0.1"}`
+:::
+:::
+:::
+
+::::
+::::
+
+## パターン2：ユーザー視点の監視でビジネスインパクトを測る
+
+[実装ではなく「ユーザーが使えているか」がアラートの起点になる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+
+実装視点の監視で起きる問題
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- DB サーバの [CPU 使用率が急上昇]{.regmonkey-bold} してもユーザーが影響を受けていなければ問題ではない
+- 内部メトリクスだけでは [ユーザー体感との乖離]{.regmonkey-bold} が起きやすい
+- 結果として [誤検知や見落とし]{.regmonkey-bold} が増える
+
+:::
+
+::::
+:::::
+
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+
+ユーザー視点の監視を起点にする
+:::
+
+:::{.squaredmark style="font-size: 0.9em"}
+
+- まず [ユーザーがアプリケーションと触れる箇所]{.regmonkey-bold} に監視を追加
+- 代表指標は [HTTP レスポンスコード・レイテンシ]{.regmonkey-bold}
+- 「[何が]{.regmonkey-bold} 問題か」は分からなくても「[問題が起きているか]{.regmonkey-bold}」は分かる
+- 詳細指標は [根本原因分析の補助]{.regmonkey-bold} と位置付ける
+
+:::
+
+::::
+:::::
+::::::
+
+## パターン3：作るのではなく買う
+
+[SaaS 監視ツールは人時と逸失利益を考えると割安になる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .padding-L-05 .lh-12}
+
+- 監視基盤の [自前開発は人時コスト]{.regmonkey-bold} と [逸失利益]{.regmonkey-bold} を考慮すると割高になりやすい
+- 多くの企業では [SaaS 監視ソリューションに年間 6,000〜9,000 ドル]{.regmonkey-bold} を投資している
+- 自前開発は [ユニークな問題やニーズ]{.regmonkey-bold} に限定し，標準業務は SaaS を選択する
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[代表的な SaaS 監視ツール]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .lh-14}
+
+- [Datadog]{.regmonkey-bold}・[New Relic]{.regmonkey-bold}・[Splunk]{.regmonkey-bold}：APM・ログ・メトリクスを統合した有償 SaaS
+- [Grafana Cloud]{.regmonkey-bold}・[Honeycomb]{.regmonkey-bold}：OSS 由来のマネージドサービス
+- クラウド事業者標準：[CloudWatch (AWS)]{.regmonkey-bold}・[Cloud Monitoring (GCP)]{.regmonkey-bold}・[Azure Monitor]{.regmonkey-bold}
+
+:::
+
+## パターン4：継続的改善で監視ニーズの変化に追従する
+
+[監視ツールは日進月歩．構築時点の最適解はすぐに陳腐化する]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box .font-11}
+
+[監視は「作って終わり」ではなく，定期的に棚卸し・チューニング・組み替えを行う運用プロセス]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- 監視ツールも [プロダクトと監視ニーズも日進月歩]{.regmonkey-bold} で変化する．陳腐化した監視は [誤検知と見落としの温床]{.regmonkey-bold} になる
+- [いかに柔軟に時世に合わせて変えていけるか]{.regmonkey-bold} の組織能力が，観測体制の品質を決める
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.tools-grid style="height:50%; font-size: 0.85em;"}
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi arrow-repeat size=1.2em color=#0E3666 >}}
+[① 改善サイクルの仕組み化]{.pl-5}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+毎日のアラートレビュー
+:::
+::: {.tool-description}
+前日のアラート一覧を棚卸しし，削除・チューニング候補をリスト化する
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+四半期ごとの SLO・閾値見直し
+:::
+::: {.tool-description}
+プロダクト成熟・トラフィック増減に応じて許容劣化ラインを更新する
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+ポストモーテムを監視設計に反映
+:::
+::: {.tool-description}
+インシデント後の振り返りから「次は早く気付ける」アラートを追加する
+:::
+:::
+:::
+
+::::
+
+:::: {.tools-column .tools-column-after}
+::: {.column-title}
+{{< bi gear-wide-connected size=1.2em color=#0E3666 >}}
+[② 組織・文化の前提]{.pl-5 .align-top}
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+監視の棚卸しを業務として認める
+:::
+::: {.tool-description}
+新規開発と同等の工数として位置付け，定例タスクに組み込む
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+ツール変更を恐れない
+:::
+::: {.tool-description}
+疎結合な監視プラットフォームの設計（パターン1）が前提．Lock-in を避ける
+:::
+:::
+:::
+
+::: {.tool-item}
+::: {.tool-content}
+::: {.tool-name}
+オンコール担当を改善のオーナーにする
+:::
+::: {.tool-description}
+現場の痛みを最も知る人がアラート設計の改善提案を出す
+:::
+:::
+:::
+
+::::
+::::
+
+# アラート・オンコール・インシデント管理
+
+## 良いアラートは「叩き起こすもの」と「FYI」を分ける
+
+[緊急通知と参考通知を混ぜると，アラート疲れが起きる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-alert-types data-col-widths="[20,40,40]"}
+
+```yaml
+record1:
+  category: 叩き起こす<br>アラート
+  rule:
+    - 緊急の問題に対する<span class="regmonkey-bold">タイムリーな Action 実施</span>を促す
+  actions:
+    - ログを残す
+    - チケットを自動生成
+    - 手順書（runbook）にリンクする
+
+record2:
+  category: FYI として<br>のアラート
+  rule:
+    - 即対応は不要だが<span class="regmonkey-bold">誰かが確認すべき</span>事象を通知する
+  actions:
+    - 例：夜間バックアップの失敗
+    - チャットでの通知が中心
+    - 蓄積してレポート化
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.info-box .font-09 .lh-14}
+
+- 監視の定義に立ち戻る：[システムやそのコンポーネントの振る舞い・出力を観察しチェックし続ける]{.regmonkey-bold} ためにアラートは必要
+- ただし [誤検知を減らす運用]{.regmonkey-bold} がセットでなければ機能しない
+
+:::
+
+## 良いアラートを作る7つの Tips
+
+[通知・手順書・チューニング・自動化の4観点を総合的に設計する]{.h2-submessage}
+
+{{< reveal_vspace 2.5em >}}
+
+::::: {.columns}
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi chat-dots-fill size=1.6em color=#428CE6 >}}
+通知・記録
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- メールではなく [チャット（Slack 等）]{.regmonkey-bold} で通知
+- アラートの [ログを必ず保持]{.regmonkey-bold} し改善・SLA レポートに使う
+- 受信者を [限定]{.regmonkey-bold} し全員に流して埋もれさせない
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi book-half size=1.6em color=#428CE6 >}}
+手順書（Runbook）
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- アラートに [手順書リンク]{.regmonkey-bold} を必ず添える
+- 「[新人でもたどれる]{.regmonkey-bold}」粒度で書く
+- 発動条件・原因候補・Action を [一括記載]{.regmonkey-bold}
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi sliders size=1.6em color=#428CE6 >}}
+閾値・チューニング
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- 固定閾値だけが方法ではない：[変化率・季節性]{.regmonkey-bold} も活用
+- 効かないアラートは [積極的に削除する]{.regmonkey-bold}
+- [メンテナンス期間]{.regmonkey-bold} を設け誤検知を抑える
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+
+:::{.horizontal-keypoints-block-no-border style="height:95%;"}
+
+:::{.block-header}
+{{< bi robot size=1.6em color=#428CE6 >}}
+自動化
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- アラート前にまず [自動復旧を試す]{.regmonkey-bold}
+- 自動復旧不可の事象だけが [人にエスカレーション]{.regmonkey-bold}
+- 復旧手順を [コード化]{.regmonkey-bold} し再利用する
+
+:::
+
+:::
+::::
+
+:::::
+
+## 手順書は「サービスを引き継ぐ最短ドキュメント」
+
+[6つの問いに答えられる手順書がオンコールを救う]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+
+[手順書が必ず答えるべき6つの問い]{.mini-section}
+
+:::{.info-contents .padding-L-05 .font-10 .lh-14}
+- これは [何のサービスで，何をするものか]{.regmonkey-bold}？
+- 誰が [責任者（サービスオーナー）]{.regmonkey-bold} か？
+- どんな [依存性]{.regmonkey-bold} を持つか？（外部・内部）
+- インフラの [構成]{.regmonkey-bold} はどのようなものか？
+- どんな [メトリクス・ログ]{.regmonkey-bold} を送っていて，それらは何を意味するか？
+- どんな [アラートが設定されていて，その理由]{.regmonkey-bold} は何か？
+:::
+
+
+{{< reveal_vspace 1.0em >}}
+
+[Tips：書きすぎ・複雑すぎを避ける]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .lh-14}
+
+- 固定閾値だけが方法ではない：[アラート疲れを起こす設定にしない]{.regmonkey-bold}
+- 手順書は [Issue Finding から Action までの最短経路]{.regmonkey-bold} を示すドキュメント
+
+:::
+
+## 手順書サンプル：Demo App のアラート定義
+
+[各アラートに「発動条件・考えられる原因・Action」をセットで書く]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-runbook-alert data-col-widths="[28, 24, 24, 24]"}
+
+```yaml
+record1:
+  アラート名: ユーザーサインイン<br>失敗率が高い
+  When（発動条件）:
+    - 5分で失敗率 <span class="regmonkey-bold">5% 超過</span>
+  考えられる原因:
+    - 不正なデプロイ
+    - <span class="regmonkey-bold">ブルートフォース</span>攻撃
+  Then（Action）:
+    - 直近デプロイを確認
+    - サインインログで攻撃兆候を確認
+
+record2:
+  アラート名: ユーザーログイン<br>時間が長すぎる
+  When（発動条件）:
+    - ログイン時間が <span class="regmonkey-bold">1秒超過</span>
+  考えられる原因:
+    - 不正なデプロイ
+    - <span class="regmonkey-bold">PostgreSQL 性能</span>劣化
+  Then（Action）:
+    - 直近デプロイを確認
+    - DB のクエリ・接続数を確認
+
+record3:
+  アラート名: 記事作成時間<br>が長すぎる
+  When（発動条件）:
+    - 記事作成時間が <span class="regmonkey-bold">1秒超過</span>
+  考えられる原因:
+    - 不正なデプロイ
+    - <span class="regmonkey-bold">PostgreSQL 性能</span>劣化
+  Then（Action）:
+    - 直近デプロイを確認
+    - DB のクエリ・接続数を確認
+
+record4:
+  アラート名: コメント作成時間<br>が長すぎる
+  When（発動条件）:
+    - コメント作成時間が <span class="regmonkey-bold">1秒超過</span>
+  考えられる原因:
+    - 不正なデプロイ
+    - <span class="regmonkey-bold">PostgreSQL 性能</span>劣化
+  Then（Action）:
+    - 直近デプロイを確認
+    - DB のクエリ・接続数を確認
+```
+
+:::
+::::
+
+## オンコールは「アラート改善のオーナー」でもある
+
+[呼び出し対応だけでなく，翌日のアラート整理までが業務範囲]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.info-box}
+
+[オンコール（On-call）とは]{.info-box-title}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 何か問題が起きたときに [いつでも呼び出しに答えられるようにしている担当]{.regmonkey-bold}
+- 誤報・わかりにくいアラート・場当たり対応は [必要以上に体力を消耗させる]{.regmonkey-bold}
+- オンコール担当と [システム改善者との連携]{.regmonkey-bold} を確保する必要がある
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[オンコールが毎日回すアラート改善サイクル]{.mini-section}
+
+::::{.step-container style="height: 48%" .padding-TB-none}
+
+:::{.step}
+[アラート一覧化]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 前日に送られた [全アラートをリスト化]{.regmonkey-bold}
+- ログから [発動回数・対応者]{.regmonkey-bold} を抜き出す
+:::
+
+:::
+
+:::{.step}
+[改善・削除を自問]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- [改善ポイント・削除候補]{.regmonkey-bold} を自問自答
+- 「[Action 不要]{.regmonkey-bold}」なものは削除候補
+:::
+
+:::
+
+:::{.step}
+[頻度で分類]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 正しいアラートを [頻度で分類]{.regmonkey-bold}
+- 多発・少発・新規の3カテゴリに整理
+:::
+
+:::
+
+:::{.step}
+[システム改善提案]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 多発アラートの [根本原因に対する改善提案]{.regmonkey-bold}
+- 毎日続けると [アラートとシステムが共に改善]{.regmonkey-bold}
+:::
+
+:::
+
+::::
+
+# インシデント管理
+
+## インシデント管理は ITIL[^itil] に倣った9ステップで設計する
+
+{{< reveal_vspace 0.3em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.66em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-itil-9steps data-col-widths="[20, 8, 42, 30]"}
+
+```yaml
+record1:
+  Step: 1. 認識
+  フェーズ: <span class="regmonkey-bold">Detect</span>
+  やること:
+    - 監視・ユーザー報告・自動アラートで<span class="regmonkey-bold">インシデント発生を検知</span>する
+  成果物・出力:
+    - 検知トリガ（アラート ID・通報チャネル）
+
+record2:
+  Step: 2. ロギング
+  フェーズ: <span class="regmonkey-bold">Detect</span>
+  やること:
+    - インシデント ID を発番し，<span class="regmonkey-bold">記録システム</span>に登録する
+  成果物・出力:
+    - インシデントチケット
+    - 発生時刻・初動メンバー記録
+
+record3:
+  Step: 3. 分類
+  フェーズ: <span class="regmonkey-bold">Triage</span>
+  やること:
+    - 種別（障害／パフォーマンス／セキュリティ等）に<span class="regmonkey-bold">カテゴリ分け</span>する
+  成果物・出力:
+    - カテゴリラベル
+    - 関連サービスタグ
+
+record4:
+  Step: 4. 優先順位付け
+  フェーズ: <span class="regmonkey-bold">Triage</span>
+  やること:
+    - <span class="regmonkey-bold">影響範囲 × 緊急度</span>で SEV1〜SEV4 を決める
+  成果物・出力:
+    - SEV レベル
+    - 対応 SLA
+
+record5:
+  Step: 5. 初期診断
+  フェーズ: <span class="regmonkey-bold">Triage</span>
+  やること:
+    - 一次対応者が<span class="regmonkey-bold">原因仮説</span>を立て手順書で復旧を試みる
+  成果物・出力:
+    - 初期診断レポート
+    - 暫定対処の試行ログ
+
+record6:
+  Step: 6. エスカレーション
+  フェーズ: <span class="regmonkey-bold">Resolve</span>
+  やること:
+    - 一次対応で解決不能なら<span class="regmonkey-bold">Level 2 / SME</span> に引き継ぐ
+  成果物・出力:
+    - 引き継ぎノート
+    - 担当者アサイン記録
+
+record7:
+  Step: 7. 解決
+  フェーズ: <span class="regmonkey-bold">Resolve</span>
+  やること:
+    - 復旧作業を実施し，<span class="regmonkey-bold">サービス正常性</span>を確認
+  成果物・出力:
+    - 復旧時刻
+    - 適用した修正内容
+
+record8:
+  Step: 8. クローズ
+  フェーズ: <span class="regmonkey-bold">Close</span>
+  やること:
+    - チケットをクローズし<span class="regmonkey-bold">ポストモーテム</span>をスケジュール
+  成果物・出力:
+    - クローズ理由
+    - ポストモーテム議事録
+
+record9:
+  Step: 9. コミュニケーション
+  フェーズ: <span class="regmonkey-bold">All Phases</span>
+  やること:
+    - 発生中・解決後にステークホルダー・ユーザーへ<span class="regmonkey-bold">継続的に状況を通知</span>する
+  成果物・出力:
+    - ステータスページ更新
+    - 顧客向けレポート
+```
+
+:::
+::::
+
+<!-- footer -->
+
+[^itil]: [ITIL v3 Incident Management — BMC Blog](https://www.bmc.com/blogs/itil-v3-incident-management/)
+[^pdir]: [PagerDuty Incident Response](https://response.pagerduty.com)
+
+## インシデント対応体制は4つの役割で構成する
+
+[現場指揮官・スクライブ・コミュニケーション・SME に分業して認知負荷を下げる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.72em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-incident-roles data-col-widths="[22, 18, 35, 25]"}
+
+```yaml
+record1:
+  役割: ① 現場指揮官<br>(Incident Manager)
+  主担当:
+    - <span class="regmonkey-bold">意思決定</span>
+  責務:
+    - 対応全体の<span class="regmonkey-bold">意思決定者</span>．方針・優先順位・エスカレーション判断を担う
+    - 関係者にタスクを割り当て，状況を俯瞰する
+  成功の判定:
+    - 復旧の優先順位が明確
+    - 関係者全員が次のアクションを把握
+
+record2:
+  役割: ② スクライブ<br>(Scribe)
+  主担当:
+    - <span class="regmonkey-bold">記録</span>
+  責務:
+    - 発言・判断・実行を<span class="regmonkey-bold">時系列で記録</span>する
+    - 後のポストモーテム・監査の一次資料となる
+  成功の判定:
+    - 5W1H が後追いで再構成できる
+    - 重要判断と理由が残っている
+
+record3:
+  役割: ③ コミュニケーション<br>調整役
+  主担当:
+    - <span class="regmonkey-bold">対外連絡</span>
+  責務:
+    - 利害関係者・顧客に<span class="regmonkey-bold">最新情報を伝える</span>
+    - 解決チームに<span class="regmonkey-bold">問い合わせを流さない</span>防波堤として動く
+  成功の判定:
+    - ステータスページが最新
+    - SME への問い合わせ流入が抑制
+
+record4:
+  役割: ④ SME<br>(Subject Matter Expert)
+  主担当:
+    - <span class="regmonkey-bold">技術復旧</span>
+  責務:
+    - 実際に<span class="regmonkey-bold">インシデント対応する人</span>．技術的な調査・復旧作業を担う
+    - 仮説検証・修正適用・正常性確認まで
+  成功の判定:
+    - 復旧が完了している
+    - 原因仮説と検証手順が残っている
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+[補足：レベル（Tier）の意味]{.mini-section}
+
+:::{.font-09 .lh-14}
+
+- 実対応者は [Level 1 / Tier 1]{.regmonkey-bold}．より専門的な調査・広範囲権限を持つのが [Level 2]{.regmonkey-bold}．以降 Level 3・4 と続く
+
+:::
+
+# ビジネス監視・フロントエンド監視
+
+## Business KPI は監視を経営判断に接続する
+
+[システム監視と同じく，Issue Finding → Insight → Action が成立しなければ意味がない]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box}
+
+[Business KPI の役割]{.info-box-title}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 全体としてビジネスが機能するために必要な計画を [どのように実行しているか]{.regmonkey-bold} を測るメトリクス
+- 監視と同じく [Issue Finding・Insight・Action]{.regmonkey-bold} を導くものでなければならない
+
+:::
+
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+[KPI を設定する際の5観点]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+:::{.font-09 .lh-14}
+
+- 顧客は [アプリケーション・サービスを使用しているか]{.regmonkey-bold}
+- [儲かっているか]{.regmonkey-bold}
+- 成長しているか・縮小しているか・[停滞しているか]{.regmonkey-bold}
+- どれくらい [利益が出ているか・悪化しているか]{.regmonkey-bold}
+- 顧客は [喜んでいるか]{.regmonkey-bold}
+
+:::
+
+## よく使う Business KPI 一覧
+
+[収益・顧客・コスト・成長の各軸で代表指標を押さえる]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.78em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-biz-kpi data-col-widths="[30, 70]"}
+
+```yaml
+record1:
+  category: Monthly Recurring Revenue (MRR)
+  actions:
+    - 顧客からの<span class="regmonkey-bold">月ごとの経常利益</span>
+
+record2:
+  category: Revenue per Customer
+  actions:
+    - 顧客ごとの収益．通常は<span class="regmonkey-bold">年単位</span>で見る
+
+record3:
+  category: Number of Paying Customer
+  actions:
+    - <span class="regmonkey-bold">課金顧客数</span>
+
+record4:
+  category: NPS (Net Promoter Score)
+  actions:
+    - ユーザー満足度．<span class="regmonkey-bold">他人に薦める度合い</span>を測る
+
+record5:
+  category: LTV (Life Time Value)
+  actions:
+    - 顧客の<span class="regmonkey-bold">生涯単位</span>での価値を計測
+
+record6:
+  category: Cost per Customer / CAC
+  actions:
+    - <span class="regmonkey-bold">サービス提供コスト</span>と<span class="regmonkey-bold">獲得費用</span>
+
+record7:
+  category: Customer Churn
+  actions:
+    - 離反顧客数．上昇時は<span class="regmonkey-bold">プロダクト・性能・価格</span>に問題のサイン
+
+record8:
+  category: Active Users (DAU/WAU/MAU)
+  actions:
+    - サービスの<span class="regmonkey-bold">アクティブユーザー数</span>
+
+record9:
+  category: Burn Rate / Run Rate
+  actions:
+    - 月次支出と<span class="regmonkey-bold">資金枯渇までの残り期間</span>
+
+record10:
+  category: TAM (Total Addressable Market)
+  actions:
+    - 特定マーケットの<span class="regmonkey-bold">最大規模</span>を示す
+```
+
+:::
+::::
+
+## ケーススタディ：Yelp の Business KPI 設計
+
+[コア機能の利用イベントを KPI にすると，プロダクトの健全性が直接見える]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.78em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-yelp-kpi data-col-widths="[28, 32, 40]"}
+
+```yaml
+record1:
+  KPI: 検索実行
+  観測する側面:
+    - プロダクトの<span class="regmonkey-bold">入口</span>の利用状況
+  健全性が示すこと:
+    - 検索数の低下は<span class="regmonkey-bold">集客力の悪化</span>を示唆
+
+record2:
+  KPI: レビュー投稿
+  観測する側面:
+    - UGC（ユーザー生成コンテンツ）の<span class="regmonkey-bold">供給量</span>
+  健全性が示すこと:
+    - 投稿減はコンテンツ枯渇 → <span class="regmonkey-bold">検索品質低下</span>に波及
+
+record3:
+  KPI: ユーザーのサインアップ
+  観測する側面:
+    - 新規ユーザーの<span class="regmonkey-bold">流入速度</span>
+  健全性が示すこと:
+    - サインアップ減速は<span class="regmonkey-bold">成長鈍化</span>の先行指標
+
+record4:
+  KPI: ビジネスページの取得
+  観測する側面:
+    - <span class="regmonkey-bold">需要側</span>（探す側）のアクション
+  健全性が示すこと:
+    - 取得数増加は需要の活性化．広告購入の<span class="regmonkey-bold">先行指標</span>
+
+record5:
+  KPI: アクティブユーザー・<br>アクティブビジネス
+  観測する側面:
+    - 両サイドマーケットの<span class="regmonkey-bold">健全性</span>
+  健全性が示すこと:
+    - 片側の減少は<span class="regmonkey-bold">マーケットの偏り</span>を示す
+
+record6:
+  KPI: 広告購入
+  観測する側面:
+    - <span class="regmonkey-bold">収益化</span>指標
+  健全性が示すこと:
+    - 収益の直接KPI．需要側のアクションと連動して観測
+
+record7:
+  KPI: レビューに対する返事
+  観測する側面:
+    - エンゲージメント・<span class="regmonkey-bold">コミュニティ活性度</span>
+  健全性が示すこと:
+    - 返事率低下は<span class="regmonkey-bold">事業者側の関心離脱</span>の兆候
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+:::{.font-09 .lh-14}
+
+- 共通する設計思想：[コア機能の利用イベントを KPI 化]{.regmonkey-bold} し，システム監視と並べて観測する
+
+:::
+
+## フロントエンドのパフォーマンス指標
+
+[動作確認だけでなく，パフォーマンスを収益インパクトと接続して語る]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box}
+
+[なぜパフォーマンス評価が重要か]{.info-box-title}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+- 動くことの評価も重要だが，[パフォーマンス評価が事業インパクトに直結]{.regmonkey-bold}
+- フロントエンドの改善が [収益にどれほどのインパクトを与えるか]{.regmonkey-bold} を説明することが重要
+
+:::
+:::
+
+{{< reveal_vspace 0.3em >}}
+
+::::: {.columns}
+:::: {.column width="50%"}
+
+
+[① Navigation Timing API]{.info-box-title}
+
+:::{.info-contents .font-09 .lh-14}
+- W3C 標準の [ブラウザ計測 API]{.regmonkey-bold}[^navtiming]
+- DNS・TCP・レスポンス・DOM 構築など [各フェーズの時間]{.regmonkey-bold} を取得
+- RUM の基礎データとして使える
+:::
+
+
+::::
+:::: {.column width="50%"}
+
+
+[② Speed Index / Lighthouse]{.info-box-title}
+
+:::{.info-contents .font-09 .lh-14}
+- ページの [視覚的な完成度の時間推移]{.regmonkey-bold} を指標化[^speedindex]
+- Lighthouse 監査の [標準スコア要素]{.regmonkey-bold}
+- Google Analytics のライブラリ計測ツールも併用可
+:::
+
+
+::::
+:::::
+
+<!-- footer -->
+
+[^navtiming]: [Navigation Timing API — MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/Navigation_timing_API)
+[^speedindex]: [Speed Index — Lighthouse Audits](https://developers.google.com/web/tools/lighthouse/audits/speed-index?hl=ja)
+
+# Appendix
+
+## Summary
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.custom-table style="width:100%; height:80%; font-size: 0.82em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-monitoring-summary data-col-widths="[18, 35, 47]"}
+
+```yaml
+record1:
+  category: 監視の<br>原則
+  rule:
+    - 監視は<span class="regmonkey-bold">ミッションドリブン</span>で設計し，Issue Finding を Action に接続する
+  actions:
+    - 「動いている」の定義をオーナーと合意する
+    - パフォーマンス管理・改善を起点に置く
+    - 監視は全員で行う
+
+record2:
+  category: アンチ<br>パターン
+  rule:
+    - <span class="regmonkey-bold">ツール依存</span>と<span class="regmonkey-bold">監視のための監視</span>を避ける
+  actions:
+    - メトリクス収集は最低 60 秒間隔
+    - 履歴を保存し，傾向を追えるようにする
+    - 誤検知の多いアラートは削除・チューニング
+
+record3:
+  category: デザイン<br>パターン
+  rule:
+    - <span class="regmonkey-bold">専門ツールを疎結合</span>で組み，ユーザー視点で測り，SaaS を活用する
+  actions:
+    - HTTP コード・レイテンシでサービス品質を測る
+    - 可用性は依存先の SLA で上限が決まる
+    - 標準業務は SaaS，固有要件のみ自前開発
+
+record4:
+  category: アラート・<br>オンコール
+  rule:
+    - <span class="regmonkey-bold">手順書とログ</span>でアラートを「対応可能な情報」にする
+  actions:
+    - チャット通知＋手順書リンクをセット
+    - 自動復旧を先に試す
+    - 毎日アラートを棚卸ししシステム改善提案
+
+record5:
+  category: ビジネス・<br>フロント
+  rule:
+    - <span class="regmonkey-bold">Business KPI と RUM/Synthetic</span> で観測を経営とユーザー体感に接続する
+  actions:
+    - コア機能の利用イベントを KPI 化
+    - Navigation Timing・Speed Index で性能計測
+    - 改善は収益インパクトで語る
+```
+
+:::
+::::
+
+## 可用性とサンプリング定理
+
+[「9 の数」で可用性を表し，ナイキスト・シャノン定理で計測間隔を決める]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+:::{.main-message-box .font-11}
+
+[可用性 = 稼働時間 / 総稼働時間．サービスの可用性は下位レイヤの可用性を超えない]{.mini-section-bare}
+
+:::{.padding-L-05 .lh-12 .font-09}
+
+- 99% を [two-nine]{.regmonkey-bold}，99.99% を [four-nine]{.regmonkey-bold} と呼ぶ
+- 例：Cloud Storage は [99.999999999%（イレブンナイン）]{.regmonkey-bold} の年間耐久性 ＝ 年間 31 秒のダウン相当
+- SLO 設計時は [依存先 SLA の積み上げ]{.regmonkey-bold} で天井を確認する
+
+:::
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+::::: {.columns}
+:::: {.column width="50%"}
+
+
+[① ナイキスト・シャノンのサンプリング定理]{.info-box-title}
+
+:::{.info-contents .padding-L-05 .font-09 .lh-14}
+- 2 分間のダウンタイムを計測するには [1 分間隔]{.regmonkey-bold} の収集が必要
+- サンプリング間隔は [検知したい最短ダウン時間の 1/2 以下]{.regmonkey-bold}
+- 可用性計算が難しい理由のひとつ
+
+:::
+
+::::
+:::: {.column width="50%"}
+
+
+[② 依存コンポーネントの天井]{.info-box-title}
+
+:::{.info-contents .padding-L-05 .font-09 .lh-14}
+- サービスの可用性は [下位レイヤの可用性を超えない]{.regmonkey-bold}
+- 例：AWS EC2 は 1 リージョンで [99.95% 保証]{.regmonkey-bold} → 年間最低 4 時間のダウン
+- SLO 設計時は [依存先 SLA の積み上げ]{.regmonkey-bold} で天井を確認
+
+:::
+
+::::
+:::::
