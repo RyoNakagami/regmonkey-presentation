@@ -542,6 +542,7 @@ Ryo Nakagami
 } }%%
 gitGraph
    commit id: "v1.0.0" tag: "v1.0.0"
+   branch hotfix/bug
    branch develop
    checkout develop
    commit id: "next"
@@ -552,13 +553,13 @@ gitGraph
    checkout develop
    merge feat/login id: "squash"
    checkout main
-   branch hotfix/bug
+   commit id: "revert"
    checkout hotfix/bug
-   commit id: "fix"
+   commit id: "root-fix"
    checkout main
    merge hotfix/bug tag: "v1.0.1"
    checkout develop
-   merge hotfix/bug
+   merge main
    branch bugfix/typo
    checkout bugfix/typo
    commit id: "typo"
@@ -579,20 +580,25 @@ gitGraph
 <div class="tool-item pt-2 pb-2">
 <div class="tool-content">
 <div class="tool-name">
-<p>① mainのブランチ保護ルール</p>
+<p>① 本番系（<code>main</code>・<code>develop</code>）の保護ルール</p>
 </div>
 <div class="tool-description" style="font-size:0.9em;color: black !important">
-<p><code>hotfix/*</code>・<code>develop</code> からのPRのみ受け付け，CI全パス + 1名以上のレビュー承認を必須にする</p>
+<ul>
+<li>直接pushを禁止し，<span class="regmonkey-bold"><code>hotfix/*</code>・<code>develop</code> からのPRのみ受け付ける</span>（CI全パス + 1名以上のレビュー承認を必須）</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="tool-item pt-2 pb-2">
 <div class="tool-content">
 <div class="tool-name">
-<p>② トピックブランチ（push可）</p>
+<p>② トピックブランチ（push可）の3系統</p>
 </div>
 <div class="tool-description" style="font-size:0.9em; color: black !important">
-<p><code>feat/*</code>（新機能）・<code>bugfix/*</code>（通常バグ修正）・<code>hotfix/*</code>（本番緊急修正）の3系統で運用する</p>
+<ul>
+<li><span class="regmonkey-bold"><code>feat/*</code>（新機能）・<code>bugfix/*</code>（通常バグ修正）・<code>hotfix/*</code>（本番緊急修正）</span></li>
+<li>統合ブランチ2種と合わせて計5種類で運用する</li>
+</ul>
 </div>
 </div>
 </div>
@@ -726,16 +732,16 @@ gitGraph
 } }%%
 gitGraph
    commit id: "v1.0.0" tag: "v1.0.0"
+   branch hotfix/bug
    branch develop
    checkout develop
    commit id: "next"
    checkout main
-   commit id: "revert" tag: "v1.0.1"
-   branch hotfix/bug
+   commit id: "revert"
    checkout hotfix/bug
    commit id: "root-fix"
    checkout main
-   merge hotfix/bug tag: "v1.0.2"
+   merge hotfix/bug tag: "v1.0.1"
    checkout develop
    merge main
 </pre>
@@ -756,7 +762,7 @@ gitGraph
 </div>
 <div class="tool-description" style="font-size:0.9em;color: black !important">
 <ul>
-<li>重大バグは <span class="regmonkey-bold"><code>main</code> に直接 <code>git revert</code> を当てて即 tag</span>（前提：原因特定可・後続依存なし）で本番を最速安定化</li>
+<li>重大バグは <span class="regmonkey-bold"><code>main</code> に直接 <code>git revert</code> を当てて本番を最速安定化</span>：<span class="regmonkey-bold">tag は付けない</span>（緊急避難であり正式リリースではない）</li>
 </ul>
 </div>
 </div>
@@ -768,7 +774,7 @@ gitGraph
 </div>
 <div class="tool-description" style="font-size:0.9em; color: black !important">
 <ul>
-<li><code>main</code> から <code>hotfix/*</code> を分岐し，PR・マージ後 <strong>Annotated tag</strong> を付与（落ち着いて根本原因を直す）</li>
+<li><span class="regmonkey-bold"><code>v1.0.0</code> から</span> <code>hotfix/*</code> を分岐し，根本修正後の no-ff merge に <strong>Annotated tag</strong> <code>v1.0.1</code> を付与（落ち着いて根本原因を直す）</li>
 </ul>
 </div>
 </div>
