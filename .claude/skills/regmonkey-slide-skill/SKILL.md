@@ -36,7 +36,7 @@ Skill の役割：
 
 ## ライティングルール
 
-順序が優先度．1〜6 は絶対遵守，7〜9 は better practice．
+順序が優先度．1〜6 は絶対遵守，7〜10 は better practice．
 
 1. **1スライド1メッセージ．** H2（`##`）はそのスライドのテイクアウェイ文であって，トピックラベルではない．「モデル管理の自動化を MLflow 導入により実現」 — yes．「MLflow について」 — no．
 2. **MMUF．** 結論先出し，根拠は後．箇条書きは「なぜ H2 が真なのか」を説明するもの．
@@ -47,6 +47,7 @@ Skill の役割：
 7. **コードに `font-family` を設定しない．** `_quarto.yml` で `monofont: monospace` 指定済み．上書きするとサイト全体の見た目の一貫性が崩れる．
 8. **H2 タイトルは32文字以内が望ましい．** 超えるとスライド最上部で折り返し視認性が落ちる．本体を短くまとめ，補足は直下の `[...]{.h2-submessage}` に逃がす．例：「MLflow を導入してモデル管理・実験ログ・成果物アーカイブを統合的に自動化する」（39字）→ H2「MLflow でモデル管理を自動化」（13字）+ h2-submessage「実験ログ・成果物アーカイブも統合的に取り込む」．
 9. **対比は pentagon（左）× square（右）でペアにする．** Pentagon の右向き矢印が問題/AS-IS を square 側の解決/TO-BE へ視覚的に運ぶ．左右逆や Square 2つで対比しない．
+10. **既出スライドのレイアウトを再利用する．** 同じ deck 内で「N項目を並列で見せる」シーンが複数回出るとき，**最初に確定したレイアウト（columns 比率・カラム数・ブロック種類・font-size）を踏襲**する．ユーザーが「○○スライドと同じレイアウトで」と言ったら，**新しく組み直さずに当該スライドを Read して構造をコピーし中身だけ差し替える**．似て非なる構成（3列のものを2列に変える，`horizontal-keypoints-block` を `info-box` に変える等）は redo を要求される原因の最頻出パターン．用語例：「4つのルールと同じレイアウト」「パターン1と同じレイアウト」が来たら **既存スライドの構造を保存** が第一義．
 
 
 ## Quarto フェンス div 構文
@@ -101,6 +102,20 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 ## インラインパターンチートシート
 
 大半のスライドはこの4パターンでカバーできる．記憶から使い，どれにも当てはまらない時のみ `references/components.md` に手を伸ばす．
+
+**N項目をどの形で見せるか — 早見表：**
+
+| 項目数 | 関係 | 推奨パターン | テンプレート |
+|---|---|---|---|
+| 2 | 対比（AS-IS / TO-BE，課題 / 対応） | Pentagon × Square | `pentagon-squared-box.qmd` |
+| 2 | 並列（情報密度高め） | info-box 並列 | `info-box-with-two-cols.qmd` |
+| 3 | 昇順成長（Jr→Mid→Sr 等） | hop-step-jump | `hop-step-jump.qmd` |
+| 3 | 並列観点 | horizontal-keypoints（3列） | `three-horizontal-points.qmd` |
+| 4-5 | 並列観点 | horizontal-keypoints（N列） | `horizontal-n-keypoints.qmd` |
+| 3-6 | 連続プロセス（日次サイクル等） | step-arrow（active-phase-sm） | `step-arrow-process.qmd` |
+| 5+ | 並列分類（カテゴリ整理） | yaml2table 3-4 列 | `summary-yaml2table.qmd` / `anti-pattern-table.qmd` |
+
+**「Xスライドと同じレイアウトで」と言われたら**：新規に組み直さず，当該スライドを Read して構造をコピーして中身だけ差し替える（ライティングルール 10）．
 
 ### パターン1 — Pentagon × Square（対比）
 
@@ -215,6 +230,17 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 
 **Summary — yaml2table 3 列：** 各セクションが「**原則 + 具体アクション**」のセットで束ねられるとき，`.block-azureblue` の代わりに `templates/summary-yaml2table.qmd` を使う．category（短いラベル）/ rule（1 文の主原則）/ actions（プロセスとして読める動詞句リスト）の 3 列構造．推奨ルールと完全な解説は `references/patterns.md` §3．
 
+## regmonkey_index（章立て・目次スライド）の主要オプション
+
+`.regmonkey_index` の YAML は `js/regmonkey_index_summary.js` が render 時に処理する．以下のキーは知らないと毎回ユーザーに教えてもらう羽目になるので最低限覚える．
+
+- `numbering: true` で `1.` `2.` … を自動付与．**`title:` 側で番号は書かない**（二重採番になる）．折返しは番号分の hanging-indent で左揃え．
+- `bullet_position: 0.5em` で title 列と bullet 列の間隔を詰める（既定 `1em`）．「title と文字の間が空きすぎる」と言われたらこれを下げる．
+- `bullet_fontsize: 0.85em` が 5-7 項目時の標準（既定 `1.5em` は密度が高い deck では大きすぎる）．
+- `width: [48, 52]` のように title 列と bullet 列の比率を指定．`numbering: true` でも 48〜52% から始めて調整．
+
+完全な仕様（`title_fontsize` / `title_position` / `children[].description` の型など）は `references/components.md` の Index slide セクション．
+
 ## スペーシング・サイズ・アイコン — クイックリファレンス
 
 - ブロック間の縦余白：`{{< reveal_vspace 0.5em >}}`（`1em`，`2em`，`15%` 等）
@@ -231,16 +257,20 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 | ユーザーの依頼 | テンプレート | 場所 |
 |---|---|---|
 | 対比 / 課題と対応 | `pentagon-squared-box.qmd` | `templates/` |
-| 三段階の成長 / フェーズ展開 | `hop-step-jump.qmd` | `templates/` |
+| 三段階の成長 / フェーズ展開（昇順） | `hop-step-jump.qmd` | `templates/` |
+| N ステップの連続プロセス（日次サイクル等．矢印つなぎ） | `step-arrow-process.qmd` | `templates/` |
 | 三つの観点を横並び | `three-horizontal-points.qmd` | `templates/` |
+| 四つ以上の観点を横並び（4-5 列対応） | `horizontal-n-keypoints.qmd` | `templates/` |
 | 概念の定義スライド | `concept-explanation.qmd` | `templates/` |
 | 分析サマリースライド (4要素) | `analysis-summary.qmd` | `templates/` |
 | Azure blue サマリー | `azureblue-summary.qmd` | `templates/` |
 | 章扉・セクション開始 | `meta-data-slide.qmd` | `templates/` |
+| 補遺セクション開始（`# Appendix` 扉） | `appendix-divider.qmd` | `templates/` |
 | 書籍紹介 | `book-template.qmd` | `templates/` |
 | 同じ枠の左右対比（情報密度高め） | `info-box-with-two-cols.qmd` | `templates/` |
 | Lecture系トップページ（対象レベル・前提知識・必要環境＋目次） | `lecture-index-slide.qmd` | `templates/`|
-| Summary（category × rule × actions の 3 列） | `summary-yaml2table.qmd` | `templates/` |
+| Summary（category × rule × actions の 3 列：ポジティブ向け） | `summary-yaml2table.qmd` | `templates/` |
+| アンチパターン一覧（category × 観点 × ペイン の 3 列：ネガティブ向け） | `anti-pattern-table.qmd` | `templates/` |
 | 番号付きタイトル付き info-box（2 列 × 3 行のグリッド） | `info-box-titled.qmd` | `templates/` |
 | info-box + 箇条書き（パターン3 の起点） | `info-box-bullets.qmd` | `templates/` |
 | ステータスボックス4種（success/warning/caution/danger） | `status-boxes.qmd` | `templates/` |

@@ -159,9 +159,57 @@ Internal structure:
 
 `.hop-step-jump-container-vanilla` is the same layout without the colored decoration — use when you want a flat presentation of the same structure.
 
-### `.step-container` / `.step` / `.past-phase` / `.active-phase`
+### `.step-container` / `.step` / `.past-phase` / `.active-phase` / `.active-phase-sm`
 
-Lower-level building blocks for custom phase visualizations. `.past-phase` and `.active-phase` render arrow-shaped phase pills with state indication (used in roadmap-style slides). Read the CSS at lines ~1152-1290 if you need to assemble a roadmap by hand; for most uses, `.hop-step-jump-container` is enough.
+Arrow-shaped phase pills laid out left→right with chevron tips that interlock visually．**Use for ordered processes・workflows・daily cycles where each step "feeds into" the next**．`.hop-step-jump-container` describes 3 distinct stages（昇順成長）；`.step-container` describes **N ステップ（4 以上も可）の連続プロセス**．
+
+クラス対応：
+
+| クラス | 効果 |
+|---|---|
+| `.step-container` | flex 横並びコンテナ．`style="height: 48%"` 等で高さ指定可． |
+| `.step` | コンテナ内の1セグメント．flex 等分割． |
+| `.active-phase` | 内部の塗り＋左右の chevron 矢印（青色．高さ 4em） |
+| `.active-phase-sm` | `.active-phase` を **高さ 2.5em に縮める修飾子**．`.step-label` で下に説明を付けるレイアウトのとき矢印が太すぎるので**ほぼ常に併用**． |
+| `.past-phase` | 灰色版（履歴・完了済みフェーズ用） |
+| `.step-label` | 矢印の**下に表示される説明テキスト**ブロック．`position: absolute; top: 100%` で矢印直下に張り付く． |
+
+**典型形（N ステップの日次サイクル等）：**
+
+```
+::::{.step-container style="height: 48%"}
+
+:::{.step}
+[ステップ1ラベル]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 1点目の説明
+- 2点目の説明
+:::
+:::
+
+:::{.step}
+[ステップ2ラベル]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- ...
+:::
+:::
+
+... step3, step4 ...
+
+::::
+```
+
+**運用ルール：**
+
+- **`.active-phase` 単体ではなく必ず `.active-phase-sm` を併用**：単体だと矢印高さ 4em で `.step-label` がスライドからはみ出す．小さい矢印＋下の `.step-label` の組み合わせで初めて読みやすくなる．
+- **矢印内のラベルは `[...]{.step .active-phase .active-phase-sm}` の span 形式**：div ではなく Pandoc bracketed span．こうしないと chevron `::before` / `::after` が効かない．
+- **`.step-label` 内は箇条書きを推奨**：1〜3 個程度．多すぎると下のスライド領域を圧迫する．
+- **本数は 3〜6 が現実的**．7 以上だと矢印の幅が狭くなりラベルが折り返して読みづらい．それより多いときは yaml2table を選ぶ．
+- **過去フェーズと現在フェーズの対比**が欲しいときだけ `.past-phase` を混在させる（roadmap 用途）．日次サイクル等で全ステップを並列に見せたいときは `.active-phase` で揃える．
+
+実例：`posts/2026-05-28-monitoring-memo/index.qmd` の「オンコールは『アラート改善のオーナー』でもある」スライド（4 ステップの日次サイクル）．低レベルの CSS は `style/scss/_layouts.scss` の `.step-container` 周辺と `style/scss/_widgets.scss` の `.active-phase-sm` を参照．
 
 ---
 
@@ -188,30 +236,64 @@ Stacked-vertical layout, each child has `.block` (or `.no-border-block`) and a h
 
 ### `.horizontal-keypoints-block` / `.horizontal-keypoints-block-no-border`
 
-Same idea, laid out left-to-right inside a `.columns` row. Used for 3-column slides where each column is one keypoint. The `-no-border` variant drops the right-side separator (use for the last column).
+Same idea, laid out left-to-right inside a `.columns` row. Used for **N-column slides where each column is one keypoint**. The `-no-border` variant drops the right-side separator (use for the last column only).
+
+**列数の選び方：**
+
+| 列数 | 各カラム幅 | 用途 | 文字密度の目安 |
+|---|---|---|---|
+| 2 | `50%` | 二項対比（AS-IS/TO-BE，定性/定量 等）．Pentagon×Square より軽い見せ方． | `font-size:0.9em`，bullet 3-5 個 |
+| 3 | `33.3%` | 標準．「3つの観点」で要約するときの第一選択． | `font-size:0.85em`，bullet 3-5 個 |
+| 4 | `25%` | 「4 つのルール / 4 つのカテゴリ」で並列に並べたいとき． | `font-size:0.8em`，bullet 3 個 |
+| 5 | `20%` | 限界．これ以上は yaml2table を検討． | `font-size:0.75em`，bullet 2-3 個 |
+
+**4 列レイアウトの典型形（実例：「良いアラートを作る7つの Tips」を4観点に集約）：**
 
 ```
 ::::: {.columns}
-:::: {.column style="width: 33.3%; height:100%"}
-:::{.horizontal-keypoints-block style="height:60%;"}
+
+:::: {.column style="width: 25%; height:50%"}
+:::{.horizontal-keypoints-block style="height:95%;"}
 :::{.block-header}
-{{< bi signpost size=1.7em color=#428CE6 >}} 観点1
+{{< bi chat-dots-fill size=1.6em color=#428CE6 >}}
+通知・記録
 :::
-:::{.block .checkmark style="font-size:0.8em;"}
-- 説明
+{{< reveal_vspace 5% >}}
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+- メールではなく [チャット]{.regmonkey-bold} で通知
+- アラートの [ログを必ず保持]{.regmonkey-bold}
 :::
-:::
-::::
-:::: {.column style="width: 33.3%; height:100%"}
-... col 2 (also .horizontal-keypoints-block) ...
-::::
-:::: {.column style="width: 33.3%; height:100%"}
-:::{.horizontal-keypoints-block-no-border style="height:60%;"}
-... col 3, no right border ...
 :::
 ::::
+
+:::: {.column style="width: 25%; height:50%"}
+:::{.horizontal-keypoints-block ...}
+... col 2 ...
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+:::{.horizontal-keypoints-block ...}
+... col 3 ...
+:::
+::::
+
+:::: {.column style="width: 25%; height:50%"}
+:::{.horizontal-keypoints-block-no-border style="height:95%;"}
+... col 4 (no right border) ...
+:::
+::::
+
 :::::
 ```
+
+**運用ルール：**
+
+- **最後のカラムだけ `-no-border` 版**を使う．他のカラムを `-no-border` にすると区切りが消えて読みづらい．
+- **各カラムの `.block-header` には `{{< bi ... >}}` アイコン**を 1 個入れる．これだけで一気に「並列で見せる」表現になる．
+- **`.block-header` の直後に `{{< reveal_vspace 5% >}}` を入れて本文との間隔を確保**．省くとアイコンに本文が張り付く．
+- **N>3 のときは N 個の bullet を Tips 数より少なく集約する**（例：7 Tips → 4 観点）．並列カラムは「観点」を見せる場であって個別 Tips を見せる場ではない．
+- 各カラム高さは `style="height:50%"` 等で**揃える**．カラム間で高さがバラつくと矢印・枠線がガタつく．
 
 ---
 
@@ -413,20 +495,50 @@ record1:
 \`\`\`yaml
 regmonkey_index:
   title_fontsize: 1.3em
-  bullet_fontsize: 0.7em
+  bullet_fontsize: 0.85em
+  numbering: true
   children:
-    - title: 1. セクション名
+    - title: 監視とは何か
       description:
-        - 説明1
-        - 説明2
-      width: [28, 72]
+        - 監視の定義・目的・スコープを整理する
+      width: [48, 52]
 \`\`\`
 :::
 :::
 :::::
 ```
 
-`.regmonkey_index` is processed by `js/regmonkey_index_summary.js` at render time. The YAML is the data; the visual is generated.
+`.regmonkey_index` は `js/regmonkey_index_summary.js` が render 時に YAML をパースして HTML を生成する．YAML がデータ，見た目は JS 側で組まれる．
+
+### `regmonkey_index` の YAML キー（重要・全網羅）
+
+| キー | 型 | 既定値 | 用途 |
+|---|---|---|---|
+| `title_fontsize` | string | `1.5em` | 各 `title` の文字サイズ．`1.3em` が代表値． |
+| `bullet_fontsize` | string | `0.85em` | `description` の bullet 文字サイズ．7-9 行のときは `0.85em` 程度が目安． |
+| `title_position` | string | `0em` | title 列の左マージン上書き．通常は不要．widget 全体を右に寄せたいときに `1em` 等を指定． |
+| `bullet_position` | string | `1em` | bullet 列の左マージン上書き．title と bullet の **間隔を詰めたい時に `0.5em` 等を指定**． |
+| `numbering` | boolean | `false` | `true` で各 `title` 先頭に `1.` `2.` … を自動付与．**`title:` 側で `1. 監視とは` のように番号を手で書いてはいけない**（二重採番になる）．`numbering: true` のときの折返しは番号分の hanging-indent で左揃え（左寄せレイアウト）． |
+| `children[].title` | string | 必須 | セクションのタイトル．`<br>` で強制改行可．`numbering: true` のとき先頭に番号は書かない． |
+| `children[].description` | string\|list | 必須 | 各セクションの説明 bullet 群．文字列単一でも，list でも可． |
+| `children[].width` | `[N, M]` | 必須 | `[title 列%, bullet 列%]`．例 `[48, 52]` で半々．**numbering: true でも title 列は番号分が flex 確保される**ので 48〜50% から始めて調整． |
+
+**重要：** `title` と `description` の左右間隔が空きすぎると感じたら，`bullet_position: 0.5em` 等で詰める（既定 `1em`）．`width` だけ調整しても効かない場合がある．
+
+`numbering: true` を使う場合の典型形：
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.3em
+  bullet_fontsize: 0.85em
+  numbering: true            # 1. 2. 3. を自動付与
+  bullet_position: 0.5em     # title と bullet の間を詰める
+  children:
+    - title: 監視とは何か    # 番号は書かない（自動で "1." が付く）
+      description:
+        - 監視の定義・目的・スコープを整理する
+      width: [48, 52]
+```
 
 ---
 
