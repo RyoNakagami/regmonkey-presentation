@@ -1,0 +1,637 @@
+---
+title: "Coding Agent時代のコーディング"
+subtitle: "LLM 101"
+author: "Ryo Nakagami"
+date: "2026-05-31"
+categories: [AI, coding-agent, software-engineering, code-review]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - regmonkey_slide_editing
+auto-agenda:
+  bullets: bullets
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 3em >}}
+
+:::: {.column width="30%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi chat-square-text size=1.7em color=#428CE6 >}}
+
+### [背景・課題]{.padding-L-05}
+
+:::
+
+- 生成AIでコード生成コストがほぼゼロに低下
+- レビュー速度は変わらず制約条件が残る
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### [目的]{.padding-L-05}
+
+:::
+
+- 開発の希少資源がどこへ移動したかを整理
+- AI時代に求められる能力を再定義する
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi book size=1.7em color=#428CE6 >}}
+
+### [前提・制約]{.padding-L-05}
+
+:::
+
+- コーディングエージェントの利用経験を想定
+- 特定のツール選定には踏み込まない
+
+::::
+
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.regmonkey_index style="width:1150px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.2em
+  bullet_fontsize: 0.95em
+  bullet_position: 1.5em
+  numbering: true
+  children:
+    - title: 従来のソフトウェア開発
+      description:
+        - 実装がボトルネックだった時代の構造
+        - レビューは実装の品質保証プロセスだった
+      width: [42,58]
+    - title: AI登場による構造変化
+      description:
+        - コード生成コストがほぼゼロに
+        - 生成速度とレビュー速度のギャップ
+      width: [42,58]
+    - title: ボトルネックの移動
+      description:
+        - 実装からレビューへの制約条件の移動
+        - レビュー対象の<strong>性質</strong>が変わった
+      width: [42,58]
+    - title: AIコード特有のレビュー課題
+      description:
+        - 設計意図の不可視・巨大な差分
+        - 文脈無視・設計エントロピーの増加
+      width: [42,58]
+    - title: 開発者の役割変化
+      description:
+        - 「書く人」から「監督する人」へ
+        - 求められる能力の再定義
+      width: [42,58]
+    - title: 今後の方向性と本質
+      description:
+        - レビューの一部もAIが担う段階へ
+        - 開発は「認知負荷の問題」に変化
+      width: [42,58]
+```
+
+:::
+:::
+:::::
+
+## Executive Summary
+
+{{< reveal_vspace 1em >}}
+
+:::{.exec-summary-box}
+
+- 生成AIの登場で，ソフトウェア開発の**希少資源**が変化した
+
+  - 従来は**「コードを書く能力」**がボトルネックだった
+  - 現在は**「生成されたコードを理解し，妥当性を判断する能力」**がボトルネックになりつつある
+
+{{< reveal_vspace 1em >}}
+
+- AIは数秒で大量のコードを生成できるが，**レビューと整合性確認は依然として人間が担う**
+
+  - コード生成コストはほぼゼロに低下した一方，レビュー速度はほとんど変化していない
+  - その結果，開発プロセスの制約条件は**実装工程からレビュー工程へ移動**した
+
+{{< reveal_vspace 1em >}}
+
+- 競争力を決めるのは，コード生成能力そのものではない
+
+  - **「レビュー可能な変更を作り，システム全体の整合性を維持する能力」**が決め手になりつつある
+
+:::
+
+# 1. 従来のソフトウェア開発
+
+## 実装コストが高い時代は，開発速度が実装能力に依存しボトルネックは実装工程にあった
+
+[Before — 人間がすべてのコードを書く前提の開発構造]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+開発プロセス
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- 要求整理 → 設計 → [実装]{.regmonkey-bold} → レビュー → リリース
+- 実装に時間がかかり，開発速度は実装能力に依存
+- コード量の増加速度は人手で限定される
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+この構造の特徴
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- [設計意図が実装者に存在]{.regmonkey-bold}する
+  - なぜその実装を選んだか・どの代替案を検討したか・将来の拡張をどう考えたかを本人が理解
+- レビューは [実装の品質保証プロセス]{.regmonkey-bold}
+  - バグの有無・可読性・規約・設計上の問題を確認
+:::
+::::
+:::::
+::::::
+
+# 2. AI登場による構造変化
+
+## コード生成コストがほぼゼロになったが，レビュー速度はほとんど変化していない
+
+[最大の変化 — 生成とレビューの速度ギャップが開いた]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+[実装工数の変化]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-ai-cost data-col-widths="[34, 33, 33]"}
+
+```yaml
+record1:
+  項目: 500行の実装
+  従来:
+    - 数時間〜数日
+  AI利用:
+    - 数秒〜数分
+
+record2:
+  項目: リファクタリング
+  従来:
+    - 慎重に実施
+  AI利用:
+    - 一括変更が可能
+
+record3:
+  項目: 新規機能の雛形作成
+  従来:
+    - 手作業
+  AI利用:
+    - 自動生成
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- コード生成速度は大きく向上したが，[レビュー速度はほぼ横ばい]{.regmonkey-bold}（生成能力 ↑↑↑ ／ レビュー能力 →）
+- 結果として，開発全体のボトルネックが移動した
+
+:::
+
+# 3. ボトルネックの移動
+
+## ボトルネックは実装からレビューへ移り，さらにレビュー対象の「性質」自体が変化した
+
+[Before / After — 制約条件の所在の変化]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+従来のボトルネック
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- 設計 → [実装（ボトルネック）]{.regmonkey-bold} → レビュー
+- 制約は実装工程に存在
+- レビューは実装の品質を保証する後工程
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+現在のボトルネック
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- 設計 → AI実装 → [レビュー（ボトルネック）]{.regmonkey-bold}
+- 制約はレビュー工程へ移動
+- 重要なのは [件数増加だけでなく対象の性質変化]{.regmonkey-bold}
+  - 「正しいか？」から「なぜこうなっているのか？」へ
+:::
+::::
+:::::
+::::::
+
+# 4. AIコード特有のレビュー課題
+
+## AIコードは設計意図が見えず差分が巨大で，文脈を無視し，設計の一貫性を損ないやすい
+
+[アンチパターン — レビュー負荷を押し上げる4つの構造的課題]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-ai-review-issues data-col-widths="[22, 39, 39]"}
+
+```yaml
+record1:
+  課題: 設計意図が見えない
+  何が起きるか:
+    - コードは存在するが <span class="regmonkey-bold">なぜその構造・抽象化なのか</span> が残らない
+  レビューへの影響:
+    - 「正しいか」ではなく「なぜこうなっているか」の解読から始まる
+
+record2:
+  課題: 差分が大きい
+  何が起きるか:
+    - 「改善して」の一言で 50ファイル・2000行・アーキテクチャ変更が起こりうる
+  レビューへの影響:
+    - バグを探す前に <span class="regmonkey-bold">何が変わったか</span> の把握に工数を取られる
+
+record3:
+  課題: プロジェクト文脈を無視
+  何が起きるか:
+    - 一般的なベストプラクティスは学習済みだが歴史的経緯・技術的負債・運用制約は知らない
+  レビューへの影響:
+    - 局所最適でも <span class="regmonkey-bold">既存システムとの整合性が崩れる</span> 場合がある
+
+record4:
+  課題: 設計エントロピー増加
+  何が起きるか:
+    - モジュール毎に別パターンが混在し命名・抽象化レベルが揃わなくなる
+  レビューへの影響:
+    - 個々は合理的でも <span class="regmonkey-bold">システム全体の一貫性</span> が失われ保守コストが増える
+```
+
+:::
+::::
+
+## 設計意図と差分量の両面で，AIコードは人間のコードと性質が異なる
+
+[4.1 設計意図が見えない ／ 4.2 差分が大きい]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%" .font-09}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+設計意図：人間 vs AI
+:::
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+- 人間のコード
+  - `# 将来の拡張を考慮しStrategyパターンを採用`
+  - 採用理由・代替案をレビューで確認できる
+- AIのコード
+  - `class PaymentStrategy: ...`
+  - 構造は妥当でも [なぜその抽象化が必要か]{.regmonkey-bold}が不明なことが多い
+:::
+::::
+:::::
+::::: {.column width="50%" .padding-L-12 .font-09}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+差分の大きさ：人間 vs AI
+:::
+:::{.squaredmark style="font-size: 0.9em; padding-right: 1em"}
+- 人間の変更
+  - `calculate_price()` → `calculate_discounted_price()` 程度に限定的
+- AIの変更
+  - 「このモジュールを改善して」の一言で広域に波及
+  - [50ファイル・2000行・アーキテクチャ変更]{.regmonkey-bold}も起こりうる
+:::
+::::
+:::::
+::::::
+
+## AIは一般原則に最適化するため，現実システムの制約を無視して全体を悪化させうる
+
+[4.3 プロジェクト文脈の無視 — 局所最適がもたらす全体悪化]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+AIが前提とするもの
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- 一般的なベストプラクティスを学習済み
+  - SOLID原則・Clean Architecture・Design Pattern
+- 提案は [モダンで整った設計]{.regmonkey-bold}になりがち
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+現実システムにあるもの
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- 歴史的経緯・技術的負債・運用上の制約・チーム慣習が存在
+- 結果：局所最適化はされても [システム全体では悪化]{.regmonkey-bold}する場合がある
+  - 既存システムとの整合性が崩れる
+:::
+::::
+:::::
+::::::
+
+## 大規模システムでは個々の品質より「一貫性」が重要で，AIはそれを崩しやすい
+
+[4.4 設計エントロピーの増加 — 一貫性の喪失]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+AI利用前
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- Module A / B / C が揃っている
+  - 同じ設計思想
+  - 同じ命名規則
+  - 同じ責務分割
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+AI利用後
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- Module A→Pattern X／B→Y／C→Z と分散
+- それぞれは合理的でも [全体の統一感が失われる]{.regmonkey-bold}
+  - 命名規則の揺れ・アーキテクチャの混在
+  - 抽象化レベルの不統一・保守コストの増加
+:::
+::::
+:::::
+::::::
+
+# 5. 開発者の役割変化
+
+## 開発者は「コードを書く人」から「コード生成を監督する人」へ移行しつつある
+
+[役割の変化 — ワークフローと求められる能力が変わる]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+[ワークフローの変化]{.mini-section}
+
+::::{.step-container style="height: 30%" .padding-TB-none}
+
+:::{.step}
+[考える]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 問題を構造化する
+:::
+
+:::
+
+:::{.step}
+[生成させる]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- AIに実装を委ねる
+:::
+
+:::
+
+:::{.step}
+[レビューする]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 妥当性を判断する
+:::
+
+:::
+
+:::{.step}
+[修正指示]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 方針を言語化する
+:::
+
+:::
+
+:::{.step}
+[再生成]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 反復して収束させる
+:::
+
+:::
+
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+
+[求められる能力の変化]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 以前：実装力・言語知識・アルゴリズム
+- 現在：[設計力・レビュー力・システム理解・プロンプト設計能力]{.regmonkey-bold}
+
+:::
+
+# 6. 今後の方向性と本質的な変化
+
+## レビューの一部もAIが担うが，変更がシステムにとって正しい進化かの最終判断は人間に残る
+
+[今後の方向性 — AIレビューと人間レビューの分担]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+[これから定着するレビューフロー]{.mini-section}
+
+::::{.step-container style="height: 30%" .padding-TB-none}
+
+:::{.step}
+[AI実装]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- コードを生成する
+:::
+
+:::
+
+:::{.step}
+[AIレビュー]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 静的解析・規約確認
+- テスト生成・セキュリティ
+:::
+
+:::
+
+:::{.step}
+[人間レビュー]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 本質的な判断を担う
+:::
+
+:::
+
+:::{.step}
+[リリース]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 整合性を確認し公開
+:::
+
+:::
+
+::::
+
+{{< reveal_vspace 0.3em >}}
+
+[最終判断が人間に残る理由]{.mini-section}
+
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 本質的な問いは「コードは動くか？」ではなく [「この変更はシステムにとって正しい進化か？」]{.regmonkey-bold}
+- AIは支援できるが，システム全体への影響評価は人間の役割として残る
+
+:::
+
+## ソフトウェア開発は「コード生産の問題」から「認知負荷の問題」へ変化した
+
+[本質的な変化 — 課題の所在が書き方から理解・統制へ]{.topleftbox}
+
+{{< reveal_vspace 1em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+::::{.pentagon-box-500}
+:::{.border-bottom-header-left}
+以前の課題
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- [どうやって書くか]{.regmonkey-bold}
+  - 実装方法の習得が中心
+  - コード生産そのものが律速
+:::
+::::
+:::::
+::::: {.column width="50%"}
+::::{.square-box-500}
+:::{.border-bottom-header-left}
+現在の課題
+:::
+:::{.squaredmark style="font-size: 0.9em"}
+- [生成されたものをどう理解し，どう統制するか]{.regmonkey-bold}
+  - 理解・整合性維持が中心
+  - 認知負荷が律速になる
+:::
+::::
+:::::
+::::::
+
+# Summary
+
+## AI時代の競争力は，生成能力ではなく「レビュー可能な変更を作り整合性を維持する能力」が決める
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.summary-container style="font-size:1em;"}
+
+:::{.block-azureblue }
+:::{.headline}
+実装コストは低下したが，新しい課題が生まれた
+:::
+
+- 生成AIによって実装コストは大きく低下した
+- 一方で，設計意図の不透明性・巨大な差分・文脈無視の最適化・設計エントロピーの増加が発生した
+
+:::
+
+:::{.block-azureblue }
+:::{.headline}
+ボトルネックは実装からレビューへ移動した
+:::
+
+- 制約条件は実装工程からレビュー工程へ移った
+- レビューは件数だけでなく，対象の性質そのものが変化した
+
+:::
+
+:::{.block-azureblue }
+:::{.headline}
+競争力を決める能力が変わった
+:::
+
+- 決め手はコード生成能力そのものではない
+- [レビュー可能な変更を作り，システム全体の整合性を維持する能力]{.regmonkey-bold}が競争力を決める
+
+:::
+
+::::
