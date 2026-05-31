@@ -282,8 +282,7 @@ Ryo Nakagami
 <h2>コーディングエージェントとは何か？</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-L-05 lh-12">
 <ul>
 <li>コーディングエージェントとは，<span class="regmonkey-bold">LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント<sup>1</sup></span>のこと</li>
 <li>ユーザーの指示を受けて「<span class="regmonkey-bold">計画 → 実行 → 検証 → 修正</span>」のループを自走し，タスク完了まで反復する
@@ -294,9 +293,8 @@ Ryo Nakagami
 </ul>
 </div>
 </div>
-<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">コーディングエージェントの進化<sup>2</sup></span></p>
-<div class="width-105 position-left-10 font-09">
+<div class="width-105 position-left-10 font-08">
 <div class="vuetify-timeline-container">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">pipeline</span><span class="kw">:</span></span>
 <span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"LLM登場前"</span></span>
@@ -306,32 +304,48 @@ Ryo Nakagami
 <span id="cb1-6"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2010年代後半"</span></span>
 <span id="cb1-7"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
 <span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="fu">copilot</span><span class="kw">:</span></span>
-<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"LLMコーディング支援"</span></span>
+<span id="cb1-9"><a></a><span class="fu">chatgpt</span><span class="kw">:</span></span>
+<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"ChatGPT登場"</span></span>
 <span id="cb1-11"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'コード補完・生成（Copilot, ChatGPTなど）'</span></span>
-<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'コード補完や関数の生成'</span></span>
-<span id="cb1-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'試行錯誤は人間が実施'</span></span>
-<span id="cb1-15"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2020年代前半"</span></span>
-<span id="cb1-16"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
-<span id="cb1-17"><a></a></span>
-<span id="cb1-18"><a></a><span class="fu">agent_v1</span><span class="kw">:</span></span>
-<span id="cb1-19"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"対話型エージェント"</span></span>
-<span id="cb1-20"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb1-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'IDE + AIモデル(Cursorが代表例)'</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'レポジトリ内容を踏まえて，コード生成と実行を自動化'</span></span>
-<span id="cb1-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対話的な開発フロー中心</span></span>
-<span id="cb1-24"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2023〜2024"</span></span>
-<span id="cb1-25"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
-<span id="cb1-26"><a></a></span>
-<span id="cb1-27"><a></a><span class="fu">agent_v2</span><span class="kw">:</span></span>
-<span id="cb1-28"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"自律型エージェント"</span></span>
-<span id="cb1-29"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb1-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'Devin, Claude Code'</span></span>
-<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'計画→実行→検証→修正のループを確立'</span></span>
-<span id="cb1-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'バックグラウンド実行，非同期・並列実行'</span></span>
-<span id="cb1-33"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024〜"</span></span>
-<span id="cb1-34"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'対話型LLMが一般に普及'</span></span>
+<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'自然言語による開発支援が加速'</span></span>
+<span id="cb1-14"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2022"</span></span>
+<span id="cb1-15"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
+<span id="cb1-16"><a></a></span>
+<span id="cb1-17"><a></a><span class="fu">copilot</span><span class="kw">:</span></span>
+<span id="cb1-18"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"LLMコーディング支援"</span></span>
+<span id="cb1-19"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'コード補完・生成（Code Interpreter）'</span></span>
+<span id="cb1-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'コード補完や関数の生成'</span></span>
+<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'試行錯誤は人間が実施'</span></span>
+<span id="cb1-23"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2023年代前半"</span></span>
+<span id="cb1-24"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
+<span id="cb1-25"><a></a></span>
+<span id="cb1-26"><a></a><span class="fu">agent_v1</span><span class="kw">:</span></span>
+<span id="cb1-27"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"対話型エージェント"</span></span>
+<span id="cb1-28"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb1-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'IDE + AIモデル(Cursorが代表例)'</span></span>
+<span id="cb1-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'レポジトリ内容を踏まえて，コード生成と実行を自動化'</span></span>
+<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対話的な開発フロー中心</span></span>
+<span id="cb1-32"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2023〜2024"</span></span>
+<span id="cb1-33"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
+<span id="cb1-34"><a></a></span>
+<span id="cb1-35"><a></a><span class="fu">agent_v2</span><span class="kw">:</span></span>
+<span id="cb1-36"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"自律型エージェント"</span></span>
+<span id="cb1-37"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb1-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'Devin, Claude Code'</span></span>
+<span id="cb1-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'計画→実行→検証→修正のループを確立'</span></span>
+<span id="cb1-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'バックグラウンド実行，非同期・並列実行'</span></span>
+<span id="cb1-41"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024〜"</span></span>
+<span id="cb1-42"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span>
+<span id="cb1-43"><a></a></span>
+<span id="cb1-44"><a></a><span class="fu">mcp</span><span class="kw">:</span></span>
+<span id="cb1-45"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"MCP標準化"</span></span>
+<span id="cb1-46"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb1-47"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'ツール接続の標準プロトコル'</span></span>
+<span id="cb1-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'外部システム連携を共通化'</span></span>
+<span id="cb1-49"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025~"</span></span>
+<span id="cb1-50"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <!-- footer -->

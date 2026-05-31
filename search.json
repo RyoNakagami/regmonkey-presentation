@@ -1316,88 +1316,18 @@
     "text": "結果の解釈：\\(g\\) の観測が \\(f\\) の事後にも情報を伝える\n直接観測のない領域でも，cross-covariance 経由で belief が引き締まる：これが結合 GP の本質\n\n\n\n\n\\(f\\) の事後 \\(p(f \\mid \\mathcal{D})\\)\n\n\n\n左半分 \\(x \\in [2, 14]\\)：直接観測 5 点で事後分散が縮小し，平均は観測値を補間\n右半分 \\(x \\in [16, 28]\\)：直接観測なし．しかし \\(g\\) の観測経由で事後分散が事前より小さくなる\n\\(\\rho = 0.9\\) なので \\(g\\) の観測 1 点が \\(f\\) の同位置の belief を約 9 割語る\n\n\n\n\n\\(g\\) の事後 \\(p(g \\mid \\mathcal{D})\\)\n\n\n\n右半分：直接観測 5 点で信用区間が縮小\n左半分：\\(f\\) の観測経由で事後分散が縮小し，事後平均が \\(f\\) の観測値方向にシフト\n結果として \\(f\\) と \\(g\\) の事後 mean は領域全体で強く相関した形になる\n\n\n\n\n\n\\(\\rho \\to 0\\) の極限では \\(K_{fg} = 0\\) となり，結合 GP は 2 つの独立 GP に分解：\\(f\\) と \\(g\\) を別々に推論したのと結果が一致する\n\\(|\\rho| \\to 1\\) の極限では \\(f\\) と \\(g\\) はほぼ同じ関数になり，どちらの観測も両方の belief を等しく update する"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Regression Monkey Presenation List",
     "section": "",
-    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
+    "text": "Coding Agent時代のコーディング\n\n\n\nAI\n\ncoding-agent\n\nsoftware-engineering\n\ncode-review\n\n\n\n\n2026-05-31\n\n\n\n\n\n\n\n\n\n\nミッションドリブンなモニタリング\n\n\n\nmonitoring\n\nSRE\n\nobservability\n\n\n\n\n2026-05-28\n\n\n\n\n\n\n\n\n\n\n小規模ProjectにおけるGit開発フロー\n\n\n\ngit\n\ndevelopment\n\nworkflow\n\n\n\n\n2026-05-25\n\n\n\n\n\n\n\n\n\n\nclaude-stdin-prompt 解説\n\n\n\nclaude\n\ncli\n\nbash\n\ndatascience\n\n\n\n\n2026-05-09\n\n\n\n\n\n\n\n\n\n\nAI Fluency: 4D Framework\n\n\n\nAI\n\nclaude-code\n\n\n\n\n2026-05-03\n\n\n\n\n\n\n\n\n\n\nSkillが動かない時のトラブルシューティング\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-05-02\n\n\n\n\n\n\n\n\n\n\nSkillをチーム・組織で共有する\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-05-01\n\n\n\n\n\n\n\n\n\n\nSkillと他カスタマイズ機能の使い分け\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-30\n\n\n\n\n\n\n\n\n\n\nSkillを自作する：Options活用編\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-29\n\n\n\n\n\n\n\n\n\n\nSkill を自作する\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-28\n\n\n\n\n\n\n\n\n\n\nClaude Code Skills とは何か\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-28\n\n\n\n\n\n\n\n\n\n\nガウス過程：多変量正規分布の関数空間への拡張\n\n\n\nstatistics\n\ngaussian-process\n\nbayesian\n\nmachine-learning\n\n\n\n\n2026-04-27\n\n\n\n\n\n\n\n\n\n\nClaude Code 認証方式\n\n\n\nclaude code\n\nauthentication\n\n\n\n\n2026-04-26\n\n\n\n\n\n\n\n\n\n\nregmonkey-gitcommand 解説\n\n\n\ngit\n\ncli\n\ndatascience\n\n\n\n\n2026-04-23\n\n\n\n\n\n\n\n\n\n\nアンビエントエージェントの仕組み\n\n\n\nLLM\n\nagent\n\nLangChain\n\nClaude\n\n\n\n\n2026-04-22\n\n\n\n\n\n\n\n\n\n\nはじめてのskilltool\n\n\n\nskilltool\n\n\n\n\n2026-04-16\n\n\n\n\n\n\n\n\n\n\nCLAUDE.mdとPriority\n\n\n\nclaude code\n\n\n\n\n2026-04-15\n\n\n\n\n\n\n\n\n\n\nはじめてのClaude Code\n\n\n\nLLM\n\nclaude\n\nclaude code\n\n\n\n\n2026-04-13\n\n\n\n\n\n\n\n\n\n\nReinforcement Learningfrom Human Feedback\n\n\n\nLLM\n\n\n\n\n2026-03-19\n\n\n\n\n\n\n\n\n\n\nLLMはどのようにして動いているのか？\n\n\n\nLLM\n\n\n\n\n2026-03-18\n\n\n\n\n\n\n\n\n\n\nLinuxのSwapを正しく理解する\n\n\n\nLinux\n\nmemory\n\nswap\n\n\n\n\n2026-02-19\n\n\n\n\n\n\n\n\n\n\n通信を高速に，正確に\n\n\n\n情報理論\n\n\n\n\n2026-02-18\n\n\n\n\n\n\n\n\n\n\nデータ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
+    "objectID": "template/pentagon-squared-box.html",
+    "href": "template/pentagon-squared-box.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "目的\n\n構造"
-  },
-  {
-    "objectID": "template/info-box-with-two-cols.html",
-    "href": "template/info-box-with-two-cols.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
-  },
-  {
-    "objectID": "template/info-box-with-two-cols.html#xxxx",
-    "href": "template/info-box-with-two-cols.html#xxxx",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
-  },
-  {
-    "objectID": "template/azureblue-summary.html#section-1",
-    "href": "template/azureblue-summary.html#section-1",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/analysis-summary.html",
-    "href": "template/analysis-summary.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
-  },
-  {
-    "objectID": "template/analysis-summary.html#分析introductionスライド例",
-    "href": "template/analysis-summary.html#分析introductionスライド例",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
   },
   {
     "objectID": "template/lecture-index-slide.html",
@@ -1414,18 +1344,179 @@
     "text": "想定する受講者像を1〜2行で（例：データ分析の初学者・実務1年目）\n\n\n\n\n\n\n\n\n\n\n\n受講前に押さえておきたい知識を箇条書きで（例：Python基礎・基本的な統計用語）\n\n\n\n\n\n\n\n\n\n\n\n受講に必要なツール・バージョンを記載（例：Python 3.11+・Jupyter・git）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. セクション名\n      description:\n        - このセクションで扱うトピックを1行で\n        - 受講者が得られる学びを1行で\n      width: [28, 72]\n    - title: 2. セクション名\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;：扱う範囲\n        - &lt;strong&gt;手法&lt;/strong&gt;：使う手法・ツール\n      width: [28, 72]\n    - title: 3. セクション名\n      description:\n        - 主要なポイントを1行で\n        - 補足を1行で\n      width: [28, 72]\n    - title: 4. セクション名\n      description:\n        - 応用・発展の方向性を1行で\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 参考資料・追加リソースを記載\n      width: [28, 72]"
   },
   {
-    "objectID": "template/pentagon-squared-box.html",
-    "href": "template/pentagon-squared-box.html",
+    "objectID": "template/analysis-summary.html",
+    "href": "template/analysis-summary.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "データ分析プロジェクトにおける課題\n\n\n\nデータ分析の方針・手法・解釈が分析担当者個人に依存\n\n再現性・継続性が低下し，分析の属人的ミスの発生\n\n\n\n\nデータ分析プロセスが終わった段階で分析が共有されがち\n\nチーム全体の知見を分析方針策定に結び付けられない\nFBが遅れ，軌道修正が難しい\n\n\n\n\nプロジェクトメンバー内部での情報共有が遅延\n\n新規アサインメンバーのオンボがスムーズに進まない\n\n\n\n\n\n\n\n\n会話型データ分析の実現ステップ\n\n\n\nStep 1: RAP[^footer1] の観点で現状の知見を整理する\nStep 2: 現状課題の洗い出し，言語化\n\n分析視点に偏りがないか確かめる\n\nStep 3: 仮説や分析アプローチをワークショップなどで議論\nStep 4: ロードマップ合意\n\nアドバイスを踏まえ，いつまでにどこまでの分析を実施するのかチームメンバーでスモールに合意\n\nStep 5: 分析の実行"
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Regression Monkey Presenation List",
+    "objectID": "template/analysis-summary.html#分析introductionスライド例",
+    "href": "template/analysis-summary.html#分析introductionスライド例",
+    "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "ミッションドリブンなモニタリング\n\n\n\nmonitoring\n\nSRE\n\nobservability\n\n\n\n\n2026-05-28\n\n\n\n\n\n\n\n\n\n\n小規模ProjectにおけるGit開発フロー\n\n\n\ngit\n\ndevelopment\n\nworkflow\n\n\n\n\n2026-05-25\n\n\n\n\n\n\n\n\n\n\nclaude-stdin-prompt 解説\n\n\n\nclaude\n\ncli\n\nbash\n\ndatascience\n\n\n\n\n2026-05-09\n\n\n\n\n\n\n\n\n\n\nAI Fluency: 4D Framework\n\n\n\nAI\n\nclaude-code\n\n\n\n\n2026-05-03\n\n\n\n\n\n\n\n\n\n\nSkillが動かない時のトラブルシューティング\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-05-02\n\n\n\n\n\n\n\n\n\n\nSkillをチーム・組織で共有する\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-05-01\n\n\n\n\n\n\n\n\n\n\nSkillと他カスタマイズ機能の使い分け\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-30\n\n\n\n\n\n\n\n\n\n\nSkillを自作する：Options活用編\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-29\n\n\n\n\n\n\n\n\n\n\nSkill を自作する\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-28\n\n\n\n\n\n\n\n\n\n\nClaude Code Skills とは何か\n\n\n\nLLM\n\nclaude\n\nclaude-code\n\nskills\n\n\n\n\n2026-04-28\n\n\n\n\n\n\n\n\n\n\nガウス過程：多変量正規分布の関数空間への拡張\n\n\n\nstatistics\n\ngaussian-process\n\nbayesian\n\nmachine-learning\n\n\n\n\n2026-04-27\n\n\n\n\n\n\n\n\n\n\nClaude Code 認証方式\n\n\n\nclaude code\n\nauthentication\n\n\n\n\n2026-04-26\n\n\n\n\n\n\n\n\n\n\nregmonkey-gitcommand 解説\n\n\n\ngit\n\ncli\n\ndatascience\n\n\n\n\n2026-04-23\n\n\n\n\n\n\n\n\n\n\nアンビエントエージェントの仕組み\n\n\n\nLLM\n\nagent\n\nLangChain\n\nClaude\n\n\n\n\n2026-04-22\n\n\n\n\n\n\n\n\n\n\nはじめてのskilltool\n\n\n\nskilltool\n\n\n\n\n2026-04-16\n\n\n\n\n\n\n\n\n\n\nCLAUDE.mdとPriority\n\n\n\nclaude code\n\n\n\n\n2026-04-15\n\n\n\n\n\n\n\n\n\n\nはじめてのClaude Code\n\n\n\nLLM\n\nclaude\n\nclaude code\n\n\n\n\n2026-04-13\n\n\n\n\n\n\n\n\n\n\nReinforcement Learningfrom Human Feedback\n\n\n\nLLM\n\n\n\n\n2026-03-19\n\n\n\n\n\n\n\n\n\n\nLLMはどのようにして動いているのか？\n\n\n\nLLM\n\n\n\n\n2026-03-18\n\n\n\n\n\n\n\n\n\n\nLinuxのSwapを正しく理解する\n\n\n\nLinux\n\nmemory\n\nswap\n\n\n\n\n2026-02-19\n\n\n\n\n\n\n\n\n\n\n通信を高速に，正確に\n\n\n\n情報理論\n\n\n\n\n2026-02-18\n\n\n\n\n\n\n\n\n\n\nデータ活用と法的リスク\n\n\n\nLegal\n\n\n\n\n2026-02-17\n\n\n\n\n\n\n\n\n\n\nLinuxにおける日本語入力方式\n\n\n\nLinux\n\n\n\n\n2026-02-16\n\n\n\n\n\n\n\n\n\n\n公開鍵暗号と公開鍵認証の概要\n\n\n\nLinux\n\n\n\n\n2026-02-10\n\n\n\n\n\n\n\n\n\n\nIndexスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-17\n\n\n\n\n\n\n\n\n\n\nDSとしての語彙力\n\n\n\n方法論\n\n\n\n\n2025-10-15\n\n\n\n\n\n\n\n\n\n\n分析Abstractスライドテンプレート\n\n\n\n方法論\n\nリサーチライティング\n\n\n\n\n2025-10-10\n\n\n\n\n\n\n\n\n\n\n分析提案スライドの作成\n\n\n\n方法論\n\n\n\n\n2025-10-01\n\n\n\n\n\n\n\n\n\n\npentagon-squared-boxスライド\n\n\n\ntemplate\n\n\n\n\n2025-09-21\n\n\n\n\n\n\n\n\n\n\nはじめてのGitHub\n\n\n\n開発環境\n\n\n\n\n2025-06-07\n\n\n\n\n\n\n\n\n\n\nhop-step-jumpスライド\n\n\n\ntemplate\n\n\n\n\n2025-05-29\n\n\n\n\n\n\n\n\n\n\nGannt chartを用いたプロジェクトマネジメント\n\n\n\ngannt\n\n\n\n\n2025-05-27\n\n\n\n\n\n\n\n\n\n\nRooCodeを活用したReveal.jsスライド作成\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-20\n\n\n\n\n\n\n\n\n\n\nSummaryスライド\n\n\n\nsummary\n\ntemplate\n\n\n\n\n2025-05-16\n\n\n\n\n\n\n\n\n\n\nMathJaxのレンダリング確認\n\n\n\nMathJax\n\n\n\n\n2025-05-15\n\n\n\n\n\n\n\n\n\n\n構造化されたストーリーとしてのスライド\n\n\n\nスライドパッケージ\n\n\n\n\n2025-05-07\n\n\n\n\n\n\n\n\n\n\nスライド作成に役に立つ書籍紹介\n\n\n\nbook\n\n\n\n\n2025-05-02\n\n\n\n\n\n\nNo matching items"
+    "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
+  },
+  {
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/azureblue-summary.html#section-1",
+    "href": "template/azureblue-summary.html#section-1",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
+  },
+  {
+    "objectID": "template/info-box-with-two-cols.html",
+    "href": "template/info-box-with-two-cols.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
+  },
+  {
+    "objectID": "template/info-box-with-two-cols.html#xxxx",
+    "href": "template/info-box-with-two-cols.html#xxxx",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#index",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#index",
+    "title": "Coding Agent時代のコーディング",
+    "section": "Index",
+    "text": "Index\n\n\n\n\n\n\n\n背景・課題\n\n\n生成AIでコード生成コストがほぼゼロに低下\nレビュー速度は変わらず制約条件が残る\n\n\n\n\n\n\n目的\n\n\n開発の希少資源がどこへ移動したかを整理\nAI時代に求められる能力を再定義する\n\n\n\n\n\n\n前提・制約\n\n\nコーディングエージェントの利用経験を想定\n特定のツール選定には踏み込まない\n\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.2em\n  bullet_fontsize: 0.95em\n  bullet_position: 1.5em\n  numbering: true\n  children:\n    - title: 従来のソフトウェア開発\n      description:\n        - 実装がボトルネックだった時代の構造\n        - レビューは実装の品質保証プロセスだった\n      width: [42,58]\n    - title: AI登場による構造変化\n      description:\n        - コード生成コストがほぼゼロに\n        - 生成速度とレビュー速度のギャップ\n      width: [42,58]\n    - title: ボトルネックの移動\n      description:\n        - 実装からレビューへの制約条件の移動\n        - レビュー対象の&lt;strong&gt;性質&lt;/strong&gt;が変わった\n      width: [42,58]\n    - title: AIコード特有のレビュー課題\n      description:\n        - 設計意図の不可視・巨大な差分\n        - 文脈無視・設計エントロピーの増加\n      width: [42,58]\n    - title: 開発者の役割変化\n      description:\n        - 「書く人」から「監督する人」へ\n        - 求められる能力の再定義\n      width: [42,58]\n    - title: 今後の方向性と本質\n      description:\n        - レビューの一部もAIが担う段階へ\n        - 開発は「認知負荷の問題」に変化\n      width: [42,58]"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#executive-summary",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#executive-summary",
+    "title": "Coding Agent時代のコーディング",
+    "section": "Executive Summary",
+    "text": "Executive Summary\n\n\n\n生成AIの登場で，ソフトウェア開発の希少資源が変化した\n\n従来は「コードを書く能力」がボトルネックだった\n現在は「生成されたコードを理解し，妥当性を判断する能力」がボトルネックになりつつある\n\n\n\n\nAIは数秒で大量のコードを生成できるが，レビューと整合性確認は依然として人間が担う\n\nコード生成コストはほぼゼロに低下した一方，レビュー速度はほとんど変化していない\nその結果，開発プロセスの制約条件は実装工程からレビュー工程へ移動した\n\n\n\n\n競争力を決めるのは，コード生成能力そのものではない\n\n「レビュー可能な変更を作り，システム全体の整合性を維持する能力」が決め手になりつつある"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#実装コストが高い時代は開発速度が実装能力に依存しボトルネックは実装工程にあった",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#実装コストが高い時代は開発速度が実装能力に依存しボトルネックは実装工程にあった",
+    "title": "Coding Agent時代のコーディング",
+    "section": "実装コストが高い時代は，開発速度が実装能力に依存しボトルネックは実装工程にあった",
+    "text": "実装コストが高い時代は，開発速度が実装能力に依存しボトルネックは実装工程にあった\nBefore — 人間がすべてのコードを書く前提の開発構造\n\n\n\n\n\n開発プロセス\n\n\n\n要求整理 → 設計 → 実装 → レビュー → リリース\n実装に時間がかかり，開発速度は実装能力に依存\nコード量の増加速度は人手で限定される\n\n\n\n\n\n\nこの構造の特徴\n\n\n\n設計意図が実装者に存在する\n\nなぜその実装を選んだか・どの代替案を検討したか・将来の拡張をどう考えたかを本人が理解\n\nレビューは 実装の品質保証プロセス\n\nバグの有無・可読性・規約・設計上の問題を確認"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#コード生成コストがほぼゼロになったがレビュー速度はほとんど変化していない",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#コード生成コストがほぼゼロになったがレビュー速度はほとんど変化していない",
+    "title": "Coding Agent時代のコーディング",
+    "section": "コード生成コストがほぼゼロになったが，レビュー速度はほとんど変化していない",
+    "text": "コード生成コストがほぼゼロになったが，レビュー速度はほとんど変化していない\n最大の変化 — 生成とレビューの速度ギャップが開いた\n\n実装工数の変化\n\n\n\nrecord1:\n  項目: 500行の実装\n  従来:\n    - 数時間〜数日\n  AI利用:\n    - 数秒〜数分\n\nrecord2:\n  項目: リファクタリング\n  従来:\n    - 慎重に実施\n  AI利用:\n    - 一括変更が可能\n\nrecord3:\n  項目: 新規機能の雛形作成\n  従来:\n    - 手作業\n  AI利用:\n    - 自動生成\n\n\n\n\n\n\nコード生成速度は大きく向上したが，レビュー速度はほぼ横ばい（生成能力 ↑↑↑ ／ レビュー能力 →）\n結果として，開発全体のボトルネックが移動した"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#ボトルネックは実装からレビューへ移りさらにレビュー対象の性質自体が変化した",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#ボトルネックは実装からレビューへ移りさらにレビュー対象の性質自体が変化した",
+    "title": "Coding Agent時代のコーディング",
+    "section": "ボトルネックは実装からレビューへ移り，さらにレビュー対象の「性質」自体が変化した",
+    "text": "ボトルネックは実装からレビューへ移り，さらにレビュー対象の「性質」自体が変化した\nBefore / After — 制約条件の所在の変化\n\n\n\n\n\n従来のボトルネック\n\n\n\n設計 → 実装（ボトルネック） → レビュー\n制約は実装工程に存在\nレビューは実装の品質を保証する後工程\n\n\n\n\n\n\n現在のボトルネック\n\n\n\n設計 → AI実装 → レビュー（ボトルネック）\n制約はレビュー工程へ移動\n重要なのは 件数増加だけでなく対象の性質変化\n\n「正しいか？」から「なぜこうなっているのか？」へ"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#aiコードは設計意図が見えず差分が巨大で文脈を無視し設計の一貫性を損ないやすい",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#aiコードは設計意図が見えず差分が巨大で文脈を無視し設計の一貫性を損ないやすい",
+    "title": "Coding Agent時代のコーディング",
+    "section": "AIコードは設計意図が見えず差分が巨大で，文脈を無視し，設計の一貫性を損ないやすい",
+    "text": "AIコードは設計意図が見えず差分が巨大で，文脈を無視し，設計の一貫性を損ないやすい\nアンチパターン — レビュー負荷を押し上げる4つの構造的課題\n\n\n\nrecord1:\n  課題: 設計意図が見えない\n  何が起きるか:\n    - コードは存在するが &lt;span class=\"regmonkey-bold\"&gt;なぜその構造・抽象化なのか&lt;/span&gt; が残らない\n  レビューへの影響:\n    - 「正しいか」ではなく「なぜこうなっているか」の解読から始まる\n\nrecord2:\n  課題: 差分が大きい\n  何が起きるか:\n    - 「改善して」の一言で 50ファイル・2000行・アーキテクチャ変更が起こりうる\n  レビューへの影響:\n    - バグを探す前に &lt;span class=\"regmonkey-bold\"&gt;何が変わったか&lt;/span&gt; の把握に工数を取られる\n\nrecord3:\n  課題: プロジェクト文脈を無視\n  何が起きるか:\n    - 一般的なベストプラクティスは学習済みだが歴史的経緯・技術的負債・運用制約は知らない\n  レビューへの影響:\n    - 局所最適でも &lt;span class=\"regmonkey-bold\"&gt;既存システムとの整合性が崩れる&lt;/span&gt; 場合がある\n\nrecord4:\n  課題: 設計エントロピー増加\n  何が起きるか:\n    - モジュール毎に別パターンが混在し命名・抽象化レベルが揃わなくなる\n  レビューへの影響:\n    - 個々は合理的でも &lt;span class=\"regmonkey-bold\"&gt;システム全体の一貫性&lt;/span&gt; が失われ保守コストが増える"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#設計意図と差分量の両面でaiコードは人間のコードと性質が異なる",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#設計意図と差分量の両面でaiコードは人間のコードと性質が異なる",
+    "title": "Coding Agent時代のコーディング",
+    "section": "設計意図と差分量の両面で，AIコードは人間のコードと性質が異なる",
+    "text": "設計意図と差分量の両面で，AIコードは人間のコードと性質が異なる\n4.1 設計意図が見えない ／ 4.2 差分が大きい\n\n\n\n\n\n設計意図：人間 vs AI\n\n\n\n人間のコード\n\n# 将来の拡張を考慮しStrategyパターンを採用\n採用理由・代替案をレビューで確認できる\n\nAIのコード\n\nclass PaymentStrategy: ...\n構造は妥当でも なぜその抽象化が必要かが不明なことが多い\n\n\n\n\n\n\n\n差分の大きさ：人間 vs AI\n\n\n\n人間の変更\n\ncalculate_price() → calculate_discounted_price() 程度に限定的\n\nAIの変更\n\n「このモジュールを改善して」の一言で広域に波及\n50ファイル・2000行・アーキテクチャ変更も起こりうる"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#aiは一般原則に最適化するため現実システムの制約を無視して全体を悪化させうる",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#aiは一般原則に最適化するため現実システムの制約を無視して全体を悪化させうる",
+    "title": "Coding Agent時代のコーディング",
+    "section": "AIは一般原則に最適化するため，現実システムの制約を無視して全体を悪化させうる",
+    "text": "AIは一般原則に最適化するため，現実システムの制約を無視して全体を悪化させうる\n4.3 プロジェクト文脈の無視 — 局所最適がもたらす全体悪化\n\n\n\n\n\nAIが前提とするもの\n\n\n\n一般的なベストプラクティスを学習済み\n\nSOLID原則・Clean Architecture・Design Pattern\n\n提案は モダンで整った設計になりがち\n\n\n\n\n\n\n現実システムにあるもの\n\n\n\n歴史的経緯・技術的負債・運用上の制約・チーム慣習が存在\n結果：局所最適化はされても システム全体では悪化する場合がある\n\n既存システムとの整合性が崩れる"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#大規模システムでは個々の品質より一貫性が重要でaiはそれを崩しやすい",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#大規模システムでは個々の品質より一貫性が重要でaiはそれを崩しやすい",
+    "title": "Coding Agent時代のコーディング",
+    "section": "大規模システムでは個々の品質より「一貫性」が重要で，AIはそれを崩しやすい",
+    "text": "大規模システムでは個々の品質より「一貫性」が重要で，AIはそれを崩しやすい\n4.4 設計エントロピーの増加 — 一貫性の喪失\n\n\n\n\n\nAI利用前\n\n\n\nModule A / B / C が揃っている\n\n同じ設計思想\n同じ命名規則\n同じ責務分割\n\n\n\n\n\n\n\nAI利用後\n\n\n\nModule A→Pattern X／B→Y／C→Z と分散\nそれぞれは合理的でも 全体の統一感が失われる\n\n命名規則の揺れ・アーキテクチャの混在\n抽象化レベルの不統一・保守コストの増加"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#開発者はコードを書く人からコード生成を監督する人へ移行しつつある",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#開発者はコードを書く人からコード生成を監督する人へ移行しつつある",
+    "title": "Coding Agent時代のコーディング",
+    "section": "開発者は「コードを書く人」から「コード生成を監督する人」へ移行しつつある",
+    "text": "開発者は「コードを書く人」から「コード生成を監督する人」へ移行しつつある\n役割の変化 — ワークフローと求められる能力が変わる\n\nワークフローの変化\n\n\n考える\n\n\n問題を構造化する\n\n\n\n\n生成させる\n\n\nAIに実装を委ねる\n\n\n\n\nレビューする\n\n\n妥当性を判断する\n\n\n\n\n修正指示\n\n\n方針を言語化する\n\n\n\n\n再生成\n\n\n反復して収束させる\n\n\n\n\n\n求められる能力の変化\n\n\n\n以前：実装力・言語知識・アルゴリズム\n現在：設計力・レビュー力・システム理解・プロンプト設計能力"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#レビューの一部もaiが担うが変更がシステムにとって正しい進化かの最終判断は人間に残る",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#レビューの一部もaiが担うが変更がシステムにとって正しい進化かの最終判断は人間に残る",
+    "title": "Coding Agent時代のコーディング",
+    "section": "レビューの一部もAIが担うが，変更がシステムにとって正しい進化かの最終判断は人間に残る",
+    "text": "レビューの一部もAIが担うが，変更がシステムにとって正しい進化かの最終判断は人間に残る\n今後の方向性 — AIレビューと人間レビューの分担\n\nこれから定着するレビューフロー\n\n\nAI実装\n\n\nコードを生成する\n\n\n\n\nAIレビュー\n\n\n静的解析・規約確認\nテスト生成・セキュリティ\n\n\n\n\n人間レビュー\n\n\n本質的な判断を担う\n\n\n\n\nリリース\n\n\n整合性を確認し公開\n\n\n\n\n\n最終判断が人間に残る理由\n\n\n\n本質的な問いは「コードは動くか？」ではなく 「この変更はシステムにとって正しい進化か？」\nAIは支援できるが，システム全体への影響評価は人間の役割として残る"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#ソフトウェア開発はコード生産の問題から認知負荷の問題へ変化した",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#ソフトウェア開発はコード生産の問題から認知負荷の問題へ変化した",
+    "title": "Coding Agent時代のコーディング",
+    "section": "ソフトウェア開発は「コード生産の問題」から「認知負荷の問題」へ変化した",
+    "text": "ソフトウェア開発は「コード生産の問題」から「認知負荷の問題」へ変化した\n本質的な変化 — 課題の所在が書き方から理解・統制へ\n\n\n\n\n\n以前の課題\n\n\n\nどうやって書くか\n\n実装方法の習得が中心\nコード生産そのものが律速\n\n\n\n\n\n\n\n現在の課題\n\n\n\n生成されたものをどう理解し，どう統制するか\n\n理解・整合性維持が中心\n認知負荷が律速になる"
+  },
+  {
+    "objectID": "posts/2026-05-31-coding-agent-and-programming/index.html#ai時代の競争力は生成能力ではなくレビュー可能な変更を作り整合性を維持する能力が決める",
+    "href": "posts/2026-05-31-coding-agent-and-programming/index.html#ai時代の競争力は生成能力ではなくレビュー可能な変更を作り整合性を維持する能力が決める",
+    "title": "Coding Agent時代のコーディング",
+    "section": "AI時代の競争力は，生成能力ではなく「レビュー可能な変更を作り整合性を維持する能力」が決める",
+    "text": "AI時代の競争力は，生成能力ではなく「レビュー可能な変更を作り整合性を維持する能力」が決める\n\n\n\n\n実装コストは低下したが，新しい課題が生まれた\n\n\n生成AIによって実装コストは大きく低下した\n一方で，設計意図の不透明性・巨大な差分・文脈無視の最適化・設計エントロピーの増加が発生した\n\n\n\n\nボトルネックは実装からレビューへ移動した\n\n\n制約条件は実装工程からレビュー工程へ移った\nレビューは件数だけでなく，対象の性質そのものが変化した\n\n\n\n\n競争力を決める能力が変わった\n\n\n決め手はコード生成能力そのものではない\nレビュー可能な変更を作り，システム全体の整合性を維持する能力が競争力を決める"
   },
   {
     "objectID": "posts/2025-05-27-slide-with-gannt-chart/index.html#サマリー",
@@ -1614,7 +1705,7 @@
     "href": "posts/2026-04-13-claude-code-101/index.html#コーディングエージェントとは何か",
     "title": "はじめてのClaude Code",
     "section": "コーディングエージェントとは何か？",
-    "text": "コーディングエージェントとは何か？\n\n\n\n\n\nコーディングエージェントとは，LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント1のこと\nユーザーの指示を受けて「計画 → 実行 → 検証 → 修正」のループを自走し，タスク完了まで反復する\n\n従来ソフトウェア: 人間が アルゴリズム・分岐・例外処理を事前にすべて設計し，その手順に従う\nコーディングエージェント: 手順そのものを動的に生成・修正\n\n\n\n\n\nコーディングエージェントの進化2\n\n\npipeline:\n  title: \"LLM登場前\"\n  content:\n    - 'バッチ処理やワークフローによる処理自動化'\n    - '処理は自動化されるがロジックは固定'\n  opposite: \"2010年代後半\"\n  color: \"#B4D7FF\"\n\ncopilot:\n  title: \"LLMコーディング支援\"\n  content:\n    - 'コード補完・生成（Copilot, ChatGPTなど）'\n    - 'コード補完や関数の生成'\n    - '試行錯誤は人間が実施'\n  opposite: \"2020年代前半\"\n  color: \"#0E3666\"\n\nagent_v1:\n  title: \"対話型エージェント\"\n  content:\n    - 'IDE + AIモデル(Cursorが代表例)'\n    - 'レポジトリ内容を踏まえて，コード生成と実行を自動化'\n    - 対話的な開発フロー中心\n  opposite: \"2023〜2024\"\n  color: \"#0E3666\"\n\nagent_v2:\n  title: \"自律型エージェント\"\n  content:\n    - 'Devin, Claude Code'\n    - '計画→実行→検証→修正のループを確立'\n    - 'バックグラウンド実行，非同期・並列実行'\n  opposite: \"2024〜\"\n  color: \"#428CE6\"\n\n\n\nAIエージェントとは，環境と相互作用しながら，定義された目標を達成するために行動を実行できるソフトウェアのこと進化の背景にはLLMの推論性能の向上(ゴールを踏まえた計画の立案力)や長文コンテキスト対応(レポジトリ内容の理解力)といった技術的進歩がある"
+    "text": "コーディングエージェントとは何か？\n\n\n\n\nコーディングエージェントとは，LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント1のこと\nユーザーの指示を受けて「計画 → 実行 → 検証 → 修正」のループを自走し，タスク完了まで反復する\n\n従来ソフトウェア: 人間が アルゴリズム・分岐・例外処理を事前にすべて設計し，その手順に従う\nコーディングエージェント: 手順そのものを動的に生成・修正\n\n\n\n\nコーディングエージェントの進化2\n\n\npipeline:\n  title: \"LLM登場前\"\n  content:\n    - 'バッチ処理やワークフローによる処理自動化'\n    - '処理は自動化されるがロジックは固定'\n  opposite: \"2010年代後半\"\n  color: \"#B4D7FF\"\n\nchatgpt:\n  title: \"ChatGPT登場\"\n  content:\n    - '対話型LLMが一般に普及'\n    - '自然言語による開発支援が加速'\n  opposite: \"2022\"\n  color: \"#B4D7FF\"\n\ncopilot:\n  title: \"LLMコーディング支援\"\n  content:\n    - 'コード補完・生成（Code Interpreter）'\n    - 'コード補完や関数の生成'\n    - '試行錯誤は人間が実施'\n  opposite: \"2023年代前半\"\n  color: \"#0E3666\"\n\nagent_v1:\n  title: \"対話型エージェント\"\n  content:\n    - 'IDE + AIモデル(Cursorが代表例)'\n    - 'レポジトリ内容を踏まえて，コード生成と実行を自動化'\n    - 対話的な開発フロー中心\n  opposite: \"2023〜2024\"\n  color: \"#0E3666\"\n\nagent_v2:\n  title: \"自律型エージェント\"\n  content:\n    - 'Devin, Claude Code'\n    - '計画→実行→検証→修正のループを確立'\n    - 'バックグラウンド実行，非同期・並列実行'\n  opposite: \"2024〜\"\n  color: \"#428CE6\"\n\nmcp:\n  title: \"MCP標準化\"\n  content:\n    - 'ツール接続の標準プロトコル'\n    - '外部システム連携を共通化'\n  opposite: \"2025~\"\n  color: \"#B4D7FF\"\n\n\n\nAIエージェントとは，環境と相互作用しながら，定義された目標を達成するために行動を実行できるソフトウェアのこと進化の背景にはLLMの推論性能の向上(ゴールを踏まえた計画の立案力)や長文コンテキスト対応(レポジトリ内容の理解力)といった技術的進歩がある"
   },
   {
     "objectID": "posts/2026-04-13-claude-code-101/index.html#コーディングエージェントの特徴",

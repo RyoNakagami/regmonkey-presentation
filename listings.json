@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-05-31-coding-agent-and-programming/index.html",
       "/posts/2026-05-28-monitoring-memo/index.html",
       "/posts/2026-05-25-git-development-flow/index.html",
       "/posts/2026-05-09-claude-with-stdin/index.html",
