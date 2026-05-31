@@ -67,7 +67,7 @@ These come from `regmonkey-slide-skill/SKILL.md` and apply to every `.qmd` under
 
 - **One message per slide.** The H2 (`##`) is the takeaway sentence, not a topic label. "MLflow導入によりモデル管理を自動化" — yes. "MLfowについて" — no.
 - **MMUF (Main Message Up Front).** The conclusion goes in the H2; bullets justify it.
-- **Do not use `/` as a list separator in Japanese prose.** Use `・` (e.g. `Python・SQL・R`) or `、`. Inside code/paths/URLs `/` is fine.
+- **Do not use `/` as a list separator in Japanese prose.** Use `・` (e.g. `Python・SQL・R`) or `，`. Inside code/paths/URLs `/` is fine.
 - **Prefer `：` over `—` (em-dash)** for explanation/listing in Japanese body text.
 - **No hype words.** Avoid 驚くほど・劇的に・圧倒的に・魔法のように・革命的・完璧・究極・秒で・あっという間に・楽々. Replace with concrete numbers/structure (`劇的に高速化` → `処理時間が80%減`).
 - **Use Quarto fence divs literally — never raw HTML.** `:::{.pentagon-box-500}` works; `<div class="pentagon-box-500">` defeats Quarto processing. Outer wrappers need *more* colons than inner ones; if nesting breaks, copy a template instead of patching.

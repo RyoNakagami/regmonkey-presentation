@@ -22,9 +22,7 @@ auto-agenda:
 
 :::{.info-box}
 
-{{< reveal_vspace 0.5em >}}
-
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-L-05 .lh-12}
 
 - コーディングエージェントとは，[LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント[^footer-ao-agent]]{.regmonkey-bold}のこと
 - ユーザーの指示を受けて「[計画 → 実行 → 検証 → 修正]{.regmonkey-bold}」のループを自走し，タスク完了まで反復する
@@ -35,11 +33,9 @@ auto-agenda:
 
 :::
 
-{{< reveal_vspace 0.3em >}}
-
 [コーディングエージェントの進化[^footer1]]{.mini-section}
 
-::::{ .width-105 .position-left-10 .font-09}
+::::{ .width-105 .position-left-10 .font-08}
 :::{.vuetify-timeline-container}
 
 ```yml
@@ -51,13 +47,21 @@ pipeline:
   opposite: "2010年代後半"
   color: "#B4D7FF"
 
+chatgpt:
+  title: "ChatGPT登場"
+  content:
+    - '対話型LLMが一般に普及'
+    - '自然言語による開発支援が加速'
+  opposite: "2022"
+  color: "#B4D7FF"
+
 copilot:
   title: "LLMコーディング支援"
   content:
-    - 'コード補完・生成（Copilot, ChatGPTなど）'
+    - 'コード補完・生成（Code Interpreter）'
     - 'コード補完や関数の生成'
     - '試行錯誤は人間が実施'
-  opposite: "2020年代前半"
+  opposite: "2023年代前半"
   color: "#0E3666"
 
 agent_v1:
@@ -77,6 +81,14 @@ agent_v2:
     - 'バックグラウンド実行，非同期・並列実行'
   opposite: "2024〜"
   color: "#428CE6"
+
+mcp:
+  title: "MCP標準化"
+  content:
+    - 'ツール接続の標準プロトコル'
+    - '外部システム連携を共通化'
+  opposite: "2025~"
+  color: "#B4D7FF"
 
 ```
 :::

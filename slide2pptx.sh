@@ -4,11 +4,11 @@
 # Usage: ./slide2pptx.sh [--port 4444] <deck-path> <output.pptx>
 #
 # Requires:
-#   - quarto preview を起動済みで、対象デッキに HTTP でアクセスできること
+#   - quarto preview を起動済みで，対象デッキに HTTP でアクセスできること
 #   - node + scripts/slide2pptx.mjs (npm install で playwright + pptxgenjs 解決済み)
 #
-# 仕組みは scripts/slide2pptx.mjs のヘッダコメント参照。
-# 各スライドを 1600×900 PNG として PPTX に埋め込む + 検索可能なテキスト層を背後に配置。
+# 仕組みは scripts/slide2pptx.mjs のヘッダコメント参照．
+# 各スライドを 1600×900 PNG として PPTX に埋め込む + 検索可能なテキスト層を背後に配置．
 
 set -e
 
