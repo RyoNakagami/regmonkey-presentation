@@ -338,35 +338,34 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">ウォーターフォールが機能しない4つの構造的理由</span></p>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="squaredmark font-09 lh-13 pl-10">
-<p><span class="regmonkey-bold">① 動作確認は統合後にしかできない</span></p>
-<div class="pl-10">
-<ul>
-<li>実装中に検証できるのはモジュール単体（ユニットテスト）だけで，システム全体の整合性は結合フェーズまで確認手段がない</li>
-</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="regmonkey_index" style="width:100%">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 動作確認は統合後にしかできない</span></span>
+<span id="cb2-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 実装中に検証できるのはモジュール単体（ユニットテスト）だけ</span></span>
+<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> システム全体の整合性は結合フェーズまで確認手段がない</span></span>
+<span id="cb2-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb2-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 多くのバグは結合フェーズで一斉に発覚する</span></span>
+<span id="cb2-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 長期間独立して書いたコードを一度に結合するため齟齬が顕在化</span></span>
+<span id="cb2-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> インターフェース不一致・前提の齟齬・依存関係の誤りが一気に出る</span></span>
+<span id="cb2-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb2-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 結合テストFailの原因の切り分けが難しい</span></span>
+<span id="cb2-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 要求の誤りか・設計の誤解釈か・実装ミスかを判別しづらい</span></span>
+<span id="cb2-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 設計の論理的誤りなら手戻りは設計フェーズまで遡る</span></span>
+<span id="cb2-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb2-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 結合テスト段階でのバグ修正コストが肥大化</span></span>
+<span id="cb2-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 設計レベルのバグが一斉に顕在化し，修正が新たなバグを生む連鎖</span></span>
+<span id="cb2-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 締め切り圧力でテスト期間が削られ，技術的負債として残る</span></span>
+<span id="cb2-25"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><span class="regmonkey-bold">② 多くのバグは結合フェーズで一斉に発覚する</span></p>
-<div class="pl-10">
-<ul>
-<li>長期間独立して書いたコードを一度に結合するため，インターフェース不一致・前提の齟齬・依存関係の誤りが一気に顕在化</li>
-</ul>
-</div>
-<p><span class="regmonkey-bold">③ 結合テストFailの原因の切り分けが難しい</span></p>
-<div class="pl-10">
-<ul>
-<li>バグが要求の誤りか・設計の誤解釈か・実装ミスかを判別しづらく，原因が設計の論理的誤りなら手戻りは設計フェーズまで遡る</li>
-</ul>
-</div>
-<p><span class="regmonkey-bold">④ 結合テスト段階でのバグ修正コストの肥大化</span></p>
-<div class="pl-10">
-<ul>
-<li>設計レベルのバグが結合フェーズで一斉に顕在化し，修正が新たなバグを生む連鎖が起きる</li>
-<li>締め切り圧力でテスト期間が削られ，品質の妥協が永続的な技術的負債として残る</li>
-</ul>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
 
 
 
