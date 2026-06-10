@@ -1,0 +1,3266 @@
+@charset "UTF-8";
+/*-- scss:rules --*/
+.reveal {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  font-size: 28px;
+  /* (change the default font size) */
+  line-height: 1.4;
+  /* (optional) adjust line spacing */
+  aspect-ratio: 16/9;
+}
+
+.wrap-text {
+  width: 300px;
+  /* Set a fixed width */
+  border: 1px solid #1a1a1a;
+  padding: 10px;
+  overflow-wrap: break-word;
+  /* Ensure long words break to fit within the width */
+}
+
+.reveal .quarto-title-block h1.title {
+  position: absolute;
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  top: 1.5em;
+  left: 0.2em;
+  font-size: 48pt;
+  /* or you can use px like 50px */
+  text-align: left !important;
+  color: #0e3666;
+  /* Bright Orange for title */
+}
+
+.reveal .subtitle {
+  position: absolute;
+  top: -160px;
+  left: 0.5em;
+  font-size: 28pt !important;
+  color: #1a1a1a;
+  text-align: left;
+  display: inline-block;
+  width: 15em;
+  border-bottom: 5px solid #1a1a1a;
+  padding-left: 0.3em;
+}
+
+.reveal .date {
+  position: absolute;
+  top: 9.5em;
+  left: 0.5em;
+  font-size: 28pt !important;
+  padding-bottom: 0.3em;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.reveal .quarto-title-author {
+  position: absolute;
+  padding-top: 0.3em;
+  top: 11em;
+  left: 0rem;
+  font-size: 28pt !important;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.reveal .slide-number {
+  position: absolute;
+  bottom: 5px !important;
+  /* Makes footer div flush with bottom of slide */
+  right: 0px !important;
+  /* Makes footer div flush with right of slide */
+  font-size: 0.8em;
+  color: white;
+}
+
+.reveal pre.sourceCode code {
+  max-height: 700px;
+}
+
+div.colored-slide-30 {
+  background: linear-gradient(to right, transparent 65%, #dedede 35%);
+  height: 100%;
+  width: 100%;
+}
+
+.reveal h1 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  text-align: left;
+  vertical-align: top;
+  top: 0;
+}
+
+.reveal h2 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  text-align: left !important;
+  color: #0e3666;
+  /* Bright Orange for title */
+  font-size: 40pt !important;
+  font-weight: bold !important;
+  padding-bottom: 0em;
+  margin-bottom: 0.05em;
+}
+
+.reveal h3 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  text-align: left !important;
+  color: #1a1a1a;
+  /* Bright Orange for title */
+  font-weight: bold !important;
+}
+
+/* adding footer setup */
+.reveal .slide-menu-button {
+  position: absolute !important;
+  top: 10px !important;
+  /* Distance from top */
+  bottom: unset !important;
+  background-size: 2.2rem !important;
+}
+
+.reveal .slide-chalkboard-buttons {
+  position: absolute !important;
+  /* Absolute positioning */
+  top: 15px;
+  /* Distance from top */
+  left: unset !important;
+  right: 10px !important;
+  /* Distance from right */
+  background-size: 2.2rem !important;
+  /* Adjust the background size of the button */
+  z-index: 1000;
+  /* Ensure it's above other content */
+}
+
+/* ------------------------------------------------------------------- */
+/*                     regmonkey index slide                           */
+/* ------------------------------------------------------------------- */
+.regmonkey-index-slide,
+.regmonkey-index-slide-no-title {
+  font-family: "Meiryo", sans-serif;
+  width: 100%;
+  /* Full slide width */
+  height: 100% !important;
+  /* Full viewport height */
+  /* Change this to whatever color you like */
+  /* Include padding in height */
+}
+
+.regmonkey-index-slide-no-title h2 {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  color: transparent;
+  /* Bright Orange for title */
+  font-size: 0pt !important;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+}
+
+.regmonkey-index-slide .sidebar .sidebar-title,
+.regmonkey-index-slide-no-title .sidebar .sidebar-title {
+  font-size: 1.6em;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  color: #0E3666;
+  font-weight: bold;
+}
+
+.regmonkey-index-slide .sidebar-text,
+.regmonkey-index-slide-no-title .sidebar-text {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.regmonkey-index-slide .numbered-section,
+.regmonkey-index-slide-no-title .numbered-section {
+  position: relative;
+  padding-left: 80px;
+  width: 100%;
+}
+
+.regmonkey-index-slide .number,
+.regmonkey-index-slide-no-title .number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Playfair Display", "MeiryoUI", serif;
+  font-size: 60px;
+  color: #0a1e3d;
+  opacity: 0.8;
+}
+
+.regmonkey-index-slide .section-text,
+.regmonkey-index-slide-no-title .section-text {
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.regmonkey-index-slide .divider,
+.regmonkey-index-slide-no-title .divider {
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   regmonkey slide editing                           */
+/* ------------------------------------------------------------------- */
+svg.fas {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          footer                                     */
+/* ------------------------------------------------------------------- */
+.reveal .footer {
+  background-color: #0e3666;
+  text-align: left !important;
+  padding-left: 0.5em !important;
+  color: white;
+  font-size: 14px !important;
+  width: 100%;
+  display: block;
+  position: fixed;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  bottom: 0px !important;
+  /* Makes footer div flush with bottom of slide */
+  z-index: 2 !important;
+  /* Sets the footer div further down the z-index */
+}
+
+.reveal .slide aside .aside-footnotes {
+  font-size: 1rem;
+  line-height: 0.5rem;
+  padding-bottom: 0px;
+  color: #1a1a1a;
+}
+
+.reveal .slide aside .aside-footnotes p {
+  margin: 0px !important;
+  padding: 0px !important;
+  line-height: 1.1em;
+  font-size: 1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          MathJax                                    */
+/* ------------------------------------------------------------------- */
+.MathJax_SVG {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  text-indent: 0;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: sub !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          Agenda                                     */
+/* ------------------------------------------------------------------- */
+.agenda-slide h1 {
+  display: none;
+}
+
+/* "Agenda" heading injected by reveal-auto-agenda when the deck sets
+   auto-agenda.heading. Styled to match .reveal h2 so it sits at the
+   same position as a normal H2. */
+.agenda-heading {
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif;
+  color: #0e3666;
+  font-size: 40pt;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 0;
+  margin-bottom: 0.05em;
+}
+
+.agenda {
+  font-size: 26pt;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.agenda ul,
+.agenda ol {
+  list-style-position: inside;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.agenda li {
+  padding: 0.4em 0.6em;
+  margin: 0.3em 0;
+  color: #1a1a1a;
+  font-weight: normal;
+}
+
+.agenda li::marker {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.agenda li:has(.agenda-active) {
+  background-color: #0e3666;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.agenda-active,
+.agenda-inactive,
+.agenda-pre-active,
+.agenda-post-active {
+  background: transparent;
+  color: inherit;
+  opacity: 1;
+  display: inline;
+  padding: 0;
+  font-weight: inherit;
+}
+
+.agenda-active p,
+.agenda-inactive p,
+.agenda-pre-active p,
+.agenda-post-active p {
+  margin: 0;
+  display: inline;
+  color: inherit;
+  font-size: 1.2em;
+}
+
+.agenda p,
+.agenda .slides section,
+.agenda .slides section > section {
+  line-height: 1.3;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          Pentagon Boxes                             */
+/* ------------------------------------------------------------------- */
+.pentagon-box-400 {
+  position: relative;
+  width: 95%;
+  height: 400px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1.5em;
+}
+
+.pentagon-box-400::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 親の右端に配置 */
+  width: 130px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 100,300 0,620" fill="white" stroke="none"/><polyline points="0,0 100,300 0,620" fill="none" stroke="%230e3666" stroke-width="8"/></svg>') no-repeat;
+  z-index: 9999;
+  /* 他の要素より前に */
+}
+
+.square-box-400 {
+  position: relative;
+  width: 90%;
+  height: 400px;
+  border: 4px solid #0e3666;
+  padding-left: 2em;
+}
+
+.pentagon-box-500 {
+  position: relative;
+  width: 95%;
+  height: 500px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1em;
+}
+
+.pentagon-box-500::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 親の右端に配置 */
+  width: 165px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  z-index: 9999;
+  /* 他の要素より前に */
+}
+
+.square-box-500 {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 4px solid #0e3666;
+  padding-left: 2em;
+}
+
+.pentagon-box-550 {
+  position: relative;
+  width: 95%;
+  height: 550px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1em;
+}
+
+.pentagon-box-550::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 親の右端に配置 */
+  width: 180px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  z-index: 9999;
+  /* 他の要素より前に */
+}
+
+.square-box-550 {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  border: 4px solid #0e3666;
+  padding-left: 2em;
+}
+
+.pentagon-box-600 {
+  position: relative;
+  width: 95%;
+  height: 600px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1.5em;
+}
+
+.pentagon-box-600::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 親の右端に配置 */
+  width: 200px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 620"><polygon points="0,0 80,300 0,620" fill="white" stroke="none"/><polyline points="0,0 80,300 0,620" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  z-index: 9999;
+  /* 他の要素より前に */
+}
+
+.square-box-600 {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 4px solid #0e3666;
+  padding-left: 2em;
+}
+
+.pentagon-box-700 {
+  position: relative;
+  width: 95%;
+  height: 700px;
+  background-color: #ffffff;
+  border-right: transparent 0px solid;
+  border-left: #0e3666 4px solid;
+  border-top: #0e3666 4px solid;
+  border-bottom: #0e3666 4px solid;
+  padding-left: 1.5em;
+}
+
+.pentagon-box-700::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 親の右端に配置 */
+  width: 240px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 810"><polygon points="0,0 100,400 0,810" fill="white" stroke="none"/><polyline points="0,0 100,400 0,810" fill="none" stroke="%230e3666" stroke-width="4"/></svg>') no-repeat;
+  z-index: 9999;
+  /* 他の要素より前に */
+}
+
+.square-box-700 {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  border: 4px solid #0e3666;
+  padding-left: 2em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          Sections                                   */
+/* ------------------------------------------------------------------- */
+.section-header {
+  font-weight: bold;
+  font-size: 1em;
+  color: #1a1a1a;
+  line-height: 1;
+  display: block;
+  position: relative;
+}
+
+.section-header::before {
+  content: "▶ ";
+  position: relative;
+  display: inline-block;
+}
+
+.mini-section-bare,
+.mini-section {
+  font-weight: bold;
+  font-size: 1em;
+  color: #1a1a1a;
+  line-height: 1;
+  display: block;
+  position: relative;
+}
+
+.mini-section::before {
+  content: "▶ ";
+  position: relative;
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------------- */
+/*                             summary                                 */
+/* ------------------------------------------------------------------- */
+.summary-container {
+  line-height: 1.1;
+  width: 100%;
+  height: 75%;
+  padding-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  /* ブロックを縦に並べる */
+  justify-content: center;
+  /* 全体を縦方向中央に揃える（親の高さ次第） */
+}
+
+.summary-container .block-azureblue {
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+  display: block !important;
+  padding-left: 1em;
+  position: relative;
+  /* 疑似要素設定に必要 */
+}
+
+.summary-container .block-azureblue-with-bg {
+  margin-top: 0.5em;
+  background-color: #e8f1fe;
+  margin-bottom: 0.6em;
+  display: block !important;
+  padding-left: 1em;
+  position: relative;
+  /* 疑似要素設定に必要 */
+}
+
+.summary-container .block-azureblue::before {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+  width: 0.5em;
+  /* vertical barのwidth指定 */
+  bottom: 0.5em;
+  background-color: #428ce6;
+}
+
+.summary-container .block-azureblue-with-bg::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  left: 0;
+  width: 0.5em;
+  /* vertical barのwidth指定 */
+  bottom: 0em;
+  background-color: #428ce6;
+}
+
+.summary-container .block-azureblue .headline,
+.summary-container .block-azureblue-with-bg .headline {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  padding-bottom: 0em;
+}
+
+.summary-container .block-azureblue .description,
+.summary-container .block-azureblue-with-bg .description {
+  padding-left: 1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                             mathjax                                 */
+/* ------------------------------------------------------------------- */
+.def-block {
+  margin-top: 0.3rem;
+  padding-top: 0em;
+  padding-bottom: 0.05rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1.1;
+  position: relative;
+  /* Needed for positioning the pseudo-element */
+}
+
+.def-block::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  /* Start 5% from the top to cover the top 90% */
+  left: 0;
+  width: 0.4em;
+  /* Same width as your intended border-left */
+  bottom: 0em;
+  /* End 2em from the bottom */
+  background-color: #428ce6;
+  /* Your desired border color */
+}
+
+.def-block ul.task-list li input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0em -1em;
+  vertical-align: middle;
+}
+
+.def-block .def-contents {
+  font-size: 0.8em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.reveal .slide .def-block ul,
+.reveal .slide .def-block ol {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 1em;
+}
+
+.def-block .theorem-title,
+.def-block .def-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  /* Adjust margins as needed */
+  padding-bottom: 0em;
+  /* Add some space below the border */
+}
+
+.theorem-title + .def-title::before {
+  content: ": ";
+  position: relative;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        general editting                             */
+/* ------------------------------------------------------------------- */
+.regmonkey-bold {
+  color: #206f83;
+  font-weight: bold !important;
+  /*Mckinsey green*/
+}
+
+.border-bottom {
+  border-bottom: 0.2rem solid #1a1a1a;
+  /* 線の色と太さを調整 */
+  padding-bottom: 0.2em;
+  /* 少し余白を足すと見やすくなる */
+  margin-bottom: 0.5em;
+  /* 次の要素とのスペースも確保 */
+  width: 97.5%;
+  display: block;
+}
+
+.border-bottom-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.2rem solid #1a1a1a;
+  /* 線の色と太さを調整 */
+  padding-bottom: 0.2em;
+  /* 少し余白を足すと見やすくなる */
+  margin-bottom: 0.5em;
+  /* 次の要素とのスペースも確保 */
+  width: 97.5%;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.border-bottom-header-left {
+  display: flex;
+  border-bottom: 0.2rem solid #1a1a1a;
+  /* 線の色と太さを調整 */
+  /* 少し余白を足すと見やすくなる */
+  margin-bottom: 0.5em;
+  /* 次の要素とのスペースも確保 */
+  width: 97.5%;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.topleftbox {
+  position: absolute;
+  top: -1.6em;
+  left: 0.2em;
+  font-size: 0.8em;
+  font-family: "MeiryoUI", "Helvetica", "Arial", sans-serif !important;
+  /* (optional) change font family */
+  text-align: left !important;
+  background-color: #1e90ff;
+  /* Bright Orange for title */
+  color: white;
+  font-weight: bold !important;
+  padding: 0.05em 0.2em;
+  align-items: center;
+  font-weight: bold;
+}
+
+.message-box {
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border: 2px solid #1a1a1a;
+  border-radius: 0px;
+  background-color: transparent;
+  line-height: 1.1;
+  padding-left: 0.5em;
+  padding-right: 1em;
+}
+
+.message-box-no-border {
+  display: inline-block;
+  padding: 0.2em 0em;
+  background-color: transparent;
+  line-height: 1.1;
+}
+
+.centered-column-wrapper {
+  display: flex;
+  align-items: center;
+  /* vertical centering */
+  justify-content: center;
+  /* horizontal centering */
+  height: 100vh;
+  /* or set to the desired container height */
+}
+
+.centered-column-wrapper > .column {
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------- */
+/*                       component card                                */
+/* ------------------------------------------------------------------- */
+.component-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.component-card-for-analysis-summary {
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.component-card-index {
+  background: white;
+  border-radius: 8px;
+  font-size: 0.8em;
+  border: #0a1e3d 2px solid;
+}
+
+.component-card-index .title {
+  margin-left: 0.5em;
+  /* (optional) change font family */
+  text-align: left !important;
+  color: #1a1a1a;
+  /* Bright Orange for title */
+  font-weight: bold !important;
+  font-size: var(--r-heading3-size);
+}
+
+/* ------------------------------------------------------------------- */
+/*                       message card                                  */
+/* ------------------------------------------------------------------- */
+/* 事業コンセプト・採用ポジション等の紹介カード:
+   セクションラベル + 紺色見出しバー + 箇条書き本文 + フッター注記 */
+.message-card {
+  display: block;
+  background: white;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.message-card .message-card-label {
+  display: block;
+  background: #dedede;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 0.7em;
+  padding: 0.3em 1em;
+}
+
+.message-card .message-card-title {
+  display: block;
+  background: #0e3666;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.2;
+  padding: 0.25em 1em;
+}
+
+/* 見出しバー直前のセクションラベルを省く場合,
+   上端の隙間をなくしてバーをカード上端に密着させる */
+.message-card .message-card-title-no-margin {
+  display: block;
+  background: #0e3666;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.2;
+  margin: 0 !important;
+  padding: 0.25em 1em;
+}
+
+/* span (label / title) がラップされる <p> の余白を消し,
+   各バーをカードにぴったり付ける */
+.message-card-title-no-margin > p {
+  margin: 0.2em !important;
+}
+
+.message-card .message-card-body {
+  padding: 0.6em 1.2em 0.4em 1.2em;
+  font-size: 0.9em;
+  line-height: 1.35;
+}
+
+.message-card .message-card-body ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.message-card .message-card-footer {
+  border-top: 1px solid #dedede;
+  color: #575757;
+  font-size: 0.72em;
+  line-height: 1.3;
+  padding: 0.4em 1.2em 0.5em 1.2em;
+}
+
+/* message-card 内のステップフロー: 矢羽同士に適度な隙間を空ける */
+.message-card .step {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+/* 矢羽本体と矢印三角(:after)の継ぎ目に出る縦線を消す.
+   サブピクセル丸めで隙間が出ても, 本体右端に太い border-right(本体色)を
+   敷いて継ぎ目を物理的に覆い隠す. box-sizing:border-box なので幅は不変.
+   border 色は各 phase の塗り色に合わせる. */
+.message-card .active-phase {
+  border-right: 2px solid #0e3666;
+}
+
+.message-card .danger-phase {
+  border-right: 2px solid #d00;
+}
+
+.message-card .outline-phase {
+  border-right: 2px solid #e3eaf3;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          info box                                   */
+/* ------------------------------------------------------------------- */
+.info-box-bare,
+.info-box {
+  margin-top: 0.3rem;
+  background-color: #e8f1fe;
+  padding-top: 0.025em;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1;
+  position: relative;
+  /* Needed for positioning the pseudo-element */
+  font-size: 0.9em;
+}
+
+.info-box::before {
+  content: "";
+  position: absolute;
+  top: 0em;
+  /* Start 5% from the top to cover the top 90% */
+  left: 0;
+  width: 0.4em;
+  /* Same width as your intended border-left */
+  bottom: 0em;
+  /* End 2em from the bottom */
+  background-color: #428ce6;
+  /* Your desired border color */
+}
+
+.info-box-bare-title,
+.info-box-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  /* Adjust margins as needed */
+  padding-bottom: 0em;
+  /* Add some space below the border */
+}
+
+.info-box-bare-title .info-content,
+.info-box .info-contents {
+  font-size: 0.8em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* ---- status boxes (success / warning / caution / danger) ---------- */
+.success-box,
+.warning-box,
+.caution-box,
+.danger-box {
+  margin-top: 0.3rem;
+  padding-top: 0.025em;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  display: block !important;
+  align-items: center;
+  text-align: left;
+  padding-left: 1em;
+  line-height: 1;
+  position: relative;
+  font-size: 0.9em;
+}
+
+.success-box {
+  background-color: #e6f4ea;
+}
+
+.warning-box {
+  background-color: #fef7e0;
+}
+
+.caution-box {
+  background-color: #fff3e0;
+}
+
+.danger-box {
+  background-color: #fde8e8;
+}
+
+.success-box::before,
+.warning-box::before,
+.caution-box::before,
+.danger-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.4em;
+  bottom: 0;
+}
+
+.success-box::before {
+  background-color: #1e8e3e;
+}
+
+.warning-box::before {
+  background-color: #f9ab00;
+}
+
+.caution-box::before {
+  background-color: #e8710a;
+}
+
+.danger-box::before {
+  background-color: #d93025;
+}
+
+/* ------------------------------------------------------------------- */
+/*                            tool grid                                */
+/* ------------------------------------------------------------------- */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.tools-column {
+  padding: 0.5em 1em;
+}
+
+.column-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.tool-icon {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.4em;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  border-bottom: 1.5px solid #dedede;
+  font-size: 1em;
+  text-align: left;
+}
+
+.tool-description {
+  font-size: 0.8em;
+  color: #718096;
+  margin-top: 0.5em;
+}
+
+.before-title {
+  color: #e53e3e !important;
+}
+
+.after-title {
+  color: #0e3666;
+}
+
+.tools-column-after {
+  background: #f7fafc;
+  border-radius: 0.8em;
+  border: 2px solid #e2e8f0;
+}
+
+.tool-name {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.integration-arrow {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  font-size: 8em;
+  color: #428ce6;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        hop step jump                                */
+/* ------------------------------------------------------------------- */
+.hop-step-jump-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="0 0 110 25"  style="transform: rotate(-25deg);"><polygon points="10,22 80,22 80,18 95,25 80,32 80,28 10,28"  fill="%23B4D7FF" opacity="0.25"/></svg>') no-repeat center;
+  background-size: contain;
+}
+
+.hop-step-jump-container-vanilla {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.hop-step-jump-container-vanilla .step,
+.hop-step-jump-container .step {
+  position: absolute;
+  width: 40%;
+  height: 30%;
+  background-color: transparent;
+  border-left: 0.2em solid #1976d2;
+  background-image: linear-gradient(to right, #1976d2 71.6%, transparent 71.6%);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100% 0.2em;
+  /* Height = thickness of top line */
+  padding-left: 0.2em;
+  padding-bottom: 0.163em;
+  justify-content: unset !important;
+}
+
+.hop-step-jump-container .step-number,
+.hop-step-jump-container-vanilla .step-number {
+  position: absolute;
+  top: -2em;
+  color: #1976d2;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hop-step-jump-container .step-title,
+.hop-step-jump-container-vanilla .step-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  top: 0;
+  padding-bottom: 0em;
+}
+
+.hop-step-jump-container .step-title p,
+.hop-step-jump-container-vanilla .step-title p {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hop-step-jump-container .step-description,
+.hop-step-jump-container-vanilla .step-description {
+  font-size: 0.7em;
+  line-height: 1.1;
+  margin-bottom: 0em;
+  color: #575757;
+  display: block;
+  padding-left: 0.2em;
+}
+
+.hop-step-jump-container .info-card,
+.hop-step-jump-container-vanilla .info-card {
+  margin-top: 0.2em;
+  display: grid;
+  grid-template-columns: auto auto;
+  /* Two-column layout */
+  gap: 0.1em;
+  /* Add spacing between rows and columns */
+}
+
+.hop-step-jump-container .info-label,
+.hop-step-jump-container-vanilla .info-label {
+  font-weight: bold;
+  font-size: 0.7em;
+  width: 4rem;
+}
+
+.hop-step-jump-container .info-content,
+.hop-step-jump-container-vanilla .info-content {
+  text-align: left;
+  font-size: 0.7em;
+  width: 29rem;
+  /* Adjust width to fill the remaining space */
+}
+
+.hop-step-jump-container .info-label p,
+.hop-step-jump-container .info-content p,
+.hop-step-jump-container-vanilla .info-label p,
+.hop-step-jump-container-vanilla .info-content p {
+  margin-bottom: 0.2em;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-top: 0.2em;
+}
+
+.hop-step-jump-container .info-label,
+.hop-step-jump-container-vanilla .info-label {
+  display: flex;
+  background-color: #1976d2;
+  color: white;
+  padding: 0.1em 0.5em;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  /* Horizontal centering */
+}
+
+.hop-step-jump-container .info-content,
+.hop-step-jump-container-vanilla .info-content {
+  display: inline-block;
+  background-color: transparent;
+  padding: 4px 10px;
+  color: #575757;
+}
+
+.hop-step-jump-container .step-1,
+.hop-step-jump-container-vanilla .step-1 {
+  left: 5%;
+  bottom: 0;
+}
+
+.hop-step-jump-container .step-2,
+.hop-step-jump-container-vanilla .step-2 {
+  left: 32.5%;
+  bottom: 30%;
+}
+
+.hop-step-jump-container .step-3,
+.hop-step-jump-container-vanilla .step-3 {
+  left: 60.85%;
+  bottom: 60%;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        basic symbol                                 */
+/* ------------------------------------------------------------------- */
+.step-container {
+  display: flex;
+  overflow: hidden;
+  height: 10em;
+  padding-top: 1em;
+  gap: 4px;
+}
+
+.step {
+  flex: 1 1 0%;
+  /* Evenly distributes space among all steps */
+  max-width: 97.5%;
+  /* Optional: limit max width */
+  min-width: 120px;
+  /* Optional: ensure boxes don't shrink too small */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-left: 0em;
+  height: 4em;
+}
+
+.step:first-child {
+  margin-left: 0 !important;
+}
+
+.step:first-child .clickable:before {
+  content: none !important;
+}
+
+.step-label {
+  flex-grow: 1;
+  display: flex;
+  position: absolute;
+  background-color: transparent;
+  color: #333;
+  text-align: left;
+  font-size: 0.85em;
+  padding: 0.2em 0.4em 0.2em 0.2em;
+  margin-top: 0em;
+  width: 90%;
+  max-height: none;
+  word-wrap: break-word;
+  /* 古いブラウザ用 */
+  overflow-wrap: break-word;
+  /* 現在主流のプロパティ */
+  white-space: normal;
+  /* 折り返しを許可 */
+  display: block;
+  /* ← 確実にブロック要素として扱う */
+  box-sizing: border-box;
+  /* padding も含めて width 計算 */
+  top: 100%;
+  /* 親要素の下に配置 */
+  left: 0;
+}
+
+.past-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #dae0e5;
+  color: #444;
+  font-weight: bold;
+  padding: 0 1em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.past-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0 2em 1em;
+  border-style: solid;
+  border-color: #dae0e5 transparent;
+  left: -1em;
+}
+
+.past-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-top: 2em solid transparent;
+  border-bottom: 2em solid transparent;
+  border-left: 1em solid #dae0e5;
+  right: -1em;
+}
+
+.active-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #0e3666;
+  border-color: #0e3666;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 0em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.active-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 2em 2em 1em;
+  border-style: solid;
+  border-color: #0e3666 transparent;
+  left: -1em;
+}
+
+.active-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent #0e3666;
+  right: -0.9821em;
+}
+
+/* danger-phase: 重要ステップを赤でハイライトする chevron.
+   .active-phase と同じ形状で塗り色のみ変更. .active-phase-sm と併用. */
+.danger-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #d00;
+  border-color: #d00;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 0em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.danger-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 2em 2em 1em;
+  border-style: solid;
+  border-color: #d00 transparent;
+  left: -1em;
+}
+
+.danger-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent #d00;
+  right: -0.9821em;
+}
+
+/* outline-phase: 通常ステップ用の白地＋紺枠線 chevron.
+   塗りつぶさず輪郭線で見せる. .active-phase-sm と併用. */
+.outline-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #e3eaf3;
+  color: #0e3666;
+  font-weight: bold;
+  padding: 0 0em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.outline-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 2em 2em 1em;
+  border-style: solid;
+  border-color: #e3eaf3 transparent;
+  left: -1em;
+}
+
+.outline-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent #e3eaf3;
+  right: -0.9821em;
+}
+
+/* ------------------------------------------------------------------- */
+/*  Mermaid を親要素（カラム等）の幅いっぱいに拡大表示するためのラッパー  */
+/*  使い方：Mermaid コードブロックを :::{.hotfix-mermaid-wrap} で囲む    */
+/* ------------------------------------------------------------------- */
+.hotfix-mermaid-wrap svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+.hotfix-mermaid-wrap .cell-output-display {
+  width: 100% !important;
+}
+
+.hotfix-mermaid-wrap figure,
+.hotfix-mermaid-wrap .quarto-figure {
+  width: 100% !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   main message                                      */
+/* ------------------------------------------------------------------- */
+.main-message-block {
+  background-color: white;
+  padding-left: 0px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  font-size: 32px !important;
+  line-height: 1.1;
+}
+
+.main-message-box {
+  border: 4px solid #0e3666;
+  border-radius: 1px;
+  background-color: white;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 32px !important;
+  line-height: 1.1;
+}
+
+.h2-submessage {
+  color: #0e3666;
+  font-size: 1.3em;
+  font-weight: bold !important;
+  padding-top: 0.2em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   keypoints-block                                   */
+/* ------------------------------------------------------------------- */
+.keypoints-container {
+  width: 100%;
+  height: 90%;
+  /* 画面全体 */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* ← align children to the left */
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.vertical-keypoints-block {
+  line-height: 1.1;
+  font-size: 100%;
+  overflow: auto;
+  display: block;
+  padding-top: 0.5em;
+  margin-bottom: 20px;
+  margin-left: 1em;
+  /* ← adds 1em space from left */
+}
+
+.vertical-keypoints-block .block {
+  padding-top: 0.5em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0em;
+  border-bottom: 2px solid #ccc;
+  /* 下線を追加 */
+  display: block !important;
+}
+
+.vertical-keypoints-block .no-border-block {
+  padding-top: 0.5em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0em;
+  display: block !important;
+}
+
+.vertical-keypoints-block .block p,
+.vertical-keypoints-block .no-border-block p {
+  margin-top: 8px;
+  padding-left: 1em;
+}
+
+.vertical-keypoints-block .block ul,
+.vertical-keypoints-block .no-border-block ul {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-left: 1em;
+}
+
+.vertical-keypoints-block .block ul li,
+.vertical-keypoints-block .no-border-block ul li {
+  margin-top: 0.35em !important;
+}
+
+.vertical-keypoints-block .block.last-block {
+  border-bottom: none;
+}
+
+.vertical-keypoints-block .block.first-block,
+.vertical-keypoints-block .no-border-block.first-block {
+  padding-top: 0 !important;
+}
+
+.vertical-keypoints-block .block .block-header,
+.vertical-keypoints-block .no-border-block .block-header {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 0em;
+  max-width: 100%;
+  margin-bottom: -0.25em !important;
+  margin-right: 0em;
+  font-weight: bold;
+  margin-left: -0.85em !important;
+}
+
+.vertical-keypoints-block .block .block-header-centered,
+.vertical-keypoints-block .no-border-block .block-header-centered {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 0em;
+  max-width: 100%;
+  margin-bottom: -0.25em !important;
+  margin-right: 0em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.vertical-keypoints-block .block .block-header-centered p,
+.vertical-keypoints-block .no-border-block .block-header-centered p {
+  padding-left: 0.5em !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                         checkbox-block                              */
+/* ------------------------------------------------------------------- */
+.checkbox2::before {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5em;
+  border: 2px solid #428ce6;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.checkbox2.checked::before,
+.checkbox2.active::before {
+  content: "✓";
+  color: white;
+  background-color: #428ce6;
+  text-align: center;
+  line-height: 0.85em;
+  font-size: 0.85em;
+}
+
+/* ------------------------------------------------------------------- */
+/*             horizontal keypoints-block                              */
+/* ------------------------------------------------------------------- */
+.horizontal-keypoints-block,
+.horizontal-keypoints-block-no-border {
+  line-height: 1.1;
+  font-size: 100%;
+  overflow: auto;
+  display: block;
+  padding-top: 0.5em;
+  margin-bottom: 20px;
+  margin-left: 1em;
+  /* ← adds 1em space from left */
+  height: 100%;
+  position: relative;
+  /* ← 追加：子要素の基準となる */
+}
+
+.horizontal-keypoints-block::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  /* 上端の位置を要素の高さの 10% に設定 */
+  bottom: 0%;
+  /* 下端の位置を要素の高さの 90% (上端から 100% - 10%) に設定 */
+  right: 0;
+  width: 1px;
+  /* ボーダーの幅 */
+  background-color: black;
+  /* ボーダーの色 */
+}
+
+.horizontal-keypoints-block .block-header,
+.horizontal-keypoints-block-no-border .block-header {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 0em;
+  max-width: 100%;
+  margin-right: 0em;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  /* 水平方向中央揃え */
+  align-items: center;
+  /* 垂直方向中央揃え */
+}
+
+.horizontal-keypoints-block .block-header i,
+.horizontal-keypoints-block-no-border .block-header i {
+  padding-right: 0.5rem;
+}
+
+.horizontal-keypoints-block .block,
+.horizontal-keypoints-block-no-border .block {
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          messages                                   */
+/* ------------------------------------------------------------------- */
+.custom-list {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+.custom-list li {
+  font-size: 0.85em !important;
+}
+
+.custom-list li::before {
+  content: "";
+  margin-right: 4px;
+  margin-left: -0.1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                     listed item setup                               */
+/* ------------------------------------------------------------------- */
+.checkmark_none,
+.checkmark {
+  display: block;
+}
+
+.checkmark_none ul {
+  list-style-type: square !important;
+  padding-left: 0em;
+}
+
+.checkmark ul {
+  list-style: none;
+  padding-left: 0em;
+}
+
+.checkmark_none ul li,
+.checkmark ul li {
+  display: list-item;
+}
+
+.checkmark ul > li::before {
+  content: "✔";
+  margin-left: -1em;
+  margin-right: 0.15em;
+  /* ← space after the checkmark */
+  display: inline-block;
+  /* Keeps the checkmark inline with text */
+}
+
+.checkmark_none ul > li::before {
+  content: none;
+  margin-left: -1em;
+  margin-right: 0.15em;
+  /* ← space after the checkmark */
+  display: inline-block;
+  /* Keeps the checkmark inline with text */
+}
+
+.checkmark ul li ul li {
+  list-style-type: disc !important;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding-left: 0em;
+  /* Indentation for bullets */
+  margin-top: 0.25em !important;
+}
+
+.checkmark ul li ul li::before {
+  content: none;
+  /* Remove custom checkmark */
+  display: none;
+}
+
+.squaredmark {
+  display: block;
+}
+
+.squaredmark ul {
+  list-style: square;
+  padding-left: 0em;
+}
+
+.squaredmark ul > li::marker {
+  color: #0e3666;
+  /* 四角バレットの色 */
+  font-size: 1.2em;
+  /* サイズ調整も可能 */
+}
+
+.squaredmark ul li {
+  display: list-item;
+}
+
+.squaredmark ul > li::before {
+  margin-left: -1em;
+  margin-right: 0.15em;
+  /* ← space after the squaredmark */
+  display: inline-block;
+  /* Keeps the squaredmark inline with text */
+}
+
+.squaredmark ul li ul li {
+  list-style-type: disc !important;
+  font-size: inherit;
+  line-height: inherit;
+  color: none;
+  padding-left: 0em;
+  /* Indentation for bullets */
+  margin-top: 0.25em !important;
+}
+
+.squaredmark ul li ul li::before {
+  content: none;
+  /* Remove custom squaredmark */
+  display: none;
+}
+
+.squaredmark ul li ul > li::marker {
+  color: #1a1a1a;
+}
+
+.book-info ul li ul {
+  list-style: disc;
+  /* Reveal default: • */
+}
+
+/* ------------------------------------------------------------------- */
+/*                          custom table                               */
+/* ------------------------------------------------------------------- */
+.yaml2table {
+  width: 100%;
+}
+
+.yaml2table-custom-top {
+  height: 100%;
+  width: 100%;
+}
+
+.yaml2table-custom-top td {
+  vertical-align: top !important;
+}
+
+.yaml2table-custom-top td[rowspan] {
+  vertical-align: middle !important;
+}
+
+.yaml2grouptable-custom-top,
+.yaml2table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 10px 5px;
+  margin: 20px 0px;
+  border-radius: 10px;
+}
+
+.yaml2grouptable-custom-top td {
+  vertical-align: top !important;
+  border: none !important;
+  background-color: transparent;
+}
+
+.yaml2grouptable-custom-top td[rowspan] {
+  vertical-align: top !important;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  border: none !important;
+  background-color: transparent;
+}
+
+.custom-table,
+.custom-table-no-header,
+.custom-table-for-analysis-summary {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 10px 5px;
+  margin-bottom: 40px;
+  font-size: 1em !important;
+  border-radius: 10px;
+}
+
+.custom-table caption,
+.custom-table-no-header caption,
+.custom-table-for-analysis-summary caption {
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+/* Apply black border the header cells */
+.custom-table thead tr,
+.yaml2grouptable-custom-top thead tr,
+.custom-table-no-header thead tr,
+.custom-table-for-analysis-summary thead tr {
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.custom-table th:first-child {
+  text-align: center !important;
+  padding-left: 0em !important;
+}
+
+.custom-table-no-header th:first-child {
+  visibility: hidden;
+  /* Optionally use display: none to remove completely */
+  padding-left: 0em !important;
+}
+
+.custom-table-for-analysis-summary thead tr {
+  display: none;
+}
+
+.custom-table td,
+.custom-table-no-header td,
+.custom-table-for-analysis-summary td {
+  padding-top: 0.2em !important;
+  padding-bottom: 0.1em !important;
+  padding-right: 0.5em !important;
+  padding-left: 0.8em !important;
+  vertical-align: middle;
+  border: none !important;
+  font-size: 1em;
+  background-color: transparent;
+}
+
+.custom-table th,
+.custom-table-no-header th,
+.yaml2grouptable-custom-top th,
+.custom-table-for-analysis-summary th {
+  padding-left: 0.4em !important;
+  background-color: transparent;
+  color: #1a1a1a;
+  font-weight: bold !important;
+  text-align: left !important;
+  font-size: 1.1em !important;
+}
+
+/* Dotted separation between rows */
+.custom-table tr,
+.yaml2grouptable-custom-top tr,
+.custom-table-no-header tr,
+.custom-table-for-analysis-summary tr {
+  border-bottom: 1.5px solid #ccc;
+  /* Dotted line separating rows */
+}
+
+/* Remove bottom border on the last row of any nested tables */
+.custom-table table tr td table tr:last-child,
+.custom-table-no-header table tr td table tr:last-child,
+.custom-table-for-analysis-summary table tr td table tr:last-child {
+  border-bottom: none !important;
+  /* Remove border for the last row in nested tables */
+}
+
+/* Set white background for any <td> that is part of a rowspan */
+.custom-table td[rowspan],
+.custom-table-no-header td[rowspan],
+.custom-table-for-analysis-summary td[rowspan] {
+  background-clip: content-box;
+  background-color: #0e3666;
+  /* Dark blue background for cells within rowspan */
+  /* background-image: linear-gradient(to top,
+      transparent 0,
+      transparent 0.2em,
+      #0e3666 0.2em,
+      #0e3666 calc(100% - 0.2em),
+      transparent calc(100% - 0.2em),
+      transparent 100%);
+  White background for cells within rowspan */
+  color: white;
+  /* Optional: Change text color for contrast */
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  padding-right: 20px !important;
+  padding-left: 0px !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  font-size: 1.1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          obsolete                                   */
+/* ------------------------------------------------------------------- */
+/* bullent inside table */
+.bullent-in-table {
+  font-size: 20pt !important;
+  color: #1a1a1a !important;
+  display: block !important;
+  /* Ensures it behaves like a block element */
+  text-overflow: clip;
+  margin-top: -20px;
+  /* Optional: adds spacing above the list */
+  padding-bottom: 20px !important;
+}
+
+.bullent-in-table br {
+  display: block;
+  margin-left: 80px;
+  /* Space after the break */
+}
+
+.bullent-in-table li2 {
+  padding-left: 20px;
+  /* Indentation for bullets */
+  margin-bottom: 5px !important;
+  /* Optional: adds spacing above the list */
+  display: inline-block;
+  margin-left: 0px;
+  /* Adds indentation after line break */
+  font-size: 20pt !important;
+}
+
+.bullent-in-table li2::before {
+  content: "・";
+  /* Add 4 spaces and bullet */
+  font-size: 20pt !important;
+  /* Add 4 spaces and bullet */
+  font-weight: bold;
+  /* Optional: Make the @ bold */
+  margin-left: -28px;
+  margin-top: 100px !important;
+}
+
+.bullent-in-table li2::after {
+  content: "";
+  /* Space after line break */
+  padding-bottom: 40px !important;
+  /* Space between list items */
+}
+
+/* custom page 2 */
+.align-boxes {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* Align items vertically */
+  height: 100%;
+  /* Make sure it fills the container */
+  font-size: 28px !important;
+}
+
+.align-boxes > ul {
+  margin: 0;
+  padding-left: 1.5em;
+  /* adjust bullet indent */
+  list-style: none;
+  /* Remove default bullets if needed */
+  width: 100%;
+  height: 100%;
+}
+
+.align-boxes li {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* gannt */
+#d3-gannt-container {
+  width: 100%;
+  height: 100%;
+  font-family: "MeiryoUI" !important;
+}
+
+/* mermaid */
+.mermaid-js {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mermaid svg {
+  height: 100%;
+  max-width: 100% !important;
+}
+
+.sectionTitle {
+  fill: unset !important;
+  font-size: 10px !important;
+}
+
+#gantt {
+  height: 500px;
+  width: 100%;
+}
+
+.anychart-credits {
+  display: none;
+}
+
+/* ------------------------------------------------------------------- */
+/*                          Book                                       */
+/* ------------------------------------------------------------------- */
+.book-image {
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: transparent;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+}
+
+.book-image img {
+  width: 80% !important;
+  height: auto;
+  max-height: 700px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.book-info {
+  width: 50%;
+  height: 100%;
+}
+
+.book-info h3 {
+  text-align: left !important;
+  text-decoration: underline;
+  padding-top: 0.5em;
+  font-size: 32px !important;
+  padding-top: 1em;
+}
+
+.book-info ul {
+  list-style: none;
+  padding-left: 0em;
+}
+
+.book-info ul li {
+  padding-left: 1em;
+  /* Indentation for bullets */
+  display: list-item;
+}
+
+.book-info ul > li::before {
+  content: "✔";
+  margin-left: -1.35em;
+  padding-right: 0.5em;
+  display: inline-block;
+  /* Keeps the checkmark inline with text */
+}
+
+.book-info ul li ul {
+  list-style: disc;
+  /* Reveal default: • */
+}
+
+.book-info ul li ul li {
+  list-style-type: disc !important;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding-left: 0em;
+  /* Indentation for bullets */
+  margin-bottom: 0em !important;
+  /* Indentation for bullets */
+  margin-top: 0.1em !important;
+  /* Indentation for bullets */
+}
+
+.book-info ul li ul li::before {
+  content: none;
+  /* Remove custom checkmark */
+  display: none;
+}
+
+.book-info table td {
+  border-bottom: 1px solid #575757;
+  /* light gray border */
+  white-space: normal;
+  /* Allow line wrapping */
+  word-wrap: break-word;
+  /* Break long words if needed */
+  overflow-wrap: break-word;
+  /* Modern equivalent */
+  font-size: 0.9em !important;
+}
+
+.book-info table th {
+  white-space: normal;
+  /* Allow line wrapping */
+  word-wrap: break-word;
+  /* Break long words if needed */
+  overflow-wrap: break-word;
+  /* Modern equivalent */
+}
+
+.book-info table tr td:nth-child(1),
+.book-info table tr th:nth-child(1) {
+  width: 30%;
+  font-weight: bold !important;
+}
+
+.book-info table tr td:nth-child(2),
+.book-info table tr th:nth-child(2) {
+  width: 70%;
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Research Paper Style                                */
+/* ------------------------------------------------------------------- */
+.research-paper-style {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #1a1a1a;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  background: transparent;
+}
+
+.research-paper-style h1,
+.research-paper-style h2,
+.research-paper-style h3 {
+  margin-top: 2em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.research-paper-style h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3em;
+}
+
+.research-paper-style h2 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+}
+
+.research-paper-style h3 {
+  font-size: 1.2em;
+  margin-top: 1.2em;
+}
+
+.research-paper-style h4 {
+  font-size: 1.1em;
+  margin-top: 1.1em;
+}
+
+.research-paper-style .section {
+  margin-bottom: 3em;
+}
+
+.research-paper-style .takeaway {
+  margin: 1em 0;
+  line-height: 1.3;
+}
+
+.research-paper-style p {
+  margin: 1em 0;
+  text-align: justify;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        meta slide                                   */
+/* ------------------------------------------------------------------- */
+.lecture-content-container {
+  background: transparent;
+  border-top: 2px solid #dedede;
+  border-bottom: 2px solid #dedede;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.lecture-content-container .content-block {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1em;
+  margin: 0;
+  box-shadow: none;
+  flex: 1;
+  width: 100%;
+}
+
+.lecture-content-container .content-block .header {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 0.5em;
+}
+
+.lecture-content-container .content-divider {
+  /* width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #3b82f6 0px,
+    #3b82f6 16px,
+    transparent 16px,
+    transparent 16px
+  ); */
+  margin: 0;
+  align-self: stretch;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.difficulty-star {
+  color: #ffd700;
+  font-size: 1.2em;
+}
+
+.difficulty-star.empty {
+  color: #e5e7eb;
+}
+
+.checkbox {
+  width: 1.4em;
+  height: 1.4em;
+  border: 3px solid #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.item-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.item-group .title-item {
+  font-size: 1em;
+  font-weight: bold;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+}
+
+.checkbox-filled {
+  background-color: #2563eb;
+  color: white;
+}
+
+.checkbox-empty {
+  background-color: white;
+}
+
+.check-icon {
+  font-size: 1em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                         Hotizontal tree                             */
+/* ------------------------------------------------------------------- */
+.horizontal-tree-container .tree {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.horizontal-tree-container .tree li {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 5px 0 5px;
+  position: relative;
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
+}
+
+.horizontal-tree-container .tree li::before,
+.horizontal-tree-container .tree li::after {
+  content: "";
+  left: -20px;
+  position: absolute;
+  right: auto;
+}
+
+.horizontal-tree-container .tree li::before {
+  border-left: 1px solid #999;
+  bottom: 50px;
+  height: 100%;
+  top: 0;
+  width: 1px;
+}
+
+.horizontal-tree-container .tree li::after {
+  border-top: 1px solid #999;
+  height: 20px;
+  top: 25px;
+  width: 25px;
+}
+
+.horizontal-tree-container .tree li a {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #999;
+  border-radius: 0px;
+  display: inline-block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.horizontal-tree-container .tree li.parent_hide > a {
+  padding: 3px 10px 3px 23px;
+  color: #333;
+}
+
+.horizontal-tree-container .tree > ul > li::before,
+.horizontal-tree-container .tree > ul > li::after {
+  border: 0;
+}
+
+.horizontal-tree-container .tree li:last-child::before {
+  height: 25px;
+}
+
+.horizontal-tree-container .tree li > ul {
+  padding-left: 70px;
+}
+
+[id^=parent_] li:last-child::before {
+  height: 26px;
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Only apply these styles when printing               */
+/* ------------------------------------------------------------------- */
+@media print {
+  body {
+    font-size: 12pt;
+    color: #1a1a1a;
+    background: white;
+  }
+  canvas.leader-line,
+  .leader-line,
+  .leader-line-areaAnchor {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  canvas.leader-line,
+  .leader-line {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .reveal {
+    width: 1600px !important;
+    /* fixed width */
+    height: 900px !important;
+    /* fixed height */
+    box-shadow: none !important;
+    font-size: 28px !important;
+    line-height: 1.4;
+    font-family: "Meiryo UI", "Helvetica", "Arial", sans-serif !important;
+  }
+  .reveal .slides {
+    transform: none !important;
+    position: static !important;
+    padding: 0;
+  }
+  .reveal .slide {
+    box-shadow: none !important;
+    margin: 0 !important;
+    page-break-after: always;
+  }
+  .slide-background,
+  .reveal .controls,
+  .reveal .progress,
+  .reveal .slides section[hidden] {
+    display: none !important;
+  }
+  .fragment {
+    display: none !important;
+    /* Optional: hide fragments entirely */
+  }
+  .research-paper-style {
+    background: none;
+    color: black;
+  }
+}
+.middle-aligned {
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------------------------- */
+/*                 Position styles                                     */
+/* ------------------------------------------------------------------- */
+.position-top-10 {
+  position: relative !important;
+  top: -1.5em !important;
+}
+
+.position-top-20 {
+  position: relative !important;
+  top: -2em !important;
+}
+
+.position-top-25 {
+  position: relative !important;
+  top: -2.5em !important;
+}
+
+.position-top-30 {
+  position: relative !important;
+  top: -3em !important;
+}
+
+.position-left-05 {
+  position: relative !important;
+  left: -0.5em !important;
+}
+
+.position-left-10 {
+  position: relative !important;
+  left: -1em !important;
+}
+
+.position-left-15 {
+  position: relative !important;
+  left: -1.5em !important;
+}
+
+.position-left-20 {
+  position: relative !important;
+  left: -2em !important;
+}
+
+.position-left-25 {
+  position: relative !important;
+  left: -2.5em !important;
+}
+
+.position-left-30 {
+  position: relative !important;
+  left: -3em !important;
+}
+
+.position-left-35 {
+  position: relative !important;
+  left: -3.5em !important;
+}
+
+.position-left-40 {
+  position: relative !important;
+  left: -4em !important;
+}
+
+.width-80 {
+  width: 80% !important;
+}
+
+.width-90 {
+  width: 90% !important;
+}
+
+.width-105 {
+  width: 105% !important;
+}
+
+.width-110 {
+  width: 110% !important;
+}
+
+.width-115 {
+  width: 115% !important;
+}
+
+.height-70 {
+  height: 70% !important;
+}
+
+.height-80 {
+  height: 80% !important;
+}
+
+.height-90 {
+  height: 90% !important;
+}
+
+.height-105 {
+  height: 105% !important;
+}
+
+.height-110 {
+  height: 110% !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                 margin and padding styles                           */
+/* ------------------------------------------------------------------- */
+.margin-B-00 {
+  margin-bottom: 0em !important;
+}
+
+.padding-TB-none {
+  padding-bottom: 0em !important;
+  padding-top: 0em !important;
+}
+
+.padding-TB-01 {
+  padding-bottom: 0.1em !important;
+  padding-top: 0.1em !important;
+}
+
+.padding-TB-02 {
+  padding-bottom: 0.2em !important;
+  padding-top: 0.2em !important;
+}
+
+.padding-TB-05 {
+  padding-bottom: 0.5em !important;
+  padding-top: 0.5em !important;
+}
+
+.padding-L-05 {
+  padding-left: 0.5em !important;
+}
+
+.padding-L-10 {
+  padding-left: 1em !important;
+}
+
+.padding-L-11 {
+  padding-left: 1.1em !important;
+}
+
+.padding-L-12 {
+  padding-left: 1.2em !important;
+}
+
+.padding-L-15 {
+  padding-left: 1.5em !important;
+}
+
+.padding-L-20 {
+  padding-left: 2em !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                        text/font styles                             */
+/* ------------------------------------------------------------------- */
+.center-aligned {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.font-07 {
+  font-size: 0.7em !important;
+}
+
+.font-07-half {
+  font-size: 0.75em !important;
+}
+
+.font-08 {
+  font-size: 0.8em !important;
+}
+
+.font-08-half {
+  font-size: 0.85em !important;
+}
+
+.font-09 {
+  font-size: 0.9em !important;
+}
+
+.font-10 {
+  font-size: 1em !important;
+}
+
+.font-11 {
+  font-size: 1.1em !important;
+}
+
+.font-12 {
+  font-size: 1.2em !important;
+}
+
+.font-13 {
+  font-size: 1.3em !important;
+}
+
+.font-14 {
+  font-size: 1.4em !important;
+}
+
+.font-15 {
+  font-size: 1.5em !important;
+}
+
+.font-20 {
+  font-size: 2em !important;
+}
+
+/* line-height utilities (parallels .font-XX naming) */
+.lh-07 {
+  line-height: 0.7em !important;
+}
+
+.lh-08 {
+  line-height: 0.8em !important;
+}
+
+.lh-09 {
+  line-height: 0.9em !important;
+}
+
+.lh-10 {
+  line-height: 1em !important;
+}
+
+.lh-11 {
+  line-height: 1.1em !important;
+}
+
+.lh-12 {
+  line-height: 1.2em !important;
+}
+
+.lh-13 {
+  line-height: 1.3em !important;
+}
+
+.lh-14 {
+  line-height: 1.4em !important;
+}
+
+.lh-15 {
+  line-height: 1.5em !important;
+}
+
+.lh-20 {
+  line-height: 2em !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                      Regmonkey Manuals                              */
+/* ------------------------------------------------------------------- */
+.manual-template {
+  display: flex;
+  flex-direction: column;
+  /* 横方向に並べる */
+}
+
+.manual-template .step {
+  display: block;
+}
+
+.manual-template .step:first-child {
+  margin-left: 0.5em !important;
+  /* 左端を強制的に揃える */
+}
+
+.manual-template .step-number {
+  background-color: #003366;
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-right: 0.5em;
+  padding-bottom: 0.2em;
+}
+
+.manual-template .step-title {
+  display: flex;
+  font-weight: bold;
+  padding-left: 0em;
+  font-size: 1.1em;
+}
+
+.active-phase-sm {
+  height: 2.5em;
+}
+
+.active-phase-sm:before {
+  margin-top: -1.25em !important;
+  border-width: 1.25em 1.25em 1.25em 1em !important;
+}
+
+.active-phase-sm:after {
+  margin-top: -1.25em !important;
+  border-width: 1.25em 0em 1.25em 1em !important;
+  right: -0.9821em !important;
+}
+
+/* ------------------------------------------------------------------- */
+/*                      Regmonkey Timeline                             */
+/* ------------------------------------------------------------------- */
+.regmonkey-timeline-title {
+  font-size: 1em;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-top: 0;
+  /* Adjust margins as needed */
+  padding-bottom: 0em;
+  /* Add some space below the border */
+}
+
+.regmonkey-timeline-content-block,
+.regmonkey-timeline-content-block ul,
+.regmonkey-timeline-content-block ul li {
+  font-size: 0.95em !important;
+}
+
+.regmonkey-timeline-opposite {
+  color: #206f83;
+  font-weight: bold !important;
+  /*Mckinsey green*/
+}
+
+/* Vuetify's .v-application / .v-application__wrap defaults to min-height: 100vh,
+   which inflates the timeline block to the full slide height (~900px) and
+   pushes footer/footnotes off the page in print-pdf mode. Let the wrapper
+   shrink to the actual v-container height instead. */
+.vuetify-timeline-container .v-application,
+.vuetify-timeline-container .v-application__wrap {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+.vuetify-timeline-container .v-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.v-timeline--horizontal .v-timeline-divider__before {
+  height: 3px;
+  inset-inline-end: -12px;
+  inset-inline-start: auto;
+  width: calc(var(--v-timeline-line-size-base) + 12px - var(--v-timeline-line-inset));
+  background: #575757;
+}
+
+.v-timeline--horizontal .v-timeline-divider__after {
+  height: 3px;
+  inset-inline-end: -12px;
+  inset-inline-start: auto;
+  width: calc(var(--v-timeline-line-size-base) + 12px - var(--v-timeline-line-inset));
+  background: #575757;
+}
+
+/* ------------------------------------------------------------------- */
+/*                      Regmonkey Gantt                                */
+/* ------------------------------------------------------------------- */
+.gantt-chart-inject {
+  overflow-x: auto;
+  overflow-y: auto;
+  /* 縦スクロールも有効に */
+  max-height: 900px;
+  /* 必要なら高さ制限をつける */
+}
+
+.stat-number {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #206f83;
+  font-size: 64px;
+}
+
+.slide-container + .slide-container::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #d1d5db;
+  /* Tailwind gray-300 */
+  margin: 2rem 0;
+  /* 上下マージン */
+}
+
+/* ------------------------------------------------------------------- */
+/*                          PKI Diagram                                */
+/* ------------------------------------------------------------------- */
+.pki-diagram {
+  width: 100%;
+  font-size: 0.78em;
+  line-height: 1.3;
+}
+
+.pki-diagram p {
+  margin: 0;
+  padding: 0;
+}
+
+.pki-section {
+  margin-bottom: 1.2em;
+}
+
+.pki-section-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+
+.pki-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr auto;
+  row-gap: 0.4em;
+  column-gap: 0.3em;
+  align-items: center;
+  justify-items: center;
+}
+
+.pki-side-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.pki-box {
+  border: 2px solid #1a1a1a;
+  padding: 0.25em 1.5em;
+  text-align: center;
+  background: white;
+}
+
+.pki-box-shaded {
+  border: 2px solid #1a1a1a;
+  padding: 0.25em 1.5em;
+  text-align: center;
+  background: #c0c0c0;
+}
+
+.pki-keypair-box {
+  border: 2px solid #1a1a1a;
+  text-align: center;
+}
+
+.pki-keypair-row {
+  padding: 0.2em 1.5em;
+}
+
+.pki-keypair-row + .pki-keypair-row {
+  border-top: 1px solid #1a1a1a;
+}
+
+.pki-v-arrow {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.pki-v-arrow-shaft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pki-v-arrow-line {
+  width: 2px;
+  height: 1.2em;
+  background: #1a1a1a;
+}
+
+.pki-v-arrow-head {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #1a1a1a;
+}
+
+.pki-h-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.pki-h-arrow-label {
+  font-size: 0.9em;
+  margin-bottom: 0.15em;
+  white-space: nowrap;
+}
+
+.pki-h-arrow-shaft {
+  width: 85%;
+  display: flex;
+  align-items: center;
+}
+
+.pki-h-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: #1a1a1a;
+}
+
+.pki-h-arrow-head-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #1a1a1a;
+}
+
+.pki-h-arrow-head-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 7px solid #1a1a1a;
+}
+
+.pki-annotation {
+  font-size: 0.9em;
+  white-space: nowrap;
+  padding-left: 0.3em;
+}
+
+.pki-outer-box {
+  border: 2px solid #1a1a1a;
+  padding: 0.6em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+}
+
+/* ------------------------------------------------------------------- */
+/*                   Shannon Communication Model                       */
+/* ------------------------------------------------------------------- */
+.shannon-model {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 2em;
+  gap: 0.5em;
+}
+
+.shannon-model .shannon-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8em;
+}
+
+.shannon-model .shannon-component p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-model .shannon-icon-box {
+  width: 3.5em;
+  height: 3.5em;
+  background: #0e3666;
+  color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.shannon-model .shannon-icon-box p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-model .shannon-icon-box-channel {
+  width: 3.5em;
+  height: 3.5em;
+  background: transparent;
+  color: #0e3666;
+  border: 2px dashed #0e3666;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.shannon-model .shannon-icon-box-channel p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-model .shannon-label {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #0e3666;
+  text-align: center;
+  display: block;
+}
+
+.shannon-model .shannon-process-tag {
+  font-size: 0.8em;
+  background: #f2f2f2;
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  color: #555;
+  display: inline-block;
+}
+
+.shannon-model .shannon-arrow {
+  display: flex;
+  align-items: center;
+  color: #0e3666;
+  font-size: 1.2em;
+  padding-top: 0.5em;
+}
+
+.shannon-model .shannon-arrow p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-model .shannon-arrow-with-noise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shannon-model .shannon-arrow-with-noise p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-model .shannon-noise {
+  color: #d00;
+  text-align: center;
+  font-size: 0.7em;
+  margin-top: 1em;
+}
+
+.shannon-model .shannon-annotation-box {
+  font-size: 0.8em;
+  border: 1.5px solid #0e3666;
+  padding: 0.3em 0.5em;
+  color: #0e3666;
+  text-align: center;
+  background: white;
+  border-radius: 2px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.shannon-model .shannon-noise-source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d00;
+  font-size: 0.6em;
+  font-weight: bold;
+  margin-top: 0.3em;
+}
+
+.shannon-model .shannon-noise-source p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-noise-arrow-up {
+  width: 2px;
+  height: 1em;
+  background: #d00;
+  position: relative;
+}
+
+.shannon-noise-arrow-up::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 7px solid #d00;
+}
+
+.shannon-overview-arrow {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5em;
+  width: 100%;
+}
+
+.shannon-overview-arrow p {
+  margin: 0;
+  padding: 0;
+}
+
+.shannon-overview-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: #0e3666;
+}
+
+.shannon-overview-arrow-head {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid #0e3666;
+}
+
+.shannon-overview-arrow-text {
+  font-size: 0.65em;
+  font-weight: bold;
+  color: #0e3666;
+  padding: 0.3em 0.8em;
+  border: 2px solid #0e3666;
+  background: white;
+  white-space: nowrap;
+}
+
+.exec-summary-box {
+  background: #f2f2f2;
+  padding: 1em;
+  border-left: 5px solid #0e3666;
+  text-align: left;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------- */
+/*   Browser preview of ?print-pdf mode                                */
+/*   Reveal adds html.print-pdf and stacks all slides as .pdf-page in  */
+/*   .slides, but the default .reveal still has height/overflow:hidden */
+/*   from screen mode, clipping everything to page 1. The @media print */
+/*   block only fires during real printing (decktape), not preview.    */
+/* ------------------------------------------------------------------- */
+html.print-pdf,
+html.print-pdf body {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+html.print-pdf .reveal {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+html.print-pdf .reveal .slides {
+  overflow: visible !important;
+}

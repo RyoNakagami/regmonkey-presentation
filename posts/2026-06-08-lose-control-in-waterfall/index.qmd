@@ -203,6 +203,214 @@ regmonkey_index:
 [^chaos-def]: **Successful**：予算内・納期内・要求仕様通りに完了．**Challenged**：完了したが予算超過・納期遅延・要求削減のいずれかが発生．**Failed**：キャンセルまたは完成品を一度も使用せずに廃棄．
 [^chaos-project-size-def]: **Small**：予算100万ドル未満．**Medium**：予算100万〜1000万ドル．**Large**：予算1000万ドル超．
 
+## アジャイルは変化を前提に短サイクルで動くソフトを届ける
+
+[個人と対話・動くソフトウェア・顧客との協調・変化への対応に価値をおく]{.h2-submessage}
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns}
+::: {.column width="35%"}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+① 変化を前提とする
+
+:::
+
+:::{.message-card-body .squaredmark .font-08}
+
+- 開発後期の要件変更も対応し，変化を顧客の競争優位へ
+- 計画通りの完遂より，価値ある成果への適応を優先する
+:::
+
+::::
+
+{{< reveal_vspace 0.6em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+② スコープを小さく定義する
+
+:::
+
+:::{.message-card-body .squaredmark .font-08}
+
+- 数週間〜数ヶ月で動くソフトを届けられる単位までスコープを分割する
+- やらない仕事を最大化し，シンプルさを保つ
+
+:::
+
+::::
+
+
+{{< reveal_vspace 0.6em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+③ 技術的卓越性を保ち続ける
+
+:::
+
+:::{.message-card-body .squaredmark .font-08}
+
+- どの素材を，いつ，どんな形で使うかを理解する
+- 設計を疎かにすると技術的負債が反復ごとに蓄積する
+
+:::
+
+::::
+
+
+{{< reveal_vspace 0.6em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+④ 自己組織化チームと対話
+
+:::
+
+:::{.message-card-body .squaredmark .font-08}
+
+- 動機づけられた個人を信頼し，対面の対話で情報を伝える
+- 定期的に振り返り，進め方を継続的に調整する
+
+:::
+
+::::
+
+:::
+::: {.column width="65%"}
+
+::::{.message-card .font-08 style="min-height: 350px; max-height: 350px;"}
+
+:::{.message-card-title-no-margin}
+アジャイル：短い反復サイクルを繰り返す
+:::
+
+:::{.message-card-body}
+
+
+
+::::{.step-container style="height: 4em" .padding-TB-none}
+
+:::{.step}
+
+[Sprint 1]{.step .outline-phase .active-phase-sm}
+
+:::
+
+:::{.step}
+
+[Sprint 2]{.step .outline-phase .active-phase-sm }
+
+:::
+:::{.step}
+
+[Sprint 3]{.step .outline-phase .active-phase-sm}
+
+:::
+
+:::{.step}
+
+[Sprint 4]{.step .outline-phase .active-phase-sm}
+
+:::
+
+:::{.step}
+
+[...]{.step .outline-phase .active-phase-sm style="height:50px;"}
+
+:::
+
+::::
+
+[同じ workflow を Sprint ごとに反復し，毎回動くソフトを顧客に届ける]{.regmonkey-bold .font-09}
+
+![](./agile-sprint-workflow.svg){fig-alt="1つの Sprint の中で計画→開発→テスト→レビューの workflow を循環的に回す" style="width:80%; display:block; margin:0 auto;"}
+
+:::
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.message-card .font-08  style="min-height: 330px; max-height: 350px;"}
+
+
+:::{.message-card-title-no-margin style="background: #575757;"}
+
+ウォーターフォール：一括・直列で工程を進める
+
+:::
+
+:::{.message-card-body}
+
+[全工程を直列に進め，動作確認は統合フェーズまで先送りされる]{.regmonkey-bold .font-09}
+
+
+::::{.step-container style="height: 4em" .padding-TB-none}
+
+:::{.step}
+
+[①要求]{.step .outline-phase .active-phase-sm}
+
+:::
+
+:::{.step}
+
+[②設計]{.step .outline-phase .active-phase-sm }
+
+:::
+:::{.step}
+
+[③実装]{.step .outline-phase .active-phase-sm}
+
+:::
+:::{.step}
+
+[④統合]{.step .danger-phase .active-phase-sm style="height:50px;"}
+
+:::
+:::{.step}
+
+[⑤テスト]{.step .outline-phase .active-phase-sm}
+
+:::
+:::{.step}
+
+[⑥リリース]{.step .active-phase .active-phase-sm style="height:50px;"}
+
+:::
+
+::::
+
+:::{.font-09 .squaredmark .lh-11}
+[【特性】計画駆動・後戻りを想定しない]{.regmonkey-bold}
+
+- 要件は初期に固定され，後工程での変更コストが大きい
+- 統合まで動くソフトが見えず，問題の発覚が遅れる
+
+:::
+
+:::
+
+::::
+
+
+:::
+::::
+
+
+
 # References{.no-auto-agenda}
 
 ## レガシーコードからの脱却

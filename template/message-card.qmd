@@ -1,0 +1,32 @@
+## 先端技術R&Dチームの新設で事業コンセプトを技術面から牽引する
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .width-90 .position-left-05}
+
+[事業コンセプトと採用候補]{.message-card-label}
+
+[アカデミア先端技術R&Dチーム組成]{.message-card-title}
+
+:::{.message-card-body .squaredmark}
+- 10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う
+- 顧客と自社を結ぶ技術検証・実装の中核チームとして機能させる
+:::
+
+[※ 採用人数・体制は事業フェーズに応じて拡張する]{.message-card-footer}
+
+::::
+
+
+<!-- ラベルを省き，見出しバーをカード上端に密着させる場合は
+     message-card-title-no-margin を使う -->
+
+::::{.message-card .width-90 .position-left-05}
+
+[アカデミア先端技術R&Dチーム組成]{.message-card-title-no-margin}
+
+:::{.message-card-body .squaredmark}
+- 10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う
+:::
+
+::::

@@ -488,6 +488,103 @@
 }
 
 
+/* ------------------------------------------------------------------- */
+/*                       message card                                  */
+/* ------------------------------------------------------------------- */
+/* 事業コンセプト・採用ポジション等の紹介カード:
+   セクションラベル + 紺色見出しバー + 箇条書き本文 + フッター注記 */
+
+.message-card {
+  display: block;
+  background: white;
+  border: 1px solid $divider-gray;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.message-card .message-card-label {
+  display: block;
+  background: $divider-gray;
+  color: $brand-text;
+  font-weight: bold;
+  font-size: 0.7em;
+  padding: 0.3em 1em;
+}
+
+.message-card .message-card-title {
+  display: block;
+  background: $brand-primary;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.2;
+  padding: 0.25em 1em;
+}
+
+/* 見出しバー直前のセクションラベルを省く場合,
+   上端の隙間をなくしてバーをカード上端に密着させる */
+.message-card .message-card-title-no-margin {
+  display: block;
+  background: $brand-primary;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.2;
+  margin: 0 !important;
+  padding: 0.25em 1em;
+}
+
+/* span (label / title) がラップされる <p> の余白を消し,
+   各バーをカードにぴったり付ける */
+.message-card-title-no-margin > p {
+  margin: 0.2em !important;
+}
+
+.message-card .message-card-body {
+  padding: 0.6em 1.2em 0.4em 1.2em;
+  font-size: 0.9em;
+  line-height: 1.35;
+}
+
+.message-card .message-card-body ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.message-card .message-card-footer {
+  border-top: 1px solid $divider-gray;
+  color: $dark-gray;
+  font-size: 0.72em;
+  line-height: 1.3;
+  padding: 0.4em 1.2em 0.5em 1.2em;
+}
+
+
+/* message-card 内のステップフロー: 矢羽同士に適度な隙間を空ける */
+.message-card .step {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+/* 矢羽本体と矢印三角(:after)の継ぎ目に出る縦線を消す.
+   サブピクセル丸めで隙間が出ても, 本体右端に太い border-right(本体色)を
+   敷いて継ぎ目を物理的に覆い隠す. box-sizing:border-box なので幅は不変.
+   border 色は各 phase の塗り色に合わせる. */
+.message-card .active-phase {
+  border-right: 2px solid $brand-primary;
+}
+
+.message-card .danger-phase {
+  border-right: 2px solid $danger-red;
+}
+
+.message-card .outline-phase {
+  border-right: 2px solid #e3eaf3;
+}
+
+
+
 
 
 /* ------------------------------------------------------------------- */
@@ -836,8 +933,7 @@
   overflow: hidden;
   height: 10em;
   padding-top: 1em;
-  gap: 0px;
-  /* 隙間をなくす場合 */
+  gap: 4px;
 }
 
 .step {
@@ -964,6 +1060,85 @@
   border-width: 2em 0em 2em 1em;
   border-style: solid;
   border-color: transparent $brand-primary;
+  right: -0.9821em;
+}
+
+/* danger-phase: 重要ステップを赤でハイライトする chevron.
+   .active-phase と同じ形状で塗り色のみ変更. .active-phase-sm と併用. */
+.danger-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: $danger-red;
+  border-color: $danger-red;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 0em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.danger-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 2em 2em 1em;
+  border-style: solid;
+  border-color: $danger-red transparent;
+  left: -1em;
+}
+
+.danger-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent $danger-red;
+  right: -0.9821em;
+}
+
+/* outline-phase: 通常ステップ用の白地＋紺枠線 chevron.
+   塗りつぶさず輪郭線で見せる. .active-phase-sm と併用. */
+.outline-phase {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 4em;
+  background-color: #e3eaf3;
+  color: $brand-primary;
+  font-weight: bold;
+  padding: 0 0em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.outline-phase:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 2em 2em 1em;
+  border-style: solid;
+  border-color: #e3eaf3 transparent;
+  left: -1em;
+}
+
+.outline-phase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -2em;
+  border-width: 2em 0em 2em 1em;
+  border-style: solid;
+  border-color: transparent #e3eaf3;
   right: -0.9821em;
 }
 
