@@ -1540,67 +1540,32 @@
     "text": "某経済学研究科修士取得後，どこかのデータサイエンス（コンサル）会社に勤務してます． Arsenalが好きです．"
   },
   {
-    "objectID": "template/concept-explanation.html",
-    "href": "template/concept-explanation.html",
+    "objectID": "template/message-card.html",
+    "href": "template/message-card.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "目的\n\n構造"
+    "text": "事業コンセプトと採用候補\nアカデミア先端技術R&Dチーム組成\n\n\n10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う\n顧客と自社を結ぶ技術検証・実装の中核チームとして機能させる\n\n\n※ 採用人数・体制は事業フェーズに応じて拡張する\n\n\n\nアカデミア先端技術R&Dチーム組成\n\n\n10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う"
   },
   {
-    "objectID": "template/concept-explanation.html#section",
-    "href": "template/concept-explanation.html#section",
+    "objectID": "template/message-card.html#先端技術rdチームの新設で事業コンセプトを技術面から牽引する",
+    "href": "template/message-card.html#先端技術rdチームの新設で事業コンセプトを技術面から牽引する",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "目的\n\n構造"
+    "text": "事業コンセプトと採用候補\nアカデミア先端技術R&Dチーム組成\n\n\n10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う\n顧客と自社を結ぶ技術検証・実装の中核チームとして機能させる\n\n\n※ 採用人数・体制は事業フェーズに応じて拡張する\n\n\n\nアカデミア先端技術R&Dチーム組成\n\n\n10〜20名の若手技術系社員を採用し，関与する企業群を JDSC が組成・リード・育成までを一気通貫で行う"
   },
   {
-    "objectID": "template/info-box-with-two-cols.html",
-    "href": "template/info-box-with-two-cols.html",
+    "objectID": "template/lecture-index-slide.html",
+    "href": "template/lecture-index-slide.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
+    "text": "想定する受講者像を1〜2行で（例：データ分析の初学者・実務1年目）\n\n\n\n\n\n\n\n\n\n\n\n受講前に押さえておきたい知識を箇条書きで（例：Python基礎・基本的な統計用語）\n\n\n\n\n\n\n\n\n\n\n\n受講に必要なツール・バージョンを記載（例：Python 3.11+・Jupyter・git）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. セクション名\n      description:\n        - このセクションで扱うトピックを1行で\n        - 受講者が得られる学びを1行で\n      width: [28, 72]\n    - title: 2. セクション名\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;：扱う範囲\n        - &lt;strong&gt;手法&lt;/strong&gt;：使う手法・ツール\n      width: [28, 72]\n    - title: 3. セクション名\n      description:\n        - 主要なポイントを1行で\n        - 補足を1行で\n      width: [28, 72]\n    - title: 4. セクション名\n      description:\n        - 応用・発展の方向性を1行で\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 参考資料・追加リソースを記載\n      width: [28, 72]"
   },
   {
-    "objectID": "template/info-box-with-two-cols.html#xxxx",
-    "href": "template/info-box-with-two-cols.html#xxxx",
+    "objectID": "template/lecture-index-slide.html#index",
+    "href": "template/lecture-index-slide.html#index",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
-  },
-  {
-    "objectID": "template/azureblue-summary.html#section-1",
-    "href": "template/azureblue-summary.html#section-1",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
-  },
-  {
-    "objectID": "template/hop-step-jump.html",
-    "href": "template/hop-step-jump.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/hop-step-jump.html#test",
-    "href": "template/hop-step-jump.html#test",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
-  },
-  {
-    "objectID": "template/meta-data-slide.html",
-    "href": "template/meta-data-slide.html",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
-  },
-  {
-    "objectID": "template/meta-data-slide.html#section-top-slide",
-    "href": "template/meta-data-slide.html#section-top-slide",
-    "title": "Presentation for Regession Monkey",
-    "section": "",
-    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+    "text": "想定する受講者像を1〜2行で（例：データ分析の初学者・実務1年目）\n\n\n\n\n\n\n\n\n\n\n\n受講前に押さえておきたい知識を箇条書きで（例：Python基礎・基本的な統計用語）\n\n\n\n\n\n\n\n\n\n\n\n受講に必要なツール・バージョンを記載（例：Python 3.11+・Jupyter・git）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. セクション名\n      description:\n        - このセクションで扱うトピックを1行で\n        - 受講者が得られる学びを1行で\n      width: [28, 72]\n    - title: 2. セクション名\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;：扱う範囲\n        - &lt;strong&gt;手法&lt;/strong&gt;：使う手法・ツール\n      width: [28, 72]\n    - title: 3. セクション名\n      description:\n        - 主要なポイントを1行で\n        - 補足を1行で\n      width: [28, 72]\n    - title: 4. セクション名\n      description:\n        - 応用・発展の方向性を1行で\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 参考資料・追加リソースを記載\n      width: [28, 72]"
   },
   {
     "objectID": "template/analysis-summary.html",
@@ -1617,18 +1582,67 @@
     "text": "背景・課題\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n実施内容"
   },
   {
-    "objectID": "template/lecture-index-slide.html",
-    "href": "template/lecture-index-slide.html",
+    "objectID": "template/meta-data-slide.html",
+    "href": "template/meta-data-slide.html",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "想定する受講者像を1〜2行で（例：データ分析の初学者・実務1年目）\n\n\n\n\n\n\n\n\n\n\n\n受講前に押さえておきたい知識を箇条書きで（例：Python基礎・基本的な統計用語）\n\n\n\n\n\n\n\n\n\n\n\n受講に必要なツール・バージョンを記載（例：Python 3.11+・Jupyter・git）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. セクション名\n      description:\n        - このセクションで扱うトピックを1行で\n        - 受講者が得られる学びを1行で\n      width: [28, 72]\n    - title: 2. セクション名\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;：扱う範囲\n        - &lt;strong&gt;手法&lt;/strong&gt;：使う手法・ツール\n      width: [28, 72]\n    - title: 3. セクション名\n      description:\n        - 主要なポイントを1行で\n        - 補足を1行で\n      width: [28, 72]\n    - title: 4. セクション名\n      description:\n        - 応用・発展の方向性を1行で\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 参考資料・追加リソースを記載\n      width: [28, 72]"
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
   },
   {
-    "objectID": "template/lecture-index-slide.html#index",
-    "href": "template/lecture-index-slide.html#index",
+    "objectID": "template/meta-data-slide.html#section-top-slide",
+    "href": "template/meta-data-slide.html#section-top-slide",
     "title": "Presentation for Regession Monkey",
     "section": "",
-    "text": "想定する受講者像を1〜2行で（例：データ分析の初学者・実務1年目）\n\n\n\n\n\n\n\n\n\n\n\n受講前に押さえておきたい知識を箇条書きで（例：Python基礎・基本的な統計用語）\n\n\n\n\n\n\n\n\n\n\n\n受講に必要なツール・バージョンを記載（例：Python 3.11+・Jupyter・git）\n\n\n\n\n\nregmonkey_index:\n  title_fontsize: 1.3em\n  bullet_fontsize: 0.7em\n  children:\n    - title: 1. セクション名\n      description:\n        - このセクションで扱うトピックを1行で\n        - 受講者が得られる学びを1行で\n      width: [28, 72]\n    - title: 2. セクション名\n      description:\n        - &lt;strong&gt;対象&lt;/strong&gt;：扱う範囲\n        - &lt;strong&gt;手法&lt;/strong&gt;：使う手法・ツール\n      width: [28, 72]\n    - title: 3. セクション名\n      description:\n        - 主要なポイントを1行で\n        - 補足を1行で\n      width: [28, 72]\n    - title: 4. セクション名\n      description:\n        - 応用・発展の方向性を1行で\n      width: [28, 72]\n    - title: 5. Appendix\n      description:\n        - 参考資料・追加リソースを記載\n      width: [28, 72]"
+    "text": "対象者\n\n\n\n\n\n\nBiz\n\n\n\n\n\n\n\n\nDS\n\n\n\n\n\n\n\n\nDev\n\n\n\n\n\n\n\n\n\n\n 難易度\n\n\n\n    \n\n\n中級レベル\n\n\n\n\n\n キーワード\n\n\naadasda adasdasdsa asdasdsa\n\n\n\n\n\n\n\n\nKey Takeaways\n\n\n\nhogehogehogeadasdasdasdsdsad\nhogehogehoge\nhogehogehoge\nhogehogehoge"
+  },
+  {
+    "objectID": "template/hop-step-jump.html",
+    "href": "template/hop-step-jump.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/hop-step-jump.html#test",
+    "href": "template/hop-step-jump.html#test",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "ジュニアDS\n\n\n分析ができる\n\n\n\n実装スキル（Python / SQL / Rなど）\n可視化、要約、特徴量エンジニアリングなどの基本分析技術\n指示タスクの正確な実行力\nドキュメンテーション・再現性への意識\n\n\n\n\n\n\nミドルDS\n\n\n分析を構想できる\n\n\n\n問いの構造化、仮説立案、分析手法の選定力\n分析計画とタスクの分解・優先順位づけ\n分析からインサイトを見出し、報告書を作成\n後続プロセス・業務実装を見据えた設計の議論や不備の指摘\n\n\n\n\n\n\nシニアDS\n\n\nプロジェクトを組織で推進できる\n\n\n\nPJマネジメント（進捗・品質・タスク調整）\n顧客・社内ステークホルダーとの合意形成\n分析成果の価値訴求力（経営層視点で語れる）\n組織内の知見・資産の展開と仕組み化"
+  },
+  {
+    "objectID": "template/azureblue-summary.html#section-1",
+    "href": "template/azureblue-summary.html#section-1",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "① モデル面\n\n\n精度，複雑，そんなに再現必要なかった\n物理モデルと回帰モデルのinputフィールドが大きく異なっていた\n\n\n\n\n\n② 体制面\n\n\n物理モデルの仕様書の共有ができなった\nヒアリング経由しか仕様を確認できなった"
+  },
+  {
+    "objectID": "template/info-box-with-two-cols.html",
+    "href": "template/info-box-with-two-cols.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
+  },
+  {
+    "objectID": "template/info-box-with-two-cols.html#xxxx",
+    "href": "template/info-box-with-two-cols.html#xxxx",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "xxxxx\nxxxxx\nxxxxx\n\n\n\n\n\n\n\n\nAAAA\n\n\nHogehoge\n\n1111\n2222\n3333\n\n\n\n\n\n\n\nBBBB\n\n\nHogehoge\n\n1111\n2222\n3333"
+  },
+  {
+    "objectID": "template/concept-explanation.html",
+    "href": "template/concept-explanation.html",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
+  },
+  {
+    "objectID": "template/concept-explanation.html#section",
+    "href": "template/concept-explanation.html#section",
+    "title": "Presentation for Regession Monkey",
+    "section": "",
+    "text": "目的\n\n構造"
   },
   {
     "objectID": "template/pentagon-squared-box.html",
@@ -2546,6 +2560,13 @@
     "title": "ウォーターフォールに流される",
     "section": "ウォーターフォールはアジャイルと比べプロジェクト成功率が低い",
     "text": "ウォーターフォールはアジャイルと比べプロジェクト成功率が低い\nStandish Group CHAOS Report（2015）：Successful・Challenged・Failed1 の3区分で集計\n\n\n\n\n\n\n\nウォーターフォールの成功率2\n\n\n全プロジェクト：成功率 11%（Agile 39%）\n\nプロジェクト規模が大きくなるほど成功率は低下する傾向にあり，特に大規模案件ではウォーターフォールの限界が顕著に現れる\n\n大規模プロジェクト：成功率 3% （Agile 18%）\n中規模プロジェクト：成功率 7%（Agile 27%）\n\n統合フェーズまで動作確認ができないリスクが直接的に失敗率を押し上げる\n\n小規模プロジェクト：成功率 44%（Agile 58%）\n\n要件が固定されやすい小規模案件では差が縮まるが，それでも Agile に劣る\n\n\n\n\nSuccessful：予算内・納期内・要求仕様通りに完了．Challenged：完了したが予算超過・納期遅延・要求削減のいずれかが発生．Failed：キャンセルまたは完成品を一度も使用せずに廃棄．Small：予算100万ドル未満．Medium：予算100万〜1000万ドル．Large：予算1000万ドル超．"
+  },
+  {
+    "objectID": "posts/2026-06-08-lose-control-in-waterfall/index.html#アジャイルは変化を前提に短サイクルで動くソフトを届ける",
+    "href": "posts/2026-06-08-lose-control-in-waterfall/index.html#アジャイルは変化を前提に短サイクルで動くソフトを届ける",
+    "title": "ウォーターフォールに流される",
+    "section": "アジャイルは変化を前提に短サイクルで動くソフトを届ける",
+    "text": "アジャイルは変化を前提に短サイクルで動くソフトを届ける\n個人と対話・動くソフトウェア・顧客との協調・変化への対応に価値をおく\n\n\n\n\n\n① 変化を前提とする\n\n\n\n開発後期の要件変更も対応し，変化を顧客の競争優位へ\n計画通りの完遂より，価値ある成果への適応を優先する\n\n\n\n\n\n\n② スコープを小さく定義する\n\n\n\n数週間〜数ヶ月で動くソフトを届けられる単位までスコープを分割する\nやらない仕事を最大化し，シンプルさを保つ\n\n\n\n\n\n\n③ 技術的卓越性を保ち続ける\n\n\n\nどの素材を，いつ，どんな形で使うかを理解する\n設計を疎かにすると技術的負債が反復ごとに蓄積する\n\n\n\n\n\n\n④ 自己組織化チームと対話\n\n\n\n動機づけられた個人を信頼し，対面の対話で情報を伝える\n定期的に振り返り，進め方を継続的に調整する\n\n\n\n\n\n\nアジャイル：短い反復サイクルを繰り返す\n\n\n\n\nSprint 1\n\n\nSprint 2\n\n\nSprint 3\n\n\nSprint 4\n\n\n…\n\n\n同じ workflow を Sprint ごとに反復し，毎回動くソフトを顧客に届ける\n\n\n\n\n\n\nウォーターフォール：一括・直列で工程を進める\n\n\n全工程を直列に進め，動作確認は統合フェーズまで先送りされる\n\n\n①要求\n\n\n②設計\n\n\n③実装\n\n\n④統合\n\n\n⑤テスト\n\n\n⑥リリース\n\n\n\n【特性】計画駆動・後戻りを想定しない\n\n要件は初期に固定され，後工程での変更コストが大きい\n統合まで動くソフトが見えず，問題の発覚が遅れる"
   },
   {
     "objectID": "posts/2026-06-08-lose-control-in-waterfall/index.html#レガシーコードからの脱却",
