@@ -323,7 +323,7 @@ Ryo Nakagami
 <span id="cb1-65"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> パッチ・修正版リリース，新機能追加版，更新されたドキュメント</span></span>
 <span id="cb1-66"><a></a><span class="at">    </span><span class="fu">risk</span><span class="kw">:</span></span>
 <span id="cb1-67"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 設計書・仕様書の更新が追いつかず，ドキュメントとコードの乖離が蓄積</span></span>
-<span id="cb1-68"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 長期保守によりコードが複雑化し，変更コストが指数的に増大</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-68"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 開発チームメンバーが会社を去ってしまって，ドキュメント参照だけでは既存の設計が理解できない</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -366,10 +366,91 @@ Ryo Nakagami
 <span id="cb2-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 締め切り圧力でテスト期間が削られ，技術的負債として残る</span></span>
 <span id="cb2-25"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-
-
+</section>
+<section id="ウォーターフォールはアジャイルと比べプロジェクト成功率が低い" class="slide level2">
+<h2>ウォーターフォールはアジャイルと比べプロジェクト成功率が低い</h2>
+<p><span class="h2-submessage">Standish Group CHAOS Report（2015）：Successful・Challenged・Failed<sup>1</sup> の3区分で集計</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
+<p><img data-src="project-stats.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:45%;">
+<div class="border-bottom-header-left">
+<p>ウォーターフォールの成功率<sup>2</sup></p>
+</div>
+<div class="squaredmark font-09 lh-13">
+<p><span class="regmonkey-bold">全プロジェクト：成功率 <strong>11%</strong>（Agile <strong>39%</strong>）</span></p>
+<ul>
+<li>プロジェクト規模が大きくなるほど成功率は低下する傾向にあり，特に大規模案件ではウォーターフォールの限界が顕著に現れる</li>
+</ul>
+<p><span class="regmonkey-bold">大規模プロジェクト：成功率 <strong>3%</strong> （Agile <strong>18%</strong>）</span></p>
+<p><span class="regmonkey-bold">中規模プロジェクト：成功率 <strong>7%</strong>（Agile <strong>27%</strong>）</span></p>
+<ul>
+<li>統合フェーズまで動作確認ができないリスクが直接的に失敗率を押し上げる</li>
+</ul>
+<p><span class="regmonkey-bold">小規模プロジェクト：成功率 <strong>44%</strong>（Agile <strong>58%</strong>）</span></p>
+<ul>
+<li>要件が固定されやすい小規模案件では差が縮まるが，それでも Agile に劣る</li>
+</ul>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn1"><p><strong>Successful</strong>：予算内・納期内・要求仕様通りに完了．<strong>Challenged</strong>：完了したが予算超過・納期遅延・要求削減のいずれかが発生．<strong>Failed</strong>：キャンセルまたは完成品を一度も使用せずに廃棄．</p></li><li id="fn2"><p><strong>Small</strong>：予算100万ドル未満．<strong>Medium</strong>：予算100万〜1000万ドル．<strong>Large</strong>：予算1000万ドル超．</p></li></ol></aside></section>
+<section>
+<section id="references" class="title-slide slide level1 no-auto-agenda center">
+<h1>References</h1>
 
 </section>
+<section id="レガシーコードからの脱却" class="slide level2">
+<h2>レガシーコードからの脱却</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column book-image">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./legacy-code-book.png"></p>
+<figcaption>legacy-code</figcaption>
+</figure>
+</div>
+</div><div class="column book-info">
+<h3 id="書籍情報">書籍情報</h3>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>タイトル</td>
+<td><a href="https://www.oreilly.co.jp/books/9784873118864/">レガシーコードからの脱却</a></td>
+</tr>
+<tr class="even">
+<td>著者</td>
+<td>David Scott Bernstein 著／吉羽 龍太郎・永瀬 美穂・原田 騎郎・有野 雅士 訳</td>
+</tr>
+<tr class="odd">
+<td>発売日</td>
+<td>2019/09/19</td>
+</tr>
+<tr class="even">
+<td>ISBN13</td>
+<td>978-4-87311-886-4</td>
+</tr>
+<tr class="odd">
+<td>体裁</td>
+<td>344ページ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="この本の内容">この本の内容</h3>
+<ul>
+<li>ウォーターフォール型開発が生み出す技術的負債とレガシーコードの構造的原因を解説</li>
+<li>テスト駆動開発・継続的インテグレーション・リファクタリングなど，コードを健全に保つ9つのプラクティスを紹介</li>
+<li>「動かないコードを直すより，最初から壊れにくいコードを書く」という発想の転換を促す</li>
+</ul>
+</div></div>
+
+
+
+</section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
