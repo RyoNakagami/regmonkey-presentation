@@ -1,0 +1,1085 @@
+---
+title: "分析レビューの８つの観点"
+subtitle: "分析ガイドライン"
+author: "Ryo Nakagami"
+date: "2026-06-12"
+categories: [analysis, review, checklist, 方法論]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+  - regmonkey_step_flow
+auto-agenda:
+  bullets: bullets
+# chalkboard: false
+# embed-resources: true
+---
+
+# ルール一覧
+
+## 分析品質を評価する8つの観点
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.7em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-rule-overview data-col-widths="[20, 42, 38]"}
+
+```yaml
+record1:
+  観点: 1. 体裁の完備性
+  説明:
+    - 要約・目的・出典・図表ラベルなど，レビューに必要な基本情報が過不足なく揃っているか
+  アンチパターン:
+    - 軸ラベルのないグラフ，出典不明の引用，テンプレート不準拠
+
+record2:
+  観点: 2. 問いとスコープの整合性
+  説明:
+    - Research Questionに対して適切に答えているか．分析の対象や焦点が途中でずれていないか
+  アンチパターン:
+    - 問いが曖昧なまま分析を開始し，依頼内容とは異なる結論を導いている
+
+record3:
+  観点: 3. 体系性
+  説明:
+    - 単なる観察結果の羅列ではなく，結論まで一貫して導かれているか．
+    - 関連する先行知見や既存施策が適切に考慮されているか
+  アンチパターン:
+    - 集計結果を並べただけで示唆がない，
+    - 都合の良い先行分析だけを参照している
+
+record4:
+  観点: 4. 手法・分析の妥当性
+  説明:
+    - 指標の定義が適切か，再現可能な手順になっているか，統計的な妥当性が確保されているか．
+    - データの特性や制約が明示されているか
+  アンチパターン:
+    - 指標定義の不一致，再現不能な集計，データリーケージ
+
+record5:
+  観点: 5. 結論の正当性
+  説明:
+    - 結論がデータによって十分に裏付けられているか．
+    - 論理の飛躍がなく，分析の限界や解釈上の注意点が明示されているか
+  アンチパターン:
+    - 分析の限界を記載していない
+    - 識別戦略への言及なく因果効果を解釈している
+
+record6:
+  観点: 6. 新規性・付加価値
+  説明:
+    - 既存分析の繰り返しではなく，理解促進や意思決定をドライブする新たな知見や示唆があるか
+  アンチパターン:
+    - 誤差範囲内の改善を過大評価する
+    - 内容を細分化して報告しているだけ
+
+record7:
+  観点: 7. 可読性・伝達性
+  説明:
+    - 想定読者が結論と根拠を無理なく理解できる構成になっているか．図表や説明が明瞭か
+  アンチパターン:
+    - 論旨を追えない構成，読みにくい図表，本人以外によるレビュー未実施
+
+record8:
+  観点: 8. 重要性（So what?）
+  説明:
+    - 問いそのものがビジネスや現場にとって重要であり，意思決定や行動につながる価値を持っているか
+  アンチパターン:
+    - 技術的には正しいが，誰の意思決定にも影響を与えない分析
+```
+
+
+:::
+::::
+
+# 各観点の解説
+
+## 基本情報の完備がレビューの出発点
+
+[観点1：体裁の完備性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 要約・目的・出典・図表ラベルなど，レビューに必要な基本情報が[過不足なく揃っているか]{.regmonkey-bold}を確認する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[基本情報の明記]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+タイトル・要約・分析者・日付・目的が明記されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[出典の明記]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+引用・図表に出典が明記され，無断転載がないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[図表の可読性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+ラベル・軸・凡例・単位が読み取れるか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[参照情報の鮮度]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+参照データ・先行分析が最新で，欠落がないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[分析ガイドラインの準拠]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+社内の分析ガイドライン・テンプレートに準拠しているか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- タイトルや目的が記載されていない
+- 図表の軸ラベル・単位・凡例が欠落している
+- 出典が記載されていない
+- テンプレートや報告規程に準拠していない
+- レビューに必要なソースコードや集計条件への参照が存在しない
+- データ抽出日が不明で，どの時点の情報か判断できない
+- スライドごとに表記ゆれ（単位・名称）があり，一貫性がない
+
+
+:::
+
+
+:::
+
+::::
+
+
+
+
+## スコープ逸脱は問いの曖昧さに起因する
+
+[観点2：問いとスコープの整合性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- [Research Question に正面から答えているか]{.regmonkey-bold}を確認する：分析の対象や焦点が途中でずれていないか
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[問いの事前合意]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+問いの定義が分析開始前に合意されていたか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[問いへの回答]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+依頼された問い（ビジネス課題）に正面から答えているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[焦点の維持]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+分析の焦点が別のものにすり替わっていないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[新しい洞察]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+既知の事実の再確認に留まらず，新しい洞察があるか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 問いが曖昧なまま分析に着手している
+- 答えるべき問いが未定義なまま，データを可視化している
+- 依頼内容と異なる問いに答えている
+- 手元のデータでできる分析に問いをすり替えている
+- 既知の事実の再確認に留まり，新しい洞察がない
+- 分析の途中でスコープが広がり，論点が散漫になっている
+
+
+:::
+
+
+:::
+
+::::
+
+## 分析は結論に至って初めて完結する
+
+[観点3：体系性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 体系性は[問い → 分析 → 結論の一貫した導出]{.regmonkey-bold}と[先行知見の網羅]{.regmonkey-bold}で確認する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[結論への一貫性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+観察の羅列でなく，結論まで一貫して導かれているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[事実と解釈の区別]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+観察された事実と，解釈・示唆が区別して記述されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[先行知見の網羅]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+関連する先行知見・既存施策が適切に考慮されているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[残課題の整理]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+答えきれなかった問い・追加検証が必要な事項が整理されているか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 集計結果を並べただけで示唆がない
+- 「だから何か」に答える結論パートがない
+- 都合の良い先行分析だけを参照している
+- 既存施策との関係が整理されていない
+- セクション間の主張がつながらず，結論への筋道が見えない
+
+
+:::
+
+
+:::
+
+::::
+
+## 手法より定義ズレ起因の誤りが多い
+
+[観点4：手法・分析の妥当性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 妥当性は[指標定義・再現可能性・統計的妥当性・データ理解]{.regmonkey-bold}の4軸で確認する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[指標定義の一致]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+指標の定義（分子・分母・集計単位・期間）が一致しているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[比較対象の明確性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+対照群・ベースライン・比較指標が明確か
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[再現可能性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+前処理・抽出条件・集計ロジックが記述され，再現できるか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[統計的妥当性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+サンプルサイズ・検定・多重比較・交絡の扱いが適切か
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[データ理解]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+期間・母集団・欠損・外れ値処理・バイアスが明示されているか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 指標の定義が関係者間で一致していない
+- 前処理・抽出条件が記載されず，再現できない
+- サンプルサイズ不足のまま結論を断定している
+- 多重比較・交絡が未検討のまま有意差を主張している
+- データリーケージに気づかないまま精度を報告している
+- 欠損・外れ値の処理方針が書かれていない
+- 識別戦略の未提示
+- 分析計画が基づいている仮定の未検証
+
+
+:::
+
+
+:::
+
+::::
+
+## 限界の明示が結論の正当性を担保する
+
+[観点5：結論の正当性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 「[何が言えないか]{.regmonkey-bold}」を書いて初めて結論の正当性が担保される
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[論理の筋道]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+論理展開が筋道立っており，飛躍がないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[データによる裏付け]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+結論がデータに裏付けられているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[反証の検討]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+不都合な結果や反証となる事実を無視していないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[限界の明示]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+分析の限界（limitations）・解釈上の注意点が明示されているか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 分析の限界（limitations）を記載していない
+- 識別戦略への言及なく因果効果を解釈している
+- 不都合な結果・反証となる事実に触れていない
+- データがサポートする範囲を超えて結論を一般化している
+
+
+:::
+
+
+:::
+
+::::
+
+## 分析の価値は意思決定への貢献度で測る
+
+[観点6：新規性・付加価値]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 既存分析の繰り返しではなく，[理解促進や意思決定をドライブする新たな知見・示唆]{.regmonkey-bold}があるかを確認する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[焼き直しでないか]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+既存レポートの微修正・再集計を膨らませていないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[報告の粒度]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+本来1本で語るべき内容を細切れにしていないか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[意思決定への貢献]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+意思決定や施策をドライブさせる新たな情報があるか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 指標改善(特に誤差範囲内)，それ自体を成果として報告している
+- 本来1本で語るべき内容を細切れに報告している
+- 意思決定に影響しない補足集計を膨らませている
+
+
+:::
+
+
+:::
+
+::::
+
+## 明確さの基準は読み手が判断できること
+
+[観点7：可読性・伝達性]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 明確さは書き手ではなく[想定読者が無理なく理解できるか]{.regmonkey-bold}で測る：第三者レビューで確認する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[構成の明瞭性]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+言語・構成・図表が対象読者にとって明瞭か
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[専門外への伝達]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+専門外の意思決定者でも結論と根拠を追えるか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[第三者レビュー]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+書いた本人以外にレビューしてもらったか
+
+:::
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 論旨を追えない構成になっている
+- 図表が小さい・凡例がなく読み取れない
+- 専門用語の説明がなく，専門外の読者が理解できない
+- 結論が末尾に埋もれており，要点が拾えない
+- 本人以外による事前レビューを実施していない
+
+
+:::
+
+
+:::
+
+::::
+
+## 重要性は行動変容につながる価値で測る
+
+[観点8：重要性（So what?）]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 重要性は[問いそのものの重要さ]{.regmonkey-bold}と[意思決定・行動につながる価値]{.regmonkey-bold}の2点で評価する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+チェック項目
+
+:::
+
+
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[So what? への回答]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+「で，何が嬉しいのか」に答えているか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[問いの関心度]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+扱っている問いがビジネス・現場にとって関心のあるものか
+
+:::
+:::
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[行動変容につながるか]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+想定読者にとって，行動を変えるだけの価値があるか
+
+:::
+:::
+
+::::
+
+:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+
+::: {.tool-content}
+::: {.tool-name}
+
+[推奨アクション]{.checkbox2 .checked}
+
+:::
+::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+
+不確実性を踏まえた上で，実行可能な推奨アクションが述べられているか
+
+:::
+:::
+
+::::
+
+:::
+
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+アンチパターン
+
+:::
+
+:::{.font-09 .padding-L-10 .lh-20}
+
+- 技術的には正しいが，誰の意思決定にも影響を与えない
+- 「So what?」への答えがなく，解釈を読み手に委ねている
+- 問いがビジネス・現場の関心から外れている
+- 分析結果から取るべきアクションが示されていない
+
+
+:::
+
+
+:::
+
+::::
+
+# References{.no-auto-agenda}
+
+## Eight reasons I rejected your article
+
+{{< reveal_vspace 1em >}}
+
+### 記事情報
+
+| | |
+|----------|------|
+| タイトル | [Eight reasons I rejected your article](https://www.elsevier.com/connect/8-reasons-i-rejected-your-article) |
+| 著者 | Peter Thrower, PhD（Carbon 誌 Editor-in-Chief・Penn State 名誉教授） |
+| 媒体 | Elsevier Connect |
+| 公開日 | 2012-09-12 |
+
+{{< reveal_vspace 0.5em >}}
+
+### この記事の内容
+
+- 学術誌のエディターが査読に回す前に論文をリジェクトする8つの理由を解説
+- technical screening・Aims and Scope・incomplete・defective analysis・unjustified conclusions・small extension・incomprehensible・boring の8項目
+- 本チェックリストの8観点は，この8つのリジェクト理由を社内の分析レポート向けに読み替えたもの
