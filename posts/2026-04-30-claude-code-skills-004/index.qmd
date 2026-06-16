@@ -185,7 +185,7 @@ regmonkey_abstract_summary:
 [具体例：PR レビュー支援フローでの5機能の役割分担]{.mini-section}
 
 :::{style="text-align:center;"}
-![](./pr_review_5_features_horizontal.svg){fig-alt="PRレビューフローでの5機能の役割分担。CLAUDE.mdが土台として常時適用され，主軸はHooks→Skills→MCP serversの時系列。SkillsからSubagentsへ別軸で委譲" width="100%"}
+![](./pr_review_5_features_horizontal.svg){fig-alt="PRレビューフローでの5機能の役割分担．CLAUDE.mdが土台として常時適用され，主軸はHooks→Skills→MCP serversの時系列．SkillsからSubagentsへ別軸で委譲" width="100%"}
 :::
 
 # Skills vs CLAUDE.md
@@ -471,7 +471,7 @@ record1:
   Hook名: SessionStart
   タイミング: セッション開始時・再開時
   Block: ×
-  主な用途: 開発コンテキスト（Issue・最近の変更など）の読み込み、環境変数のセットアップ
+  主な用途: 開発コンテキスト（Issue・最近の変更など）の読み込み，環境変数のセットアップ
 
 record2:
   Hook名: Setup
@@ -481,13 +481,13 @@ record2:
 
 record3:
   Hook名: UserPromptSubmit
-  タイミング: ユーザがプロンプトを送信し、Claudeが処理する前
+  タイミング: ユーザがプロンプトを送信し，Claudeが処理する前
   Block: ○
   主な用途: プロンプトに基づくコンテキスト追加・プロンプトの検証・特定種類のプロンプトのブロック
 
 record4:
   Hook名: UserPromptExpansion
-  タイミング: スラッシュコマンドがプロンプトに展開され、Claudeに届く前
+  タイミング: スラッシュコマンドがプロンプトに展開され，Claudeに届く前
   Block: ○
   主な用途: 特定コマンドの直接呼び出しブロック・スキル用コンテキスト注入・コマンド利用ログ
 
@@ -511,7 +511,7 @@ record5:
 ```yaml
 record1:
   Hook名: PreToolUse
-  タイミング: Claudeがツールパラメータを生成した後、ツール呼び出しの処理前
+  タイミング: Claudeがツールパラメータを生成した後，ツール呼び出しの処理前
   Block: ○
   主な用途: 危険コマンドのブロック・ツール入力の修正・許可/拒否/確認の制御
 
@@ -519,7 +519,7 @@ record2:
   Hook名: PermissionRequest
   タイミング: 権限ダイアログが表示されるとき
   Block: ○
-  主な用途: ユーザの代わりに権限を自動承認・拒否、カスタムロジックによるツール権限制御
+  主な用途: ユーザの代わりに権限を自動承認・拒否，カスタムロジックによるツール権限制御
 
 record3:
   Hook名: PermissionDenied
@@ -541,7 +541,7 @@ record5:
 
 record6:
   Hook名: PostToolBatch
-  タイミング: 並列ツール呼び出しのバッチ全体が解決した後、次のモデル呼び出し前
+  タイミング: 並列ツール呼び出しのバッチ全体が解決した後，次のモデル呼び出し前
   Block: ○
   主な用途: バッチ単位でのコンテキスト注入・エージェントループの停止
 ```
@@ -603,7 +603,7 @@ record8:
   Hook名: TeammateIdle
   タイミング: Agent Teamのチームメイトがアイドルに移行する直前
   Block: ○
-  主な用途: アイドル前の品質ゲート（lint、ビルド成果物の確認など）
+  主な用途: アイドル前の品質ゲート（lint，ビルド成果物の確認など）
 ```
 
 :::
@@ -673,7 +673,7 @@ record9:
 
 record10:
   Hook名: ElicitationResult
-  タイミング: ユーザがMCPのelicitationに応答した後、サーバへ返却される前
+  タイミング: ユーザがMCPのelicitationに応答した後，サーバへ返却される前
   Block: ○
   主な用途: ユーザ応答の上書き・修正
 ```

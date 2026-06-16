@@ -1,8 +1,8 @@
 /* step-flow.css : ステップフロー図のスタイル（regmonkey_step_flow 拡張）
  *
- * 配色・サイズは step-flow.js が注入する <style> およびハウススタイルと一致させる。
- * brand-primary #0e3666 / accent #206f83 / text #1a1a1a を使用。
- * 列幅（grid-template-columns）は description 列数に応じて JS が直書きする。
+ * 配色・サイズは step-flow.js が注入する <style> およびハウススタイルと一致させる．
+ * brand-primary #0e3666 / accent #206f83 / text #1a1a1a を使用．
+ * 列幅（grid-template-columns）は description 列数に応じて JS が直書きする．
  */
 
 .step-flow {
@@ -47,7 +47,7 @@
   background: #0e3666;
   color: #fff;
   font-weight: 700;
-  /* 下の頂点ぶんを padding-bottom に足し、文字は四角形部に収める */
+  /* 下の頂点ぶんを padding-bottom に足し，文字は四角形部に収める */
   padding: 0.4em 1em calc(0.4em + 0.9em) 1em;
   text-align: center;
   width: 100%;
@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 下辺中央が尖る五角形。上側四角形 = (高さ - 0.9em) */
+  /* 下辺中央が尖る五角形．上側四角形 = (高さ - 0.9em) */
   clip-path: polygon(
     0 0,
     100% 0,
@@ -65,7 +65,7 @@
   );
 }
 
-/* 2 列目以降：description カラム。文字は左揃え・縦位置は中央 */
+/* 2 列目以降：description カラム．文字は左揃え・縦位置は中央 */
 .step-flow__desc-cell {
   display: flex;
   flex-direction: column;

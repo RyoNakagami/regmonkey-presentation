@@ -11,9 +11,9 @@ local function scan_blocks(blocks)
 end
 
 function reveal_horizontal_line(args)
-  -- 第一引数で高さ（線の太さ）を指定、デフォルト 1px
+  -- 第一引数で高さ（線の太さ）を指定，デフォルト 1px
   local height = args[1] or "1px"
-  -- 第二引数でカラー指定、デフォルトはグレー
+  -- 第二引数でカラー指定，デフォルトはグレー
   local color = args[2] or "#d1d5db" -- Tailwind gray-300
 
   -- CSS dependency を追加

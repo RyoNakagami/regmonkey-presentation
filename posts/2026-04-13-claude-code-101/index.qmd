@@ -312,7 +312,7 @@ regmonkey_abstract_summary:
 
 ## Bare LLM vs Coding Assistant
 
-[ファイル読込など環境作用が必要な質問は、LLM単体では完結せずアシスタント層が必須]{.h2-submessage}
+[ファイル読込など環境作用が必要な質問は，LLM単体では完結せずアシスタント層が必須]{.h2-submessage}
 
 {{< reveal_vspace 0.5em >}}
 

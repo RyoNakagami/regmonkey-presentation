@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Reveal.js (Quarto) スライドを PPTX に変換する。
+ * Reveal.js (Quarto) スライドを PPTX に変換する．
  *
  * 仕組み:
- *   1. ローカルの quarto preview に `?print-pdf` で接続し、各 .pdf-page を
+ *   1. ローカルの quarto preview に `?print-pdf` で接続し，各 .pdf-page を
  *      1600x900 PNG としてキャプチャ
  *   2. 同時に各スライド内のテキスト要素 (h*, p, li など) の座標を抽出
- *   3. PPTX を組み立てる際、テキストを先に置いてから PNG を上に重ねる
+ *   3. PPTX を組み立てる際，テキストを先に置いてから PNG を上に重ねる
  *      → 視覚的には PNG (= ブラウザでの見た目そのまま)
  *      → PPT の検索・コピー操作はテキスト層に到達するため機能する
  *
@@ -23,7 +23,7 @@
  *   node scripts/slide2pptx.mjs --port 4201 posts/2026-04-15-claude-code-with-claude-md md.pptx
  *
  * 前提:
- *   `quarto preview` が起動済みで、対象デッキに HTTP でアクセスできること。
+ *   `quarto preview` が起動済みで，対象デッキに HTTP でアクセスできること．
  */
 
 import { chromium } from 'playwright';

@@ -16,6 +16,7 @@
       "  - reveal-auto-agenda",
       "  - inject_anychart_js",
       "  - regmonkey_slide_editing",
+      "  - regmonkey_step_flow",
       "auto-agenda:",
       "  bullets: bullets",
       "# chalkboard: false",

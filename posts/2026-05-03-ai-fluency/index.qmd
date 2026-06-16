@@ -447,7 +447,7 @@ regmonkey_index:
     - title: 4. 構造的制約
       description:
         - "件名は何文字以内・本文は何ワード・CTAは1つ など出力フォーマットを枠で縛る"
-        - "枠を渡さないと、AIは「らしい長さ」に落ちる"
+        - "枠を渡さないと，AIは「らしい長さ」に落ちる"
       width: [30,70]
     - title: 5. 成功基準
       description:
@@ -457,7 +457,7 @@ regmonkey_index:
     - title: 6. 参考例
       description:
         - "良い例と<strong>悪い例</strong>を対で提示する"
-        - "「こういうのはNG」の提示は、抽象的な指示よりはるかに効く"
+        - "「こういうのはNG」の提示は，抽象的な指示よりはるかに効く"
       width: [30,70]
 ```
 

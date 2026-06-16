@@ -491,5 +491,5 @@ $$\mathbf{h}_i^{(0)} = \mathbf{e}_i + \mathbf{p}_i$$
 
 [^footer-params]: GPT-3では1750億個といわれている
 [^footer-firth]: "You shall know a word by the company it keeps!" --- J.R. Firth (1957)
-[^footer-negative-sampling]: 実際の学習では全語彙に対するsoftmax計算のコストを避けるため，**負例サンプリング（Negative Sampling）**が用いられる。真の文脈語（正例）に対してランダムに選んだ非文脈語（負例）を対比し，正例ペアの内積を大きく・負例ペアの内積を小さくするロジスティック回帰として学習する
+[^footer-negative-sampling]: 実際の学習では全語彙に対するsoftmax計算のコストを避けるため，**負例サンプリング（Negative Sampling）**が用いられる．真の文脈語（正例）に対してランダムに選んだ非文脈語（負例）を対比し，正例ペアの内積を大きく・負例ペアの内積を小さくするロジスティック回帰として学習する
 [^footer-embedding-dim]: GPT-3では $d = 12{,}288$ 次元，語彙数 $V = 50{,}257$ トークン

@@ -161,11 +161,11 @@
     const today = new Date(config.today || new Date());
 
     // --- 【修正ロジック】IDに基づいた描画行のインデックスを決定 ---
-    // 複数のタスク/マイルストーンを同じ行にマッピングするために、IDをキーとして一意の行インデックスを割り当てる
+    // 複数のタスク/マイルストーンを同じ行にマッピングするために，IDをキーとして一意の行インデックスを割り当てる
     const taskIdMap = {};
     let rowIndex = 0;
     allTasks.forEach(task => {
-      // idがない場合は配列のインデックスで一意キー生成し、別の行として扱う
+      // idがない場合は配列のインデックスで一意キー生成し，別の行として扱う
       const key = task.id || `_no_id_${allTasks.findIndex(t => t === task)}`;
 
       if (!taskIdMap.hasOwnProperty(key)) {
@@ -279,7 +279,7 @@
       })
     };
 
-    // 列ヘッダー（タスク名、担当） (省略... 変更なし)
+    // 列ヘッダー（タスク名，担当） (省略... 変更なし)
     const nameHeaderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     nameHeaderRect.setAttribute('x', 0);
     nameHeaderRect.setAttribute('y', 0);
@@ -339,8 +339,8 @@
 
       const taskGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
-      // --- 【修正ロジック】行情報（背景、タスク名、担当者）は最初のタスクのみ描画 ---
-      // 同じIDのタスクの中で、allTasks配列内で最初に出現したタスクであるかチェック
+      // --- 【修正ロジック】行情報（背景，タスク名，担当者）は最初のタスクのみ描画 ---
+      // 同じIDのタスクの中で，allTasks配列内で最初に出現したタスクであるかチェック
       const isFirstOccurrence = allTasks.findIndex(t => t.id === task.id) === allTasks.findIndex(t => t === task);
 
       if (isFirstOccurrence) {
@@ -394,7 +394,7 @@
         milestoneLabel.setAttribute('font-size', config.labelFontSize);
         milestoneLabel.setAttribute('fill', '#1a1a1a');
         milestoneLabel.setAttribute('font-weight', 'bold');
-        // マイルストーンラベルは、最初のものに限定せず、全て描画する
+        // マイルストーンラベルは，最初のものに限定せず，全て描画する
         milestoneLabel.textContent = task.note;
         taskGroup.appendChild(milestoneLabel);
       } else {

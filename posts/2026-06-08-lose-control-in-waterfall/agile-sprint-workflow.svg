@@ -1,6 +1,6 @@
 <svg viewBox="0 60 1920 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="1つの Sprint の中で計画→開発→テスト→レビューの workflow を循環的に回す">
   <title>Sprint 内 workflow</title>
-  <desc>1 つの Sprint の中で計画→開発→テスト→レビューの workflow を回し，レビューの結果を次の Sprint の計画へ戻す。</desc>
+  <desc>1 つの Sprint の中で計画→開発→テスト→レビューの workflow を回し，レビューの結果を次の Sprint の計画へ戻す．</desc>
 
   <defs>
     <marker id="arrow-main" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
