@@ -42,13 +42,13 @@ find . -name "custom*.css" -o -name "custom*.scss" 2>/dev/null
 ユーザーに対して、別ターミナルで以下を起動してもらう:
 
 ```bash
-poetry run quarto preview path/to/slide.qmd --no-browser --port 4444
+uv run quarto preview path/to/slide.qmd --no-browser --port 4444
 ```
 
 複数ファイル一括ならプロジェクトルートで:
 
 ```bash
-poetry run quarto preview --no-browser --port 4444
+uv run quarto preview --no-browser --port 4444
 ```
 
 起動を確認したら、Playwright MCP で `http://localhost:4444` にアクセス。
@@ -180,5 +180,5 @@ http://localhost:4444/?print-pdf
 ## 失敗時のフォールバック
 
 - ポート 4444 が使えない場合は 4445, 4446 と順次試す
-- `poetry run quarto preview` が起動しない場合は `quarto render` で静的HTMLを出力し、`python -m http.server` で配信して検証
+- `uv run quarto preview` が起動しない場合は `quarto render` で静的HTMLを出力し、`python -m http.server` で配信して検証
 - Playwright MCP が利用不可なら `scripts/check-quarto.mjs` を直接 `node` で実行するよう案内

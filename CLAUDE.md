@@ -31,7 +31,7 @@ quarto render posts/<YYYY-MM-DD-slug>/index.qmd
 
 `slide2pptx.sh` (and the underlying `scripts/slide2pptx.mjs`) captures each slide as a 1600×900 PNG via Playwright + Reveal's `?print-pdf` mode and embeds them full-bleed into a 16:9 PPTX. Searchable/copy-able text is laid down underneath the image so PowerPoint find + outline view still see the content. Trade-off: the visible content is an image, so text is not directly editable; for editable PPTX use Quarto's native `format: pptx` instead — which loses the custom CSS and shortcodes.
 
-Python deps are managed by Poetry (`poetry install --no-root`). Python is only used for embedded code chunks — the site renders fine without executing them because `freeze: true` is set in `posts/_metadata.yml` (Quarto reuses cached outputs in `_freeze/`).
+Python deps are managed by uv (`uv sync`). Python is only used for embedded code chunks — the site renders fine without executing them because `freeze: true` is set in `posts/_metadata.yml` (Quarto reuses cached outputs in `_freeze/`).
 
 Publishing is automatic: pushes to `main` trigger `.github/workflows/publish.yml`, which runs `quarto render` and pushes `_site/` to the `gh-pages` branch.
 

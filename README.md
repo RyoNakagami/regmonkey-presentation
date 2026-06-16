@@ -1,5 +1,10 @@
 # README
 
+![Python](https://img.shields.io/badge/python->3.12,<4-blue)
+![License](https://img.shields.io/badge/license-MIT-yellow)
+![Quarto](https://img.shields.io/badge/quarto-v1.9.36-blue)
+![uv](https://img.shields.io/badge/uv-0.11.19-green)
+
 ## Decktape: Reveal.jsのプレゼンテーションをPDFに変換するスクリプト
 
 - 使用方法: ポート4201でローカルサーバーが実行中で，Chromeがインストールされていることを確認
