@@ -29,6 +29,15 @@
   // --------------------------------------------
   // General Editing
   // --------------------------------------------
+  "quarto-appendix": {
+    "scope": "quarto",
+    "prefix": "appendix",
+    "body": [
+      "# Appendix{.no-auto-agenda}",
+      "",
+    ],
+    "description": "appendix slide for quarto"
+  },
   "quarto-slide-vspace": {
     "scope": "quarto",
     "prefix": "slide-vspace ",
