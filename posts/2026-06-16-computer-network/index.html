@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – ネットワークを学ぶ</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-a99c12e50dbff56abd94fd07c3433c38.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="default">
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+<meta property="og:title" content="ネットワークを学ぶ – Presentation for Regession Monkey">
+<meta property="og:description" content="開発101">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">ネットワークを学ぶ</h1>
+  <p class="subtitle">開発101</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年06月16日</p>
+</section>
+<section>
+<section id="ネットワーク基礎" class="title-slide slide level1 agenda-slide center">
+<h1>ネットワーク基礎</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>ネットワーク基礎</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>データリンク層</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="コンピューターネットワークとは" class="slide level2">
+<h2>コンピューターネットワークとは</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>コンピューターネットワークとは，コンピューター同士をケーブルや電波など何かしらの手段でつないで，様々なデータをやり取りできる状態にしたもの</li>
+<li>ネットワークのおかげで，Webサービス，電子メール，ファイル共有，SSHなどの通信サービスが成立している</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="./network-protocol-layers-v6.svg"></p>
+</div><div class="column" style="width:40%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>① LAN（Local Area Network）</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>自宅や社内など狭い範囲を結ぶネットワーク</li>
+<li>Wi-Fi・Ethernet でルーター配下の機器を相互接続</li>
+<li>社内限定のWebサイトやファイル共有システム（イントラネット）の基盤として利用される</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>② WAN（Wide Area Network）</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>拠点間など広域を結ぶネットワーク</li>
+<li>ルーターの WAN 側から ISP 経由で外部へ接続</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>③ インターネット</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>世界中の LAN・WAN を相互接続した巨大な網</li>
+<li>IP・BGP を基盤に異なるネットワーク同士を中継</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ネットワーク接続の基盤-nic" class="slide level2">
+<h2>ネットワーク接続の基盤: NIC</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>コンピューターをネットワークに接続するには，接続部分にNIC(Network Interface card)という機器が必要</li>
+<li>各 NIC には製造時にメーカーによる固有番号 MAC(Media Access Control)アドレスが割り当てられている</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>Network Interface card</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./NIC.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>① NICはコンピューターとネットワークをつなぐ玄関口</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>送信時：コンピューター内部のデータ（ビット列）を，ネットワークを流れる信号（光や電圧）に変換</li>
+<li>受信時：受信した信号をビット列へ戻す</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>② 接続の方式は有線・無線で異なる</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>有線LANでは Ethernet ケーブルを介して接続する</li>
+<li>無線LANでは Wi-Fi の電波を介して接続する</li>
+<li>いずれも物理的な接続を担うのが NIC</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>③ NICはMACアドレスで相手を識別</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>MACアドレスは各NICに固有の識別番号</li>
+<li>同一ネットワーク内では，このMACアドレスで送信先・送信元を特定する</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="ネットワーク上のコンピューター同士が通信するためのルール" class="slide level2">
+<h2>ネットワーク上のコンピューター同士が通信するためのルール</h2>
+<p><span class="topleftbox">通信プロトコル</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>データ通信は，「データをデジタル信号にする」→「送り先に届ける」→「信号をデータに戻す」の流れが基本</li>
+<li>通信には，送信側と受信側で予め着られたら共通ルール（=プロトコル）が必要</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./with-protocol.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./without-protocol.svg"></p>
+</div></div>
+</section>
+<section id="コンピューターネットワークによりファイル転送が可能になる" class="slide level2">
+<h2>コンピューターネットワークによりファイル転送が可能になる</h2>
+<p><span class="topleftbox">コンピューターネットワーク活用事例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>SFTPサービスとはSFTPクライアントとSFTPサーバーがSFTPというプロトコルを用いてファイル転送をできるようにするサービス</li>
+<li>ファイルは1つずつでなくても，まとめて転送可能</li>
+</ul>
+</div>
+</div>
+<div style="width: 100%">
+<p><img data-src="./sftp-tunnel-structure.svg"></p>
+</div>
+</section></section>
+<section>
+<section id="tcpipの概要" class="title-slide slide level1 agenda-slide center">
+<h1>TCP/IPの概要</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ネットワーク基礎</p>
+</div></li>
+<li><div class="agenda-active">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>データリンク層</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="tcpipでは送受信の一連の作業を層に分けて処理している" class="slide level2">
+<h2>TCP/IPでは送受信の一連の作業を層に分けて処理している</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>TCP/IPでは送受信に関わる一連の作業を5層にわけて処理</li>
+<li>上の層ほどユーザーに近く，下の層ほど機器に近い作業を担当</li>
+</ul>
+</div>
+</div>
+<div class="center">
+<p><img data-src="./tcpip-5layer-slide.svg"></p>
+</div>
+</section>
+<section id="各層は役割ごとに代表的なプロトコルを担当する" class="slide level2">
+<h2>各層は役割ごとに代表的なプロトコルを担当する</h2>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.8em !important;">
+<div id="yaml-tcpip-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 54, 26]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション層</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーションが扱うデータ形式に変換</span></span>
+<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション毎に様々なプロトコルが存在</span></span>
+<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> この層は「クライアントとサーバー」という概念を持っている</span></span>
+<span id="cb1-8"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・HTTPS・DNS・SMTP・POP3・NTP</span></span>
+<span id="cb1-10"><a></a></span>
+<span id="cb1-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb1-12"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> トランスポート層</span></span>
+<span id="cb1-14"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を管理し，データをセグメントに分割して送受信する</span></span>
+<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エラー検知・再送・順序制御により通信の信頼性を確保する</span></span>
+<span id="cb1-17"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP・TLS</span></span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb1-21"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ネットワーク層</span></span>
+<span id="cb1-23"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 宛先IPを付与してパケット化し，ネットワーク間の最適な経路を決定する</span></span>
+<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 届けたデータの整合性確認は担当しない</span></span>
+<span id="cb1-26"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP・IPsec</span></span>
+<span id="cb1-28"><a></a></span>
+<span id="cb1-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb1-30"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データリンク層</span></span>
+<span id="cb1-32"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同一ネットワーク内で機器同士のデータ送受信を管理する</span></span>
+<span id="cb1-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを利用して，次の機器へデータを受け渡す</span></span>
+<span id="cb1-35"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・Wi-Fi（IEEE 802.11）</span></span>
+<span id="cb1-37"><a></a></span>
+<span id="cb1-38"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb1-39"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 物理層</span></span>
+<span id="cb1-41"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光信号に変換し，ケーブルや電波などの媒体へ送出する</span></span>
+<span id="cb1-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変換方法は通信媒体に依存するため，特定のプロトコルは決められない</span></span>
+<span id="cb1-44"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<ul>
+<li>プロトコルの組み合わせを変えることで，いろいろなアプリケーションや機器に対応できる
+<ul>
+<li>電子メールの送信: SMTP + TCP + IP</li>
+<li>電子メールの受信: POP3 + TCP + IP</li>
+</ul></li>
+</ul>
+</section>
+<section id="カプセル化-データと情報をひとまとめにして扱うこと" class="slide level2">
+<h2>カプセル化: データと情報をひとまとめにして扱うこと</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>カプセルのように，データを各層の制御情報で包みながら送信する仕組み</li>
+<li>各層の制御情報は受信側の同じ層でのみ使用される</li>
+<li>通信を行う際に，上位層から渡されたデータに対して，各階層独自の制御情報（ヘッダー）を付加していく</li>
+<li>一個上の層で付与されたヘッダは，下の層ではデータとしてみなされる</li>
+<li>受信側では逆に外側から順番に制御情報を取り除く（カプセル化の解除）</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">データは配送される荷物のように，各層で必要な情報を追加しながら送り先へ届けられる</span></p>
+
+<img data-src="./encapsulation.svg" class="r-stretch"></section>
+<section id="カプセル化を構成する要素" class="slide level2">
+<h2>カプセル化を構成する要素</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>送信側の各層では，受信側の同じ総出必要となる情報を共通の書式でデータに付加していく</li>
+<li>データよりも前に付加した情報を<span class="regmonkey-bold">ヘッダ</span>，後ろに付加した情報を<span class="regmonkey-bold">トレーラ</span>と呼ぶ</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="regmonkey_index padding-L-10" style="width:95%">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ヘッダ（Header）</span></span>
+<span id="cb2-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 各層がデータの前に付加する制御情報</span></span>
+<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 宛先・送信元・順序番号など，その層の処理に必要な情報を格納する</span></span>
+<span id="cb2-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb2-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> データ（Payload）</span></span>
+<span id="cb2-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 上位層から渡された運ぶべき本体部分</span></span>
+<span id="cb2-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一つ上の層で付与されたヘッダも，下の層ではデータとしてみなされる</span></span>
+<span id="cb2-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb2-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> トレーラ（Trailer）</span></span>
+<span id="cb2-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一部の層がデータの後ろに付加する制御情報</span></span>
+<span id="cb2-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主にデータリンク層で，誤り検出用のチェック情報（FCS）として利用される</span></span>
+<span id="cb2-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> トレーラーはないこもとありえる</span></span>
+<span id="cb2-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="ネットワーク通信時には細かく分割してデータを送信する" class="slide level2">
+<h2>ネットワーク通信時には細かく分割してデータを送信する</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>大容量のデータをそのまま送ると通信路を占有してしまうため，データを扱いやすい小さな単位に分割して送信する</li>
+<li><strong>ネットワーク層（インターネット層）でカプセル化され，IPヘッダが付与されたデータのまとまり</strong>を<span class="regmonkey-bold">パケット</span>と呼ぶ</li>
+<li>各層でカプセル化されたデータの単位（PDU：Protocol Data Unit）は，階層ごとに固有の名称を持つ</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">上位層から順に分割・包み込まれ，最終的に「パケット」などの単位（PDU）としてネットワークを流れる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div data-step-flow="1">
+<div class="step-flow-data">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
+<span id="cb3-2"><a></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">17</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">33</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">]</span></span>
+<span id="cb3-3"><a></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-4"><a></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-5"><a></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
+<span id="cb3-6"><a></a><span class="fu">header</span><span class="kw">:</span></span>
+<span id="cb3-7"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 層</span></span>
+<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> データ単位（PDU）</span></span>
+<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行われる処理</span></span>
+<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 付与されるヘッダ例</span></span>
+<span id="cb3-11"><a></a><span class="fu">font</span><span class="kw">:</span></span>
+<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-16"><a></a><span class="fu">record</span><span class="kw">:</span></span>
+<span id="cb3-17"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① アプリケーション層</span></span>
+<span id="cb3-18"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-19"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> データ（Data / Message）</span></span>
+<span id="cb3-20"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-21"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> Webページやメールなどのデータ本体</span></span>
+<span id="cb3-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> まだ分割されていないひとまとまりの状態</span></span>
+<span id="cb3-23"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-24"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> ヘッダ付与なし（データ本体のまま）</span></span>
+<span id="cb3-25"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② トランスポート層</span></span>
+<span id="cb3-26"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメント（Segment）</span></span>
+<span id="cb3-28"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-29"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> データを扱いやすい大きさに分割</span></span>
+<span id="cb3-30"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TCPヘッダ（ポート番号など）を付与</span></span>
+<span id="cb3-31"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-32"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先ポート番号</span></span>
+<span id="cb3-33"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> シーケンス番号・確認応答番号</span></span>
+<span id="cb3-34"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ ネットワーク層</span></span>
+<span id="cb3-35"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-36"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケット（Packet）</span></span>
+<span id="cb3-37"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-38"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメントにIPヘッダ（IPアドレスなど）を付与</span></span>
+<span id="cb3-39"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 経路制御（ルーティング）の最小単位</span></span>
+<span id="cb3-40"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-41"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先IPアドレス</span></span>
+<span id="cb3-42"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TTL（生存時間）</span></span>
+<span id="cb3-43"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ データリンク層</span></span>
+<span id="cb3-44"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-45"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> フレーム（Frame）</span></span>
+<span id="cb3-46"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-47"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケットにMACアドレスを含むヘッダを付与</span></span>
+<span id="cb3-48"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 誤り検出用のトレーラ（FCS）を末尾に付与</span></span>
+<span id="cb3-49"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-50"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先MACアドレス</span></span>
+<span id="cb3-51"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> FCS（誤り検出用・トレーラ）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="パケットの旅" class="slide level2">
+<h2>パケットの旅</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<p><img data-src="./routing-ttl-unreachable.svg"></p>
+<div class="info-contents font-08 padding-L-05 lh-12" style="margin-right:2em">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>データ配送はバケツリレー（Hop-by-Hop 転送）</li>
+<li>各ルータ<sup>1</sup>は「次にどこへ渡すか」だけを判断してパケットを隣のルータへ手渡す．全体の経路を1台が把握する必要はない．</li>
+</ul>
+</div>
+</div><div class="column" style="width:35%;">
+<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>① LANから別のLANへの旅</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>同一LAN外への通信は，まずデフォルトゲートウェイ（ルーター）へ転送される．</li>
+<li>ルーター間の移動（1ホップ）ごとに，L2のヘッダは書き換わるが，L3パケット（IP宛先）は維持され</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>② TTL（生存時間）切れによる破</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>ルーターを1つ通過するたびに，IPヘッダ内のTTL値が1ずつ減算される．</li>
+<li>経路ループ等でパケットが迷子になり，TTL=0になった時点でそのルーターがパケットを破棄する</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>③ 宛先不明による破棄</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>ルーターの持つ「ルーティングテーブル（経路表）」に，該当する宛先IPの経路情報が存在しない場合．</li>
+<li>パケットは即座に破棄され，送信元へエラー（ICMP）が通知される．</li>
+</ul>
+</div>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn1"><p><strong>中継ルータ</strong>：WAN内でパケットを次のルータへ転送する一般的なルータ（経路選択を担う）．<strong>コアルータ</strong>：ISP網の中心で大量のトラフィックを高速転送する基幹ルータ．<strong>境界ルータ</strong>：自網と外部網（別ISP・LAN）の接点に置かれ，網をまたぐ出入口となるルータ．</p></li></ol></aside></section></section>
+<section>
+<section id="アプリケーション層" class="title-slide slide level1 agenda-slide center">
+<h1>アプリケーション層</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ネットワーク基礎</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-active">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>データリンク層</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="アプリケーションプロトコル" class="slide level2">
+<h2>アプリケーションプロトコル</h2>
+</section></section>
+<section>
+<section id="トランスポート層" class="title-slide slide level1 agenda-slide center">
+<h1>トランスポート層</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ネットワーク基礎</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-active">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>データリンク層</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="トランスポート層の役割" class="slide level2">
+<h2>トランスポート層の役割</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>トランスポート層の役割は，データを適切なアプリケーションへ届けること</li>
+<li>アプリケーションから大量のデータが渡された場合は，送信可能な大きさに分割する（TCP: セグメント化，UDP: データグラム化）</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>TCP: 信用第一（WWW，電子メール）</p>
+</div>
+<div class="cell" data-reveal="true" data-fig-width="8" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{ init: {
+    'theme': 'default',
+    'themeVariables': {
+        'fontFamily': 'Meiryo'
+    },
+    'sequence': {
+        'useMaxWidth': true,
+        'actorMargin': 260,
+        'width': 130,
+        'height': 28,
+        'boxMargin': 4,
+        'boxTextMargin': 3,
+        'noteMargin': 6,
+        'messageMargin': 18
+    }
+} }%%
+sequenceDiagram
+    participant C as 送信側
+    participant S as 受信側
+    Note over C,S: ① コネクション確立（3ウェイハンドシェイク）
+    C-&gt;&gt;S: SYN（接続したい）
+    S-&gt;&gt;C: SYN/ACK（了解，どうぞ）
+    C-&gt;&gt;S: ACK（確認OK）
+    Note over C,S: ② データ転送（受信確認つき）
+    C-&gt;&gt;S: データ
+    S-&gt;&gt;C: ACK（受け取った）
+    Note over C,S: ③ コネクション切断
+    C-&gt;&gt;S: FIN（終了します）
+    S-&gt;&gt;C: ACK（了解）
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>UDP: 速さで勝負（IP電話，ストリーミングサービス）</p>
+</div>
+<div class="cell" data-reveal="true" data-fig-width="8" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{ init: {
+    'theme': 'default',
+    'themeVariables': {
+        'fontFamily': 'Meiryo'
+    },
+    'sequence': {
+        'useMaxWidth': true,
+        'actorMargin': 260,
+        'width': 130,
+        'height': 40,
+        'boxMargin': 8,
+        'boxTextMargin': 4,
+        'noteMargin': 6,
+        'messageMargin': 18
+    }
+} }%%
+sequenceDiagram
+    participant C as 送信側
+    participant S as 受信側
+    Note over C,S: 確立も確認もなく一方的に送る
+    C-&gt;&gt;S: データ
+    C-&gt;&gt;S: 次のデータ
+    C-&gt;&gt;S: さらにデータ
+    Note right of S: 受信確認（ACK）なし&lt;br/&gt;欠落しても再送しない
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="アプリケーション層の出入り口としてのポート" class="slide level2">
+<h2>アプリケーション層の出入り口としてのポート</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>アプリケーションごとの「出入り口」がポート (Port) であり，通信相手はポート番号を指定してデータを送る</li>
+<li>IPアドレスが「どのコンピュータか」を識別するのに対し，ポート番号は「そのコンピュータ内のどのアプリケーションか」を識別</li>
+<li>ポート番号を独自に設定することもできるが，よく利用されるサービス向けには ウェルノウンポート (0～1023) が予約されている</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.7em !important;">
+<div id="yaml-wellknown-ports" class="yaml2table yaml2table-custom-top" data-col-widths="[22, 24, 24, 30]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTP）</span></span>
+<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP</span></span>
+<span id="cb4-6"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 80 / TCP</span></span>
+<span id="cb4-8"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化なしのWebページ閲覧</span></span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-12"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTPS）</span></span>
+<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP over TLS</span></span>
+<span id="cb4-16"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 443 / TCP</span></span>
+<span id="cb4-18"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLSで暗号化されたWebページ閲覧</span></span>
+<span id="cb4-20"><a></a></span>
+<span id="cb4-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-22"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信</span></span>
+<span id="cb4-24"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP</span></span>
+<span id="cb4-26"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 25 / TCP</span></span>
+<span id="cb4-28"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバー間でのメール転送</span></span>
+<span id="cb4-30"><a></a></span>
+<span id="cb4-31"><a></a><span class="fu">record3b</span><span class="kw">:</span></span>
+<span id="cb4-32"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信（認証付き）</span></span>
+<span id="cb4-34"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP（Submission）</span></span>
+<span id="cb4-36"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 587 / TCP</span></span>
+<span id="cb4-38"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メールソフトからサーバーへ送信</span></span>
+<span id="cb4-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP-AUTHで認証・STARTTLSで暗号化</span></span>
+<span id="cb4-41"><a></a></span>
+<span id="cb4-42"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-43"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール受信</span></span>
+<span id="cb4-45"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-46"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> POP3</span></span>
+<span id="cb4-47"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 110 / TCP</span></span>
+<span id="cb4-49"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーからメールを取り出す</span></span>
+<span id="cb4-51"><a></a></span>
+<span id="cb4-52"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb4-53"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-54"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 名前解決</span></span>
+<span id="cb4-55"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-56"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DNS</span></span>
+<span id="cb4-57"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 53 / UDP・TCP</span></span>
+<span id="cb4-59"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ドメイン名とIPアドレスの相互変換</span></span>
+<span id="cb4-61"><a></a></span>
+<span id="cb4-62"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb4-63"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-64"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リモート接続</span></span>
+<span id="cb4-65"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-66"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SSH</span></span>
+<span id="cb4-67"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 22 / TCP</span></span>
+<span id="cb4-69"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-70"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化された遠隔ログイン・操作</span></span>
+<span id="cb4-71"><a></a></span>
+<span id="cb4-72"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb4-73"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-74"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 時刻同期</span></span>
+<span id="cb4-75"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-76"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NTP</span></span>
+<span id="cb4-77"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-78"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 123 / UDP</span></span>
+<span id="cb4-79"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-80"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機器の時刻をサーバーに合わせる</span></span>
+<span id="cb4-81"><a></a></span>
+<span id="cb4-82"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb4-83"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-84"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイル転送</span></span>
+<span id="cb4-85"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-86"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> FTP</span></span>
+<span id="cb4-87"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-88"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 21 / TCP（制御）</span></span>
+<span id="cb4-89"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 20 / TCP（データ）</span></span>
+<span id="cb4-90"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-91"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイルのアップロード・ダウンロード</span></span>
+<span id="cb4-92"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 制御用とデータ用で2つのポートを使う</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="データリンク層" class="title-slide slide level1 agenda-slide center">
+<h1>データリンク層</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ネットワーク基礎</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-active">
+<p>データリンク層</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="ppp-point-to-point-protocol" class="slide level2">
+<h2>PPP: Point-to-Point Protocol</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>2点間で1:1の通信を行うプロトコル（主に電話回線やISDN，専用回線やATM回線などの通信で使用）</li>
+<li>通信にリンク制御プロトコル(LCP)とネットワーク制御プロトコル(NCP)を使用</li>
+<li>送信と受信を同時に行うことができる全二重方式(電話のようにやりとりができる ↔︎ トランシーバーのように待ち発生)</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>PPP 接続シーケンス</p>
+</div>
+<div class="cell" data-reveal="true" data-fig-width="8" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{ init: {
+    'theme': 'default',
+    'themeVariables': {
+        'fontFamily': 'Meiryo'
+    },
+    'sequence': {
+        'useMaxWidth': true,
+        'actorMargin': 240,
+        'width': 130,
+        'height': 20,
+        'boxMargin': 4,
+        'boxTextMargin': 3,
+        'noteMargin': 6,
+        'messageMargin': 18
+    }
+} }%%
+sequenceDiagram
+    participant C as 接続元
+    participant S as 接続先
+    Note over C,S: ① リンク確立（LCP）: 通信要求の送信
+    C-&gt;&gt;S: リンク確立要求
+    S-&gt;&gt;C: 設定の合意
+    Note over C,S: ② 認証フェーズ（PAP/CHAP）: 利用者認証
+    C-&gt;&gt;S: ユーザー名・パスワード
+    S-&gt;&gt;C: 認証OK
+    Note over C,S: ③ ネットワーク設定（NCP/IPCP）: 通信条件相談
+    C-&gt;&gt;S: IPアドレス割り当て要求
+    S-&gt;&gt;C: IPアドレス通知
+    Note over C,S: 通信開始: IPパケットの送受信
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>PPPフレーム</p>
+</div>
+<p><img data-src="./ppp-frame-structure.svg"></p>
+<ul>
+<li>PPPはTCP/IP以外のプロトコルにも対応</li>
+<li>ネットワーク層のプロトコルがIPになるとは限らない</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 no-auto-agenda center">
+<h1>Appendix</h1>
+
+</section>
+<section id="osi参照モデル" class="slide level2">
+<h2>OSI参照モデル</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.8em !important;">
+<div id="yaml-osi-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[25, 50, 25]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第7層 アプリケーション層</span></span>
+<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザーアプリケーションに通信機能を提供する</span></span>
+<span id="cb5-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web閲覧・メール送受信・名前解決などを実現する</span></span>
+<span id="cb5-7"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・SMTP・DNS</span></span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第6層 プレゼンテーション層</span></span>
+<span id="cb5-13"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データの表現形式を統一する</span></span>
+<span id="cb5-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 文字コード変換・暗号化・圧縮を担当する</span></span>
+<span id="cb5-16"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLS・SSL・MIME</span></span>
+<span id="cb5-18"><a></a></span>
+<span id="cb5-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-20"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第5層 セッション層</span></span>
+<span id="cb5-22"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 通信の開始・維持・終了を管理する</span></span>
+<span id="cb5-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数回のやり取りを1つの会話として扱う</span></span>
+<span id="cb5-25"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NetBIOS・RPC</span></span>
+<span id="cb5-27"><a></a></span>
+<span id="cb5-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-29"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第4層 トランスポート層</span></span>
+<span id="cb5-31"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を実現する</span></span>
+<span id="cb5-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポート番号による識別や信頼性制御を行う</span></span>
+<span id="cb5-34"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP</span></span>
+<span id="cb5-36"><a></a></span>
+<span id="cb5-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb5-38"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第3層 ネットワーク層</span></span>
+<span id="cb5-40"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IPアドレスを用いて宛先を識別する</span></span>
+<span id="cb5-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルーターを経由して異なるネットワーク間を中継する</span></span>
+<span id="cb5-43"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP</span></span>
+<span id="cb5-45"><a></a></span>
+<span id="cb5-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb5-47"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第2層 データリンク層</span></span>
+<span id="cb5-49"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを用いて隣接機器へデータを届ける</span></span>
+<span id="cb5-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレーム化や誤り検出を行う</span></span>
+<span id="cb5-52"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・PPP</span></span>
+<span id="cb5-54"><a></a></span>
+<span id="cb5-55"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb5-56"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb5-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第1層 物理層</span></span>
+<span id="cb5-58"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb5-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光・電波へ変換する</span></span>
+<span id="cb5-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ケーブルや無線媒体上で信号を伝送する</span></span>
+<span id="cb5-61"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb5-62"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="wwwとは" class="slide level2">
+<h2>WWWとは？</h2>
+<p><span class="topleftbox">コンピューターネットワーク活用事例</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>WWW（World Wide Web）の仕組みは，情報を保持するサーバーと，閲覧するブラウザの対話で成り立つ</li>
+<li>やり取りは，アプリケーション層のプロトコルである<strong>HTTP (Hypertext Transfer Protocol)</strong>に則って処理</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="./www-request-response-diagonal.svg"></p>
+</div><div class="column" style="width:40%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>① HTTPリクエスト（要求）</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>ブラウザにURLを入力するかリンクをクリックすると，サーバーに対して「このデータをください」というHTTPリクエストが送信</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>② HTTPレスポンス（応答）</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>クエストを受け取ったWWWサーバーは，指定されたファイル（HTMLや画像など）を探す</li>
+<li>正常であればステータスコード（200 OK）と共にデータを送り返す</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card position-left-05 font-08">
+<div class="message-card-title-no-margin center">
+<p>③ ブラウザによるレンダリング</p>
+</div>
+<div class="message-card-body squaredmark font-08">
+<ul>
+<li>ダウンロードしたHTMLやCSSをブラウザが解析・翻訳し，人間が見やすいWeb画面として組み立てて表示（レンダリング）</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section>
+<section id="電子メールはアプリケーション層プロトコルであるsmtppopmimeの組み合わせで成り立つ" class="slide level2">
+<h2>電子メールはアプリケーション層プロトコルであるSMTP・POP・MIMEの組み合わせで成り立つ</h2>
+<div class="columns">
+<div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="horizontal-keypoints-block" style="height:70%;">
+<div class="block-header">
+<p>SMTP</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div style="text-align:center;">
+<p><i class="fas fa-truck-fast fa-3x text-blue-900"></i></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 3%;"></div>
+<div style="text-align:center; font-size:1.1em;">
+<p><span class="regmonkey-bold">「送り届ける」役割</span></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="block lh-12" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>Simple Mail Transfer Protocol</li>
+<li>送信者が書いたメールを郵便局（サーバー）へ，あるいは郵便局間で宛先まで運ぶ</li>
+<li>イメージ：配達員・配送トラック</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="horizontal-keypoints-block" style="height:70%;">
+<div class="block-header">
+<p>POP（POP3）</p>
+</div>
+<div style="text-align:center; height:2.3em; line-height:2.3em; overflow:visible;">
+<p><i class="bi-mailbox " style="font-size: 3.4em;color: #1e3a8a;" role="img" aria-hidden="true"></i></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 13%;"></div>
+<div style="text-align:center; font-size:1.1em;">
+<p><span class="regmonkey-bold">「受け取る」役割</span></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="block lh-12" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>Post Office Protocol</li>
+<li>郵便局（サーバー）に保管された荷物を，受取人が自分の手元へ引き出す仕組み</li>
+<li>イメージ：私書箱・自宅のポスト</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width: 33.3%; height:100%">
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="horizontal-keypoints-block-no-border" style="height:70%;">
+<div class="block-header">
+<p>MIME</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div style="text-align:center;">
+<p><i class="fas fa-box-open fa-3x text-blue-900"></i></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 3%;"></div>
+<div style="text-align:center; font-size:1.1em;">
+<p><span class="regmonkey-bold">「中身を整える」役割</span></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 5%;"></div>
+<div class="block lh-12" style="font-size:0.8em; padding-right:0.5em;">
+<ul>
+<li>Multipurpose Internet Mail Extensions</li>
+<li>テキストだけでなく，画像や添付ファイルを「小包」として梱包するプロトコル</li>
+<li>SMTPやPOPでは扱えない形式の情報を扱える形に変換してくれる<sup>1</sup></li>
+<li>イメージ：小包の梱包・荷姿</li>
+</ul>
+</div>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn2"><p>SMTPやPOPでは，「電子メールで扱えるのはテキストデータのみ」，「電子メールの件名（Subject）に利用できるのは，半角英数字のみ」という原則があります</p></li></ol></aside></section>
+<section id="無線lanとieee-802.11" class="slide level2">
+<h2>無線LANとIEEE 802.11</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<ul>
+<li>無線LANとは，電波を利用して複数の機器間でデータの送受信を行なう通信方法（狭義には IEEE 802.11 規格に準拠した方式を指す）</li>
+<li>有線LANと異なり，電波という単一の空間を共有するため，送信用と受信用の物理的な通り道（経路）が分けられていない<sup>1</sup></li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:60%; font-size: 0.65em !important;">
+<div id="yaml-ieee80211-generations" class="yaml2table yaml2table-custom-top" data-col-widths="[14, 16, 16, 18, 36]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11a</span></span>
+<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb6-6"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；11bと同年だが互換性はなく普及は限定的</span></span>
+<span id="cb6-8"><a></a></span>
+<span id="cb6-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11b</span></span>
+<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 11 Mbps</span></span>
+<span id="cb6-13"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；無線LAN普及の最初期を担った</span></span>
+<span id="cb6-16"><a></a></span>
+<span id="cb6-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-18"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb6-19"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11g</span></span>
+<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb6-22"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 2003年策定；11bと互換しつつ54Mbpsへ高速化</span></span>
+<span id="cb6-24"><a></a></span>
+<span id="cb6-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-26"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 4</span></span>
+<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11n</span></span>
+<span id="cb6-28"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 600 Mbps</span></span>
+<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb6-30"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MIMO（複数アンテナ）を初採用し，2.4/5GHz両対応に</span></span>
+<span id="cb6-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 家庭・オフィスでの普及の起点となった世代</span></span>
+<span id="cb6-33"><a></a></span>
+<span id="cb6-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 5</span></span>
+<span id="cb6-36"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ac</span></span>
+<span id="cb6-37"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 6.9 Gbps</span></span>
+<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5GHz専用・広帯域チャネルで動画ストリーミングに対応</span></span>
+<span id="cb6-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MU-MIMOで複数端末への同時通信を実現</span></span>
+<span id="cb6-42"><a></a></span>
+<span id="cb6-43"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-44"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6</span></span>
+<span id="cb6-45"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb6-46"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb6-47"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb6-48"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OFDMAで&lt;span class="regmonkey-bold"&gt;多端末同時接続時の効率&lt;/span&gt;を改善</span></span>
+<span id="cb6-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IoT・高密度環境（駅・スタジアム等）に強い</span></span>
+<span id="cb6-51"><a></a></span>
+<span id="cb6-52"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb6-53"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6E</span></span>
+<span id="cb6-54"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb6-55"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb6-56"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 6GHz帯を新規開放し，混雑の少ない帯域を確保</span></span>
+<span id="cb6-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 低遅延・大容量通信に対応</span></span>
+<span id="cb6-60"><a></a></span>
+<span id="cb6-61"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb6-62"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 7</span></span>
+<span id="cb6-63"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11be</span></span>
+<span id="cb6-64"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 46 Gbps</span></span>
+<span id="cb6-65"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb6-66"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb6-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 320MHz幅・4096-QAM・MLO（複数帯域同時利用）を採用</span></span>
+<span id="cb6-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> VR・8K動画など&lt;span class="regmonkey-bold"&gt;超高帯域用途&lt;/span&gt;を想定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn3"><p>半二重通信と呼ぶ</p></li></ol></aside></section>
+<section id="無線lanとcsmaca方式-通信の衝突を回避する技術" class="slide level2">
+<h2>無線LANとCSMA/CA方式: 通信の衝突を回避する技術</h2>
+<p><span class="topleftbox">CSMA/CA方式 with RTS/CTS</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>半二重通信においてフレームが衝突するの回避するための仕組み(CA: Collision Avoidance)</li>
+<li>周波数帯が使われないことを確認して，少し待ってから<sup>1</sup>フレームを送信する</li>
+</ul>
+</div>
+</div>
+<div class="step-container" style="height: 22em; padding-top: 0em">
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 1：RTS（送信要求）</span></p>
+<div class="step-label font-08" style="width: 100%">
+<p><img data-src="./csmaca-step1.svg"></p>
+<ol type="1">
+<li>通信を開始する前に利用したい周波数帯が利用されているかどうかを確認</li>
+<li>ランダムバックオフ後，RTSをAP宛に送信</li>
+</ol>
+</div>
+</div>
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 2：CTS（送信許可）</span></p>
+<div class="step-label font-08" style="width: 100%">
+<p><img data-src="./csmaca-step2.svg"></p>
+<ol type="1">
+<li>APはCTSをすべてのノードに送信（宛先は端末A）</li>
+<li>端末Aは CTS を受信し，送信権を獲得</li>
+<li>端末Cは自分宛てではないことを読み取り，送信抑制</li>
+</ol>
+</div>
+</div>
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 3：フレーム送信</span></p>
+<div class="step-label font-08" style="width: 100%">
+<p><img data-src="./csmaca-step3.svg"></p>
+<ol type="1">
+<li>SIFS 後にAはフレーム送信</li>
+</ol>
+<ul>
+<li>SIFS は非常に短い待機時間</li>
+<li>他の端末は CTS によって送信を抑制しているため，衝突が発生しにくい</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<p><span class="step active-phase active-phase-sm">Step 4：ACK(受信確認)</span></p>
+<div class="step-label font-08" style="width: 100%">
+<p><img data-src="./csmaca-step4.svg"></p>
+<ol type="1">
+<li>SIFS 後にAPはACK返送（L2 レベルの受信確認）</li>
+<li>端末Aは ACK を受信し，フレームが正常に届いたことを確認</li>
+<li>ACK が受信できない場合は，衝突や通信エラーが発生したと判断し，再送を行う</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn4"><p>このランダムな待ち時間のことをバックオフ制御時間と呼ぶ</p></li></ol></aside></section>
+<section id="インターネット利用時の注意点" class="slide level2">
+<h2>インターネット利用時の注意点</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; height:70%; font-size: 0.7em !important;">
+<div id="yaml-claude-md-design" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ポート管理</span></span>
+<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利用しないポートは&lt;span class="regmonkey-bold"&gt;必ず閉じる&lt;/span&gt;</span></span>
+<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）</span></span>
+<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要なサービス・デーモンは停止し，ポートを解放</span></span>
+<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖</span></span>
+<span id="cb7-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開放ポートはアクセス元IPをACLで絞り込む</span></span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイアウォール</span></span>
+<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ</span></span>
+<span id="cb7-15"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インバウンド・アウトバウンドの両方向にルールを設定</span></span>
+<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 常時接続は&lt;span class="regmonkey-bold"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する</span></span>
+<span id="cb7-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審なIPレンジはブラックリスト登録</span></span>
+<span id="cb7-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルール変更は変更管理ログに記録し定期レビューする</span></span>
+<span id="cb7-20"><a></a></span>
+<span id="cb7-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> セキュリティパッチ</span></span>
+<span id="cb7-23"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知脆弱性は&lt;span class="regmonkey-bold"&gt;公開直後に適用&lt;/span&gt;することが最大の防御</span></span>
+<span id="cb7-25"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS・ミドルウェア・ファームウェアの自動更新を有効化</span></span>
+<span id="cb7-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CVEアドバイザリを購読し，重大度 Critical/High を優先対応</span></span>
+<span id="cb7-28"><a></a></span>
+<span id="cb7-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb7-30"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 通信暗号化</span></span>
+<span id="cb7-31"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 平文通信は&lt;span class="regmonkey-bold"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する</span></span>
+<span id="cb7-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨</span></span>
+<span id="cb7-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行</span></span>
+<span id="cb7-36"><a></a></span>
+<span id="cb7-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb7-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MACアドレスフィルタリング</span></span>
+<span id="cb7-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 登録済みデバイス以外の&lt;span class="regmonkey-bold"&gt;接続を物理層で排除&lt;/span&gt;する</span></span>
+<span id="cb7-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AP・スイッチに許可MACリストを登録し，未登録端末を遮断</span></span>
+<span id="cb7-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規デバイス追加時は申請フローを設け，無断接続を抑止</span></span>
+<span id="cb7-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的にDHCPリースログを確認し，未知MACを検出する</span></span>
+<span id="cb7-45"><a></a></span>
+<span id="cb7-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb7-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LAN内脅威対策</span></span>
+<span id="cb7-48"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部ネットワークも&lt;span class="regmonkey-bold"&gt;ゼロトラストで扱う&lt;/span&gt;</span></span>
+<span id="cb7-50"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化</span></span>
+<span id="cb7-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 接続端末のエンドポイント保護（EDR/AV）を必須化</span></span>
+<span id="cb7-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審な通信量・パターンをIDSで監視し，アラートを設定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+
+
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+<script src="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.js"></script>
+</body></html>

@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Ryo Nakagami">
-  <title>Presentation for Regession Monkey – Summaryスライド</title>
+  <title>Presentation for Regession Monkey – プロジェクトと収益管理</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -228,8 +228,8 @@
   <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
   <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
-<meta property="og:title" content="Summaryスライド – Presentation for Regession Monkey">
-<meta property="og:description" content="revealjsスライド作成紹介">
+<meta property="og:title" content="プロジェクトと収益管理 – Presentation for Regession Monkey">
+<meta property="og:description" content="Project Manegement 101">
 <meta property="og:site_name" content="Presentation for Regession Monkey">
 </head>
 <body class="quarto-light">
@@ -237,8 +237,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Summaryスライド</h1>
-  <p class="subtitle">revealjsスライド作成紹介</p>
+  <h1 class="title">プロジェクトと収益管理</h1>
+  <p class="subtitle">Project Manegement 101</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -248,267 +248,78 @@ Ryo Nakagami
 </div>
 </div>
 
-  <p class="date">2025年05月16日</p>
+  <p class="date">2025年12月17日</p>
 </section>
-<section>
-<section id="azure-blue-サマリースライド" class="title-slide slide level1 agenda-slide center">
-<h1>Azure blue サマリースライド</h1>
-<div class="agenda">
-<ul>
-<li><div class="agenda-active">
-<p>Azure blue サマリースライド</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="azure-blue-サマリースライドの構成要素" class="slide level2">
-<h2>Azure blue サマリースライドの構成要素</h2>
-<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
-<div class="summary-container" style="font-size:1em;">
-<div class="block-azureblue">
-<div class="headline">
-<p>summary-container</p>
-</div>
-<ul>
-<li><code>&lt;div&gt;</code> 要素</li>
-<li>Flexbox使用し，全体を縦に並べるレイアウト</li>
-<li>中身を縦方向に中央揃え</li>
-</ul>
-</div>
-<div class="block-azureblue">
-<div class="headline">
-<p>block-azureblue</p>
-</div>
-<ul>
-<li><code>&lt;div&gt;</code> 要素</li>
-<li>個々の情報ブロック</li>
-<li>左に青いライン（擬似要素 <code>::before</code>）でアクセント</li>
-</ul>
-</div>
-<div class="block-azureblue">
-<div class="headline">
-<p>headline</p>
-</div>
-<ul>
-<li><code>&lt;div&gt;</code> 要素</li>
-<li>ブロック内のタイトル用</li>
-<li>太字・黒色・行間狭め</li>
-<li>改行を要するような文字列の入力は想定していない</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="summary-container" class="slide level2">
-<h2><code>.summary-container</code></h2>
-<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
-<div id="azureblue-block-container" class="summary-container" style="font-size:0.9em;">
-<div id="azureblue-block" class="block-azureblue">
-<div class="headline">
-<p>スライド作成の基本</p>
-</div>
-<ul>
-<li>プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める</li>
-</ul>
-</div>
-<div id="azureblue-block2" class="block-azureblue">
-<div class="headline">
-<p>メッセージ設計</p>
-</div>
-<ul>
-<li>3W: 誰に(Who)，何を(What)，なぜ(Why)伝えるのかを明確化する</li>
-<li>RAPフレームワーク: Research Question, Answer, Positioning Statement</li>
-</ul>
-</div>
-<div id="azureblue-block3" class="block-azureblue">
-<div class="headline">
-<p>ストーリー構築</p>
-</div>
-<ul>
-<li>論理的対話: 読み手の疑問を予測し，先回りして答える構成としてスライドパッケージを設計する</li>
-</ul>
-</div>
-<div id="azureblue-block4" class="block-azureblue">
-<div class="headline">
-<p>スライド作成のルール</p>
-</div>
-<ul>
-<li>1スライド1メッセージ: 主張を絞り，MMUF (Main Message UpFront) を徹底する</li>
-<li>オッカムの剃刀: 必要最小限の情報に絞り，冗長性を排除する</li>
-<li>メッセージと整合的な縦横軸: メッセージとスライド軸を合わせ，秩序ある情報の列挙にする</li>
-</ul>
-</div>
-</div>
-<div class="message-box" style="position: absolute; top: 4em; left: 80%; font-size:0.9em; width:13em;">
-<p><span id="tip1" class="border-bottom" style="width: 12em; text-align: center;"><code>summary-container</code></span></p>
-<ul>
-<li><code>display: flex</code>
-<ul>
-<li>コンテナの子要素（flex item）の並び方や配置を指定可能にする</li>
-</ul></li>
-<li><code>flex-direction: column</code>
-<ul>
-<li>flex itemsを縦方向に並べる</li>
-</ul></li>
-<li><code>justify-content: center</code>
-<ul>
-<li>flex item全体を縦方向中央に揃える</li>
-</ul></li>
-</ul>
-</div>
-<!-- leader line section -->
-<p><span class="leaderline" start="#azureblue-block-container" data-start-socket="right" data-end="#tip1" color="#575757" data-end-socket="left" size="3" data-start-border-style="color:#575757; x: -2.5%; y:0%; width:75%; height:100%" data-path="grid"></span></p>
-</section>
-<section id="block-azureblue-block" class="slide level2">
-<h2><code>.block-azureblue-block</code></h2>
-<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
-<div class="summary-container" style="font-size:0.9em;">
-<div id="azureblue-block1" class="block-azureblue">
-<div class="headline">
-<p>スライド作成の基本</p>
-</div>
-<ul>
-<li>プロセス: スライド作成は「メッセージ設計」→「構成検討」→「スライド作成」の順で進める</li>
-</ul>
-</div>
-<div id="azureblue-block2" class="block-azureblue">
-<div class="headline">
-<p>メッセージ設計</p>
-</div>
-<ul>
-<li>3W: 誰に(Who)，何を(What)，なぜ(Why)伝えるのかを明確化する</li>
-<li>RAPフレームワーク: Research Question, Answer, Positioning Statement</li>
-</ul>
-</div>
-<div id="azureblue-block3" class="block-azureblue">
-<div class="headline">
-<p>ストーリー構築</p>
-</div>
-<ul>
-<li>論理的対話: 読み手の疑問を予測し，先回りして答える構成としてスライドパッケージを設計する</li>
-</ul>
-</div>
-<div id="azureblue-block4" class="block-azureblue">
-<div class="headline">
-<p>スライド作成のルール</p>
-</div>
-<ul>
-<li>1スライド1メッセージ: 主張を絞り，MMUF (Main Message UpFront) を徹底する</li>
-<li>オッカムの剃刀: 必要最小限の情報に絞り，冗長性を排除する</li>
-<li>メッセージと整合的な縦横軸: メッセージとスライド軸を合わせ，秩序ある情報の列挙にする</li>
-</ul>
-</div>
-</div>
-<div class="message-box" style="position: absolute; top: 15%; left: 80%; font-size:0.9em; width:12em;">
-<p><span id="tip2" class="border-bottom" style="width: 10em; text-align: center;"><code>block-azureblue</code></span></p>
-<ul>
-<li><code>display: block</code>
-<ul>
-<li>要素を「ブロック要素」として表示</li>
-<li>幅は親要素いっぱいに広がる</li>
-</ul></li>
-<li><code>background-color: #428ce6</code>
-<ul>
-<li>DodgerBlueをblockのtop <code>0.6em</code> から bottom <code>0.5em</code></li>
-</ul></li>
-<li><code>.headline</code>要素
-<ul>
-<li><code>font-size: 1em</code>で<code>bold</code>処理</li>
-<li><code>line-height: 1</code></li>
-</ul></li>
-</ul>
-</div>
-<!-- leader line section -->
-<p><span class="leaderline" start="#azureblue-block1" data-start-socket="right" data-end="#tip2" color="#575757" data-end-socket="left" size="3" data-start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%" data-path="grid"></span></p>
-<p><span class="leaderline" start="#azureblue-block2" data-start-socket="right" data-end="#tip2" color="#575757" data-end-socket="left" size="3" data-start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%" data-path="grid"></span></p>
-<p><span class="leaderline" start="#azureblue-block3" data-start-socket="right" data-end="#tip2" color="#575757" data-end-socket="left" size="3" data-start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%" data-path="grid"></span></p>
-<p><span class="leaderline" start="#azureblue-block4" data-start-socket="right" data-end="#tip2" color="#575757" data-end-socket="left" size="3" data-start-border-style="color:#575757; x: -1.5%; y:3%; width:75%; height:97.5%" data-path="grid"></span></p>
-</section>
-<section id="css設定と実装例" class="slide level2">
-<h2>CSS設定と実装例</h2>
+<section id="プロジェクト収益管理のあり方" class="slide level2">
+<h2>プロジェクト収益管理のあり方</h2>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="message-card font-10">
+<div class="message-card-title-no-margin center">
+<p>プロジェクト収益管理の目的</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>従来の事業別PLだけでなく，大型投資を伴うようなプロジェクトレベルでもPL観点から分析を行うことで，採算性を踏まえた優先順位付け，意思決定を促す</li>
+<li>新規投資だけでなく既存投資も対象とし，公平に判断を行うための統一のガイドライン・チェックリストを作成する．また分析・判断の考え方・プロセスを標準化の上で明文化し，チームとして効率的で非属人的な業務体制を構築する</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="message-card font-10">
+<div class="message-card-title-no-margin center">
+<p>収益管理プロジェクトのゴール</p>
+</div>
 <div class="columns">
-<div class="column" style="width:45%; height: 90%; padding-right:1em;">
-<p><span class="border-bottom" style="width: 100%; text-align: center;"><strong>CSS設定</strong></span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a></a><span class="fu">.summary-container</span> {</span>
-<span id="cb1-2"><a></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.1</span><span class="op">;</span></span>
-<span id="cb1-3"><a></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb1-4"><a></a>  <span class="kw">height</span><span class="ch">:</span> <span class="dv">75</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb1-5"><a></a>  <span class="kw">padding-top</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-6"><a></a>  <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-7"><a></a>  <span class="kw">margin-left</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-8"><a></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">flex</span><span class="op">;</span></span>
-<span id="cb1-9"><a></a>  <span class="kw">flex-direction</span><span class="ch">:</span> <span class="dv">column</span><span class="op">;</span> <span class="co">/* ブロックを縦に並べる */</span></span>
-<span id="cb1-10"><a></a>  <span class="kw">justify-content</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span> <span class="co">/* 全体を縦方向中央に揃える（親の高さ次第） */</span></span>
-<span id="cb1-11"><a></a>}</span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="fu">.summary-container</span> <span class="fu">.block-azureblue</span> {</span>
-<span id="cb1-14"><a></a>  <span class="kw">margin-top</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-15"><a></a>  <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">0.6</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-16"><a></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb1-17"><a></a>  <span class="kw">padding-left</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-18"><a></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">relative</span><span class="op">;</span> <span class="co">/* 疑似要素設定に必要 */</span></span>
-<span id="cb1-19"><a></a>}</span>
-<span id="cb1-20"><a></a></span>
-<span id="cb1-21"><a></a><span class="fu">.summary-container</span> <span class="fu">.block-azureblue</span><span class="in">::before</span> {</span>
-<span id="cb1-22"><a></a>  <span class="kw">content</span><span class="ch">:</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb1-23"><a></a>  <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb1-24"><a></a>  <span class="kw">top</span><span class="ch">:</span> <span class="dv">0.6</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-25"><a></a>  <span class="kw">left</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-26"><a></a>  <span class="kw">width</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span> <span class="co">/* vertical barのwidth指定 */</span></span>
-<span id="cb1-27"><a></a>  <span class="kw">bottom</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-28"><a></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#428ce6</span><span class="op">;</span></span>
-<span id="cb1-29"><a></a>}</span>
-<span id="cb1-30"><a></a></span>
-<span id="cb1-31"><a></a><span class="fu">.summary-container</span> <span class="fu">.block-azureblue</span> <span class="fu">.headline</span> {</span>
-<span id="cb1-32"><a></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-33"><a></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb1-34"><a></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#1a1a1a</span><span class="op">;</span></span>
-<span id="cb1-35"><a></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-36"><a></a>  <span class="kw">margin-top</span><span class="ch">:</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-37"><a></a>  <span class="kw">padding-bottom</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-38"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column" style="width:45%; height: 90%; padding-left:1em;">
-<p><span class="border-bottom" style="width: 100%; text-align: center;"><strong>summaryスライド実装例</strong></span></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource qmd number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>::::{.summary-container style="font-size:1em;"}</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>:::{.block-azureblue }</span>
-<span id="cb2-4"><a></a>:::{.headline}</span>
-<span id="cb2-5"><a></a>summary-container</span>
-<span id="cb2-6"><a></a>:::</span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a>- Flexbox使用し，全体を縦に並べるレイアウト</span>
-<span id="cb2-10"><a></a>- 中身を縦方向に中央揃え</span>
-<span id="cb2-11"><a></a></span>
-<span id="cb2-12"><a></a>:::</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a>:::{.block-azureblue}</span>
-<span id="cb2-15"><a></a>:::{.headline}</span>
-<span id="cb2-16"><a></a>block-azureblue</span>
-<span id="cb2-17"><a></a>:::</span>
-<span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a>- 個々の情報ブロック</span>
-<span id="cb2-20"><a></a>- 左に青いライン（擬似要素 `::before`）でアクセント</span>
-<span id="cb2-21"><a></a></span>
-<span id="cb2-22"><a></a>:::</span>
-<span id="cb2-23"><a></a></span>
-<span id="cb2-24"><a></a>:::{.block-azureblue}</span>
-<span id="cb2-25"><a></a>:::{.headline}</span>
-<span id="cb2-26"><a></a>headline</span>
-<span id="cb2-27"><a></a>:::</span>
-<span id="cb2-28"><a></a></span>
-<span id="cb2-29"><a></a>- ブロック内のタイトル用</span>
-<span id="cb2-30"><a></a>- 太字・黒色・行間狭め</span>
-<span id="cb2-31"><a></a>- 改行を要するような文字列の入力は想定していない</span>
-<span id="cb2-32"><a></a></span>
-<span id="cb2-33"><a></a>:::</span>
-<span id="cb2-34"><a></a></span>
-<span id="cb2-35"><a></a>::::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="column" style="width:47.5%;">
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>施策実施により，売上の構成および利益率がどう変わるのかを明らかにする</li>
+<li>事業利益を最大化させる事業別/地域別での最適な方法を提案・実行する</li>
+</ul>
+</div>
+</div><div class="column" style="width:52.5%;">
+<p><img data-src="./as_is_to_be_arrow_fixed.svg"></p>
 </div></div>
+</div>
+</section>
+<section id="リスクは事象影響対応現状の4点で構造化して管理する" class="slide level2">
+<h2>リスクは「事象・影響・対応・現状」の4点で構造化して管理する</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="padding-L-10">
+<p><img data-src="sample.svg"></p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="regmonkey_index padding-L-10" style="width:95%">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> リスク</span></span>
+<span id="cb1-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 将来発生しうる不確実な事象を1文で特定する</span></span>
+<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「誰から・何を要求されるか」など主語と条件を明示し，確定事実とは区別する</span></span>
+<span id="cb1-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">26</span><span class="kw">,</span><span class="dv">74</span><span class="kw">]</span></span>
+<span id="cb1-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> リスク顕在化の影響</span></span>
+<span id="cb1-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 事象が起きた場合の事業インパクトを定量で示す</span></span>
+<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 売上比・利益率・コスト増などの数値と，影響の波及経路（起点と効き先）を書く</span></span>
+<span id="cb1-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">26</span><span class="kw">,</span><span class="dv">74</span><span class="kw">]</span></span>
+<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Mitigation Plan</span></span>
+<span id="cb1-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 影響を低減・回避するための打ち手を具体化する</span></span>
+<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 交渉・代替案・条件付き合意など，誰が・いつ・どう動くか想定できる粒度で書く</span></span>
+<span id="cb1-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">26</span><span class="kw">,</span><span class="dv">74</span><span class="kw">]</span></span>
+<span id="cb1-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ステータス</span></span>
+<span id="cb1-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 現時点の対応状況を日付つきで記録する</span></span>
+<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> どの会議で・いつ提起し，議論中・合意済など進捗を一目で分かるようにする</span></span>
+<span id="cb1-25"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">26</span><span class="kw">,</span><span class="dv">74</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const rawYaml = el.textContent.trim();
     const columnWidthsAttr = el.getAttribute("data-col-widths");
     const columnWidths = columnWidthsAttr ? JSON.parse(columnWidthsAttr) : null;
-    // data-centered-cols="[1]" などで 0-indexed の列番号を渡すと、
-    // 対応する <th>/<td> に vertical-align: middle を適用する（水平は左寄せのまま）。
+    // data-centered-cols="[1]" などで 0-indexed の列番号を渡すと，
+    // 対応する <th>/<td> に vertical-align: middle を適用する（水平は左寄せのまま）．
     const centeredColsAttr = el.getAttribute("data-centered-cols");
     const centeredCols = centeredColsAttr ? JSON.parse(centeredColsAttr) : [];
 

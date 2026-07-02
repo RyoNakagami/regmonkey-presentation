@@ -12,9 +12,9 @@
 //            description1: ...
 //        ```
 //        :::
-//   JS・CSS の読み込みは拡張の Lua フィルタが自動で行うので手動 include は不要。
+//   JS・CSS の読み込みは拡張の Lua フィルタが自動で行うので手動 include は不要．
 //
-//   description1, description2, ... description{N} を順に箇条書きとして拾う。
+//   description1, description2, ... description{N} を順に箇条書きとして拾う．
 //
 // 配色・サイズは regmonkey-presentation のハウススタイルに揃える:
 //   - チップ（ステップ名）: brand-primary #0e3666 背景 + 白太字（active-phase と同系）
@@ -37,9 +37,9 @@
 
   const STYLE_ID = "step-flow-injected-style";
 
-  // ペンタゴン下部の尖り（point）の高さ。
-  // step-flow__row_height は「上側の四角形」の高さを指す。
-  // ペンタゴン全体の高さ = row_height + POINT_HEIGHT。
+  // ペンタゴン下部の尖り（point）の高さ．
+  // step-flow__row_height は「上側の四角形」の高さを指す．
+  // ペンタゴン全体の高さ = row_height + POINT_HEIGHT．
   const POINT_HEIGHT = "0.9em";
 
   // ------------------------------------------------------------------
@@ -58,7 +58,7 @@
   color: ${COLOR.text};
   font-family: inherit;   /* revealjs 本体のフォント（Meiryo 等）に揃える */
 }
-/* ヘッダー行（key 名ラベル）。列幅は JS が grid-template-columns を直書き */
+/* ヘッダー行（key 名ラベル）．列幅は JS が grid-template-columns を直書き */
 .step-flow__header {
   display: grid;
   column-gap: 1.2em;
@@ -87,7 +87,7 @@
   background: ${COLOR.primary};
   color: ${COLOR.chipText};
   font-weight: 700;
-  /* 下の頂点ぶんを padding-bottom に足し、文字は四角形部に収める */
+  /* 下の頂点ぶんを padding-bottom に足し，文字は四角形部に収める */
   padding: 0.4em 1em calc(0.4em + ${POINT_HEIGHT}) 1em;
   width: 100%;
   box-sizing: border-box;
@@ -95,7 +95,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* 下辺中央が尖る五角形。上側四角形 = (高さ - POINT_HEIGHT) */
+  /* 下辺中央が尖る五角形．上側四角形 = (高さ - POINT_HEIGHT) */
   clip-path: polygon(
     0 0,
     100% 0,
@@ -104,7 +104,7 @@
     0 calc(100% - ${POINT_HEIGHT})
   );
 }
-/* 2 列目以降：description カラム。文字は左揃え・縦位置は中央。
+/* 2 列目以降：description カラム．文字は左揃え・縦位置は中央．
    高さは四角形（row_height）に揃える */
 .step-flow__desc-cell {
   display: flex;
@@ -139,7 +139,7 @@
   }
 
   // ------------------------------------------------------------------
-  // 1. YAML パース：グローバルの js-yaml（_slide.yml で読込済）を優先、
+  // 1. YAML パース：グローバルの js-yaml（_slide.yml で読込済）を優先，
   //    無ければ record/step/descriptionN だけ拾う最小パーサにフォールバック
   //    戻り値: { records: [...], options: { height } }
   //    トップレベル height キーで全チップ共通の高さを指定できる（例: height: 3em）
@@ -164,7 +164,7 @@
               // header:
               //   false        -> ヘッダー行を非表示
               //   {key: label} -> その key 列のラベルを上書き（未指定列は key 名）
-              //   未指定/true   -> 表示。ラベルは全列 key 名
+              //   未指定/true   -> 表示．ラベルは全列 key 名
               headerShow: obj.header !== false,
               headerLabels:
                 obj.header && typeof obj.header === "object" ? obj.header : {},
@@ -174,7 +174,7 @@
               // font: カラムごとの文字サイズ（例: {step: 1.2em, risk: 0.8em}）
               colFont:
                 obj.font && typeof obj.font === "object" ? obj.font : {},
-              // line_height: 行間。スカラー（全列共通）or {key: 値}（カラムごと）
+              // line_height: 行間．スカラー（全列共通）or {key: 値}（カラムごと）
               lineHeight:
                 obj.line_height != null ? obj.line_height : null,
               // top-aligned: true で description 等を上揃え（既定は縦中央）
@@ -189,8 +189,8 @@
     return parseStepYamlFallback(text);
   }
 
-  // 簡易フォールバックパーサ（js-yaml が無い環境用）。
-  // 対応：トップレベル scalar / 入れ子 header ラベル / record の scalar・配列値。
+  // 簡易フォールバックパーサ（js-yaml が無い環境用）．
+  // 対応：トップレベル scalar / 入れ子 header ラベル / record の scalar・配列値．
   function parseStepYamlFallback(text) {
     const lines = text.replace(/\t/g, "  ").split(/\r?\n/);
     const records = [];
@@ -316,8 +316,8 @@
         mode = "top";
         continue;
       }
-      // line_height: スカラー（全列共通）。値があればそれを採用。
-      // 値が空ならネスト（カラムごと）ブロックとして lineheight モードへ。
+      // line_height: スカラー（全列共通）．値があればそれを採用．
+      // 値が空ならネスト（カラムごと）ブロックとして lineheight モードへ．
       const lhMatch = line.match(/^line_height\s*:\s*(.*)$/);
       if (lhMatch) {
         const val = lhMatch[1].trim();
@@ -361,9 +361,9 @@
 
   // ------------------------------------------------------------------
   // 2. データ列を決定する
-  //    step を除く全キーを、record 内の出現順で列にする。
+  //    step を除く全キーを，record 内の出現順で列にする．
   //    （description / description1 / risk など任意のキー名に対応）
-  //    複数 record にまたがる場合は最初に出現した順序を保持する。
+  //    複数 record にまたがる場合は最初に出現した順序を保持する．
   // ------------------------------------------------------------------
   function dataColumns(records) {
     const cols = [];
@@ -382,9 +382,9 @@
 
   // ------------------------------------------------------------------
   // 3. DOM 生成
-  //    レイアウト: step（下向き五角形チップ）+ descriptionN を各カラムに並べる。
-  //    ヘッダー行のラベルは key 名（step / description1 / ...）をそのまま使う。
-  //    下向き五角形チップが次ステップへの向きを示すため、行間の矢印は不要。
+  //    レイアウト: step（下向き五角形チップ）+ descriptionN を各カラムに並べる．
+  //    ヘッダー行のラベルは key 名（step / description1 / ...）をそのまま使う．
+  //    下向き五角形チップが次ステップへの向きを示すため，行間の矢印は不要．
   // ------------------------------------------------------------------
   function buildFlow(records, options) {
     const opts = options || {};
@@ -395,15 +395,15 @@
     const labelFor = (key) => (labels[key] != null ? labels[key] : key);
     const fonts = opts.colFont || {};
     const fontFor = (key) => (fonts[key] != null ? String(fonts[key]) : null);
-    // line_height: スカラーなら全体共通、object ならカラムごと
+    // line_height: スカラーなら全体共通，object ならカラムごと
     const lhOpt = opts.lineHeight;
     const lhIsMap = lhOpt != null && typeof lhOpt === "object";
     const lineHeightFor = (key) =>
       lhIsMap && lhOpt[key] != null ? String(lhOpt[key]) : null;
 
     // grid-template-columns の決定:
-    //   col_width: [...] が列数と一致すれば比率(fr)で指定。
-    //   未指定 or 長さ不一致なら既定（step 列 230px + 残り列 1fr 等分）。
+    //   col_width: [...] が列数と一致すれば比率(fr)で指定．
+    //   未指定 or 長さ不一致なら既定（step 列 230px + 残り列 1fr 等分）．
     let gridTemplate;
     if (
       Array.isArray(opts.colWidth) &&
@@ -457,11 +457,11 @@
       stepCell.className = "step-flow__step";
       const chip = document.createElement("div");
       chip.className = "step-flow__chip";
-      // row_height は「上側の四角形」の高さ。
-      // チップ全体 = 四角形 + 下の頂点(POINT_HEIGHT) なので height に足す。
-      // height/padding は em なのでチップ自身の font-size に依存する。
-      // 文字サイズ変更で高さが変わらないよう、font-size はテキスト用の
-      // 内側 span にだけ当て、チップの em 基準は固定のままにする。
+      // row_height は「上側の四角形」の高さ．
+      // チップ全体 = 四角形 + 下の頂点(POINT_HEIGHT) なので height に足す．
+      // height/padding は em なのでチップ自身の font-size に依存する．
+      // 文字サイズ変更で高さが変わらないよう，font-size はテキスト用の
+      // 内側 span にだけ当て，チップの em 基準は固定のままにする．
       if (opts.rowHeight) {
         chip.style.height = "calc(" + opts.rowHeight + " + " + POINT_HEIGHT + ")";
       }
@@ -477,14 +477,14 @@
       stepCell.appendChild(chip);
       row.appendChild(stepCell);
 
-      // 2 列目以降: step 以外の各キーを 1 つずつ別カラムに。
-      // 値がスカラーなら 1 行テキスト、配列なら箇条書きで描画する。
-      // セル高さは四角形（row_height）に揃え、その中で縦中央に置く。
+      // 2 列目以降: step 以外の各キーを 1 つずつ別カラムに．
+      // 値がスカラーなら 1 行テキスト，配列なら箇条書きで描画する．
+      // セル高さは四角形（row_height）に揃え，その中で縦中央に置く．
       dataCols.forEach((key) => {
         const cell = document.createElement("div");
         cell.className = "step-flow__desc-cell";
-        // セル高さ（em）は font-size 非依存にしたいので、cell には
-        // font-size を当てず、内側 inner にだけ当てる。
+        // セル高さ（em）は font-size 非依存にしたいので，cell には
+        // font-size を当てず，内側 inner にだけ当てる．
         if (opts.rowHeight) {
           cell.style.height = opts.rowHeight;
         }
@@ -525,9 +525,9 @@
   //    - 子要素 .step-flow-data / <script type="text/yaml">
   // ------------------------------------------------------------------
   function getYamlText(host) {
-    // 子要素の YAML（.step-flow-data / <script type="text/yaml">）を最優先。
-    // data-step-flow 属性は「マーカー」（値は "1" 等）として使うことが多いので、
-    // 子要素が見つからない場合に限り属性値を YAML として解釈する。
+    // 子要素の YAML（.step-flow-data / <script type="text/yaml">）を最優先．
+    // data-step-flow 属性は「マーカー」（値は "1" 等）として使うことが多いので，
+    // 子要素が見つからない場合に限り属性値を YAML として解釈する．
     const sc = host.querySelector(
       '.step-flow-data, script[type="text/yaml"]'
     );

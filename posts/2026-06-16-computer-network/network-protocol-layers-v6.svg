@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 984" width="100%" preserveAspectRatio="xMidYMid meet" style="display:block; margin:0 auto; font-family: Meiryo, 'メイリオ', system-ui, sans-serif;">
+  <defs>
+    <g id="icon-phone">
+      <rect x="0" y="0" width="50" height="86" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+      <rect x="6" y="12" width="38" height="58" rx="2" fill="#E8F1FE" stroke="#0E3666" stroke-width="1.5"/>
+      <circle cx="25" cy="78" r="3.5" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+    </g>
+    <g id="icon-pc">
+      <rect x="0" y="0" width="90" height="60" rx="5" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+      <rect x="8" y="8" width="74" height="44" rx="3" fill="#E8F1FE" stroke="#0E3666" stroke-width="1.5"/>
+      <path d="M-8,74 L98,74 L88,60 L2,60 Z" fill="#DEDEDE" stroke="#0E3666" stroke-width="2.5" stroke-linejoin="round"/>
+    </g>
+    <g id="icon-printer">
+      <rect x="12" y="0" width="66" height="24" rx="2" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+      <rect x="0" y="24" width="90" height="42" rx="5" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+      <rect x="18" y="52" width="54" height="30" rx="2" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+      <circle cx="74" cy="40" r="4" fill="#428CE6"/>
+    </g>
+    <g id="icon-earbud">
+      <circle cx="13" cy="14" r="12" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+      <rect x="8" y="24" width="10" height="24" rx="4" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+    </g>
+    <g id="icon-router">
+      <rect x="0" y="20" width="150" height="56" rx="8" fill="#B4D7FF" stroke="#0E3666" stroke-width="2.5"/>
+      <circle cx="24" cy="48" r="4.5" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+      <circle cx="44" cy="48" r="4.5" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+      <line x1="100" y1="20" x2="100" y2="-4" stroke="#0E3666" stroke-width="2.5"/>
+      <line x1="122" y1="20" x2="122" y2="-4" stroke="#0E3666" stroke-width="2.5"/>
+      <circle cx="100" cy="-6" r="3" fill="#0E3666"/>
+      <circle cx="122" cy="-6" r="3" fill="#0E3666"/>
+    </g>
+    <g id="icon-cloud">
+      <path d="M44,102 a42,42 0 0,1 6,-85 a50,50 0 0,1 97,11 a38,38 0 0,1 -9,74 Z" fill="#B4D7FF" stroke="#0E3666" stroke-width="2.5" stroke-linejoin="round"/>
+    </g>
+    <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0E3666"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(0,-60) scale(1.2)">
+  <rect width="1100" height="820" fill="#FFFFFF"/>
+
+  <!-- ================= 自宅 LAN（大枠） ================= -->
+  <rect x="40" y="80" width="700" height="660" rx="12" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+  <text x="60" y="114" font-size="16" font-weight="700" fill="#0E3666">自宅（ローカルネットワーク：Private IP 環境）</text>
+
+  <!-- 基準: 機器中心 x=130 / 幹線 x=400 / ルーター左端 x=560 -->
+
+  <!-- ===== ルーター（集約点） ===== -->
+  <use href="#icon-router" x="560" y="380"/>
+  <text x="635" y="470" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">ルーター</text>
+  <text x="635" y="488" font-size="11" fill="#575757" text-anchor="middle">NAT / DHCP</text>
+  <text x="635" y="505" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">gw: 192.168.1.1</text>
+
+  <!-- ===== 縦バックボーン幹線 (x=400) ===== -->
+  <!-- 幹線 → ルーター（水平） -->
+  <line x1="400" y1="418" x2="560" y2="418" stroke="#0E3666" stroke-width="3"/>
+
+  <!-- ===== 機器（左列, 中心 x=130） ===== -->
+  <!-- スマホ (行1: アイコン y=160, 中心 y=203) -->
+  <use href="#icon-phone" x="105" y="160"/>
+  <text x="130" y="272" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">スマートフォン</text>
+  <text x="130" y="290" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">192.168.1.10</text>
+
+  <!-- PC (行2: アイコン y=388, 中心 y=418) -->
+  <use href="#icon-pc" x="85" y="388"/>
+  <text x="130" y="482" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">パソコン</text>
+  <text x="130" y="500" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">192.168.1.11</text>
+
+  <!-- プリンター (行3: アイコン y=578, 中心 y=620) -->
+  <use href="#icon-printer" x="85" y="578"/>
+  <text x="130" y="690" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">プリンター</text>
+  <text x="130" y="708" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">192.168.1.12</text>
+
+  <!-- ===== 機器 → 幹線（水平） ===== -->
+  <!-- スマホ Wi-Fi (スマホ下部 y=235 から 直角でルーター上辺へ) -->
+  <polyline points="155,235 635,235 635,400" fill="none" stroke="#428CE6" stroke-width="3" stroke-dasharray="7,5"/>
+  <rect x="300" y="240" width="180" height="42" rx="5" fill="#FFFFFF" stroke="#428CE6"/>
+  <text x="390" y="260" font-size="11" font-weight="700" fill="#428CE6" text-anchor="middle">IEEE 802.11 (Wi-Fi)</text>
+  <text x="390" y="275" font-size="9" fill="#575757" text-anchor="middle">WPA3 ／ 初期接続: DHCP</text>
+
+  <!-- PC Ethernet -->
+  <line x1="175" y1="418" x2="400" y2="418" stroke="#0E3666" stroke-width="3"/>
+  <rect x="245" y="372" width="160" height="42" rx="5" fill="#FFFFFF" stroke="#0E3666"/>
+  <text x="325" y="392" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">IEEE 802.3</text>
+  <text x="325" y="407" font-size="9" fill="#575757" text-anchor="middle">有線イーサネット</text>
+
+  <!-- プリンター Wi-Fi (直角でルーター下辺へ) -->
+  <polyline points="175,620 635,620 635,456" fill="none" stroke="#428CE6" stroke-width="3" stroke-dasharray="7,5"/>
+  <rect x="245" y="574" width="160" height="42" rx="5" fill="#FFFFFF" stroke="#428CE6"/>
+  <text x="325" y="594" font-size="11" font-weight="700" fill="#428CE6" text-anchor="middle">IEEE 802.11 (Wi-Fi)</text>
+  <text x="325" y="609" font-size="9" fill="#575757" text-anchor="middle">WPA3（暗号化）</text>
+
+  <!-- ===== スマホ ⇄ イヤホン (Bluetooth・水平) ===== -->
+  <use href="#icon-earbud" x="200" y="175"/>
+  <use href="#icon-earbud" x="226" y="175"/>
+  <text x="218" y="252" font-size="10" font-weight="700" fill="#0E3666" text-anchor="middle">イヤホン</text>
+  <line x1="155" y1="190" x2="198" y2="190" stroke="#428CE6" stroke-width="2.5" stroke-dasharray="3,4"/>
+  <rect x="260" y="170" width="160" height="42" rx="5" fill="#FFFFFF" stroke="#428CE6"/>
+  <text x="340" y="185" font-size="11" font-weight="700" fill="#428CE6" text-anchor="middle">Bluetooth A2DP</text>
+  <text x="340" y="200" font-size="9" fill="#575757" text-anchor="middle">音声伝送（PAN）</text>
+
+  <!-- ===== アプリ層：PC ⇄ プリンター 印刷 (IPP・L字) ===== -->
+  <polyline points="85,418 60,418 60,620 85,620" stroke="#D31804" stroke-width="2.5" stroke-dasharray="4,4" fill="none"/>
+
+  <!-- ================= インターネット網（右側・左寄せ） ================= -->
+  <use href="#icon-cloud" x="850" y="340"/>
+  <text x="945" y="405" font-size="15" font-weight="700" fill="#0E3666" text-anchor="middle">インターネット網</text>
+  <text x="945" y="428" font-size="12" fill="#0E3666" text-anchor="middle">基盤: IP / BGP</text>
+
+  <!-- ルーター → インターネット網（水平） -->
+  <line x1="710" y1="408" x2="848" y2="408" stroke="#0E3666" stroke-width="3" marker-end="url(#arrowNavy)"/>
+  <rect x="700" y="300" width="180" height="42" rx="5" fill="#FFFFFF" stroke="#0E3666"/>
+  <text x="790" y="320" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">WAN側: IPoE (IPv6)</text>
+  <text x="790" y="335" font-size="9" fill="#575757" text-anchor="middle">または PPPoE (IPv4)</text>
+  <line x1="790" y1="342" x2="790" y2="408" stroke="#0E3666" stroke-width="1.5"/>
+
+  <!-- ================= footer legend ================= -->
+  <rect x="40" y="760" width="1020" height="40" rx="6" fill="#E8F1FE"/>
+  <line x1="58" y1="780" x2="96" y2="780" stroke="#0E3666" stroke-width="3"/>
+  <text x="104" y="785" font-size="11" fill="#1A1A1A">有線（Ethernet / WAN）</text>
+  <line x1="290" y1="780" x2="328" y2="780" stroke="#428CE6" stroke-width="3" stroke-dasharray="7,5"/>
+  <text x="336" y="785" font-size="11" fill="#1A1A1A">Wi-Fi（LAN）</text>
+  <line x1="470" y1="780" x2="508" y2="780" stroke="#428CE6" stroke-width="3" stroke-dasharray="3,4"/>
+  <text x="516" y="785" font-size="11" fill="#1A1A1A">Bluetooth（PAN）</text>
+  <line x1="680" y1="780" x2="718" y2="780" stroke="#D31804" stroke-width="2.5" stroke-dasharray="4,4"/>
+  <text x="726" y="785" font-size="11" fill="#1A1A1A">アプリ層通信: IPP / mDNS（印刷）</text>
+  </g>
+</svg>

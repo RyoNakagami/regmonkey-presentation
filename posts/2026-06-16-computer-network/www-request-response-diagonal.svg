@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="100%" preserveAspectRatio="xMidYMid meet" style="display:block; margin:0 auto; font-family: Meiryo, 'メイリオ', system-ui, sans-serif;">
+  <defs>
+    <marker id="arrowReq" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#0E3666"/>
+    </marker>
+    <marker id="arrowRes" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1B7F4B"/>
+    </marker>
+  </defs>
+
+  <rect width="1100" height="700" fill="#FFFFFF"/>
+
+  <!-- ================= WWW サーバー（上・中央） ================= -->
+  <rect x="390" y="40" width="320" height="110" rx="10" fill="#FFFFFF" stroke="#0E3666" stroke-width="2.5"/>
+  <text x="550" y="80" font-size="20" font-weight="700" fill="#0E3666" text-anchor="middle">WWW サーバー</text>
+  <rect x="410" y="98" width="280" height="46" rx="6" fill="#E8F1FE" stroke="#0E3666" stroke-width="1.5"/>
+  <text x="550" y="120" font-size="13" fill="#1A1A1A" text-anchor="middle">HTML / 画像 / 音声ファイルを保管</text>
+  <text x="550" y="136" font-size="13" fill="#1A1A1A" text-anchor="middle">ブラウザからの要求に応じて提供</text>
+
+  <!-- ================= ブラウザ A（左下） ================= -->
+  <rect x="60" y="520" width="320" height="110" rx="10" fill="#FFFFFF" stroke="#428CE6" stroke-width="2.5"/>
+  <text x="220" y="560" font-size="18" font-weight="700" fill="#0E3666" text-anchor="middle">WWW ブラウザ A</text>
+  <rect x="80" y="578" width="280" height="36" rx="6" fill="#E8F1FE" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="220" y="602" font-size="13" fill="#1A1A1A" text-anchor="middle">ファイルをダウンロード + 解析して画面表示</text>
+
+  <!-- ================= ブラウザ B（右下） ================= -->
+  <rect x="720" y="520" width="320" height="110" rx="10" fill="#FFFFFF" stroke="#428CE6" stroke-width="2.5"/>
+  <text x="880" y="560" font-size="18" font-weight="700" fill="#0E3666" text-anchor="middle">WWW ブラウザ B</text>
+  <rect x="740" y="578" width="280" height="36" rx="6" fill="#E8F1FE" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="880" y="602" font-size="13" fill="#1A1A1A" text-anchor="middle">ファイルをダウンロード + 解析して画面表示</text>
+
+  <!-- ============ ブラウザA ⇄ サーバー（斜め直線） ============ -->
+  <!-- ① Request: A上 → サーバー左下（斜め） -->
+  <line x1="250" y1="518" x2="445" y2="152" stroke="#0E3666" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#arrowReq)"/>
+  <!-- ② Response: サーバー左下 → A上（斜め・やや内側） -->
+  <line x1="495" y1="152" x2="300" y2="518" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRes)"/>
+
+  <!-- A側ラベル -->
+  <rect x="245" y="250" width="170" height="26" rx="5" fill="#FFFFFF" stroke="#0E3666"/>
+  <text x="330" y="268" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">① 要求（Request）</text>
+  <rect x="265" y="400" width="180" height="26" rx="5" fill="#FFFFFF" stroke="#1B7F4B"/>
+  <text x="355" y="418" font-size="13" font-weight="700" fill="#1B7F4B" text-anchor="middle">② 応答（Response）</text>
+
+  <!-- ============ ブラウザB ⇄ サーバー（斜め直線） ============ -->
+  <!-- ① Request: B上 → サーバー右下（斜め） -->
+  <line x1="850" y1="518" x2="655" y2="152" stroke="#0E3666" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#arrowReq)"/>
+  <!-- ② Response: サーバー右下 → B上（斜め・やや内側） -->
+  <line x1="605" y1="152" x2="800" y2="518" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRes)"/>
+
+  <!-- B側ラベル -->
+  <rect x="685" y="250" width="170" height="26" rx="5" fill="#FFFFFF" stroke="#0E3666"/>
+  <text x="770" y="268" font-size="13" font-weight="700" fill="#0E3666" text-anchor="middle">① 要求（Request）</text>
+  <rect x="655" y="400" width="180" height="26" rx="5" fill="#FFFFFF" stroke="#1B7F4B"/>
+  <text x="745" y="418" font-size="13" font-weight="700" fill="#1B7F4B" text-anchor="middle">② 応答（Response）</text>
+
+  <!-- ============ footer note ============ -->
+  <text x="550" y="675" font-size="12" fill="#1a1a1a" text-anchor="middle">ブラウザが要求（Request）を出し，サーバーがファイルで応答（Response）する．これを繰り返して Web ページが表示される</text>
+</svg>

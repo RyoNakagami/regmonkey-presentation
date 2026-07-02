@@ -1,6 +1,6 @@
 <svg viewBox="0 0 1100 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PRレビューフローでの5機能の役割分担">
   <title>PRレビューフローでの5機能の役割分担</title>
-  <desc>主軸はHooks→Skills→MCP serversの時系列。SkillsからSubagentsへ別軸で委譲。CLAUDE.mdは全工程に適用される土台</desc>
+  <desc>主軸はHooks→Skills→MCP serversの時系列．SkillsからSubagentsへ別軸で委譲．CLAUDE.mdは全工程に適用される土台</desc>
 
   <defs>
     <marker id="arrow-pr-axis" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">

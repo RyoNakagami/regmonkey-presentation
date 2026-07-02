@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#f8fafc" rx="8"/>
+
+  <defs>
+    <style>
+      .title { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 23.4px; font-weight: bold; fill: #1e293b; }
+      .node-text { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 18.2px; font-weight: bold; fill: #334155; }
+      .msg-text-danger { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 15.6px; fill: #ffffff; font-weight: 500; text-anchor: middle;}
+      .msg-text-fail { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 15.6px; fill: #ef4444; font-weight: bold; text-anchor: middle;}
+      .phase-text-fail { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 14.3px; fill: #94a3b8; font-weight: bold; letter-spacing: 1px; text-decoration: line-through; }
+      .line-label-fail { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 15.6px; fill: #ef4444; font-weight: bold; }
+    </style>
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(40, 40)">
+    <circle cx="12" cy="-6" r="6" fill="#ef4444"/>
+    <text x="28" y="0" class="title">プロトコルがない場合（通信失敗・整列）</text>
+  </g>
+
+  <line x1="160" y1="240" x2="640" y2="240" stroke="#f1f5f9" stroke-width="4"/>
+  <path d="M 385 215 L 415 245 M 415 215 L 385 245"
+      stroke="#ef4444"
+      stroke-width="6"
+      stroke-linecap="round"
+      fill="none"/>
+  <text x="400" y="195" text-anchor="middle" class="line-label-fail">手順なし（同期できず混乱）</text>
+
+  <g transform="translate(80, 190)" filter="url(#drop-shadow)">
+    <rect x="0" y="0" width="80" height="55" rx="6" fill="#475569"/>
+    <rect x="5" y="5" width="70" height="45" rx="3" fill="#ffffff"/>
+    <path d="M30,55 L50,55 L55,75 L25,75 Z" fill="#64748b"/>
+    <rect x="15" y="72" width="50" height="4" rx="2" fill="#475569"/>
+    <text x="40" y="95" text-anchor="middle" class="node-text">PC A</text>
+  </g>
+
+  <g transform="translate(640, 190)" filter="url(#drop-shadow)">
+    <rect x="0" y="0" width="80" height="55" rx="6" fill="#475569"/>
+    <rect x="5" y="5" width="70" height="45" rx="3" fill="#ffffff"/>
+    <path d="M 40,15 L 55,42 L 25,42 Z" fill="#ef4444"/>
+    <text x="40" y="38" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#ffffff">!</text>
+    <path d="M30,55 L50,55 L55,75 L25,75 Z" fill="#64748b"/>
+    <rect x="15" y="72" width="50" height="4" rx="2" fill="#475569"/>
+    <text x="40" y="95" text-anchor="middle" class="node-text">PC B</text>
+  </g>
+
+  <g transform="translate(160, 115)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#ef4444"/>
+    <text x="70" y="18" class="msg-text-danger">（一方的に送信開始）</text>
+  </g>
+  
+  <g transform="translate(160, 295)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#ef4444"/>
+    <text x="70" y="18" class="msg-text-danger">「01101001...」</text>
+  </g>
+  
+  <g transform="translate(160, 385)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#ef4444"/>
+    <text x="70" y="18" class="msg-text-danger">（突然の通信終了）</text>
+  </g>
+
+  <g transform="translate(490, 115)">
+    <text x="70" y="20" class="msg-text-fail">❓ 準備ができていない</text>
+  </g>
+  
+  <g transform="translate(490, 295)">
+    <text x="70" y="20" class="msg-text-fail">❌ 形式が不明（読めない）</text>
+  </g>
+  
+  <g transform="translate(490, 385)">
+    <text x="70" y="20" class="msg-text-fail">⚠️ データの欠落</text>
+  </g>
+
+  <text x="400" y="285" text-anchor="middle" class="phase-text-fail">転送失敗</text>
+
+</svg>

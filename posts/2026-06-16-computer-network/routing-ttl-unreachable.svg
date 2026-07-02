@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" preserveAspectRatio="xMidYMid meet" style="display:block; margin:0 auto; font-family: Meiryo, 'メイリオ', system-ui, sans-serif;">
+  <defs>
+    <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#0E3666"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#D31804"/>
+    </marker>
+    <!-- ルータ記号 -->
+    <g id="router">
+      <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+      <path d="M-10,4 L10,4 M-10,4 L-5,-1 M10,4 L5,-1 M0,4 L0,-4 M-5,-4 L5,-4 M-5,-4 L-7,-7 M5,-4 L7,-7" stroke="#0E3666" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- ================= ゾーン枠 ================= -->
+  <!-- 送信側 LAN -->
+  <rect x="14" y="26" width="135" height="350" rx="8" fill="#E8F1FE" stroke="#1B7F4B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="24" y="48" font-size="13" font-weight="700" fill="#1B7F4B">送信側 LAN</text>
+  <!-- インターネット WAN -->
+  <rect x="157" y="26" width="473" height="350" rx="8" fill="#F4F8FE" stroke="#428CE6" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="167" y="48" font-size="13" font-weight="700" fill="#428CE6">インターネット網（WAN）</text>
+  <!-- 受信側 LAN -->
+  <rect x="640" y="26" width="146" height="350" rx="8" fill="#E8F1FE" stroke="#1B7F4B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="650" y="48" font-size="13" font-weight="700" fill="#1B7F4B">受信側 LAN</text>
+
+  <!-- ================= ノード ================= -->
+  <!-- Host A -->
+  <rect x="30" y="194" width="66" height="40" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <text x="63" y="219" font-size="14" font-weight="700" fill="#0E3666" text-anchor="middle">Host A</text>
+  <text x="63" y="256" font-size="12" font-weight="700" fill="#1B7F4B" text-anchor="middle">送信元</text>
+
+  <!-- GWルータ -->
+  <use href="#router" x="143" y="214"/>
+  <text x="143" y="256" font-size="12" font-weight="700" fill="#0E3666" text-anchor="middle">GWルータ</text>
+
+  <!-- 上経路ルータ R1 -->
+  <use href="#router" x="267" y="126"/>
+  <text x="267" y="95" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">中継ルータ</text>
+  <!-- 下経路ルータ R2 -->
+  <use href="#router" x="267" y="306"/>
+  <text x="267" y="344" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">中継ルータ</text>
+
+  <!-- コアルータ -->
+  <use href="#router" x="393" y="214"/>
+  <text x="393" y="256" font-size="12" font-weight="700" fill="#0E3666" text-anchor="middle">コアルータ</text>
+
+  <!-- 境界ルータ -->
+  <use href="#router" x="527" y="214"/>
+  <text x="527" y="256" font-size="12" font-weight="700" fill="#0E3666" text-anchor="middle">境界ルータ</text>
+
+  <!-- 受信側ルータ -->
+  <use href="#router" x="667" y="214"/>
+  <text x="667" y="256" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">LANルータ</text>
+
+  <!-- Host B -->
+  <rect x="720" y="194" width="66" height="40" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <text x="753" y="219" font-size="14" font-weight="700" fill="#0E3666" text-anchor="middle">Host B</text>
+  <text x="753" y="256" font-size="12" font-weight="700" fill="#1B7F4B" text-anchor="middle">宛先</text>
+
+  <!-- ================= 正常経路（実線・TTL減算） ================= -->
+  <!-- Host A → GW -->
+  <line x1="96" y1="214" x2="117" y2="214" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <!-- GW → R1 (上) -->
+  <line x1="160" y1="200" x2="248" y2="138" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <!-- GW → R2 (下) -->
+  <line x1="160" y1="228" x2="248" y2="293" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- R1 → コアルータ -->
+  <line x1="286" y1="138" x2="375" y2="201" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <!-- R2 → コアルータ（合流・補助） -->
+  <line x1="286" y1="293" x2="375" y2="228" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- コア → 境界 -->
+  <line x1="415" y1="214" x2="503" y2="214" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <!-- 境界 → LANルータ -->
+  <line x1="549" y1="214" x2="643" y2="214" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <!-- LANルータ → Host B -->
+  <line x1="689" y1="214" x2="718" y2="214" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+
+  <!-- ================= TTL ラベル（ホップごとに減算） ================= -->
+  <!-- 出発: TTL=64 -->
+  <g transform="translate(168,158)">
+    <rect x="0" y="0" width="68" height="30" rx="4" fill="#0E3666"/>
+    <text x="34" y="13" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">IP パケット</text>
+    <text x="34" y="25" font-size="10.5" font-weight="700" fill="#B4D7FF" text-anchor="middle">TTL = 64</text>
+  </g>
+  <!-- R1通過後: TTL=63 -->
+  <g transform="translate(294,158)">
+    <rect x="0" y="0" width="68" height="30" rx="4" fill="#0E3666"/>
+    <text x="34" y="13" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">IP パケット</text>
+    <text x="34" y="25" font-size="10.5" font-weight="700" fill="#B4D7FF" text-anchor="middle">TTL = 63</text>
+  </g>
+  <!-- コア通過後: TTL=62 -->
+  <g transform="translate(440,236)">
+    <rect x="-13" y="0" width="68" height="30" rx="4" fill="#0E3666"/>
+    <text x="21" y="13" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">IP パケット</text>
+    <text x="21" y="25" font-size="10.5" font-weight="700" fill="#B4D7FF" text-anchor="middle">TTL = 62</text>
+  </g>
+  <!-- TTL減算の注記 -->
+  <text x="393" y="282" font-size="11" fill="#575757" text-anchor="middle">ルータを1つ通るたび TTL を −1（無限ループ防止のための寿命カウンタ）</text>
+
+  <!-- ================= エラー① TTL=0 で破棄（ループ検知） ================= -->
+  <!-- 境界ルータからループしてコアへ戻る赤い破線 -->
+  <path d="M 527,192 C 497,118 440,118 410,192" fill="none" stroke="#D31804" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowRed)"/>
+  <g transform="translate(403,62)">
+    <rect x="-15" y="0" width="170" height="42" rx="5" fill="#FBE7E6" stroke="#D31804" stroke-width="1"/>
+    <text x="70" y="18" font-size="11" font-weight="700" fill="#D31804" text-anchor="middle">エラー① TTL = 0 で破棄</text>
+    <text x="70" y="34" font-size="9.5" fill="#1A1A1A" text-anchor="middle">経路がループしても寿命切れで停止</text>
+  </g>
+
+  <!-- ================= エラー② 宛先不明（Unreachable） ================= -->
+  <!-- 境界ルータから下へ赤い破線で返送 -->
+  <path d="M 527,236 L 527,314" fill="none" stroke="#D31804" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowRed)"/>
+  <g transform="translate(440,320)">
+    <rect x="0" y="0" width="220" height="42" rx="5" fill="#FBE7E6" stroke="#D31804" stroke-width="1"/>
+    <text x="110" y="18" font-size="11" font-weight="700" fill="#D31804" text-anchor="middle">エラー② 宛先不明（Unreachable）</text>
+    <text x="110" y="34" font-size="9.5" fill="#1A1A1A" text-anchor="middle">経路が無ければ破棄し ICMP で送信元へ通知</text>
+  </g>
+
+  <!-- ================= footer legend ================= -->
+  <rect x="14" y="408" width="772" height="30" rx="5" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <line x1="28" y1="423" x2="58" y2="423" stroke="#0E3666" stroke-width="2"/>
+  <text x="64" y="428" font-size="11" fill="#1A1A1A">実際に通る正常経路</text>
+  <line x1="220" y1="423" x2="250" y2="423" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="256" y="428" font-size="11" fill="#1A1A1A">選ばれなかった候補経路</text>
+  <line x1="440" y1="423" x2="470" y2="423" stroke="#D31804" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="476" y="428" font-size="11" fill="#1A1A1A">エラー時の挙動（破棄 / ICMP 通知）</text>
+</svg>

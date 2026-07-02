@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 310" width="100%" preserveAspectRatio="xMidYMid meet"
+     style="display:block; margin:0 auto;"
+     font-family="Meiryo, 'メイリオ', system-ui, sans-serif">
+
+  <rect width="750" height="310" fill="#FFFFFF"/>
+
+  <text x="10" y="24" font-size="16" font-weight="700" fill="#1A1A1A">PPP フレームの形式</text>
+
+  <!--
+    Row1 y=32〜82   左:①  右:②
+    Row2 y=82〜132  左:③  右:④
+    Row3 y=132〜182 全幅: ⑤
+    Row4 y=182〜262 全幅: ⑥
+    Row5 y=262〜295 全幅: ⑦
+    左右分割: x=430
+  -->
+
+  <!-- ラベル帯 -->
+  <rect x="20" y="32" width="55" height="100" fill="#0E3666"/>
+  <text x="47.5" y="86" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">ヘッダ</text>
+
+  <rect x="20" y="132" width="55" height="50" fill="#428CE6"/>
+  <text x="47.5" y="161" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">データ</text>
+
+  <rect x="20" y="182" width="55" height="113" fill="#0E3666"/>
+  <text x="47.5" y="243" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">トレーラ</text>
+
+  <!-- テーブル外枠 -->
+  <rect x="75" y="32" width="665" height="263" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+
+  <!-- 横区切り -->
+  <line x1="75"  y1="82"  x2="740" y2="82"  stroke="#1A1A1A" stroke-width="1"/>
+  <line x1="75"  y1="132" x2="740" y2="132" stroke="#1A1A1A" stroke-width="1"/>
+  <line x1="75"  y1="182" x2="740" y2="182" stroke="#1A1A1A" stroke-width="1"/>
+  <line x1="75"  y1="262" x2="740" y2="262" stroke="#1A1A1A" stroke-width="1"/>
+
+  <!-- 縦区切り（Row1〜2のみ） -->
+  <line x1="407" y1="32" x2="407" y2="132" stroke="#1A1A1A" stroke-width="1"/>
+
+  <!-- ① -->
+  <text x="88" y="53" font-size="14" font-weight="700" fill="#1A1A1A">①開始符号（8ビット）</text>
+  <text x="88" y="70" font-size="12" fill="#1A1A1A">01111110 のビット列を示す．</text>
+
+  <!-- ② -->
+  <text x="430" y="53" font-size="14" font-weight="700" fill="#1A1A1A">②アドレス（8ビット）</text>
+  <text x="430" y="70" font-size="12" fill="#1A1A1A">固定値（11111111）から入る．</text>
+
+  <!-- ③ -->
+  <text x="88" y="103" font-size="14" font-weight="700" fill="#1A1A1A">③制御部（8ビット）</text>
+  <text x="88" y="120" font-size="12" fill="#1A1A1A">伝送を制御するための情報</text>
+
+  <!-- ④ -->
+  <text x="430" y="103" font-size="14" font-weight="700" fill="#1A1A1A">④プロトコル番号（8ビット）</text>
+  <text x="430" y="120" font-size="12" fill="#1A1A1A">上位層のプロトコルを識別する番号．</text>
+
+  <!-- ⑤ -->
+  <text x="88" y="153" font-size="14" font-weight="700" fill="#1A1A1A">⑤データ</text>
+  <text x="88" y="170" font-size="12" fill="#1A1A1A">カプセル化された IPヘッダ / TCPヘッダ / アプリケーションヘッダ / データ</text>
+
+  <!-- ⑥ -->
+  <text x="88" y="203" font-size="14" font-weight="700" fill="#1A1A1A">⑥FCS（Frame Check Sequence）（32ビット）</text>
+  <text x="88" y="220" font-size="12" fill="#1A1A1A">フレームが壊れていないかどうかを調べる値．</text>
+  <text x="88" y="237" font-size="12" fill="#575757">フレームに含まれているIPヘッダ / TCPヘッダ / アプリケーションヘッダ / データを元にして計算できる値を検査する．</text>
+
+  <!-- ⑦ -->
+  <text x="88" y="283" font-size="14" font-weight="700" fill="#1A1A1A">⑦終了符号（8ビット）　01111110 から入る．</text>
+
+</svg>

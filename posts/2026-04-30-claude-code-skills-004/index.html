@@ -401,7 +401,7 @@ Ryo Nakagami
 </div>
 <p><span class="mini-section">具体例：PR レビュー支援フローでの5機能の役割分担</span></p>
 <div style="text-align:center;">
-<p><img data-src="./pr_review_5_features_horizontal.svg" style="width:100.0%" alt="PRレビューフローでの5機能の役割分担。CLAUDE.mdが土台として常時適用され，主軸はHooks→Skills→MCP serversの時系列。SkillsからSubagentsへ別軸で委譲"></p>
+<p><img data-src="./pr_review_5_features_horizontal.svg" style="width:100.0%" alt="PRレビューフローでの5機能の役割分担．CLAUDE.mdが土台として常時適用され，主軸はHooks→Skills→MCP serversの時系列．SkillsからSubagentsへ別軸で委譲"></p>
 </div>
 </section></section>
 <section>
@@ -679,7 +679,7 @@ Ryo Nakagami
 <span id="cb3-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionStart</span></span>
 <span id="cb3-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション開始時・再開時</span></span>
 <span id="cb3-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 開発コンテキスト（Issue・最近の変更など）の読み込み、環境変数のセットアップ</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 開発コンテキスト（Issue・最近の変更など）の読み込み，環境変数のセットアップ</span></span>
 <span id="cb3-6"><a></a></span>
 <span id="cb3-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
 <span id="cb3-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Setup</span></span>
@@ -689,13 +689,13 @@ Ryo Nakagami
 <span id="cb3-12"><a></a></span>
 <span id="cb3-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
 <span id="cb3-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptSubmit</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがプロンプトを送信し、Claudeが処理する前</span></span>
+<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがプロンプトを送信し，Claudeが処理する前</span></span>
 <span id="cb3-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
 <span id="cb3-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> プロンプトに基づくコンテキスト追加・プロンプトの検証・特定種類のプロンプトのブロック</span></span>
 <span id="cb3-18"><a></a></span>
 <span id="cb3-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
 <span id="cb3-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptExpansion</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> スラッシュコマンドがプロンプトに展開され、Claudeに届く前</span></span>
+<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> スラッシュコマンドがプロンプトに展開され，Claudeに届く前</span></span>
 <span id="cb3-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
 <span id="cb3-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 特定コマンドの直接呼び出しブロック・スキル用コンテキスト注入・コマンド利用ログ</span></span>
 <span id="cb3-24"><a></a></span>
@@ -714,7 +714,7 @@ Ryo Nakagami
 <div id="yaml-hooks-2" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
 <span id="cb4-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreToolUse</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claudeがツールパラメータを生成した後、ツール呼び出しの処理前</span></span>
+<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claudeがツールパラメータを生成した後，ツール呼び出しの処理前</span></span>
 <span id="cb4-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
 <span id="cb4-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 危険コマンドのブロック・ツール入力の修正・許可/拒否/確認の制御</span></span>
 <span id="cb4-6"><a></a></span>
@@ -722,7 +722,7 @@ Ryo Nakagami
 <span id="cb4-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionRequest</span></span>
 <span id="cb4-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 権限ダイアログが表示されるとき</span></span>
 <span id="cb4-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザの代わりに権限を自動承認・拒否、カスタムロジックによるツール権限制御</span></span>
+<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザの代わりに権限を自動承認・拒否，カスタムロジックによるツール権限制御</span></span>
 <span id="cb4-12"><a></a></span>
 <span id="cb4-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
 <span id="cb4-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionDenied</span></span>
@@ -744,7 +744,7 @@ Ryo Nakagami
 <span id="cb4-30"><a></a></span>
 <span id="cb4-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
 <span id="cb4-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolBatch</span></span>
-<span id="cb4-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 並列ツール呼び出しのバッチ全体が解決した後、次のモデル呼び出し前</span></span>
+<span id="cb4-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 並列ツール呼び出しのバッチ全体が解決した後，次のモデル呼び出し前</span></span>
 <span id="cb4-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
 <span id="cb4-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> バッチ単位でのコンテキスト注入・エージェントループの停止</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -801,7 +801,7 @@ Ryo Nakagami
 <span id="cb5-44"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TeammateIdle</span></span>
 <span id="cb5-45"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agent Teamのチームメイトがアイドルに移行する直前</span></span>
 <span id="cb5-46"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> アイドル前の品質ゲート（lint、ビルド成果物の確認など）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> アイドル前の品質ゲート（lint，ビルド成果物の確認など）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -866,7 +866,7 @@ Ryo Nakagami
 <span id="cb6-54"><a></a></span>
 <span id="cb6-55"><a></a><span class="fu">record10</span><span class="kw">:</span></span>
 <span id="cb6-56"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ElicitationResult</span></span>
-<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがMCPのelicitationに応答した後、サーバへ返却される前</span></span>
+<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがMCPのelicitationに応答した後，サーバへ返却される前</span></span>
 <span id="cb6-58"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
 <span id="cb6-59"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザ応答の上書き・修正</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
