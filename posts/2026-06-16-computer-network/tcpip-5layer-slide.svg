@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 750" width="100%" preserveAspectRatio="xMidYMid meet" style="display:block; margin:0 auto; font-family: Meiryo, 'メイリオ', system-ui, sans-serif;">
+  <defs>
+    <marker id="arrowSend" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#428CE6"/>
+    </marker>
+    <marker id="arrowRecv" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1B7F4B"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="750" fill="#FFFFFF"/>
+
+  <g transform="translate(0,-120)">
+  <!-- ============================================================ -->
+  <!-- 共通の行レイアウト: 各層 y開始 = 150,290,430,570,710 / 高さ110 -->
+  <!-- 左カード x=60 w=560 / 右カード x=980 w=560 -->
+
+  <!-- ===== LAYER 5 アプリケーション層 ===== -->
+  <!-- 左 -->
+  <rect x="60" y="150" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="60" y="150" width="6" height="110" rx="3" fill="#428CE6"/>
+  <text x="76" y="184" font-size="16.9" font-weight="700" fill="#428CE6">LAYER 5</text>
+  <text x="76" y="212" font-size="22.1" font-weight="700" fill="#0E3666">アプリケーション層</text>
+  <text x="280" y="190" font-size="14" fill="#1A1A1A">・アプリ用のデータ形式に処理</text>
+  <text x="280" y="216" font-size="14" fill="#1A1A1A">・データをそのまま認識</text>
+  <rect x="525" y="178" width="56" height="54" rx="4" fill="#B4D7FF"/>
+  <text x="553" y="210" font-size="14.3" font-weight="700" fill="#0E3666" text-anchor="middle">データ</text>
+  <!-- 右 -->
+  <rect x="980" y="150" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="980" y="150" width="6" height="110" rx="3" fill="#1B7F4B"/>
+  <text x="994" y="184" font-size="16.9" font-weight="700" fill="#1B7F4B">LAYER 5</text>
+  <text x="994" y="212" font-size="22.1" font-weight="700" fill="#0E3666">アプリケーション層</text>
+  <text x="1200" y="190" font-size="14" fill="#1A1A1A">・アプリで表示・再生</text>
+  <text x="1200" y="216" font-size="14" fill="#1A1A1A">・ユーザーが読める形に戻す</text>
+  <rect x="1445" y="178" width="56" height="54" rx="4" fill="#B4D7FF"/>
+  <text x="1473" y="210" font-size="14.3" font-weight="700" fill="#0E3666" text-anchor="middle">データ</text>
+
+  <!-- ===== LAYER 4 トランスポート層 ===== -->
+  <rect x="60" y="290" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="60" y="290" width="6" height="110" rx="3" fill="#428CE6"/>
+  <text x="76" y="324" font-size="16.9" font-weight="700" fill="#428CE6">LAYER 4</text>
+  <text x="76" y="352" font-size="22.1" font-weight="700" fill="#0E3666">トランスポート層</text>
+  <text x="280" y="330" font-size="14" fill="#1A1A1A">・共通の形（セグメント）に分割</text>
+  <text x="280" y="356" font-size="14" fill="#1A1A1A">・エラー検知用のヘッダを付与</text>
+  <rect x="527" y="318" width="22" height="54" rx="3" fill="#0E3666"/>
+  <text x="538" y="350" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="551" y="318" width="52" height="54" rx="3" fill="#B4D7FF"/>
+  <!-- 右 -->
+  <rect x="980" y="290" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="980" y="290" width="6" height="110" rx="3" fill="#1B7F4B"/>
+  <text x="994" y="324" font-size="16.9" font-weight="700" fill="#1B7F4B">LAYER 4</text>
+  <text x="994" y="352" font-size="22.1" font-weight="700" fill="#0E3666">トランスポート層</text>
+  <text x="1200" y="330" font-size="14" fill="#1A1A1A">・問題があれば再送要求</text>
+  <text x="1200" y="356" font-size="14" fill="#1A1A1A">・順序を整えて上の層へ渡す</text>
+  <rect x="1447" y="318" width="22" height="54" rx="3" fill="#1B7F4B"/>
+  <text x="1458" y="350" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="1471" y="318" width="52" height="54" rx="3" fill="#B4D7FF"/>
+
+  <!-- ===== LAYER 3 ネットワーク層 ===== -->
+  <rect x="60" y="430" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="60" y="430" width="6" height="110" rx="3" fill="#428CE6"/>
+  <text x="76" y="464" font-size="16.9" font-weight="700" fill="#428CE6">LAYER 3</text>
+  <text x="76" y="492" font-size="22.1" font-weight="700" fill="#0E3666">ネットワーク層</text>
+  <text x="280" y="470" font-size="14" fill="#1A1A1A">・宛先IPを定めてパケット化</text>
+  <text x="280" y="496" font-size="14" fill="#1A1A1A">・最適な経路（ルート）の決定</text>
+  <rect x="509" y="458" width="20" height="54" rx="2" fill="#0E3666"/>
+  <text x="519" y="490" font-size="11.7" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="531" y="458" width="20" height="54" rx="2" fill="#428CE6"/>
+  <text x="541" y="490" font-size="11.7" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="553" y="458" width="50" height="54" rx="2" fill="#B4D7FF"/>
+  <!-- 右 -->
+  <rect x="980" y="430" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="980" y="430" width="6" height="110" rx="3" fill="#1B7F4B"/>
+  <text x="994" y="464" font-size="16.9" font-weight="700" fill="#1B7F4B">LAYER 3</text>
+  <text x="994" y="492" font-size="22.1" font-weight="700" fill="#0E3666">ネットワーク層</text>
+  <text x="1200" y="470" font-size="14" fill="#1A1A1A">・IP宛先を確認し自分宛か判別</text>
+  <text x="1200" y="496" font-size="14" fill="#1A1A1A">・他宛なら破棄／ルーティング</text>
+  <rect x="1429" y="458" width="20" height="54" rx="2" fill="#0E3666"/>
+  <text x="1439" y="490" font-size="11.7" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="1451" y="458" width="20" height="54" rx="2" fill="#1B7F4B"/>
+  <text x="1461" y="490" font-size="11.7" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+  <rect x="1473" y="458" width="50" height="54" rx="2" fill="#B4D7FF"/>
+
+  <!-- ===== LAYER 2 データリンク層 ===== -->
+  <rect x="60" y="570" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="60" y="570" width="6" height="110" rx="3" fill="#428CE6"/>
+  <text x="76" y="604" font-size="16.9" font-weight="700" fill="#428CE6">LAYER 2</text>
+  <text x="76" y="632" font-size="22.1" font-weight="700" fill="#0E3666">データリンク層</text>
+  <text x="280" y="610" font-size="14" fill="#1A1A1A">・データを「0と1」のビット列に</text>
+  <text x="280" y="636" font-size="14" fill="#1A1A1A">・同一ネットワーク内の送受信制御</text>
+  <text x="555" y="635" font-size="18.2" font-weight="700" fill="#428CE6" text-anchor="middle">0101...</text>
+  <!-- 右 -->
+  <rect x="980" y="570" width="560" height="110" rx="8" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <rect x="980" y="570" width="6" height="110" rx="3" fill="#1B7F4B"/>
+  <text x="994" y="604" font-size="16.9" font-weight="700" fill="#1B7F4B">LAYER 2</text>
+  <text x="994" y="632" font-size="22.1" font-weight="700" fill="#0E3666">データリンク層</text>
+  <text x="1200" y="610" font-size="14" fill="#1A1A1A">・ビット列を検出しフレームに復元</text>
+  <text x="1200" y="636" font-size="14" fill="#1A1A1A">・MACアドレスのエラーチェック</text>
+  <text x="1475" y="635" font-size="18.2" font-weight="700" fill="#1B7F4B" text-anchor="middle">...0101</text>
+
+  <!-- ===== LAYER 1 物理層 ===== -->
+  <rect x="60" y="710" width="560" height="110" rx="8" fill="#E8F1FE" stroke="#575757" stroke-width="2"/>
+  <rect x="60" y="710" width="6" height="110" rx="3" fill="#575757"/>
+  <text x="76" y="744" font-size="16.9" font-weight="700" fill="#575757">LAYER 1</text>
+  <text x="76" y="772" font-size="22.1" font-weight="700" fill="#575757">物理層</text>
+  <text x="280" y="750" font-size="14" fill="#1A1A1A">・ビット列を電気・光信号に変換</text>
+  <text x="280" y="776" font-size="14" fill="#1A1A1A">・LANケーブル等へ信号を射出</text>
+  <path d="M 520,765 L 580,765 M 535,752 L 548,778 M 552,752 L 565,778" stroke="#575757" stroke-width="2"/>
+  <!-- 右 -->
+  <rect x="980" y="710" width="560" height="110" rx="8" fill="#E8F1FE" stroke="#575757" stroke-width="2"/>
+  <rect x="980" y="710" width="6" height="110" rx="3" fill="#575757"/>
+  <text x="994" y="744" font-size="16.9" font-weight="700" fill="#575757">LAYER 1</text>
+  <text x="994" y="772" font-size="22.1" font-weight="700" fill="#575757">物理層</text>
+  <text x="1200" y="750" font-size="14" fill="#1A1A1A">・届いた電圧変化や光の点滅を</text>
+  <text x="1200" y="776" font-size="14" fill="#1A1A1A">・再びビット列（0/1）に逆変換</text>
+  <path d="M 1440,765 L 1500,765 M 1455,752 L 1468,778 M 1472,752 L 1485,778" stroke="#575757" stroke-width="2"/>
+
+  <!-- ===== 送信側 下向き矢印（左カラム x=340） ===== -->
+  <line x1="340" y1="260" x2="340" y2="288" stroke="#428CE6" stroke-width="2.5" marker-end="url(#arrowSend)"/>
+  <line x1="340" y1="400" x2="340" y2="428" stroke="#428CE6" stroke-width="2.5" marker-end="url(#arrowSend)"/>
+  <line x1="340" y1="540" x2="340" y2="568" stroke="#428CE6" stroke-width="2.5" marker-end="url(#arrowSend)"/>
+  <line x1="340" y1="680" x2="340" y2="708" stroke="#428CE6" stroke-width="2.5" marker-end="url(#arrowSend)"/>
+
+  <!-- ===== 受信側 上向き矢印（右カラム x=1260） ===== -->
+  <line x1="1260" y1="708" x2="1260" y2="680" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRecv)"/>
+  <line x1="1260" y1="568" x2="1260" y2="540" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRecv)"/>
+  <line x1="1260" y1="428" x2="1260" y2="400" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRecv)"/>
+  <line x1="1260" y1="288" x2="1260" y2="260" stroke="#1B7F4B" stroke-width="2.5" marker-end="url(#arrowRecv)"/>
+
+  <!-- ===== 物理メディア（中央・両物理層を結ぶ） ===== -->
+  <line x1="620" y1="797" x2="980" y2="797" stroke="#94A3B8" stroke-width="3" stroke-dasharray="5,5"/>
+  <path d="M 660,797 L 700,797 L 700,772 L 760,772 L 760,822 L 820,822 L 820,772 L 880,772 L 880,797 L 940,797"
+        fill="none" stroke="#428CE6" stroke-width="3"/>
+  <rect x="670" y="735" width="250" height="26" rx="13" fill="#E8F1FE" stroke="#575757"/>
+  <text x="800" y="753" font-size="15.6" font-weight="700" fill="#575757" text-anchor="middle">物理メディア（光/電気信号）</text>
+
+  <!-- 中央の層対応点線 -->
+  <line x1="620" y1="345" x2="980" y2="345" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="620" y1="485" x2="980" y2="485" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="620" y1="625" x2="980" y2="625" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- 中央：H=ヘッダ 凡例（上部の空き） -->
+  <g transform="translate(640, 150)">
+    <rect x="0" y="0" width="320" height="86" rx="6" fill="#FFFFFF" stroke="#0E3666"/>
+    <rect x="20" y="20" width="20" height="28" rx="3" fill="#0E3666"/>
+    <text x="30" y="39" font-size="14.3" font-weight="700" fill="#FFFFFF" text-anchor="middle">H</text>
+    <text x="50" y="39" font-size="15.6" fill="#1A1A1A">各層が付ける制御情報（ヘッダ）</text>
+    <rect x="20" y="62" width="20" height="10" rx="2" fill="#B4D7FF"/>
+    <text x="50" y="71" font-size="15.6" fill="#1A1A1A">運ばれる元データ（ペイロード）</text>
+  </g>
+  </g>
+</svg>

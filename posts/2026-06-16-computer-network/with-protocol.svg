@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <rect width="800" height="450" fill="#f8fafc" rx="8"/>
+
+  <defs>
+    <style>
+      .title { font-family: 'Meiryo', 'Helvetica Neue', Arial, sans-serif; font-size: 23.4px; font-weight: bold; fill: #1e293b; }
+      .node-text { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 18.2px; font-weight: bold; fill: #334155; }
+      .msg-text-left { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 15.6px; fill: #ffffff; font-weight: 500; text-anchor: middle;}
+      .msg-text-right { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 15.6px; fill: #0f172a; font-weight: 500; text-anchor: middle;}
+      .phase-text { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 14.3px; fill: #64748b; font-weight: bold; letter-spacing: 1px; }
+      .line-label { font-family: 'Meiryo','Helvetica Neue', Arial, sans-serif; font-size: 14.3px; fill: #0284c7; font-weight: bold; }
+    </style>
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(40, 40)">
+    <circle cx="12" cy="-6" r="6" fill="#10b981"/>
+    <text x="28" y="0" class="title">プロトコルがある場合（通信成功・整列）</text>
+  </g>
+
+  <line x1="160" y1="240" x2="640" y2="240" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 4"/>
+  <text x="400" y="230" text-anchor="middle" class="line-label">共通の通信手順（プロトコル）</text>
+
+  <g transform="translate(80, 190)" filter="url(#drop-shadow)">
+    <rect x="0" y="0" width="80" height="55" rx="6" fill="#0284c7"/>
+    <rect x="5" y="5" width="70" height="45" rx="3" fill="#ffffff"/>
+    <path d="M30,55 L50,55 L55,75 L25,75 Z" fill="#64748b"/>
+    <rect x="15" y="72" width="50" height="4" rx="2" fill="#475569"/>
+    <text x="40" y="95" text-anchor="middle" class="node-text">PC A (送信)</text>
+  </g>
+
+  <g transform="translate(640, 190)" filter="url(#drop-shadow)">
+    <rect x="0" y="0" width="80" height="55" rx="6" fill="#0284c7"/>
+    <rect x="5" y="5" width="70" height="45" rx="3" fill="#ffffff"/>
+    <path d="M30,55 L50,55 L55,75 L25,75 Z" fill="#64748b"/>
+    <rect x="15" y="72" width="50" height="4" rx="2" fill="#475569"/>
+    <text x="40" y="95" text-anchor="middle" class="node-text">PC B (受信)</text>
+  </g>
+
+  <g transform="translate(160, 115)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#0284c7"/>
+    <text x="70" y="18" class="msg-text-left">「通信を始めます」</text>
+  </g>
+  
+  <g transform="translate(160, 295)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#0284c7"/>
+    <text x="70" y="18" class="msg-text-left">「データを送ります」</text>
+  </g>
+  
+  <g transform="translate(160, 385)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,24 A 4,4 0 0 1 140,28 L 15,28 L 5,35 L 8,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#0284c7"/>
+    <text x="70" y="18" class="msg-text-left">「通信を終了します」</text>
+  </g>
+
+  <g transform="translate(490, 115)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,28 L 136,28 L 139,35 L 129,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#e2e8f0"/>
+    <text x="70" y="18" class="msg-text-right">「了解」</text>
+  </g>
+  
+  <g transform="translate(490, 295)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,28 L 136,28 L 139,35 L 129,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#e2e8f0"/>
+    <text x="70" y="18" class="msg-text-right">「受け取りました」</text>
+  </g>
+  
+  <g transform="translate(490, 385)" filter="url(#drop-shadow)">
+    <path d="M 0,0 L 140,0 A 4,4 0 0 1 144,4 L 144,28 L 136,28 L 139,35 L 129,28 L 0,28 A 4,4 0 0 1 -4,24 L -4,4 A 4,4 0 0 1 0,0 Z" fill="#e2e8f0"/>
+    <text x="70" y="18" class="msg-text-right">「了解しました」</text>
+  </g>
+
+  <text x="400" y="105" text-anchor="middle" class="phase-text">フェーズ 1 : 接続</text>
+  <text x="400" y="285" text-anchor="middle" class="phase-text">フェーズ 2 : 転送</text>
+  <text x="400" y="375" text-anchor="middle" class="phase-text">フェーズ 3 : 切断</text>
+
+</svg>

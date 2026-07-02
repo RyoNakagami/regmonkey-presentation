@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1120 112" width="100%" preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="Meiryo, 'メイリオ', system-ui, sans-serif"
+     style="display:block; margin:0 auto;">
+
+  <!-- Background -->
+  <rect width="1120" height="112" fill="#FFFFFF"/>
+
+  <!--
+    Column x positions:
+      分類:       0   – 80   (w=80)
+      リスク:     80  – 360  (w=280)  ← 拡大
+      リスク影響: 360 – 660  (w=300)
+      Mitigation: 660 – 900  (w=240)
+      ステータス: 900 – 1120 (w=220)
+  -->
+
+  <!-- Header row -->
+  <rect x="0" y="0" width="1120" height="28" fill="#575757"/>
+  <line x1="80"  y1="0" x2="80"  y2="28" stroke="#FFFFFF" stroke-width="0.5"/>
+  <line x1="360" y1="0" x2="360" y2="28" stroke="#FFFFFF" stroke-width="0.5"/>
+  <line x1="660" y1="0" x2="660" y2="28" stroke="#FFFFFF" stroke-width="0.5"/>
+  <line x1="900" y1="0" x2="900" y2="28" stroke="#FFFFFF" stroke-width="0.5"/>
+
+  <text x="40"   y="19" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">分類</text>
+  <text x="220"  y="19" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">リスク</text>
+  <text x="510"  y="19" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">リスク顕在の影響</text>
+  <text x="780"  y="19" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">Mitigation Plan</text>
+  <text x="1010" y="19" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">ステータス</text>
+
+  <!-- Data row backgrounds -->
+  <rect x="0"   y="28" width="80"  height="84" fill="#DEDEDE"/>
+  <rect x="80"  y="28" width="280" height="84" fill="#FFFFFF"/>
+  <rect x="360" y="28" width="300" height="84" fill="#FFFFFF"/>
+  <rect x="660" y="28" width="240" height="84" fill="#FFFFFF"/>
+  <rect x="900" y="28" width="220" height="84" fill="#FFFFFF"/>
+
+  <!-- Outer border -->
+  <rect x="0" y="0" width="1120" height="112" fill="none" stroke="#DEDEDE" stroke-width="1"/>
+
+  <!-- Data row vertical dividers -->
+  <line x1="80"  y1="28" x2="80"  y2="112" stroke="#DEDEDE" stroke-width="1"/>
+  <line x1="360" y1="28" x2="360" y2="112" stroke="#DEDEDE" stroke-width="1"/>
+  <line x1="660" y1="28" x2="660" y2="112" stroke="#DEDEDE" stroke-width="1"/>
+  <line x1="900" y1="28" x2="900" y2="112" stroke="#DEDEDE" stroke-width="1"/>
+
+  <!-- 分類: O2O -->
+  <text x="40" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1A1A">O2O</text>
+
+  <!-- リスク -->
+  <text x="92" y="48" font-size="11" fill="#1A1A1A">O2O で売歩家賃を</text>
+  <text x="92" y="64" font-size="11" fill="#1A1A1A">ディベロッパーから要求されるリスク</text>
+
+  <!-- リスク顕在の影響 -->
+  <text x="372" y="48" font-size="11" fill="#1A1A1A">ディベロッパー店舗からの出荷に売歩家賃（売</text>
+  <text x="372" y="64" font-size="11" fill="#1A1A1A">比約 8%）が発生．ディベロッパー店舗からの</text>
+  <text x="372" y="80" font-size="11" fill="#1A1A1A">O2O 不可となる．かつ配送可能数</text>
+  <text x="372" y="96" font-size="11" fill="#1A1A1A">大幅減による配送単価上昇</text>
+
+  <!-- Mitigation Plan -->
+  <text x="672" y="48" font-size="11" fill="#1A1A1A">ディベロッパーと交渉の上で合意を得る</text>
+  <text x="672" y="64" font-size="11" fill="#1A1A1A">or 現状の店舗在庫引当と同じ整理にする</text>
+
+  <!-- ステータス -->
+  <text x="912" y="48" font-size="11" fill="#1A1A1A">前回ステコミにて提起済み</text>
+  <text x="912" y="64" font-size="11" fill="#1A1A1A">ディベロッパー店舗からは出荷しない</text>
+  <text x="912" y="80" font-size="11" fill="#1A1A1A">前提で議論中</text>
+
+</svg>
