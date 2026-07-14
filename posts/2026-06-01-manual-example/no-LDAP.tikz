@@ -1,0 +1,63 @@
+#| filename: no-LDAP
+#| mainfont: IPAexGothic
+#| width: 50%
+\begin{tikzpicture}[
+    auto, >={Latex[length=2.6mm]}, font=\small, line width=0.7pt,
+    block/.style={draw=#1!55!black, fill=#1!12, rounded corners=3pt,
+                  align=center, minimum height=1.1cm, inner sep=6pt},
+    db/.style={draw=#1!55!black, fill=#1!8, cylinder, shape border rotate=90,
+               aspect=0.10, align=center, inner sep=5pt, font=\footnotesize},
+    zone/.style={fill=#1!5, draw=#1!45, rounded corners=8pt, inner sep=9pt},
+    sig/.style={font=\footnotesize, inner sep=2pt},
+    note/.style={draw=gray!55, dashed, fill=gray!8, rounded corners=3pt,
+                 align=left, inner sep=7pt, font=\footnotesize},
+    nosync/.style={text=red!65!black, font=\footnotesize\bfseries, align=center},
+  ]
+
+  % --- 3つのサービスサイロ ---------------------------------------------------
+  \node[block=teal, minimum width=4.8cm] (smb) at (0,0)
+        {Samba サーバ\\{\footnotesize ファイル共有}};
+  \node[block=orange, minimum width=4.8cm] (web) at (7.4,0)
+        {Web サーバ\\{\footnotesize 社内ポータル}};
+  \node[block=violet, minimum width=4.8cm] (sys) at (14.8,0)
+        {Linux ホスト\\{\footnotesize システムアカウント}};
+
+  \node[db=teal, below=0.5cm of smb] (smbdb)
+        {\texttt{smbpasswd}\\uid: taro ／ パスワード\textbf{①}};
+  \node[db=orange, below=0.5cm of web] (webdb)
+        {\texttt{.htpasswd}\\uid: taro ／ パスワード\textbf{②}};
+  \node[db=violet, below=0.5cm of sys] (sysdb)
+        {\texttt{/etc/passwd}・\texttt{shadow}\\uid: taro ／ パスワード\textbf{③}};
+
+  \draw[->] (smb) -- (smbdb);
+  \draw[->] (web) -- (webdb);
+  \draw[->] (sys) -- (sysdb);
+
+  % --- サイロごとのゾーン枠 --------------------------------------------------
+  \begin{scope}[on background layer]
+    \node[zone=teal,   fit=(smb)(smbdb)] (z1) {};
+    \node[zone=orange, fit=(web)(webdb)] (z2) {};
+    \node[zone=violet, fit=(sys)(sysdb)] (z3) {};
+  \end{scope}
+
+  % --- 認証DB は相互に同期されない -------------------------------------------
+  \node[nosync] at ($(z1.east)!0.5!(z2.west) + (0,-0.9)$) {$\times$\\同期なし};
+  \node[nosync] at ($(z2.east)!0.5!(z3.west) + (0,-0.9)$) {$\times$\\同期なし};
+
+  % --- 管理者：3箇所へ個別に登録・更新 ---------------------------------------
+  \node[block=blue, minimum width=3.8cm] (admin) at (7.4, 2.5)
+        {アカウント管理者};
+
+  \draw[->] (admin.south west) .. controls +(-2.0,-0.9) and +(0,1.1) .. (smb.north);
+  \draw[->] (admin.south) -- (web.north);
+  \draw[->] (admin.south east) .. controls +(2.0,-0.9) and +(0,1.1) .. (sys.north);
+  \node[sig, anchor=west, align=left] at (8.4, 1.5)
+        {サービスごとに\\個別に登録・更新（×3）};
+
+  % --- 問題点の注記 -----------------------------------------------------------
+  \node[note, anchor=north] at (7.4, -3.1) {
+    \textbf{LDAP がない場合の問題}：同じ利用者 taro のアカウントが3箇所に重複登録される\\
+    ・入社・退職・パスワード変更のたびに全サービスで個別作業が必要（更新漏れ＝消し忘れアカウントのリスク）\\
+    ・利用者もサービスごとに別の ID・パスワードを記憶・管理する必要がある
+  };
+\end{tikzpicture}

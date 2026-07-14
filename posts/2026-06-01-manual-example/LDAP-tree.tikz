@@ -1,0 +1,50 @@
+#| filename: LDAP-tree
+#| mainfont: IPAexGothic
+#| width: 50%
+\begin{tikzpicture}[
+    auto, >={Latex[length=2.6mm]}, font=\small, line width=0.7pt,
+    block/.style={draw=#1!55!black, fill=#1!12, rounded corners=3pt,
+                  align=center, minimum height=1.15cm, inner sep=6pt},
+    lev/.style={font=\footnotesize, text=gray!60!black, anchor=east, align=right},
+    note/.style={draw=gray!55, dashed, fill=gray!8, rounded corners=3pt,
+                 align=left, inner sep=7pt, font=\footnotesize},
+    edge/.style={black!60},
+    dnedge/.style={blue!55!black, line width=1.3pt},
+  ]
+
+  % --- DIT（ディレクトリ情報ツリー） ---------------------------------------
+  \node[block=blue, minimum width=4.6cm] (root) at (0,0)
+        {\texttt{dc=example,dc=com}\\{\footnotesize ディレクトリの起点（suffix）}};
+
+  \node[block=teal, minimum width=2.9cm] (people) at (-3.2,-2.3)
+        {\texttt{ou=people}\\{\footnotesize 利用者アカウント}};
+  \node[block=teal, minimum width=2.9cm] (groups) at (3.2,-2.3)
+        {\texttt{ou=groups}\\{\footnotesize 所属グループ}};
+
+  \node[block=orange, minimum width=2.8cm] (taro) at (-4.7,-4.6)
+        {\texttt{uid=taro.yamada}\\{\footnotesize VPN 利用ユーザ}};
+  \node[block=orange, minimum width=2.8cm] (hanako) at (-1.5,-4.6)
+        {\texttt{uid=hanako.sato}\\{\footnotesize 一般ユーザ}};
+  \node[block=orange, minimum width=2.8cm] (vpng) at (3.2,-4.6)
+        {\texttt{cn=vpn-users}\\{\footnotesize memberUid: taro.yamada}};
+
+  % --- 親子エッジ（太線＝DN の経路） ---------------------------------------
+  \draw[dnedge] (root.south) -- (people.north);
+  \draw[edge]   (root.south) -- (groups.north);
+  \draw[dnedge] (people.south) -- (taro.north);
+  \draw[edge]   (people.south) -- (hanako.north);
+  \draw[edge]   (groups.south) -- (vpng.north);
+
+  % --- 階層ラベル -----------------------------------------------------------
+  \node[lev] at (-6.5, 0)    {ベース DN\\（suffix）};
+  \node[lev] at (-6.5, -2.3) {組織単位\\（\texttt{ou}）};
+  \node[lev] at (-6.5, -4.6) {エントリ\\（ユーザ・グループ）};
+
+  % --- DN / RDN の説明 ------------------------------------------------------
+  \node[note, anchor=north] (dn) at (0.2, -5.85) {
+    \textbf{DN（識別名）の構成}\\[2pt]
+    ・各エントリの名前が RDN（相対識別名）：例 \texttt{uid=taro.yamada}\\
+    ・DN は葉から根へ RDN を「,」で連結する（\textcolor{blue!55!black}{\textbf{太線の経路}}）\\
+    \quad 例：\texttt{uid=taro.yamada,ou=people,dc=example,dc=com}
+  };
+\end{tikzpicture}

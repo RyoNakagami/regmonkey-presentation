@@ -1,0 +1,40 @@
+#| filename: vpn-folder-tree
+#| mainfont: IPAexGothic
+#| packages: [fontawesome]
+#| libraries: [calc]
+\begin{tikzpicture}[
+    font=\small\ttfamily,
+    line width=0.7pt,
+    row/.style={anchor=base west, inner sep=0pt},
+    dir/.style={anchor=base west, inner sep=0pt, text=blue!55!black},
+    connect/.style={draw=black!45, line width=0.7pt},
+  ]
+
+  % vertical step between rows (baseline distance) and indent per level
+  \def\rh{0.66}   % row height
+  \def\ind{0.85}  % indent per depth level
+
+  % --- nodes: (name) at (depth*ind, -row*rh) ---
+  \node[dir] (root)  at (0*\ind, 0*-\rh) {\faFolderOpen\ \textbf{<username>/}};
+  \node[row] (key)   at (1*\ind, 1*-\rh) {\faFileO\ <username>.key};
+  \node[row] (txt)   at (1*\ind, 2*-\rh) {\faFileO\ <username>.txt};
+  \node[dir] (cfg)   at (1*\ind, 3*-\rh) {\faFolderOpen\ config/};
+  \node[row] (ca)    at (2*\ind, 4*-\rh) {\faFileO\ ca.crt};
+  \node[row] (ta)    at (2*\ind, 5*-\rh) {\faFileO\ ta.key};
+  \node[row] (ovpn)  at (1*\ind, 6*-\rh) {\faFileO\ *.ovpn};
+
+  % --- connectors (right-angle folder tree edges) ---
+  % children of root: key, txt, cfg, ovpn
+  \coordinate (rootx) at ($(root.south west)+(0.18,-0.02)$);
+  \foreach \c in {key,txt,cfg,ovpn} {
+    \draw[connect] (rootx |- \c.west) -- ($(\c.west)+(-0.05,0)$);
+  }
+  \draw[connect] (rootx) -- (rootx |- ovpn.west);
+
+  % children of config: ca, ta
+  \coordinate (cfgx) at ($(cfg.south west)+(0.18,-0.02)$);
+  \foreach \c in {ca,ta} {
+    \draw[connect] (cfgx |- \c.west) -- ($(\c.west)+(-0.05,0)$);
+  }
+  \draw[connect] (cfgx) -- (cfgx |- ta.west);
+\end{tikzpicture}

@@ -1,0 +1,31 @@
+#| mainfont: IPAexGothic
+\begin{tikzpicture}[
+    auto, >={Latex[length=2.6mm]}, font=\small, line width=0.7pt,
+    block/.style={draw=#1!55!black, fill=#1!12, rounded corners=3pt,
+                  align=center, minimum height=1.1cm, minimum width=2.6cm, inner sep=5pt},
+    zone/.style={fill=#1!6, draw=#1!40, rounded corners=8pt, inner sep=10pt},
+    zlabel/.style={anchor=south, font=\bfseries, text=#1!45!black},
+    sig/.style={font=\footnotesize, inner sep=2pt},
+  ]
+  % ---------- 上段：正規クライアント ----------
+  \node[block=blue] (cl) {クライアント\\（\texttt{ta.key} あり）};
+  \node[block=blue, right=5.8cm of cl] (sv1) {サーバー\\（\texttt{ta.key} で照合）};
+  \node[block=blue, right=1.6cm of sv1] (hs) {TLS ハンドシェイク\\へ進む};
+  \draw[->] (cl) -- node[midway, above, sig] {制御パケット＋HMAC 署名} (sv1);
+  \draw[->] (sv1) -- node[midway, above, sig] {一致} (hs);
+
+  % ---------- 下段：ta.key を持たない相手 ----------
+  \node[block=red, below=2.6cm of cl] (at) {攻撃者\\（\texttt{ta.key} なし）};
+  \node[block=red] at (sv1 |- at) (sv2) {サーバー\\（署名を照合）};
+  \draw[->] (at) -- node[midway, above, sig] {署名なし・不正な署名} (sv2);
+  \node[right=0.6cm of sv2, sig, align=left, text=red!60!black] (drop)
+      {不一致：応答せず破棄\\（ポートの存在も知らせない）};
+
+  % ---------- ゾーン背景 ----------
+  \begin{scope}[on background layer]
+    \node[zone=blue, fit=(cl)(hs)] (zok) {};
+    \node[zone=red, fit=(at)(sv2)(drop)] (zng) {};
+  \end{scope}
+  \node[zlabel=blue] at (zok.north) {\texttt{ta.key} を共有する正規クライアント};
+  \node[zlabel=red] at (zng.north) {\texttt{ta.key} を持たない相手（ポートスキャン・攻撃）};
+\end{tikzpicture}

@@ -1,0 +1,43 @@
+#| filename: vpn-path
+#| mainfont: IPAexGothic
+#| width: 92%
+\begin{tikzpicture}[
+    auto, >={Latex[length=2.6mm]}, font=\small, line width=0.7pt,
+    block/.style={draw=#1!55!black, fill=#1!12, rounded corners=3pt,
+                  align=center, minimum height=1.2cm, inner sep=6pt},
+    zone/.style={fill=#1!6, draw=#1!40, rounded corners=8pt, inner sep=12pt},
+    zlabel/.style={anchor=south, font=\bfseries, text=#1!45!black},
+    sig/.style={font=\footnotesize, inner sep=2pt},
+    note/.style={draw=gray!55, dashed, fill=gray!8, rounded corners=3pt,
+                 align=center, inner sep=6pt, font=\footnotesize},
+  ]
+
+  \node[block=blue, minimum width=2.6cm] (client) {クライアント\\マシン\\{\footnotesize （社外）}};
+  \node[block=blue, right=1.4cm of client, minimum width=2.9cm] (vpnux)
+        {vpnux Client\\{\footnotesize OpenVPN}};
+  \node[block=teal, right=2.4cm of vpnux, minimum width=2.7cm] (server)
+        {VPN サーバ\\{\footnotesize vpn.example.com}};
+  \node[block=orange, right=1.6cm of server, minimum width=2.7cm] (target)
+        {対象環境\\{\footnotesize 社内システム}};
+
+  \draw[->] (client) -- (vpnux);
+  \draw[->] (vpnux) -- node[midway, above, sig] {TCP / 443}
+                       node[midway, below, sig] {暗号化トンネル} (server);
+  \draw[->] (server) -- (target);
+
+  \node[note, below=1.5cm of server] (auth)
+        {\textbf{接続時の認証}\\
+         ・ユーザ ID／パスワード（LDAP）\\
+         ・CA 証明書（\texttt{ca.crt}）\\
+         ・TLS-Auth 共有鍵（\texttt{ta.key}）};
+  \draw[->, gray!70] (auth) -- (server);
+
+  \coordinate (ztop) at ($(vpnux.north)+(0,0.35)$);
+  \coordinate (zbot) at ($(auth.south)+(0,-0.3)$);
+  \begin{scope}[on background layer]
+    \node[zone=blue,  fit=(client)(vpnux)(client |- ztop)(client |- zbot)] (znear) {};
+    \node[zone=teal,  fit=(server)(auth)(server |- ztop)(server |- zbot)]   (zvpn)  {};
+  \end{scope}
+  \node[zlabel=blue] at (znear.north) {手元（社外ネットワーク）};
+  \node[zlabel=teal] at (zvpn.north)  {VPN 境界};
+\end{tikzpicture}

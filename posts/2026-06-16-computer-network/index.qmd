@@ -281,7 +281,7 @@ Network Interface card
 
 {{< reveal_vspace 1.0em >}}
 
-::::{.custom-table style="width:100%; font-size: 0.8em !important;"}
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
 :::{.yaml2table .yaml2table-custom-top #yaml-tcpip-layers data-col-widths="[20, 54, 26]"}
 
 ```yaml
@@ -335,9 +335,16 @@ record5:
 :::
 ::::
 
+:::{.font-09}
+
+- 各階層に存在する通信機器などの実態を[エンティティ]{.regmonkey-bold}と呼ぶ
 - プロトコルの組み合わせを変えることで，いろいろなアプリケーションや機器に対応できる
   - 電子メールの送信: SMTP + TCP + IP
   - 電子メールの受信: POP3 + TCP + IP
+
+
+:::
+
 
 ## カプセル化: データと情報をひとまとめにして扱うこと
 
@@ -404,7 +411,7 @@ regmonkey_index:
       description:
         - 一部の層がデータの後ろに付加する制御情報
         - 主にデータリンク層で，誤り検出用のチェック情報（FCS）として利用される
-        - トレーラーはないこもとありえる
+        - トレーラーはないこともありえる
       width: [30,70]
 
 ```
@@ -613,22 +620,44 @@ TCP: 信用第一（WWW，電子メール）
 
 ```{mermaid}
 %%| fig-width: 8
-%%{ init: {
-    'theme': 'default',
+%%{
+  init: {
+    'theme': 'base',
     'themeVariables': {
-        'fontFamily': 'Meiryo'
+      'fontFamily': 'Meiryo',
+      'primaryColor': '#E8F1FE',
+      'primaryTextColor': '#1A1A1A',
+      'primaryBorderColor': '#428CE6',
+      'secondaryColor': '#B4D7FF',
+      'tertiaryColor': '#E8F1FE',
+      'noteBkgColor': '#FBE7E6',
+      'noteTextColor': '#1A1A1A',
+      'noteBorderColor': '#D31804',
+      'activationBorderColor': '#0E3666',
+      'activationBkgColor': '#B4D7FF',
+      'sequenceNumberColor': '#FFFFFF',
+      'actorBkg': '#0E3666',
+      'actorTextColor': '#FFFFFF',
+      'actorLineColor': '#575757',
+      'labelBoxBkgColor': '#E8F1FE',
+      'labelBoxBorderColor': '#428CE6',
+      'labelTextColor': '#0E3666',
+      'loopTextColor': '#0E3666',
+      'signalColor': '#0E3666',
+      'signalTextColor': '#1A1A1A'
     },
     'sequence': {
-        'useMaxWidth': true,
-        'actorMargin': 260,
-        'width': 130,
-        'height': 28,
-        'boxMargin': 4,
-        'boxTextMargin': 3,
-        'noteMargin': 6,
-        'messageMargin': 18
+      'useMaxWidth': true,
+      'actorMargin': 260,
+      'width': 130,
+      'height': 28,
+      'boxMargin': 4,
+      'boxTextMargin': 3,
+      'noteMargin': 6,
+      'messageMargin': 18
     }
-} }%%
+  }
+}%%
 sequenceDiagram
     participant C as 送信側
     participant S as 受信側
@@ -655,22 +684,44 @@ UDP: 速さで勝負（IP電話，ストリーミングサービス）
 
 ```{mermaid}
 %%| fig-width: 8
-%%{ init: {
-    'theme': 'default',
+%%{
+  init: {
+    'theme': 'base',
     'themeVariables': {
-        'fontFamily': 'Meiryo'
+      'fontFamily': 'Meiryo',
+      'primaryColor': '#E8F1FE',
+      'primaryTextColor': '#1A1A1A',
+      'primaryBorderColor': '#428CE6',
+      'secondaryColor': '#B4D7FF',
+      'tertiaryColor': '#E8F1FE',
+      'noteBkgColor': '#FBE7E6',
+      'noteTextColor': '#1A1A1A',
+      'noteBorderColor': '#D31804',
+      'activationBorderColor': '#0E3666',
+      'activationBkgColor': '#B4D7FF',
+      'sequenceNumberColor': '#FFFFFF',
+      'actorBkg': '#0E3666',
+      'actorTextColor': '#FFFFFF',
+      'actorLineColor': '#575757',
+      'labelBoxBkgColor': '#E8F1FE',
+      'labelBoxBorderColor': '#428CE6',
+      'labelTextColor': '#0E3666',
+      'loopTextColor': '#0E3666',
+      'signalColor': '#0E3666',
+      'signalTextColor': '#1A1A1A'
     },
     'sequence': {
-        'useMaxWidth': true,
-        'actorMargin': 260,
-        'width': 130,
-        'height': 40,
-        'boxMargin': 8,
-        'boxTextMargin': 4,
-        'noteMargin': 6,
-        'messageMargin': 18
+      'useMaxWidth': true,
+      'actorMargin': 260,
+      'width': 130,
+      'height': 28,
+      'boxMargin': 4,
+      'boxTextMargin': 3,
+      'noteMargin': 6,
+      'messageMargin': 18
     }
-} }%%
+  }
+}%%
 sequenceDiagram
     participant C as 送信側
     participant S as 受信側
@@ -804,7 +855,741 @@ record8:
 :::
 ::::
 
+# ネットワーク層
+## ネットワーク層[^osimodelbased]の役割
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- ネットワーク層の役割は，異なるコンピュータネットワーク間でパケットを目的地へ転送すること
+- トランスポート層で「セグメント」と呼ばれていたものをデータとして，それにIPヘッダを付与して[IPデータグラム]{.regmonkey-bold}を生成する
+
+:::
+::::
+
+::::: {.columns}
+
+:::: {.column style="width: 50%; height:90%"}
+
+:::{.horizontal-keypoints-block style="height:70%;"}
+
+:::{.block-header}
+通信相手を特定する
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{style="text-align:center;"}
+{{< fas fa-map-pin fa-3x text-blue-900 >}}
+:::
+
+{{< reveal_vspace 3% >}}
+
+:::{style="text-align:center; font-size:1.1em;"}
+[「誰に届けるか」を決める役割]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;" .lh-12}
+
+- IPアドレスによって，送信元と宛先のコンピュータを一意に識別する
+- データリンク層のMACアドレスがリンク内の識別であるのに対し，IPアドレスはネットワークをまたいだ識別を担う
+- イメージ：宛名（住所）を書く
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 50%; height:90%"}
+
+
+:::{.horizontal-keypoints-block-no-border style="height:70%;"}
+
+:::{.block-header}
+宛先までの経路を決める
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{style="text-align:center;"}
+{{< fas fa-route fa-3x text-blue-900 >}}
+:::
+
+{{< reveal_vspace 3% >}}
+
+:::{style="text-align:center; font-size:1.1em;"}
+[「どの道で届けるか」を決める役割]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.5em;" .lh-12}
+
+- 複数のネットワークを経由して，宛先まで最適な経路でパケットを中継する（ルーティング）
+- ルータが経路表をもとに，次にどのネットワークへ転送するかを判断する
+- イメージ：配送ルートを選ぶ
+
+:::
+
+:::
+::::
+
+:::::
+
+
+
+
+
+<!-- footer -->
+
+[^osimodelbased]: TCP/IPモデルではインターネット層のほうが用語としてよく使用される．OSI参照モデルではネットワーク層．
+
+## IP プロトコルの役割と特徴
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- IP（Internet Protocol）は，異なるネットワーク同士を接続した環境でデータを届けるための通信ルール
+- データは**IPデータグラム（IPパケット）**という単位で送受信される
+- 送信元・宛先をIPアドレスで識別し，宛先までデータを転送するための経路選択（ルーティング）を可能にする[^routing]
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+[IPプロトコルの特徴]{.mini-section}
+
+::: {.regmonkey_index style="width:100%" .padding-L-10}
+
+```yml
+regmonkey_index:
+  title_fontsize: 1.1em
+  bullet_fontsize: 0.85em
+  numbering: true
+  children:
+    - title: コネクションレス型通信
+      description:
+        - 通信相手の確認と通信経路設定を行わずに直ちに通信を始める
+        - 各データグラムは他のデータグラムと無関係に独立して扱われる
+      width: [35,65]
+    - title: ベストエフォート型
+      description:
+        - 到達保証・順序保証・フロー制御・再送制御はいずれも提供しない
+        - ヘッダチェックサムによるヘッダ検証のみ行い，エラー検出時はデータグラムを破棄してICMPで通知
+      width: [35,65]
+    - title: フラグメンテーションと再組立
+      description:
+        - MTUの小さいネットワークを通過する際，データグラムを分割（フラグメント）して送信する（データリンク層で扱えるサイズより大きいときは分割してからヘッダをつける）
+        - 分割されたデータグラムは最終宛先で再組立される
+      width: [35,65]
+    - title: TTLによるループ防止
+      description:
+        - 送信者がTTL（Time to Live）値をセットし，経路上の各ノードで減算される
+        - TTLがゼロになると該当データグラムは破棄され，ネットワーク内での無限滞留を防ぐ
+      width: [35,65]
+```
+
+:::
+
+
+<!-- footer -->
+
+[^routing]: IPはルーティング（経路選択）を可能にするプロトコルであって，実際の経路選択はルーターが行う
+
+
+
+## コンピューターのネットワーク上の住所を示すIPアドレス
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- IPアドレスは，ネットワーク上の機器を区別するための番号(=コンピューターのネットワーク上の住所)
+- IPアドレスは，住所でいう「町名」にあたる「ネットワーク部」と，「番地」にあたる「ホスト部」から構成されている
+- 32 bit列からなるIPv4と，128 bit列からなるIPv6がある
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="55%"}
+
+:::{.border-bottom-header}
+
+IPアドレスがあることで，コンピューター間で通信が可能
+
+:::
+
+![](./ipaddress-basic.svg)
+
+:::{.font-08}
+
+- NATとはプライベートアドレス[^private-ip]とグローバルアドレスを1:1に対応変換する仕組み
+- NATルーターを通過後は送信元が 157.7.184.36 に書き換わる
+
+:::
+
+
+:::
+::: {.column width="45%"}
+
+{{< reveal_vspace 0.2em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+IPアドレスの構造 (192.168.0.2/24)
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- `192.168.0.2/24` のうち，`/24` はCIDR表記[^subnetmask]で，ネットワークのbit数を示す
+- `192.168.0.2/24` のうち，先頭24bit（`192.168.0`）が**ネットワーク部**（町名），残り8bit（`.2`）が**ホスト部**（番地）
+- 同じネットワーク部を持つ機器は同一ネットワークに属し，ホスト部で個々の機器を識別する
+
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+IPv4 vs IPv6
+
+:::
+
+{{< reveal_vspace 0.1em >}}
+
+:::{.message-card-body .squaredmark style="font-size: 0.85em;"}
+
+| 項目 | IPv4 | IPv6 |
+|------|---------|---------|
+| アドレス長 | 32 ビット | 128 ビット |
+| 表記例 | `192.168.0.1`（10進法） | `2001:db8::1`（16進法） |
+| アドレス空間 | $2^{32}$ = 約 43 億 | $2^{128}$ = 約 $3.4 \times 10^{38}$ |
+| 自動設定 | DHCP が必要 | SLAAC で自動設定可能 |
+
+:::
+
+::::
+
+:::
+::::
+
+
+<!-- footer -->
+
+[^private-ip]: プライベートアドレスはLAN内でのみ利用できるアドレスであり，そのままではインターネットと通信できない
+[^subnetmask]: IPv4の場合，ネットワークの範囲はサブネットマスクを用いて示す場合もある． CIDR表記の `/24` は，サブネットマスク `255.255.255.0` に相当する．
+
+## CIDRの`/n`はネットワーク部のビット数を表す
+[IPv4 CIDR表記とサブネットマスク]{.topleftbox}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- CIDRは，クラスA~CのIPアドレスクラス[^addressclass]にとらわれずに，ネットワーク部とホスト部の区切りを1 bit単位で設定できる方式のこと
+- CIDR表記 `/n` は先頭から `n` ビットがネットワーク部，残り `32 - n` ビットがホスト部であることを表す
+- サブネットマスクの最終オクテットは[`255 − ホスト部最大値（2^ホスト部ビット数 − 1）`]{.regmonkey-bold}で求められる
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important;"}
+
+| CIDR | ホスト部のビット数 | ホスト部の最大値 (`2^n − 1`) | 計算式 | サブネットマスク |
+| ---- | ----------: | ---------------: | ----------------- | --------------- |
+| /24  |         8 |                  255 | `255 − 255 = 0`   | 255.255.255.0   |
+| /25  |         7 |                  127 | `255 − 127 = 128` | 255.255.255.128 |
+| /26  |         6 |                   63 | `255 − 63 = 192`  | 255.255.255.192 |
+| /27  |         5 |                   31 | `255 − 31 = 224`  | 255.255.255.224 |
+| /28  |         4 |                   15 | `255 − 15 = 240`  | 255.255.255.240 |
+| /29  |         3 |                    7 | `255 − 7 = 248`   | 255.255.255.248 |
+| /30  |         2 |                    3 | `255 − 3 = 252`   | 255.255.255.252 |
+| /31  |         1 |                    1 | `255 − 1 = 254`   | 255.255.255.254 |
+| /32  |         0 |                    0 | `255 − 0 = 255`   | 255.255.255.255 |
+
+::::
+
+<!-- footer -->
+
+[^addressclass]: Pアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (`/8`: 大規模ネットワーク)，クラスB (`/26`: 中規模)，クラスC (`/24`: 小規模)に分類する方式のこと
+
+
+## ネットワークの細分化
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- 1つの大きなネットワークを複数の小さなネットワークに分ける仕組みを[サブネット]{.regmonkey-bold}と呼ぶ
+- 会社などでは，部署ごとにネットワークを分割，来客用Wi-Fiと社内ネットワークを分離を目的に使用される場合が多い
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+サブネットの作り方
+:::
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+① 必要なサブネット数・ホスト数を決める
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 何個のサブネットに分割するか，各サブネットに何台接続するかを整理する
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+② サブネットマスクのビット数を決める
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 必要サブネット数を2の累乗で上回る最小のビット数 $n$ を借りる
+- CIDR表記：元のプレフィックス長 $+\,n$
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+③ 各サブネットのアドレス範囲を割り当てる
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- ネットワークアドレス・ブロードキャストアドレスを除いた残りがホストに割り当て可能
+- 割り当て可能ホスト数 $= 2^{(32-\text{prefix})} - 2$
+
+:::
+
+::::
+
+:::
+::: {.column width="50%"}
+
+{{< reveal_vspace 0.25em >}}
+
+::: {.callout-note icon="false" .font-11}
+### Quiz: サブネットの分割
+
+クラスC[^classcip]のIPアドレスを分割して，10個のサブネットを使用したい．ホスト数が最も多くなるように分割した場合のサブネットマスクはどうなるか？
+
+:::
+
+:::{.font-08}
+
+[解答]{.mini-section}
+
+:::{.padding-L-20}
+
+10個以上のサブネットを作るには
+
+- $2^3 = 8$ 個 → 不足
+- $2^4 = 16$ 個 → 十分
+
+したがってホスト部から4bit追加で必要．クラスCのサブネットマスクが`/24` であるので
+
+$$
+24 + 4 = 28
+$$
+
+よって，$255 - (2^4 - 1) = 240$より，`255.255.255.240` が答え．
+
+:::
+
+:::
+:::
+
+::::
+
+
+<!-- footer -->
+
+[^classcip]: クラスCのデフォルトサブネットマスクは `255.255.255.0`（`/24`）
+
+
+## IPv6の表記ルール
+
+:::: {.columns}
+::: {.column width="65%"}
+
+{{< reveal_vspace 1em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+① 基本表記
+
+:::
+
+:::{.message-card-body .squaredmark .font-10}
+
+- 128ビットを16ビットずつ8グループに分割し，`:`（コロン）で区切る
+- 各グループは**16進数**で表記
+- 例：`2001:0db8:0000:0000:0000:0000:0000:0001`
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+② 省略ルール
+
+:::
+
+:::{.message-card-body .squaredmark .font-10}
+
+- **先頭の連続する `0` は省略可**：`0db8` → `db8`，`0001` → `1`
+- **連続するゼログループは `::` で1か所だけ省略可**：`0000:0000:0000:0000:0000:0000` → `::`
+- 両方を適用：`2001:0db8:0000:0000:0000:0000:0000:0001` → `2001:db8::1`
+- `2001:db8::3ab::ff01` は二箇所で `::` が使用されているので間違った表記
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+③ CIDR表記（サブネットマスク）
+
+:::
+
+:::{.message-card-body .squaredmark .font-10}
+
+- IPv4 同様，`/プレフィックス長` でネットワーク部のビット数を示す
+- `/64`：通常のLANサブネット　`/48`：サイト単位　`/32`：ISPブロック　`/128`：ホスト1台
+- 例：`2001:db8::/32`，`2001:db8:1:2::/64`
+
+:::
+
+::::
+
+:::
+::: {.column width="35%" .padding-L-10}
+
+{{< reveal_vspace 1em >}}
+
+:::{.border-bottom-header}
+
+`fe80::` から始まるIPv6
+
+:::
+
+:::{.font-08}
+
+`ip addr` コマンドを実行すると，`fe80::` で始まるアドレスが表示される場合があります
+
+{{< reveal_vspace 0.25em >}}
+
+
+:::{.font-14}
+
+```bash
+$ ip addr show eth0
+2: eth0: <BROADCAST,MULTICAST,UP>
+    inet6 fe80::1a2b:3cff:fe4d:5e6f/64
+         scope link
+```
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+- これは[リンクローカルアドレス]{.regmonkey-bold}と呼ばれる特殊なIPv6アドレスを示す
+- 1台の機器に割り当てられるIPv6アドレスで，同一リンク（同じネットワークセグメント）内だけで有効
+- ルーターを越えて転送されない（インターネットには出ていかない）
+- 同じリンク（同じLAN）内であれば他の機器からアクセス可能
+- NICが起動すると**MACアドレスから自動生成**される（DHCPもDNSも不要）
+
+:::
+
+
+:::
+::::
+
 # データリンク層
+## 機器を同一の方法でつなげたひとかたまりをデータリンクという
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- データリンクとは，同じ通信方式（プロトコル・媒体）で接続された機器のひとかたまり＝1つのリンクセグメント
+- この「データリンク = 接続方式が共通な範囲」内での通信を管理するのがデータリンク層の役割
+  - ネットワーク層（IP）は複数のデータリンクをまたいで通信を実現するための仕組み
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[インターネットはデータリンクの集まり]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+
+:::{.hotfix-mermaid-label style="width:100%"}
+
+```{mermaid}
+%%| fig-width: 20
+%%{init: {'theme': 'base',
+          'flowchart': { 'padding': 10, 'nodeSpacing': 120, 'rankSpacing': 70, 'htmlLabels': false, 'wrappingWidth': 800 },
+          'themeVariables': { 'background': '#ffffff',
+                              'primaryColor': '#ffffff',
+                              'primaryTextColor': '#1A1A1A',
+                              'primaryBorderColor': '#0E3666',
+                              'lineColor': '#0E3666',
+                              'clusterBkg': '#F2F5F9',
+                              'clusterBorder': '#0E3666',
+                              'fontFamily': 'Meiryo, sans-serif',
+                              'fontSize': '22px' }}}%%
+graph LR
+    subgraph Global [インターネット]
+        direction LR
+
+        subgraph DL1 ["データリンクA<br>（Ethernet）"]
+            PC1[PC] --- SW[スイッチ]
+            PC2[PC] --- SW
+            SW --- R1((ルータ))
+        end
+
+        subgraph DL2 ["データリンクB<br>（WAN/PPP）"]
+            direction LR
+            R1 ===|IPパケットが<br>データリンクを<br>跨いで転送| R2((ルータ))
+        end
+
+        subgraph DL3 ["データリンクC<br>（Wi-Fi）"]
+            R2 --- AP[アクセスポイント]
+            AP -.- SP1[ノートPC]
+            AP -.- SP2[iPhone&nbsp;&nbsp;&nbsp;:&nbsp;]
+        end
+    end
+
+style DL1 fill:#EAF1F8,stroke:#0E3666,stroke-width:2px,stroke-dasharray: 5 5
+style DL2 fill:#FBEFE6,stroke:#C2611B,stroke-width:2px,stroke-dasharray: 5 5
+style DL3 fill:#EAF1F8,stroke:#0E3666,stroke-width:2px,stroke-dasharray: 5 5
+style Global fill:none,stroke:#9AA7B5,stroke-width:1px
+style R1 fill:#0E3666,stroke:#0E3666,stroke-width:2px,color:#ffffff
+style R2 fill:#0E3666,stroke:#0E3666,stroke-width:2px,color:#ffffff
+style SW fill:#ffffff,stroke:#0E3666
+style AP fill:#ffffff,stroke:#0E3666
+```
+
+:::
+
+:::{.font-09}
+
+- ルータはデータリンクの境界
+- 同じIPパケットでも，通過するデータリンクごとに異なるフレームへ包み直される
+
+:::
+
+
+## データリンクの構成要素
+[1つのリンクセグメント（データリンク）は，主に以下の3つの要素によって構成される]{.h2-submessage}
+
+{{< reveal_vspace 3% >}}
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:70%;"}
+
+:::{.block-header}
+ノードとNIC
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{style="text-align:center;"}
+{{< fas fa-microchip fa-3x text-blue-900 >}}
+:::
+
+{{< reveal_vspace 3% >}}
+
+:::{style="text-align:center; font-size:1.1em;"}
+[「通信の主体」]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block  style="font-size:0.8em; padding-right:0.5em;" .lh-12}
+
+- 通信を行う主体となるPCやルータなどの[機器（ノード）]{.regmonkey-bold}
+- それらを媒体に接続するための[ネットワークインターフェース（NIC）]{.regmonkey-bold}
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block style="height:70%;"}
+
+:::{.block-header}
+通信媒体
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{style="text-align:center;"}
+{{< fas fa-sitemap fa-3x text-blue-900 >}}
+:::
+
+{{< reveal_vspace 3% >}}
+
+:::{style="text-align:center; font-size:1.1em;"}
+[「信号の通り道」]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block  style="font-size:0.8em; padding-right:0.5em;" .lh-12}
+
+- 信号が物理的に伝わる道筋
+- LANケーブルや光ファイバー[^cabletype]などの[有線媒体]{.regmonkey-bold}
+- 電波や赤外線などの[無線媒体]{.regmonkey-bold}がある
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:100%"}
+
+{{< reveal_vspace 5% >}}
+
+:::{.horizontal-keypoints-block-no-border style="height:70%;"}
+
+:::{.block-header}
+L2プロトコル
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{style="text-align:center;"}
+{{< fas fa-handshake fa-3x text-blue-900 >}}
+:::
+
+{{< reveal_vspace 3% >}}
+
+:::{style="text-align:center; font-size:1.1em;"}
+[「共通ルール」]{.regmonkey-bold}
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block  style="font-size:0.8em; padding-right:0.5em;" .lh-12}
+
+- 同じ媒体上で衝突を防ぎ，データを正しく届けるための[共通ルール]{.regmonkey-bold}
+- EthernetやWi-Fi(802.11)などがこれに該当する
+
+:::
+
+:::
+::::
+
+:::::
+
+<!-- footer -->
+
+[^cabletype]: 光ファイバーは，光の明滅で信号を伝える．金属線ケーブルの場合は，電圧の変化で信号を伝える．金属線ケーブルにおける電圧の波形は歪みやすいので，長距離の伝送には信号を増幅する・修正するリピーターが必要
+
+
+
+## ネットワーク層と物理層の橋渡しとしてのデータリンク層
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- データリンク層では，データにヘッダを付けたものを[フレーム]{.regmonkey-bold}と呼ぶ
+- 送信側は，上位から受け取った IP パケットに Header（MAC アドレス等）と FCSを付けてフレームを構成する
+- 受信側は， FCS で誤り検出を行い，宛先MACが自分宛のフレームのみ受け取り，IP パケットを取り出し，上位層へ渡す
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+![](./datalink-framing.svg)
+
+
 ## PPP: Point-to-Point Protocol
 
 {{< reveal_vspace 0.5em >}}
@@ -832,22 +1617,44 @@ PPP 接続シーケンス
 
 ```{mermaid}
 %%| fig-width: 8
-%%{ init: {
-    'theme': 'default',
+%%{
+  init: {
+    'theme': 'base',
     'themeVariables': {
-        'fontFamily': 'Meiryo'
+      'fontFamily': 'Meiryo',
+      'primaryColor': '#E8F1FE',
+      'primaryTextColor': '#1A1A1A',
+      'primaryBorderColor': '#428CE6',
+      'secondaryColor': '#B4D7FF',
+      'tertiaryColor': '#E8F1FE',
+      'noteBkgColor': '#FBE7E6',
+      'noteTextColor': '#1A1A1A',
+      'noteBorderColor': '#D31804',
+      'activationBorderColor': '#0E3666',
+      'activationBkgColor': '#B4D7FF',
+      'sequenceNumberColor': '#FFFFFF',
+      'actorBkg': '#0E3666',
+      'actorTextColor': '#FFFFFF',
+      'actorLineColor': '#575757',
+      'labelBoxBkgColor': '#E8F1FE',
+      'labelBoxBorderColor': '#428CE6',
+      'labelTextColor': '#0E3666',
+      'loopTextColor': '#0E3666',
+      'signalColor': '#0E3666',
+      'signalTextColor': '#1A1A1A'
     },
     'sequence': {
-        'useMaxWidth': true,
-        'actorMargin': 240,
-        'width': 130,
-        'height': 20,
-        'boxMargin': 4,
-        'boxTextMargin': 3,
-        'noteMargin': 6,
-        'messageMargin': 18
+      'useMaxWidth': true,
+      'actorMargin': 260,
+      'width': 130,
+      'height': 28,
+      'boxMargin': 4,
+      'boxTextMargin': 3,
+      'noteMargin': 6,
+      'messageMargin': 18
     }
-} }%%
+  }
+}%%
 sequenceDiagram
     participant C as 接続元
     participant S as 接続先
@@ -884,7 +1691,95 @@ PPPフレーム
 :::
 ::::
 
+# 物理層
+## リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器
 
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- リピータはケーブルで流れる電気信号を増幅し波形を整えてもう一方のインターフェースから電気信号を流す機器
+- 1つのポートからの信号を増幅するという特性上，半二重通信しかできない
+- Wi-Fiリピーターはアクセスポイントから受信した無線信号を再送信し，通信可能範囲を広げる機器
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+Wi-Fi Repeater
+
+:::
+
+:::: {.columns}
+::: {.column width="40%"}
+
+![BUFFALO WEX-1800AX4EA](./WEX-1800AX4EA.png){}
+
+:::
+
+::: {.column width="60%"}
+
+{{< reveal_vspace 1em >}}
+
+![](./dualband.png)
+
+:::
+::::
+
+:::
+
+::: {.column width="50%"}
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+① 電波が届かない場所への橋渡し
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- アクセスポイントからの電波を受信して再送信する
+- 壁や距離の影響で電波が弱い場所でも通信しやすくなる
+- 利用者からは同じ無線LANの一部として利用できる
+
+:::
+
+::::
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+② 通信速度が低下することがある
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- Wi-Fiは半二重通信である
+- シングルバンド構成では実効スループットが理論上 約 1/2 に低下する（デュアルバンド構成では別チャネルで回避可能）
+
+:::
+
+::::
+
+:::
+
+:::
 
 
 # Appendix{.no-auto-agenda}
@@ -1165,6 +2060,333 @@ MIME
 
 [^MAIL-PROTOCOL]: SMTPやPOPでは，「電子メールで扱えるのはテキストデータのみ」，「電子メールの件名（Subject）に利用できるのは，半角英数字のみ」という原則があります
 
+
+## サブネットマスクとサブネットワークアドレス
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+サブネットマスクが `255.255.252.0` のとき，IPアドレス `172.30.123.45` のホストが属するサブネットワークアドレスは？
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+[① CIDR表記への変換]{.mini-section}
+
+
+- サブネットマスク `255.255.252.0` を2進数に変換: `11111111.11111111.11111100.00000000`
+- 1が連続する個数を数える → **CIDR 表記は `/22`**（$255-252=3$より $8 + 2 = 10$ bitがホスト部とも計算可能）
+
+{{< reveal_vspace 0.5em >}}
+
+[② ネットワークアドレスの計算]{.mini-section}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- IPアドレス `172.30.123.45` とサブネットマスクの AND 演算
+- よってサブネットワークアドレスは **`172.30.120.0`**
+
+
+::: {.callout-note}
+### [ネットワークアドレス]{.padding-L-10}
+
+- ネットワークアドレスとは、ネットワークの代表となるアドレス
+- IPアドレスのホスト部をすべて `0` にした値で表される
+  - ネットワークアドレス: `172.30.120.0`
+  - 利用可能ホスト: `172.30.120.1` ～ `172.30.123.254`
+  - ブロードキャストアドレス: `172.30.123.255`
+
+:::
+
+
+
+:::
+::: {.column width="50%"}
+
+![](./subnetmask.svg)
+
+:::
+::::
+
+## IPアドレス重複防止のため，ICANNがIPアドレスを管理
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- ICANNは，InterNICの後身として1998年に設立された非営利組織（民営化は2016年）
+- インターネット上でコンピューター間が重複なく通信できるよう、ICANNはドメイン名とIPアドレスの一意性を管理
+- ICANNは直接ユーザーへIPアドレスを配布するわけではなく，あくまでIPv4・IPv6アドレスブロックを管理
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="65%"}
+
+:::{.border-bottom-header}
+
+IPアドレス割当の流れ
+
+:::
+
+![](./ip-allocation.svg)
+
+:::
+::: {.column width="35%"}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+IPアドレスブロック
+
+:::
+
+:::{.message-card-body .squaredmark .font-09 style="padding-top:0em; padding-bottom:0em"}
+
+- `1.0.0.0/8` や `2001::/16` などの大きなブロックをICANN(実際はIANA)はRIRへ割り当て
+- 家庭向け回線では，割り当てられるのは単一の固定IPアドレスであることが多い
+
+:::
+
+::::
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+RIR（地域インターネットレジストリ）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09 style="padding-top:0em; padding-bottom:0em"}
+
+- 世界を5地域に分けて，地域ごとにアドレスを管理する組織（日本はAPNIC管轄）
+
+:::
+
+::::
+
+{{< reveal_vspace 1.0em >}}
+
+::::{.message-card .position-left-05 .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+ISP（インターネットサービスプロバイダ）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09 style="padding-top:0em; padding-bottom:0em"}
+
+- RIR・NIRから割り当てを受けた事業者
+- So-net，KDDI，ニフティなど
+
+:::
+
+::::
+
+
+
+
+:::
+::::
+
+## 送信元IPアドレスだけでは個人を特定できない
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+- 送信元IPアドレスは比較的簡単に偽造できるため，それだけで送信者を特定する根拠にはならない
+- DoS攻撃では，使われるパケットの大半が送信元IPアドレスを偽造している
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+Python製UDPパケット送信モジュール
+
+:::
+
+
+:::{.font-09}
+
+```python
+import logging
+from typing import Optional
+import typer
+
+logging.getLogger("scapy").setLevel(logging.ERROR)
+app = typer.Typer()
+
+@app.command()
+def send_packet(
+    dst: str = typer.Option(..., help="Destination IP address"),
+    src: Optional[str] = typer.Option(None, help="Source IP address (spoofed)"),
+    dport: int = typer.Option(53, help="Destination port"),
+    payload: str = typer.Option("hello", help="Raw UDP payload"),
+    show: bool = typer.Option(False, "--show/--no-show", help="Show IP header before sending"),
+):
+    from scapy.all import IP, UDP, Raw, send
+
+    ip_layer = IP(dst=dst)
+    if src:
+        ip_layer.src = src
+
+    pkt = ip_layer / UDP(dport=dport) / Raw(payload.encode())
+
+    if show:
+        pkt.show()
+
+    send(pkt, verbose=True)
+
+if __name__ == "__main__":
+    app()
+
+```
+
+
+:::
+
+:::
+::: {.column width="50%" .padding-L-10}
+
+:::{.border-bottom-header}
+
+送信IPの変更確認手順
+
+:::
+
+:::: {.tool-item .pt-0 .pb-0}
+
+::: {.tool-content}
+::: {.tool-name}
+
+① 送信元IPに `1.2.3.4` を指定して送る
+
+:::
+
+::: {.tool-description style="font-size:1.1em;color: black !important"}
+
+```bash
+sudo uv run python main.py --dst 8.8.8.8 --src 1.2.3.4
+```
+
+{{< reveal_vspace 0.25em >}}
+
+:::
+
+::: {.tool-description style="font-size:0.8em;color: black !important"}
+
+- カーネル経由ではなく，raw socketでパケットを組み立てるためには，通常 `root` 権限が必要
+- `8.8.8.8`: Google Public DNS
+
+:::
+:::
+::::
+
+:::: {.tool-item .pt-0 .pb-2}
+
+::: {.tool-content}
+::: {.tool-name}
+
+② tcpdump で実際に流れたパケットを観測する
+
+:::
+::: {.tool-description style="font-size:1.1em;color: black !important"}
+
+{{< reveal_vspace 0.25em >}}
+
+```bash
+$ sudo tcpdump -i any udp port 53 -v
+...
+13:30:07.461475 enp6s0 Out IP (... proto UDP (17), length 33)
+    1.2.3.4.domain > dns.google.domain: ...
+```
+
+{{< reveal_vspace 0.25em >}}
+
+:::
+
+::: {.tool-description style="font-size:0.8em;color: black !important"}
+
+- 自分のIPではなく，指定した `1.2.3.4` が[送信元として送出されている]{.regmonkey-bold}
+- このように，送信元IPアドレスは送信者側で[自由に書き換えられ，簡単に偽装できてしまう]{.regmonkey-bold}
+
+:::
+:::
+::::
+
+:::
+::::
+
+
+## IPアドレスから個人を特定できるのは原則プロバイダだけ
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- Webアクセスをすると，IPデータグラムに書かれた発信者のIPアドレスがWebサーバー側にログとして残る
+- このIPアドレスから[プロバイダ・企業名までは第三者でも判明する]{.regmonkey-bold}が，その先の氏名・住所は通信の秘密として守られ，第三者が追跡するのは困難
+
+:::
+::::
+
+{{< reveal_vspace 0.75em >}}
+
+::: {.regmonkey_index style="width:100%" .padding-L-10}
+
+```yml
+regmonkey_index:
+  title_fontsize: 1.1em
+  bullet_fontsize: 0.9em
+  numbering: false
+  children:
+    - title: ① プロバイダ・企業名まではすぐわかる
+      description:
+        - IPアドレスはアドレス管理組織が範囲ごとに割り当て，その範囲ごとに管理者名が公開されている
+        - このため，ログに残る送信元IPから接続先のプロバイダや企業を特定するのは比較的簡単
+      width: [40,60]
+    - title: ② 原理的には個人まで特定できる
+      description:
+        - プロバイダや企業の管理者は，どのIPアドレスを誰に割り当てたかを把握している
+        - IPアドレスとその利用時刻がわかれば，記録から氏名・住所をたどることは原理的に可能
+      width: [40,60]
+    - title: ③ しかし第三者が追跡するのは困難
+      description:
+        - 電気通信事業法により，プロバイダには利用者の通信の秘密を守る義務がある
+        - 割り当て先を第三者に明かすのは原則違反で，犯罪捜査など強い理由がない限り開示されない
+      width: [40,60]
+
+```
+
+:::
+
 ## 無線LANとIEEE 802.11
 
 {{< reveal_vspace 0.5em >}}
@@ -1422,6 +2644,67 @@ record6:
     - 接続端末のエンドポイント保護（EDR/AV）を必須化
     - 不審な通信量・パターンをIDSで監視し，アラートを設定
 ```
+
+:::
+::::
+
+# Reference{.no-auto-agenda}
+
+
+
+
+## 関連Request for Comments一覧
+
+{{< reveal_vspace 1em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 791: Internet Protocol**](https://datatracker.ietf.org/doc/html/rfc791){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- IPv4の基本仕様を定めたIETFの標準文書
+- IPアドレス・フラグメンテーション・TTL・プロトコルフィールドなどの構造を規定
+
+:::
+
+::::
+
+
+
+## TCP/IPの絵本 第2版
+
+{{< reveal_vspace 1em >}}
+
+:::: {.columns}
+::: {.column .book-image}
+
+![tcpip-book](./network-book.png)
+
+:::
+
+::: {.column .book-info}
+### 書籍情報
+
+| | |
+|----------|------|
+| タイトル  | [TCP/IPの絵本 第2版 ネットワークを学ぶ新しい9つの扉](https://www.shoeisha.co.jp/book/detail/9784798155159) |
+| 著者     | 株式会社アンク 著 |
+| 発売日   | 2018/07/11 |
+| ISBN13   | 978-4-7981-5515-9 |
+| 体裁     | 208ページ，B5判 |
+
+: {tbl-colwidths="[25,65]"}
+
+### この本の内容
+
+- 前提知識不要でネットワークの仕組みをイラストで解説する入門書
+- IPv6・ファイアウォール・セキュリティなど現代的なトピックを2ページ単位でコンパクトに学べる
+- TCP/IPの5層モデルを軸に，パケット通信の流れを視覚的に理解できる構成
 
 :::
 ::::

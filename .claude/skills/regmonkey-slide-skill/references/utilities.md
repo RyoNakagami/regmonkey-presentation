@@ -41,6 +41,10 @@ Same numbering, applied to `line-height`:
 | `.lh-13` | 1.3em |
 | `.lh-14` | 1.4em |
 | `.lh-15` | 1.5em |
+| `.lh-16` | 1.6em |
+| `.lh-17` | 1.7em |
+| `.lh-18` | 1.8em |
+| `.lh-19` | 1.9em |
 | `.lh-20` | 2.0em |
 
 `.lh-12` is the everyday body line-height for Japanese text in this repo.

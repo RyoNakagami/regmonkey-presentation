@@ -1,0 +1,49 @@
+#| mainfont: IPAexGothic
+\begin{tikzpicture}[
+    auto, >={Latex[length=2.6mm]}, font=\small, line width=0.7pt,
+    block/.style={draw=#1!55!black, fill=#1!12, rounded corners=3pt,
+                  align=center, minimum height=1.1cm, minimum width=2.6cm, inner sep=5pt},
+    zone/.style={fill=#1!6, draw=#1!40, rounded corners=8pt, inner sep=10pt},
+    zlabel/.style={anchor=south, font=\bfseries, text=#1!45!black},
+    chip/.style={draw=#1!55!black, fill=#1!25, rounded corners=3pt,
+                 align=center, font=\footnotesize, inner sep=4pt, minimum height=0.65cm},
+    tunnel/.style={draw=#1!55!black, fill=#1!4, rounded corners=10pt, inner sep=8pt},
+    sig/.style={font=\footnotesize, inner sep=2pt},
+  ]
+  % ---------- 上段：HTTPS ----------
+  \node[block=teal] (pc1) {PC\\（Web ブラウザ）};
+  \node[block=teal, right=9.6cm of pc1] (web) {Web サーバー};
+  \draw[draw=teal!55!black, line width=1.1pt, double distance=5.5pt]
+      (pc1.east) -- (web.west);
+  \draw[->, draw=teal!55!black] (pc1.east) -- (web.west)
+      node[midway, above=0.32cm, sig] {TLS 通信路}
+      node[midway, below=0.32cm, sig] {保護対象：Web ブラウザと Web サーバー間の通信のみ};
+
+  % ---------- 下段：OpenVPN ----------
+  \node[block=blue, below=2.4cm of pc1] (pc2) {PC};
+  \node[block=blue, right=9.6cm of pc2] (vpn) {VPN サーバー};
+  \node[block=blue, right=1.2cm of vpn] (lan) {社内\\ネットワーク};
+
+  % トンネル内を流れる通信（チップ）
+  \node[chip=blue, right=1.05cm of pc2] (t1) {ファイル共有};
+  \node[chip=blue, right=0.4cm of t1] (t2) {SSH};
+  \node[chip=blue, right=0.4cm of t2] (t3) {Web};
+  \node[chip=blue, right=0.4cm of t3] (t4) {データベース};
+
+  % ---------- ゾーン背景 → トンネル枠の順に描く（後描きの fill が先描きを覆うため） ----------
+  \begin{scope}[on background layer]
+    \node[zone=teal, fit=(pc1)(web)] (zhttps) {};
+    \node[zone=blue, fit=(pc2)(lan)(t1)(t4)] (zvpn) {};
+    \node[tunnel=blue, fit=(t1)(t4)] (tun) {};
+  \end{scope}
+  \node[sig, anchor=south, text=blue!45!black, font=\footnotesize\bfseries]
+      at (tun.north) {TLS トンネル：中を流れる通信をまとめて保護};
+
+  \draw[->, draw=blue!55!black] (pc2.east) -- (tun.west);
+  \draw[->, draw=blue!55!black] (tun.east) -- (vpn.west);
+  \draw[->, draw=blue!55!black] (vpn.east) -- (lan.west);
+
+  % ---------- ゾーンラベル ----------
+  \node[zlabel=teal] at (zhttps.north) {HTTPS：Web 通信を保護する};
+  \node[zlabel=blue] at (zvpn.north) {OpenVPN：ネットワーク全体の通信を保護するトンネルを構築する};
+\end{tikzpicture}

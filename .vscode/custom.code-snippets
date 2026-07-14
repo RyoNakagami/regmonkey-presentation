@@ -98,6 +98,25 @@
     ],
     "description": "Definition block for Quarto slides"
   },
+  "main-message-box": {
+    "scope": "quarto",
+    "prefix": "main-message-box",
+    "body": [
+      "{{< reveal_vspace 0.5em >}}",
+      "",
+      ":::: {.main-message-box}",
+      "",
+      "::: {.info-contents .font-08 .padding-L-05 .lh-12}",
+      "",
+      "{{< reveal_vspace 0.25em >}}",
+      "",
+      "<!-- コンテンツを記載 -->",
+      "",
+      ":::",
+      "::::"
+    ],
+    "description": "main message box for Quarto slides"
+  },
   // --------------------------------------------
   // sections
   // --------------------------------------------
@@ -160,9 +179,9 @@
     ],
     "description": "info box"
   },
-  "message-box": {
+  "text-box": {
     "scope": "quarto",
-    "prefix": "message-box",
+    "prefix": "text-box",
     "body": [
       ":::: {.message-box style=\"font-size:0.9em; position: absolute; top: 0%; left: 65%\" #focus-message}",
       "",
@@ -171,7 +190,29 @@
       "",
       ":::"
     ],
-    "description": "message box"
+    "description": "text box"
+  },
+  "message-box": {
+    "scope": "quarto",
+    "prefix": "message-box",
+    "body": [
+      "::::{.message-card .font-08}",
+      "",
+      ":::{.message-card-title-no-margin .center}",
+      "",
+      "<!-- タイトル -->",
+      "",
+      ":::",
+      "",
+      ":::{.message-card-body .squaredmark .font-09}",
+      "",
+      "- ",
+      "",
+      ":::",
+      "",
+      "::::"
+    ],
+    "description": "message card box with title and bullet list"
   },
   // --------------------------------------------
   // header

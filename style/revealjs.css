@@ -830,6 +830,15 @@ svg.fas {
   font-size: var(--r-heading3-size);
 }
 
+/* component-card-index 内の見出しは padding-left: 0.5em をデフォルトにする
+   （個別スライドで {.padding-L-05} を書かなくてよい） */
+.component-card-index h1,
+.component-card-index h2,
+.component-card-index h3,
+.component-card-index h4 {
+  padding-left: 0.5em;
+}
+
 /* ------------------------------------------------------------------- */
 /*                       message card                                  */
 /* ------------------------------------------------------------------- */
@@ -1492,6 +1501,22 @@ svg.fas {
 .hotfix-mermaid-wrap figure,
 .hotfix-mermaid-wrap .quarto-figure {
   width: 100% !important;
+}
+
+/* ラベルの foreignObject 幅不足によるテキスト見切れ対策                  */
+/* Mermaid が計測した foreignObject が狭くて文字が切れる場合に使用        */
+/* 使い方：Mermaid コードブロックを :::{.hotfix-mermaid-label} で囲む    */
+.hotfix-mermaid-label foreignObject {
+  overflow: visible !important;
+}
+
+.hotfix-mermaid-label foreignObject > div,
+.hotfix-mermaid-label foreignObject span.nodeLabel,
+.hotfix-mermaid-label foreignObject span.edgeLabel {
+  width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
 }
 
 /* ------------------------------------------------------------------- */
@@ -2749,6 +2774,22 @@ svg.fas {
 
 .lh-15 {
   line-height: 1.5em !important;
+}
+
+.lh-16 {
+  line-height: 1.6em !important;
+}
+
+.lh-17 {
+  line-height: 1.7em !important;
+}
+
+.lh-18 {
+  line-height: 1.8em !important;
+}
+
+.lh-19 {
+  line-height: 1.9em !important;
 }
 
 .lh-20 {
