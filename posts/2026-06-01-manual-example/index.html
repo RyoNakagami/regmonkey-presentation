@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../img/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="Ryo Nakagami">
+  <title>Presentation for Regession Monkey – OpenVPN 接続設定手順書</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3c30c09fb933ceff1686d4434da55101.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
+
+  <script type="text/javascript">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LVL413SV09', { 'anonymize_ip': true});
+  </script>
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.13.1/js/anychart-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.8.10/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.10/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.10.3/dist/vuetify.min.js"></script>
+  <script src="../../min/leader-line.min.js"></script>
+  <script type="text/javascript" src="../../js/horizontal_tree.js"></script>
+  <script type="text/javascript" src="../../js/resize_keypoints_block.js"></script>
+  <script type="text/javascript" src="../../js/yaml2table.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_vuetify_timeline.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_waterfall.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_gantt_chart.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_yaml2grouptable.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_abstract_summary.js"></script>
+  <script type="text/javascript" src="../../js/regmonkey_index_summary.js"></script>
+<meta property="og:title" content="OpenVPN 接続設定手順書 – Presentation for Regession Monkey">
+<meta property="og:description" content="手順書テンプレート">
+<meta property="og:site_name" content="Presentation for Regession Monkey">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">OpenVPN 接続設定手順書</h1>
+  <p class="subtitle">手順書テンプレート</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Ryo Nakagami 
+</div>
+</div>
+</div>
+
+  <p class="date">2026年06月01日</p>
+</section>
+<section id="index" class="slide level2 regmonkey-index-slide-no-title">
+<h2>Index</h2>
+<div class="columns">
+<div class="reveal_vspace" style="--vspace-height: 3em;"></div><div class="column" style="width:28%;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="sidebar">
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-chat-square-text " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="目的"><span class="padding-L-05">目的</span></h3>
+</div>
+<ul>
+<li>社外の手元マシンから対象環境へ安全に接続する</li>
+<li>OpenVPN トンネルで通信を暗号化・認証する</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="前提"><span class="padding-L-05">前提</span></h3>
+</div>
+<ul>
+<li>接続申請が承認済み</li>
+<li>接続情報一式を受領済み</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
+<div class="flex items-center mb-2">
+<p><i class="bi-terminal " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
+<h3 id="必要環境"><span class="padding-L-05">必要環境</span></h3>
+</div>
+<ul>
+<li>Windows クライアント</li>
+<li>vpnux Client（OpenVPN）</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="padding-left:1em;">
+<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
+<div class="regmonkey_index" style="width:1100px">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">bullet_position</span><span class="kw">:</span><span class="at"> 0.5em</span></span>
+<span id="cb1-6"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 接続の全体像</span></span>
+<span id="cb1-8"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;全体像&lt;/strong&gt;：受領 → 導入 → 設定 → 接続の 4 ステップで対象環境につなぐ</span></span>
+<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;通信経路&lt;/strong&gt;：TCP/443 の暗号化トンネル＋3 要素認証を俯瞰する</span></span>
+<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 環境情報の受領</span></span>
+<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;受領物&lt;/strong&gt;：設定ファイル・CA 証明書・TLS-Auth 共有鍵・ユーザ情報</span></span>
+<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ID/パスワード・鍵・証明書は秘匿情報として扱う</span></span>
+<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> vpnux Client の導入</span></span>
+<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;導入&lt;/strong&gt;：配布元から取得しウィザードでインストール</span></span>
+<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;役割&lt;/strong&gt;：OpenVPN 接続を担うクライアントソフトウェア</span></span>
+<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> プロファイルの作成</span></span>
+<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;一般設定&lt;/strong&gt;：接続先・デバイス・プロトコル・認証を入力</span></span>
+<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;詳細設定&lt;/strong&gt;：TLS-Auth と証明書検証を有効化し保存</span></span>
+<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> OpenVPN 接続</span></span>
+<span id="cb1-28"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-29"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;接続&lt;/strong&gt;：作成したプロファイルを選び接続を実行</span></span>
+<span id="cb1-30"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;確認&lt;/strong&gt;：タスクトレイの通知で接続の成否を確認</span></span>
+<span id="cb1-31"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section>
+<section id="接続の全体像" class="title-slide slide level1 agenda-slide center">
+<h1>接続の全体像</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>接続の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>環境情報の受領</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>vpnux Client の導入</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プロファイルの作成</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>OpenVPN 接続</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="手元マシンから対象環境へ-4-ステップで接続する" class="slide level2">
+<h2>手元マシンから対象環境へ 4 ステップで接続する</h2>
+<p><span class="h2-submessage">環境情報の受領 → クライアント導入 → プロファイル作成 → 接続の順で進める</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div data-step-flow="1">
+<div class="step-flow-data">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
+<span id="cb2-2"><a></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">22</span><span class="kw">,</span><span class="at"> </span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">40</span><span class="kw">]</span></span>
+<span id="cb2-3"><a></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-4"><a></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-5"><a></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
+<span id="cb2-6"><a></a><span class="fu">header</span><span class="kw">:</span></span>
+<span id="cb2-7"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ステップ</span></span>
+<span id="cb2-8"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行うこと</span></span>
+<span id="cb2-9"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> ポイント</span></span>
+<span id="cb2-10"><a></a><span class="fu">font</span><span class="kw">:</span></span>
+<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.6em</span></span>
+<span id="cb2-12"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-14"><a></a><span class="fu">record</span><span class="kw">:</span></span>
+<span id="cb2-15"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① 環境情報の受領</span></span>
+<span id="cb2-16"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 申請後に届く接続情報一式を確認</span></span>
+<span id="cb2-18"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-19"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 設定ファイル・CA 証明書</span></span>
+<span id="cb2-20"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth 共有鍵・ユーザ情報</span></span>
+<span id="cb2-21"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② クライアント導入</span></span>
+<span id="cb2-22"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-23"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> vpnux Client をウィザードでインストール</span></span>
+<span id="cb2-24"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-25"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> OpenVPN 接続を担うクライアントソフトウェア</span></span>
+<span id="cb2-26"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ プロファイル作成</span></span>
+<span id="cb2-27"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-28"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 一般設定・詳細設定を手順どおりに入力し保存</span></span>
+<span id="cb2-29"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-30"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 接続先・プロトコル・認証を設定</span></span>
+<span id="cb2-31"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth と証明書検証を有効化</span></span>
+<span id="cb2-32"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ 接続</span></span>
+<span id="cb2-33"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-34"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 作成したプロファイルを選び接続ボタンを押下</span></span>
+<span id="cb2-35"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-36"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> タスクトレイの通知で接続完了を確認</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="通信は暗号化トンネル越しに認証されて確立する" class="slide level2">
+<h2>通信は暗号化トンネル越しに認証されて確立する</h2>
+<p><span class="h2-submessage">TCP/443 のトンネル上で ID/パスワード・CA 証明書・TLS-Auth 共有鍵の 3 要素を照合する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+
+<img data-src="./vpn-path.svg" class="r-stretch"></section></section>
+<section>
+<section id="環境情報の受領" class="title-slide slide level1 agenda-slide center">
+<h1>環境情報の受領</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>接続の全体像</p>
+</div></li>
+<li><div class="agenda-active">
+<p>環境情報の受領</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>vpnux Client の導入</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プロファイルの作成</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>OpenVPN 接続</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="接続情報一式がフォルダをユーザーに配布する" class="slide level2">
+<h2>接続情報一式がフォルダをユーザーに配布する</h2>
+<p><span class="h2-submessage">LDAP アカウント作成通知：受領後は取り扱い注意を促すこと</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:38%;">
+<div class="border-bottom-header">
+<p>OpenVPNの環境設定情報ファイル構成</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><img data-src="./vpn-folder.svg"></p>
+</div><div class="column" style="width:62%;">
+<div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
+<div class="font-10 lh-19">
+<div class="yaml2table yaml2table-custom-top" data-col-widths="[35,65]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;/&lt;/code&gt;"</span></span>
+<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎フォルダ</span></span>
+<span id="cb3-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.key&lt;/code&gt;"</span></span>
+<span id="cb3-6"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎の秘密鍵（本手順では利用しない）</span></span>
+<span id="cb3-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt;"</span></span>
+<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> VPN ログイン用のユーザ ID・パスワードを記載</span></span>
+<span id="cb3-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/&lt;/code&gt;"</span></span>
+<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定フォルダ</span></span>
+<span id="cb3-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ca.crt&lt;/code&gt;"</span></span>
+<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> 認証用 CA 証明書</span></span>
+<span id="cb3-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ta.key&lt;/code&gt;"</span></span>
+<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
+<span id="cb3-19"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;*.ovpn&lt;/code&gt;"</span></span>
+<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定ファイル（接続先、ポート、使用する証明書・鍵などを記述）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="vpnux-client-の導入" class="title-slide slide level1 agenda-slide center">
+<h1>vpnux Client の導入</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>接続の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>環境情報の受領</p>
+</div></li>
+<li><div class="agenda-active">
+<p>vpnux Client の導入</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>プロファイルの作成</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>OpenVPN 接続</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="vpnux-client-を入れて接続クライアントを用意する" class="slide level2">
+<h2>vpnux Client を入れて接続クライアントを用意する</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>vpnux Client は，OpenVPN 経由で対象環境へ接続するための <span class="regmonkey-bold">Windows 向けクライアントソフトウェア</span>（Plum Systems 製・日本語 GUI）</li>
+<li>受領した設定ファイル・証明書・共有鍵を読み込み，暗号化トンネルの確立を担う</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="regmonkey_index padding-L-10" style="width:100%">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① GUI だけでプロファイルを管理できる</span></span>
+<span id="cb4-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 設定ファイルをテキストエディタで直接編集せず，GUI から接続プロファイルを作成・切り替えできる</span></span>
+<span id="cb4-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 複数の接続先を使い分ける場合もプロファイルを追加するだけでよい</span></span>
+<span id="cb4-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb4-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 無償の Standard Edition を使用する</span></span>
+<span id="cb4-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一定の条件で商用利用も可能な無償版：問い合わせサポート・保守サービスは提供されない</span></span>
+<span id="cb4-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サポートや企業向け機能が必要な場合は有償の Business Edition を利用する</span></span>
+<span id="cb4-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ インストールはウィザードに従うだけ</span></span>
+<span id="cb4-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 公式サイト &lt;code&gt;https://www.vpnux.jp/&lt;/code&gt; からインストーラを取得し，既定設定のまま導入する</span></span>
+<span id="cb4-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 管理者権限が必要なのはインストール時のみ：導入後の VPN 接続操作は一般ユーザ権限で行える</span></span>
+<span id="cb4-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="プロファイルの作成" class="title-slide slide level1 agenda-slide center">
+<h1>プロファイルの作成</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>接続の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>環境情報の受領</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>vpnux Client の導入</p>
+</div></li>
+<li><div class="agenda-active">
+<p>プロファイルの作成</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>OpenVPN 接続</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="プロファイルの追加画面を開く" class="slide level2">
+<h2>プロファイルの追加画面を開く</h2>
+<p><span class="h2-submessage">起動画面 → 「プロファイル」→「追加」の 2 クリックで編集画面が開く</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="border-bottom-header">
+<p>① 起動画面で「プロファイル」を押下</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./vpnux-client-sample-001.png" alt="vpnux Client の起動画面：下部に接続・プロファイル・バージョン情報・終了のボタンが並ぶ" height="380"></p>
+</div>
+<div class="font-09 lh-12">
+<ul>
+<li>画面下部のボタン列，<span class="regmonkey-bold">「接続」の右隣</span> にある</li>
+</ul>
+</div>
+</div><div class="column" style="width:8%;">
+<div class="reveal_vspace" style="--vspace-height: 6em;"></div>
+<div style="text-align:center; font-size:2em;">
+<p><i class="fas fa-arrow-right text-blue-500"></i></p>
+</div>
+</div><div class="column" style="width:46%;">
+<div class="border-bottom-header">
+<p>② 一覧画面で「追加」を押下</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./vpnux-client-sample-002.png" alt="プロファイル一覧画面：右側に編集・追加・インポート・削除・閉じるのボタンが並ぶ" height="380"></p>
+</div>
+<div class="font-09 lh-12">
+<ul>
+<li>画面右側のボタン列，<span class="regmonkey-bold">上から 2 番目</span> にある</li>
+<li>押下すると編集画面（一般設定）が開く</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="一般設定接続先とデバイスプロトコルと認証を設定する" class="slide level2">
+<h2>一般設定：接続先とデバイス・プロトコルと認証を設定する</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column" style="width:36%;">
+<div style="text-align:center;">
+<p><img data-src="./vpnux-client-sample-003.png" alt="プロファイルの編集画面の一般設定タブ：左に接続設定・デバイス・拡張設定，右に認証の入力欄が並ぶ" height="560"></p>
+</div>
+<div class="font-08 lh-12" style="text-align:center;">
+<p>「一般設定」タブの画面例（値はサンプル）</p>
+</div>
+</div><div class="column" style="width:64%; padding-left:0.8em;">
+<div class="reveal_vspace" style="--vspace-height: 0.2em;"></div>
+<div class="font-10 lh-15">
+<div class="yaml2table yaml2table-custom-top" data-col-widths="[26,74]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロファイル名</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 任意文字列（例：&lt;code&gt;MY_VPN&lt;/code&gt;）</span></span>
+<span id="cb5-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> VPN サーバ</span></span>
+<span id="cb5-6"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;vpn.example.com&lt;/code&gt; を入力</span></span>
+<span id="cb5-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ポート</span></span>
+<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;443&lt;/code&gt; を入力</span></span>
+<span id="cb5-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> デバイス</span></span>
+<span id="cb5-12"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TUN&lt;/code&gt; を選択 (仮想ネットワークインターフェースの種類)</span></span>
+<span id="cb5-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロトコル</span></span>
+<span id="cb5-15"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TCP&lt;/code&gt; を選択</span></span>
+<span id="cb5-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb5-17"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 拡張設定</span></span>
+<span id="cb5-18"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「LZO 圧縮を有効にする」「サーバ側のアドレス変更を許容する」をチェック</span></span>
+<span id="cb5-19"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb5-20"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> CA 証明書</span></span>
+<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ca.crt&lt;/code&gt; から読み込み保存</span></span>
+<span id="cb5-22"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb5-23"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 認証</span></span>
+<span id="cb5-24"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ID/パスワード認証を使用」をチェック</span></span>
+<span id="cb5-25"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb5-26"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ID・パスワード</span></span>
+<span id="cb5-27"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt; の ID・パスワードを入力し「保存」をチェック"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="詳細設定tls-auth-と証明書検証を有効化して保存する" class="slide level2">
+<h2>詳細設定：TLS-Auth と証明書検証を有効化して保存する</h2>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="columns">
+<div class="column" style="width:36%;">
+<div style="text-align:center;">
+<p><img data-src="./vpnux-client-sample-004.png" alt="プロファイルの編集画面の詳細設定タブ：左にプロキシ・追加セキュリティ設定，右に暗号化設定・その他の設定・ネットワーク設定が並ぶ" height="560"></p>
+</div>
+<div class="font-08 lh-12" style="text-align:center;">
+<p>「詳細設定」タブの画面例（値はサンプル）</p>
+</div>
+</div><div class="column" style="width:64%; padding-left:0.8em;">
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="font-10 lh-18">
+<div class="yaml2table yaml2table-custom-top" data-col-widths="[28,72]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 暗号アルゴリズム</span></span>
+<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「デフォルト」を選択</span></span>
+<span id="cb6-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 追加セキュリティ</span></span>
+<span id="cb6-6"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「TLS-Auth HMAC 署名を使用」をチェック</span></span>
+<span id="cb6-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 共有鍵</span></span>
+<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ta.key&lt;/code&gt; から読み込み保存</span></span>
+<span id="cb6-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> サーバ証明書</span></span>
+<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「サーバ証明書の nsCertType を検証」をチェック</span></span>
+<span id="cb6-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ネットワーク</span></span>
+<span id="cb6-15"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ローカルアドレス/ポートにバインドしない」をチェック</span></span>
+<span id="cb6-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-17"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 保存</span></span>
+<span id="cb6-18"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「保存」ボタンをクリックしプロファイル作成を完了</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="openvpn-接続" class="title-slide slide level1 agenda-slide center">
+<h1>OpenVPN 接続</h1>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>接続の全体像</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>環境情報の受領</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>vpnux Client の導入</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>プロファイルの作成</p>
+</div></li>
+<li><div class="agenda-active">
+<p>OpenVPN 接続</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="プロファイルを選んで接続すると通知で成否がわかる" class="slide level2">
+<h2>プロファイルを選んで接続すると通知で成否がわかる</h2>
+<p><span class="h2-submessage">ログイン画面で作成したプロファイルを選び「接続」を押す</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:42%;">
+<div style="text-align:center;">
+<p><img data-src="./vpnux-client-sample-001.png" alt="vpnux Client のログイン画面：上部のプロファイル選択プルダウンと，下部左端の接続ボタン" height="420"></p>
+</div>
+<div class="font-08 lh-12" style="text-align:center;">
+<p>ログイン画面の画面例（値はサンプル）</p>
+</div>
+</div><div class="column" style="width:58%; padding-left:0.8em;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="main-message-box">
+<p><span class="info-box-title">接続手順と確認</span></p>
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>起動直後のログイン画面に戻り，画面上部の <span class="regmonkey-bold">「プロファイル」プルダウン</span> で作成したプロファイルを選択する</li>
+<li>ユーザー ID・パスワードの入力を確認し，左下の <span class="regmonkey-bold">「接続」ボタン</span> をクリックする</li>
+<li>正常に接続すると，Windows のタスクトレイに <span class="regmonkey-bold">接続完了のアイコンと通知</span> が表示される</li>
+</ul>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 no-auto-agenda center">
+<h1>Appendix</h1>
+
+</section>
+<section id="tcp443" class="slide level2">
+<h2>TCP/443</h2>
+<p><span class="h2-submessage">HTTPS と同じポートを使い，制限されたネットワークからも到達しやすくする</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>TCP/443 とは，<span class="regmonkey-bold">トランスポートプロトコルに TCP・ポート番号に 443 を用いる通信</span> のこと</li>
+<li>443 番ポートは HTTPS（TLS で暗号化された Web 通信）の標準ポートとして割り当てられている</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
+<p><span class="mini-section">本手順で TCP/443 を採用する理由</span></p>
+<div class="font-09 lh-13 padding-L-05">
+<ul>
+<li>社内ネットワークや公衆 Wi-Fi では外向き通信が制限されることが多い一方，HTTPS 用の TCP/443 はほとんどの環境で許可されている</li>
+<li>OpenVPN の待ち受けを TCP/443 にすることで，接続元のファイアウォール設定を変更せずに幅広い環境から接続できる</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">留意点</span></p>
+<div class="font-09 lh-13 padding-L-05">
+<ul>
+<li>OpenVPN は UDP の方が転送効率は高いが，TCP のトンネル上に TCP 通信を重ねる際の再送の重複を許容し，本構成では到達性を優先して TCP を採用している</li>
+</ul>
+</div>
+</section>
+<section id="tls-通信路" class="slide level2">
+<h2>TLS 通信路</h2>
+<p><span class="h2-submessage">通信内容の暗号化・通信相手の認証・改ざんの検知を備えた安全な通信経路</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>TLS 通信路とは，<span class="regmonkey-bold">TLS（Transport Layer Security）によって暗号化・認証された通信経路</span> のこと</li>
+<li>確立すると <span class="regmonkey-bold">暗号化・認証・完全性</span> の 3 つが保証され，盗聴・なりすまし・改ざんを防げる</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:58%;">
+<div style="text-align:center;">
+<p><img data-src="./tls-channel.svg" style="width:96%; display:block; margin:0 auto;" alt="通常の通信では平文が盗聴・改ざんされるリスクがあるのに対し，TLS 通信路では暗号文として送信され，暗号化・認証・完全性の3つが保証される"></p>
+</div>
+</div><div class="column" style="width:42%; padding-left:0.8em;">
+<div class="border-bottom-header">
+<p>HTTPS 通信との関係</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="font-08 lh-13 padding-L-05">
+<ul>
+<li>HTTPS とは，<span class="regmonkey-bold">HTTP 通信を TLS 通信路の上で行う方式</span>（HTTP over TLS）のこと</li>
+<li>ブラウザのアドレスバーの鍵マークは，Web サーバーとの間に TLS 通信路が確立されたことを示す</li>
+<li>標準ポートは TCP/443：OpenVPN が同じポートで待ち受けることで，HTTPS が通る環境なら同様に到達できる</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="tls-通信路https-と-openvpn-の違い" class="slide level2">
+<h2>TLS 通信路：HTTPS と OpenVPN の違い</h2>
+<p><span class="h2-submessage">どちらも TLS を利用するが，保護する対象の範囲が異なる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>HTTPS は <span class="regmonkey-bold">Web ブラウザと Web サーバー間の通信</span> だけを TLS 通信路で保護する</li>
+<li>OpenVPN は <span class="regmonkey-bold">ネットワーク全体を保護する TLS トンネル</span> を構築し，ファイル共有・SSH・Web・データベースなどの通信をまとめて保護する</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./tls-scope.svg" style="width:80%; display:block; margin:0 auto;" alt="HTTPS は Web ブラウザと Web サーバー間の通信のみを保護するのに対し，OpenVPN は TLS トンネルの中を流れるファイル共有・SSH・Web・データベースの通信をまとめて保護する"></p>
+</div>
+</section>
+<section id="ldap-lightweight-directory-access-protocol" class="slide level2">
+<h2>LDAP: Lightweight Directory Access Protocol</h2>
+<p><span class="h2-submessage">VPN ログインの ID・パスワードはディレクトリサービスで一元管理される</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>LDAP とは，ユーザー・組織・機器などの情報を木構造で管理する <span class="regmonkey-bold">ディレクトリサービスへ問い合わせるための標準プロトコル</span></li>
+<li>Active Directory・OpenLDAP などが対応しており，複数システムの認証情報を一元管理できる</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="border-bottom-header">
+<p>Without LDAP：サービスごとに個別管理</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./no-LDAP.svg" style="width:100.0%" alt="LDAP がない場合：アカウント管理者が Samba・Web・Linux の3つの認証 DB へ個別に登録・更新し，DB 同士は同期されない"></p>
+</div>
+</div><div class="column" style="width:8%;">
+<div class="reveal_vspace" style="--vspace-height: 6em;"></div>
+<div style="text-align:center; font-size:2em;">
+<p><i class="fas fa-arrow-right text-blue-500"></i></p>
+</div>
+</div><div class="column" style="width:46%;">
+<div class="border-bottom-header">
+<p>With LDAP：ディレクトリで一元管理</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./LDAP-tree.svg" style="width:92.0%" alt="LDAP がある場合：利用者・グループをディレクトリ情報ツリーで一元管理し，各エントリを DN で一意に識別する"></p>
+</div>
+</div></div>
+</section>
+<section id="ca.crt-と-ta.key" class="slide level2">
+<h2>ca.crt と ta.key</h2>
+<p><span class="h2-submessage">VPN 通信路を安全に確立するための証明書と共有鍵</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li><code>ca.crt</code> は，<span class="regmonkey-bold">VPN サーバーの正当性を検証するための CA（認証局）証明書</span>：公開情報のため秘匿は不要</li>
+<li><code>ta.key</code> は，<span class="regmonkey-bold">サーバーとクライアントだけが共有する TLS-Auth 共有鍵</span>：秘密情報のため第三者に渡さない</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
+<p><span class="mini-section">ca.crt：VPN サーバーが本物か検証する</span></p>
+<div class="font-09 lh-13 padding-L-05">
+<ul>
+<li>接続時にサーバーが提示する証明書が CA に署名されているか検証し，正しければ本物の VPN サーバーと判断して通信を続行する</li>
+<li>HTTPS で Web サイトの証明書をブラウザが確認するのと同じ考え方</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">ta.key：不正な接続要求を TLS 開始前に遮断する</span></p>
+<div class="font-09 lh-13 padding-L-05">
+<ul>
+<li>共有鍵が一致しない相手とは TLS ハンドシェイク自体を開始せず，接続要求を即座に破棄する</li>
+<li>不正アクセスの排除・DoS 攻撃の軽減・ポートスキャンへの応答抑止に寄与する</li>
+</ul>
+</div>
+</section>
+<section id="ca.crt-と-ta.key-は-vpn-管理者が発行する" class="slide level2">
+<h2>ca.crt と ta.key は VPN 管理者が発行する</h2>
+<p><span class="h2-submessage">利用者が自分で作成するものではなく，接続設定一式として配布される</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li><code>ca.crt</code> は，VPN 管理者が <span class="regmonkey-bold">CA（認証局）を作成して発行する公開証明書</span>：この CA がサーバー証明書 <code>server.crt</code> に署名する</li>
+<li><code>ta.key</code> は，VPN 管理者が <span class="regmonkey-bold">OpenVPN の <code>--genkey</code> コマンドで生成する共有鍵</span>：同一のものをサーバーと全クライアントに配布する</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:50%; padding-right:0.8em;">
+<p><span class="mini-section">ca.crt の発行：CA を作成し server.crt に署名する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">openssl</span> genrsa <span class="at">-out</span> ca.key 4096</span>
+<span id="cb7-2"><a></a><span class="ex">openssl</span> req <span class="at">-x509</span> <span class="at">-new</span> <span class="at">-nodes</span> <span class="at">-key</span> ca.key <span class="dt">\</span></span>
+<span id="cb7-3"><a></a>  <span class="at">-sha256</span> <span class="at">-days</span> 3650 <span class="at">-out</span> ca.crt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="font-08 lh-13 padding-L-05">
+<ul>
+<li><code>ca.key</code> は CA の秘密鍵として VPN 管理者のみが保持し，<code>ca.crt</code> は公開証明書としてクライアントへ配布する</li>
+<li>クライアントは <code>ca.crt</code> を使って，接続先のサーバー証明書がこの CA の署名によるものかを検証する</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%; padding-left:0.8em;">
+<p><span class="mini-section">ta.key の発行：OpenVPN コマンドで生成する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div class="font-15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">openvpn</span> <span class="at">--genkey</span> secret ta.key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="font-08 lh-13 padding-L-05">
+<ul>
+<li>生成した同一の <code>ta.key</code> をサーバーと全クライアントに配置する</li>
+<li>サーバー側は <code>tls-auth ta.key 0</code>，クライアント側は <code>tls-auth ta.key 1</code> と設定して方向を区別する</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="秘密鍵-ca.key-は-vpn-管理者のみが保持する" class="slide level2">
+<h2>秘密鍵 ca.key は VPN 管理者のみが保持する</h2>
+<p><span class="h2-submessage">ca.crt・ta.key はサーバーと全クライアントに同じものを配布する</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="font-10 lh-19">
+<div class="yaml2table yaml2table-custom-top" data-col-widths="[16,44,40]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.key&lt;/code&gt;"</span></span>
+<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の秘密鍵</span></span>
+<span id="cb9-4"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者のみ（外部へ配布しない）</span></span>
+<span id="cb9-5"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-6"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.crt&lt;/code&gt;"</span></span>
+<span id="cb9-7"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の公開証明書（サーバー証明書の検証に利用）</span></span>
+<span id="cb9-8"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント</span></span>
+<span id="cb9-9"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ta.key&lt;/code&gt;"</span></span>
+<span id="cb9-11"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
+<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント（全端末で同一）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
+<p><span class="mini-section">実務では Easy-RSA による一元管理が一般的</span></p>
+<div class="font-09 lh-13 padding-L-05">
+<ul>
+<li>企業では OpenVPN の Easy-RSA を利用して CA を管理し，<code>ca.crt</code>・<code>server.crt</code>・<code>client.crt</code> の発行・更新を一元的に行うことが多い</li>
+<li><code>ta.key</code> は OpenVPN コマンドで一度生成し，その共有鍵を各クライアントへ配布する運用が一般的</li>
+</ul>
+</div>
+</section>
+<section id="tls-auth-検証hmac-署名で接続の入口を守る" class="slide level2">
+<h2>TLS-Auth 検証：HMAC 署名で接続の入口を守る</h2>
+<p><span class="h2-submessage">署名が一致しないパケットは TLS ハンドシェイク前に破棄される</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>TLS-Auth 検証とは，<span class="regmonkey-bold">事前共有した <code>ta.key</code> で OpenVPN の全制御パケットに HMAC 署名を付与・照合する仕組み</span> のこと</li>
+<li>署名が一致しないパケットには応答せず破棄するため，<code>ta.key</code> を持たない相手は TLS ハンドシェイクを開始できない</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:58%;">
+<div style="text-align:center;">
+<p><img data-src="./tls-auth-verify.svg" style="width:96%; display:block; margin:0 auto;" alt="ta.key を共有する正規クライアントは制御パケットに HMAC 署名を付与してサーバーの照合を通過し TLS ハンドシェイクへ進むのに対し，ta.key を持たない攻撃者のパケットは不一致として応答されずに破棄される"></p>
+</div>
+</div><div class="column" style="width:42%; padding-left:0.8em;">
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">検証の流れ</span></p>
+<div class="font-08 lh-13 padding-L-05">
+<ul>
+<li>サーバーとクライアントが同一の <code>ta.key</code> を事前に共有する（環境情報の受領時に配布される）</li>
+<li>送信側は制御パケットごとに HMAC 署名を計算して付与し，受信側は同じ鍵で署名を再計算して一致を確認する</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
+<p><span class="mini-section">入口対策としての効果</span></p>
+<div class="font-08 lh-13 padding-L-05">
+<ul>
+<li>不一致のパケットには一切応答しないため，ポートスキャンに対して OpenVPN の稼働を検知されにくい</li>
+<li>TLS ハンドシェイク前に遮断するため，TLS 実装の脆弱性を突く攻撃や DoS の処理負荷を軽減できる</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="vpn-接続の確立と-ldap-認証の役割分担" class="slide level2">
+<h2>VPN 接続の確立と LDAP 認証の役割分担</h2>
+<p><span class="h2-submessage">接続設定一式と同時に配布されるが，担う役割は異なる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>VPN 接続は，<span class="regmonkey-bold">通信路の確立（ca.crt・ta.key）</span> と <span class="regmonkey-bold">ユーザー認証（LDAP の ID・パスワード）</span> の2段階で成立する</li>
+<li>LDAP アカウント発行時に接続設定一式（<code>*.ovpn</code>・<code>ca.crt</code>・<code>ta.key</code>）が併せて配布されるが，役割は独立している</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
+<p><span class="mini-section">接続時に照合が行われる順序</span></p>
+<div class="regmonkey_index padding-L-10" style="width:100%">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.05em</span></span>
+<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.86em</span></span>
+<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① TLS-Auth 検証（ta.key）</span></span>
+<span id="cb10-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ta.key&lt;/code&gt; を用いて接続要求に HMAC を付与</span></span>
+<span id="cb10-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは同じ &lt;code&gt;ta.key&lt;/code&gt; で HMAC を検証</span></span>
+<span id="cb10-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一致しない接続要求は TLS ハンドシェイク前に破棄</span></span>
+<span id="cb10-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb10-12"><a></a></span>
+<span id="cb10-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② TLS ハンドシェイク（ca.crt）</span></span>
+<span id="cb10-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは &lt;code&gt;server.crt&lt;/code&gt; をクライアントへ送信</span></span>
+<span id="cb10-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ca.crt&lt;/code&gt; により証明書の署名・有効期限を検証</span></span>
+<span id="cb10-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ECDHE 等でセッション鍵を生成し，共通鍵を共有</span></span>
+<span id="cb10-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路（暗号化トンネル）を確立</span></span>
+<span id="cb10-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb10-20"><a></a></span>
+<span id="cb10-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ LDAP 認証</span></span>
+<span id="cb10-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路上で ID・パスワードを安全に送信</span></span>
+<span id="cb10-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> VPN サーバーは LDAP サーバーへ認証を要求し，LDAP サーバーが利用者情報を照合</span></span>
+<span id="cb10-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 認証成功後，仮想 IP を割り当て VPN 利用開始</span></span>
+<span id="cb10-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="../../index.html">Regmonkey Presentation</a>. ©Ryo Nakagami. All rights reserved.</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-leaderline/reveal-leader-line.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"button":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: "separate-page",
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealLeaderline, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/ryonakagami\.github\.io\/regmonkey-presentation");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+<script src="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.js"></script>
+</body></html>
