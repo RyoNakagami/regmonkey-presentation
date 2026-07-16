@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="100%" preserveAspectRatio="xMidYMid meet"
+     font-family="Meiryo, 'メイリオ', system-ui, sans-serif"
+     style="display:block; margin:0 auto;">
+
+  <rect width="1600" height="600" fill="#FFFFFF"/>
+
+  <defs>
+    <marker id="arrowNavy" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="#0E3666"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="#575757"/>
+    </marker>
+    <marker id="arrowAzure" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="#428CE6"/>
+    </marker>
+    <marker id="arrowCrimson" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="#D31804"/>
+    </marker>
+  </defs>
+
+  <!-- ================================================================ -->
+  <!-- COLUMN HEADERS  y=8–44                                           -->
+  <!-- ================================================================ -->
+  <rect x="48"  y="8" width="700" height="36" rx="6" fill="#0E3666"/>
+  <text x="88"  y="31" font-size="18" font-weight="700" fill="#FFFFFF">送信側</text>
+  <text x="160" y="31" font-size="18" fill="#B4D7FF">ネットワーク層 → データリンク層 → 物理層</text>
+
+  <rect x="852" y="8" width="700" height="36" rx="6" fill="#0E3666"/>
+  <text x="892" y="31" font-size="18" font-weight="700" fill="#FFFFFF">受信側</text>
+  <text x="964" y="31" font-size="18" fill="#B4D7FF">物理層 → データリンク層 → ネットワーク層</text>
+
+  <!-- ================================================================ -->
+  <!-- SEND SIDE  top→bottom: L3(55–175) → L2(208–396) → L1(430–560)  -->
+  <!-- ================================================================ -->
+
+  <!-- L3  y=55–175 -->
+  <rect x="48" y="55" width="700" height="120" rx="8" fill="#B4D7FF" stroke="#0E3666" stroke-width="1.5"/>
+  <rect x="48" y="55" width="8"   height="120" rx="3" fill="#0E3666"/>
+  <text x="76" y="88"  font-size="16" font-weight="700" fill="#0E3666">ネットワーク層</text>
+  <text x="76" y="112" font-size="14" fill="#1A1A1A">IP パケット（ペイロード）を下位層へ渡す</text>
+  <rect x="76" y="126" width="360" height="34" rx="4" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="256" y="148" font-size="14" font-weight="700" fill="#0E3666" text-anchor="middle">IP Packet</text>
+
+  <!-- ↓ L3→L2  175→208 -->
+  <line x1="398" y1="175" x2="398" y2="205" stroke="#0E3666" stroke-width="2.5" marker-end="url(#arrowNavy)"/>
+
+  <!-- L2  y=208–396
+       フレーム図: y=270–310
+       注釈矢印:  310→338
+       注釈テキスト: 354, 368  (= 396-28, 396-14 → ちょうど L2内に収まる)
+  -->
+  <rect x="48" y="208" width="700" height="188" rx="8" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+  <rect x="48" y="208" width="8"   height="188" rx="3" fill="#428CE6"/>
+  <text x="76" y="238" font-size="16" font-weight="700" fill="#0E3666">データリンク層</text>
+  <text x="76" y="260" font-size="14" fill="#1A1A1A">ヘッダ（宛先 / 送信元 MAC, Type）+ FCS を付与 → フレーム化 → ビット化(...01100101...)</text>
+
+  <!-- Frame structure -->
+  <rect x="76"  y="280" width="90"  height="40" rx="4" fill="#0E3666"/>
+  <text x="121" y="305" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Header</text>
+  <rect x="170" y="280" width="296" height="40" rx="4" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="318" y="305" font-size="14" fill="#0E3666" text-anchor="middle">IP Packet (Payload)</text>
+  <rect x="470" y="280" width="80"  height="40" rx="4" fill="#D31804"/>
+  <text x="510" y="305" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">FCS</text>
+
+  <!-- Annotation: Header -->
+  <line x1="121" y1="320" x2="121" y2="344" stroke="#428CE6" stroke-width="1.5" marker-end="url(#arrowAzure)"/>
+  <text x="121" y="360" font-size="11" fill="#428CE6" text-anchor="middle">宛先・送信元 MAC</text>
+  <text x="121" y="374" font-size="11" fill="#428CE6" text-anchor="middle">Type / Length</text>
+
+  <!-- Annotation: FCS -->
+  <line x1="510" y1="320" x2="510" y2="344" stroke="#D31804" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+  <text x="510" y="360" font-size="11" fill="#D31804" text-anchor="middle">Frame Check Sequence</text>
+  <text x="510" y="374" font-size="11" fill="#D31804" text-anchor="middle">（エラー検出 CRC）</text>
+
+
+  <!-- ↓ L2→L1  396→430 -->
+  <line x1="398" y1="396" x2="398" y2="427" stroke="#0E3666" stroke-width="2.5" marker-end="url(#arrowNavy)"/>
+
+  <!-- L1  y=430–560 -->
+  <rect x="48" y="430" width="700" height="130" rx="8" fill="#DEDEDE" stroke="#575757" stroke-width="1.5"/>
+  <rect x="48" y="430" width="8"   height="130" rx="3" fill="#575757"/>
+  <text x="76" y="460" font-size="16" font-weight="700" fill="#575757">物理層</text>
+  <text x="76" y="480" font-size="14" fill="#575757">ビット列 → 電気 / 光 / 電波信号に変換して送出</text>
+  <polyline points="76,522 104,522 104,500 136,500 136,522 168,522 168,500 200,500 200,522 248,522 248,500 280,500 280,522 312,522"
+            fill="none" stroke="#575757" stroke-width="2.5"/>
+  <text x="340" y="515" font-size="14" fill="#575757">← 送出信号波形</text>
+
+  <!-- ================================================================ -->
+  <!-- SIGNAL TRANSMISSION  y=495 (L1 centre)                          -->
+  <!-- ================================================================ -->
+  <line x1="754" y1="495" x2="848" y2="495"
+        stroke="#575757" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <text x="801" y="482" font-size="12" fill="#575757" text-anchor="middle">信号伝送</text>
+  <text x="801" y="512" font-size="11" fill="#575757" text-anchor="middle">（有線 / 無線）</text>
+
+  <!-- ================================================================ -->
+  <!-- RECEIVE SIDE  bottom→top: L1(430–560) → L2(208–396) → L3(55–175)-->
+  <!-- ================================================================ -->
+
+  <!-- L1 (bottom)  y=430–560 -->
+  <rect x="852" y="430" width="700" height="130" rx="8" fill="#DEDEDE" stroke="#575757" stroke-width="1.5"/>
+  <rect x="852" y="430" width="8"   height="130" rx="3" fill="#575757"/>
+  <text x="880" y="460" font-size="16" font-weight="700" fill="#575757">物理層</text>
+  <text x="880" y="480" font-size="14" fill="#575757">電気 / 光 / 電波信号 → ビット列に復元</text>
+  <polyline points="880,522 908,522 908,500 940,500 940,522 972,522 972,500 1004,500 1004,522 1052,522 1052,500 1084,500 1084,522 1116,522"
+            fill="none" stroke="#575757" stroke-width="2.5"/>
+  <text x="1144" y="515" font-size="14" fill="#575757">← 受信信号波形</text>
+
+  <!-- ↑ L1→L2  430→396 -->
+  <line x1="1202" y1="430" x2="1202" y2="399" stroke="#0E3666" stroke-width="2.5" marker-end="url(#arrowNavy)"/>
+
+  <!-- L2 (middle)  y=208–396 -->
+  <rect x="852" y="208" width="700" height="188" rx="8" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+  <rect x="852" y="208" width="8"   height="188" rx="3" fill="#428CE6"/>
+  <text x="880" y="238" font-size="16" font-weight="700" fill="#0E3666">データリンク層</text>
+  <text x="880" y="260" font-size="14" fill="#1A1A1A">FCS 検査 → ヘッダ解析 → ビット列をフレームとして認識</text>
+
+  <!-- Frame structure -->
+  <rect x="880"  y="280" width="90"  height="40" rx="4" fill="#0E3666"/>
+  <text x="925"  y="305" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Header</text>
+  <rect x="974"  y="280" width="296" height="40" rx="4" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="1122" y="305" font-size="14" fill="#0E3666" text-anchor="middle">IP Packet (Payload)</text>
+  <rect x="1274" y="280" width="80"  height="40" rx="4" fill="#D31804"/>
+  <text x="1314" y="305" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">FCS</text>
+
+  <!-- Annotation: Header -->
+  <line x1="925"  y1="310" x2="925"  y2="344" stroke="#428CE6" stroke-width="1.5" marker-end="url(#arrowAzure)"/>
+  <text x="925"  y="360" font-size="11" fill="#428CE6" text-anchor="middle">宛先 MAC を確認</text>
+  <text x="925"  y="374" font-size="11" fill="#428CE6" text-anchor="middle">自宛のみ受け取る</text>
+
+  <!-- Annotation: FCS -->
+  <line x1="1314" y1="310" x2="1314" y2="344" stroke="#D31804" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+  <text x="1314" y="360" font-size="11" fill="#D31804" text-anchor="middle">CRC 照合でエラー検出</text>
+  <text x="1314" y="374" font-size="11" fill="#D31804" text-anchor="middle">不一致なら破棄</text>
+
+  <text x="1428" y="296" font-size="14" fill="#575757">← フレームを</text>
+  <text x="1428" y="313" font-size="14" fill="#575757">　 認識する</text>
+
+  <!-- ↑ L2→L3  208→175 -->
+  <line x1="1202" y1="208" x2="1202" y2="178" stroke="#0E3666" stroke-width="2.5" marker-end="url(#arrowNavy)"/>
+
+  <!-- L3 (top)  y=55–175 -->
+  <rect x="852" y="55" width="700" height="120" rx="8" fill="#B4D7FF" stroke="#0E3666" stroke-width="1.5"/>
+  <rect x="852" y="55" width="8"   height="120" rx="3" fill="#0E3666"/>
+  <text x="880" y="88"  font-size="16" font-weight="700" fill="#0E3666">ネットワーク層</text>
+  <text x="880" y="112" font-size="14" fill="#1A1A1A">IP パケット（ペイロード）を受け取り上位処理へ</text>
+  <rect x="880" y="126" width="360" height="34" rx="4" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="1060" y="148" font-size="14" font-weight="700" fill="#0E3666" text-anchor="middle">IP Packet</text>
+
+</svg>

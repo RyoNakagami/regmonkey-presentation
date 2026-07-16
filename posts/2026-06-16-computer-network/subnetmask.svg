@@ -1,0 +1,89 @@
+<svg viewBox="0 0 800 290" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:800px;">
+  <style>
+    text { font-family: Meiryo, sans-serif; fill: #1A1A1A; }
+    .lbl  { font-size: 18px; font-weight: bold; }
+    .hdr  { font-size: 14px; fill: #555; }
+    .bit  { font-size: 22px; font-weight: bold; font-family: monospace; }
+    .pw   { font-size: 12px; fill: #777; }
+    .res  { font-size: 22px; font-weight: bold; font-family: monospace; fill: #0E3666; }
+    .box-on  { fill: #DBEAFE; stroke: #0E3666; stroke-width: 1.5; }
+    .box-off { fill: #F3F4F6; stroke: #AAAAAA; stroke-width: 1; }
+    .box-res { fill: #EFF6FF; stroke: #0E3666; stroke-width: 2; }
+    .mask-on  { fill: #D1FAE5; stroke: #059669; stroke-width: 1.5; }
+    .mask-off { fill: #FEE2E2; stroke: #DC2626; stroke-width: 1; }
+  </style>
+
+  <!-- 列ヘッダ（ビット重み） -->
+  <text x="130" y="28" class="hdr" text-anchor="middle">2⁷=128</text>
+  <text x="220" y="28" class="hdr" text-anchor="middle">2⁶=64</text>
+  <text x="310" y="28" class="hdr" text-anchor="middle">2⁵=32</text>
+  <text x="400" y="28" class="hdr" text-anchor="middle">2⁴=16</text>
+  <text x="490" y="28" class="hdr" text-anchor="middle">2³=8</text>
+  <text x="580" y="28" class="hdr" text-anchor="middle">2²=4</text>
+  <text x="670" y="28" class="hdr" text-anchor="middle">2¹=2</text>
+  <text x="760" y="28" class="hdr" text-anchor="middle">2⁰=1</text>
+
+  <!-- 行ラベル -->
+  <text x="60" y="75"  class="lbl" text-anchor="middle">123</text>
+  <text x="60" y="155" class="lbl" text-anchor="middle">252</text>
+  <text x="18" y="235" class="lbl" text-anchor="start">AND</text>
+  <text x="80" y="235" class="lbl" text-anchor="middle">120</text>
+
+  <!-- 区切り線（AND）-->
+  <line x1="100" y1="195" x2="790" y2="195" stroke="#0E3666" stroke-width="2"/>
+
+  <!-- 123 = 01111011 -->
+  <!-- bit7=0 --> <rect x="105" y="45" width="50" height="40" rx="4" class="box-off"/>
+  <text x="130" y="73" class="bit" text-anchor="middle">0</text>
+  <!-- bit6=1 --> <rect x="195" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="220" y="73" class="bit" text-anchor="middle">1</text>
+  <!-- bit5=1 --> <rect x="285" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="310" y="73" class="bit" text-anchor="middle">1</text>
+  <!-- bit4=1 --> <rect x="375" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="400" y="73" class="bit" text-anchor="middle">1</text>
+  <!-- bit3=1 --> <rect x="465" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="490" y="73" class="bit" text-anchor="middle">1</text>
+  <!-- bit2=0 --> <rect x="555" y="45" width="50" height="40" rx="4" class="box-off"/>
+  <text x="580" y="73" class="bit" text-anchor="middle">0</text>
+  <!-- bit1=1 --> <rect x="645" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="670" y="73" class="bit" text-anchor="middle">1</text>
+  <!-- bit0=1 --> <rect x="735" y="45" width="50" height="40" rx="4" class="box-on"/>
+  <text x="760" y="73" class="bit" text-anchor="middle">1</text>
+
+  <!-- 252 = 11111100 -->
+  <!-- bit7=1 --> <rect x="105" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="130" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit6=1 --> <rect x="195" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="220" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit5=1 --> <rect x="285" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="310" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit4=1 --> <rect x="375" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="400" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit3=1 --> <rect x="465" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="490" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit2=1 --> <rect x="555" y="125" width="50" height="40" rx="4" class="mask-on"/>
+  <text x="580" y="153" class="bit" text-anchor="middle">1</text>
+  <!-- bit1=0 --> <rect x="645" y="125" width="50" height="40" rx="4" class="mask-off"/>
+  <text x="670" y="153" class="bit" text-anchor="middle">0</text>
+  <!-- bit0=0 --> <rect x="735" y="125" width="50" height="40" rx="4" class="mask-off"/>
+  <text x="760" y="153" class="bit" text-anchor="middle">0</text>
+
+  <!-- 結果 120 = 01111000 -->
+  <!-- bit7=0 --> <rect x="105" y="205" width="50" height="40" rx="4" class="box-off"/>
+  <text x="130" y="233" class="res" text-anchor="middle">0</text>
+  <!-- bit6=1 --> <rect x="195" y="205" width="50" height="40" rx="4" class="box-res"/>
+  <text x="220" y="233" class="res" text-anchor="middle">1</text>
+  <!-- bit5=1 --> <rect x="285" y="205" width="50" height="40" rx="4" class="box-res"/>
+  <text x="310" y="233" class="res" text-anchor="middle">1</text>
+  <!-- bit4=1 --> <rect x="375" y="205" width="50" height="40" rx="4" class="box-res"/>
+  <text x="400" y="233" class="res" text-anchor="middle">1</text>
+  <!-- bit3=1 --> <rect x="465" y="205" width="50" height="40" rx="4" class="box-res"/>
+  <text x="490" y="233" class="res" text-anchor="middle">1</text>
+  <!-- bit2=0 --> <rect x="555" y="205" width="50" height="40" rx="4" class="box-off"/>
+  <text x="580" y="233" class="res" text-anchor="middle">0</text>
+  <!-- bit1=0 --> <rect x="645" y="205" width="50" height="40" rx="4" class="box-off"/>
+  <text x="670" y="233" class="res" text-anchor="middle">0</text>
+  <!-- bit0=0 --> <rect x="735" y="205" width="50" height="40" rx="4" class="box-off"/>
+  <text x="760" y="233" class="res" text-anchor="middle">0</text>
+
+</svg>

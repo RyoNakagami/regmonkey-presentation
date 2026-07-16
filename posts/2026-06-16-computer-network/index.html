@@ -103,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3c30c09fb933ceff1686d4434da55101.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -259,28 +259,38 @@ Ryo Nakagami
 <section>
 <section id="ネットワーク基礎" class="title-slide slide level1 agenda-slide center">
 <h1>ネットワーク基礎</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
 <li><div class="agenda-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -441,28 +451,38 @@ Ryo Nakagami
 <section>
 <section id="tcpipの概要" class="title-slide slide level1 agenda-slide center">
 <h1>TCP/IPの概要</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-active">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -534,7 +554,7 @@ Ryo Nakagami
 <span id="cb1-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<div class="font-09">
+<div class="font-08">
 <ul>
 <li>各階層に存在する通信機器などの実態を<span class="regmonkey-bold">エンティティ</span>と呼ぶ</li>
 <li>プロトコルの組み合わせを変えることで，いろいろなアプリケーションや機器に対応できる
@@ -729,28 +749,38 @@ Ryo Nakagami
 <section>
 <section id="アプリケーション層" class="title-slide slide level1 agenda-slide center">
 <h1>アプリケーション層</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-active">
+<li><div class="agenda-sub-active">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -761,28 +791,38 @@ Ryo Nakagami
 <section>
 <section id="トランスポート層" class="title-slide slide level1 agenda-slide center">
 <h1>トランスポート層</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-active">
+<li><div class="agenda-sub-active">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -1041,28 +1081,38 @@ sequenceDiagram
 <section>
 <section id="ネットワーク層" class="title-slide slide level1 agenda-slide center">
 <h1>ネットワーク層</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-active">
+<li><div class="agenda-sub-active">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -1358,6 +1408,53 @@ sequenceDiagram
 </div>
 <!-- footer -->
 <aside><ol class="aside-footnotes"><li id="fn6"><p>Pアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (<code>/8</code>: 大規模ネットワーク)，クラスB (<code>/26</code>: 中規模)，クラスC (<code>/24</code>: 小規模)に分類する方式のこと</p></li></ol></aside></section>
+<section id="サブネットマスクとサブネットワークアドレス" class="slide level2">
+<h2>サブネットマスクとサブネットワークアドレス</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<p>サブネットマスクが <code>255.255.252.0</code> のとき，IPアドレス <code>172.30.123.45</code> のホストが属するサブネットワークアドレスは？</p>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<p><span class="mini-section">① CIDR表記への変換</span></p>
+<ul>
+<li>サブネットマスク <code>255.255.252.0</code> を2進数に変換: <code>11111111.11111111.11111100.00000000</code><sup>1</sup></li>
+<li>1が連続する個数を数える → <strong>CIDR 表記は <code>/22</code></strong>（<span class="math inline">\(255-252=3\)</span>より <span class="math inline">\(8 + 2 = 10\)</span> bitがホスト部とも計算可能）</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">② ネットワークアドレスの計算</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>IPアドレス <code>172.30.123.45</code> とサブネットマスクの AND 演算</li>
+<li>よってサブネットワークアドレスは <strong><code>172.30.120.0</code></strong></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="padding-L-10">ネットワークアドレス</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>ネットワークアドレスとは、ネットワークの代表となるアドレス</li>
+<li>IPアドレスのホスト部をすべて <code>0</code> にした値で表される
+<ul>
+<li>ネットワークアドレス: <code>172.30.120.0</code></li>
+<li>利用可能ホスト: <code>172.30.120.1</code> ～ <code>172.30.123.254</code></li>
+<li>ブロードキャストアドレス: <code>172.30.123.255</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./subnetmask.svg"></p>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn7"><p>左端から始まる「1」の部分がネットワーク部を表すので，<code>255.255.255.1</code> などは設定不可能</p></li></ol></aside></section>
 <section id="ネットワークの細分化" class="slide level2">
 <h2>ネットワークの細分化</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -1409,20 +1506,14 @@ sequenceDiagram
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-11">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Quiz: サブネットの分割</strong></p>
-</div>
-<div class="callout-content">
-<p>クラスC<sup>1</sup>のIPアドレスを分割して，10個のサブネットを使用したい．ホスト数が最も多くなるように分割した場合のサブネットマスクはどうなるか？</p>
-</div>
-</div>
-</div>
+<div class="border-bottom-header">
+<p>Quiz: サブネットの分割</p>
 </div>
 <div class="font-08">
+<p><span class="mini-section">問題</span></p>
+<div class="padding-L-20">
+<p>クラスC<sup>1</sup>のIPアドレスを分割して，10個のサブネットを使用したい．ホスト数が最も多くなるように分割した場合のサブネットマスクはどうなるか？</p>
+</div>
 <p><span class="mini-section">解答</span></p>
 <div class="padding-L-20">
 <p>10個以上のサブネットを作るには</p>
@@ -1439,7 +1530,7 @@ sequenceDiagram
 </div>
 </div></div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn7"><p>クラスCのデフォルトサブネットマスクは <code>255.255.255.0</code>（<code>/24</code>）</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>クラスCのデフォルトサブネットマスクは <code>255.255.255.0</code>（<code>/24</code>）</p></li></ol></aside></section>
 <section id="ipv6の表記ルール" class="slide level2">
 <h2>IPv6の表記ルール</h2>
 <div class="columns">
@@ -1508,32 +1599,185 @@ sequenceDiagram
 </ul>
 </div>
 </div></div>
+</section>
+<section id="ipアドレスの設定" class="slide level2">
+<h2>IPアドレスの設定</h2>
+<p><span class="h2-submessage">固定で割り当てる方法と，サーバーがクライアントに対して自動に割り当てる方式がある</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;">
+<div id="yaml-ip-config-methods" class="yaml2table yaml2table-custom-top" data-col-widths="[16, 26, 58]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 静的設定</span></span>
+<span id="cb7-4"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 人間（管理者）</span></span>
+<span id="cb7-6"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS のネットワーク設定に直接記入する</span></span>
+<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーやルーターなど，アドレスが変わると困る機器に用いる</span></span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP</span></span>
+<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP サーバー</span></span>
+<span id="cb7-15"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントの MAC アドレスに対応する IP アドレスを返す</span></span>
+<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ディスクレス端末などで使われた古い仕組みで，現在は DHCP に置き換えられている</span></span>
+<span id="cb7-18"><a></a></span>
+<span id="cb7-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-20"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP</span></span>
+<span id="cb7-22"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP サーバー</span></span>
+<span id="cb7-24"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP アドレスに加えて，サブネットマスク・デフォルトゲートウェイ・DNS サーバーなどの設定も配布する</span></span>
+<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在の LAN における自動設定の標準</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<p><span class="mini-section">IPv6 の自動設定：RA の M・O フラグ<sup>1</sup>により3方式に分かれる</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>① SLAAC のみ（M=0・O=0）</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>RA（ルーター広告）の情報だけでクライアントがアドレスを自動生成（DHCPv6 は使わない）</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>② ステートレス DHCPv6（M=0・O=1）</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>アドレスは SLAAC で生成し，DNS サーバーなどの付加情報だけを DHCPv6 が配布する</li>
+</ul>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p>③ ステートフル DHCPv6（M=1）</p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>IPv4 の DHCP と同様に，DHCPv6 サーバーがアドレスそのものを配布・管理する</li>
+</ul>
+</div>
+</div>
+</div></div>
+<!-- footer -->
+<aside><ol class="aside-footnotes"><li id="fn9"><p>SLAAC はステートレスアドレス自動設定（RFC 4862）．RA の M（Managed）フラグはアドレスを DHCPv6 で配布するか，O（Other）フラグは DNS などの付加情報を DHCPv6 から取得するかを示す．</p></li></ol></aside></section>
+<section id="dhcpの仕組み" class="slide level2">
+<h2>DHCPの仕組み</h2>
+<p><span class="h2-submessage">DHCPサーバーがアドレスプールから割当可能なIPアドレスを都度割り当てる</span></p>
+<div class="columns">
+<div class="column" style="width:75%;">
+<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./DHCP.svg" style="width:100.0%"></p>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="border-bottom-header">
+<p>DHCPのポイント</p>
+</div>
+<div class="font-08">
+<ul>
+<li><span class="regmonkey-bold">DHCPクライアント</span>：IP設定を持たずに起動し，ネットワーク設定を要求する側（PC・スマホなど）</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li><span class="regmonkey-bold">DHCPサーバー</span>：アドレスプールから空きIPを選び，サブネットマスク・デフォルトゲートウェイ・DNSとあわせて期限付きで貸し出す（家庭ではルーターが兼務）</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li><span class="regmonkey-bold">送信元 0.0.0.0</span>：クライアントは自分のIPアドレスをまだ持っていないため，「未割り当て」を意味する 0.0.0.0 を送信元にする</li>
+</ul>
+<div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
+<ul>
+<li><span class="regmonkey-bold">宛先 255.255.255.255</span>：サーバーのIPアドレスも不明なため，同一セグメント全体に届くブロードキャスト宛に送る（ルーターは越えない）</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="natnaptによるipアドレス変換" class="slide level2">
+<h2>NAT・NAPTによるIPアドレス変換</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>NAT（Network Address Translation）は，IPアドレスを別のIPアドレスへ変換する技術</li>
+<li>NAPT（Network Address Port Translation）は，IPアドレスとポート番号を変換する技術</li>
+<li>家庭用や企業のルーターでは，NAPTを利用して複数の端末が1つのグローバルIPアドレスを共有してインターネットへ接続している</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./nat-translation.svg" style="width:100.0%"></p>
+<div class="font-07">
+<ul>
+<li>ルーターがIPヘッダの送信元IPアドレスを書き換える
+<ul>
+<li>NAT → ネットワーク層の情報を書き換える</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./napt-translation.svg" style="width:100.0%"></p>
+<div class="font-07">
+<ul>
+<li>IPヘッダの送信元IPアドレスとTCP/UDPヘッダの送信元ポート番号が書き換えられる
+<ul>
+<li>NAPT → ネットワーク層 + トランスポート層の情報を書き換える</li>
+</ul></li>
+<li>返信パケットを受信した際には，ルーターが変換テーブルを参照して元のIPアドレスやポート番号に復元する</li>
+</ul>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="データリンク層" class="title-slide slide level1 agenda-slide center">
 <h1>データリンク層</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-active">
+<li><div class="agenda-sub-active">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
+<li><div class="agenda-sub-inactive">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -1691,7 +1935,7 @@ style AP fill:#ffffff,stroke:#0E3666
 </div>
 </div></div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn8"><p>光ファイバーは，光の明滅で信号を伝える．金属線ケーブルの場合は，電圧の変化で信号を伝える．金属線ケーブルにおける電圧の波形は歪みやすいので，長距離の伝送には信号を増幅する・修正するリピーターが必要</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>光ファイバーは，光の明滅で信号を伝える．金属線ケーブルの場合は，電圧の変化で信号を伝える．金属線ケーブルにおける電圧の波形は歪みやすいので，長距離の伝送には信号を増幅する・修正するリピーターが必要</p></li></ol></aside></section>
 <section id="ネットワーク層と物理層の橋渡しとしてのデータリンク層" class="slide level2">
 <h2>ネットワーク層と物理層の橋渡しとしてのデータリンク層</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -1796,32 +2040,160 @@ sequenceDiagram
 <li>ネットワーク層のプロトコルがIPになるとは限らない</li>
 </ul>
 </div></div>
+</section>
+<section id="ieee-802.1x-lanへの接続を制御する認証技術" class="slide level2">
+<h2>IEEE 802.1X: LANへの接続を制御する認証技術</h2>
+<p><span class="h2-submessage">ネットワークの入口で正規のユーザや端末だけを接続させるための仕組み</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 1.2em;"></div>
+<div class="custom-table" style="width:100%; font-size: 0.63em !important;">
+<div id="yaml-ieee8021x-components" class="yaml2table yaml2table-custom-top" data-col-widths="[22, 25, 33, 20]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカント&lt;br&gt;(Supplicant)</span></span>
+<span id="cb8-4"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるクライアント</span></span>
+<span id="cb8-6"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1Xにおけるクライアント端末，またはクライアントにインストールする認証用ソフトウェア</span></span>
+<span id="cb8-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるには対応ソフトウェアが必要だが，近年のOSには標準搭載されていることが多い</span></span>
+<span id="cb8-9"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PC</span></span>
+<span id="cb8-11"><a></a></span>
+<span id="cb8-12"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証装置&lt;br&gt;(Authenticator)</span></span>
+<span id="cb8-15"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカントと認証サーバの仲介</span></span>
+<span id="cb8-17"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X対応のLANスイッチや無線LANアクセスポイントなど，サプリカントと認証サーバの間に位置するネットワーク機器</span></span>
+<span id="cb8-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバからの認証結果を受けて，ポート単位でネットワークへのアクセスを許可・遮断する</span></span>
+<span id="cb8-20"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内LANスイッチ</span></span>
+<span id="cb8-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 無線LANアクセスポイント</span></span>
+<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> L2スイッチ</span></span>
+<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> L3スイッチ</span></span>
+<span id="cb8-25"><a></a></span>
+<span id="cb8-26"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-27"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバ&lt;br&gt;(Authentication Server)</span></span>
+<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザ・端末の認証を実施</span></span>
+<span id="cb8-31"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X・EAPに対応したRADIUSサーバを用いて認証を行う</span></span>
+<span id="cb8-33"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証用Linuxサーバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>不正PCのFSへの接続拒否構築例</p>
+</div>
+<div style="text-align:center;">
+<p><img data-src="./m-network-with-8021x.svg" style="width:100.0%"></p>
+</div>
+</div></div>
+</section>
+<section id="イーサネットフレームとipデータグラムの違い" class="slide level2">
+<h2>イーサネットフレームとIPデータグラムの違い</h2>
+<!-- [コンテンツを記載]{.h2-submessage} -->
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>イーサネットフレーム：TCP/IPモデルのリンク層（Network Access Layer）</li>
+<li>IPデータグラム：TCP/IPモデルのインターネット層（Internet Layer）</li>
+</ul>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="border-bottom-header">
+<p>役割と伝送範囲の違い</p>
+</div>
+<div class="font-08 lh-12">
+<ul>
+<li>イーサネットフレーム：同一リンク内（隣接ノード間）の伝送を担い，宛先は<span class="regmonkey-bold">MACアドレス</span>で指定する</li>
+<li>IPデータグラム：エンドツーエンド（送信元ホストから宛先ホストまで）の伝送を担い，宛先は<span class="regmonkey-bold">IPアドレス</span>で指定する</li>
+<li>ルータを1つ越えるたびにイーサネットフレームは付け替えられるが，IPデータグラムは終端まで同じヘッダを保持する</li>
+</ul>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
+<div class="border-bottom-header">
+<p>右図におけるイーサネットフレームとIPデータグラムの宛先</p>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="font-09 lh-11">
+<table class="caption-top">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">区間</th>
+<th style="text-align: center;">Ethernet<br>宛先 / 送信元</th>
+<th style="text-align: center;">IPデータグラム<br>宛先 / 送信元</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>LAN1</strong>（A→ルータ）</td>
+<td style="text-align: center;">MAC3 / MAC1</td>
+<td style="text-align: center;">IP2 / IP1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LAN2</strong>（ルータ→B）</td>
+<td style="text-align: center;">MAC2 / MAC4</td>
+<td style="text-align: center;">IP2 / IP1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="reveal_vspace" style="--vspace-height: 2em;"></div>
+<div style="text-align:center;">
+<p><img data-src="./ethernetframe-vs-ip-datagram.svg" style="width:100.0%"></p>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="物理層" class="title-slide slide level1 agenda-slide center">
 <h1>物理層</h1>
-<div class="agenda">
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
 <ul>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-inactive agenda-parent-active">
 <p>ネットワーク基礎</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
 <p>TCP/IPの概要</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>アプリケーション層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>トランスポート層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>ネットワーク層</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
+<li><div class="agenda-sub-inactive">
 <p>データリンク層</p>
 </div></li>
-<li><div class="agenda-active">
+<li><div class="agenda-sub-active">
 <p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
 </div></li>
 </ul>
 </div>
@@ -1885,6 +2257,274 @@ sequenceDiagram
 </div></div>
 </section></section>
 <section>
+<section id="ルーティング" class="title-slide slide level1 agenda-slide center">
+<h1>ルーティング</h1>
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
+<ul>
+<li><div class="agenda-inactive agenda-parent-active">
+<p>ネットワーク基礎</p>
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ネットワーク層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>データリンク層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-active">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>ネットワーク実践</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="レイヤー3スイッチのルーティング" class="slide level2">
+<h2>レイヤー3スイッチのルーティング</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>L3スイッチは，L2スイッチの機能に加えて「ルーティング機能」を搭載している機器（TCP/IP のネットワーク層で動作）</li>
+<li>同一組織内の複数の IP ネットワーク（VLAN）を高速に接続する際に利用される</li>
+<li>主にLAN同士の接続が役割なので，基本的には，NAT/NAPT は搭載されていない</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="ネットワーク実践" class="title-slide slide level1 agenda-slide center">
+<h1>ネットワーク実践</h1>
+<div class="agenda" style="--agenda-font-size: 24pt; --agenda-item-spacing: 0.1em; --agenda-item-padding: 0.3em; --agenda-line-height: 1.1; --agenda-sub-font-size: 1em;">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>ネットワーク基礎</p>
+</div>
+<div class="agenda-subs">
+<ul>
+<li><div class="agenda-sub-inactive">
+<p>TCP/IPの概要</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>アプリケーション層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>トランスポート層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ネットワーク層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>データリンク層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>物理層</p>
+</div></li>
+<li><div class="agenda-sub-inactive">
+<p>ルーティング</p>
+</div></li>
+</ul>
+</div></li>
+<li><div class="agenda-active">
+<p>ネットワーク実践</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="l3スイッチのフィルタリングルール設定例" class="slide level2">
+<h2>L3スイッチのフィルタリングルール設定例</h2>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="main-message-box">
+<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
+<ul>
+<li>各課のPCから自課のFSへの <span class="regmonkey-bold">ファイル共有 SMB（宛先ポート TCP 445）のみ許可</span> し，FS(ファイルサーバー)を保護する</li>
+<li>FSからN社BSへのバックアップは <span class="regmonkey-bold">SCP（宛先ポート TCP 22）</span> ：広域イーサ回線側の e2 を行き OUT・戻り IN の対で許可</li>
+<li>各課PCへのIP割当ては <span class="regmonkey-bold">L3SWのDHCP機能（サーバ／リレー）</span> が担い，セグメントごとに 64～254 を配布レンジとする</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p><img data-src="./m-network-fig2.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:54%;">
+<div class="border-bottom-header">
+<p>L3スイッチフィルタリングルール例</p>
+</div>
+<div class="custom-table" style="width:100%; font-size: 0.55em !important;">
+<div id="yaml-l3sw-filtering" class="yaml2table yaml2table-custom-top" data-col-widths="[7, 9, 18, 17, 12, 14, 13, 10]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
+<span id="cb9-4"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-6"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
+<span id="cb9-8"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
+<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-14"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-16"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-18"><a></a></span>
+<span id="cb9-19"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-20"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
+<span id="cb9-22"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-24"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
+<span id="cb9-26"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
+<span id="cb9-28"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-30"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-32"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-34"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-36"><a></a></span>
+<span id="cb9-37"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-38"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
+<span id="cb9-40"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-42"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
+<span id="cb9-44"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
+<span id="cb9-46"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-47"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-48"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-50"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-52"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-54"><a></a></span>
+<span id="cb9-55"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb9-56"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
+<span id="cb9-58"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-60"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-61"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
+<span id="cb9-62"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-63"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
+<span id="cb9-64"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-65"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-66"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-68"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-69"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-70"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-71"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-72"><a></a></span>
+<span id="cb9-73"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb9-74"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-75"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
+<span id="cb9-76"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-77"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-78"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-79"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
+<span id="cb9-80"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-81"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
+<span id="cb9-82"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-83"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-84"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-85"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-86"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-87"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-88"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-89"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-90"><a></a></span>
+<span id="cb9-91"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb9-92"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-93"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
+<span id="cb9-94"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-95"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-96"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-97"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
+<span id="cb9-98"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-99"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
+<span id="cb9-100"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-101"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-102"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-103"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-104"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-105"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-106"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-107"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-108"><a></a></span>
+<span id="cb9-109"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb9-110"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-111"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
+<span id="cb9-112"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-113"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-114"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-115"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
+<span id="cb9-116"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-117"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
+<span id="cb9-118"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-119"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-120"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-121"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-122"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-123"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb9-124"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-125"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-126"><a></a></span>
+<span id="cb9-127"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb9-128"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-129"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
+<span id="cb9-130"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-131"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-132"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-133"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
+<span id="cb9-134"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-135"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
+<span id="cb9-136"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-137"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-138"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-139"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb9-140"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-141"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-142"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-143"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="font-07">
+<ul>
+<li>上記の他にインターネットアクセスに関するルールなどの設定が必要</li>
+<li>ルールは上から読まれていくので，最後に [<code>ANY</code>, <code>IN/OUT</code>, <code>ANY</code>, <code>ANY</code>, <code>TCP/UDP</code>, <code>ANY</code>, <code>ANY</code>,<code>遮断</code>]のようなルールを加えることでホワイトリスト形式でルール運用することがきでる</li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section>
 <section id="appendix" class="title-slide slide level1 no-auto-agenda center">
 <h1>Appendix</h1>
 
@@ -1894,68 +2534,68 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important;">
 <div id="yaml-osi-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[25, 50, 25]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第7層 アプリケーション層</span></span>
-<span id="cb7-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザーアプリケーションに通信機能を提供する</span></span>
-<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web閲覧・メール送受信・名前解決などを実現する</span></span>
-<span id="cb7-7"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・SMTP・DNS</span></span>
-<span id="cb7-9"><a></a></span>
-<span id="cb7-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第6層 プレゼンテーション層</span></span>
-<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データの表現形式を統一する</span></span>
-<span id="cb7-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 文字コード変換・暗号化・圧縮を担当する</span></span>
-<span id="cb7-16"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLS・SSL・MIME</span></span>
-<span id="cb7-18"><a></a></span>
-<span id="cb7-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb7-20"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第5層 セッション層</span></span>
-<span id="cb7-22"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 通信の開始・維持・終了を管理する</span></span>
-<span id="cb7-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数回のやり取りを1つの会話として扱う</span></span>
-<span id="cb7-25"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NetBIOS・RPC</span></span>
-<span id="cb7-27"><a></a></span>
-<span id="cb7-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb7-29"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第4層 トランスポート層</span></span>
-<span id="cb7-31"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を実現する</span></span>
-<span id="cb7-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポート番号による識別や信頼性制御を行う</span></span>
-<span id="cb7-34"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP</span></span>
-<span id="cb7-36"><a></a></span>
-<span id="cb7-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb7-38"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第3層 ネットワーク層</span></span>
-<span id="cb7-40"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IPアドレスを用いて宛先を識別する</span></span>
-<span id="cb7-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルーターを経由して異なるネットワーク間を中継する</span></span>
-<span id="cb7-43"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP</span></span>
-<span id="cb7-45"><a></a></span>
-<span id="cb7-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb7-47"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第2層 データリンク層</span></span>
-<span id="cb7-49"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを用いて隣接機器へデータを届ける</span></span>
-<span id="cb7-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレーム化や誤り検出を行う</span></span>
-<span id="cb7-52"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・PPP</span></span>
-<span id="cb7-54"><a></a></span>
-<span id="cb7-55"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb7-56"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb7-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第1層 物理層</span></span>
-<span id="cb7-58"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb7-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光・電波へ変換する</span></span>
-<span id="cb7-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ケーブルや無線媒体上で信号を伝送する</span></span>
-<span id="cb7-61"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb7-62"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第7層 アプリケーション層</span></span>
+<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザーアプリケーションに通信機能を提供する</span></span>
+<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web閲覧・メール送受信・名前解決などを実現する</span></span>
+<span id="cb10-7"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・SMTP・DNS</span></span>
+<span id="cb10-9"><a></a></span>
+<span id="cb10-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb10-11"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第6層 プレゼンテーション層</span></span>
+<span id="cb10-13"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データの表現形式を統一する</span></span>
+<span id="cb10-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 文字コード変換・暗号化・圧縮を担当する</span></span>
+<span id="cb10-16"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLS・SSL・MIME</span></span>
+<span id="cb10-18"><a></a></span>
+<span id="cb10-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb10-20"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第5層 セッション層</span></span>
+<span id="cb10-22"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 通信の開始・維持・終了を管理する</span></span>
+<span id="cb10-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数回のやり取りを1つの会話として扱う</span></span>
+<span id="cb10-25"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NetBIOS・RPC</span></span>
+<span id="cb10-27"><a></a></span>
+<span id="cb10-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb10-29"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第4層 トランスポート層</span></span>
+<span id="cb10-31"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を実現する</span></span>
+<span id="cb10-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポート番号による識別や信頼性制御を行う</span></span>
+<span id="cb10-34"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP</span></span>
+<span id="cb10-36"><a></a></span>
+<span id="cb10-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb10-38"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第3層 ネットワーク層</span></span>
+<span id="cb10-40"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IPアドレスを用いて宛先を識別する</span></span>
+<span id="cb10-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルーターを経由して異なるネットワーク間を中継する</span></span>
+<span id="cb10-43"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP</span></span>
+<span id="cb10-45"><a></a></span>
+<span id="cb10-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb10-47"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第2層 データリンク層</span></span>
+<span id="cb10-49"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを用いて隣接機器へデータを届ける</span></span>
+<span id="cb10-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレーム化や誤り検出を行う</span></span>
+<span id="cb10-52"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・PPP</span></span>
+<span id="cb10-54"><a></a></span>
+<span id="cb10-55"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb10-56"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第1層 物理層</span></span>
+<span id="cb10-58"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光・電波へ変換する</span></span>
+<span id="cb10-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ケーブルや無線媒体上で信号を伝送する</span></span>
+<span id="cb10-61"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-62"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -2086,54 +2726,7 @@ sequenceDiagram
 </div>
 </div></div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn9"><p>SMTPやPOPでは，「電子メールで扱えるのはテキストデータのみ」，「電子メールの件名（Subject）に利用できるのは，半角英数字のみ」という原則があります</p></li></ol></aside></section>
-<section id="サブネットマスクとサブネットワークアドレス" class="slide level2">
-<h2>サブネットマスクとサブネットワークアドレス</h2>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
-<p>サブネットマスクが <code>255.255.252.0</code> のとき，IPアドレス <code>172.30.123.45</code> のホストが属するサブネットワークアドレスは？</p>
-</div>
-</div>
-<div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<p><span class="mini-section">① CIDR表記への変換</span></p>
-<ul>
-<li>サブネットマスク <code>255.255.252.0</code> を2進数に変換: <code>11111111.11111111.11111100.00000000</code></li>
-<li>1が連続する個数を数える → <strong>CIDR 表記は <code>/22</code></strong>（<span class="math inline">\(255-252=3\)</span>より <span class="math inline">\(8 + 2 = 10\)</span> bitがホスト部とも計算可能）</li>
-</ul>
-<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<p><span class="mini-section">② ネットワークアドレスの計算</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>IPアドレス <code>172.30.123.45</code> とサブネットマスクの AND 演算</li>
-<li>よってサブネットワークアドレスは <strong><code>172.30.120.0</code></strong></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong><span class="padding-L-10">ネットワークアドレス</span></strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>ネットワークアドレスとは、ネットワークの代表となるアドレス</li>
-<li>IPアドレスのホスト部をすべて <code>0</code> にした値で表される
-<ul>
-<li>ネットワークアドレス: <code>172.30.120.0</code></li>
-<li>利用可能ホスト: <code>172.30.120.1</code> ～ <code>172.30.123.254</code></li>
-<li>ブロードキャストアドレス: <code>172.30.123.255</code></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<p><img data-src="./subnetmask.svg"></p>
-</div></div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn11"><p>SMTPやPOPでは，「電子メールで扱えるのはテキストデータのみ」，「電子メールの件名（Subject）に利用できるのは，半角英数字のみ」という原則があります</p></li></ol></aside></section>
 <section id="ipアドレス重複防止のためicannがipアドレスを管理" class="slide level2">
 <h2>IPアドレス重複防止のため，ICANNがIPアドレスを管理</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -2207,36 +2800,36 @@ sequenceDiagram
 <p>Python製UDPパケット送信モジュール</p>
 </div>
 <div class="font-09">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> logging</span>
-<span id="cb8-2"><a></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
-<span id="cb8-3"><a></a><span class="im">import</span> typer</span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a>logging.getLogger(<span class="st">"scapy"</span>).setLevel(logging.ERROR)</span>
-<span id="cb8-6"><a></a>app <span class="op">=</span> typer.Typer()</span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a><span class="at">@app.command</span>()</span>
-<span id="cb8-9"><a></a><span class="kw">def</span> send_packet(</span>
-<span id="cb8-10"><a></a>    dst: <span class="bu">str</span> <span class="op">=</span> typer.Option(..., <span class="bu">help</span><span class="op">=</span><span class="st">"Destination IP address"</span>),</span>
-<span id="cb8-11"><a></a>    src: Optional[<span class="bu">str</span>] <span class="op">=</span> typer.Option(<span class="va">None</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Source IP address (spoofed)"</span>),</span>
-<span id="cb8-12"><a></a>    dport: <span class="bu">int</span> <span class="op">=</span> typer.Option(<span class="dv">53</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Destination port"</span>),</span>
-<span id="cb8-13"><a></a>    payload: <span class="bu">str</span> <span class="op">=</span> typer.Option(<span class="st">"hello"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Raw UDP payload"</span>),</span>
-<span id="cb8-14"><a></a>    show: <span class="bu">bool</span> <span class="op">=</span> typer.Option(<span class="va">False</span>, <span class="st">"--show/--no-show"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Show IP header before sending"</span>),</span>
-<span id="cb8-15"><a></a>):</span>
-<span id="cb8-16"><a></a>    <span class="im">from</span> scapy.<span class="bu">all</span> <span class="im">import</span> IP, UDP, Raw, send</span>
-<span id="cb8-17"><a></a></span>
-<span id="cb8-18"><a></a>    ip_layer <span class="op">=</span> IP(dst<span class="op">=</span>dst)</span>
-<span id="cb8-19"><a></a>    <span class="cf">if</span> src:</span>
-<span id="cb8-20"><a></a>        ip_layer.src <span class="op">=</span> src</span>
-<span id="cb8-21"><a></a></span>
-<span id="cb8-22"><a></a>    pkt <span class="op">=</span> ip_layer <span class="op">/</span> UDP(dport<span class="op">=</span>dport) <span class="op">/</span> Raw(payload.encode())</span>
-<span id="cb8-23"><a></a></span>
-<span id="cb8-24"><a></a>    <span class="cf">if</span> show:</span>
-<span id="cb8-25"><a></a>        pkt.show()</span>
-<span id="cb8-26"><a></a></span>
-<span id="cb8-27"><a></a>    send(pkt, verbose<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-28"><a></a></span>
-<span id="cb8-29"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb8-30"><a></a>    app()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> logging</span>
+<span id="cb11-2"><a></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb11-3"><a></a><span class="im">import</span> typer</span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a>logging.getLogger(<span class="st">"scapy"</span>).setLevel(logging.ERROR)</span>
+<span id="cb11-6"><a></a>app <span class="op">=</span> typer.Typer()</span>
+<span id="cb11-7"><a></a></span>
+<span id="cb11-8"><a></a><span class="at">@app.command</span>()</span>
+<span id="cb11-9"><a></a><span class="kw">def</span> send_packet(</span>
+<span id="cb11-10"><a></a>    dst: <span class="bu">str</span> <span class="op">=</span> typer.Option(..., <span class="bu">help</span><span class="op">=</span><span class="st">"Destination IP address"</span>),</span>
+<span id="cb11-11"><a></a>    src: Optional[<span class="bu">str</span>] <span class="op">=</span> typer.Option(<span class="va">None</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Source IP address (spoofed)"</span>),</span>
+<span id="cb11-12"><a></a>    dport: <span class="bu">int</span> <span class="op">=</span> typer.Option(<span class="dv">53</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Destination port"</span>),</span>
+<span id="cb11-13"><a></a>    payload: <span class="bu">str</span> <span class="op">=</span> typer.Option(<span class="st">"hello"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Raw UDP payload"</span>),</span>
+<span id="cb11-14"><a></a>    show: <span class="bu">bool</span> <span class="op">=</span> typer.Option(<span class="va">False</span>, <span class="st">"--show/--no-show"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Show IP header before sending"</span>),</span>
+<span id="cb11-15"><a></a>):</span>
+<span id="cb11-16"><a></a>    <span class="im">from</span> scapy.<span class="bu">all</span> <span class="im">import</span> IP, UDP, Raw, send</span>
+<span id="cb11-17"><a></a></span>
+<span id="cb11-18"><a></a>    ip_layer <span class="op">=</span> IP(dst<span class="op">=</span>dst)</span>
+<span id="cb11-19"><a></a>    <span class="cf">if</span> src:</span>
+<span id="cb11-20"><a></a>        ip_layer.src <span class="op">=</span> src</span>
+<span id="cb11-21"><a></a></span>
+<span id="cb11-22"><a></a>    pkt <span class="op">=</span> ip_layer <span class="op">/</span> UDP(dport<span class="op">=</span>dport) <span class="op">/</span> Raw(payload.encode())</span>
+<span id="cb11-23"><a></a></span>
+<span id="cb11-24"><a></a>    <span class="cf">if</span> show:</span>
+<span id="cb11-25"><a></a>        pkt.show()</span>
+<span id="cb11-26"><a></a></span>
+<span id="cb11-27"><a></a>    send(pkt, verbose<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-28"><a></a></span>
+<span id="cb11-29"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-30"><a></a>    app()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column padding-L-10" style="width:50%;">
 <div class="border-bottom-header">
@@ -2248,7 +2841,7 @@ sequenceDiagram
 <p>① 送信元IPに <code>1.2.3.4</code> を指定して送る</p>
 </div>
 <div class="tool-description" style="font-size:1.1em;color: black !important">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">sudo</span> uv run python main.py <span class="at">--dst</span> 8.8.8.8 <span class="at">--src</span> 1.2.3.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">sudo</span> uv run python main.py <span class="at">--dst</span> 8.8.8.8 <span class="at">--src</span> 1.2.3.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 </div>
 <div class="tool-description" style="font-size:0.8em;color: black !important">
@@ -2266,10 +2859,10 @@ sequenceDiagram
 </div>
 <div class="tool-description" style="font-size:1.1em;color: black !important">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">$</span> sudo tcpdump <span class="at">-i</span> any udp port 53 <span class="at">-v</span></span>
-<span id="cb10-2"><a></a><span class="ex">...</span></span>
-<span id="cb10-3"><a></a><span class="ex">13:30:07.461475</span> enp6s0 Out IP <span class="er">(</span><span class="ex">...</span> proto UDP <span class="er">(</span><span class="ex">17</span><span class="kw">)</span><span class="ex">,</span> length 33<span class="kw">)</span></span>
-<span id="cb10-4"><a></a>    <span class="ex">1.2.3.4.domain</span> <span class="op">&gt;</span> dns.google.domain: ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">$</span> sudo tcpdump <span class="at">-i</span> any udp port 53 <span class="at">-v</span></span>
+<span id="cb13-2"><a></a><span class="ex">...</span></span>
+<span id="cb13-3"><a></a><span class="ex">13:30:07.461475</span> enp6s0 Out IP <span class="er">(</span><span class="ex">...</span> proto UDP <span class="er">(</span><span class="ex">17</span><span class="kw">)</span><span class="ex">,</span> length 33<span class="kw">)</span></span>
+<span id="cb13-4"><a></a>    <span class="ex">1.2.3.4.domain</span> <span class="op">&gt;</span> dns.google.domain: ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 </div>
 <div class="tool-description" style="font-size:0.8em;color: black !important">
@@ -2296,26 +2889,26 @@ sequenceDiagram
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
 <div class="regmonkey_index padding-L-10" style="width:100%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb11-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb11-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb11-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb11-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb11-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① プロバイダ・企業名まではすぐわかる</span></span>
-<span id="cb11-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb11-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスはアドレス管理組織が範囲ごとに割り当て，その範囲ごとに管理者名が公開されている</span></span>
-<span id="cb11-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> このため，ログに残る送信元IPから接続先のプロバイダや企業を特定するのは比較的簡単</span></span>
-<span id="cb11-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb11-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 原理的には個人まで特定できる</span></span>
-<span id="cb11-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb11-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロバイダや企業の管理者は，どのIPアドレスを誰に割り当てたかを把握している</span></span>
-<span id="cb11-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスとその利用時刻がわかれば，記録から氏名・住所をたどることは原理的に可能</span></span>
-<span id="cb11-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb11-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ しかし第三者が追跡するのは困難</span></span>
-<span id="cb11-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb11-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 電気通信事業法により，プロバイダには利用者の通信の秘密を守る義務がある</span></span>
-<span id="cb11-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 割り当て先を第三者に明かすのは原則違反で，犯罪捜査など強い理由がない限り開示されない</span></span>
-<span id="cb11-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb14-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb14-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb14-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb14-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb14-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① プロバイダ・企業名まではすぐわかる</span></span>
+<span id="cb14-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスはアドレス管理組織が範囲ごとに割り当て，その範囲ごとに管理者名が公開されている</span></span>
+<span id="cb14-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> このため，ログに残る送信元IPから接続先のプロバイダや企業を特定するのは比較的簡単</span></span>
+<span id="cb14-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb14-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 原理的には個人まで特定できる</span></span>
+<span id="cb14-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロバイダや企業の管理者は，どのIPアドレスを誰に割り当てたかを把握している</span></span>
+<span id="cb14-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスとその利用時刻がわかれば，記録から氏名・住所をたどることは原理的に可能</span></span>
+<span id="cb14-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb14-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ しかし第三者が追跡するのは困難</span></span>
+<span id="cb14-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 電気通信事業法により，プロバイダには利用者の通信の秘密を守る義務がある</span></span>
+<span id="cb14-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 割り当て先を第三者に明かすのは原則違反で，犯罪捜査など強い理由がない限り開示されない</span></span>
+<span id="cb14-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="無線lanとieee-802.11" class="slide level2">
@@ -2332,78 +2925,78 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:60%; font-size: 0.65em !important;">
 <div id="yaml-ieee80211-generations" class="yaml2table yaml2table-custom-top" data-col-widths="[14, 16, 16, 18, 36]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb12-2"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb12-3"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11a</span></span>
-<span id="cb12-4"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
-<span id="cb12-5"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
-<span id="cb12-6"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；11bと同年だが互換性はなく普及は限定的</span></span>
-<span id="cb12-8"><a></a></span>
-<span id="cb12-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb12-10"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb12-11"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11b</span></span>
-<span id="cb12-12"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 11 Mbps</span></span>
-<span id="cb12-13"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
-<span id="cb12-14"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；無線LAN普及の最初期を担った</span></span>
-<span id="cb12-16"><a></a></span>
-<span id="cb12-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb12-18"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb12-19"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11g</span></span>
-<span id="cb12-20"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
-<span id="cb12-21"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
-<span id="cb12-22"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 2003年策定；11bと互換しつつ54Mbpsへ高速化</span></span>
-<span id="cb12-24"><a></a></span>
-<span id="cb12-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb12-26"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 4</span></span>
-<span id="cb12-27"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11n</span></span>
-<span id="cb12-28"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 600 Mbps</span></span>
-<span id="cb12-29"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
-<span id="cb12-30"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MIMO（複数アンテナ）を初採用し，2.4/5GHz両対応に</span></span>
-<span id="cb12-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 家庭・オフィスでの普及の起点となった世代</span></span>
-<span id="cb12-33"><a></a></span>
-<span id="cb12-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb12-35"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 5</span></span>
-<span id="cb12-36"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ac</span></span>
-<span id="cb12-37"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 6.9 Gbps</span></span>
-<span id="cb12-38"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
-<span id="cb12-39"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5GHz専用・広帯域チャネルで動画ストリーミングに対応</span></span>
-<span id="cb12-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MU-MIMOで複数端末への同時通信を実現</span></span>
-<span id="cb12-42"><a></a></span>
-<span id="cb12-43"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb12-44"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6</span></span>
-<span id="cb12-45"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
-<span id="cb12-46"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
-<span id="cb12-47"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
-<span id="cb12-48"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OFDMAで&lt;span class="regmonkey-bold"&gt;多端末同時接続時の効率&lt;/span&gt;を改善</span></span>
-<span id="cb12-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IoT・高密度環境（駅・スタジアム等）に強い</span></span>
-<span id="cb12-51"><a></a></span>
-<span id="cb12-52"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb12-53"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6E</span></span>
-<span id="cb12-54"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
-<span id="cb12-55"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
-<span id="cb12-56"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
-<span id="cb12-57"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 6GHz帯を新規開放し，混雑の少ない帯域を確保</span></span>
-<span id="cb12-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 低遅延・大容量通信に対応</span></span>
-<span id="cb12-60"><a></a></span>
-<span id="cb12-61"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb12-62"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 7</span></span>
-<span id="cb12-63"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11be</span></span>
-<span id="cb12-64"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 46 Gbps</span></span>
-<span id="cb12-65"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
-<span id="cb12-66"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb12-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 320MHz幅・4096-QAM・MLO（複数帯域同時利用）を採用</span></span>
-<span id="cb12-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> VR・8K動画など&lt;span class="regmonkey-bold"&gt;超高帯域用途&lt;/span&gt;を想定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb15-2"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-3"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11a</span></span>
+<span id="cb15-4"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb15-5"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb15-6"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；11bと同年だが互換性はなく普及は限定的</span></span>
+<span id="cb15-8"><a></a></span>
+<span id="cb15-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb15-10"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-11"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11b</span></span>
+<span id="cb15-12"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 11 Mbps</span></span>
+<span id="cb15-13"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb15-14"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；無線LAN普及の最初期を担った</span></span>
+<span id="cb15-16"><a></a></span>
+<span id="cb15-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb15-18"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-19"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11g</span></span>
+<span id="cb15-20"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb15-21"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb15-22"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 2003年策定；11bと互換しつつ54Mbpsへ高速化</span></span>
+<span id="cb15-24"><a></a></span>
+<span id="cb15-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb15-26"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 4</span></span>
+<span id="cb15-27"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11n</span></span>
+<span id="cb15-28"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 600 Mbps</span></span>
+<span id="cb15-29"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb15-30"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MIMO（複数アンテナ）を初採用し，2.4/5GHz両対応に</span></span>
+<span id="cb15-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 家庭・オフィスでの普及の起点となった世代</span></span>
+<span id="cb15-33"><a></a></span>
+<span id="cb15-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb15-35"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 5</span></span>
+<span id="cb15-36"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ac</span></span>
+<span id="cb15-37"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 6.9 Gbps</span></span>
+<span id="cb15-38"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb15-39"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5GHz専用・広帯域チャネルで動画ストリーミングに対応</span></span>
+<span id="cb15-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MU-MIMOで複数端末への同時通信を実現</span></span>
+<span id="cb15-42"><a></a></span>
+<span id="cb15-43"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb15-44"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6</span></span>
+<span id="cb15-45"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb15-46"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb15-47"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb15-48"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OFDMAで&lt;span class="regmonkey-bold"&gt;多端末同時接続時の効率&lt;/span&gt;を改善</span></span>
+<span id="cb15-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IoT・高密度環境（駅・スタジアム等）に強い</span></span>
+<span id="cb15-51"><a></a></span>
+<span id="cb15-52"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb15-53"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6E</span></span>
+<span id="cb15-54"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb15-55"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb15-56"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb15-57"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 6GHz帯を新規開放し，混雑の少ない帯域を確保</span></span>
+<span id="cb15-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 低遅延・大容量通信に対応</span></span>
+<span id="cb15-60"><a></a></span>
+<span id="cb15-61"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb15-62"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 7</span></span>
+<span id="cb15-63"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11be</span></span>
+<span id="cb15-64"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 46 Gbps</span></span>
+<span id="cb15-65"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb15-66"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 320MHz幅・4096-QAM・MLO（複数帯域同時利用）を採用</span></span>
+<span id="cb15-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> VR・8K動画など&lt;span class="regmonkey-bold"&gt;超高帯域用途&lt;/span&gt;を想定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn10"><p>半二重通信と呼ぶ</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>半二重通信と呼ぶ</p></li></ol></aside></section>
 <section id="無線lanとcsmaca方式-通信の衝突を回避する技術" class="slide level2">
 <h2>無線LANとCSMA/CA方式: 通信の衝突を回避する技術</h2>
 <p><span class="topleftbox">CSMA/CA方式 with RTS/CTS</span></p>
@@ -2465,65 +3058,65 @@ sequenceDiagram
 </div>
 </div>
 <!-- footer -->
-<aside><ol class="aside-footnotes"><li id="fn11"><p>このランダムな待ち時間のことをバックオフ制御時間と呼ぶ</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn13"><p>このランダムな待ち時間のことをバックオフ制御時間と呼ぶ</p></li></ol></aside></section>
 <section id="インターネット利用時の注意点" class="slide level2">
 <h2>インターネット利用時の注意点</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.7em !important;">
 <div id="yaml-claude-md-design" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb13-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ポート管理</span></span>
-<span id="cb13-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利用しないポートは&lt;span class="regmonkey-bold"&gt;必ず閉じる&lt;/span&gt;</span></span>
-<span id="cb13-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）</span></span>
-<span id="cb13-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要なサービス・デーモンは停止し，ポートを解放</span></span>
-<span id="cb13-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖</span></span>
-<span id="cb13-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開放ポートはアクセス元IPをACLで絞り込む</span></span>
-<span id="cb13-10"><a></a></span>
-<span id="cb13-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb13-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイアウォール</span></span>
-<span id="cb13-13"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ</span></span>
-<span id="cb13-15"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インバウンド・アウトバウンドの両方向にルールを設定</span></span>
-<span id="cb13-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 常時接続は&lt;span class="regmonkey-bold"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する</span></span>
-<span id="cb13-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審なIPレンジはブラックリスト登録</span></span>
-<span id="cb13-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルール変更は変更管理ログに記録し定期レビューする</span></span>
-<span id="cb13-20"><a></a></span>
-<span id="cb13-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb13-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> セキュリティパッチ</span></span>
-<span id="cb13-23"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知脆弱性は&lt;span class="regmonkey-bold"&gt;公開直後に適用&lt;/span&gt;することが最大の防御</span></span>
-<span id="cb13-25"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS・ミドルウェア・ファームウェアの自動更新を有効化</span></span>
-<span id="cb13-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CVEアドバイザリを購読し，重大度 Critical/High を優先対応</span></span>
-<span id="cb13-28"><a></a></span>
-<span id="cb13-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb13-30"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 通信暗号化</span></span>
-<span id="cb13-31"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 平文通信は&lt;span class="regmonkey-bold"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する</span></span>
-<span id="cb13-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨</span></span>
-<span id="cb13-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行</span></span>
-<span id="cb13-36"><a></a></span>
-<span id="cb13-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb13-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MACアドレスフィルタリング</span></span>
-<span id="cb13-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 登録済みデバイス以外の&lt;span class="regmonkey-bold"&gt;接続を物理層で排除&lt;/span&gt;する</span></span>
-<span id="cb13-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AP・スイッチに許可MACリストを登録し，未登録端末を遮断</span></span>
-<span id="cb13-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規デバイス追加時は申請フローを設け，無断接続を抑止</span></span>
-<span id="cb13-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的にDHCPリースログを確認し，未知MACを検出する</span></span>
-<span id="cb13-45"><a></a></span>
-<span id="cb13-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb13-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LAN内脅威対策</span></span>
-<span id="cb13-48"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb13-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部ネットワークも&lt;span class="regmonkey-bold"&gt;ゼロトラストで扱う&lt;/span&gt;</span></span>
-<span id="cb13-50"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb13-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化</span></span>
-<span id="cb13-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 接続端末のエンドポイント保護（EDR/AV）を必須化</span></span>
-<span id="cb13-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審な通信量・パターンをIDSで監視し，アラートを設定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb16-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ポート管理</span></span>
+<span id="cb16-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利用しないポートは&lt;span class="regmonkey-bold"&gt;必ず閉じる&lt;/span&gt;</span></span>
+<span id="cb16-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）</span></span>
+<span id="cb16-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要なサービス・デーモンは停止し，ポートを解放</span></span>
+<span id="cb16-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖</span></span>
+<span id="cb16-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開放ポートはアクセス元IPをACLで絞り込む</span></span>
+<span id="cb16-10"><a></a></span>
+<span id="cb16-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb16-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイアウォール</span></span>
+<span id="cb16-13"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ</span></span>
+<span id="cb16-15"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インバウンド・アウトバウンドの両方向にルールを設定</span></span>
+<span id="cb16-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 常時接続は&lt;span class="regmonkey-bold"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する</span></span>
+<span id="cb16-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審なIPレンジはブラックリスト登録</span></span>
+<span id="cb16-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルール変更は変更管理ログに記録し定期レビューする</span></span>
+<span id="cb16-20"><a></a></span>
+<span id="cb16-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb16-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> セキュリティパッチ</span></span>
+<span id="cb16-23"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知脆弱性は&lt;span class="regmonkey-bold"&gt;公開直後に適用&lt;/span&gt;することが最大の防御</span></span>
+<span id="cb16-25"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS・ミドルウェア・ファームウェアの自動更新を有効化</span></span>
+<span id="cb16-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CVEアドバイザリを購読し，重大度 Critical/High を優先対応</span></span>
+<span id="cb16-28"><a></a></span>
+<span id="cb16-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb16-30"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 通信暗号化</span></span>
+<span id="cb16-31"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 平文通信は&lt;span class="regmonkey-bold"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する</span></span>
+<span id="cb16-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨</span></span>
+<span id="cb16-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行</span></span>
+<span id="cb16-36"><a></a></span>
+<span id="cb16-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb16-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MACアドレスフィルタリング</span></span>
+<span id="cb16-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 登録済みデバイス以外の&lt;span class="regmonkey-bold"&gt;接続を物理層で排除&lt;/span&gt;する</span></span>
+<span id="cb16-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AP・スイッチに許可MACリストを登録し，未登録端末を遮断</span></span>
+<span id="cb16-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規デバイス追加時は申請フローを設け，無断接続を抑止</span></span>
+<span id="cb16-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的にDHCPリースログを確認し，未知MACを検出する</span></span>
+<span id="cb16-45"><a></a></span>
+<span id="cb16-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb16-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LAN内脅威対策</span></span>
+<span id="cb16-48"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部ネットワークも&lt;span class="regmonkey-bold"&gt;ゼロトラストで扱う&lt;/span&gt;</span></span>
+<span id="cb16-50"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化</span></span>
+<span id="cb16-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 接続端末のエンドポイント保護（EDR/AV）を必須化</span></span>
+<span id="cb16-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審な通信量・パターンをIDSで監視し，アラートを設定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -2534,7 +3127,8 @@ sequenceDiagram
 </section>
 <section id="関連request-for-comments一覧" class="slide level2">
 <h2>関連Request for Comments一覧</h2>
-<div class="reveal_vspace" style="--vspace-height: 1em;"></div>
+<p><span class="h2-submessage">ネットワーク層：IP・IPv6の基本仕様</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="message-card font-08">
 <div class="message-card-title-no-margin center">
 <p><a href="https://datatracker.ietf.org/doc/html/rfc791" style="color: white"><strong>RFC 791: Internet Protocol</strong></a></p>
@@ -2543,6 +3137,154 @@ sequenceDiagram
 <ul>
 <li>IPv4の基本仕様を定めたIETFの標準文書</li>
 <li>IPアドレス・フラグメンテーション・TTL・プロトコルフィールドなどの構造を規定</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc8200" style="color: white"><strong>RFC 8200: Internet Protocol, Version 6 (IPv6) Specification</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>IPv6の基本仕様を定めた標準文書：RFC 2460を置き換える現行版</li>
+<li>128ビットアドレス・40バイト固定の基本ヘッダー・拡張ヘッダーの構造を規定</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc4862" style="color: white"><strong>RFC 4862: IPv6 Stateless Address Autoconfiguration</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>ルーター広告（RA）のプレフィックスから端末が自力でアドレスを生成するSLAACの仕様</li>
+<li>重複アドレス検出（DAD）やアドレスの有効期限の管理手順を規定</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="関連request-for-comments一覧-1" class="slide level2">
+<h2>関連Request for Comments一覧</h2>
+<p><span class="h2-submessage">ネットワーク層：アドレスの配布・管理</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc2131" style="color: white"><strong>RFC 2131: Dynamic Host Configuration Protocol</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>IPアドレス・サブネットマスク・デフォルトゲートウェイなどをサーバーから自動配布するDHCPの仕様</li>
+<li>Discover → Offer → Request → ACK の4段階でリース（貸与）を確立</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc1918" style="color: white"><strong>RFC 1918: Address Allocation for Private Internets</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>組織内で自由に使えるプライベートアドレス空間（<code>10.0.0.0/8</code>・<code>172.16.0.0/12</code>・<code>192.168.0.0/16</code>）を予約</li>
+<li>インターネット上にはルーティングされないため，外部との通信にはNATによる変換が必要</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="関連request-for-comments一覧-2" class="slide level2">
+<h2>関連Request for Comments一覧</h2>
+<p><span class="h2-submessage">トランスポート層：TCP・UDP</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc9293" style="color: white"><strong>RFC 9293: Transmission Control Protocol (TCP)</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>コネクション型で信頼性のあるデータ転送を提供するTCPの現行標準：RFC 793を置き換え</li>
+<li>3ウェイハンドシェイク・再送制御・ウィンドウによるフロー制御を規定</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc768" style="color: white"><strong>RFC 768: User Datagram Protocol</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>コネクションレスで軽量なデータグラム転送を提供するUDPの標準文書</li>
+<li>再送・順序保証を持たない分オーバーヘッドが小さく，DNS・DHCP・音声・動画配信などで利用</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="関連request-for-comments一覧-3" class="slide level2">
+<h2>関連Request for Comments一覧</h2>
+<p><span class="h2-submessage">アプリケーション層：Web・電子メール</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc9110" style="color: white"><strong>RFC 9110: HTTP Semantics</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>Webで用いるHTTPの意味論（メソッド・ステータスコード・ヘッダー）を定義する現行標準</li>
+<li>HTTP/1.1・HTTP/2・HTTP/3 に共通する概念を一つの文書に整理</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc5321" style="color: white"><strong>RFC 5321: Simple Mail Transfer Protocol</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>電子メールを送信・中継するSMTPの仕様：メールサーバー間の配送手順を規定</li>
+<li>添付ファイルや日本語件名はMIME（<a href="https://datatracker.ietf.org/doc/html/rfc2045">RFC 2045</a>）による拡張で実現</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc1939" style="color: white"><strong>RFC 1939: Post Office Protocol - Version 3</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>メールサーバーの受信箱からメールを取り出すPOP3の標準文書</li>
+<li>ダウンロード後にサーバーから削除する利用形態を想定：サーバー側でのメール管理はIMAPが担う</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="関連request-for-comments一覧-4" class="slide level2">
+<h2>関連Request for Comments一覧</h2>
+<p><span class="h2-submessage">データリンク層：PPP・ARP</span></p>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc1661" style="color: white"><strong>RFC 1661: The Point-to-Point Protocol (PPP)</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>2点間を1対1で接続するデータリンク層プロトコルの標準文書</li>
+<li>LCPによるリンク確立・NCPによる上位プロトコル設定・認証（PAP・CHAP）の枠組みを規定</li>
+</ul>
+</div>
+</div>
+<div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
+<div class="message-card font-08">
+<div class="message-card-title-no-margin center">
+<p><a href="https://datatracker.ietf.org/doc/html/rfc826" style="color: white"><strong>RFC 826: An Ethernet Address Resolution Protocol</strong></a></p>
+</div>
+<div class="message-card-body squaredmark font-09">
+<ul>
+<li>IPアドレスから宛先のMACアドレスを解決するARPの標準文書</li>
+<li>同一データリンク内へのブロードキャスト問い合わせで宛先NICを特定する</li>
 </ul>
 </div>
 </div>
