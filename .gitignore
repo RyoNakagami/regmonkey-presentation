@@ -53,3 +53,6 @@ npm-debug.log*
 
 **/*.quarto_ipynb
 **/*.quarto_ipynb_*
+
+# pictures
+*.tikz

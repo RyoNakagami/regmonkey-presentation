@@ -3,15 +3,28 @@
   display: none;
 }
 
-/* The agenda heading, if specified via auto-agenda.heading */
+/* The agenda heading, if specified via auto-agenda.heading.
+   --agenda-* custom properties are injected as inline styles by
+   reveal-auto-agenda.lua when the deck sets auto-agenda options
+   (font-size / item-spacing / line-height / heading-font-size). */
 .agenda-heading {
-  font-size: 1.25em;
+  font-size: var(--agenda-heading-font-size, 1.25em);
   font-weight: bold;
   margin-bottom: 0.5em;
 }
 
 /* The container class for auto-agenda */
 .agenda {
+  font-size: var(--agenda-font-size, 1em);
+}
+
+.agenda li {
+  margin: var(--agenda-item-spacing, 0.3em) 0;
+}
+
+.agenda ul,
+.agenda ol {
+  line-height: var(--agenda-line-height, 1.4);
 }
 
 /* Auto-injected "Agenda" header.

@@ -289,10 +289,14 @@ svg.fas {
 /* "Agenda" heading injected by reveal-auto-agenda when the deck sets
    auto-agenda.heading. Styled to match .reveal h2 so it sits at the
    same position as a normal H2. */
+/* --agenda-* custom properties are injected as inline styles by
+   reveal-auto-agenda.lua when the deck sets auto-agenda options
+   (font-size / item-spacing / line-height / heading-font-size).
+   Fallback values below are the site defaults. */
 .agenda-heading {
   font-family: $font-meiryo;
   color: $brand-primary;
-  font-size: 40pt;
+  font-size: var(--agenda-heading-font-size, 40pt);
   font-weight: bold;
   text-align: left;
   padding-bottom: 0;
@@ -300,7 +304,7 @@ svg.fas {
 }
 
 .agenda {
-  font-size: 26pt;
+  font-size: var(--agenda-font-size, 26pt);
   width: 100%;
   text-align: left;
   padding: 0;
@@ -312,12 +316,12 @@ svg.fas {
   width: 100%;
   margin: 0;
   padding: 0;
-  line-height: 1.4;
+  line-height: var(--agenda-line-height, 1.4);
 }
 
 .agenda li {
-  padding: 0.4em 0.6em;
-  margin: 0.3em 0;
+  padding: var(--agenda-item-padding, 0.4em) 0.6em;
+  margin: var(--agenda-item-spacing, 0.3em) 0;
   color: $brand-text;
   font-weight: normal;
 }
@@ -336,7 +340,9 @@ svg.fas {
 .agenda-active,
 .agenda-inactive,
 .agenda-pre-active,
-.agenda-post-active {
+.agenda-post-active,
+.agenda-sub-active,
+.agenda-sub-inactive {
   background: transparent;
   color: inherit;
   opacity: 1;
@@ -348,11 +354,64 @@ svg.fas {
 .agenda-active p,
 .agenda-inactive p,
 .agenda-pre-active p,
-.agenda-post-active p {
+.agenda-post-active p,
+.agenda-sub-active p,
+.agenda-sub-inactive p {
   margin: 0;
   display: inline;
   color: inherit;
   font-size: 1.2em;
+}
+
+/* Nested sections (H1 with {.nested}) rendered as indented sub-items */
+.agenda .agenda-subs {
+  font-size: var(--agenda-sub-font-size, 0.8em);
+  font-weight: normal;
+}
+
+.agenda .agenda-subs ul,
+.agenda .agenda-subs ol {
+  margin: 0 0 0 2em;
+}
+
+.agenda .agenda-subs li {
+  padding: calc(var(--agenda-item-padding, 0.4em) * 0.6) 0.6em;
+  margin: calc(var(--agenda-item-spacing, 0.3em) * 0.6) 0;
+}
+
+/* when a nested section is active, the navy band goes to the sub item */
+.agenda .agenda-subs li:has(.agenda-sub-active) {
+  background-color: $brand-primary;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Items that contain nested sections: the navy band must cover only the
+   section-title row, not the sub items. The li itself is therefore never
+   banded — the marker and the band move to the title div instead. */
+.agenda li:has(> .agenda-subs) {
+  list-style: none;
+  padding: 0;
+}
+
+.agenda li:has(> .agenda-subs) > .agenda-active,
+.agenda li:has(> .agenda-subs) > .agenda-inactive {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: disc;
+  padding: var(--agenda-item-padding, 0.4em) 0.6em;
+}
+
+.agenda li:has(> .agenda-subs):has(> .agenda-active) {
+  background: transparent;
+  color: $brand-text;
+  font-weight: normal;
+}
+
+.agenda li:has(> .agenda-subs) > .agenda-active {
+  background-color: $brand-primary;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .agenda p,
