@@ -1,0 +1,97 @@
+<svg viewBox="0 0 1180 520" width="100%" preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="Meiryo, 'メイリオ', system-ui, sans-serif"
+     style="display:block;margin:0 auto;">
+
+  <defs>
+    <marker id="arrowNavy" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0E3666"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#575757"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1180" height="520" fill="#FFFFFF"/>
+
+  <!-- ===== NODE 1: ICANN (x=30, w=210) ===== -->
+  <rect x="30" y="30" width="210" height="420" rx="10" fill="#E8F1FE" stroke="#0E3666" stroke-width="2"/>
+  <rect x="30" y="30" width="210" height="6" rx="3" fill="#0E3666"/>
+  <text x="135" y="74" font-size="18" font-weight="700" fill="#0E3666" text-anchor="middle">ICANN</text>
+  <text x="135" y="96" font-size="13" fill="#575757" text-anchor="middle">Internet Corporation for</text>
+  <text x="135" y="113" font-size="13" fill="#575757" text-anchor="middle">Assigned Names &amp; Numbers</text>
+  <line x1="48" y1="128" x2="222" y2="128" stroke="#DEDEDE" stroke-width="1"/>
+  <text x="135" y="158" font-size="14" fill="#1A1A1A" text-anchor="middle">IPv4・IPv6</text>
+  <text x="135" y="180" font-size="14" fill="#1A1A1A" text-anchor="middle">アドレス空間全体を管理</text>
+  <text x="135" y="212" font-size="14" fill="#1A1A1A" text-anchor="middle">5つのRIRへ</text>
+  <text x="135" y="234" font-size="14" fill="#1A1A1A" text-anchor="middle">ブロック単位で委譲</text>
+  <rect x="62" y="418" width="156" height="24" rx="4" fill="#0E3666"/>
+  <text x="140" y="435" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">GLOBAL AUTHORITY</text>
+
+  <!-- Arrow ICANN → RIR -->
+  <line x1="240" y1="223" x2="293" y2="223" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <text x="266" y="200" font-size="12" fill="#575757" text-anchor="middle">大規模</text>
+  <text x="266" y="215" font-size="12" fill="#575757" text-anchor="middle">ブロック委譲</text>
+
+  <!-- ===== NODE 2: RIR (x=295, w=220) ===== -->
+  <rect x="295" y="30" width="220" height="420" rx="10" fill="#E8F1FE" stroke="#428CE6" stroke-width="2"/>
+  <rect x="295" y="30" width="220" height="6" rx="3" fill="#428CE6"/>
+  <text x="405" y="74" font-size="18" font-weight="700" fill="#0E3666" text-anchor="middle">RIR</text>
+  <text x="405" y="96" font-size="13" fill="#575757" text-anchor="middle">地域インターネットレジストリ</text>
+  <line x1="312" y1="112" x2="498" y2="112" stroke="#DEDEDE" stroke-width="1"/>
+  <text x="312" y="140" font-size="13" fill="#1A1A1A">• APNIC（アジア太平洋）</text>
+  <text x="312" y="162" font-size="13" fill="#1A1A1A">• ARIN（北米）</text>
+  <text x="312" y="184" font-size="13" fill="#1A1A1A">• RIPE NCC（欧州・中東）</text>
+  <text x="312" y="206" font-size="13" fill="#1A1A1A">• LACNIC（中南米）</text>
+  <text x="312" y="228" font-size="13" fill="#1A1A1A">• AFRINIC（アフリカ）</text>
+  <line x1="312" y1="244" x2="498" y2="244" stroke="#DEDEDE" stroke-width="1"/>
+  <text x="405" y="272" font-size="14" fill="#1A1A1A" text-anchor="middle">各地域のISPへ</text>
+  <text x="405" y="294" font-size="14" fill="#1A1A1A" text-anchor="middle">IPブロックを割り当て</text>
+  <rect x="327" y="418" width="156" height="24" rx="4" fill="#428CE6"/>
+  <text x="405" y="435" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">REGIONAL REGISTRY</text>
+
+  <!-- Arrow RIR → ISP -->
+  <line x1="515" y1="223" x2="563" y2="223" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <text x="539" y="200" font-size="12" fill="#575757" text-anchor="middle">IPブロック</text>
+  <text x="539" y="215" font-size="12" fill="#575757" text-anchor="middle">割り当て</text>
+
+  <!-- ===== NODE 3: ISP (x=565, w=220) ===== -->
+  <rect x="565" y="30" width="220" height="420" rx="10" fill="#E8F1FE" stroke="#428CE6" stroke-width="2"/>
+  <rect x="565" y="30" width="220" height="6" rx="3" fill="#428CE6"/>
+  <text x="675" y="74" font-size="18" font-weight="700" fill="#0E3666" text-anchor="middle">ISP</text>
+  <text x="675" y="96" font-size="13" fill="#575757" text-anchor="middle">インターネットサービスプロバイダ</text>
+  <line x1="582" y1="112" x2="768" y2="112" stroke="#DEDEDE" stroke-width="1"/>
+  <text x="675" y="145" font-size="14" fill="#1A1A1A" text-anchor="middle">RIRから受領した</text>
+  <text x="675" y="167" font-size="14" fill="#1A1A1A" text-anchor="middle">IPブロックを管理</text>
+  <text x="675" y="199" font-size="14" fill="#1A1A1A" text-anchor="middle">契約企業・個人ユーザーへ</text>
+  <text x="675" y="221" font-size="14" fill="#1A1A1A" text-anchor="middle">アドレスを払い出し</text>
+  <text x="582" y="258" font-size="13" fill="#575757">例: NTT, KDDI, SoftBank</text>
+  <text x="582" y="278" font-size="13" fill="#575757">　　IIJ, OCN など</text>
+  <rect x="597" y="418" width="156" height="24" rx="4" fill="#428CE6"/>
+  <text x="675" y="435" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">INTERNET PROVIDER</text>
+
+  <!-- Arrow ISP → Enterprise/User (splits) -->
+  <line x1="785" y1="167" x2="838" y2="167" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <line x1="785" y1="317" x2="838" y2="317" stroke="#0E3666" stroke-width="2" marker-end="url(#arrowNavy)"/>
+  <line x1="785" y1="167" x2="785" y2="317" stroke="#0E3666" stroke-width="2"/>
+  <text x="811" y="246" font-size="12" fill="#575757" text-anchor="middle">払い出し</text>
+
+  <!-- ===== NODE 4a: Enterprise (x=840, w=300) ===== -->
+  <rect x="840" y="45" width="300" height="185" rx="10" fill="#E8F1FE" stroke="#428CE6" stroke-width="2"/>
+  <rect x="840" y="45" width="300" height="6" rx="3" fill="#428CE6"/>
+  <text x="990" y="84" font-size="16" font-weight="700" fill="#0E3666" text-anchor="middle">企業ネットワーク</text>
+  <text x="990" y="104" font-size="13" fill="#575757" text-anchor="middle">Enterprise Network</text>
+  <text x="858" y="136" font-size="13" fill="#1A1A1A">・固定IPアドレスブロックを取得</text>
+  <text x="858" y="158" font-size="13" fill="#1A1A1A">・社内で各端末・サーバーへ割り当て</text>
+  <text x="858" y="180" font-size="13" fill="#1A1A1A">・NATにより内部アドレスと変換</text>
+
+  <!-- ===== NODE 4b: Individual User (x=840, w=300) ===== -->
+  <rect x="840" y="250" width="300" height="185" rx="10" fill="#DEDEDE" stroke="#575757" stroke-width="2"/>
+  <rect x="840" y="250" width="300" height="6" rx="3" fill="#575757"/>
+  <text x="990" y="289" font-size="16" font-weight="700" fill="#1A1A1A" text-anchor="middle">個人ユーザー</text>
+  <text x="990" y="309" font-size="13" fill="#575757" text-anchor="middle">Individual / Home User</text>
+  <text x="858" y="341" font-size="13" fill="#1A1A1A">・接続時にIPアドレスを動的付与</text>
+  <text x="858" y="363" font-size="13" fill="#1A1A1A">・DHCPにより自動割り当て</text>
+  <text x="858" y="385" font-size="13" fill="#1A1A1A">・グローバルIPはISP管理下</text>
+</svg>

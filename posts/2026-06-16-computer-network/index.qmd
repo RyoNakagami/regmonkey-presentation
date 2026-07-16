@@ -14,6 +14,12 @@ filters:
   - regmonkey_step_flow
 auto-agenda:
   bullets: bullets
+  font-size: 24pt          # アジェンダ項目のフォントサイズ（default: 26pt）
+  item-spacing: 0.1em      # 項目間の上下マージン（default: 0.3em）
+  item-padding: 0.3em      # 各項目内側の上下パディング（default: 0.4em）
+  line-height: 1.1         # リストの行間（default: 1.4）
+  sub-font-size: 1em       # ネスト項目のフォントサイズ・親項目比（default: 0.8em）
+
 # chalkboard: false
 # embed-resources: true
 ---
@@ -255,7 +261,7 @@ Network Interface card
 :::
 
 
-# TCP/IPの概要
+# TCP/IPの概要{.nested}
 ## TCP/IPでは送受信の一連の作業を層に分けて処理している
 
 {{< reveal_vspace 0.5em >}}
@@ -335,7 +341,7 @@ record5:
 :::
 ::::
 
-:::{.font-09}
+:::{.font-08}
 
 - 各階層に存在する通信機器などの実態を[エンティティ]{.regmonkey-bold}と呼ぶ
 - プロトコルの組み合わせを変えることで，いろいろなアプリケーションや機器に対応できる
@@ -590,11 +596,11 @@ record:
 
 [^router-roles]: **中継ルータ**：WAN内でパケットを次のルータへ転送する一般的なルータ（経路選択を担う）．**コアルータ**：ISP網の中心で大量のトラフィックを高速転送する基幹ルータ．**境界ルータ**：自網と外部網（別ISP・LAN）の接点に置かれ，網をまたぐ出入口となるルータ．
 
-# アプリケーション層
+# アプリケーション層{.nested}
 ## アプリケーションプロトコル
 
 
-# トランスポート層
+# トランスポート層{.nested}
 ## トランスポート層の役割
 
 {{< reveal_vspace 0.75em >}}
@@ -855,7 +861,7 @@ record8:
 :::
 ::::
 
-# ネットワーク層
+# ネットワーク層{.nested}
 ## ネットワーク層[^osimodelbased]の役割
 
 {{< reveal_vspace 0.5em >}}
@@ -1141,6 +1147,61 @@ IPv4 vs IPv6
 
 [^addressclass]: Pアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (`/8`: 大規模ネットワーク)，クラスB (`/26`: 中規模)，クラスC (`/24`: 小規模)に分類する方式のこと
 
+## サブネットマスクとサブネットワークアドレス
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+サブネットマスクが `255.255.252.0` のとき，IPアドレス `172.30.123.45` のホストが属するサブネットワークアドレスは？
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+[① CIDR表記への変換]{.mini-section}
+
+
+- サブネットマスク `255.255.252.0` を2進数に変換: `11111111.11111111.11111100.00000000`[^subnetmaskrule]
+- 1が連続する個数を数える → **CIDR 表記は `/22`**（$255-252=3$より $8 + 2 = 10$ bitがホスト部とも計算可能）
+
+{{< reveal_vspace 0.5em >}}
+
+[② ネットワークアドレスの計算]{.mini-section}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- IPアドレス `172.30.123.45` とサブネットマスクの AND 演算
+- よってサブネットワークアドレスは **`172.30.120.0`**
+
+
+::: {.callout-note}
+### [ネットワークアドレス]{.padding-L-10}
+
+- ネットワークアドレスとは、ネットワークの代表となるアドレス
+- IPアドレスのホスト部をすべて `0` にした値で表される
+  - ネットワークアドレス: `172.30.120.0`
+  - 利用可能ホスト: `172.30.120.1` ～ `172.30.123.254`
+  - ブロードキャストアドレス: `172.30.123.255`
+
+:::
+
+
+
+:::
+::: {.column width="50%"}
+
+![](./subnetmask.svg)
+
+:::
+::::
+
+[^subnetmaskrule]: 左端から始まる「1」の部分がネットワーク部を表すので，`255.255.255.1` などは設定不可能
+
 
 ## ネットワークの細分化
 
@@ -1220,16 +1281,22 @@ IPv4 vs IPv6
 :::
 ::: {.column width="50%"}
 
-{{< reveal_vspace 0.25em >}}
+:::{.border-bottom-header}
 
-::: {.callout-note icon="false" .font-11}
-### Quiz: サブネットの分割
+Quiz: サブネットの分割
+
+:::
+
+:::{.font-08}
+
+[問題]{.mini-section}
+
+:::{.padding-L-20}
 
 クラスC[^classcip]のIPアドレスを分割して，10個のサブネットを使用したい．ホスト数が最も多くなるように分割した場合のサブネットマスクはどうなるか？
 
 :::
 
-:::{.font-08}
 
 [解答]{.mini-section}
 
@@ -1370,7 +1437,214 @@ $ ip addr show eth0
 :::
 ::::
 
-# データリンク層
+## IPアドレスの設定
+[固定で割り当てる方法と，サーバーがクライアントに対して自動に割り当てる方式がある]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-ip-config-methods data-col-widths="[16, 26, 58]"}
+
+```yaml
+record1:
+  方法:
+    - 静的設定
+  誰がIPアドレスを決めるか:
+    - 人間（管理者）
+  備考:
+    - OS のネットワーク設定に直接記入する
+    - サーバーやルーターなど，アドレスが変わると困る機器に用いる
+
+record2:
+  方法:
+    - RARP
+  誰がIPアドレスを決めるか:
+    - RARP サーバー
+  備考:
+    - クライアントの MAC アドレスに対応する IP アドレスを返す
+    - ディスクレス端末などで使われた古い仕組みで，現在は DHCP に置き換えられている
+
+record3:
+  方法:
+    - DHCP
+  誰がIPアドレスを決めるか:
+    - DHCP サーバー
+  備考:
+    - IP アドレスに加えて，サブネットマスク・デフォルトゲートウェイ・DNS サーバーなどの設定も配布する
+    - 現在の LAN における自動設定の標準
+```
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[IPv6 の自動設定：RA の M・O フラグ[^raflags]により3方式に分かれる]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.columns}
+::: {.column width="33%"}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+① SLAAC のみ（M=0・O=0）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- RA（ルーター広告）の情報だけでクライアントがアドレスを自動生成（DHCPv6 は使わない）
+
+:::
+
+::::
+
+:::
+::: {.column width="33%"}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+② ステートレス DHCPv6（M=0・O=1）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- アドレスは SLAAC で生成し，DNS サーバーなどの付加情報だけを DHCPv6 が配布する
+
+:::
+
+::::
+
+:::
+::: {.column width="33%"}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+③ ステートフル DHCPv6（M=1）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- IPv4 の DHCP と同様に，DHCPv6 サーバーがアドレスそのものを配布・管理する
+
+:::
+
+::::
+
+:::
+::::
+
+<!-- footer -->
+
+[^raflags]: SLAAC はステートレスアドレス自動設定（RFC 4862）．RA の M（Managed）フラグはアドレスを DHCPv6 で配布するか，O（Other）フラグは DNS などの付加情報を DHCPv6 から取得するかを示す．
+
+## DHCPの仕組み
+[DHCPサーバーがアドレスプールから割当可能なIPアドレスを都度割り当てる]{.h2-submessage}
+
+:::: {.columns}
+::: {.column width="75%"}
+
+{{< reveal_vspace 1em >}}
+
+:::{style="text-align:center;"}
+
+![](./DHCP.svg){width=100%}
+
+:::
+
+
+:::
+::: {.column width="25%"}
+
+:::{.border-bottom-header}
+
+DHCPのポイント
+
+:::
+
+:::{.font-08}
+
+- [DHCPクライアント]{.regmonkey-bold}：IP設定を持たずに起動し，ネットワーク設定を要求する側（PC・スマホなど）
+
+{{< reveal_vspace 0.3em >}}
+
+- [DHCPサーバー]{.regmonkey-bold}：アドレスプールから空きIPを選び，サブネットマスク・デフォルトゲートウェイ・DNSとあわせて期限付きで貸し出す（家庭ではルーターが兼務）
+
+{{< reveal_vspace 0.3em >}}
+
+- [送信元 0.0.0.0]{.regmonkey-bold}：クライアントは自分のIPアドレスをまだ持っていないため，「未割り当て」を意味する 0.0.0.0 を送信元にする
+
+{{< reveal_vspace 0.3em >}}
+
+- [宛先 255.255.255.255]{.regmonkey-bold}：サーバーのIPアドレスも不明なため，同一セグメント全体に届くブロードキャスト宛に送る（ルーターは越えない）
+
+:::
+
+:::
+::::
+
+## NAT・NAPTによるIPアドレス変換
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- NAT（Network Address Translation）は，IPアドレスを別のIPアドレスへ変換する技術
+- NAPT（Network Address Port Translation）は，IPアドレスとポート番号を変換する技術
+- 家庭用や企業のルーターでは，NAPTを利用して複数の端末が1つのグローバルIPアドレスを共有してインターネットへ接続している
+
+:::
+::::
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](./nat-translation.svg){width=100%}
+
+:::{.font-07}
+
+- ルーターがIPヘッダの送信元IPアドレスを書き換える
+  - NAT → ネットワーク層の情報を書き換える
+
+:::
+
+:::
+::: {.column width="50%"}
+
+
+![](./napt-translation.svg){width=100%}
+
+:::{.font-07}
+
+
+- IPヘッダの送信元IPアドレスとTCP/UDPヘッダの送信元ポート番号が書き換えられる
+  - NAPT → ネットワーク層 + トランスポート層の情報を書き換える
+- 返信パケットを受信した際には，ルーターが変換テーブルを参照して元のIPアドレスやポート番号に復元する
+
+:::
+
+
+:::
+::::
+
+
+
+
+# データリンク層{.nested}
 ## 機器を同一の方法でつなげたひとかたまりをデータリンクという
 
 {{< reveal_vspace 0.5em >}}
@@ -1691,7 +1965,154 @@ PPPフレーム
 :::
 ::::
 
-# 物理層
+## IEEE 802.1X: LANへの接続を制御する認証技術
+[ネットワークの入口で正規のユーザや端末だけを接続させるための仕組み]{.h2-submessage}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+{{< reveal_vspace 1.2em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.63em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-ieee8021x-components data-col-widths="[22, 25, 33, 20]"}
+
+```yaml
+record1:
+  構成要素:
+    - サプリカント<br>(Supplicant)
+  役割:
+    - 認証を受けるクライアント
+  備考:
+    - IEEE802.1Xにおけるクライアント端末，またはクライアントにインストールする認証用ソフトウェア
+    - 認証を受けるには対応ソフトウェアが必要だが，近年のOSには標準搭載されていることが多い
+  デバイス例:
+    - PC
+
+record2:
+  構成要素:
+    - 認証装置<br>(Authenticator)
+  役割:
+    - サプリカントと認証サーバの仲介
+  備考:
+    - IEEE802.1X対応のLANスイッチや無線LANアクセスポイントなど，サプリカントと認証サーバの間に位置するネットワーク機器
+    - 認証サーバからの認証結果を受けて，ポート単位でネットワークへのアクセスを許可・遮断する
+  デバイス例:
+    - 社内LANスイッチ
+    - 無線LANアクセスポイント
+    - L2スイッチ
+    - L3スイッチ
+
+record3:
+  構成要素:
+    - 認証サーバ<br>(Authentication Server)
+  役割:
+    - ユーザ・端末の認証を実施
+  備考:
+    - IEEE802.1X・EAPに対応したRADIUSサーバを用いて認証を行う
+  デバイス例:
+    - 認証用Linuxサーバ
+```
+
+:::
+::::
+
+
+:::
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+不正PCのFSへの接続拒否構築例
+
+:::
+
+:::{style="text-align:center;"}
+
+![](./m-network-with-8021x.svg){width=100%}
+
+:::
+
+:::
+::::
+
+
+
+## イーサネットフレームとIPデータグラムの違い
+<!-- [コンテンツを記載]{.h2-submessage} -->
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- イーサネットフレーム：TCP/IPモデルのリンク層（Network Access Layer）
+- IPデータグラム：TCP/IPモデルのインターネット層（Internet Layer）
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+役割と伝送範囲の違い
+
+:::
+
+::: {.font-08 .lh-12}
+
+- イーサネットフレーム：同一リンク内（隣接ノード間）の伝送を担い，宛先は[MACアドレス]{.regmonkey-bold}で指定する
+- IPデータグラム：エンドツーエンド（送信元ホストから宛先ホストまで）の伝送を担い，宛先は[IPアドレス]{.regmonkey-bold}で指定する
+- ルータを1つ越えるたびにイーサネットフレームは付け替えられるが，IPデータグラムは終端まで同じヘッダを保持する
+
+:::
+
+{{< reveal_vspace 1.0em >}}
+
+
+:::{.border-bottom-header}
+
+右図におけるイーサネットフレームとIPデータグラムの宛先
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.font-09 .lh-11}
+
+| 区間 | Ethernet<br>宛先 / 送信元 | IPデータグラム<br>宛先 / 送信元 |
+|:--|:--:|:--:|
+| **LAN1**（A→ルータ） | MAC3 / MAC1 | IP2 / IP1 |
+| **LAN2**（ルータ→B） | MAC2 / MAC4 | IP2 / IP1 |
+
+: {tbl-colwidths="[34,33,33]"}
+
+:::
+
+
+:::
+::: {.column width="50%"}
+
+{{< reveal_vspace 2em >}}
+
+:::{style="text-align:center;"}
+
+![](./ethernetframe-vs-ip-datagram.svg){width="100%"}
+
+:::
+
+
+
+:::
+::::
+
+
+
+# 物理層{.nested}
 ## リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器
 
 {{< reveal_vspace 0.5em >}}
@@ -1780,6 +2201,230 @@ Wi-Fi Repeater
 :::
 
 :::
+
+# ルーティング{.nested}
+
+## レイヤー3スイッチのルーティング
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- L3スイッチは，L2スイッチの機能に加えて「ルーティング機能」を搭載している機器（TCP/IP のネットワーク層で動作）
+- 同一組織内の複数の IP ネットワーク（VLAN）を高速に接続する際に利用される
+- 主にLAN同士の接続が役割なので，基本的には，NAT/NAPT は搭載されていない
+
+:::
+::::
+
+
+
+
+# ネットワーク実践
+## L3スイッチのフィルタリングルール設定例
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 各課のPCから自課のFSへの [ファイル共有 SMB（宛先ポート TCP 445）のみ許可]{.regmonkey-bold} し，FS(ファイルサーバー)を保護する
+- FSからN社BSへのバックアップは [SCP（宛先ポート TCP 22）]{.regmonkey-bold} ：広域イーサ回線側の e2 を行き OUT・戻り IN の対で許可
+- 各課PCへのIP割当ては [L3SWのDHCP機能（サーバ／リレー）]{.regmonkey-bold} が担い，セグメントごとに 64～254 を配布レンジとする
+
+:::
+::::
+
+
+{{< reveal_vspace 0.5em >}}
+
+:::::: {.columns}
+::::: {.column width="46%"}
+
+
+![](./m-network-fig2.svg){width=100%}
+
+:::::
+::::: {.column width="54%"}
+
+:::{.border-bottom-header}
+
+L3スイッチフィルタリングルール例
+
+:::
+
+::::{.custom-table style="width:100%; font-size: 0.55em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-l3sw-filtering data-col-widths="[7, 9, 18, 17, 12, 14, 13, 10]"}
+
+```yaml
+record1:
+  IF:
+    - e5
+  方向:
+    - IN
+  送信元IPアドレス:
+    - 192.168.1.0/24
+  宛先IPアドレス:
+    - 192.168.0.11
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - ANY
+  宛先ポート:
+    - 445
+  処理:
+    - 許可
+
+record2:
+  IF:
+    - e5
+  方向:
+    - OUT
+  送信元IPアドレス:
+    - 192.168.0.11
+  宛先IPアドレス:
+    - 192.168.1.0/24
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - 445
+  宛先ポート:
+    - ANY
+  処理:
+    - 許可
+
+record3:
+  IF:
+    - e4
+  方向:
+    - IN
+  送信元IPアドレス:
+    - 192.168.2.0/24
+  宛先IPアドレス:
+    - 192.168.0.12
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - ANY
+  宛先ポート:
+    - 445
+  処理:
+    - 許可
+
+record4:
+  IF:
+    - e4
+  方向:
+    - OUT
+  送信元IPアドレス:
+    - 192.168.0.12
+  宛先IPアドレス:
+    - 192.168.2.0/24
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - 445
+  宛先ポート:
+    - ANY
+  処理:
+    - 許可
+
+record5:
+  IF:
+    - e3
+  方向:
+    - IN
+  送信元IPアドレス:
+    - 192.168.3.0/24
+  宛先IPアドレス:
+    - 192.168.0.13
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - ANY
+  宛先ポート:
+    - 445
+  処理:
+    - 許可
+
+record6:
+  IF:
+    - e3
+  方向:
+    - OUT
+  送信元IPアドレス:
+    - 192.168.0.13
+  宛先IPアドレス:
+    - 192.168.3.0/24
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - 445
+  宛先ポート:
+    - ANY
+  処理:
+    - 許可
+
+record7:
+  IF:
+    - e2
+  方向:
+    - OUT
+  送信元IPアドレス:
+    - 192.168.0.0/24
+  宛先IPアドレス:
+    - 192.168.10.31
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - ANY
+  宛先ポート:
+    - 22
+  処理:
+    - 許可
+
+record8:
+  IF:
+    - e2
+  方向:
+    - IN
+  送信元IPアドレス:
+    - 192.168.10.31
+  宛先IPアドレス:
+    - 192.168.0.0/24
+  プロトコル:
+    - TCP
+  送信元ポート:
+    - 22
+  宛先ポート:
+    - ANY
+  処理:
+    - 許可
+```
+
+:::
+::::
+
+:::{.font-07}
+
+- 上記の他にインターネットアクセスに関するルールなどの設定が必要
+- ルールは上から読まれていくので，最後に [`ANY`, `IN/OUT`, `ANY`, `ANY`, `TCP/UDP`, `ANY`, `ANY`,`遮断`]のようなルールを加えることでホワイトリスト形式でルール運用することがきでる
+
+:::
+
+
+:::::
+::::::
+
+
+
 
 
 # Appendix{.no-auto-agenda}
@@ -2059,60 +2704,6 @@ MIME
 <!-- footer -->
 
 [^MAIL-PROTOCOL]: SMTPやPOPでは，「電子メールで扱えるのはテキストデータのみ」，「電子メールの件名（Subject）に利用できるのは，半角英数字のみ」という原則があります
-
-
-## サブネットマスクとサブネットワークアドレス
-
-{{< reveal_vspace 0.5em >}}
-
-:::: {.main-message-box}
-
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
-
-サブネットマスクが `255.255.252.0` のとき，IPアドレス `172.30.123.45` のホストが属するサブネットワークアドレスは？
-
-:::
-::::
-
-{{< reveal_vspace 0.25em >}}
-
-[① CIDR表記への変換]{.mini-section}
-
-
-- サブネットマスク `255.255.252.0` を2進数に変換: `11111111.11111111.11111100.00000000`
-- 1が連続する個数を数える → **CIDR 表記は `/22`**（$255-252=3$より $8 + 2 = 10$ bitがホスト部とも計算可能）
-
-{{< reveal_vspace 0.5em >}}
-
-[② ネットワークアドレスの計算]{.mini-section}
-
-:::: {.columns}
-::: {.column width="50%"}
-
-- IPアドレス `172.30.123.45` とサブネットマスクの AND 演算
-- よってサブネットワークアドレスは **`172.30.120.0`**
-
-
-::: {.callout-note}
-### [ネットワークアドレス]{.padding-L-10}
-
-- ネットワークアドレスとは、ネットワークの代表となるアドレス
-- IPアドレスのホスト部をすべて `0` にした値で表される
-  - ネットワークアドレス: `172.30.120.0`
-  - 利用可能ホスト: `172.30.120.1` ～ `172.30.123.254`
-  - ブロードキャストアドレス: `172.30.123.255`
-
-:::
-
-
-
-:::
-::: {.column width="50%"}
-
-![](./subnetmask.svg)
-
-:::
-::::
 
 ## IPアドレス重複防止のため，ICANNがIPアドレスを管理
 
@@ -2648,14 +3239,17 @@ record6:
 :::
 ::::
 
+
+
+
+
 # Reference{.no-auto-agenda}
-
-
-
 
 ## 関連Request for Comments一覧
 
-{{< reveal_vspace 1em >}}
+[ネットワーク層：IP・IPv6の基本仕様]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
 
 ::::{.message-card .font-08}
 
@@ -2669,6 +3263,239 @@ record6:
 
 - IPv4の基本仕様を定めたIETFの標準文書
 - IPアドレス・フラグメンテーション・TTL・プロトコルフィールドなどの構造を規定
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 8200: Internet Protocol, Version 6 (IPv6) Specification**](https://datatracker.ietf.org/doc/html/rfc8200){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- IPv6の基本仕様を定めた標準文書：RFC 2460を置き換える現行版
+- 128ビットアドレス・40バイト固定の基本ヘッダー・拡張ヘッダーの構造を規定
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 4862: IPv6 Stateless Address Autoconfiguration**](https://datatracker.ietf.org/doc/html/rfc4862){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- ルーター広告（RA）のプレフィックスから端末が自力でアドレスを生成するSLAACの仕様
+- 重複アドレス検出（DAD）やアドレスの有効期限の管理手順を規定
+
+:::
+
+::::
+
+
+
+## 関連Request for Comments一覧
+
+[ネットワーク層：アドレスの配布・管理]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 2131: Dynamic Host Configuration Protocol**](https://datatracker.ietf.org/doc/html/rfc2131){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- IPアドレス・サブネットマスク・デフォルトゲートウェイなどをサーバーから自動配布するDHCPの仕様
+- Discover → Offer → Request → ACK の4段階でリース（貸与）を確立
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 1918: Address Allocation for Private Internets**](https://datatracker.ietf.org/doc/html/rfc1918){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 組織内で自由に使えるプライベートアドレス空間（`10.0.0.0/8`・`172.16.0.0/12`・`192.168.0.0/16`）を予約
+- インターネット上にはルーティングされないため，外部との通信にはNATによる変換が必要
+
+:::
+
+::::
+
+
+
+## 関連Request for Comments一覧
+
+[トランスポート層：TCP・UDP]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 9293: Transmission Control Protocol (TCP)**](https://datatracker.ietf.org/doc/html/rfc9293){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- コネクション型で信頼性のあるデータ転送を提供するTCPの現行標準：RFC 793を置き換え
+- 3ウェイハンドシェイク・再送制御・ウィンドウによるフロー制御を規定
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 768: User Datagram Protocol**](https://datatracker.ietf.org/doc/html/rfc768){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- コネクションレスで軽量なデータグラム転送を提供するUDPの標準文書
+- 再送・順序保証を持たない分オーバーヘッドが小さく，DNS・DHCP・音声・動画配信などで利用
+
+:::
+
+::::
+
+
+
+## 関連Request for Comments一覧
+
+[アプリケーション層：Web・電子メール]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 9110: HTTP Semantics**](https://datatracker.ietf.org/doc/html/rfc9110){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- Webで用いるHTTPの意味論（メソッド・ステータスコード・ヘッダー）を定義する現行標準
+- HTTP/1.1・HTTP/2・HTTP/3 に共通する概念を一つの文書に整理
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 5321: Simple Mail Transfer Protocol**](https://datatracker.ietf.org/doc/html/rfc5321){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 電子メールを送信・中継するSMTPの仕様：メールサーバー間の配送手順を規定
+- 添付ファイルや日本語件名はMIME（[RFC 2045](https://datatracker.ietf.org/doc/html/rfc2045)）による拡張で実現
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 1939: Post Office Protocol - Version 3**](https://datatracker.ietf.org/doc/html/rfc1939){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- メールサーバーの受信箱からメールを取り出すPOP3の標準文書
+- ダウンロード後にサーバーから削除する利用形態を想定：サーバー側でのメール管理はIMAPが担う
+
+:::
+
+::::
+
+
+
+## 関連Request for Comments一覧
+
+[データリンク層：PPP・ARP]{.h2-submessage}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 1661: The Point-to-Point Protocol (PPP)**](https://datatracker.ietf.org/doc/html/rfc1661){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 2点間を1対1で接続するデータリンク層プロトコルの標準文書
+- LCPによるリンク確立・NCPによる上位プロトコル設定・認証（PAP・CHAP）の枠組みを規定
+
+:::
+
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.message-card .font-08}
+
+:::{.message-card-title-no-margin .center}
+
+[**RFC 826: An Ethernet Address Resolution Protocol**](https://datatracker.ietf.org/doc/html/rfc826){style="color: white"}
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- IPアドレスから宛先のMACアドレスを解決するARPの標準文書
+- 同一データリンク内へのブロードキャスト問い合わせで宛先NICを特定する
 
 :::
 

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <style>
+    text {
+      font-family: 'Meiryo', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif;
+      font-size: 14px;
+      text-anchor: middle;
+      dominant-baseline: central;
+      fill: #333333;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      text-anchor: start;
+      fill: #222222;
+    }
+    .bit-label {
+      font-size: 13px;
+      fill: #555555;
+      font-weight: 500;
+    }
+    .red-text {
+      fill: #ae3e33;
+      font-weight: bold;
+    }
+    rect {
+      stroke: #555555;
+      stroke-width: 1.2;
+    }
+    .bg-normal {
+      fill: #fcfcfc;
+    }
+    .bg-highlight {
+      fill: #fbf0ee;
+    }
+  </style>
+
+  <g>
+    <rect x="40" y="90" width="90" height="48" class="bg-normal" />
+    <text x="85" y="114">バージョン</text>
+
+    <rect x="130" y="90" width="90" height="48" class="bg-normal" />
+    <text x="175" y="114">ヘッダ長</text>
+
+    <rect x="220" y="90" width="180" height="48" class="bg-normal" />
+    <text x="310" y="114">優先順位</text>
+
+    <rect x="40" y="90" width="720" height="48" fill="none" stroke="#555555" stroke-width="1.2" />
+    <rect x="400" y="90" width="360" height="48" class="bg-normal" />
+    <text x="580" y="114">パケット長</text>
+  </g>
+
+  <g>
+    <rect x="40" y="138" width="360" height="48" class="bg-normal" />
+    <text x="220" y="162">識別番号</text>
+
+    <rect x="400" y="138" width="67.5" height="48" class="bg-normal" />
+    <text x="433.75" y="162">フラグ</text>
+
+    <rect x="467.5" y="138" width="292.5" height="48" class="bg-normal" />
+    <text x="613.75" y="162">フラグメントオフセット</text>
+  </g>
+
+  <g>
+    <rect x="40" y="186" width="180" height="48" class="bg-normal" />
+    <text x="130" y="210">TTL (生存時間)</text>
+
+    <rect x="220" y="186" width="180" height="48" class="bg-normal" />
+    <text x="310" y="210">プロトコル番号</text>
+
+    <rect x="400" y="186" width="360" height="48" class="bg-normal" />
+    <text x="580" y="210">ヘッダチェックサム</text>
+  </g>
+
+  <g>
+    <rect x="40" y="234" width="720" height="48" class="bg-highlight" />
+    <text x="400" y="258" class="red-text">送信元IPアドレス (32ビット)</text>
+  </g>
+
+  <g>
+    <rect x="40" y="282" width="720" height="48" class="bg-highlight" />
+    <text x="400" y="306" class="red-text">送信先IPアドレス (32ビット)</text>
+  </g>
+
+  <g>
+    <rect x="40" y="330" width="540" height="48" class="bg-normal" />
+    <text x="310" y="354">オプション (可変長)</text>
+
+    <rect x="580" y="330" width="180" height="48" class="bg-normal" />
+    <text x="670" y="354">パティング</text>
+  </g>
+</svg>

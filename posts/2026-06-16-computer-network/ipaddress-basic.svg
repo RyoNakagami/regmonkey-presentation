@@ -1,0 +1,92 @@
+<svg viewBox="0 0 800 290" width="100%" preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg"
+     font-family="Meiryo, 'メイリオ', system-ui, sans-serif"
+     style="display:block;margin:0 auto;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0E3666"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="290" fill="#FFFFFF"/>
+
+  <!-- ===== 左: プライベート ===== -->
+  <rect x="15" y="15" width="310" height="255" rx="10" fill="#E8F1FE" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="30" y="36" font-size="12" font-weight="700" fill="#0E3666">会社内ネットワーク（プライベート）</text>
+  <text x="30" y="51" font-size="10" fill="#575757">192.168.0.0/24</text>
+
+  <!-- NATルーター -->
+  <rect x="98" y="65" width="134" height="46" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <text x="165" y="82" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">NATルーター</text>
+  <text x="165" y="96" font-size="10" fill="#575757" text-anchor="middle">WAN: 157.7.184.36/24</text>
+  <text x="165" y="109" font-size="9" fill="#575757" text-anchor="middle">LAN: 192.168.0.1/24</text>
+
+  <!-- PC A -->
+  <rect x="30" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="71" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">PC-A</text>
+  <text x="71" y="239" font-size="10" fill="#575757" text-anchor="middle">192.168.0.2</text>
+  <text x="71" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- PC B -->
+  <rect x="123" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="164" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">PC-B</text>
+  <text x="164" y="239" font-size="10" fill="#575757" text-anchor="middle">192.168.0.3</text>
+  <text x="164" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- PC C -->
+  <rect x="216" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#428CE6" stroke-width="1.5"/>
+  <text x="257" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">PC-C</text>
+  <text x="257" y="239" font-size="10" fill="#575757" text-anchor="middle">192.168.0.4</text>
+  <text x="257" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- NATルーター → PC 接続線 -->
+  <line x1="165" y1="111" x2="71"  y2="208" stroke="#428CE6" stroke-width="1.5"/>
+  <line x1="165" y1="111" x2="164" y2="208" stroke="#428CE6" stroke-width="1.5"/>
+  <line x1="165" y1="111" x2="257" y2="208" stroke="#428CE6" stroke-width="1.5"/>
+
+  <!-- ===== 右: インターネット ===== -->
+  <rect x="475" y="15" width="310" height="255" rx="10" fill="#B4D7FF" stroke="#0E3666" stroke-width="1.5"/>
+  <text x="490" y="36" font-size="12" font-weight="700" fill="#0E3666">インターネット（グローバル）</text>
+  <text x="490" y="51" font-size="10" fill="#575757">157.7.184.0/24</text>
+
+  <!-- インターネットルーター -->
+  <rect x="563" y="65" width="134" height="36" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="2"/>
+  <text x="630" y="81" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">ルーター</text>
+  <text x="630" y="95" font-size="10" fill="#575757" text-anchor="middle">157.7.184.31/24</text>
+
+  <!-- サーバー1 -->
+  <rect x="484" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+  <text x="525" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">サーバー</text>
+  <text x="525" y="239" font-size="10" fill="#575757" text-anchor="middle">157.7.184.32</text>
+  <text x="525" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- サーバー2 -->
+  <rect x="577" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+  <text x="618" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">サーバー</text>
+  <text x="618" y="239" font-size="10" fill="#575757" text-anchor="middle">157.7.184.33</text>
+  <text x="618" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- サーバー3 -->
+  <rect x="670" y="208" width="82" height="48" rx="6" fill="#FFFFFF" stroke="#0E3666" stroke-width="1.5"/>
+  <text x="711" y="225" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">サーバー</text>
+  <text x="711" y="239" font-size="10" fill="#575757" text-anchor="middle">157.7.184.34</text>
+  <text x="711" y="251" font-size="9" fill="#575757" text-anchor="middle">/24</text>
+
+  <!-- ルーター → サーバー接続線 -->
+  <line x1="630" y1="101" x2="525" y2="208" stroke="#0E3666" stroke-width="1.5"/>
+  <line x1="630" y1="101" x2="618" y2="208" stroke="#0E3666" stroke-width="1.5"/>
+  <line x1="630" y1="101" x2="711" y2="208" stroke="#0E3666" stroke-width="1.5"/>
+
+  <!-- ===== 中央: インターネット通信矢印 ===== -->
+  <line x1="232" y1="85" x2="563" y2="85" stroke="#0E3666" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="563" y1="93" x2="232" y2="93" stroke="#0E3666" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="397" y="78" font-size="11" font-weight="700" fill="#0E3666" text-anchor="middle">インターネット通信</text>
+  <text x="397" y="108" font-size="9" fill="#575757" text-anchor="middle">NAT変換: 192.168.0.x → 157.7.184.36</text>
+
+  <!-- ===== 凡例 ===== -->
+  <rect x="15" y="333" width="10" height="10" rx="2" fill="#E8F1FE" stroke="#428CE6" stroke-width="1.2"/>
+  <text x="30" y="342" font-size="9" fill="#1A1A1A">プライベートアドレス (RFC 1918)</text>
+  <rect x="215" y="333" width="10" height="10" rx="2" fill="#B4D7FF" stroke="#0E3666" stroke-width="1.2"/>
+  <text x="230" y="342" font-size="9" fill="#1A1A1A">グローバルアドレス</text>
+  <text x="785" y="342" font-size="9" fill="#575757" text-anchor="end">※ NATにより送信元IPをWANアドレスに変換</text>
+</svg>
