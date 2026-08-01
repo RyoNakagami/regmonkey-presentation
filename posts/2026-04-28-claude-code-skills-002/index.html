@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Skill を自作する</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -292,33 +295,33 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:70%; padding-left:1em;">
 <div class="regmonkey_index" style="width:1100px; line-height: 1.1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Skill 作成の実践</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ディレクトリ作成 → &lt;strong&gt;SKILL.md&lt;/strong&gt; 編集 → 再起動の3ステップで完成</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> frontmatter（&lt;strong&gt;name・description&lt;/strong&gt;）と本文（指示書）の二層構造</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 動作確認</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 自然文「What skills are available?」で &lt;strong&gt;登録一覧を取得&lt;/strong&gt;</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 実依頼を投げ，IDE に Skill 名と説明が出れば &lt;strong&gt;auto-match 成功&lt;/strong&gt;</span></span>
-<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一覧に出ない・発火しない場合は &lt;strong&gt;frontmatter 構文・再起動忘れ&lt;/strong&gt;を疑う</span></span>
-<span id="cb1-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
-<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. ロードとマッチング</span></span>
-<span id="cb1-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> スキャン対象は Enterprise・Personal・Project・Plugins の &lt;strong&gt;4ヶ所&lt;/strong&gt;</span></span>
-<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 起動時は &lt;strong&gt;name + description のみ先読み&lt;/strong&gt;，本文は遅延ロード</span></span>
-<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 依頼との &lt;strong&gt;意味マッチで発火&lt;/strong&gt; → 確認プロンプト → 本文展開</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 運用とTips</span></span>
-<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 更新は SKILL.md 編集，削除はディレクトリ削除，&lt;strong&gt;どちらも再起動が必須&lt;/strong&gt;</span></span>
-<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 誤発火・空振りを観察して &lt;strong&gt;description を磨き続ける&lt;/strong&gt;運用が鍵</span></span>
-<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;成果物・タスク・ドメイン&lt;/strong&gt;の3観点で Skill を切り分ける</span></span>
-<span id="cb1-27"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Skill 作成の実践</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ディレクトリ作成 → &lt;strong&gt;SKILL.md&lt;/strong&gt; 編集 → 再起動の3ステップで完成</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> frontmatter（&lt;strong&gt;name・description&lt;/strong&gt;）と本文（指示書）の二層構造</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 動作確認</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 自然文「What skills are available?」で &lt;strong&gt;登録一覧を取得&lt;/strong&gt;</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 実依頼を投げ，IDE に Skill 名と説明が出れば &lt;strong&gt;auto-match 成功&lt;/strong&gt;</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一覧に出ない・発火しない場合は &lt;strong&gt;frontmatter 構文・再起動忘れ&lt;/strong&gt;を疑う</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. ロードとマッチング</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> スキャン対象は Enterprise・Personal・Project・Plugins の &lt;strong&gt;4ヶ所&lt;/strong&gt;</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 起動時は &lt;strong&gt;name + description のみ先読み&lt;/strong&gt;，本文は遅延ロード</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 依頼との &lt;strong&gt;意味マッチで発火&lt;/strong&gt; → 確認プロンプト → 本文展開</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 運用とTips</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 更新は SKILL.md 編集，削除はディレクトリ削除，&lt;strong&gt;どちらも再起動が必須&lt;/strong&gt;</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 誤発火・空振りを観察して &lt;strong&gt;description を磨き続ける&lt;/strong&gt;運用が鍵</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;成果物・タスク・ドメイン&lt;/strong&gt;の3観点で Skill を切り分ける</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">62</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -413,27 +416,27 @@ Ryo Nakagami
 <p><span class="mini-section">最小構造の例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="co">---</span></span>
-<span id="cb2-2"><a></a><span class="an">name:</span><span class="co"> pr-description</span></span>
-<span id="cb2-3"><a></a><span class="an">description:</span><span class="co"> Writes pull request descriptions.</span></span>
-<span id="cb2-4"><a></a><span class="co">  Use when creating a PR, writing a PR, or when</span></span>
-<span id="cb2-5"><a></a><span class="co">  the user asks to summarize changes for a pull</span></span>
-<span id="cb2-6"><a></a><span class="co">  request.</span></span>
-<span id="cb2-7"><a></a><span class="co">---</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a>When writing a PR description:</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="ss">1. </span>Run <span class="in">`git diff main...HEAD`</span> to see all changes</span>
-<span id="cb2-12"><a></a><span class="ss">2. </span>Write a description following this format:</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a><span class="fu">## What</span></span>
-<span id="cb2-15"><a></a>One sentence explaining what this PR does.</span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="fu">## Why</span></span>
-<span id="cb2-18"><a></a>Brief context on why this change is needed.</span>
-<span id="cb2-19"><a></a></span>
-<span id="cb2-20"><a></a><span class="fu">## Changes</span></span>
-<span id="cb2-21"><a></a><span class="ss">- </span>Bullet points of specific changes made</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="an">name:</span><span class="co"> pr-description</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="an">description:</span><span class="co"> Writes pull request descriptions.</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="co">  Use when creating a PR, writing a PR, or when</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="co">  the user asks to summarize changes for a pull</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co">  request.</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co">---</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a>When writing a PR description:</span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="ss">1. </span>Run <span class="in">`git diff main...HEAD`</span> to see all changes</span>
+<span id="cb2-12"><a aria-label="12"></a><span class="ss">2. </span>Write a description following this format:</span>
+<span id="cb2-13"><a aria-label="13"></a></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="fu">## What</span></span>
+<span id="cb2-15"><a aria-label="15"></a>One sentence explaining what this PR does.</span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="fu">## Why</span></span>
+<span id="cb2-18"><a aria-label="18"></a>Brief context on why this change is needed.</span>
+<span id="cb2-19"><a aria-label="19"></a></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="fu">## Changes</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="ss">- </span>Bullet points of specific changes made</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">フィールドの役割</span></p>
@@ -869,29 +872,29 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.9em !important;">
 <div id="yaml-skill-design-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 32, 48]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> ドメイン Skill</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
-<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 領域固有の知識・規制を集約</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
-<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 案件特有の規制要件</span></span>
-<span id="cb3-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロダクト固有ルール</span></span>
-<span id="cb3-8"><a></a></span>
-<span id="cb3-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> タスク Skill</span></span>
-<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 作業手順・判断分岐を資産化</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> セキュリティスキャンの実行手順</span></span>
-<span id="cb3-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 失敗パターンと回避手順</span></span>
-<span id="cb3-16"><a></a></span>
-<span id="cb3-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> 成果物 Skill</span></span>
-<span id="cb3-19"><a></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
-<span id="cb3-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力フォーマットを統一</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
-<span id="cb3-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 運用手順書としてまとめる</span></span>
-<span id="cb3-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 提出用ドキュメントの体裁を整える</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> ドメイン Skill</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 領域固有の知識・規制を集約</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 案件特有の規制要件</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロダクト固有ルール</span></span>
+<span id="cb3-8"><a aria-label="8"></a></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> タスク Skill</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 作業手順・判断分岐を資産化</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> セキュリティスキャンの実行手順</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 失敗パターンと回避手順</span></span>
+<span id="cb3-16"><a aria-label="16"></a></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">層</span><span class="kw">:</span><span class="at"> 成果物 Skill</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">Skill の責務</span><span class="kw">:</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力フォーマットを統一</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">このケースでの中身</span><span class="kw">:</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 運用手順書としてまとめる</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 提出用ドキュメントの体裁を整える</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

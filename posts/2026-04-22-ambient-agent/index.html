@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – アンビエントエージェントの仕組み</title>
@@ -23,10 +23,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -243,7 +246,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -564,34 +567,34 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="width-100">
 <div class="regmonkey_abstract_summary">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 永続化</span></span>
-<span id="cb1-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 長時間動作する状態を保存</span></span>
-<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 再起動・クラッシュにも耐える</span></span>
-<span id="cb1-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb1-11"><a></a></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> HITL</span></span>
-<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Notify / Question / Review をAPIで表現</span></span>
-<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 中断・再開可能なワークフロー</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb1-17"><a></a></span>
-<span id="cb1-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 長期メモリ</span></span>
-<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 過去の判断・回答を蓄積</span></span>
-<span id="cb1-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 次回以降の自動判断精度を改善</span></span>
-<span id="cb1-22"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb1-23"><a></a></span>
-<span id="cb1-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Cron</span></span>
-<span id="cb1-25"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 定期的なイベントを自前で発火</span></span>
-<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 外部イベントがない時も動ける</span></span>
-<span id="cb1-28"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 永続化</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 長時間動作する状態を保存</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 再起動・クラッシュにも耐える</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb1-11"><a aria-label="11"></a></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> HITL</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Notify / Question / Review をAPIで表現</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 中断・再開可能なワークフロー</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb1-17"><a aria-label="17"></a></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 長期メモリ</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 過去の判断・回答を蓄積</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 次回以降の自動判断精度を改善</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb1-23"><a aria-label="23"></a></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Cron</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 定期的なイベントを自前で発火</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 外部イベントがない時も動ける</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">

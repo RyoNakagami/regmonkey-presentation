@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Skillと他カスタマイズ機能の使い分け</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -293,35 +296,35 @@ Ryo Nakagami
 </div><div class="column" style="width:70%; padding-left:0.5em;">
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="regmonkey_index" style="width:1200px; line-height: 1.1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 5つの機能の全体像</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Claude Codeのカスタマイズ手段は &lt;strong&gt;5種類&lt;/strong&gt;．それぞれが固有の専門領域を持つ</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず，&lt;strong&gt;適材適所で組み合わせる&lt;/strong&gt;のが基本</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Skills vs CLAUDE.md</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> CLAUDE.mdは&lt;strong&gt;常時ロード&lt;/strong&gt;．プロジェクト共通の恒久ルール向け</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;オンデマンド&lt;/strong&gt;．タスク特有の専門知識を必要時のみ</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Skills vs Subagents</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;現セッションに知識を追加&lt;/strong&gt;．推論をその場で補強する</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Subagentsは&lt;strong&gt;別コンテキストで委譲&lt;/strong&gt;．独立した作業として隔離</span></span>
-<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Skills vs Hooks</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;リクエスト駆動&lt;/strong&gt;．依頼内容に応じて起動</span></span>
-<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Hooksは&lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しで発火</span></span>
-<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Skills vs MCP servers</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;指示・手順の知識&lt;/strong&gt;を与える</span></span>
-<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> MCPは&lt;strong&gt;外部ツール・統合&lt;/strong&gt;を提供</span></span>
-<span id="cb1-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 5つの機能の全体像</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Claude Codeのカスタマイズ手段は &lt;strong&gt;5種類&lt;/strong&gt;．それぞれが固有の専門領域を持つ</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず，&lt;strong&gt;適材適所で組み合わせる&lt;/strong&gt;のが基本</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Skills vs CLAUDE.md</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> CLAUDE.mdは&lt;strong&gt;常時ロード&lt;/strong&gt;．プロジェクト共通の恒久ルール向け</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;オンデマンド&lt;/strong&gt;．タスク特有の専門知識を必要時のみ</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Skills vs Subagents</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;現セッションに知識を追加&lt;/strong&gt;．推論をその場で補強する</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Subagentsは&lt;strong&gt;別コンテキストで委譲&lt;/strong&gt;．独立した作業として隔離</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Skills vs Hooks</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;リクエスト駆動&lt;/strong&gt;．依頼内容に応じて起動</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Hooksは&lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しで発火</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Skills vs MCP servers</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Skillsは&lt;strong&gt;指示・手順の知識&lt;/strong&gt;を与える</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> MCPは&lt;strong&gt;外部ツール・統合&lt;/strong&gt;を提供</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -354,35 +357,35 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="width-100">
 <div class="regmonkey_abstract_summary">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
-<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
-<span id="cb2-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;常時ロード&lt;/strong&gt;．全セッションの冒頭に必ず読み込まれる</span></span>
-<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロジェクト共通の&lt;strong&gt;恒久ルール&lt;/strong&gt;（標準・制約・スタイル）を置く</span></span>
-<span id="cb2-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb2-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Skills</span></span>
-<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;オンデマンドロード&lt;/strong&gt;．リクエストにマッチしたときだけセッションに合流</span></span>
-<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> タスク特有の&lt;strong&gt;専門知識・手順&lt;/strong&gt;を必要時に注入する</span></span>
-<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Subagents</span></span>
-<span id="cb2-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;隔離コンテキスト&lt;/strong&gt;で作業を委譲し，結果だけ回収する</span></span>
-<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 別ツール権限・並列実行・本セッションの&lt;strong&gt;コンテキスト保護&lt;/strong&gt;に有効</span></span>
-<span id="cb2-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Hooks</span></span>
-<span id="cb2-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しの前後で自動発火</span></span>
-<span id="cb2-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> lint/format・事前検証など「毎回走らせたい」副作用を仕込む</span></span>
-<span id="cb2-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
-<span id="cb2-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> MCP servers</span></span>
-<span id="cb2-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;外部ツール・統合&lt;/strong&gt;を Claude に接続する：使える道具を増やす</span></span>
-<span id="cb2-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DB等への API 接続，標準ツールにない追加機能</span></span>
-<span id="cb2-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;常時ロード&lt;/strong&gt;．全セッションの冒頭に必ず読み込まれる</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロジェクト共通の&lt;strong&gt;恒久ルール&lt;/strong&gt;（標準・制約・スタイル）を置く</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Skills</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;オンデマンドロード&lt;/strong&gt;．リクエストにマッチしたときだけセッションに合流</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> タスク特有の&lt;strong&gt;専門知識・手順&lt;/strong&gt;を必要時に注入する</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Subagents</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;隔離コンテキスト&lt;/strong&gt;で作業を委譲し，結果だけ回収する</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 別ツール権限・並列実行・本セッションの&lt;strong&gt;コンテキスト保護&lt;/strong&gt;に有効</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Hooks</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;イベント駆動&lt;/strong&gt;．ファイル保存・ツール呼び出しの前後で自動発火</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> lint/format・事前検証など「毎回走らせたい」副作用を仕込む</span></span>
+<span id="cb2-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> MCP servers</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;外部ツール・統合&lt;/strong&gt;を Claude に接続する：使える道具を増やす</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DB等への API 接続，標準ツールにない追加機能</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">75</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -675,35 +678,35 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.9em !important;">
 <div id="yaml-hooks-1" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionStart</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション開始時・再開時</span></span>
-<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 開発コンテキスト（Issue・最近の変更など）の読み込み，環境変数のセットアップ</span></span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Setup</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;--init-only&lt;/code&gt; または &lt;code&gt;-p&lt;/code&gt; モードで &lt;code&gt;--init&lt;/code&gt; / &lt;code&gt;--maintenance&lt;/code&gt; 起動時</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> CIやスクリプトから明示的にトリガーする一回限りの依存関係インストール・スケジュールクリーンアップ</span></span>
-<span id="cb3-12"><a></a></span>
-<span id="cb3-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptSubmit</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがプロンプトを送信し，Claudeが処理する前</span></span>
-<span id="cb3-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> プロンプトに基づくコンテキスト追加・プロンプトの検証・特定種類のプロンプトのブロック</span></span>
-<span id="cb3-18"><a></a></span>
-<span id="cb3-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptExpansion</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> スラッシュコマンドがプロンプトに展開され，Claudeに届く前</span></span>
-<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb3-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 特定コマンドの直接呼び出しブロック・スキル用コンテキスト注入・コマンド利用ログ</span></span>
-<span id="cb3-24"><a></a></span>
-<span id="cb3-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionEnd</span></span>
-<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッションが終了したとき</span></span>
-<span id="cb3-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb3-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> セッション終了ログ・後処理</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionStart</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション開始時・再開時</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 開発コンテキスト（Issue・最近の変更など）の読み込み，環境変数のセットアップ</span></span>
+<span id="cb3-6"><a aria-label="6"></a></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Setup</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;--init-only&lt;/code&gt; または &lt;code&gt;-p&lt;/code&gt; モードで &lt;code&gt;--init&lt;/code&gt; / &lt;code&gt;--maintenance&lt;/code&gt; 起動時</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> CIやスクリプトから明示的にトリガーする一回限りの依存関係インストール・スケジュールクリーンアップ</span></span>
+<span id="cb3-12"><a aria-label="12"></a></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptSubmit</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがプロンプトを送信し，Claudeが処理する前</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> プロンプトに基づくコンテキスト追加・プロンプトの検証・特定種類のプロンプトのブロック</span></span>
+<span id="cb3-18"><a aria-label="18"></a></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> UserPromptExpansion</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> スラッシュコマンドがプロンプトに展開され，Claudeに届く前</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 特定コマンドの直接呼び出しブロック・スキル用コンテキスト注入・コマンド利用ログ</span></span>
+<span id="cb3-24"><a aria-label="24"></a></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SessionEnd</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッションが終了したとき</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> セッション終了ログ・後処理</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -712,41 +715,41 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
 <div id="yaml-hooks-2" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreToolUse</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claudeがツールパラメータを生成した後，ツール呼び出しの処理前</span></span>
-<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 危険コマンドのブロック・ツール入力の修正・許可/拒否/確認の制御</span></span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb4-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionRequest</span></span>
-<span id="cb4-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 権限ダイアログが表示されるとき</span></span>
-<span id="cb4-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザの代わりに権限を自動承認・拒否，カスタムロジックによるツール権限制御</span></span>
-<span id="cb4-12"><a></a></span>
-<span id="cb4-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionDenied</span></span>
-<span id="cb4-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> auto modeのclassifierがツール呼び出しを拒否したとき</span></span>
-<span id="cb4-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb4-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 拒否ログ記録・設定調整・モデルへのリトライ指示</span></span>
-<span id="cb4-18"><a></a></span>
-<span id="cb4-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb4-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUse</span></span>
-<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツールが正常に完了した直後</span></span>
-<span id="cb4-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb4-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル自動フォーマット・ツール出力の置換・Claudeへのフィードバック追加</span></span>
-<span id="cb4-24"><a></a></span>
-<span id="cb4-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb4-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUseFailure</span></span>
-<span id="cb4-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツール実行が失敗したとき</span></span>
-<span id="cb4-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb4-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 失敗ログ・アラート送信・Claudeへの修正フィードバック</span></span>
-<span id="cb4-30"><a></a></span>
-<span id="cb4-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb4-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolBatch</span></span>
-<span id="cb4-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 並列ツール呼び出しのバッチ全体が解決した後，次のモデル呼び出し前</span></span>
-<span id="cb4-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb4-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> バッチ単位でのコンテキスト注入・エージェントループの停止</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreToolUse</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claudeがツールパラメータを生成した後，ツール呼び出しの処理前</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 危険コマンドのブロック・ツール入力の修正・許可/拒否/確認の制御</span></span>
+<span id="cb4-6"><a aria-label="6"></a></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionRequest</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 権限ダイアログが表示されるとき</span></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザの代わりに権限を自動承認・拒否，カスタムロジックによるツール権限制御</span></span>
+<span id="cb4-12"><a aria-label="12"></a></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PermissionDenied</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> auto modeのclassifierがツール呼び出しを拒否したとき</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 拒否ログ記録・設定調整・モデルへのリトライ指示</span></span>
+<span id="cb4-18"><a aria-label="18"></a></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUse</span></span>
+<span id="cb4-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツールが正常に完了した直後</span></span>
+<span id="cb4-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル自動フォーマット・ツール出力の置換・Claudeへのフィードバック追加</span></span>
+<span id="cb4-24"><a aria-label="24"></a></span>
+<span id="cb4-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb4-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolUseFailure</span></span>
+<span id="cb4-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ツール実行が失敗したとき</span></span>
+<span id="cb4-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb4-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 失敗ログ・アラート送信・Claudeへの修正フィードバック</span></span>
+<span id="cb4-30"><a aria-label="30"></a></span>
+<span id="cb4-31"><a aria-label="31"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb4-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostToolBatch</span></span>
+<span id="cb4-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 並列ツール呼び出しのバッチ全体が解決した後，次のモデル呼び出し前</span></span>
+<span id="cb4-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb4-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> バッチ単位でのコンテキスト注入・エージェントループの停止</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -755,53 +758,53 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
 <div id="yaml-hooks-3" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Notification</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claude Codeが通知を送るとき</span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 外部サービス（Slack・デスクトップ通知など）への通知転送</span></span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStart</span></span>
-<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agentツール経由で SubAgent が起動したとき</span></span>
-<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent へのコンテキスト注入・起動ログ</span></span>
-<span id="cb5-12"><a></a></span>
-<span id="cb5-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStop</span></span>
-<span id="cb5-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> SubAgent が応答を終えたとき</span></span>
-<span id="cb5-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent の停止防止・結果の検証</span></span>
-<span id="cb5-18"><a></a></span>
-<span id="cb5-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb5-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCreated</span></span>
-<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> TaskCreateツール経由でタスクが作成されるとき</span></span>
-<span id="cb5-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 命名規則の強制・タスク説明の必須化・特定タスクの作成防止</span></span>
-<span id="cb5-24"><a></a></span>
-<span id="cb5-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb5-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCompleted</span></span>
-<span id="cb5-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> タスクが完了としてマークされるとき</span></span>
-<span id="cb5-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> テスト・lint通過などの完了基準の強制</span></span>
-<span id="cb5-30"><a></a></span>
-<span id="cb5-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb5-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Stop</span></span>
-<span id="cb5-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Main agent が応答を終えたとき</span></span>
-<span id="cb5-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 停止前の品質ゲート・デスクトップ通知・タスク完了確認</span></span>
-<span id="cb5-36"><a></a></span>
-<span id="cb5-37"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb5-38"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> StopFailure</span></span>
-<span id="cb5-39"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> APIエラーで応答が終わったとき</span></span>
-<span id="cb5-40"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb5-41"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> レート制限・認証エラーなどの失敗ログ・アラート・リカバリ</span></span>
-<span id="cb5-42"><a></a></span>
-<span id="cb5-43"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb5-44"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TeammateIdle</span></span>
-<span id="cb5-45"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agent Teamのチームメイトがアイドルに移行する直前</span></span>
-<span id="cb5-46"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb5-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> アイドル前の品質ゲート（lint，ビルド成果物の確認など）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Notification</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Claude Codeが通知を送るとき</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 外部サービス（Slack・デスクトップ通知など）への通知転送</span></span>
+<span id="cb5-6"><a aria-label="6"></a></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStart</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agentツール経由で SubAgent が起動したとき</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent へのコンテキスト注入・起動ログ</span></span>
+<span id="cb5-12"><a aria-label="12"></a></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> SubagentStop</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> SubAgent が応答を終えたとき</span></span>
+<span id="cb5-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> SubAgent の停止防止・結果の検証</span></span>
+<span id="cb5-18"><a aria-label="18"></a></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCreated</span></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> TaskCreateツール経由でタスクが作成されるとき</span></span>
+<span id="cb5-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 命名規則の強制・タスク説明の必須化・特定タスクの作成防止</span></span>
+<span id="cb5-24"><a aria-label="24"></a></span>
+<span id="cb5-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb5-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TaskCompleted</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> タスクが完了としてマークされるとき</span></span>
+<span id="cb5-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> テスト・lint通過などの完了基準の強制</span></span>
+<span id="cb5-30"><a aria-label="30"></a></span>
+<span id="cb5-31"><a aria-label="31"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb5-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Stop</span></span>
+<span id="cb5-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Main agent が応答を終えたとき</span></span>
+<span id="cb5-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 停止前の品質ゲート・デスクトップ通知・タスク完了確認</span></span>
+<span id="cb5-36"><a aria-label="36"></a></span>
+<span id="cb5-37"><a aria-label="37"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb5-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> StopFailure</span></span>
+<span id="cb5-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> APIエラーで応答が終わったとき</span></span>
+<span id="cb5-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb5-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> レート制限・認証エラーなどの失敗ログ・アラート・リカバリ</span></span>
+<span id="cb5-42"><a aria-label="42"></a></span>
+<span id="cb5-43"><a aria-label="43"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb5-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> TeammateIdle</span></span>
+<span id="cb5-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> Agent Teamのチームメイトがアイドルに移行する直前</span></span>
+<span id="cb5-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb5-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> アイドル前の品質ゲート（lint，ビルド成果物の確認など）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -810,65 +813,65 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:90%; font-size: 0.9em !important;">
 <div id="yaml-hooks-4" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 28, 6, 46]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> InstructionsLoaded</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;CLAUDE.md&lt;/code&gt; や &lt;code&gt;.claude/rules/*.md&lt;/code&gt; がコンテキストに読み込まれたとき</span></span>
-<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 監査ログ・コンプライアンス追跡・観測性</span></span>
-<span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ConfigChange</span></span>
-<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション中に設定ファイルが変更されたとき</span></span>
-<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 設定変更の検証・不正な変更のブロック</span></span>
-<span id="cb6-12"><a></a></span>
-<span id="cb6-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> CwdChanged</span></span>
-<span id="cb6-15"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 作業ディレクトリが変わったとき（&lt;code&gt;cd&lt;/code&gt; コマンド実行時など）</span></span>
-<span id="cb6-16"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb6-17"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> direnvなどによるリアクティブな環境管理</span></span>
-<span id="cb6-18"><a></a></span>
-<span id="cb6-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> FileChanged</span></span>
-<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 監視対象ファイルがディスク上で変更されたとき</span></span>
-<span id="cb6-22"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル変更の検知・環境再読み込み</span></span>
-<span id="cb6-24"><a></a></span>
-<span id="cb6-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb6-26"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeCreate</span></span>
-<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> worktree作成時</span></span>
-<span id="cb6-28"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> デフォルトのgit動作を置き換えるカスタムworktree作成</span></span>
-<span id="cb6-30"><a></a></span>
-<span id="cb6-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb6-32"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeRemove</span></span>
-<span id="cb6-33"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション終了時や SubAgent 完了時にworktreeが削除されるとき</span></span>
-<span id="cb6-34"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> worktreeクリーンアップ</span></span>
-<span id="cb6-36"><a></a></span>
-<span id="cb6-37"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreCompact</span></span>
-<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮前</span></span>
-<span id="cb6-40"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb6-41"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮前のバックアップ・圧縮の防止</span></span>
-<span id="cb6-42"><a></a></span>
-<span id="cb6-43"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb6-44"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostCompact</span></span>
-<span id="cb6-45"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮の完了後</span></span>
-<span id="cb6-46"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
-<span id="cb6-47"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮後の状態ログ</span></span>
-<span id="cb6-48"><a></a></span>
-<span id="cb6-49"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
-<span id="cb6-50"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Elicitation</span></span>
-<span id="cb6-51"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> MCPサーバがツール呼び出し中にユーザ入力を要求したとき</span></span>
-<span id="cb6-52"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb6-53"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> MCPのelicitationリクエストのインターセプト・自動応答</span></span>
-<span id="cb6-54"><a></a></span>
-<span id="cb6-55"><a></a><span class="fu">record10</span><span class="kw">:</span></span>
-<span id="cb6-56"><a></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ElicitationResult</span></span>
-<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがMCPのelicitationに応答した後，サーバへ返却される前</span></span>
-<span id="cb6-58"><a></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
-<span id="cb6-59"><a></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザ応答の上書き・修正</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> InstructionsLoaded</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> &lt;code&gt;CLAUDE.md&lt;/code&gt; や &lt;code&gt;.claude/rules/*.md&lt;/code&gt; がコンテキストに読み込まれたとき</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 監査ログ・コンプライアンス追跡・観測性</span></span>
+<span id="cb6-6"><a aria-label="6"></a></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ConfigChange</span></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション中に設定ファイルが変更されたとき</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 設定変更の検証・不正な変更のブロック</span></span>
+<span id="cb6-12"><a aria-label="12"></a></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> CwdChanged</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 作業ディレクトリが変わったとき（&lt;code&gt;cd&lt;/code&gt; コマンド実行時など）</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> direnvなどによるリアクティブな環境管理</span></span>
+<span id="cb6-18"><a aria-label="18"></a></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> FileChanged</span></span>
+<span id="cb6-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> 監視対象ファイルがディスク上で変更されたとき</span></span>
+<span id="cb6-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ファイル変更の検知・環境再読み込み</span></span>
+<span id="cb6-24"><a aria-label="24"></a></span>
+<span id="cb6-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeCreate</span></span>
+<span id="cb6-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> worktree作成時</span></span>
+<span id="cb6-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> デフォルトのgit動作を置き換えるカスタムworktree作成</span></span>
+<span id="cb6-30"><a aria-label="30"></a></span>
+<span id="cb6-31"><a aria-label="31"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> WorktreeRemove</span></span>
+<span id="cb6-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> セッション終了時や SubAgent 完了時にworktreeが削除されるとき</span></span>
+<span id="cb6-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> worktreeクリーンアップ</span></span>
+<span id="cb6-36"><a aria-label="36"></a></span>
+<span id="cb6-37"><a aria-label="37"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb6-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PreCompact</span></span>
+<span id="cb6-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮前</span></span>
+<span id="cb6-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮前のバックアップ・圧縮の防止</span></span>
+<span id="cb6-42"><a aria-label="42"></a></span>
+<span id="cb6-43"><a aria-label="43"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb6-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> PostCompact</span></span>
+<span id="cb6-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> コンテキスト圧縮の完了後</span></span>
+<span id="cb6-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ×</span></span>
+<span id="cb6-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> 圧縮後の状態ログ</span></span>
+<span id="cb6-48"><a aria-label="48"></a></span>
+<span id="cb6-49"><a aria-label="49"></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb6-50"><a aria-label="50"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> Elicitation</span></span>
+<span id="cb6-51"><a aria-label="51"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> MCPサーバがツール呼び出し中にユーザ入力を要求したとき</span></span>
+<span id="cb6-52"><a aria-label="52"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-53"><a aria-label="53"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> MCPのelicitationリクエストのインターセプト・自動応答</span></span>
+<span id="cb6-54"><a aria-label="54"></a></span>
+<span id="cb6-55"><a aria-label="55"></a><span class="fu">record10</span><span class="kw">:</span></span>
+<span id="cb6-56"><a aria-label="56"></a><span class="at">  </span><span class="fu">Hook名</span><span class="kw">:</span><span class="at"> ElicitationResult</span></span>
+<span id="cb6-57"><a aria-label="57"></a><span class="at">  </span><span class="fu">タイミング</span><span class="kw">:</span><span class="at"> ユーザがMCPのelicitationに応答した後，サーバへ返却される前</span></span>
+<span id="cb6-58"><a aria-label="58"></a><span class="at">  </span><span class="fu">Block</span><span class="kw">:</span><span class="at"> ○</span></span>
+<span id="cb6-59"><a aria-label="59"></a><span class="at">  </span><span class="fu">主な用途</span><span class="kw">:</span><span class="at"> ユーザ応答の上書き・修正</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -878,32 +881,32 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important;">
 <div id="yaml-hook-exitcode" class="yaml2table yaml2table-custom-top" data-col-widths="[10, 22, 68]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 成功（処理続行）</span></span>
-<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
-<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout の JSON output フィールドを解釈．&lt;span class="regmonkey-bold"&gt;JSON は exit 0 のときだけ処理される&lt;/span&gt;</span></span>
-<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 多くのイベントでは stdout はデバッグログのみに書かれ，transcript には出ない</span></span>
-<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例外：&lt;code&gt;UserPromptSubmit&lt;/code&gt;・&lt;code&gt;UserPromptExpansion&lt;/code&gt;・&lt;code&gt;SessionStart&lt;/code&gt; は stdout が &lt;span class="regmonkey-bold"&gt;Claude のコンテキストとして読み込まれ&lt;/span&gt;，モデルが見て応答に反映できる</span></span>
-<span id="cb7-9"><a></a></span>
-<span id="cb7-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb7-12"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb7-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブロッキングエラー</span></span>
-<span id="cb7-14"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
-<span id="cb7-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout（JSON も含めて）は&lt;span class="regmonkey-bold"&gt;無視される&lt;/span&gt;</span></span>
-<span id="cb7-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> stderr の内容が Claude にエラーメッセージとしてフィードバックされる</span></span>
-<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> イベント別効果：&lt;code&gt;PreToolUse&lt;/code&gt; はツール呼び出しをブロック，&lt;code&gt;UserPromptSubmit&lt;/code&gt; はプロンプトを拒否，等</span></span>
-<span id="cb7-18"><a></a></span>
-<span id="cb7-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb7-20"><a></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> その他</span></span>
-<span id="cb7-21"><a></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb7-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 非ブロッキングエラー</span></span>
-<span id="cb7-23"><a></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
-<span id="cb7-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> transcript に「&lt;code&gt;&amp;lt;hook name&amp;gt; hook error&lt;/code&gt;」通知＋stderr の1行目が表示される（&lt;code&gt;--debug&lt;/code&gt; なしで原因確認できる）</span></span>
-<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実行は&lt;span class="regmonkey-bold"&gt;継続&lt;/span&gt;される（ブロックしない）</span></span>
-<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 完全な stderr はデバッグログに記録される</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">0</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 成功（処理続行）</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout の JSON output フィールドを解釈．&lt;span class="regmonkey-bold"&gt;JSON は exit 0 のときだけ処理される&lt;/span&gt;</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 多くのイベントでは stdout はデバッグログのみに書かれ，transcript には出ない</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例外：&lt;code&gt;UserPromptSubmit&lt;/code&gt;・&lt;code&gt;UserPromptExpansion&lt;/code&gt;・&lt;code&gt;SessionStart&lt;/code&gt; は stdout が &lt;span class="regmonkey-bold"&gt;Claude のコンテキストとして読み込まれ&lt;/span&gt;，モデルが見て応答に反映できる</span></span>
+<span id="cb7-9"><a aria-label="9"></a></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブロッキングエラー</span></span>
+<span id="cb7-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> stdout（JSON も含めて）は&lt;span class="regmonkey-bold"&gt;無視される&lt;/span&gt;</span></span>
+<span id="cb7-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> stderr の内容が Claude にエラーメッセージとしてフィードバックされる</span></span>
+<span id="cb7-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> イベント別効果：&lt;code&gt;PreToolUse&lt;/code&gt; はツール呼び出しをブロック，&lt;code&gt;UserPromptSubmit&lt;/code&gt; はプロンプトを拒否，等</span></span>
+<span id="cb7-18"><a aria-label="18"></a></span>
+<span id="cb7-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Exit code</span><span class="kw">:</span><span class="at"> その他</span></span>
+<span id="cb7-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">意味</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 非ブロッキングエラー</span></span>
+<span id="cb7-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">挙動・効果</span><span class="kw">:</span></span>
+<span id="cb7-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> transcript に「&lt;code&gt;&amp;lt;hook name&amp;gt; hook error&lt;/code&gt;」通知＋stderr の1行目が表示される（&lt;code&gt;--debug&lt;/code&gt; なしで原因確認できる）</span></span>
+<span id="cb7-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実行は&lt;span class="regmonkey-bold"&gt;継続&lt;/span&gt;される（ブロックしない）</span></span>
+<span id="cb7-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 完全な stderr はデバッグログに記録される</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -992,58 +995,58 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.7em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 32, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;常時ロード&lt;/span&gt;．プロジェクト共通の恒久ルールを置く</span></span>
-<span id="cb8-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに必ず適用される標準・制約・スタイルを記述</span></span>
-<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> セッションによって不要になる詳細は &lt;code&gt;Skills&lt;/code&gt; に逃がす</span></span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb8-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Skills</span></span>
-<span id="cb8-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;オンデマンドロード&lt;/span&gt;．タスク特有の専門知識を必要時に注入する</span></span>
-<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PRレビュー・スライド作成など「特定タスク向け」の手順を整理</span></span>
-<span id="cb8-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> description で発火条件を明示しマッチしたときだけセッションに合流</span></span>
-<span id="cb8-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに常駐させると邪魔な詳細・チェックリストはここに置く</span></span>
-<span id="cb8-17"><a></a></span>
-<span id="cb8-18"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb8-19"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Subagents</span></span>
-<span id="cb8-20"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;隔離コンテキスト&lt;/span&gt;で作業を委譲し結果だけ受け取る</span></span>
-<span id="cb8-22"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 広範な検索・調査・並列タスクを別コンテキストで実行</span></span>
-<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 委譲作業に異なるツール権限を与えたいときに有効</span></span>
-<span id="cb8-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 本セッションのコンテキストを汚さず結果のみ回収する</span></span>
-<span id="cb8-26"><a></a></span>
-<span id="cb8-27"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb8-28"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Hooks</span></span>
-<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;イベント駆動&lt;/span&gt;．ファイル保存・ツール呼び出しで自動発火</span></span>
-<span id="cb8-31"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 保存時のlint・formatなど「毎回走らせたい」処理を自動化</span></span>
-<span id="cb8-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 特定ツール呼び出し前の事前検証・ガードレール</span></span>
-<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claudeの行動に対する自動の副作用を仕込む</span></span>
-<span id="cb8-35"><a></a></span>
-<span id="cb8-36"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb8-37"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MCP&lt;br&gt;servers</span></span>
-<span id="cb8-38"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;外部ツール・統合&lt;/span&gt;を提供．Skillsとは異なるカテゴリ</span></span>
-<span id="cb8-40"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DBなど外部システムへの接続</span></span>
-<span id="cb8-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準にない追加ツール・API機能を Claude に与える</span></span>
-<span id="cb8-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「振る舞い」ではなく「使える道具」を増やす目的で導入</span></span>
-<span id="cb8-44"><a></a></span>
-<span id="cb8-45"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb8-46"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 組み合わせの&lt;br&gt;原則</span></span>
-<span id="cb8-47"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず&lt;span class="regmonkey-bold"&gt;専門領域ごとに分担&lt;/span&gt;させる</span></span>
-<span id="cb8-49"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CLAUDE.mdは恒久ルール・Skillsはタスク特有・Subagentsは委譲</span></span>
-<span id="cb8-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Hooksはイベント自動処理・MCPは外部統合</span></span>
-<span id="cb8-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重ねて構成しそれぞれの強みが活きる配置を取る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> CLAUDE.md</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;常時ロード&lt;/span&gt;．プロジェクト共通の恒久ルールを置く</span></span>
+<span id="cb8-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに必ず適用される標準・制約・スタイルを記述</span></span>
+<span id="cb8-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> セッションによって不要になる詳細は &lt;code&gt;Skills&lt;/code&gt; に逃がす</span></span>
+<span id="cb8-8"><a aria-label="8"></a></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Skills</span></span>
+<span id="cb8-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;オンデマンドロード&lt;/span&gt;．タスク特有の専門知識を必要時に注入する</span></span>
+<span id="cb8-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> PRレビュー・スライド作成など「特定タスク向け」の手順を整理</span></span>
+<span id="cb8-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> description で発火条件を明示しマッチしたときだけセッションに合流</span></span>
+<span id="cb8-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 全セッションに常駐させると邪魔な詳細・チェックリストはここに置く</span></span>
+<span id="cb8-17"><a aria-label="17"></a></span>
+<span id="cb8-18"><a aria-label="18"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Subagents</span></span>
+<span id="cb8-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;隔離コンテキスト&lt;/span&gt;で作業を委譲し結果だけ受け取る</span></span>
+<span id="cb8-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 広範な検索・調査・並列タスクを別コンテキストで実行</span></span>
+<span id="cb8-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 委譲作業に異なるツール権限を与えたいときに有効</span></span>
+<span id="cb8-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 本セッションのコンテキストを汚さず結果のみ回収する</span></span>
+<span id="cb8-26"><a aria-label="26"></a></span>
+<span id="cb8-27"><a aria-label="27"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb8-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Hooks</span></span>
+<span id="cb8-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;イベント駆動&lt;/span&gt;．ファイル保存・ツール呼び出しで自動発火</span></span>
+<span id="cb8-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 保存時のlint・formatなど「毎回走らせたい」処理を自動化</span></span>
+<span id="cb8-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 特定ツール呼び出し前の事前検証・ガードレール</span></span>
+<span id="cb8-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claudeの行動に対する自動の副作用を仕込む</span></span>
+<span id="cb8-35"><a aria-label="35"></a></span>
+<span id="cb8-36"><a aria-label="36"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb8-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MCP&lt;br&gt;servers</span></span>
+<span id="cb8-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;外部ツール・統合&lt;/span&gt;を提供．Skillsとは異なるカテゴリ</span></span>
+<span id="cb8-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Jira・Slack・社内DBなど外部システムへの接続</span></span>
+<span id="cb8-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準にない追加ツール・API機能を Claude に与える</span></span>
+<span id="cb8-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「振る舞い」ではなく「使える道具」を増やす目的で導入</span></span>
+<span id="cb8-44"><a aria-label="44"></a></span>
+<span id="cb8-45"><a aria-label="45"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb8-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 組み合わせの&lt;br&gt;原則</span></span>
+<span id="cb8-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-48"><a aria-label="48"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1機能に詰め込まず&lt;span class="regmonkey-bold"&gt;専門領域ごとに分担&lt;/span&gt;させる</span></span>
+<span id="cb8-49"><a aria-label="49"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-50"><a aria-label="50"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CLAUDE.mdは恒久ルール・Skillsはタスク特有・Subagentsは委譲</span></span>
+<span id="cb8-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Hooksはイベント自動処理・MCPは外部統合</span></span>
+<span id="cb8-52"><a aria-label="52"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重ねて構成しそれぞれの強みが活きる配置を取る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

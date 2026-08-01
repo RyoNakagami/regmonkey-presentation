@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Skillをチーム・組織で共有する</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -294,35 +297,35 @@ Ryo Nakagami
 </div><div class="column" style="width:70%; padding-left:0.5em;">
 <div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
 <div class="regmonkey_index" style="width:1200px; line-height: 1.2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. なぜSkillを共有するのか</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 個人利用に留めると&lt;strong&gt;標準化・一貫性&lt;/strong&gt;の効果が得られない</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> チーム・組織への展開で初めて運用価値が生じる</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. リポジトリへのコミット</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にコミットすればGit経由で&lt;strong&gt;自動配布&lt;/strong&gt;</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロジェクト固有の標準・ワークフローに最適</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. プラグイン経由</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> マーケットプレイス経由で&lt;strong&gt;リポジトリを跨いで配布&lt;/strong&gt;</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 汎用的な知識・コミュニティ向けに有効</span></span>
-<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. エンタープライズ Managed Settings</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 組織管理者が&lt;strong&gt;最高優先度&lt;/strong&gt;で全社配布</span></span>
-<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス用途</span></span>
-<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. SkillsとSubagentsの関係</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Subagentは&lt;strong&gt;Skillを自動継承しない&lt;/strong&gt;のが落とし穴</span></span>
-<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> カスタムSubagentでは&lt;code&gt;skills:&lt;/code&gt;に明示列挙が必要</span></span>
-<span id="cb1-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. なぜSkillを共有するのか</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 個人利用に留めると&lt;strong&gt;標準化・一貫性&lt;/strong&gt;の効果が得られない</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> チーム・組織への展開で初めて運用価値が生じる</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. リポジトリへのコミット</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にコミットすればGit経由で&lt;strong&gt;自動配布&lt;/strong&gt;</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロジェクト固有の標準・ワークフローに最適</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. プラグイン経由</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> マーケットプレイス経由で&lt;strong&gt;リポジトリを跨いで配布&lt;/strong&gt;</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 汎用的な知識・コミュニティ向けに有効</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. エンタープライズ Managed Settings</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 組織管理者が&lt;strong&gt;最高優先度&lt;/strong&gt;で全社配布</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス用途</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. SkillsとSubagentsの関係</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Subagentは&lt;strong&gt;Skillを自動継承しない&lt;/strong&gt;のが落とし穴</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> カスタムSubagentでは&lt;code&gt;skills:&lt;/code&gt;に明示列挙が必要</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -367,25 +370,25 @@ Ryo Nakagami
 <p><span class="mini-section">配布手段は3種類．スコープと優先度で使い分ける</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="regmonkey_index" style="width:1600px; line-height: 1.2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
-<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> リポジトリコミット</span></span>
-<span id="cb2-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;プロジェクト単位&lt;/strong&gt;</span></span>
-<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Gitで自動配布される最もシンプルな手段</span></span>
-<span id="cb2-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb2-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> プラグイン</span></span>
-<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;複数リポジトリ横断型&lt;/strong&gt;．</span></span>
-<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> マーケットプレイス経由でコミュニティ配布</span></span>
-<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> エンタープライズ Managed Settings</span></span>
-<span id="cb2-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;組織全体&lt;/strong&gt;</span></span>
-<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 最高優先度でポリシーを強制</span></span>
-<span id="cb2-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> リポジトリコミット</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;プロジェクト単位&lt;/strong&gt;</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Gitで自動配布される最もシンプルな手段</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> プラグイン</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;複数リポジトリ横断型&lt;/strong&gt;．</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> マーケットプレイス経由でコミュニティ配布</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> エンタープライズ Managed Settings</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;組織全体&lt;/strong&gt;</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 最高優先度でポリシーを強制</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -530,16 +533,16 @@ Ryo Nakagami
 <p><span class="mini-section">strictKnownMarketplaces の設定例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a></a><span class="st">"strictKnownMarketplaces"</span><span class="er">:</span> <span class="ot">[</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">{</span> </span>
-<span id="cb3-3"><a></a>    <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"github"</span><span class="fu">,</span> </span>
-<span id="cb3-4"><a></a>    <span class="dt">"repo"</span><span class="fu">:</span> <span class="st">"acme-corp/approved-plugins"</span> </span>
-<span id="cb3-5"><a></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">{</span> </span>
-<span id="cb3-7"><a></a>    <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"npm"</span><span class="fu">,</span></span>
-<span id="cb3-8"><a></a>    <span class="dt">"package"</span><span class="fu">:</span> <span class="st">"@acme-corp/compliance-plugins"</span> </span>
-<span id="cb3-9"><a></a>  <span class="fu">}</span></span>
-<span id="cb3-10"><a></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a aria-label="1"></a><span class="st">"strictKnownMarketplaces"</span><span class="er">:</span> <span class="ot">[</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="fu">{</span> </span>
+<span id="cb3-3"><a aria-label="3"></a>    <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"github"</span><span class="fu">,</span> </span>
+<span id="cb3-4"><a aria-label="4"></a>    <span class="dt">"repo"</span><span class="fu">:</span> <span class="st">"acme-corp/approved-plugins"</span> </span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="fu">{</span> </span>
+<span id="cb3-7"><a aria-label="7"></a>    <span class="dt">"source"</span><span class="fu">:</span> <span class="st">"npm"</span><span class="fu">,</span></span>
+<span id="cb3-8"><a aria-label="8"></a>    <span class="dt">"package"</span><span class="fu">:</span> <span class="st">"@acme-corp/compliance-plugins"</span> </span>
+<span id="cb3-9"><a aria-label="9"></a>  <span class="fu">}</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="つの配布手段は優先度スコープで切り分ける" class="slide level2">
@@ -548,32 +551,32 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.85em !important;">
 <div id="yaml-distribution-summary" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リポジトリ&lt;br&gt;コミット</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;プロジェクト単位&lt;/span&gt;でGit経由配布．clone&amp;pullで自動同期</span></span>
-<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にSkillを置きコミット</span></span>
-<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム標準・プロジェクト固有ワークフローに最適</span></span>
-<span id="cb4-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リポジトリ構造に依存するSkillはここに置く</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン&lt;br&gt;経由</span></span>
-<span id="cb4-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;複数リポジトリ跨ぎ&lt;/span&gt;．マーケットプレイス経由で広域配布</span></span>
-<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 独立したプラグインプロジェクトに &lt;code&gt;skills/&lt;/code&gt; を作る</span></span>
-<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 各Skillは &lt;code&gt;SKILL.md&lt;/code&gt; を含むフォルダに分ける</span></span>
-<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 汎用的・コミュニティ価値のあるSkill向け</span></span>
-<span id="cb4-18"><a></a></span>
-<span id="cb4-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb4-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> エンタープライズ&lt;br&gt;Managed Settings</span></span>
-<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;組織全体・最高優先度&lt;/span&gt;．個人・プロジェクト・プラグインを上書き</span></span>
-<span id="cb4-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス・セキュリティ用途</span></span>
-<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;strictKnownMarketplaces&lt;/code&gt; で導入元を制限可能</span></span>
-<span id="cb4-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「&lt;span class="regmonkey-bold"&gt;絶対に守らせたい&lt;/span&gt;」基準のときに選ぶ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リポジトリ&lt;br&gt;コミット</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;プロジェクト単位&lt;/span&gt;でGit経由配布．clone&amp;pullで自動同期</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にSkillを置きコミット</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム標準・プロジェクト固有ワークフローに最適</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> リポジトリ構造に依存するSkillはここに置く</span></span>
+<span id="cb4-9"><a aria-label="9"></a></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン&lt;br&gt;経由</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;複数リポジトリ跨ぎ&lt;/span&gt;．マーケットプレイス経由で広域配布</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 独立したプラグインプロジェクトに &lt;code&gt;skills/&lt;/code&gt; を作る</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 各Skillは &lt;code&gt;SKILL.md&lt;/code&gt; を含むフォルダに分ける</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 汎用的・コミュニティ価値のあるSkill向け</span></span>
+<span id="cb4-18"><a aria-label="18"></a></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> エンタープライズ&lt;br&gt;Managed Settings</span></span>
+<span id="cb4-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;組織全体・最高優先度&lt;/span&gt;．個人・プロジェクト・プラグインを上書き</span></span>
+<span id="cb4-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス・セキュリティ用途</span></span>
+<span id="cb4-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;strictKnownMarketplaces&lt;/code&gt; で導入元を制限可能</span></span>
+<span id="cb4-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「&lt;span class="regmonkey-bold"&gt;絶対に守らせたい&lt;/span&gt;」基準のときに選ぶ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -686,14 +689,14 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">frontmatterの記述例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
-<span id="cb5-2"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> frontend-security-accessibility-reviewer</span></span>
-<span id="cb5-3"><a></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Use this agent when you need to review frontend code for accessibility..."</span></span>
-<span id="cb5-4"><a></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> Bash, Glob, Grep, Read, WebFetch, WebSearch, Skill</span></span>
-<span id="cb5-5"><a></a><span class="fu">model</span><span class="kw">:</span><span class="at"> sonnet</span></span>
-<span id="cb5-6"><a></a><span class="fu">color</span><span class="kw">:</span><span class="at"> blue</span></span>
-<span id="cb5-7"><a></a><span class="fu">skills</span><span class="kw">:</span><span class="at"> accessibility-audit, performance-check</span></span>
-<span id="cb5-8"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> frontend-security-accessibility-reviewer</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Use this agent when you need to review frontend code for accessibility..."</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">tools</span><span class="kw">:</span><span class="at"> Bash, Glob, Grep, Read, WebFetch, WebSearch, Skill</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">model</span><span class="kw">:</span><span class="at"> sonnet</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="fu">color</span><span class="kw">:</span><span class="at"> blue</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="fu">skills</span><span class="kw">:</span><span class="at"> accessibility-audit, performance-check</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-09">
 <ul>
@@ -751,46 +754,46 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.8em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 共有の意義</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人利用ではなく&lt;span class="regmonkey-bold"&gt;チーム・組織配布&lt;/span&gt;で運用価値が立ち上がる</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同じSkillを全員で使い，レビュー・スタイル・運用を標準化</span></span>
-<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 配布スコープと優先度で3手段を使い分ける</span></span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リポジトリ&lt;br&gt;コミット</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;プロジェクト単位&lt;/span&gt;．Git経由で自動配布される最もシンプルな手段</span></span>
-<span id="cb6-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にコミット．clone&amp;pullで全員に反映</span></span>
-<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム標準・プロジェクト固有ワークフロー向け</span></span>
-<span id="cb6-16"><a></a></span>
-<span id="cb6-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb6-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン&lt;br&gt;経由</span></span>
-<span id="cb6-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;複数リポジトリ跨ぎ&lt;/span&gt;．マーケットプレイス経由で広域配布</span></span>
-<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プラグインプロジェクトに &lt;code&gt;skills/&lt;/code&gt; を作り &lt;code&gt;SKILL.md&lt;/code&gt; を配置</span></span>
-<span id="cb6-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 汎用的・コミュニティ価値のあるSkillに最適</span></span>
-<span id="cb6-24"><a></a></span>
-<span id="cb6-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb6-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Managed&lt;br&gt;Settings</span></span>
-<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 組織全体・&lt;span class="regmonkey-bold"&gt;最高優先度&lt;/span&gt;．個人・プロジェクト・プラグインを上書き</span></span>
-<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス・セキュリティ用途</span></span>
-<span id="cb6-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;strictKnownMarketplaces&lt;/code&gt; でプラグイン導入元を制限</span></span>
-<span id="cb6-32"><a></a></span>
-<span id="cb6-33"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb6-34"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> SubagentsとSkill</span></span>
-<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Subagentは&lt;span class="regmonkey-bold"&gt;Skillを自動継承しない&lt;/span&gt;．明示的な紐付けが必要</span></span>
-<span id="cb6-37"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 組み込みエージェント（Explorer・Plan・Verify）はSkill不可</span></span>
-<span id="cb6-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> カスタムエージェントの frontmatter に &lt;code&gt;skills:&lt;/code&gt; を列挙</span></span>
-<span id="cb6-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> タスク別エージェント×専用Skillで標準を委譲作業に強制</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 共有の意義</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人利用ではなく&lt;span class="regmonkey-bold"&gt;チーム・組織配布&lt;/span&gt;で運用価値が立ち上がる</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同じSkillを全員で使い，レビュー・スタイル・運用を標準化</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 配布スコープと優先度で3手段を使い分ける</span></span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リポジトリ&lt;br&gt;コミット</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;プロジェクト単位&lt;/span&gt;．Git経由で自動配布される最もシンプルな手段</span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.claude/skills&lt;/code&gt; にコミット．clone&amp;pullで全員に反映</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム標準・プロジェクト固有ワークフロー向け</span></span>
+<span id="cb6-16"><a aria-label="16"></a></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン&lt;br&gt;経由</span></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;複数リポジトリ跨ぎ&lt;/span&gt;．マーケットプレイス経由で広域配布</span></span>
+<span id="cb6-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> プラグインプロジェクトに &lt;code&gt;skills/&lt;/code&gt; を作り &lt;code&gt;SKILL.md&lt;/code&gt; を配置</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 汎用的・コミュニティ価値のあるSkillに最適</span></span>
+<span id="cb6-24"><a aria-label="24"></a></span>
+<span id="cb6-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Managed&lt;br&gt;Settings</span></span>
+<span id="cb6-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 組織全体・&lt;span class="regmonkey-bold"&gt;最高優先度&lt;/span&gt;．個人・プロジェクト・プラグインを上書き</span></span>
+<span id="cb6-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 強制したい標準・コンプライアンス・セキュリティ用途</span></span>
+<span id="cb6-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;strictKnownMarketplaces&lt;/code&gt; でプラグイン導入元を制限</span></span>
+<span id="cb6-32"><a aria-label="32"></a></span>
+<span id="cb6-33"><a aria-label="33"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> SubagentsとSkill</span></span>
+<span id="cb6-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Subagentは&lt;span class="regmonkey-bold"&gt;Skillを自動継承しない&lt;/span&gt;．明示的な紐付けが必要</span></span>
+<span id="cb6-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 組み込みエージェント（Explorer・Plan・Verify）はSkill不可</span></span>
+<span id="cb6-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> カスタムエージェントの frontmatter に &lt;code&gt;skills:&lt;/code&gt; を列挙</span></span>
+<span id="cb6-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> タスク別エージェント×専用Skillで標準を委譲作業に強制</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

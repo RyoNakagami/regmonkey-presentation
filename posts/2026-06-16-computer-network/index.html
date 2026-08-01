@@ -7,12 +7,12 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – ネットワークを学ぶ</title>
@@ -25,10 +25,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -249,7 +252,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -507,51 +510,51 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;">
 <div id="yaml-tcpip-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 54, 26]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb1-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション層</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーションが扱うデータ形式に変換</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション毎に様々なプロトコルが存在</span></span>
-<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> この層は「クライアントとサーバー」という概念を持っている</span></span>
-<span id="cb1-8"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb1-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・HTTPS・DNS・SMTP・POP3・NTP</span></span>
-<span id="cb1-10"><a></a></span>
-<span id="cb1-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> トランスポート層</span></span>
-<span id="cb1-14"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を管理し，データをセグメントに分割して送受信する</span></span>
-<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エラー検知・再送・順序制御により通信の信頼性を確保する</span></span>
-<span id="cb1-17"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP・TLS</span></span>
-<span id="cb1-19"><a></a></span>
-<span id="cb1-20"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb1-21"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ネットワーク層</span></span>
-<span id="cb1-23"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 宛先IPを付与してパケット化し，ネットワーク間の最適な経路を決定する</span></span>
-<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 届けたデータの整合性確認は担当しない</span></span>
-<span id="cb1-26"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP・IPsec</span></span>
-<span id="cb1-28"><a></a></span>
-<span id="cb1-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb1-30"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データリンク層</span></span>
-<span id="cb1-32"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb1-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同一ネットワーク内で機器同士のデータ送受信を管理する</span></span>
-<span id="cb1-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを利用して，次の機器へデータを受け渡す</span></span>
-<span id="cb1-35"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb1-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・Wi-Fi（IEEE 802.11）</span></span>
-<span id="cb1-37"><a></a></span>
-<span id="cb1-38"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb1-39"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb1-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 物理層</span></span>
-<span id="cb1-41"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb1-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光信号に変換し，ケーブルや電波などの媒体へ送出する</span></span>
-<span id="cb1-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変換方法は通信媒体に依存するため，特定のプロトコルは決められない</span></span>
-<span id="cb1-44"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb1-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション層</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーションが扱うデータ形式に変換</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション毎に様々なプロトコルが存在</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> この層は「クライアントとサーバー」という概念を持っている</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・HTTPS・DNS・SMTP・POP3・NTP</span></span>
+<span id="cb1-10"><a aria-label="10"></a></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> トランスポート層</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を管理し，データをセグメントに分割して送受信する</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エラー検知・再送・順序制御により通信の信頼性を確保する</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP・TLS</span></span>
+<span id="cb1-19"><a aria-label="19"></a></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ネットワーク層</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 宛先IPを付与してパケット化し，ネットワーク間の最適な経路を決定する</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 届けたデータの整合性確認は担当しない</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP・IPsec</span></span>
+<span id="cb1-28"><a aria-label="28"></a></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb1-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> データリンク層</span></span>
+<span id="cb1-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同一ネットワーク内で機器同士のデータ送受信を管理する</span></span>
+<span id="cb1-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを利用して，次の機器へデータを受け渡す</span></span>
+<span id="cb1-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・Wi-Fi（IEEE 802.11）</span></span>
+<span id="cb1-37"><a aria-label="37"></a></span>
+<span id="cb1-38"><a aria-label="38"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb1-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb1-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 物理層</span></span>
+<span id="cb1-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb1-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光信号に変換し，ケーブルや電波などの媒体へ送出する</span></span>
+<span id="cb1-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変換方法は通信媒体に依存するため，特定のプロトコルは決められない</span></span>
+<span id="cb1-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb1-45"><a aria-label="45"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="font-08">
@@ -598,27 +601,27 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="regmonkey_index padding-L-10" style="width:95%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ヘッダ（Header）</span></span>
-<span id="cb2-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 各層がデータの前に付加する制御情報</span></span>
-<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 宛先・送信元・順序番号など，その層の処理に必要な情報を格納する</span></span>
-<span id="cb2-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb2-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> データ（Payload）</span></span>
-<span id="cb2-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 上位層から渡された運ぶべき本体部分</span></span>
-<span id="cb2-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一つ上の層で付与されたヘッダも，下の層ではデータとしてみなされる</span></span>
-<span id="cb2-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb2-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> トレーラ（Trailer）</span></span>
-<span id="cb2-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一部の層がデータの後ろに付加する制御情報</span></span>
-<span id="cb2-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主にデータリンク層で，誤り検出用のチェック情報（FCS）として利用される</span></span>
-<span id="cb2-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> トレーラーはないこともありえる</span></span>
-<span id="cb2-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ヘッダ（Header）</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 各層がデータの前に付加する制御情報</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 宛先・送信元・順序番号など，その層の処理に必要な情報を格納する</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> データ（Payload）</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 上位層から渡された運ぶべき本体部分</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一つ上の層で付与されたヘッダも，下の層ではデータとしてみなされる</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> トレーラ（Trailer）</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一部の層がデータの後ろに付加する制御情報</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主にデータリンク層で，誤り検出用のチェック情報（FCS）として利用される</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> トレーラーはないこともありえる</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ネットワーク通信時には細かく分割してデータを送信する" class="slide level2">
@@ -639,57 +642,57 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div data-step-flow="1">
 <div class="step-flow-data">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
-<span id="cb3-2"><a></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">17</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">33</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">]</span></span>
-<span id="cb3-3"><a></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb3-4"><a></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-5"><a></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
-<span id="cb3-6"><a></a><span class="fu">header</span><span class="kw">:</span></span>
-<span id="cb3-7"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 層</span></span>
-<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> データ単位（PDU）</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行われる処理</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 付与されるヘッダ例</span></span>
-<span id="cb3-11"><a></a><span class="fu">font</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb3-16"><a></a><span class="fu">record</span><span class="kw">:</span></span>
-<span id="cb3-17"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① アプリケーション層</span></span>
-<span id="cb3-18"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
-<span id="cb3-19"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> データ（Data / Message）</span></span>
-<span id="cb3-20"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb3-21"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> Webページやメールなどのデータ本体</span></span>
-<span id="cb3-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> まだ分割されていないひとまとまりの状態</span></span>
-<span id="cb3-23"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb3-24"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> ヘッダ付与なし（データ本体のまま）</span></span>
-<span id="cb3-25"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② トランスポート層</span></span>
-<span id="cb3-26"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
-<span id="cb3-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメント（Segment）</span></span>
-<span id="cb3-28"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb3-29"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> データを扱いやすい大きさに分割</span></span>
-<span id="cb3-30"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TCPヘッダ（ポート番号など）を付与</span></span>
-<span id="cb3-31"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb3-32"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先ポート番号</span></span>
-<span id="cb3-33"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> シーケンス番号・確認応答番号</span></span>
-<span id="cb3-34"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ ネットワーク層</span></span>
-<span id="cb3-35"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
-<span id="cb3-36"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケット（Packet）</span></span>
-<span id="cb3-37"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb3-38"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメントにIPヘッダ（IPアドレスなど）を付与</span></span>
-<span id="cb3-39"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 経路制御（ルーティング）の最小単位</span></span>
-<span id="cb3-40"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb3-41"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先IPアドレス</span></span>
-<span id="cb3-42"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TTL（生存時間）</span></span>
-<span id="cb3-43"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ データリンク層</span></span>
-<span id="cb3-44"><a></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
-<span id="cb3-45"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> フレーム（Frame）</span></span>
-<span id="cb3-46"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb3-47"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケットにMACアドレスを含むヘッダを付与</span></span>
-<span id="cb3-48"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 誤り検出用のトレーラ（FCS）を末尾に付与</span></span>
-<span id="cb3-49"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb3-50"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先MACアドレス</span></span>
-<span id="cb3-51"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> FCS（誤り検出用・トレーラ）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">17</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">,</span><span class="at"> </span><span class="dv">33</span><span class="kw">,</span><span class="at"> </span><span class="dv">25</span><span class="kw">]</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="fu">header</span><span class="kw">:</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 層</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> データ単位（PDU）</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行われる処理</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 付与されるヘッダ例</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="fu">font</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="fu">record</span><span class="kw">:</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① アプリケーション層</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">      </span><span class="kw">-</span><span class="at"> データ（Data / Message）</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">      </span><span class="kw">-</span><span class="at"> Webページやメールなどのデータ本体</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">      </span><span class="kw">-</span><span class="at"> まだ分割されていないひとまとまりの状態</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-24"><a aria-label="24"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ヘッダ付与なし（データ本体のまま）</span></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② トランスポート層</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメント（Segment）</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">      </span><span class="kw">-</span><span class="at"> データを扱いやすい大きさに分割</span></span>
+<span id="cb3-30"><a aria-label="30"></a><span class="at">      </span><span class="kw">-</span><span class="at"> TCPヘッダ（ポート番号など）を付与</span></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-32"><a aria-label="32"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先ポート番号</span></span>
+<span id="cb3-33"><a aria-label="33"></a><span class="at">      </span><span class="kw">-</span><span class="at"> シーケンス番号・確認応答番号</span></span>
+<span id="cb3-34"><a aria-label="34"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ ネットワーク層</span></span>
+<span id="cb3-35"><a aria-label="35"></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-36"><a aria-label="36"></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケット（Packet）</span></span>
+<span id="cb3-37"><a aria-label="37"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-38"><a aria-label="38"></a><span class="at">      </span><span class="kw">-</span><span class="at"> セグメントにIPヘッダ（IPアドレスなど）を付与</span></span>
+<span id="cb3-39"><a aria-label="39"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 経路制御（ルーティング）の最小単位</span></span>
+<span id="cb3-40"><a aria-label="40"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-41"><a aria-label="41"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先IPアドレス</span></span>
+<span id="cb3-42"><a aria-label="42"></a><span class="at">      </span><span class="kw">-</span><span class="at"> TTL（生存時間）</span></span>
+<span id="cb3-43"><a aria-label="43"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ データリンク層</span></span>
+<span id="cb3-44"><a aria-label="44"></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span></span>
+<span id="cb3-45"><a aria-label="45"></a><span class="at">      </span><span class="kw">-</span><span class="at"> フレーム（Frame）</span></span>
+<span id="cb3-46"><a aria-label="46"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb3-47"><a aria-label="47"></a><span class="at">      </span><span class="kw">-</span><span class="at"> パケットにMACアドレスを含むヘッダを付与</span></span>
+<span id="cb3-48"><a aria-label="48"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 誤り検出用のトレーラ（FCS）を末尾に付与</span></span>
+<span id="cb3-49"><a aria-label="49"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb3-50"><a aria-label="50"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 送信元・宛先MACアドレス</span></span>
+<span id="cb3-51"><a aria-label="51"></a><span class="at">      </span><span class="kw">-</span><span class="at"> FCS（誤り検出用・トレーラ）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -983,98 +986,98 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.7em !important;">
 <div id="yaml-wellknown-ports" class="yaml2table yaml2table-custom-top" data-col-widths="[22, 24, 24, 30]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTP）</span></span>
-<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP</span></span>
-<span id="cb4-6"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 80 / TCP</span></span>
-<span id="cb4-8"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化なしのWebページ閲覧</span></span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb4-12"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTPS）</span></span>
-<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP over TLS</span></span>
-<span id="cb4-16"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 443 / TCP</span></span>
-<span id="cb4-18"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLSで暗号化されたWebページ閲覧</span></span>
-<span id="cb4-20"><a></a></span>
-<span id="cb4-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb4-22"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信</span></span>
-<span id="cb4-24"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP</span></span>
-<span id="cb4-26"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 25 / TCP</span></span>
-<span id="cb4-28"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバー間でのメール転送</span></span>
-<span id="cb4-30"><a></a></span>
-<span id="cb4-31"><a></a><span class="fu">record3b</span><span class="kw">:</span></span>
-<span id="cb4-32"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信（認証付き）</span></span>
-<span id="cb4-34"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP（Submission）</span></span>
-<span id="cb4-36"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 587 / TCP</span></span>
-<span id="cb4-38"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メールソフトからサーバーへ送信</span></span>
-<span id="cb4-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP-AUTHで認証・STARTTLSで暗号化</span></span>
-<span id="cb4-41"><a></a></span>
-<span id="cb4-42"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb4-43"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール受信</span></span>
-<span id="cb4-45"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-46"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> POP3</span></span>
-<span id="cb4-47"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 110 / TCP</span></span>
-<span id="cb4-49"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーからメールを取り出す</span></span>
-<span id="cb4-51"><a></a></span>
-<span id="cb4-52"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb4-53"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-54"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 名前解決</span></span>
-<span id="cb4-55"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-56"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DNS</span></span>
-<span id="cb4-57"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 53 / UDP・TCP</span></span>
-<span id="cb4-59"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ドメイン名とIPアドレスの相互変換</span></span>
-<span id="cb4-61"><a></a></span>
-<span id="cb4-62"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb4-63"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-64"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リモート接続</span></span>
-<span id="cb4-65"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-66"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SSH</span></span>
-<span id="cb4-67"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 22 / TCP</span></span>
-<span id="cb4-69"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-70"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化された遠隔ログイン・操作</span></span>
-<span id="cb4-71"><a></a></span>
-<span id="cb4-72"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb4-73"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-74"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 時刻同期</span></span>
-<span id="cb4-75"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-76"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NTP</span></span>
-<span id="cb4-77"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-78"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 123 / UDP</span></span>
-<span id="cb4-79"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-80"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機器の時刻をサーバーに合わせる</span></span>
-<span id="cb4-81"><a></a></span>
-<span id="cb4-82"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb4-83"><a></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
-<span id="cb4-84"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイル転送</span></span>
-<span id="cb4-85"><a></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
-<span id="cb4-86"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> FTP</span></span>
-<span id="cb4-87"><a></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
-<span id="cb4-88"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 21 / TCP（制御）</span></span>
-<span id="cb4-89"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 20 / TCP（データ）</span></span>
-<span id="cb4-90"><a></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
-<span id="cb4-91"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイルのアップロード・ダウンロード</span></span>
-<span id="cb4-92"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 制御用とデータ用で2つのポートを使う</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTP）</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 80 / TCP</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化なしのWebページ閲覧</span></span>
+<span id="cb4-10"><a aria-label="10"></a></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web（HTTPS）</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP over TLS</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 443 / TCP</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLSで暗号化されたWebページ閲覧</span></span>
+<span id="cb4-20"><a aria-label="20"></a></span>
+<span id="cb4-21"><a aria-label="21"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信</span></span>
+<span id="cb4-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP</span></span>
+<span id="cb4-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 25 / TCP</span></span>
+<span id="cb4-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバー間でのメール転送</span></span>
+<span id="cb4-30"><a aria-label="30"></a></span>
+<span id="cb4-31"><a aria-label="31"></a><span class="fu">record3b</span><span class="kw">:</span></span>
+<span id="cb4-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール送信（認証付き）</span></span>
+<span id="cb4-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP（Submission）</span></span>
+<span id="cb4-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 587 / TCP</span></span>
+<span id="cb4-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> メールソフトからサーバーへ送信</span></span>
+<span id="cb4-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SMTP-AUTHで認証・STARTTLSで暗号化</span></span>
+<span id="cb4-41"><a aria-label="41"></a></span>
+<span id="cb4-42"><a aria-label="42"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-43"><a aria-label="43"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> メール受信</span></span>
+<span id="cb4-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-46"><a aria-label="46"></a><span class="at">    </span><span class="kw">-</span><span class="at"> POP3</span></span>
+<span id="cb4-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-48"><a aria-label="48"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 110 / TCP</span></span>
+<span id="cb4-49"><a aria-label="49"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-50"><a aria-label="50"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーからメールを取り出す</span></span>
+<span id="cb4-51"><a aria-label="51"></a></span>
+<span id="cb4-52"><a aria-label="52"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb4-53"><a aria-label="53"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-54"><a aria-label="54"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 名前解決</span></span>
+<span id="cb4-55"><a aria-label="55"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-56"><a aria-label="56"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DNS</span></span>
+<span id="cb4-57"><a aria-label="57"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-58"><a aria-label="58"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 53 / UDP・TCP</span></span>
+<span id="cb4-59"><a aria-label="59"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-60"><a aria-label="60"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ドメイン名とIPアドレスの相互変換</span></span>
+<span id="cb4-61"><a aria-label="61"></a></span>
+<span id="cb4-62"><a aria-label="62"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb4-63"><a aria-label="63"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-64"><a aria-label="64"></a><span class="at">    </span><span class="kw">-</span><span class="at"> リモート接続</span></span>
+<span id="cb4-65"><a aria-label="65"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-66"><a aria-label="66"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SSH</span></span>
+<span id="cb4-67"><a aria-label="67"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-68"><a aria-label="68"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 22 / TCP</span></span>
+<span id="cb4-69"><a aria-label="69"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-70"><a aria-label="70"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暗号化された遠隔ログイン・操作</span></span>
+<span id="cb4-71"><a aria-label="71"></a></span>
+<span id="cb4-72"><a aria-label="72"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb4-73"><a aria-label="73"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-74"><a aria-label="74"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 時刻同期</span></span>
+<span id="cb4-75"><a aria-label="75"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-76"><a aria-label="76"></a><span class="at">    </span><span class="kw">-</span><span class="at"> NTP</span></span>
+<span id="cb4-77"><a aria-label="77"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-78"><a aria-label="78"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 123 / UDP</span></span>
+<span id="cb4-79"><a aria-label="79"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-80"><a aria-label="80"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機器の時刻をサーバーに合わせる</span></span>
+<span id="cb4-81"><a aria-label="81"></a></span>
+<span id="cb4-82"><a aria-label="82"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb4-83"><a aria-label="83"></a><span class="at">  </span><span class="fu">サービス</span><span class="kw">:</span></span>
+<span id="cb4-84"><a aria-label="84"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイル転送</span></span>
+<span id="cb4-85"><a aria-label="85"></a><span class="at">  </span><span class="fu">アプリケーション層プロトコル</span><span class="kw">:</span></span>
+<span id="cb4-86"><a aria-label="86"></a><span class="at">    </span><span class="kw">-</span><span class="at"> FTP</span></span>
+<span id="cb4-87"><a aria-label="87"></a><span class="at">  </span><span class="fu">ポート / トランスポート</span><span class="kw">:</span></span>
+<span id="cb4-88"><a aria-label="88"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 21 / TCP（制御）</span></span>
+<span id="cb4-89"><a aria-label="89"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 20 / TCP（データ）</span></span>
+<span id="cb4-90"><a aria-label="90"></a><span class="at">  </span><span class="fu">説明</span><span class="kw">:</span></span>
+<span id="cb4-91"><a aria-label="91"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイルのアップロード・ダウンロード</span></span>
+<span id="cb4-92"><a aria-label="92"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 制御用とデータ用で2つのポートを使う</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -1192,31 +1195,31 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><span class="mini-section">IPプロトコルの特徴</span></p>
 <div class="regmonkey_index padding-L-10" style="width:100%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb5-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> コネクションレス型通信</span></span>
-<span id="cb5-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 通信相手の確認と通信経路設定を行わずに直ちに通信を始める</span></span>
-<span id="cb5-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 各データグラムは他のデータグラムと無関係に独立して扱われる</span></span>
-<span id="cb5-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb5-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ベストエフォート型</span></span>
-<span id="cb5-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 到達保証・順序保証・フロー制御・再送制御はいずれも提供しない</span></span>
-<span id="cb5-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ヘッダチェックサムによるヘッダ検証のみ行い，エラー検出時はデータグラムを破棄してICMPで通知</span></span>
-<span id="cb5-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb5-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> フラグメンテーションと再組立</span></span>
-<span id="cb5-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> MTUの小さいネットワークを通過する際，データグラムを分割（フラグメント）して送信する（データリンク層で扱えるサイズより大きいときは分割してからヘッダをつける）</span></span>
-<span id="cb5-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分割されたデータグラムは最終宛先で再組立される</span></span>
-<span id="cb5-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb5-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> TTLによるループ防止</span></span>
-<span id="cb5-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 送信者がTTL（Time to Live）値をセットし，経路上の各ノードで減算される</span></span>
-<span id="cb5-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> TTLがゼロになると該当データグラムは破棄され，ネットワーク内での無限滞留を防ぐ</span></span>
-<span id="cb5-25"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> コネクションレス型通信</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 通信相手の確認と通信経路設定を行わずに直ちに通信を始める</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 各データグラムは他のデータグラムと無関係に独立して扱われる</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ベストエフォート型</span></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 到達保証・順序保証・フロー制御・再送制御はいずれも提供しない</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ヘッダチェックサムによるヘッダ検証のみ行い，エラー検出時はデータグラムを破棄してICMPで通知</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb5-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> フラグメンテーションと再組立</span></span>
+<span id="cb5-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> MTUの小さいネットワークを通過する際，データグラムを分割（フラグメント）して送信する（データリンク層で扱えるサイズより大きいときは分割してからヘッダをつける）</span></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 分割されたデータグラムは最終宛先で再組立される</span></span>
+<span id="cb5-20"><a aria-label="20"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> TTLによるループ防止</span></span>
+<span id="cb5-22"><a aria-label="22"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 送信者がTTL（Time to Live）値をセットし，経路上の各ノードで減算される</span></span>
+<span id="cb5-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> TTLがゼロになると該当データグラムは破棄され，ネットワーク内での無限滞留を防ぐ</span></span>
+<span id="cb5-25"><a aria-label="25"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- footer -->
 <aside><ol class="aside-footnotes"><li id="fn3"><p>IPはルーティング（経路選択）を可能にするプロトコルであって，実際の経路選択はルーターが行う</p></li></ol></aside></section>
@@ -1584,10 +1587,10 @@ sequenceDiagram
 <p><code>ip addr</code> コマンドを実行すると，<code>fe80::</code> で始まるアドレスが表示される場合があります</p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">$</span> ip addr show eth0</span>
-<span id="cb6-2"><a></a><span class="ex">2:</span> eth0: <span class="op">&lt;</span>BROADCAST,MULTICAST,UP<span class="op">&gt;</span></span>
-<span id="cb6-3"><a></a>    <span class="ex">inet6</span> fe80::1a2b:3cff:fe4d:5e6f/64</span>
-<span id="cb6-4"><a></a>         <span class="ex">scope</span> link</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="ex">$</span> ip addr show eth0</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="ex">2:</span> eth0: <span class="op">&lt;</span>BROADCAST,MULTICAST,UP<span class="op">&gt;</span></span>
+<span id="cb6-3"><a aria-label="3"></a>    <span class="ex">inet6</span> fe80::1a2b:3cff:fe4d:5e6f/64</span>
+<span id="cb6-4"><a aria-label="4"></a>         <span class="ex">scope</span> link</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <ul>
@@ -1606,32 +1609,32 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;">
 <div id="yaml-ip-config-methods" class="yaml2table yaml2table-custom-top" data-col-widths="[16, 26, 58]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
-<span id="cb7-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 静的設定</span></span>
-<span id="cb7-4"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
-<span id="cb7-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 人間（管理者）</span></span>
-<span id="cb7-6"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS のネットワーク設定に直接記入する</span></span>
-<span id="cb7-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーやルーターなど，アドレスが変わると困る機器に用いる</span></span>
-<span id="cb7-9"><a></a></span>
-<span id="cb7-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
-<span id="cb7-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP</span></span>
-<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
-<span id="cb7-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP サーバー</span></span>
-<span id="cb7-15"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb7-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントの MAC アドレスに対応する IP アドレスを返す</span></span>
-<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ディスクレス端末などで使われた古い仕組みで，現在は DHCP に置き換えられている</span></span>
-<span id="cb7-18"><a></a></span>
-<span id="cb7-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb7-20"><a></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
-<span id="cb7-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP</span></span>
-<span id="cb7-22"><a></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
-<span id="cb7-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP サーバー</span></span>
-<span id="cb7-24"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP アドレスに加えて，サブネットマスク・デフォルトゲートウェイ・DNS サーバーなどの設定も配布する</span></span>
-<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在の LAN における自動設定の標準</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 静的設定</span></span>
+<span id="cb7-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 人間（管理者）</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS のネットワーク設定に直接記入する</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サーバーやルーターなど，アドレスが変わると困る機器に用いる</span></span>
+<span id="cb7-9"><a aria-label="9"></a></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP</span></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> RARP サーバー</span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> クライアントの MAC アドレスに対応する IP アドレスを返す</span></span>
+<span id="cb7-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ディスクレス端末などで使われた古い仕組みで，現在は DHCP に置き換えられている</span></span>
+<span id="cb7-18"><a aria-label="18"></a></span>
+<span id="cb7-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">方法</span><span class="kw">:</span></span>
+<span id="cb7-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP</span></span>
+<span id="cb7-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">誰がIPアドレスを決めるか</span><span class="kw">:</span></span>
+<span id="cb7-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DHCP サーバー</span></span>
+<span id="cb7-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb7-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP アドレスに加えて，サブネットマスク・デフォルトゲートウェイ・DNS サーバーなどの設定も配布する</span></span>
+<span id="cb7-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 現在の LAN における自動設定の標準</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -2049,40 +2052,40 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 1.2em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.63em !important;">
 <div id="yaml-ieee8021x-components" class="yaml2table yaml2table-custom-top" data-col-widths="[22, 25, 33, 20]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
-<span id="cb8-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカント&lt;br&gt;(Supplicant)</span></span>
-<span id="cb8-4"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb8-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるクライアント</span></span>
-<span id="cb8-6"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1Xにおけるクライアント端末，またはクライアントにインストールする認証用ソフトウェア</span></span>
-<span id="cb8-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるには対応ソフトウェアが必要だが，近年のOSには標準搭載されていることが多い</span></span>
-<span id="cb8-9"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
-<span id="cb8-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PC</span></span>
-<span id="cb8-11"><a></a></span>
-<span id="cb8-12"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
-<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証装置&lt;br&gt;(Authenticator)</span></span>
-<span id="cb8-15"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb8-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカントと認証サーバの仲介</span></span>
-<span id="cb8-17"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb8-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X対応のLANスイッチや無線LANアクセスポイントなど，サプリカントと認証サーバの間に位置するネットワーク機器</span></span>
-<span id="cb8-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバからの認証結果を受けて，ポート単位でネットワークへのアクセスを許可・遮断する</span></span>
-<span id="cb8-20"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
-<span id="cb8-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内LANスイッチ</span></span>
-<span id="cb8-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 無線LANアクセスポイント</span></span>
-<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> L2スイッチ</span></span>
-<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> L3スイッチ</span></span>
-<span id="cb8-25"><a></a></span>
-<span id="cb8-26"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb8-27"><a></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
-<span id="cb8-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバ&lt;br&gt;(Authentication Server)</span></span>
-<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb8-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザ・端末の認証を実施</span></span>
-<span id="cb8-31"><a></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
-<span id="cb8-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X・EAPに対応したRADIUSサーバを用いて認証を行う</span></span>
-<span id="cb8-33"><a></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
-<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証用Linuxサーバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカント&lt;br&gt;(Supplicant)</span></span>
+<span id="cb8-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるクライアント</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1Xにおけるクライアント端末，またはクライアントにインストールする認証用ソフトウェア</span></span>
+<span id="cb8-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証を受けるには対応ソフトウェアが必要だが，近年のOSには標準搭載されていることが多い</span></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> PC</span></span>
+<span id="cb8-11"><a aria-label="11"></a></span>
+<span id="cb8-12"><a aria-label="12"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証装置&lt;br&gt;(Authenticator)</span></span>
+<span id="cb8-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サプリカントと認証サーバの仲介</span></span>
+<span id="cb8-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X対応のLANスイッチや無線LANアクセスポイントなど，サプリカントと認証サーバの間に位置するネットワーク機器</span></span>
+<span id="cb8-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバからの認証結果を受けて，ポート単位でネットワークへのアクセスを許可・遮断する</span></span>
+<span id="cb8-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 社内LANスイッチ</span></span>
+<span id="cb8-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 無線LANアクセスポイント</span></span>
+<span id="cb8-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> L2スイッチ</span></span>
+<span id="cb8-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> L3スイッチ</span></span>
+<span id="cb8-25"><a aria-label="25"></a></span>
+<span id="cb8-26"><a aria-label="26"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">構成要素</span><span class="kw">:</span></span>
+<span id="cb8-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証サーバ&lt;br&gt;(Authentication Server)</span></span>
+<span id="cb8-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb8-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザ・端末の認証を実施</span></span>
+<span id="cb8-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">備考</span><span class="kw">:</span></span>
+<span id="cb8-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE802.1X・EAPに対応したRADIUSサーバを用いて認証を行う</span></span>
+<span id="cb8-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">デバイス例</span><span class="kw">:</span></span>
+<span id="cb8-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 認証用Linuxサーバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -2371,149 +2374,149 @@ sequenceDiagram
 </div>
 <div class="custom-table" style="width:100%; font-size: 0.55em !important;">
 <div id="yaml-l3sw-filtering" class="yaml2table yaml2table-custom-top" data-col-widths="[7, 9, 18, 17, 12, 14, 13, 10]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
-<span id="cb9-4"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
-<span id="cb9-6"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
-<span id="cb9-8"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
-<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-14"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-16"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-18"><a></a></span>
-<span id="cb9-19"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb9-20"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
-<span id="cb9-22"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
-<span id="cb9-24"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
-<span id="cb9-26"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
-<span id="cb9-28"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-30"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-32"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-34"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-36"><a></a></span>
-<span id="cb9-37"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb9-38"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
-<span id="cb9-40"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
-<span id="cb9-42"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
-<span id="cb9-44"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
-<span id="cb9-46"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-47"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-48"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-50"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-52"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-54"><a></a></span>
-<span id="cb9-55"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb9-56"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
-<span id="cb9-58"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
-<span id="cb9-60"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-61"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
-<span id="cb9-62"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-63"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
-<span id="cb9-64"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-65"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-66"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-68"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-69"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-70"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-71"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-72"><a></a></span>
-<span id="cb9-73"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb9-74"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-75"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
-<span id="cb9-76"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-77"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
-<span id="cb9-78"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-79"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
-<span id="cb9-80"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-81"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
-<span id="cb9-82"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-83"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-84"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-85"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-86"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-87"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-88"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-89"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-90"><a></a></span>
-<span id="cb9-91"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb9-92"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-93"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
-<span id="cb9-94"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-95"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
-<span id="cb9-96"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-97"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
-<span id="cb9-98"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-99"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
-<span id="cb9-100"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-101"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-102"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-103"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
-<span id="cb9-104"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-105"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-106"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-107"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-108"><a></a></span>
-<span id="cb9-109"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb9-110"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-111"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
-<span id="cb9-112"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-113"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
-<span id="cb9-114"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-115"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
-<span id="cb9-116"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-117"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
-<span id="cb9-118"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-119"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-120"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-121"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-122"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-123"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
-<span id="cb9-124"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-125"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
-<span id="cb9-126"><a></a></span>
-<span id="cb9-127"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb9-128"><a></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
-<span id="cb9-129"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
-<span id="cb9-130"><a></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
-<span id="cb9-131"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
-<span id="cb9-132"><a></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-133"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
-<span id="cb9-134"><a></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
-<span id="cb9-135"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
-<span id="cb9-136"><a></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
-<span id="cb9-137"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
-<span id="cb9-138"><a></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
-<span id="cb9-139"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
-<span id="cb9-140"><a></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
-<span id="cb9-141"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
-<span id="cb9-142"><a></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
-<span id="cb9-143"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-18"><a aria-label="18"></a></span>
+<span id="cb9-19"><a aria-label="19"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e5</span></span>
+<span id="cb9-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.11</span></span>
+<span id="cb9-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.1.0/24</span></span>
+<span id="cb9-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-36"><a aria-label="36"></a></span>
+<span id="cb9-37"><a aria-label="37"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
+<span id="cb9-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-42"><a aria-label="42"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
+<span id="cb9-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-45"><a aria-label="45"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
+<span id="cb9-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-47"><a aria-label="47"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-50"><a aria-label="50"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-52"><a aria-label="52"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-53"><a aria-label="53"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-54"><a aria-label="54"></a></span>
+<span id="cb9-55"><a aria-label="55"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb9-56"><a aria-label="56"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-57"><a aria-label="57"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e4</span></span>
+<span id="cb9-58"><a aria-label="58"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-59"><a aria-label="59"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-60"><a aria-label="60"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-61"><a aria-label="61"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.12</span></span>
+<span id="cb9-62"><a aria-label="62"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-63"><a aria-label="63"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.2.0/24</span></span>
+<span id="cb9-64"><a aria-label="64"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-65"><a aria-label="65"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-66"><a aria-label="66"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-67"><a aria-label="67"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-68"><a aria-label="68"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-69"><a aria-label="69"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-70"><a aria-label="70"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-71"><a aria-label="71"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-72"><a aria-label="72"></a></span>
+<span id="cb9-73"><a aria-label="73"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb9-74"><a aria-label="74"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-75"><a aria-label="75"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
+<span id="cb9-76"><a aria-label="76"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-77"><a aria-label="77"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-78"><a aria-label="78"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-79"><a aria-label="79"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
+<span id="cb9-80"><a aria-label="80"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-81"><a aria-label="81"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
+<span id="cb9-82"><a aria-label="82"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-83"><a aria-label="83"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-84"><a aria-label="84"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-85"><a aria-label="85"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-86"><a aria-label="86"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-87"><a aria-label="87"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-88"><a aria-label="88"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-89"><a aria-label="89"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-90"><a aria-label="90"></a></span>
+<span id="cb9-91"><a aria-label="91"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb9-92"><a aria-label="92"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-93"><a aria-label="93"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e3</span></span>
+<span id="cb9-94"><a aria-label="94"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-95"><a aria-label="95"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-96"><a aria-label="96"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-97"><a aria-label="97"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.0.13</span></span>
+<span id="cb9-98"><a aria-label="98"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-99"><a aria-label="99"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.3.0/24</span></span>
+<span id="cb9-100"><a aria-label="100"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-101"><a aria-label="101"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-102"><a aria-label="102"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-103"><a aria-label="103"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">445</span></span>
+<span id="cb9-104"><a aria-label="104"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-105"><a aria-label="105"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-106"><a aria-label="106"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-107"><a aria-label="107"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-108"><a aria-label="108"></a></span>
+<span id="cb9-109"><a aria-label="109"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb9-110"><a aria-label="110"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-111"><a aria-label="111"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
+<span id="cb9-112"><a aria-label="112"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-113"><a aria-label="113"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OUT</span></span>
+<span id="cb9-114"><a aria-label="114"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-115"><a aria-label="115"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
+<span id="cb9-116"><a aria-label="116"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-117"><a aria-label="117"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
+<span id="cb9-118"><a aria-label="118"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-119"><a aria-label="119"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-120"><a aria-label="120"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-121"><a aria-label="121"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-122"><a aria-label="122"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-123"><a aria-label="123"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb9-124"><a aria-label="124"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-125"><a aria-label="125"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span>
+<span id="cb9-126"><a aria-label="126"></a></span>
+<span id="cb9-127"><a aria-label="127"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb9-128"><a aria-label="128"></a><span class="at">  </span><span class="fu">IF</span><span class="kw">:</span></span>
+<span id="cb9-129"><a aria-label="129"></a><span class="at">    </span><span class="kw">-</span><span class="at"> e2</span></span>
+<span id="cb9-130"><a aria-label="130"></a><span class="at">  </span><span class="fu">方向</span><span class="kw">:</span></span>
+<span id="cb9-131"><a aria-label="131"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IN</span></span>
+<span id="cb9-132"><a aria-label="132"></a><span class="at">  </span><span class="fu">送信元IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-133"><a aria-label="133"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">192.168.10.31</span></span>
+<span id="cb9-134"><a aria-label="134"></a><span class="at">  </span><span class="fu">宛先IPアドレス</span><span class="kw">:</span></span>
+<span id="cb9-135"><a aria-label="135"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 192.168.0.0/24</span></span>
+<span id="cb9-136"><a aria-label="136"></a><span class="at">  </span><span class="fu">プロトコル</span><span class="kw">:</span></span>
+<span id="cb9-137"><a aria-label="137"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP</span></span>
+<span id="cb9-138"><a aria-label="138"></a><span class="at">  </span><span class="fu">送信元ポート</span><span class="kw">:</span></span>
+<span id="cb9-139"><a aria-label="139"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb9-140"><a aria-label="140"></a><span class="at">  </span><span class="fu">宛先ポート</span><span class="kw">:</span></span>
+<span id="cb9-141"><a aria-label="141"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ANY</span></span>
+<span id="cb9-142"><a aria-label="142"></a><span class="at">  </span><span class="fu">処理</span><span class="kw">:</span></span>
+<span id="cb9-143"><a aria-label="143"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 許可</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="font-07">
@@ -2534,68 +2537,68 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important;">
 <div id="yaml-osi-layers" class="yaml2table yaml2table-custom-top" data-col-widths="[25, 50, 25]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第7層 アプリケーション層</span></span>
-<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザーアプリケーションに通信機能を提供する</span></span>
-<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web閲覧・メール送受信・名前解決などを実現する</span></span>
-<span id="cb10-7"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・SMTP・DNS</span></span>
-<span id="cb10-9"><a></a></span>
-<span id="cb10-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb10-11"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第6層 プレゼンテーション層</span></span>
-<span id="cb10-13"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> データの表現形式を統一する</span></span>
-<span id="cb10-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 文字コード変換・暗号化・圧縮を担当する</span></span>
-<span id="cb10-16"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLS・SSL・MIME</span></span>
-<span id="cb10-18"><a></a></span>
-<span id="cb10-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb10-20"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第5層 セッション層</span></span>
-<span id="cb10-22"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 通信の開始・維持・終了を管理する</span></span>
-<span id="cb10-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数回のやり取りを1つの会話として扱う</span></span>
-<span id="cb10-25"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> NetBIOS・RPC</span></span>
-<span id="cb10-27"><a></a></span>
-<span id="cb10-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb10-29"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第4層 トランスポート層</span></span>
-<span id="cb10-31"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を実現する</span></span>
-<span id="cb10-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポート番号による識別や信頼性制御を行う</span></span>
-<span id="cb10-34"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP</span></span>
-<span id="cb10-36"><a></a></span>
-<span id="cb10-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb10-38"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第3層 ネットワーク層</span></span>
-<span id="cb10-40"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IPアドレスを用いて宛先を識別する</span></span>
-<span id="cb10-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルーターを経由して異なるネットワーク間を中継する</span></span>
-<span id="cb10-43"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP</span></span>
-<span id="cb10-45"><a></a></span>
-<span id="cb10-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb10-47"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第2層 データリンク層</span></span>
-<span id="cb10-49"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを用いて隣接機器へデータを届ける</span></span>
-<span id="cb10-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレーム化や誤り検出を行う</span></span>
-<span id="cb10-52"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・PPP</span></span>
-<span id="cb10-54"><a></a></span>
-<span id="cb10-55"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb10-56"><a></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
-<span id="cb10-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第1層 物理層</span></span>
-<span id="cb10-58"><a></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
-<span id="cb10-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光・電波へ変換する</span></span>
-<span id="cb10-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ケーブルや無線媒体上で信号を伝送する</span></span>
-<span id="cb10-61"><a></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
-<span id="cb10-62"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第7層 アプリケーション層</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザーアプリケーションに通信機能を提供する</span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Web閲覧・メール送受信・名前解決などを実現する</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・SMTP・DNS</span></span>
+<span id="cb10-9"><a aria-label="9"></a></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第6層 プレゼンテーション層</span></span>
+<span id="cb10-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> データの表現形式を統一する</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 文字コード変換・暗号化・圧縮を担当する</span></span>
+<span id="cb10-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TLS・SSL・MIME</span></span>
+<span id="cb10-18"><a aria-label="18"></a></span>
+<span id="cb10-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb10-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第5層 セッション層</span></span>
+<span id="cb10-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 通信の開始・維持・終了を管理する</span></span>
+<span id="cb10-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数回のやり取りを1つの会話として扱う</span></span>
+<span id="cb10-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> NetBIOS・RPC</span></span>
+<span id="cb10-27"><a aria-label="27"></a></span>
+<span id="cb10-28"><a aria-label="28"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb10-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第4層 トランスポート層</span></span>
+<span id="cb10-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> アプリケーション間の通信を実現する</span></span>
+<span id="cb10-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポート番号による識別や信頼性制御を行う</span></span>
+<span id="cb10-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> TCP・UDP</span></span>
+<span id="cb10-36"><a aria-label="36"></a></span>
+<span id="cb10-37"><a aria-label="37"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb10-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第3層 ネットワーク層</span></span>
+<span id="cb10-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IPアドレスを用いて宛先を識別する</span></span>
+<span id="cb10-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルーターを経由して異なるネットワーク間を中継する</span></span>
+<span id="cb10-43"><a aria-label="43"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IP・ICMP</span></span>
+<span id="cb10-45"><a aria-label="45"></a></span>
+<span id="cb10-46"><a aria-label="46"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb10-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-48"><a aria-label="48"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第2層 データリンク層</span></span>
+<span id="cb10-49"><a aria-label="49"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-50"><a aria-label="50"></a><span class="at">    </span><span class="kw">-</span><span class="at"> MACアドレスを用いて隣接機器へデータを届ける</span></span>
+<span id="cb10-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレーム化や誤り検出を行う</span></span>
+<span id="cb10-52"><a aria-label="52"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-53"><a aria-label="53"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Ethernet・PPP</span></span>
+<span id="cb10-54"><a aria-label="54"></a></span>
+<span id="cb10-55"><a aria-label="55"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb10-56"><a aria-label="56"></a><span class="at">  </span><span class="fu">Layer</span><span class="kw">:</span></span>
+<span id="cb10-57"><a aria-label="57"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 第1層 物理層</span></span>
+<span id="cb10-58"><a aria-label="58"></a><span class="at">  </span><span class="fu">Description</span><span class="kw">:</span></span>
+<span id="cb10-59"><a aria-label="59"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ビット列を電気・光・電波へ変換する</span></span>
+<span id="cb10-60"><a aria-label="60"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ケーブルや無線媒体上で信号を伝送する</span></span>
+<span id="cb10-61"><a aria-label="61"></a><span class="at">  </span><span class="fu">Protocol</span><span class="kw">:</span></span>
+<span id="cb10-62"><a aria-label="62"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IEEE 802.3・光ファイバ</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -2800,36 +2803,36 @@ sequenceDiagram
 <p>Python製UDPパケット送信モジュール</p>
 </div>
 <div class="font-09">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> logging</span>
-<span id="cb11-2"><a></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
-<span id="cb11-3"><a></a><span class="im">import</span> typer</span>
-<span id="cb11-4"><a></a></span>
-<span id="cb11-5"><a></a>logging.getLogger(<span class="st">"scapy"</span>).setLevel(logging.ERROR)</span>
-<span id="cb11-6"><a></a>app <span class="op">=</span> typer.Typer()</span>
-<span id="cb11-7"><a></a></span>
-<span id="cb11-8"><a></a><span class="at">@app.command</span>()</span>
-<span id="cb11-9"><a></a><span class="kw">def</span> send_packet(</span>
-<span id="cb11-10"><a></a>    dst: <span class="bu">str</span> <span class="op">=</span> typer.Option(..., <span class="bu">help</span><span class="op">=</span><span class="st">"Destination IP address"</span>),</span>
-<span id="cb11-11"><a></a>    src: Optional[<span class="bu">str</span>] <span class="op">=</span> typer.Option(<span class="va">None</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Source IP address (spoofed)"</span>),</span>
-<span id="cb11-12"><a></a>    dport: <span class="bu">int</span> <span class="op">=</span> typer.Option(<span class="dv">53</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Destination port"</span>),</span>
-<span id="cb11-13"><a></a>    payload: <span class="bu">str</span> <span class="op">=</span> typer.Option(<span class="st">"hello"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Raw UDP payload"</span>),</span>
-<span id="cb11-14"><a></a>    show: <span class="bu">bool</span> <span class="op">=</span> typer.Option(<span class="va">False</span>, <span class="st">"--show/--no-show"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Show IP header before sending"</span>),</span>
-<span id="cb11-15"><a></a>):</span>
-<span id="cb11-16"><a></a>    <span class="im">from</span> scapy.<span class="bu">all</span> <span class="im">import</span> IP, UDP, Raw, send</span>
-<span id="cb11-17"><a></a></span>
-<span id="cb11-18"><a></a>    ip_layer <span class="op">=</span> IP(dst<span class="op">=</span>dst)</span>
-<span id="cb11-19"><a></a>    <span class="cf">if</span> src:</span>
-<span id="cb11-20"><a></a>        ip_layer.src <span class="op">=</span> src</span>
-<span id="cb11-21"><a></a></span>
-<span id="cb11-22"><a></a>    pkt <span class="op">=</span> ip_layer <span class="op">/</span> UDP(dport<span class="op">=</span>dport) <span class="op">/</span> Raw(payload.encode())</span>
-<span id="cb11-23"><a></a></span>
-<span id="cb11-24"><a></a>    <span class="cf">if</span> show:</span>
-<span id="cb11-25"><a></a>        pkt.show()</span>
-<span id="cb11-26"><a></a></span>
-<span id="cb11-27"><a></a>    send(pkt, verbose<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-28"><a></a></span>
-<span id="cb11-29"><a></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb11-30"><a></a>    app()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="im">import</span> logging</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb11-3"><a aria-label="3"></a><span class="im">import</span> typer</span>
+<span id="cb11-4"><a aria-label="4"></a></span>
+<span id="cb11-5"><a aria-label="5"></a>logging.getLogger(<span class="st">"scapy"</span>).setLevel(logging.ERROR)</span>
+<span id="cb11-6"><a aria-label="6"></a>app <span class="op">=</span> typer.Typer()</span>
+<span id="cb11-7"><a aria-label="7"></a></span>
+<span id="cb11-8"><a aria-label="8"></a><span class="at">@app.command</span>()</span>
+<span id="cb11-9"><a aria-label="9"></a><span class="kw">def</span> send_packet(</span>
+<span id="cb11-10"><a aria-label="10"></a>    dst: <span class="bu">str</span> <span class="op">=</span> typer.Option(..., <span class="bu">help</span><span class="op">=</span><span class="st">"Destination IP address"</span>),</span>
+<span id="cb11-11"><a aria-label="11"></a>    src: Optional[<span class="bu">str</span>] <span class="op">=</span> typer.Option(<span class="va">None</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Source IP address (spoofed)"</span>),</span>
+<span id="cb11-12"><a aria-label="12"></a>    dport: <span class="bu">int</span> <span class="op">=</span> typer.Option(<span class="dv">53</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Destination port"</span>),</span>
+<span id="cb11-13"><a aria-label="13"></a>    payload: <span class="bu">str</span> <span class="op">=</span> typer.Option(<span class="st">"hello"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Raw UDP payload"</span>),</span>
+<span id="cb11-14"><a aria-label="14"></a>    show: <span class="bu">bool</span> <span class="op">=</span> typer.Option(<span class="va">False</span>, <span class="st">"--show/--no-show"</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"Show IP header before sending"</span>),</span>
+<span id="cb11-15"><a aria-label="15"></a>):</span>
+<span id="cb11-16"><a aria-label="16"></a>    <span class="im">from</span> scapy.<span class="bu">all</span> <span class="im">import</span> IP, UDP, Raw, send</span>
+<span id="cb11-17"><a aria-label="17"></a></span>
+<span id="cb11-18"><a aria-label="18"></a>    ip_layer <span class="op">=</span> IP(dst<span class="op">=</span>dst)</span>
+<span id="cb11-19"><a aria-label="19"></a>    <span class="cf">if</span> src:</span>
+<span id="cb11-20"><a aria-label="20"></a>        ip_layer.src <span class="op">=</span> src</span>
+<span id="cb11-21"><a aria-label="21"></a></span>
+<span id="cb11-22"><a aria-label="22"></a>    pkt <span class="op">=</span> ip_layer <span class="op">/</span> UDP(dport<span class="op">=</span>dport) <span class="op">/</span> Raw(payload.encode())</span>
+<span id="cb11-23"><a aria-label="23"></a></span>
+<span id="cb11-24"><a aria-label="24"></a>    <span class="cf">if</span> show:</span>
+<span id="cb11-25"><a aria-label="25"></a>        pkt.show()</span>
+<span id="cb11-26"><a aria-label="26"></a></span>
+<span id="cb11-27"><a aria-label="27"></a>    send(pkt, verbose<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-28"><a aria-label="28"></a></span>
+<span id="cb11-29"><a aria-label="29"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-30"><a aria-label="30"></a>    app()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column padding-L-10" style="width:50%;">
 <div class="border-bottom-header">
@@ -2841,7 +2844,7 @@ sequenceDiagram
 <p>① 送信元IPに <code>1.2.3.4</code> を指定して送る</p>
 </div>
 <div class="tool-description" style="font-size:1.1em;color: black !important">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">sudo</span> uv run python main.py <span class="at">--dst</span> 8.8.8.8 <span class="at">--src</span> 1.2.3.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a aria-label="1"></a><span class="fu">sudo</span> uv run python main.py <span class="at">--dst</span> 8.8.8.8 <span class="at">--src</span> 1.2.3.4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 </div>
 <div class="tool-description" style="font-size:0.8em;color: black !important">
@@ -2859,10 +2862,10 @@ sequenceDiagram
 </div>
 <div class="tool-description" style="font-size:1.1em;color: black !important">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">$</span> sudo tcpdump <span class="at">-i</span> any udp port 53 <span class="at">-v</span></span>
-<span id="cb13-2"><a></a><span class="ex">...</span></span>
-<span id="cb13-3"><a></a><span class="ex">13:30:07.461475</span> enp6s0 Out IP <span class="er">(</span><span class="ex">...</span> proto UDP <span class="er">(</span><span class="ex">17</span><span class="kw">)</span><span class="ex">,</span> length 33<span class="kw">)</span></span>
-<span id="cb13-4"><a></a>    <span class="ex">1.2.3.4.domain</span> <span class="op">&gt;</span> dns.google.domain: ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="ex">$</span> sudo tcpdump <span class="at">-i</span> any udp port 53 <span class="at">-v</span></span>
+<span id="cb13-2"><a aria-label="2"></a><span class="ex">...</span></span>
+<span id="cb13-3"><a aria-label="3"></a><span class="ex">13:30:07.461475</span> enp6s0 Out IP <span class="er">(</span><span class="ex">...</span> proto UDP <span class="er">(</span><span class="ex">17</span><span class="kw">)</span><span class="ex">,</span> length 33<span class="kw">)</span></span>
+<span id="cb13-4"><a aria-label="4"></a>    <span class="ex">1.2.3.4.domain</span> <span class="op">&gt;</span> dns.google.domain: ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 </div>
 <div class="tool-description" style="font-size:0.8em;color: black !important">
@@ -2889,26 +2892,26 @@ sequenceDiagram
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.75em;"></div>
 <div class="regmonkey_index padding-L-10" style="width:100%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb14-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb14-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb14-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb14-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb14-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① プロバイダ・企業名まではすぐわかる</span></span>
-<span id="cb14-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb14-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスはアドレス管理組織が範囲ごとに割り当て，その範囲ごとに管理者名が公開されている</span></span>
-<span id="cb14-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> このため，ログに残る送信元IPから接続先のプロバイダや企業を特定するのは比較的簡単</span></span>
-<span id="cb14-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb14-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 原理的には個人まで特定できる</span></span>
-<span id="cb14-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb14-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロバイダや企業の管理者は，どのIPアドレスを誰に割り当てたかを把握している</span></span>
-<span id="cb14-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスとその利用時刻がわかれば，記録から氏名・住所をたどることは原理的に可能</span></span>
-<span id="cb14-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb14-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ しかし第三者が追跡するのは困難</span></span>
-<span id="cb14-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb14-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 電気通信事業法により，プロバイダには利用者の通信の秘密を守る義務がある</span></span>
-<span id="cb14-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 割り当て先を第三者に明かすのは原則違反で，犯罪捜査など強い理由がない限り開示されない</span></span>
-<span id="cb14-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb14-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb14-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb14-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb14-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① プロバイダ・企業名まではすぐわかる</span></span>
+<span id="cb14-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスはアドレス管理組織が範囲ごとに割り当て，その範囲ごとに管理者名が公開されている</span></span>
+<span id="cb14-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> このため，ログに残る送信元IPから接続先のプロバイダや企業を特定するのは比較的簡単</span></span>
+<span id="cb14-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb14-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 原理的には個人まで特定できる</span></span>
+<span id="cb14-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> プロバイダや企業の管理者は，どのIPアドレスを誰に割り当てたかを把握している</span></span>
+<span id="cb14-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> IPアドレスとその利用時刻がわかれば，記録から氏名・住所をたどることは原理的に可能</span></span>
+<span id="cb14-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb14-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ しかし第三者が追跡するのは困難</span></span>
+<span id="cb14-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb14-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 電気通信事業法により，プロバイダには利用者の通信の秘密を守る義務がある</span></span>
+<span id="cb14-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 割り当て先を第三者に明かすのは原則違反で，犯罪捜査など強い理由がない限り開示されない</span></span>
+<span id="cb14-20"><a aria-label="20"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="無線lanとieee-802.11" class="slide level2">
@@ -2925,74 +2928,74 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:60%; font-size: 0.65em !important;">
 <div id="yaml-ieee80211-generations" class="yaml2table yaml2table-custom-top" data-col-widths="[14, 16, 16, 18, 36]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb15-2"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb15-3"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11a</span></span>
-<span id="cb15-4"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
-<span id="cb15-5"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
-<span id="cb15-6"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；11bと同年だが互換性はなく普及は限定的</span></span>
-<span id="cb15-8"><a></a></span>
-<span id="cb15-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb15-10"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb15-11"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11b</span></span>
-<span id="cb15-12"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 11 Mbps</span></span>
-<span id="cb15-13"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
-<span id="cb15-14"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；無線LAN普及の最初期を担った</span></span>
-<span id="cb15-16"><a></a></span>
-<span id="cb15-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb15-18"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
-<span id="cb15-19"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11g</span></span>
-<span id="cb15-20"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
-<span id="cb15-21"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
-<span id="cb15-22"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 2003年策定；11bと互換しつつ54Mbpsへ高速化</span></span>
-<span id="cb15-24"><a></a></span>
-<span id="cb15-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb15-26"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 4</span></span>
-<span id="cb15-27"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11n</span></span>
-<span id="cb15-28"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 600 Mbps</span></span>
-<span id="cb15-29"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
-<span id="cb15-30"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MIMO（複数アンテナ）を初採用し，2.4/5GHz両対応に</span></span>
-<span id="cb15-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 家庭・オフィスでの普及の起点となった世代</span></span>
-<span id="cb15-33"><a></a></span>
-<span id="cb15-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb15-35"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 5</span></span>
-<span id="cb15-36"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ac</span></span>
-<span id="cb15-37"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 6.9 Gbps</span></span>
-<span id="cb15-38"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
-<span id="cb15-39"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5GHz専用・広帯域チャネルで動画ストリーミングに対応</span></span>
-<span id="cb15-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> MU-MIMOで複数端末への同時通信を実現</span></span>
-<span id="cb15-42"><a></a></span>
-<span id="cb15-43"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb15-44"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6</span></span>
-<span id="cb15-45"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
-<span id="cb15-46"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
-<span id="cb15-47"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
-<span id="cb15-48"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OFDMAで&lt;span class="regmonkey-bold"&gt;多端末同時接続時の効率&lt;/span&gt;を改善</span></span>
-<span id="cb15-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> IoT・高密度環境（駅・スタジアム等）に強い</span></span>
-<span id="cb15-51"><a></a></span>
-<span id="cb15-52"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb15-53"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6E</span></span>
-<span id="cb15-54"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
-<span id="cb15-55"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
-<span id="cb15-56"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
-<span id="cb15-57"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 6GHz帯を新規開放し，混雑の少ない帯域を確保</span></span>
-<span id="cb15-59"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 低遅延・大容量通信に対応</span></span>
-<span id="cb15-60"><a></a></span>
-<span id="cb15-61"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb15-62"><a></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 7</span></span>
-<span id="cb15-63"><a></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11be</span></span>
-<span id="cb15-64"><a></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 46 Gbps</span></span>
-<span id="cb15-65"><a></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
-<span id="cb15-66"><a></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
-<span id="cb15-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 320MHz幅・4096-QAM・MLO（複数帯域同時利用）を採用</span></span>
-<span id="cb15-68"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> VR・8K動画など&lt;span class="regmonkey-bold"&gt;超高帯域用途&lt;/span&gt;を想定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11a</span></span>
+<span id="cb15-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb15-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb15-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；11bと同年だが互換性はなく普及は限定的</span></span>
+<span id="cb15-8"><a aria-label="8"></a></span>
+<span id="cb15-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb15-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11b</span></span>
+<span id="cb15-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 11 Mbps</span></span>
+<span id="cb15-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb15-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1999年策定；無線LAN普及の最初期を担った</span></span>
+<span id="cb15-16"><a aria-label="16"></a></span>
+<span id="cb15-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb15-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> （名称なし）</span></span>
+<span id="cb15-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11g</span></span>
+<span id="cb15-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 54 Mbps</span></span>
+<span id="cb15-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 GHz</span></span>
+<span id="cb15-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 2003年策定；11bと互換しつつ54Mbpsへ高速化</span></span>
+<span id="cb15-24"><a aria-label="24"></a></span>
+<span id="cb15-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb15-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 4</span></span>
+<span id="cb15-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11n</span></span>
+<span id="cb15-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 600 Mbps</span></span>
+<span id="cb15-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb15-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> MIMO（複数アンテナ）を初採用し，2.4/5GHz両対応に</span></span>
+<span id="cb15-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 家庭・オフィスでの普及の起点となった世代</span></span>
+<span id="cb15-33"><a aria-label="33"></a></span>
+<span id="cb15-34"><a aria-label="34"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb15-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 5</span></span>
+<span id="cb15-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ac</span></span>
+<span id="cb15-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 6.9 Gbps</span></span>
+<span id="cb15-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 5 GHz</span></span>
+<span id="cb15-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5GHz専用・広帯域チャネルで動画ストリーミングに対応</span></span>
+<span id="cb15-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> MU-MIMOで複数端末への同時通信を実現</span></span>
+<span id="cb15-42"><a aria-label="42"></a></span>
+<span id="cb15-43"><a aria-label="43"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb15-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6</span></span>
+<span id="cb15-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb15-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb15-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 GHz</span></span>
+<span id="cb15-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OFDMAで&lt;span class="regmonkey-bold"&gt;多端末同時接続時の効率&lt;/span&gt;を改善</span></span>
+<span id="cb15-50"><a aria-label="50"></a><span class="at">    </span><span class="kw">-</span><span class="at"> IoT・高密度環境（駅・スタジアム等）に強い</span></span>
+<span id="cb15-51"><a aria-label="51"></a></span>
+<span id="cb15-52"><a aria-label="52"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb15-53"><a aria-label="53"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 6E</span></span>
+<span id="cb15-54"><a aria-label="54"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11ax</span></span>
+<span id="cb15-55"><a aria-label="55"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 9.6 Gbps</span></span>
+<span id="cb15-56"><a aria-label="56"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb15-57"><a aria-label="57"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-58"><a aria-label="58"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 6GHz帯を新規開放し，混雑の少ない帯域を確保</span></span>
+<span id="cb15-59"><a aria-label="59"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 低遅延・大容量通信に対応</span></span>
+<span id="cb15-60"><a aria-label="60"></a></span>
+<span id="cb15-61"><a aria-label="61"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb15-62"><a aria-label="62"></a><span class="at">  </span><span class="fu">世代名称</span><span class="kw">:</span><span class="at"> Wi-Fi 7</span></span>
+<span id="cb15-63"><a aria-label="63"></a><span class="at">  </span><span class="fu">IEEE規格</span><span class="kw">:</span><span class="at"> IEEE 802.11be</span></span>
+<span id="cb15-64"><a aria-label="64"></a><span class="at">  </span><span class="fu">最大通信速度</span><span class="kw">:</span><span class="at"> 約 46 Gbps</span></span>
+<span id="cb15-65"><a aria-label="65"></a><span class="at">  </span><span class="fu">利用周波数帯</span><span class="kw">:</span><span class="at"> 2.4 / 5 / 6 GHz</span></span>
+<span id="cb15-66"><a aria-label="66"></a><span class="at">  </span><span class="fu">特徴・主な用途</span><span class="kw">:</span></span>
+<span id="cb15-67"><a aria-label="67"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 320MHz幅・4096-QAM・MLO（複数帯域同時利用）を採用</span></span>
+<span id="cb15-68"><a aria-label="68"></a><span class="at">    </span><span class="kw">-</span><span class="at"> VR・8K動画など&lt;span class="regmonkey-bold"&gt;超高帯域用途&lt;/span&gt;を想定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <!-- footer -->
@@ -3064,59 +3067,59 @@ sequenceDiagram
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.7em !important;">
 <div id="yaml-claude-md-design" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb16-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ポート管理</span></span>
-<span id="cb16-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利用しないポートは&lt;span class="regmonkey-bold"&gt;必ず閉じる&lt;/span&gt;</span></span>
-<span id="cb16-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）</span></span>
-<span id="cb16-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要なサービス・デーモンは停止し，ポートを解放</span></span>
-<span id="cb16-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖</span></span>
-<span id="cb16-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開放ポートはアクセス元IPをACLで絞り込む</span></span>
-<span id="cb16-10"><a></a></span>
-<span id="cb16-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb16-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイアウォール</span></span>
-<span id="cb16-13"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ</span></span>
-<span id="cb16-15"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インバウンド・アウトバウンドの両方向にルールを設定</span></span>
-<span id="cb16-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 常時接続は&lt;span class="regmonkey-bold"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する</span></span>
-<span id="cb16-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審なIPレンジはブラックリスト登録</span></span>
-<span id="cb16-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルール変更は変更管理ログに記録し定期レビューする</span></span>
-<span id="cb16-20"><a></a></span>
-<span id="cb16-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb16-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> セキュリティパッチ</span></span>
-<span id="cb16-23"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知脆弱性は&lt;span class="regmonkey-bold"&gt;公開直後に適用&lt;/span&gt;することが最大の防御</span></span>
-<span id="cb16-25"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS・ミドルウェア・ファームウェアの自動更新を有効化</span></span>
-<span id="cb16-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CVEアドバイザリを購読し，重大度 Critical/High を優先対応</span></span>
-<span id="cb16-28"><a></a></span>
-<span id="cb16-29"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb16-30"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 通信暗号化</span></span>
-<span id="cb16-31"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 平文通信は&lt;span class="regmonkey-bold"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する</span></span>
-<span id="cb16-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨</span></span>
-<span id="cb16-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行</span></span>
-<span id="cb16-36"><a></a></span>
-<span id="cb16-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb16-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MACアドレスフィルタリング</span></span>
-<span id="cb16-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 登録済みデバイス以外の&lt;span class="regmonkey-bold"&gt;接続を物理層で排除&lt;/span&gt;する</span></span>
-<span id="cb16-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AP・スイッチに許可MACリストを登録し，未登録端末を遮断</span></span>
-<span id="cb16-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規デバイス追加時は申請フローを設け，無断接続を抑止</span></span>
-<span id="cb16-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的にDHCPリースログを確認し，未知MACを検出する</span></span>
-<span id="cb16-45"><a></a></span>
-<span id="cb16-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb16-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LAN内脅威対策</span></span>
-<span id="cb16-48"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb16-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部ネットワークも&lt;span class="regmonkey-bold"&gt;ゼロトラストで扱う&lt;/span&gt;</span></span>
-<span id="cb16-50"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb16-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化</span></span>
-<span id="cb16-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 接続端末のエンドポイント保護（EDR/AV）を必須化</span></span>
-<span id="cb16-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審な通信量・パターンをIDSで監視し，アラートを設定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb16-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ポート管理</span></span>
+<span id="cb16-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利用しないポートは&lt;span class="regmonkey-bold"&gt;必ず閉じる&lt;/span&gt;</span></span>
+<span id="cb16-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）</span></span>
+<span id="cb16-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要なサービス・デーモンは停止し，ポートを解放</span></span>
+<span id="cb16-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖</span></span>
+<span id="cb16-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開放ポートはアクセス元IPをACLで絞り込む</span></span>
+<span id="cb16-10"><a aria-label="10"></a></span>
+<span id="cb16-11"><a aria-label="11"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb16-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイアウォール</span></span>
+<span id="cb16-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ</span></span>
+<span id="cb16-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> インバウンド・アウトバウンドの両方向にルールを設定</span></span>
+<span id="cb16-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 常時接続は&lt;span class="regmonkey-bold"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する</span></span>
+<span id="cb16-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審なIPレンジはブラックリスト登録</span></span>
+<span id="cb16-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ルール変更は変更管理ログに記録し定期レビューする</span></span>
+<span id="cb16-20"><a aria-label="20"></a></span>
+<span id="cb16-21"><a aria-label="21"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb16-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> セキュリティパッチ</span></span>
+<span id="cb16-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知脆弱性は&lt;span class="regmonkey-bold"&gt;公開直後に適用&lt;/span&gt;することが最大の防御</span></span>
+<span id="cb16-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> OS・ミドルウェア・ファームウェアの自動更新を有効化</span></span>
+<span id="cb16-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CVEアドバイザリを購読し，重大度 Critical/High を優先対応</span></span>
+<span id="cb16-28"><a aria-label="28"></a></span>
+<span id="cb16-29"><a aria-label="29"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb16-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 通信暗号化</span></span>
+<span id="cb16-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 平文通信は&lt;span class="regmonkey-bold"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する</span></span>
+<span id="cb16-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨</span></span>
+<span id="cb16-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行</span></span>
+<span id="cb16-36"><a aria-label="36"></a></span>
+<span id="cb16-37"><a aria-label="37"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb16-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> MACアドレスフィルタリング</span></span>
+<span id="cb16-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 登録済みデバイス以外の&lt;span class="regmonkey-bold"&gt;接続を物理層で排除&lt;/span&gt;する</span></span>
+<span id="cb16-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> AP・スイッチに許可MACリストを登録し，未登録端末を遮断</span></span>
+<span id="cb16-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規デバイス追加時は申請フローを設け，無断接続を抑止</span></span>
+<span id="cb16-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的にDHCPリースログを確認し，未知MACを検出する</span></span>
+<span id="cb16-45"><a aria-label="45"></a></span>
+<span id="cb16-46"><a aria-label="46"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb16-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LAN内脅威対策</span></span>
+<span id="cb16-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb16-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部ネットワークも&lt;span class="regmonkey-bold"&gt;ゼロトラストで扱う&lt;/span&gt;</span></span>
+<span id="cb16-50"><a aria-label="50"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb16-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化</span></span>
+<span id="cb16-52"><a aria-label="52"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 接続端末のエンドポイント保護（EDR/AV）を必須化</span></span>
+<span id="cb16-53"><a aria-label="53"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不審な通信量・パターンをIDSで監視し，アラートを設定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>

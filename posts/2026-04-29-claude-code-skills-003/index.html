@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Skillを自作する：Options活用編</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -293,33 +296,33 @@ Ryo Nakagami
 </div><div class="column" style="width:75%; padding-left:0.5em;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="regmonkey_index" style="width:1200px; line-height: 1.1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. メタデータの全体像</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> frontmatter は &lt;strong&gt;6 フィールド&lt;/strong&gt;．必須は name と description のみ</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> license・compatibility・allowed-tools・model はオプションの強化要素</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. allowed-tools</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 良い description は &lt;strong&gt;「何をする」+「いつ使う」&lt;/strong&gt;の二点を含む</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> allowed-tools で &lt;strong&gt;使えるツールを絞り&lt;/strong&gt;，読み取り専用 Skill を作れる</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Progressive Disclosure</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> SKILL.md は &lt;strong&gt;500 行以内&lt;/strong&gt;．scripts・references・assets に分割</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Scripts は&lt;strong&gt;実行のみ&lt;/strong&gt;．本体は context を消費せず出力だけが乗る</span></span>
-<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 既存ツールは &lt;strong&gt;uvx・npx&lt;/strong&gt;，独自処理は &lt;strong&gt;PEP 723&lt;/strong&gt; で同梱</span></span>
-<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;非対話・--help・構造化出力・冪等性&lt;/strong&gt;を満たすよう設計する</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. バリデーションチェック</span></span>
-<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;シンプルから始め&lt;/strong&gt;，必要に応じて高度な field を追加する</span></span>
-<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 500 行を超えたら分割を検討．description は磨き続ける</span></span>
-<span id="cb1-26"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;skills-ref&lt;/strong&gt; CLI で公開前に frontmatter と構造をバリデーション</span></span>
-<span id="cb1-27"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. メタデータの全体像</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> frontmatter は &lt;strong&gt;6 フィールド&lt;/strong&gt;．必須は name と description のみ</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> license・compatibility・allowed-tools・model はオプションの強化要素</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. allowed-tools</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 良い description は &lt;strong&gt;「何をする」+「いつ使う」&lt;/strong&gt;の二点を含む</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> allowed-tools で &lt;strong&gt;使えるツールを絞り&lt;/strong&gt;，読み取り専用 Skill を作れる</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Progressive Disclosure</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> SKILL.md は &lt;strong&gt;500 行以内&lt;/strong&gt;．scripts・references・assets に分割</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Scripts は&lt;strong&gt;実行のみ&lt;/strong&gt;．本体は context を消費せず出力だけが乗る</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 既存ツールは &lt;strong&gt;uvx・npx&lt;/strong&gt;，独自処理は &lt;strong&gt;PEP 723&lt;/strong&gt; で同梱</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;非対話・--help・構造化出力・冪等性&lt;/strong&gt;を満たすよう設計する</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. バリデーションチェック</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;シンプルから始め&lt;/strong&gt;，必要に応じて高度な field を追加する</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 500 行を超えたら分割を検討．description は磨き続ける</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;skills-ref&lt;/strong&gt; CLI で公開前に frontmatter と構造をバリデーション</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -402,20 +405,20 @@ Ryo Nakagami
 <p><span class="mini-section">最小例：onboarding Skill</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="font-10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="co">---</span></span>
-<span id="cb2-2"><a></a><span class="an">name:</span><span class="co"> codebase-onboarding</span></span>
-<span id="cb2-3"><a></a><span class="an">description:</span><span class="co"> Helps new developers</span></span>
-<span id="cb2-4"><a></a><span class="co">  understand how the system works.</span></span>
-<span id="cb2-5"><a></a><span class="an">allowed-tools:</span><span class="co"> Read, Grep, Glob, Bash</span></span>
-<span id="cb2-6"><a></a><span class="an">model:</span><span class="co"> sonnet</span></span>
-<span id="cb2-7"><a></a><span class="co">---</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a>When a new developer asks how the</span>
-<span id="cb2-10"><a></a>system works:</span>
-<span id="cb2-11"><a></a></span>
-<span id="cb2-12"><a></a><span class="ss">1. </span>Use Glob to map the directory tree</span>
-<span id="cb2-13"><a></a><span class="ss">2. </span>Use Grep to locate entry points</span>
-<span id="cb2-14"><a></a><span class="ss">3. </span>Read key modules and explain</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="an">name:</span><span class="co"> codebase-onboarding</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="an">description:</span><span class="co"> Helps new developers</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="co">  understand how the system works.</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="an">allowed-tools:</span><span class="co"> Read, Grep, Glob, Bash</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="an">model:</span><span class="co"> sonnet</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co">---</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a>When a new developer asks how the</span>
+<span id="cb2-10"><a aria-label="10"></a>system works:</span>
+<span id="cb2-11"><a aria-label="11"></a></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="ss">1. </span>Use Glob to map the directory tree</span>
+<span id="cb2-13"><a aria-label="13"></a><span class="ss">2. </span>Use Grep to locate entry points</span>
+<span id="cb2-14"><a aria-label="14"></a><span class="ss">3. </span>Read key modules and explain</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column padding-L-10" style="width:52.5%;">
 <p><span class="mini-section">allowed-tools の効果</span></p>
@@ -530,9 +533,9 @@ Ryo Nakagami
 <p><span class="mini-section">One-off：既存ツールをそのまま呼ぶ</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-09">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">uvx</span> ruff@0.8.0 check .</span>
-<span id="cb3-2"><a></a><span class="ex">uvx</span> black@24.10.0 .</span>
-<span id="cb3-3"><a></a><span class="ex">npx</span> eslint@9.0.0 src/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="ex">uvx</span> ruff@0.8.0 check .</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="ex">uvx</span> black@24.10.0 .</span>
+<span id="cb3-3"><a aria-label="3"></a><span class="ex">npx</span> eslint@9.0.0 src/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="padding-L-10 font-09 lh-16">
@@ -546,11 +549,11 @@ Ryo Nakagami
 <p><span class="mini-section">Bundled：PEP 723 で依存をインライン宣言</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-09">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># /// script</span></span>
-<span id="cb4-2"><a></a><span class="co"># dependencies = ["beautifulsoup4&gt;=4.12,&lt;5"]</span></span>
-<span id="cb4-3"><a></a><span class="co"># ///</span></span>
-<span id="cb4-4"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb4-5"><a></a>...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="co"># /// script</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="co"># dependencies = ["beautifulsoup4&gt;=4.12,&lt;5"]</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="co"># ///</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb4-5"><a aria-label="5"></a>...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="padding-L-10 font-09 lh-16">
@@ -710,7 +713,7 @@ Ryo Nakagami
 <p><span class="mini-section">使い方</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">skills-ref</span> validate ./my-skill</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="ex">skills-ref</span> validate ./my-skill</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="padding-L-10 font-09 lh-16">
@@ -745,50 +748,50 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.8em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 30, 55]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> メタデータ</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb6-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> name と description が必須．残りはオプションで&lt;span class="regmonkey-bold"&gt;段階的に拡張&lt;/span&gt;する</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> name は最大 64 文字．小文字・数字・ハイフンのみ</span></span>
-<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> description は最大 1024 文字．非空</span></span>
-<span id="cb6-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要に応じてcompatibility・allowed-tools・model を活用</span></span>
-<span id="cb6-9"><a></a></span>
-<span id="cb6-10"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> allowed-tools</span></span>
-<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb6-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使えるツールを限定し&lt;span class="regmonkey-bold"&gt;read-only Skill&lt;/span&gt;を実現する</span></span>
-<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 列挙したツールは確認なしで利用可，列挙外は使えない</span></span>
-<span id="cb6-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調査・要約など書き換えを伴わない workflow に最適</span></span>
-<span id="cb6-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「うっかり Edit が走る」事故を予防</span></span>
-<span id="cb6-18"><a></a></span>
-<span id="cb6-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Progressive&lt;br&gt;Disclosure</span></span>
-<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SKILL.md は&lt;span class="regmonkey-bold"&gt;500 行以内&lt;/span&gt;．詳細は別ファイルに逃がす</span></span>
-<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> scripts・references・assets の 3 サブディレクトリで整理</span></span>
-<span id="cb6-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Scripts は実行のみ．本体は context を消費せず出力だけが乗る</span></span>
-<span id="cb6-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SKILL.md は目次に徹し，個別ファイルは遅延ロード</span></span>
-<span id="cb6-27"><a></a></span>
-<span id="cb6-28"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> スクリプト&lt;br&gt;設計</span></span>
-<span id="cb6-30"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エージェント実行を前提に&lt;span class="regmonkey-bold"&gt;「非対話・自己説明・構造化」&lt;/span&gt;で書く</span></span>
-<span id="cb6-32"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存ツールは &lt;code&gt;uvx&lt;/code&gt;・&lt;code&gt;npx&lt;/code&gt;，独自処理は PEP 723 で依存をインライン宣言</span></span>
-<span id="cb6-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 非対話必須．&lt;code&gt;--help&lt;/code&gt; と親切なエラーで自己文書化．構造化出力は stdout</span></span>
-<span id="cb6-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 冪等性・dry-run・終了コードで運用上の安全装置を仕込む</span></span>
-<span id="cb6-36"><a></a></span>
-<span id="cb6-37"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> バリデーション</span></span>
-<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb6-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 公開前に&lt;span class="regmonkey-bold"&gt;skills-ref validate&lt;/span&gt;で機械チェック</span></span>
-<span id="cb6-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb6-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;skills-ref validate ./my-skill&lt;/code&gt; を CI に組み込む</span></span>
-<span id="cb6-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> frontmatter のスキーマ準拠と include 整合を確認</span></span>
-<span id="cb6-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 壊れた Skill をマージ前にブロック</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> メタデータ</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> name と description が必須．残りはオプションで&lt;span class="regmonkey-bold"&gt;段階的に拡張&lt;/span&gt;する</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> name は最大 64 文字．小文字・数字・ハイフンのみ</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> description は最大 1024 文字．非空</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要に応じてcompatibility・allowed-tools・model を活用</span></span>
+<span id="cb6-9"><a aria-label="9"></a></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> allowed-tools</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 使えるツールを限定し&lt;span class="regmonkey-bold"&gt;read-only Skill&lt;/span&gt;を実現する</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 列挙したツールは確認なしで利用可，列挙外は使えない</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調査・要約など書き換えを伴わない workflow に最適</span></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「うっかり Edit が走る」事故を予防</span></span>
+<span id="cb6-18"><a aria-label="18"></a></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Progressive&lt;br&gt;Disclosure</span></span>
+<span id="cb6-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SKILL.md は&lt;span class="regmonkey-bold"&gt;500 行以内&lt;/span&gt;．詳細は別ファイルに逃がす</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scripts・references・assets の 3 サブディレクトリで整理</span></span>
+<span id="cb6-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Scripts は実行のみ．本体は context を消費せず出力だけが乗る</span></span>
+<span id="cb6-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SKILL.md は目次に徹し，個別ファイルは遅延ロード</span></span>
+<span id="cb6-27"><a aria-label="27"></a></span>
+<span id="cb6-28"><a aria-label="28"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> スクリプト&lt;br&gt;設計</span></span>
+<span id="cb6-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エージェント実行を前提に&lt;span class="regmonkey-bold"&gt;「非対話・自己説明・構造化」&lt;/span&gt;で書く</span></span>
+<span id="cb6-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存ツールは &lt;code&gt;uvx&lt;/code&gt;・&lt;code&gt;npx&lt;/code&gt;，独自処理は PEP 723 で依存をインライン宣言</span></span>
+<span id="cb6-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 非対話必須．&lt;code&gt;--help&lt;/code&gt; と親切なエラーで自己文書化．構造化出力は stdout</span></span>
+<span id="cb6-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 冪等性・dry-run・終了コードで運用上の安全装置を仕込む</span></span>
+<span id="cb6-36"><a aria-label="36"></a></span>
+<span id="cb6-37"><a aria-label="37"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> バリデーション</span></span>
+<span id="cb6-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb6-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 公開前に&lt;span class="regmonkey-bold"&gt;skills-ref validate&lt;/span&gt;で機械チェック</span></span>
+<span id="cb6-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb6-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;skills-ref validate ./my-skill&lt;/code&gt; を CI に組み込む</span></span>
+<span id="cb6-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> frontmatter のスキーマ準拠と include 整合を確認</span></span>
+<span id="cb6-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 壊れた Skill をマージ前にブロック</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

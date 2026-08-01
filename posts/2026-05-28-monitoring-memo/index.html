@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – ミッションドリブンなモニタリング</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -289,40 +292,40 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="padding-left:1em;">
 <div class="regmonkey_index" style="width:1100px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視とは何か</span></span>
-<span id="cb1-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 監視の定義・目的・スコープを整理する</span></span>
-<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Issue Finding から Action までを射程に入れる</span></span>
-<span id="cb1-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
-<span id="cb1-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視のアンチパターン</span></span>
-<span id="cb1-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ツール依存・監視のための監視を避ける</span></span>
-<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「動いている」の定義から始める</span></span>
-<span id="cb1-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
-<span id="cb1-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視のデザインパターン</span></span>
-<span id="cb1-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 組み合わせ可能な監視・ユーザー視点・SaaS活用</span></span>
-<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 可用性とサンプリングの考え方</span></span>
-<span id="cb1-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
-<span id="cb1-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> アラート・オンコール・&lt;br&gt;インシデント管理</span></span>
-<span id="cb1-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 良いアラートの条件と手順書の骨格</span></span>
-<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> インシデント管理プロセスと役割分担</span></span>
-<span id="cb1-25"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
-<span id="cb1-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ビジネス監視・&lt;br&gt;フロントエンド監視</span></span>
-<span id="cb1-27"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Business KPI で観測を経営に接続する</span></span>
-<span id="cb1-29"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> RUM・Synthetic Monitoring でユーザー体感を測る</span></span>
-<span id="cb1-30"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
-<span id="cb1-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Appendix</span></span>
-<span id="cb1-32"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-33"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 可用性とサンプリング定理</span></span>
-<span id="cb1-34"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視とは何か</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 監視の定義・目的・スコープを整理する</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Issue Finding から Action までを射程に入れる</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視のアンチパターン</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ツール依存・監視のための監視を避ける</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「動いている」の定義から始める</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 監視のデザインパターン</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 組み合わせ可能な監視・ユーザー視点・SaaS活用</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 可用性とサンプリングの考え方</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> アラート・オンコール・&lt;br&gt;インシデント管理</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 良いアラートの条件と手順書の骨格</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> インシデント管理プロセスと役割分担</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ビジネス監視・&lt;br&gt;フロントエンド監視</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Business KPI で観測を経営に接続する</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">        </span><span class="kw">-</span><span class="at"> RUM・Synthetic Monitoring でユーザー体感を測る</span></span>
+<span id="cb1-30"><a aria-label="30"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span>
+<span id="cb1-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Appendix</span></span>
+<span id="cb1-32"><a aria-label="32"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-33"><a aria-label="33"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 可用性とサンプリング定理</span></span>
+<span id="cb1-34"><a aria-label="34"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">48</span><span class="kw">,</span><span class="at"> </span><span class="dv">52</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -479,45 +482,45 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.7em !important;">
 <div id="yaml-ds-antipattern" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 40, 40]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> ツール先行導入</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視 SaaS や MLOps プラットフォームを&lt;span class="regmonkey-bold"&gt;先に決めてから&lt;/span&gt;運用設計に入る</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ツール機能に合わせた指標しか出せない</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ビジネス KPI と分離&lt;/span&gt;して意思決定に届かない</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> モデル精度&lt;br&gt;だけを監視</span></span>
-<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 学習時の精度・AUC ばかり追い，&lt;span class="regmonkey-bold"&gt;本番のデータ分布&lt;/span&gt;を観測しない</span></span>
-<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
-<span id="cb2-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;data drift・concept drift&lt;/span&gt; に気付けない</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 静かな劣化が長期間放置される</span></span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> 学習パイプライン&lt;br&gt;を目的なく監視</span></span>
-<span id="cb2-19"><a></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> バッチ学習・特徴量生成の&lt;span class="regmonkey-bold"&gt;成功/失敗ログ&lt;/span&gt;しか取らない</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「動いている」が壊れていないとは限らない</span></span>
-<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;特徴量の欠損率&lt;/span&gt;急増を見逃す</span></span>
-<span id="cb2-24"><a></a></span>
-<span id="cb2-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb2-26"><a></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> ダッシュボード乱立</span></span>
-<span id="cb2-27"><a></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
-<span id="cb2-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 各 PJ が&lt;span class="regmonkey-bold"&gt;独自ダッシュボード&lt;/span&gt;を作り横断視点がない</span></span>
-<span id="cb2-29"><a></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
-<span id="cb2-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 数字の定義が PJ ごとにバラバラ</span></span>
-<span id="cb2-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 経営報告時に&lt;span class="regmonkey-bold"&gt;数字が合わない&lt;/span&gt;</span></span>
-<span id="cb2-32"><a></a></span>
-<span id="cb2-33"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb2-34"><a></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> A/B テスト&lt;br&gt;の事後解析依存</span></span>
-<span id="cb2-35"><a></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
-<span id="cb2-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 配信中の指標を観測せず&lt;span class="regmonkey-bold"&gt;終了後にまとめて分析&lt;/span&gt;する</span></span>
-<span id="cb2-37"><a></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
-<span id="cb2-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 致命的な逆効果に気付かず&lt;span class="regmonkey-bold"&gt;損失が拡大&lt;/span&gt;</span></span>
-<span id="cb2-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 早期停止判断の機会を逃す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> ツール先行導入</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視 SaaS や MLOps プラットフォームを&lt;span class="regmonkey-bold"&gt;先に決めてから&lt;/span&gt;運用設計に入る</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ツール機能に合わせた指標しか出せない</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ビジネス KPI と分離&lt;/span&gt;して意思決定に届かない</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> モデル精度&lt;br&gt;だけを監視</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 学習時の精度・AUC ばかり追い，&lt;span class="regmonkey-bold"&gt;本番のデータ分布&lt;/span&gt;を観測しない</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;data drift・concept drift&lt;/span&gt; に気付けない</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 静かな劣化が長期間放置される</span></span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> 学習パイプライン&lt;br&gt;を目的なく監視</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> バッチ学習・特徴量生成の&lt;span class="regmonkey-bold"&gt;成功/失敗ログ&lt;/span&gt;しか取らない</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「動いている」が壊れていないとは限らない</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;特徴量の欠損率&lt;/span&gt;急増を見逃す</span></span>
+<span id="cb2-24"><a aria-label="24"></a></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> ダッシュボード乱立</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 各 PJ が&lt;span class="regmonkey-bold"&gt;独自ダッシュボード&lt;/span&gt;を作り横断視点がない</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
+<span id="cb2-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 数字の定義が PJ ごとにバラバラ</span></span>
+<span id="cb2-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 経営報告時に&lt;span class="regmonkey-bold"&gt;数字が合わない&lt;/span&gt;</span></span>
+<span id="cb2-32"><a aria-label="32"></a></span>
+<span id="cb2-33"><a aria-label="33"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb2-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">アンチパターン</span><span class="kw">:</span><span class="at"> A/B テスト&lt;br&gt;の事後解析依存</span></span>
+<span id="cb2-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">ルール・観点</span><span class="kw">:</span></span>
+<span id="cb2-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 配信中の指標を観測せず&lt;span class="regmonkey-bold"&gt;終了後にまとめて分析&lt;/span&gt;する</span></span>
+<span id="cb2-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">発生するペイン</span><span class="kw">:</span></span>
+<span id="cb2-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 致命的な逆効果に気付かず&lt;span class="regmonkey-bold"&gt;損失が拡大&lt;/span&gt;</span></span>
+<span id="cb2-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 早期停止判断の機会を逃す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -704,45 +707,45 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.72em !important;">
 <div id="yaml-design-pattern-overview" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 45, 35]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 組み合わせ可能&lt;br&gt;な監視</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
-<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 専門特化したツールを&lt;span class="regmonkey-bold"&gt;疎結合で束ね&lt;/span&gt;，監視「プラットフォーム」として運用する</span></span>
-<span id="cb3-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一枚岩の万能ツールではなく，&lt;span class="regmonkey-bold"&gt;交換可能な部品&lt;/span&gt;の集合として設計する</span></span>
-<span id="cb3-6"><a></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
-<span id="cb3-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> UNIX 哲学に倣う</span></span>
-<span id="cb3-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 収集・蓄積・可視化・通知を分離</span></span>
-<span id="cb3-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> API 連携・標準フォーマット（OpenMetrics 等）</span></span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> ユーザー視点&lt;br&gt;の監視</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実装の内部状態ではなく &lt;span class="regmonkey-bold"&gt;サービスが使えるか&lt;/span&gt; を測る</span></span>
-<span id="cb3-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部メトリクスは &lt;span class="regmonkey-bold"&gt;原因分析の補助&lt;/span&gt; として位置付ける</span></span>
-<span id="cb3-16"><a></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
-<span id="cb3-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP レスポンスコード・レイテンシ</span></span>
-<span id="cb3-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エラー率・スループット</span></span>
-<span id="cb3-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> RUM / Synthetic で実体感を計測</span></span>
-<span id="cb3-20"><a></a></span>
-<span id="cb3-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 作るのではなく&lt;br&gt;買う</span></span>
-<span id="cb3-23"><a></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
-<span id="cb3-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユニークな問題以外は &lt;span class="regmonkey-bold"&gt;SaaS 監視ツールを購入&lt;/span&gt; する</span></span>
-<span id="cb3-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自前開発は &lt;span class="regmonkey-bold"&gt;人時・逸失利益&lt;/span&gt; を含めると割高になりがち</span></span>
-<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
-<span id="cb3-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Datadog・New Relic・Splunk</span></span>
-<span id="cb3-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Grafana Cloud・Honeycomb</span></span>
-<span id="cb3-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準は SaaS，差別化要件のみ内製</span></span>
-<span id="cb3-30"><a></a></span>
-<span id="cb3-31"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-32"><a></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 継続的改善</span></span>
-<span id="cb3-33"><a></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
-<span id="cb3-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視ニーズの変化に合わせ &lt;span class="regmonkey-bold"&gt;柔軟に組み替える&lt;/span&gt; 組織を作る</span></span>
-<span id="cb3-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;アラート・ダッシュボードを定期棚卸し&lt;/span&gt;し，陳腐化を防ぐ</span></span>
-<span id="cb3-36"><a></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
-<span id="cb3-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 毎日アラート一覧をレビュー</span></span>
-<span id="cb3-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 四半期ごとに SLO・閾値を見直す</span></span>
-<span id="cb3-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポストモーテムを次の監視設計に反映</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 組み合わせ可能&lt;br&gt;な監視</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 専門特化したツールを&lt;span class="regmonkey-bold"&gt;疎結合で束ね&lt;/span&gt;，監視「プラットフォーム」として運用する</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一枚岩の万能ツールではなく，&lt;span class="regmonkey-bold"&gt;交換可能な部品&lt;/span&gt;の集合として設計する</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> UNIX 哲学に倣う</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 収集・蓄積・可視化・通知を分離</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> API 連携・標準フォーマット（OpenMetrics 等）</span></span>
+<span id="cb3-10"><a aria-label="10"></a></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> ユーザー視点&lt;br&gt;の監視</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実装の内部状態ではなく &lt;span class="regmonkey-bold"&gt;サービスが使えるか&lt;/span&gt; を測る</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 内部メトリクスは &lt;span class="regmonkey-bold"&gt;原因分析の補助&lt;/span&gt; として位置付ける</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP レスポンスコード・レイテンシ</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エラー率・スループット</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> RUM / Synthetic で実体感を計測</span></span>
+<span id="cb3-20"><a aria-label="20"></a></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 作るのではなく&lt;br&gt;買う</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
+<span id="cb3-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユニークな問題以外は &lt;span class="regmonkey-bold"&gt;SaaS 監視ツールを購入&lt;/span&gt; する</span></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自前開発は &lt;span class="regmonkey-bold"&gt;人時・逸失利益&lt;/span&gt; を含めると割高になりがち</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Datadog・New Relic・Splunk</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Grafana Cloud・Honeycomb</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準は SaaS，差別化要件のみ内製</span></span>
+<span id="cb3-30"><a aria-label="30"></a></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">デザインパターン</span><span class="kw">:</span><span class="at"> 継続的改善</span></span>
+<span id="cb3-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">ルール</span><span class="kw">:</span></span>
+<span id="cb3-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視ニーズの変化に合わせ &lt;span class="regmonkey-bold"&gt;柔軟に組み替える&lt;/span&gt; 組織を作る</span></span>
+<span id="cb3-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;アラート・ダッシュボードを定期棚卸し&lt;/span&gt;し，陳腐化を防ぐ</span></span>
+<span id="cb3-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">代表アクション</span><span class="kw">:</span></span>
+<span id="cb3-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 毎日アラート一覧をレビュー</span></span>
+<span id="cb3-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 四半期ごとに SLO・閾値を見直す</span></span>
+<span id="cb3-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポストモーテムを次の監視設計に反映</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1192,23 +1195,23 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.9em !important;">
 <div id="yaml-alert-types" class="yaml2table yaml2table-custom-top" data-col-widths="[20,40,40]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 叩き起こす&lt;br&gt;アラート</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 緊急の問題に対する&lt;span class="regmonkey-bold"&gt;タイムリーな Action 実施&lt;/span&gt;を促す</span></span>
-<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ログを残す</span></span>
-<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チケットを自動生成</span></span>
-<span id="cb4-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手順書（runbook）にリンクする</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> FYI として&lt;br&gt;のアラート</span></span>
-<span id="cb4-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 即対応は不要だが&lt;span class="regmonkey-bold"&gt;誰かが確認すべき&lt;/span&gt;事象を通知する</span></span>
-<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：夜間バックアップの失敗</span></span>
-<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チャットでの通知が中心</span></span>
-<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 蓄積してレポート化</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 叩き起こす&lt;br&gt;アラート</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 緊急の問題に対する&lt;span class="regmonkey-bold"&gt;タイムリーな Action 実施&lt;/span&gt;を促す</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ログを残す</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チケットを自動生成</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手順書（runbook）にリンクする</span></span>
+<span id="cb4-9"><a aria-label="9"></a></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> FYI として&lt;br&gt;のアラート</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 即対応は不要だが&lt;span class="regmonkey-bold"&gt;誰かが確認すべき&lt;/span&gt;事象を通知する</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：夜間バックアップの失敗</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チャットでの通知が中心</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 蓄積してレポート化</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
@@ -1313,49 +1316,49 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.8em !important;">
 <div id="yaml-runbook-alert" class="yaml2table yaml2table-custom-top" data-col-widths="[28, 24, 24, 24]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> ユーザーサインイン&lt;br&gt;失敗率が高い</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
-<span id="cb5-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5分で失敗率 &lt;span class="regmonkey-bold"&gt;5% 超過&lt;/span&gt;</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
-<span id="cb5-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
-<span id="cb5-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ブルートフォース&lt;/span&gt;攻撃</span></span>
-<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
-<span id="cb5-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
-<span id="cb5-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サインインログで攻撃兆候を確認</span></span>
-<span id="cb5-11"><a></a></span>
-<span id="cb5-12"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb5-13"><a></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> ユーザーログイン&lt;br&gt;時間が長すぎる</span></span>
-<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
-<span id="cb5-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ログイン時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
-<span id="cb5-16"><a></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
-<span id="cb5-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
-<span id="cb5-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
-<span id="cb5-19"><a></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
-<span id="cb5-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
-<span id="cb5-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span>
-<span id="cb5-22"><a></a></span>
-<span id="cb5-23"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb5-24"><a></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> 記事作成時間&lt;br&gt;が長すぎる</span></span>
-<span id="cb5-25"><a></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
-<span id="cb5-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 記事作成時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
-<span id="cb5-27"><a></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
-<span id="cb5-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
-<span id="cb5-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
-<span id="cb5-30"><a></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
-<span id="cb5-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
-<span id="cb5-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span>
-<span id="cb5-33"><a></a></span>
-<span id="cb5-34"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb5-35"><a></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> コメント作成時間&lt;br&gt;が長すぎる</span></span>
-<span id="cb5-36"><a></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
-<span id="cb5-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメント作成時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
-<span id="cb5-38"><a></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
-<span id="cb5-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
-<span id="cb5-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
-<span id="cb5-41"><a></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
-<span id="cb5-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
-<span id="cb5-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> ユーザーサインイン&lt;br&gt;失敗率が高い</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5分で失敗率 &lt;span class="regmonkey-bold"&gt;5% 超過&lt;/span&gt;</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ブルートフォース&lt;/span&gt;攻撃</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サインインログで攻撃兆候を確認</span></span>
+<span id="cb5-11"><a aria-label="11"></a></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> ユーザーログイン&lt;br&gt;時間が長すぎる</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ログイン時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
+<span id="cb5-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
+<span id="cb5-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
+<span id="cb5-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
+<span id="cb5-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span>
+<span id="cb5-22"><a aria-label="22"></a></span>
+<span id="cb5-23"><a aria-label="23"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> 記事作成時間&lt;br&gt;が長すぎる</span></span>
+<span id="cb5-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
+<span id="cb5-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 記事作成時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
+<span id="cb5-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
+<span id="cb5-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
+<span id="cb5-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
+<span id="cb5-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span>
+<span id="cb5-33"><a aria-label="33"></a></span>
+<span id="cb5-34"><a aria-label="34"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">アラート名</span><span class="kw">:</span><span class="at"> コメント作成時間&lt;br&gt;が長すぎる</span></span>
+<span id="cb5-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">When（発動条件）</span><span class="kw">:</span></span>
+<span id="cb5-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメント作成時間が &lt;span class="regmonkey-bold"&gt;1秒超過&lt;/span&gt;</span></span>
+<span id="cb5-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">考えられる原因</span><span class="kw">:</span></span>
+<span id="cb5-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不正なデプロイ</span></span>
+<span id="cb5-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;PostgreSQL 性能&lt;/span&gt;劣化</span></span>
+<span id="cb5-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">Then（Action）</span><span class="kw">:</span></span>
+<span id="cb5-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 直近デプロイを確認</span></span>
+<span id="cb5-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DB のクエリ・接続数を確認</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1448,85 +1451,85 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.66em !important;">
 <div id="yaml-itil-9steps" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 8, 42, 30]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 1. 認識</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Detect&lt;/span&gt;</span></span>
-<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視・ユーザー報告・自動アラートで&lt;span class="regmonkey-bold"&gt;インシデント発生を検知&lt;/span&gt;する</span></span>
-<span id="cb6-6"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 検知トリガ（アラート ID・通報チャネル）</span></span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 2. ロギング</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Detect&lt;/span&gt;</span></span>
-<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インシデント ID を発番し，&lt;span class="regmonkey-bold"&gt;記録システム&lt;/span&gt;に登録する</span></span>
-<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> インシデントチケット</span></span>
-<span id="cb6-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発生時刻・初動メンバー記録</span></span>
-<span id="cb6-17"><a></a></span>
-<span id="cb6-18"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb6-19"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 3. 分類</span></span>
-<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
-<span id="cb6-21"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 種別（障害／パフォーマンス／セキュリティ等）に&lt;span class="regmonkey-bold"&gt;カテゴリ分け&lt;/span&gt;する</span></span>
-<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> カテゴリラベル</span></span>
-<span id="cb6-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関連サービスタグ</span></span>
-<span id="cb6-26"><a></a></span>
-<span id="cb6-27"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb6-28"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 4. 優先順位付け</span></span>
-<span id="cb6-29"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
-<span id="cb6-30"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;影響範囲 × 緊急度&lt;/span&gt;で SEV1〜SEV4 を決める</span></span>
-<span id="cb6-32"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SEV レベル</span></span>
-<span id="cb6-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対応 SLA</span></span>
-<span id="cb6-35"><a></a></span>
-<span id="cb6-36"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb6-37"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 5. 初期診断</span></span>
-<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
-<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一次対応者が&lt;span class="regmonkey-bold"&gt;原因仮説&lt;/span&gt;を立て手順書で復旧を試みる</span></span>
-<span id="cb6-41"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 初期診断レポート</span></span>
-<span id="cb6-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暫定対処の試行ログ</span></span>
-<span id="cb6-44"><a></a></span>
-<span id="cb6-45"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb6-46"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 6. エスカレーション</span></span>
-<span id="cb6-47"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Resolve&lt;/span&gt;</span></span>
-<span id="cb6-48"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一次対応で解決不能なら&lt;span class="regmonkey-bold"&gt;Level 2 / SME&lt;/span&gt; に引き継ぐ</span></span>
-<span id="cb6-50"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 引き継ぎノート</span></span>
-<span id="cb6-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 担当者アサイン記録</span></span>
-<span id="cb6-53"><a></a></span>
-<span id="cb6-54"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb6-55"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 7. 解決</span></span>
-<span id="cb6-56"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Resolve&lt;/span&gt;</span></span>
-<span id="cb6-57"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-58"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧作業を実施し，&lt;span class="regmonkey-bold"&gt;サービス正常性&lt;/span&gt;を確認</span></span>
-<span id="cb6-59"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-60"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧時刻</span></span>
-<span id="cb6-61"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 適用した修正内容</span></span>
-<span id="cb6-62"><a></a></span>
-<span id="cb6-63"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb6-64"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 8. クローズ</span></span>
-<span id="cb6-65"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Close&lt;/span&gt;</span></span>
-<span id="cb6-66"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-67"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チケットをクローズし&lt;span class="regmonkey-bold"&gt;ポストモーテム&lt;/span&gt;をスケジュール</span></span>
-<span id="cb6-68"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-69"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> クローズ理由</span></span>
-<span id="cb6-70"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポストモーテム議事録</span></span>
-<span id="cb6-71"><a></a></span>
-<span id="cb6-72"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
-<span id="cb6-73"><a></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 9. コミュニケーション</span></span>
-<span id="cb6-74"><a></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;All Phases&lt;/span&gt;</span></span>
-<span id="cb6-75"><a></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
-<span id="cb6-76"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発生中・解決後にステークホルダー・ユーザーへ&lt;span class="regmonkey-bold"&gt;継続的に状況を通知&lt;/span&gt;する</span></span>
-<span id="cb6-77"><a></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
-<span id="cb6-78"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ステータスページ更新</span></span>
-<span id="cb6-79"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客向けレポート</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 1. 認識</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Detect&lt;/span&gt;</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視・ユーザー報告・自動アラートで&lt;span class="regmonkey-bold"&gt;インシデント発生を検知&lt;/span&gt;する</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 検知トリガ（アラート ID・通報チャネル）</span></span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 2. ロギング</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Detect&lt;/span&gt;</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> インシデント ID を発番し，&lt;span class="regmonkey-bold"&gt;記録システム&lt;/span&gt;に登録する</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> インシデントチケット</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発生時刻・初動メンバー記録</span></span>
+<span id="cb6-17"><a aria-label="17"></a></span>
+<span id="cb6-18"><a aria-label="18"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 3. 分類</span></span>
+<span id="cb6-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
+<span id="cb6-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 種別（障害／パフォーマンス／セキュリティ等）に&lt;span class="regmonkey-bold"&gt;カテゴリ分け&lt;/span&gt;する</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> カテゴリラベル</span></span>
+<span id="cb6-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関連サービスタグ</span></span>
+<span id="cb6-26"><a aria-label="26"></a></span>
+<span id="cb6-27"><a aria-label="27"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 4. 優先順位付け</span></span>
+<span id="cb6-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
+<span id="cb6-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;影響範囲 × 緊急度&lt;/span&gt;で SEV1〜SEV4 を決める</span></span>
+<span id="cb6-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SEV レベル</span></span>
+<span id="cb6-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対応 SLA</span></span>
+<span id="cb6-35"><a aria-label="35"></a></span>
+<span id="cb6-36"><a aria-label="36"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 5. 初期診断</span></span>
+<span id="cb6-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Triage&lt;/span&gt;</span></span>
+<span id="cb6-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一次対応者が&lt;span class="regmonkey-bold"&gt;原因仮説&lt;/span&gt;を立て手順書で復旧を試みる</span></span>
+<span id="cb6-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 初期診断レポート</span></span>
+<span id="cb6-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 暫定対処の試行ログ</span></span>
+<span id="cb6-44"><a aria-label="44"></a></span>
+<span id="cb6-45"><a aria-label="45"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 6. エスカレーション</span></span>
+<span id="cb6-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Resolve&lt;/span&gt;</span></span>
+<span id="cb6-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 一次対応で解決不能なら&lt;span class="regmonkey-bold"&gt;Level 2 / SME&lt;/span&gt; に引き継ぐ</span></span>
+<span id="cb6-50"><a aria-label="50"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 引き継ぎノート</span></span>
+<span id="cb6-52"><a aria-label="52"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 担当者アサイン記録</span></span>
+<span id="cb6-53"><a aria-label="53"></a></span>
+<span id="cb6-54"><a aria-label="54"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb6-55"><a aria-label="55"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 7. 解決</span></span>
+<span id="cb6-56"><a aria-label="56"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Resolve&lt;/span&gt;</span></span>
+<span id="cb6-57"><a aria-label="57"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-58"><a aria-label="58"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧作業を実施し，&lt;span class="regmonkey-bold"&gt;サービス正常性&lt;/span&gt;を確認</span></span>
+<span id="cb6-59"><a aria-label="59"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-60"><a aria-label="60"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧時刻</span></span>
+<span id="cb6-61"><a aria-label="61"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 適用した修正内容</span></span>
+<span id="cb6-62"><a aria-label="62"></a></span>
+<span id="cb6-63"><a aria-label="63"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb6-64"><a aria-label="64"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 8. クローズ</span></span>
+<span id="cb6-65"><a aria-label="65"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Close&lt;/span&gt;</span></span>
+<span id="cb6-66"><a aria-label="66"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-67"><a aria-label="67"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チケットをクローズし&lt;span class="regmonkey-bold"&gt;ポストモーテム&lt;/span&gt;をスケジュール</span></span>
+<span id="cb6-68"><a aria-label="68"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-69"><a aria-label="69"></a><span class="at">    </span><span class="kw">-</span><span class="at"> クローズ理由</span></span>
+<span id="cb6-70"><a aria-label="70"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ポストモーテム議事録</span></span>
+<span id="cb6-71"><a aria-label="71"></a></span>
+<span id="cb6-72"><a aria-label="72"></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb6-73"><a aria-label="73"></a><span class="at">  </span><span class="fu">Step</span><span class="kw">:</span><span class="at"> 9. コミュニケーション</span></span>
+<span id="cb6-74"><a aria-label="74"></a><span class="at">  </span><span class="fu">フェーズ</span><span class="kw">:</span><span class="at"> &lt;span class="regmonkey-bold"&gt;All Phases&lt;/span&gt;</span></span>
+<span id="cb6-75"><a aria-label="75"></a><span class="at">  </span><span class="fu">やること</span><span class="kw">:</span></span>
+<span id="cb6-76"><a aria-label="76"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発生中・解決後にステークホルダー・ユーザーへ&lt;span class="regmonkey-bold"&gt;継続的に状況を通知&lt;/span&gt;する</span></span>
+<span id="cb6-77"><a aria-label="77"></a><span class="at">  </span><span class="fu">成果物・出力</span><span class="kw">:</span></span>
+<span id="cb6-78"><a aria-label="78"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ステータスページ更新</span></span>
+<span id="cb6-79"><a aria-label="79"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客向けレポート</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <!-- footer -->
@@ -1537,49 +1540,49 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.72em !important;">
 <div id="yaml-incident-roles" class="yaml2table yaml2table-custom-top" data-col-widths="[22, 18, 35, 25]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ① 現場指揮官&lt;br&gt;(Incident Manager)</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
-<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;意思決定&lt;/span&gt;</span></span>
-<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
-<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対応全体の&lt;span class="regmonkey-bold"&gt;意思決定者&lt;/span&gt;．方針・優先順位・エスカレーション判断を担う</span></span>
-<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関係者にタスクを割り当て，状況を俯瞰する</span></span>
-<span id="cb7-8"><a></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
-<span id="cb7-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧の優先順位が明確</span></span>
-<span id="cb7-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関係者全員が次のアクションを把握</span></span>
-<span id="cb7-11"><a></a></span>
-<span id="cb7-12"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ② スクライブ&lt;br&gt;(Scribe)</span></span>
-<span id="cb7-14"><a></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
-<span id="cb7-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;記録&lt;/span&gt;</span></span>
-<span id="cb7-16"><a></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
-<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発言・判断・実行を&lt;span class="regmonkey-bold"&gt;時系列で記録&lt;/span&gt;する</span></span>
-<span id="cb7-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後のポストモーテム・監査の一次資料となる</span></span>
-<span id="cb7-19"><a></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
-<span id="cb7-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5W1H が後追いで再構成できる</span></span>
-<span id="cb7-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要判断と理由が残っている</span></span>
-<span id="cb7-22"><a></a></span>
-<span id="cb7-23"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb7-24"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ③ コミュニケーション&lt;br&gt;調整役</span></span>
-<span id="cb7-25"><a></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
-<span id="cb7-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;対外連絡&lt;/span&gt;</span></span>
-<span id="cb7-27"><a></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
-<span id="cb7-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利害関係者・顧客に&lt;span class="regmonkey-bold"&gt;最新情報を伝える&lt;/span&gt;</span></span>
-<span id="cb7-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 解決チームに&lt;span class="regmonkey-bold"&gt;問い合わせを流さない&lt;/span&gt;防波堤として動く</span></span>
-<span id="cb7-30"><a></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
-<span id="cb7-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ステータスページが最新</span></span>
-<span id="cb7-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> SME への問い合わせ流入が抑制</span></span>
-<span id="cb7-33"><a></a></span>
-<span id="cb7-34"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb7-35"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ④ SME&lt;br&gt;(Subject Matter Expert)</span></span>
-<span id="cb7-36"><a></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
-<span id="cb7-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;技術復旧&lt;/span&gt;</span></span>
-<span id="cb7-38"><a></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
-<span id="cb7-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実際に&lt;span class="regmonkey-bold"&gt;インシデント対応する人&lt;/span&gt;．技術的な調査・復旧作業を担う</span></span>
-<span id="cb7-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 仮説検証・修正適用・正常性確認まで</span></span>
-<span id="cb7-41"><a></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
-<span id="cb7-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧が完了している</span></span>
-<span id="cb7-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 原因仮説と検証手順が残っている</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ① 現場指揮官&lt;br&gt;(Incident Manager)</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
+<span id="cb7-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;意思決定&lt;/span&gt;</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対応全体の&lt;span class="regmonkey-bold"&gt;意思決定者&lt;/span&gt;．方針・優先順位・エスカレーション判断を担う</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関係者にタスクを割り当て，状況を俯瞰する</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧の優先順位が明確</span></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 関係者全員が次のアクションを把握</span></span>
+<span id="cb7-11"><a aria-label="11"></a></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ② スクライブ&lt;br&gt;(Scribe)</span></span>
+<span id="cb7-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;記録&lt;/span&gt;</span></span>
+<span id="cb7-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
+<span id="cb7-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 発言・判断・実行を&lt;span class="regmonkey-bold"&gt;時系列で記録&lt;/span&gt;する</span></span>
+<span id="cb7-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後のポストモーテム・監査の一次資料となる</span></span>
+<span id="cb7-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
+<span id="cb7-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 5W1H が後追いで再構成できる</span></span>
+<span id="cb7-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 重要判断と理由が残っている</span></span>
+<span id="cb7-22"><a aria-label="22"></a></span>
+<span id="cb7-23"><a aria-label="23"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ③ コミュニケーション&lt;br&gt;調整役</span></span>
+<span id="cb7-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
+<span id="cb7-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;対外連絡&lt;/span&gt;</span></span>
+<span id="cb7-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
+<span id="cb7-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 利害関係者・顧客に&lt;span class="regmonkey-bold"&gt;最新情報を伝える&lt;/span&gt;</span></span>
+<span id="cb7-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 解決チームに&lt;span class="regmonkey-bold"&gt;問い合わせを流さない&lt;/span&gt;防波堤として動く</span></span>
+<span id="cb7-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
+<span id="cb7-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ステータスページが最新</span></span>
+<span id="cb7-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> SME への問い合わせ流入が抑制</span></span>
+<span id="cb7-33"><a aria-label="33"></a></span>
+<span id="cb7-34"><a aria-label="34"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb7-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ④ SME&lt;br&gt;(Subject Matter Expert)</span></span>
+<span id="cb7-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">主担当</span><span class="kw">:</span></span>
+<span id="cb7-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;技術復旧&lt;/span&gt;</span></span>
+<span id="cb7-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">責務</span><span class="kw">:</span></span>
+<span id="cb7-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実際に&lt;span class="regmonkey-bold"&gt;インシデント対応する人&lt;/span&gt;．技術的な調査・復旧作業を担う</span></span>
+<span id="cb7-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 仮説検証・修正適用・正常性確認まで</span></span>
+<span id="cb7-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">成功の判定</span><span class="kw">:</span></span>
+<span id="cb7-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 復旧が完了している</span></span>
+<span id="cb7-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 原因仮説と検証手順が残っている</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
@@ -1651,55 +1654,55 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.78em !important;">
 <div id="yaml-biz-kpi" class="yaml2table yaml2table-custom-top" data-col-widths="[30, 70]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Monthly Recurring Revenue (MRR)</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客からの&lt;span class="regmonkey-bold"&gt;月ごとの経常利益&lt;/span&gt;</span></span>
-<span id="cb8-5"><a></a></span>
-<span id="cb8-6"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb8-7"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Revenue per Customer</span></span>
-<span id="cb8-8"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客ごとの収益．通常は&lt;span class="regmonkey-bold"&gt;年単位&lt;/span&gt;で見る</span></span>
-<span id="cb8-10"><a></a></span>
-<span id="cb8-11"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb8-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Number of Paying Customer</span></span>
-<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;課金顧客数&lt;/span&gt;</span></span>
-<span id="cb8-15"><a></a></span>
-<span id="cb8-16"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb8-17"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> NPS (Net Promoter Score)</span></span>
-<span id="cb8-18"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザー満足度．&lt;span class="regmonkey-bold"&gt;他人に薦める度合い&lt;/span&gt;を測る</span></span>
-<span id="cb8-20"><a></a></span>
-<span id="cb8-21"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb8-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LTV (Life Time Value)</span></span>
-<span id="cb8-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客の&lt;span class="regmonkey-bold"&gt;生涯単位&lt;/span&gt;での価値を計測</span></span>
-<span id="cb8-25"><a></a></span>
-<span id="cb8-26"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb8-27"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Cost per Customer / CAC</span></span>
-<span id="cb8-28"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;サービス提供コスト&lt;/span&gt;と&lt;span class="regmonkey-bold"&gt;獲得費用&lt;/span&gt;</span></span>
-<span id="cb8-30"><a></a></span>
-<span id="cb8-31"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb8-32"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Customer Churn</span></span>
-<span id="cb8-33"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 離反顧客数．上昇時は&lt;span class="regmonkey-bold"&gt;プロダクト・性能・価格&lt;/span&gt;に問題のサイン</span></span>
-<span id="cb8-35"><a></a></span>
-<span id="cb8-36"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb8-37"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Active Users (DAU/WAU/MAU)</span></span>
-<span id="cb8-38"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サービスの&lt;span class="regmonkey-bold"&gt;アクティブユーザー数&lt;/span&gt;</span></span>
-<span id="cb8-40"><a></a></span>
-<span id="cb8-41"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
-<span id="cb8-42"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Burn Rate / Run Rate</span></span>
-<span id="cb8-43"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 月次支出と&lt;span class="regmonkey-bold"&gt;資金枯渇までの残り期間&lt;/span&gt;</span></span>
-<span id="cb8-45"><a></a></span>
-<span id="cb8-46"><a></a><span class="fu">record10</span><span class="kw">:</span></span>
-<span id="cb8-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> TAM (Total Addressable Market)</span></span>
-<span id="cb8-48"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 特定マーケットの&lt;span class="regmonkey-bold"&gt;最大規模&lt;/span&gt;を示す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Monthly Recurring Revenue (MRR)</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客からの&lt;span class="regmonkey-bold"&gt;月ごとの経常利益&lt;/span&gt;</span></span>
+<span id="cb8-5"><a aria-label="5"></a></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Revenue per Customer</span></span>
+<span id="cb8-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客ごとの収益．通常は&lt;span class="regmonkey-bold"&gt;年単位&lt;/span&gt;で見る</span></span>
+<span id="cb8-10"><a aria-label="10"></a></span>
+<span id="cb8-11"><a aria-label="11"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Number of Paying Customer</span></span>
+<span id="cb8-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;課金顧客数&lt;/span&gt;</span></span>
+<span id="cb8-15"><a aria-label="15"></a></span>
+<span id="cb8-16"><a aria-label="16"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb8-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> NPS (Net Promoter Score)</span></span>
+<span id="cb8-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザー満足度．&lt;span class="regmonkey-bold"&gt;他人に薦める度合い&lt;/span&gt;を測る</span></span>
+<span id="cb8-20"><a aria-label="20"></a></span>
+<span id="cb8-21"><a aria-label="21"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb8-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> LTV (Life Time Value)</span></span>
+<span id="cb8-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客の&lt;span class="regmonkey-bold"&gt;生涯単位&lt;/span&gt;での価値を計測</span></span>
+<span id="cb8-25"><a aria-label="25"></a></span>
+<span id="cb8-26"><a aria-label="26"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb8-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Cost per Customer / CAC</span></span>
+<span id="cb8-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;サービス提供コスト&lt;/span&gt;と&lt;span class="regmonkey-bold"&gt;獲得費用&lt;/span&gt;</span></span>
+<span id="cb8-30"><a aria-label="30"></a></span>
+<span id="cb8-31"><a aria-label="31"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb8-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Customer Churn</span></span>
+<span id="cb8-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 離反顧客数．上昇時は&lt;span class="regmonkey-bold"&gt;プロダクト・性能・価格&lt;/span&gt;に問題のサイン</span></span>
+<span id="cb8-35"><a aria-label="35"></a></span>
+<span id="cb8-36"><a aria-label="36"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb8-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Active Users (DAU/WAU/MAU)</span></span>
+<span id="cb8-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サービスの&lt;span class="regmonkey-bold"&gt;アクティブユーザー数&lt;/span&gt;</span></span>
+<span id="cb8-40"><a aria-label="40"></a></span>
+<span id="cb8-41"><a aria-label="41"></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb8-42"><a aria-label="42"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Burn Rate / Run Rate</span></span>
+<span id="cb8-43"><a aria-label="43"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 月次支出と&lt;span class="regmonkey-bold"&gt;資金枯渇までの残り期間&lt;/span&gt;</span></span>
+<span id="cb8-45"><a aria-label="45"></a></span>
+<span id="cb8-46"><a aria-label="46"></a><span class="fu">record10</span><span class="kw">:</span></span>
+<span id="cb8-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> TAM (Total Addressable Market)</span></span>
+<span id="cb8-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 特定マーケットの&lt;span class="regmonkey-bold"&gt;最大規模&lt;/span&gt;を示す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1709,54 +1712,54 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.78em !important;">
 <div id="yaml-yelp-kpi" class="yaml2table yaml2table-custom-top" data-col-widths="[28, 32, 40]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> 検索実行</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロダクトの&lt;span class="regmonkey-bold"&gt;入口&lt;/span&gt;の利用状況</span></span>
-<span id="cb9-5"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 検索数の低下は&lt;span class="regmonkey-bold"&gt;集客力の悪化&lt;/span&gt;を示唆</span></span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb9-9"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> レビュー投稿</span></span>
-<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> UGC（ユーザー生成コンテンツ）の&lt;span class="regmonkey-bold"&gt;供給量&lt;/span&gt;</span></span>
-<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 投稿減はコンテンツ枯渇 → &lt;span class="regmonkey-bold"&gt;検索品質低下&lt;/span&gt;に波及</span></span>
-<span id="cb9-14"><a></a></span>
-<span id="cb9-15"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb9-16"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> ユーザーのサインアップ</span></span>
-<span id="cb9-17"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規ユーザーの&lt;span class="regmonkey-bold"&gt;流入速度&lt;/span&gt;</span></span>
-<span id="cb9-19"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> サインアップ減速は&lt;span class="regmonkey-bold"&gt;成長鈍化&lt;/span&gt;の先行指標</span></span>
-<span id="cb9-21"><a></a></span>
-<span id="cb9-22"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb9-23"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> ビジネスページの取得</span></span>
-<span id="cb9-24"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;需要側&lt;/span&gt;（探す側）のアクション</span></span>
-<span id="cb9-26"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 取得数増加は需要の活性化．広告購入の&lt;span class="regmonkey-bold"&gt;先行指標&lt;/span&gt;</span></span>
-<span id="cb9-28"><a></a></span>
-<span id="cb9-29"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb9-30"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> アクティブユーザー・&lt;br&gt;アクティブビジネス</span></span>
-<span id="cb9-31"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 両サイドマーケットの&lt;span class="regmonkey-bold"&gt;健全性&lt;/span&gt;</span></span>
-<span id="cb9-33"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 片側の減少は&lt;span class="regmonkey-bold"&gt;マーケットの偏り&lt;/span&gt;を示す</span></span>
-<span id="cb9-35"><a></a></span>
-<span id="cb9-36"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb9-37"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> 広告購入</span></span>
-<span id="cb9-38"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;収益化&lt;/span&gt;指標</span></span>
-<span id="cb9-40"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 収益の直接KPI．需要側のアクションと連動して観測</span></span>
-<span id="cb9-42"><a></a></span>
-<span id="cb9-43"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb9-44"><a></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> レビューに対する返事</span></span>
-<span id="cb9-45"><a></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
-<span id="cb9-46"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エンゲージメント・&lt;span class="regmonkey-bold"&gt;コミュニティ活性度&lt;/span&gt;</span></span>
-<span id="cb9-47"><a></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
-<span id="cb9-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 返事率低下は&lt;span class="regmonkey-bold"&gt;事業者側の関心離脱&lt;/span&gt;の兆候</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> 検索実行</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> プロダクトの&lt;span class="regmonkey-bold"&gt;入口&lt;/span&gt;の利用状況</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 検索数の低下は&lt;span class="regmonkey-bold"&gt;集客力の悪化&lt;/span&gt;を示唆</span></span>
+<span id="cb9-7"><a aria-label="7"></a></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> レビュー投稿</span></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> UGC（ユーザー生成コンテンツ）の&lt;span class="regmonkey-bold"&gt;供給量&lt;/span&gt;</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 投稿減はコンテンツ枯渇 → &lt;span class="regmonkey-bold"&gt;検索品質低下&lt;/span&gt;に波及</span></span>
+<span id="cb9-14"><a aria-label="14"></a></span>
+<span id="cb9-15"><a aria-label="15"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> ユーザーのサインアップ</span></span>
+<span id="cb9-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新規ユーザーの&lt;span class="regmonkey-bold"&gt;流入速度&lt;/span&gt;</span></span>
+<span id="cb9-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> サインアップ減速は&lt;span class="regmonkey-bold"&gt;成長鈍化&lt;/span&gt;の先行指標</span></span>
+<span id="cb9-21"><a aria-label="21"></a></span>
+<span id="cb9-22"><a aria-label="22"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb9-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> ビジネスページの取得</span></span>
+<span id="cb9-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;需要側&lt;/span&gt;（探す側）のアクション</span></span>
+<span id="cb9-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 取得数増加は需要の活性化．広告購入の&lt;span class="regmonkey-bold"&gt;先行指標&lt;/span&gt;</span></span>
+<span id="cb9-28"><a aria-label="28"></a></span>
+<span id="cb9-29"><a aria-label="29"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb9-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> アクティブユーザー・&lt;br&gt;アクティブビジネス</span></span>
+<span id="cb9-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 両サイドマーケットの&lt;span class="regmonkey-bold"&gt;健全性&lt;/span&gt;</span></span>
+<span id="cb9-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 片側の減少は&lt;span class="regmonkey-bold"&gt;マーケットの偏り&lt;/span&gt;を示す</span></span>
+<span id="cb9-35"><a aria-label="35"></a></span>
+<span id="cb9-36"><a aria-label="36"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb9-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> 広告購入</span></span>
+<span id="cb9-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;収益化&lt;/span&gt;指標</span></span>
+<span id="cb9-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 収益の直接KPI．需要側のアクションと連動して観測</span></span>
+<span id="cb9-42"><a aria-label="42"></a></span>
+<span id="cb9-43"><a aria-label="43"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb9-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">KPI</span><span class="kw">:</span><span class="at"> レビューに対する返事</span></span>
+<span id="cb9-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">観測する側面</span><span class="kw">:</span></span>
+<span id="cb9-46"><a aria-label="46"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エンゲージメント・&lt;span class="regmonkey-bold"&gt;コミュニティ活性度&lt;/span&gt;</span></span>
+<span id="cb9-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">健全性が示すこと</span><span class="kw">:</span></span>
+<span id="cb9-48"><a aria-label="48"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 返事率低下は&lt;span class="regmonkey-bold"&gt;事業者側の関心離脱&lt;/span&gt;の兆候</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
@@ -1836,50 +1839,50 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.82em !important;">
 <div id="yaml-monitoring-summary" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 35, 47]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 監視の&lt;br&gt;原則</span></span>
-<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視は&lt;span class="regmonkey-bold"&gt;ミッションドリブン&lt;/span&gt;で設計し，Issue Finding を Action に接続する</span></span>
-<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「動いている」の定義をオーナーと合意する</span></span>
-<span id="cb10-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パフォーマンス管理・改善を起点に置く</span></span>
-<span id="cb10-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視は全員で行う</span></span>
-<span id="cb10-9"><a></a></span>
-<span id="cb10-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb10-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> アンチ&lt;br&gt;パターン</span></span>
-<span id="cb10-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ツール依存&lt;/span&gt;と&lt;span class="regmonkey-bold"&gt;監視のための監視&lt;/span&gt;を避ける</span></span>
-<span id="cb10-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> メトリクス収集は最低 60 秒間隔</span></span>
-<span id="cb10-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 履歴を保存し，傾向を追えるようにする</span></span>
-<span id="cb10-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 誤検知の多いアラートは削除・チューニング</span></span>
-<span id="cb10-18"><a></a></span>
-<span id="cb10-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb10-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> デザイン&lt;br&gt;パターン</span></span>
-<span id="cb10-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;専門ツールを疎結合&lt;/span&gt;で組み，ユーザー視点で測り，SaaS を活用する</span></span>
-<span id="cb10-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP コード・レイテンシでサービス品質を測る</span></span>
-<span id="cb10-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 可用性は依存先の SLA で上限が決まる</span></span>
-<span id="cb10-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準業務は SaaS，固有要件のみ自前開発</span></span>
-<span id="cb10-27"><a></a></span>
-<span id="cb10-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb10-29"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> アラート・&lt;br&gt;オンコール</span></span>
-<span id="cb10-30"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;手順書とログ&lt;/span&gt;でアラートを「対応可能な情報」にする</span></span>
-<span id="cb10-32"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チャット通知＋手順書リンクをセット</span></span>
-<span id="cb10-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動復旧を先に試す</span></span>
-<span id="cb10-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 毎日アラートを棚卸ししシステム改善提案</span></span>
-<span id="cb10-36"><a></a></span>
-<span id="cb10-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb10-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ビジネス・&lt;br&gt;フロント</span></span>
-<span id="cb10-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Business KPI と RUM/Synthetic&lt;/span&gt; で観測を経営とユーザー体感に接続する</span></span>
-<span id="cb10-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> コア機能の利用イベントを KPI 化</span></span>
-<span id="cb10-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Navigation Timing・Speed Index で性能計測</span></span>
-<span id="cb10-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 改善は収益インパクトで語る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 監視の&lt;br&gt;原則</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視は&lt;span class="regmonkey-bold"&gt;ミッションドリブン&lt;/span&gt;で設計し，Issue Finding を Action に接続する</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「動いている」の定義をオーナーと合意する</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パフォーマンス管理・改善を起点に置く</span></span>
+<span id="cb10-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 監視は全員で行う</span></span>
+<span id="cb10-9"><a aria-label="9"></a></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> アンチ&lt;br&gt;パターン</span></span>
+<span id="cb10-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;ツール依存&lt;/span&gt;と&lt;span class="regmonkey-bold"&gt;監視のための監視&lt;/span&gt;を避ける</span></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> メトリクス収集は最低 60 秒間隔</span></span>
+<span id="cb10-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 履歴を保存し，傾向を追えるようにする</span></span>
+<span id="cb10-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 誤検知の多いアラートは削除・チューニング</span></span>
+<span id="cb10-18"><a aria-label="18"></a></span>
+<span id="cb10-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb10-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> デザイン&lt;br&gt;パターン</span></span>
+<span id="cb10-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;専門ツールを疎結合&lt;/span&gt;で組み，ユーザー視点で測り，SaaS を活用する</span></span>
+<span id="cb10-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> HTTP コード・レイテンシでサービス品質を測る</span></span>
+<span id="cb10-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 可用性は依存先の SLA で上限が決まる</span></span>
+<span id="cb10-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 標準業務は SaaS，固有要件のみ自前開発</span></span>
+<span id="cb10-27"><a aria-label="27"></a></span>
+<span id="cb10-28"><a aria-label="28"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb10-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> アラート・&lt;br&gt;オンコール</span></span>
+<span id="cb10-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;手順書とログ&lt;/span&gt;でアラートを「対応可能な情報」にする</span></span>
+<span id="cb10-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チャット通知＋手順書リンクをセット</span></span>
+<span id="cb10-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動復旧を先に試す</span></span>
+<span id="cb10-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 毎日アラートを棚卸ししシステム改善提案</span></span>
+<span id="cb10-36"><a aria-label="36"></a></span>
+<span id="cb10-37"><a aria-label="37"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb10-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ビジネス・&lt;br&gt;フロント</span></span>
+<span id="cb10-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Business KPI と RUM/Synthetic&lt;/span&gt; で観測を経営とユーザー体感に接続する</span></span>
+<span id="cb10-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> コア機能の利用イベントを KPI 化</span></span>
+<span id="cb10-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Navigation Timing・Speed Index で性能計測</span></span>
+<span id="cb10-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 改善は収益インパクトで語る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>

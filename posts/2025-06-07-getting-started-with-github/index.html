@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – はじめてのGitHub</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -248,7 +251,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -639,7 +642,7 @@ Ryo Nakagami
 <li>左図ではIssue thread に commit-id <code>09d4a63</code>が確認できる</li>
 </ul>
 <div style="font-size:1.4em; width: 90%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Fix connection timeout bug (#123)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Fix connection timeout bug (#123)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -649,7 +652,7 @@ Ryo Nakagami
 <div class="info-contents">
 <p>IssueやPRに <code>#番号</code> を書くと，それがリンクになり相互参照ができます</p>
 <div style="font-size:1.4em; width: 90%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a>This issue is related to #45 and blocked by #38.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a>This issue is related to #45 and blocked by #38.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -659,9 +662,9 @@ Ryo Nakagami
 <div class="info-contents">
 <p>対応状況（<code>Open/Clossed</code>）をcommit messageで管理することができます</p>
 <div style="font-size:1.4em; width: 90%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">gh</span> pr create <span class="at">--base</span> main <span class="at">--head</span> feature <span class="dt">\</span></span>
-<span id="cb3-2"><a></a>  <span class="at">--title</span> <span class="st">"Fix login bug causing crash"</span> <span class="dt">\</span></span>
-<span id="cb3-3"><a></a>  <span class="at">--body</span> <span class="st">"Fixes #45"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="ex">gh</span> pr create <span class="at">--base</span> main <span class="at">--head</span> feature <span class="dt">\</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="at">--title</span> <span class="st">"Fix login bug causing crash"</span> <span class="dt">\</span></span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="at">--body</span> <span class="st">"Fixes #45"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1854,7 +1857,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="pl-15">
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a></a>git <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a aria-label="1"></a>git <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>バージョン情報（例：git version 2.46.0.windows.1）が表示されれば成功</li>
@@ -1868,11 +1871,11 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="pl-15">
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">./</span>Desktop</span>
-<span id="cb7-2"><a></a><span class="fu">PS</span><span class="op">&gt;</span> mkdir <span class="op">./</span>test</span>
-<span id="cb7-3"><a></a><span class="fu">PS</span><span class="op">&gt;</span> git init</span>
-<span id="cb7-4"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">..</span></span>
-<span id="cb7-5"><a></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">Remove-Item</span> <span class="op">./</span>test <span class="op">-</span>Recurse <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a aria-label="1"></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">./</span>Desktop</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">PS</span><span class="op">&gt;</span> mkdir <span class="op">./</span>test</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="fu">PS</span><span class="op">&gt;</span> git init</span>
+<span id="cb7-4"><a aria-label="4"></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">cd</span> <span class="op">..</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="fu">PS</span><span class="op">&gt;</span> <span class="fu">Remove-Item</span> <span class="op">./</span>test <span class="op">-</span>Recurse <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>上記がエラーなく実行できれば，Git の動作確認は完了</li>
@@ -1896,7 +1899,7 @@ gitGraph
 <li>通常は <code>D:\Program Files\Git\bin\git.exe</code></li>
 </ul>
 <div class="font-13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a></a><span class="fu">Test-Path</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a aria-label="1"></a><span class="fu">Test-Path</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1907,7 +1910,7 @@ gitGraph
 </div>
 <div class="pl-5">
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a></a><span class="op">&amp;</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span> <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a aria-label="1"></a><span class="op">&amp;</span> <span class="st">"D:\Program Files\Git\bin\git.exe"</span> <span class="op">--</span>version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>バージョン情報が出力されれば，次のステップ</li>
@@ -1925,13 +1928,13 @@ gitGraph
 <li><code>Test-Path $PROFILE</code> で表示されたprofileファイルに以下のラインを追加</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a></a>D<span class="op">:</span>\Program Files\Git\bin\git<span class="op">.</span><span class="fu">exe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a aria-label="1"></a>D<span class="op">:</span>\Program Files\Git\bin\git<span class="op">.</span><span class="fu">exe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>存在しない場合は，以下のコマンドで新規作成</li>
 </ul>
 <div class="font-13 pt-2 mb-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType File <span class="op">-</span>Path <span class="va">$PROFILE</span> <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a aria-label="1"></a><span class="fu">New-Item</span> <span class="op">-</span>ItemType File <span class="op">-</span>Path <span class="va">$PROFILE</span> <span class="op">-</span>Force</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

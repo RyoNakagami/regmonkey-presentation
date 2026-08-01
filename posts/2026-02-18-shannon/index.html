@@ -7,13 +7,13 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – 通信を高速に，正確に</title>
@@ -26,10 +26,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -250,7 +253,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -504,47 +507,47 @@ Ryo Nakagami
 <div class="column" style="width:50%;">
 <div class="width-100">
 <div class="regmonkey_abstract_summary">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Semantic Alignment Protocol（用語・前提同期）</span></span>
-<span id="cb1-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主要用語の定義を事前に明示</span></span>
-<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 前提条件・分析スコープを明確化</span></span>
-<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「何を議論しないか」も明示</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Formatting Convention Protocol（提示形式合意）</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 結論→根拠→示唆の順序を固定</span></span>
-<span id="cb1-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> スライド1枚1メッセージ原則</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 色・太字・アイコンの意味を統一</span></span>
-<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Semantic Alignment Protocol（用語・前提同期）</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 主要用語の定義を事前に明示</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 前提条件・分析スコープを明確化</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 「何を議論しないか」も明示</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
+<span id="cb1-12"><a aria-label="12"></a></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Formatting Convention Protocol（提示形式合意）</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 結論→根拠→示唆の順序を固定</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">        </span><span class="kw">-</span><span class="at"> スライド1枚1メッセージ原則</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 色・太字・アイコンの意味を統一</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="width-100">
 <div class="regmonkey_abstract_summary">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
-<span id="cb2-4"><a></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Feedback Loop Protocol&lt;br&gt;（確認・応答規約）</span></span>
-<span id="cb2-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 要点ごとに理解確認ポイントを設置</span></span>
-<span id="cb2-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Q&amp;Aの時間と形式を明示</span></span>
-<span id="cb2-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 不明点は即時再説明要求可能とする</span></span>
-<span id="cb2-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Decision Criteria Alignment Protocol（評価基準共有）</span></span>
-<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 意思決定の判断軸を事前提示</span></span>
-<span id="cb2-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 成功指標（KPI）を明確化</span></span>
-<span id="cb2-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 最終アウトプットの期待水準を合意</span></span>
-<span id="cb2-18"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">regmonkey_abstract_summary</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">keystat_fontsize</span><span class="kw">:</span><span class="at"> 0.7em</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Feedback Loop Protocol&lt;br&gt;（確認・応答規約）</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 要点ごとに理解確認ポイントを設置</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Q&amp;Aの時間と形式を明示</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 不明点は即時再説明要求可能とする</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span>
+<span id="cb2-12"><a aria-label="12"></a></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Decision Criteria Alignment Protocol（評価基準共有）</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 意思決定の判断軸を事前提示</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 成功指標（KPI）を明確化</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 最終アウトプットの期待水準を合意</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">50</span><span class="kw">,</span><span class="at"> </span><span class="dv">50</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -602,7 +605,7 @@ I(x) = -\log_2 P(x) \quad [\text{bit}]
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="11147bab" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="1">
+<div id="9d529127" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -630,7 +633,7 @@ I(x) = -\log_2 P(x) \quad [\text{bit}]
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="columns font-09">
 <div class="column" style="width:55%;">
-<div id="4b5a7a7a" class="cell" data-fig-height="5.5" data-fig-width="8" data-execution_count="2">
+<div id="c4fd5360" class="cell" data-fig-height="5.5" data-fig-width="8" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -728,7 +731,7 @@ H(P) = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i) = \mathbb{E}[I(x)] \quad [\text{bit}
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="314fe09f" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="3">
+<div id="9e025cde" class="cell" data-fig-height="5" data-fig-width="7" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -856,7 +859,7 @@ A/D変換: アナログ信号をデジタルデータへ
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="951a5738" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="4">
+<div id="2712bafc" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -866,7 +869,7 @@ A/D変換: アナログ信号をデジタルデータへ
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="7806c921" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="5">
+<div id="1dc003ea" class="cell" data-fig-height="7" data-fig-width="13" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1438,7 +1441,7 @@ L = 1 \times 0.4 + 2 \times 0.3 + 3 \times 0.15 + 4 \times 0.1 + 4 \times 0.05 =
 <section id="シャノンファノ符号化法とツリー図" class="slide level2">
 <h2>シャノン・ファノ符号化法とツリー図</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div id="1a55d424" class="cell" data-fig-height="8" data-fig-width="16" data-execution_count="6">
+<div id="9afb70dd" class="cell" data-fig-height="8" data-fig-width="16" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1743,7 +1746,7 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 </div>
 </div><div class="column" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div id="db1a8862" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="7">
+<div id="5d4b9c3e" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1779,7 +1782,7 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 <p><span class="mini-section">擬似コード</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="font-08">
-<div class="pseudocode-container quarto-float" data-line-number-punc=":" data-indent-size="1em" data-caption-prefix="Algorithm" data-comment-delimiter="//" data-pseudocode-number="1" data-line-number="true" data-no-end="false">
+<div class="pseudocode-container quarto-float" data-line-number-punc=":" data-line-number="true" data-no-end="false" data-pseudocode-number="1" data-comment-delimiter="//" data-indent-size="1em" data-caption-prefix="Algorithm">
 <div class="pseudocode">
 \begin{algorithm} \caption{Huffman Encoding} \begin{algorithmic} \Procedure{Encode}{$S$} \State $C \gets \textsf{Counter}(S)$ \Comment{出現頻度を集計} \State $Q \gets \textsf{MinHeap}(\{Node(k, v) \mid (k,v) \in C\})$ \Comment{最小ヒープ構築} \While{$|Q| &gt; 1$} \State $l \gets \textsf{Pop}(Q)$ \State $r \gets \textsf{Pop}(Q)$ \State $m \gets Node(\emptyset, \; l.count + r.count, \; l, \; r)$ \State $\textsf{Push}(Q, \; m)$ \EndWhile \State $root \gets Q[0]$ \State \Call{GenCode}{$root, \; \varepsilon$} \Return $\textsf{join}(\text{dict}[c] : c \in S)$ \Comment{符号語に置換して連結} \EndProcedure \State \Procedure{GenCode}{$node, \; code$} \If{$node.key \neq \emptyset$} \Comment{葉ノード} \State $\text{dict}[node.key] \gets code$ \Return \EndIf \State \Call{GenCode}{$node.left, \; code \,\|\, \text{"0"}$} \Comment{左の子 → 0} \State \Call{GenCode}{$node.right, \; code \,\|\, \text{"1"}$} \Comment{右の子 → 1} \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
@@ -1788,50 +1791,50 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 </div><div class="column padding-L-10" style="width:50%;">
 <p><span class="mini-section">Python 実装</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="font-size: 0.75em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> heapq</span>
-<span id="cb3-2"><a></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="kw">class</span> HuffmanNode:</span>
-<span id="cb3-5"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key<span class="op">=</span><span class="va">None</span>, count<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb3-6"><a></a>        <span class="va">self</span>.key <span class="op">=</span> key</span>
-<span id="cb3-7"><a></a>        <span class="va">self</span>.count <span class="op">=</span> count</span>
-<span id="cb3-8"><a></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
-<span id="cb3-9"><a></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):           <span class="co"># ヒープの比較演算</span></span>
-<span id="cb3-12"><a></a>        <span class="cf">return</span> <span class="va">self</span>.count <span class="op">&lt;</span> other.count</span>
-<span id="cb3-13"><a></a></span>
-<span id="cb3-14"><a></a><span class="kw">class</span> Huffman:</span>
-<span id="cb3-15"><a></a>    <span class="kw">def</span> encode(<span class="va">self</span>, strings):</span>
-<span id="cb3-16"><a></a>        <span class="va">self</span>.encode_dict <span class="op">=</span> {}</span>
-<span id="cb3-17"><a></a>        <span class="va">self</span>.decode_dict <span class="op">=</span> {}</span>
-<span id="cb3-18"><a></a></span>
-<span id="cb3-19"><a></a>        counter <span class="op">=</span> Counter(strings)     <span class="co"># ①出現頻度を集計</span></span>
-<span id="cb3-20"><a></a>        heap <span class="op">=</span> [HuffmanNode(k, v) <span class="cf">for</span> k, v <span class="kw">in</span> counter.items()]</span>
-<span id="cb3-21"><a></a>        heapq.heapify(heap)            <span class="co"># ②最小ヒープ構築</span></span>
-<span id="cb3-22"><a></a></span>
-<span id="cb3-23"><a></a>        <span class="cf">while</span> <span class="bu">len</span>(heap) <span class="op">&gt;</span> <span class="dv">1</span>:           <span class="co"># ③最小2ノードをマージ</span></span>
-<span id="cb3-24"><a></a>            left <span class="op">=</span> heapq.heappop(heap)</span>
-<span id="cb3-25"><a></a>            right <span class="op">=</span> heapq.heappop(heap)</span>
-<span id="cb3-26"><a></a>            merged <span class="op">=</span> HuffmanNode(</span>
-<span id="cb3-27"><a></a>                <span class="va">None</span>, left.count <span class="op">+</span> right.count, left, right</span>
-<span id="cb3-28"><a></a>            )</span>
-<span id="cb3-29"><a></a>            heapq.heappush(heap, merged)</span>
-<span id="cb3-30"><a></a></span>
-<span id="cb3-31"><a></a>        <span class="va">self</span>.tree <span class="op">=</span> heap[<span class="dv">0</span>]            <span class="co"># ④根ノード</span></span>
-<span id="cb3-32"><a></a>        <span class="va">self</span>._generate_code(<span class="va">self</span>.tree, <span class="st">""</span>)</span>
-<span id="cb3-33"><a></a></span>
-<span id="cb3-34"><a></a>        <span class="cf">return</span> <span class="st">""</span>.join(               <span class="co"># ⑥符号語に置換</span></span>
-<span id="cb3-35"><a></a>            <span class="va">self</span>.encode_dict[c] <span class="cf">for</span> c <span class="kw">in</span> strings</span>
-<span id="cb3-36"><a></a>        )</span>
-<span id="cb3-37"><a></a></span>
-<span id="cb3-38"><a></a>    <span class="kw">def</span> _generate_code(<span class="va">self</span>, node, code):  <span class="co"># ⑤再帰走査</span></span>
-<span id="cb3-39"><a></a>        <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:       <span class="co"># 葉ノード</span></span>
-<span id="cb3-40"><a></a>            <span class="va">self</span>.encode_dict[node.key] <span class="op">=</span> code</span>
-<span id="cb3-41"><a></a>            <span class="va">self</span>.decode_dict[code] <span class="op">=</span> node.key</span>
-<span id="cb3-42"><a></a>            <span class="cf">return</span></span>
-<span id="cb3-43"><a></a>        <span class="va">self</span>._generate_code(node.left, code <span class="op">+</span> <span class="st">"0"</span>)   <span class="co"># 左→"0"</span></span>
-<span id="cb3-44"><a></a>        <span class="va">self</span>._generate_code(node.right, code <span class="op">+</span> <span class="st">"1"</span>)   <span class="co"># 右→"1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="font-size: 0.75em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a><span class="im">import</span> heapq</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb3-3"><a aria-label="3"></a></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="kw">class</span> HuffmanNode:</span>
+<span id="cb3-5"><a aria-label="5"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, key<span class="op">=</span><span class="va">None</span>, count<span class="op">=</span><span class="dv">0</span>, left<span class="op">=</span><span class="va">None</span>, right<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-6"><a aria-label="6"></a>        <span class="va">self</span>.key <span class="op">=</span> key</span>
+<span id="cb3-7"><a aria-label="7"></a>        <span class="va">self</span>.count <span class="op">=</span> count</span>
+<span id="cb3-8"><a aria-label="8"></a>        <span class="va">self</span>.left <span class="op">=</span> left</span>
+<span id="cb3-9"><a aria-label="9"></a>        <span class="va">self</span>.right <span class="op">=</span> right</span>
+<span id="cb3-10"><a aria-label="10"></a></span>
+<span id="cb3-11"><a aria-label="11"></a>    <span class="kw">def</span> <span class="fu">__lt__</span>(<span class="va">self</span>, other):           <span class="co"># ヒープの比較演算</span></span>
+<span id="cb3-12"><a aria-label="12"></a>        <span class="cf">return</span> <span class="va">self</span>.count <span class="op">&lt;</span> other.count</span>
+<span id="cb3-13"><a aria-label="13"></a></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="kw">class</span> Huffman:</span>
+<span id="cb3-15"><a aria-label="15"></a>    <span class="kw">def</span> encode(<span class="va">self</span>, strings):</span>
+<span id="cb3-16"><a aria-label="16"></a>        <span class="va">self</span>.encode_dict <span class="op">=</span> {}</span>
+<span id="cb3-17"><a aria-label="17"></a>        <span class="va">self</span>.decode_dict <span class="op">=</span> {}</span>
+<span id="cb3-18"><a aria-label="18"></a></span>
+<span id="cb3-19"><a aria-label="19"></a>        counter <span class="op">=</span> Counter(strings)     <span class="co"># ①出現頻度を集計</span></span>
+<span id="cb3-20"><a aria-label="20"></a>        heap <span class="op">=</span> [HuffmanNode(k, v) <span class="cf">for</span> k, v <span class="kw">in</span> counter.items()]</span>
+<span id="cb3-21"><a aria-label="21"></a>        heapq.heapify(heap)            <span class="co"># ②最小ヒープ構築</span></span>
+<span id="cb3-22"><a aria-label="22"></a></span>
+<span id="cb3-23"><a aria-label="23"></a>        <span class="cf">while</span> <span class="bu">len</span>(heap) <span class="op">&gt;</span> <span class="dv">1</span>:           <span class="co"># ③最小2ノードをマージ</span></span>
+<span id="cb3-24"><a aria-label="24"></a>            left <span class="op">=</span> heapq.heappop(heap)</span>
+<span id="cb3-25"><a aria-label="25"></a>            right <span class="op">=</span> heapq.heappop(heap)</span>
+<span id="cb3-26"><a aria-label="26"></a>            merged <span class="op">=</span> HuffmanNode(</span>
+<span id="cb3-27"><a aria-label="27"></a>                <span class="va">None</span>, left.count <span class="op">+</span> right.count, left, right</span>
+<span id="cb3-28"><a aria-label="28"></a>            )</span>
+<span id="cb3-29"><a aria-label="29"></a>            heapq.heappush(heap, merged)</span>
+<span id="cb3-30"><a aria-label="30"></a></span>
+<span id="cb3-31"><a aria-label="31"></a>        <span class="va">self</span>.tree <span class="op">=</span> heap[<span class="dv">0</span>]            <span class="co"># ④根ノード</span></span>
+<span id="cb3-32"><a aria-label="32"></a>        <span class="va">self</span>._generate_code(<span class="va">self</span>.tree, <span class="st">""</span>)</span>
+<span id="cb3-33"><a aria-label="33"></a></span>
+<span id="cb3-34"><a aria-label="34"></a>        <span class="cf">return</span> <span class="st">""</span>.join(               <span class="co"># ⑥符号語に置換</span></span>
+<span id="cb3-35"><a aria-label="35"></a>            <span class="va">self</span>.encode_dict[c] <span class="cf">for</span> c <span class="kw">in</span> strings</span>
+<span id="cb3-36"><a aria-label="36"></a>        )</span>
+<span id="cb3-37"><a aria-label="37"></a></span>
+<span id="cb3-38"><a aria-label="38"></a>    <span class="kw">def</span> _generate_code(<span class="va">self</span>, node, code):  <span class="co"># ⑤再帰走査</span></span>
+<span id="cb3-39"><a aria-label="39"></a>        <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:       <span class="co"># 葉ノード</span></span>
+<span id="cb3-40"><a aria-label="40"></a>            <span class="va">self</span>.encode_dict[node.key] <span class="op">=</span> code</span>
+<span id="cb3-41"><a aria-label="41"></a>            <span class="va">self</span>.decode_dict[code] <span class="op">=</span> node.key</span>
+<span id="cb3-42"><a aria-label="42"></a>            <span class="cf">return</span></span>
+<span id="cb3-43"><a aria-label="43"></a>        <span class="va">self</span>._generate_code(node.left, code <span class="op">+</span> <span class="st">"0"</span>)   <span class="co"># 左→"0"</span></span>
+<span id="cb3-44"><a aria-label="44"></a>        <span class="va">self</span>._generate_code(node.right, code <span class="op">+</span> <span class="st">"1"</span>)   <span class="co"># 右→"1"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="ハフマン符号-実行例" class="slide level2">
@@ -1843,39 +1846,39 @@ H(S) \leq \frac{L_m}{m} &lt; H(S) + \frac{1}{m}
 <div class="column" style="width:50%;">
 <p><span class="mini-section">エンコード</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="op">&gt;&gt;&gt;</span> huff <span class="op">=</span> Huffman()</span>
-<span id="cb4-2"><a></a><span class="op">&gt;&gt;&gt;</span> symbols <span class="op">=</span> <span class="bu">list</span>(<span class="st">"aaaaaaaaabbbbbbcccdde"</span>)  <span class="co"># 頻度比 = 9:6:3:2:1 ≈ P</span></span>
-<span id="cb4-3"><a></a><span class="op">&gt;&gt;&gt;</span> encoded <span class="op">=</span> huff.encode(symbols)</span>
-<span id="cb4-4"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">sorted</span>(huff.encode_dict.items()):</span>
-<span id="cb4-5"><a></a>...     <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-6"><a></a>  a <span class="op">-&gt;</span> <span class="dv">0</span></span>
-<span id="cb4-7"><a></a>  b <span class="op">-&gt;</span> <span class="dv">10</span></span>
-<span id="cb4-8"><a></a>  c <span class="op">-&gt;</span> <span class="dv">110</span></span>
-<span id="cb4-9"><a></a>  d <span class="op">-&gt;</span> <span class="dv">1110</span></span>
-<span id="cb4-10"><a></a>  e <span class="op">-&gt;</span> <span class="dv">1111</span></span>
-<span id="cb4-11"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"encoded = </span><span class="sc">{</span>encoded<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-12"><a></a>encoded <span class="op">=</span> <span class="dv">000000000</span><span class="er">101010101010110110110111011101111</span></span>
-<span id="cb4-13"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"圧縮率: </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span><span class="sc">}</span><span class="ss"> "</span></span>
-<span id="cb4-14"><a></a>...       <span class="ss">f"= </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="op">/</span>(<span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span>)<span class="sc">:.2%}</span><span class="ss">"</span>)</span>
-<span id="cb4-15"><a></a>圧縮率: <span class="dv">42</span><span class="op">/</span><span class="dv">60</span> <span class="op">=</span> <span class="fl">70.00</span><span class="op">%</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="op">&gt;&gt;&gt;</span> huff <span class="op">=</span> Huffman()</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="op">&gt;&gt;&gt;</span> symbols <span class="op">=</span> <span class="bu">list</span>(<span class="st">"aaaaaaaaabbbbbbcccdde"</span>)  <span class="co"># 頻度比 = 9:6:3:2:1 ≈ P</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="op">&gt;&gt;&gt;</span> encoded <span class="op">=</span> huff.encode(symbols)</span>
+<span id="cb4-4"><a aria-label="4"></a><span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">sorted</span>(huff.encode_dict.items()):</span>
+<span id="cb4-5"><a aria-label="5"></a>...     <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> -&gt; </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a>  a <span class="op">-&gt;</span> <span class="dv">0</span></span>
+<span id="cb4-7"><a aria-label="7"></a>  b <span class="op">-&gt;</span> <span class="dv">10</span></span>
+<span id="cb4-8"><a aria-label="8"></a>  c <span class="op">-&gt;</span> <span class="dv">110</span></span>
+<span id="cb4-9"><a aria-label="9"></a>  d <span class="op">-&gt;</span> <span class="dv">1110</span></span>
+<span id="cb4-10"><a aria-label="10"></a>  e <span class="op">-&gt;</span> <span class="dv">1111</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"encoded = </span><span class="sc">{</span>encoded<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-12"><a aria-label="12"></a>encoded <span class="op">=</span> <span class="dv">000000000</span><span class="er">101010101010110110110111011101111</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"圧縮率: </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span><span class="sc">}</span><span class="ss"> "</span></span>
+<span id="cb4-14"><a aria-label="14"></a>...       <span class="ss">f"= </span><span class="sc">{</span><span class="bu">len</span>(encoded)<span class="op">/</span>(<span class="bu">len</span>(symbols)<span class="op">*</span><span class="dv">3</span>)<span class="sc">:.2%}</span><span class="ss">"</span>)</span>
+<span id="cb4-15"><a aria-label="15"></a>圧縮率: <span class="dv">42</span><span class="op">/</span><span class="dv">60</span> <span class="op">=</span> <span class="fl">70.00</span><span class="op">%</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">デコード</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="kw">def</span> decode(tree, bits):</span>
-<span id="cb5-2"><a></a>...     result <span class="op">=</span> []</span>
-<span id="cb5-3"><a></a>...     node <span class="op">=</span> tree</span>
-<span id="cb5-4"><a></a>...     <span class="cf">for</span> b <span class="kw">in</span> bits:</span>
-<span id="cb5-5"><a></a>...         node <span class="op">=</span> node.left <span class="cf">if</span> b <span class="op">==</span> <span class="st">"0"</span> <span class="cf">else</span> node.right</span>
-<span id="cb5-6"><a></a>...         <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:     <span class="co"># 葉に到達</span></span>
-<span id="cb5-7"><a></a>...             result.append(node.key)</span>
-<span id="cb5-8"><a></a>...             node <span class="op">=</span> tree              <span class="co"># 根に戻る</span></span>
-<span id="cb5-9"><a></a>...     <span class="cf">return</span> <span class="st">""</span>.join(result)</span>
-<span id="cb5-10"><a></a></span>
-<span id="cb5-11"><a></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">=</span> decode(huff.tree, encoded)</span>
-<span id="cb5-12"><a></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"decoded = </span><span class="sc">{</span>decoded<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-13"><a></a>decoded <span class="op">=</span> aaaaaaaaabbbbbbcccdde</span>
-<span id="cb5-14"><a></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">==</span> <span class="st">""</span>.join(symbols)</span>
-<span id="cb5-15"><a></a><span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 1em;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-label="1"></a><span class="op">&gt;&gt;&gt;</span> <span class="kw">def</span> decode(tree, bits):</span>
+<span id="cb5-2"><a aria-label="2"></a>...     result <span class="op">=</span> []</span>
+<span id="cb5-3"><a aria-label="3"></a>...     node <span class="op">=</span> tree</span>
+<span id="cb5-4"><a aria-label="4"></a>...     <span class="cf">for</span> b <span class="kw">in</span> bits:</span>
+<span id="cb5-5"><a aria-label="5"></a>...         node <span class="op">=</span> node.left <span class="cf">if</span> b <span class="op">==</span> <span class="st">"0"</span> <span class="cf">else</span> node.right</span>
+<span id="cb5-6"><a aria-label="6"></a>...         <span class="cf">if</span> node.key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:     <span class="co"># 葉に到達</span></span>
+<span id="cb5-7"><a aria-label="7"></a>...             result.append(node.key)</span>
+<span id="cb5-8"><a aria-label="8"></a>...             node <span class="op">=</span> tree              <span class="co"># 根に戻る</span></span>
+<span id="cb5-9"><a aria-label="9"></a>...     <span class="cf">return</span> <span class="st">""</span>.join(result)</span>
+<span id="cb5-10"><a aria-label="10"></a></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">=</span> decode(huff.tree, encoded)</span>
+<span id="cb5-12"><a aria-label="12"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="ss">f"decoded = </span><span class="sc">{</span>decoded<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-13"><a aria-label="13"></a>decoded <span class="op">=</span> aaaaaaaaabbbbbbcccdde</span>
+<span id="cb5-14"><a aria-label="14"></a><span class="op">&gt;&gt;&gt;</span> decoded <span class="op">==</span> <span class="st">""</span>.join(symbols)</span>
+<span id="cb5-15"><a aria-label="15"></a><span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="reveal_vspace" style="--vspace-height: 1em;"></div><div class="font-12">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">

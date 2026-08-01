@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – はじめてのskilltool</title>
@@ -23,10 +23,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -245,7 +248,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -450,19 +453,19 @@ Ryo Nakagami
 <div class="column" style="width:50%;">
 <p><span class="mini-section">skill.toml — パッケージマニフェスト</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a></a><span class="kw">[skill]</span></span>
-<span id="cb1-2"><a></a><span class="dt">name</span>        <span class="op">=</span> <span class="st">"create-skill-package"</span></span>
-<span id="cb1-3"><a></a><span class="dt">version</span>     <span class="op">=</span> <span class="st">"0.1.0"</span></span>
-<span id="cb1-4"><a></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"Scaffold a new skilltool skill</span></span>
-<span id="cb1-5"><a></a>               <span class="dt">package</span> <span class="dt">interactively."</span></span>
-<span id="cb1-6"><a></a><span class="dt">author</span>      <span class="op">=</span> <span class="st">"Ryo Nakagami"</span></span>
-<span id="cb1-7"><a></a><span class="dt">entry</span>       <span class="op">=</span> <span class="st">"SKILL.md"</span></span>
-<span id="cb1-8"><a></a><span class="dt">include</span> <span class="op">=</span> <span class="op">[</span></span>
-<span id="cb1-9"><a></a>    <span class="st">"SKILL.md"</span><span class="op">,</span></span>
-<span id="cb1-10"><a></a>    <span class="st">"scripts/**"</span><span class="op">,</span>       <span class="co"># glob pattern</span></span>
-<span id="cb1-11"><a></a>    <span class="st">"templates/*.txt"</span><span class="op">,</span></span>
-<span id="cb1-12"><a></a><span class="op">]</span></span>
-<span id="cb1-13"><a></a><span class="dt">tags</span> <span class="op">=</span> <span class="op">[</span><span class="st">"scaffold"</span><span class="op">,</span> <span class="st">"skilltool"</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a aria-label="1"></a><span class="kw">[skill]</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="dt">name</span>        <span class="op">=</span> <span class="st">"create-skill-package"</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="dt">version</span>     <span class="op">=</span> <span class="st">"0.1.0"</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"Scaffold a new skilltool skill</span></span>
+<span id="cb1-5"><a aria-label="5"></a>               <span class="dt">package</span> <span class="dt">interactively."</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="dt">author</span>      <span class="op">=</span> <span class="st">"Ryo Nakagami"</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="dt">entry</span>       <span class="op">=</span> <span class="st">"SKILL.md"</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="dt">include</span> <span class="op">=</span> <span class="op">[</span></span>
+<span id="cb1-9"><a aria-label="9"></a>    <span class="st">"SKILL.md"</span><span class="op">,</span></span>
+<span id="cb1-10"><a aria-label="10"></a>    <span class="st">"scripts/**"</span><span class="op">,</span>       <span class="co"># glob pattern</span></span>
+<span id="cb1-11"><a aria-label="11"></a>    <span class="st">"templates/*.txt"</span><span class="op">,</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="op">]</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="dt">tags</span> <span class="op">=</span> <span class="op">[</span><span class="st">"scaffold"</span><span class="op">,</span> <span class="st">"skilltool"</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div style="font-size:0.90em">
 <table class="caption-top">
@@ -523,34 +526,34 @@ Ryo Nakagami
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">SKILL.md — Claude向け指示書</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="fu"># create-skill-package</span></span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>新しい skilltool skill package をインタラクティブに scaffold する skill</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="fu">## When to use</span></span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>ユーザーが以下のような依頼をしたとき，この skill を使う:</span>
-<span id="cb2-8"><a></a><span class="ss">- </span>「新しい skill を作りたい」</span>
-<span id="cb2-9"><a></a><span class="ss">- </span>「skill package を作って」</span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="fu">## Instructions</span></span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="fu">### Step 1: ヒアリング</span></span>
-<span id="cb2-14"><a></a>ユーザーに以下を確認する（既知の項目はスキップ）:</span>
-<span id="cb2-15"><a></a><span class="pp">|</span> 項目 <span class="pp">|</span> 必須 <span class="pp">|</span> 説明 <span class="pp">|</span></span>
-<span id="cb2-16"><a></a><span class="pp">|</span> skill名 <span class="pp">|</span> Yes <span class="pp">|</span> ^<span class="co">[</span><span class="ot">a-z0-9</span><span class="co">][a-z0-9._-]</span>*$ に合致 <span class="pp">|</span></span>
-<span id="cb2-17"><a></a><span class="pp">|</span> 説明 <span class="pp">|</span> Yes <span class="pp">|</span> 1行程度の短い概要 <span class="pp">|</span></span>
-<span id="cb2-18"><a></a><span class="pp">|</span> author <span class="pp">|</span> No <span class="pp">|</span> チーム名を推奨 <span class="pp">|</span></span>
-<span id="cb2-19"><a></a></span>
-<span id="cb2-20"><a></a><span class="fu">### Step 2: ディレクトリ作成</span></span>
-<span id="cb2-21"><a></a>skill.toml と SKILL.md を生成する</span>
-<span id="cb2-22"><a></a></span>
-<span id="cb2-23"><a></a><span class="fu">### Step 3: 確認とガイド</span></span>
-<span id="cb2-24"><a></a>publish 手順を案内する</span>
-<span id="cb2-25"><a></a></span>
-<span id="cb2-26"><a></a><span class="fu">## Rules</span></span>
-<span id="cb2-27"><a></a><span class="ss">- </span>skill.toml 形式で生成すること</span>
-<span id="cb2-28"><a></a><span class="ss">- </span>SKILL.md は大文字．entry と完全一致させる</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-label="1"></a><span class="fu"># create-skill-package</span></span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a>新しい skilltool skill package をインタラクティブに scaffold する skill</span>
+<span id="cb2-4"><a aria-label="4"></a></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="fu">## When to use</span></span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a>ユーザーが以下のような依頼をしたとき，この skill を使う:</span>
+<span id="cb2-8"><a aria-label="8"></a><span class="ss">- </span>「新しい skill を作りたい」</span>
+<span id="cb2-9"><a aria-label="9"></a><span class="ss">- </span>「skill package を作って」</span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="fu">## Instructions</span></span>
+<span id="cb2-12"><a aria-label="12"></a></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="fu">### Step 1: ヒアリング</span></span>
+<span id="cb2-14"><a aria-label="14"></a>ユーザーに以下を確認する（既知の項目はスキップ）:</span>
+<span id="cb2-15"><a aria-label="15"></a><span class="pp">|</span> 項目 <span class="pp">|</span> 必須 <span class="pp">|</span> 説明 <span class="pp">|</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="pp">|</span> skill名 <span class="pp">|</span> Yes <span class="pp">|</span> ^<span class="co">[</span><span class="ot">a-z0-9</span><span class="co">][a-z0-9._-]</span>*$ に合致 <span class="pp">|</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="pp">|</span> 説明 <span class="pp">|</span> Yes <span class="pp">|</span> 1行程度の短い概要 <span class="pp">|</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="pp">|</span> author <span class="pp">|</span> No <span class="pp">|</span> チーム名を推奨 <span class="pp">|</span></span>
+<span id="cb2-19"><a aria-label="19"></a></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="fu">### Step 2: ディレクトリ作成</span></span>
+<span id="cb2-21"><a aria-label="21"></a>skill.toml と SKILL.md を生成する</span>
+<span id="cb2-22"><a aria-label="22"></a></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="fu">### Step 3: 確認とガイド</span></span>
+<span id="cb2-24"><a aria-label="24"></a>publish 手順を案内する</span>
+<span id="cb2-25"><a aria-label="25"></a></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="fu">## Rules</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="ss">- </span>skill.toml 形式で生成すること</span>
+<span id="cb2-28"><a aria-label="28"></a><span class="ss">- </span>SKILL.md は大文字．entry と完全一致させる</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="info-box">
 <div class="info-contents font-09 padding-L-05">
@@ -621,9 +624,9 @@ Ryo Nakagami
 </div>
 <div class="info-contents">
 <div style="font-size:1.5em; width: 95%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">uv</span> tool install <span class="dt">\</span></span>
-<span id="cb3-2"><a></a>  git+https://github.com/RyoNakagami/<span class="dt">\</span></span>
-<span id="cb3-3"><a></a>  skilltool-infra.git#subdirectory=client</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="ex">uv</span> tool install <span class="dt">\</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  git+https://github.com/RyoNakagami/<span class="dt">\</span></span>
+<span id="cb3-3"><a aria-label="3"></a>  skilltool-infra.git#subdirectory=client</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -634,14 +637,14 @@ Ryo Nakagami
 </div>
 <div class="info-contents">
 <div style="font-size:1.5em; width: 95%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="bu">export</span> <span class="va">SKILLTOOL_REGISTRY</span><span class="op">=</span>http://100.x.x.x:8765</span>
-<span id="cb4-2"><a></a><span class="bu">export</span> <span class="va">SKILLTOOL_TOKEN</span><span class="op">=</span>tok_alice_deadbeef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="bu">export</span> <span class="va">SKILLTOOL_REGISTRY</span><span class="op">=</span>http://100.x.x.x:8765</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="bu">export</span> <span class="va">SKILLTOOL_TOKEN</span><span class="op">=</span>tok_alice_deadbeef</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div style="font-size:1.5em; width: 95%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><a></a><span class="co"># ~/.config/skilltool/config.toml</span></span>
-<span id="cb5-2"><a></a><span class="dt">registry</span> <span class="op">=</span> <span class="st">"http://100.x.x.x:8765"</span></span>
-<span id="cb5-3"><a></a><span class="dt">token</span>    <span class="op">=</span> <span class="st">"tok_alice_..."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><a aria-label="1"></a><span class="co"># ~/.config/skilltool/config.toml</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="dt">registry</span> <span class="op">=</span> <span class="st">"http://100.x.x.x:8765"</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="dt">token</span>    <span class="op">=</span> <span class="st">"tok_alice_..."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -670,29 +673,29 @@ Ryo Nakagami
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool search "&lt;regex&gt;"</code></strong> — 正規表現でskillを検索</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">$</span> skilltool search <span class="st">"word|pdf"</span></span>
-<span id="cb6-2"><a></a><span class="ex">│</span> name │ latest │ description          │</span>
-<span id="cb6-3"><a></a><span class="ex">├──────┼────────┼──────────────────────┤</span></span>
-<span id="cb6-4"><a></a><span class="ex">│</span> docx │ 1.2.0  │ Author .docx files.  │</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="ex">$</span> skilltool search <span class="st">"word|pdf"</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="ex">│</span> name │ latest │ description          │</span>
+<span id="cb6-3"><a aria-label="3"></a><span class="ex">├──────┼────────┼──────────────────────┤</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="ex">│</span> docx │ 1.2.0  │ Author .docx files.  │</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool show &lt;name&gt;</code></strong> — メタデータ・全バージョン・publish履歴</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">$</span> skilltool show docx</span>
-<span id="cb7-2"><a></a><span class="ex">name:</span>   docx       latest: 1.2.0</span>
-<span id="cb7-3"><a></a><span class="ex">author:</span> team-doc   tags: office, docx</span>
-<span id="cb7-4"><a></a><span class="ex">versions:</span> 1.2.0, 1.1.0, 1.0.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="ex">$</span> skilltool show docx</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="ex">name:</span>   docx       latest: 1.2.0</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="ex">author:</span> team-doc   tags: office, docx</span>
+<span id="cb7-4"><a aria-label="4"></a><span class="ex">versions:</span> 1.2.0, 1.1.0, 1.0.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool install &lt;name&gt;</code></strong> — skillをローカルにダウンロード・展開</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">$</span> skilltool install docx <span class="at">--dest</span> ./skills <span class="at">--version</span> 1.2.0</span>
-<span id="cb8-2"><a></a><span class="ex">$</span> ls ./skills/docx/</span>
-<span id="cb8-3"><a></a><span class="ex">skill.toml</span>  SKILL.md  scripts/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a aria-label="1"></a><span class="ex">$</span> skilltool install docx <span class="at">--dest</span> ./skills <span class="at">--version</span> 1.2.0</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="ex">$</span> ls ./skills/docx/</span>
+<span id="cb8-3"><a aria-label="3"></a><span class="ex">skill.toml</span>  SKILL.md  scripts/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -701,29 +704,29 @@ Ryo Nakagami
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool publish &lt;dir&gt;</code></strong> — skillをレジストリに公開</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">$</span> skilltool publish ./my-skill/</span>
-<span id="cb9-2"><a></a><span class="ex">✓</span> published my-skill 0.1.0</span>
-<span id="cb9-3"><a></a>  <span class="ex">by</span> alice  2026-04-15T10:23:45Z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a aria-label="1"></a><span class="ex">$</span> skilltool publish ./my-skill/</span>
+<span id="cb9-2"><a aria-label="2"></a><span class="ex">✓</span> published my-skill 0.1.0</span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="ex">by</span> alice  2026-04-15T10:23:45Z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool list</code></strong> — ローカルにinstall済みのskillを一覧</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">$</span> skilltool list <span class="at">--dest</span> ./skills</span>
-<span id="cb10-2"><a></a><span class="ex">│</span> name │ version │ entry    │</span>
-<span id="cb10-3"><a></a><span class="ex">├──────┼─────────┼──────────┤</span></span>
-<span id="cb10-4"><a></a><span class="ex">│</span> docx │ 1.2.0   │ SKILL.md │</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a aria-label="1"></a><span class="ex">$</span> skilltool list <span class="at">--dest</span> ./skills</span>
+<span id="cb10-2"><a aria-label="2"></a><span class="ex">│</span> name │ version │ entry    │</span>
+<span id="cb10-3"><a aria-label="3"></a><span class="ex">├──────┼─────────┼──────────┤</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="ex">│</span> docx │ 1.2.0   │ SKILL.md │</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="component-card p-3" style="font-size: 0.8em; min-height: 10em;">
 <p><strong><code>skilltool config</code></strong> — 現在の設定と解決元を表示</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">$</span> skilltool config</span>
-<span id="cb11-2"><a></a><span class="ex">registry:</span>  http://100.x.x.x:8765</span>
-<span id="cb11-3"><a></a><span class="ex">transport:</span> http</span>
-<span id="cb11-4"><a></a><span class="ex">token:</span>     tok_alice_<span class="pp">****</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="ex">$</span> skilltool config</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="ex">registry:</span>  http://100.x.x.x:8765</span>
+<span id="cb11-3"><a aria-label="3"></a><span class="ex">transport:</span> http</span>
+<span id="cb11-4"><a aria-label="4"></a><span class="ex">token:</span>     tok_alice_<span class="pp">****</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -1028,17 +1031,17 @@ sequenceDiagram
 <div class="font-09 padding-L-05">
 <p>❌ <strong>NG配置</strong>（認識されない）</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>.claude/</span>
-<span id="cb12-2"><a></a>└── create-skill-package/   ← .claude/ 直下はダメ</span>
-<span id="cb12-3"><a></a>    └── SKILL.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a aria-label="1"></a>.claude/</span>
+<span id="cb12-2"><a aria-label="2"></a>└── create-skill-package/   ← .claude/ 直下はダメ</span>
+<span id="cb12-3"><a aria-label="3"></a>    └── SKILL.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.15em;"></div>
 <p>✅ <strong>OK配置</strong></p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a></a>.claude/</span>
-<span id="cb13-2"><a></a>└── skills/</span>
-<span id="cb13-3"><a></a>    └── create-skill-package/</span>
-<span id="cb13-4"><a></a>        └── SKILL.md        ← 大文字必須</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a aria-label="1"></a>.claude/</span>
+<span id="cb13-2"><a aria-label="2"></a>└── skills/</span>
+<span id="cb13-3"><a aria-label="3"></a>    └── create-skill-package/</span>
+<span id="cb13-4"><a aria-label="4"></a>        └── SKILL.md        ← 大文字必須</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -1075,8 +1078,8 @@ sequenceDiagram
 <li>skilltoolの <code>entry</code> フィールドも，互換性のため大文字 <code>SKILL.md</code> を指定するのが安全</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="ex">.claude/skills/my-skill/SKILL.md</span>  <span class="co"># OK</span></span>
-<span id="cb14-2"><a></a><span class="ex">.claude/skills/my-skill/skill.md</span>  <span class="co"># NG</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a aria-label="1"></a><span class="ex">.claude/skills/my-skill/SKILL.md</span>  <span class="co"># OK</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="ex">.claude/skills/my-skill/skill.md</span>  <span class="co"># NG</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1123,8 +1126,8 @@ sequenceDiagram
 <li><code>SKILL.md</code> からの相対ではないので注意</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a></a>@.claude/skills/<span class="dt">&lt;</span><span class="kw">name</span><span class="dt">&gt;</span>/task.md    ← OK</span>
-<span id="cb15-2"><a></a>@./task.md                        ← NG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a aria-label="1"></a>@.claude/skills/<span class="dt">&lt;</span><span class="kw">name</span><span class="dt">&gt;</span>/task.md    ← OK</span>
+<span id="cb15-2"><a aria-label="2"></a>@./task.md                        ← NG</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1139,7 +1142,7 @@ sequenceDiagram
 <li><code>skill.toml</code> の <code>version</code> をSemVerで更新してから再publishする</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb16-1"><a></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.0"</span>   <span class="co"># → "0.2.0" に更新</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb16-1"><a aria-label="1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.0"</span>   <span class="co"># → "0.2.0" に更新</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

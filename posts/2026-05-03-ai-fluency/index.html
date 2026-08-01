@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – AI Fluency: 4D Framework</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -292,30 +295,30 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="padding-left:0.5em;">
 <div class="regmonkey_index" style="width:1100px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 導入：AccessとFluencyのギャップ</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIへのアクセスは入口でしかなく，Fluencyへの到達には4観点の運用判断が要る"</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"effective・efficient・ethical・safeを満たす状態を，個人技ではなくチームで再現できるかが軸"</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 3つのインタラクション</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Automation・Augmentation・Agencyを段階で並べ，責任範囲・必要スキルを可視化する"</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"無自覚にAgencyへ滑り込む事故を防ぐため，いま自分がどの様式にいるかを意識する"</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. 4D Framework</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Delegation・Description・Discernment・Diligenceの4能力で，AI協働の質を底上げする"</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"4能力は独立ではなく相互に補完する関係"</span></span>
-<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Summary</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"4D × 主原則 × 具体アクションの3列でスライド全体を俯瞰する"</span></span>
-<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"実務に持ち帰れる「次の一手」をDごとに1つずつ抜き出せる構成"</span></span>
-<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 導入：AccessとFluencyのギャップ</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIへのアクセスは入口でしかなく，Fluencyへの到達には4観点の運用判断が要る"</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"effective・efficient・ethical・safeを満たす状態を，個人技ではなくチームで再現できるかが軸"</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 3つのインタラクション</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Automation・Augmentation・Agencyを段階で並べ，責任範囲・必要スキルを可視化する"</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"無自覚にAgencyへ滑り込む事故を防ぐため，いま自分がどの様式にいるかを意識する"</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. 4D Framework</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Delegation・Description・Discernment・Diligenceの4能力で，AI協働の質を底上げする"</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"4能力は独立ではなく相互に補完する関係"</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Summary</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"4D × 主原則 × 具体アクションの3列でスライド全体を俯瞰する"</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"実務に持ち帰れる「次の一手」をDごとに1つずつ抜き出せる構成"</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">45</span><span class="kw">,</span><span class="dv">55</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -390,37 +393,37 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.9em !important;">
 <div id="yaml-fluency-4obs-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 30, 55]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Effective</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図した成果に届いているか</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的に対して&lt;span class="regmonkey-bold"&gt;出力が役に立っているか&lt;/span&gt;を測れる</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「らしい応答」と「正しい応答」を切り分ける</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Efficient</span></span>
-<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 時間とコストに見合うか</span></span>
-<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分でやったほうが速い領域を&lt;span class="regmonkey-bold"&gt;見極める&lt;/span&gt;</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> トークン・レビュー時間を含めた総工数で判断</span></span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Ethical</span></span>
-<span id="cb2-19"><a></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 他者と社会への影響は許容できるか</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 著作権・誤情報・差別的出力を&lt;span class="regmonkey-bold"&gt;事前に潰す&lt;/span&gt;</span></span>
-<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客データ・個人情報の境界を引く</span></span>
-<span id="cb2-24"><a></a></span>
-<span id="cb2-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb2-26"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Safe</span></span>
-<span id="cb2-27"><a></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
-<span id="cb2-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分とプロジェクトを守れているか</span></span>
-<span id="cb2-29"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb2-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 破壊的操作・本番反映の前にゲートを置く</span></span>
-<span id="cb2-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AI出力の最終責任は&lt;span class="regmonkey-bold"&gt;人間にある&lt;/span&gt;と認識する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Effective</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図した成果に届いているか</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的に対して&lt;span class="regmonkey-bold"&gt;出力が役に立っているか&lt;/span&gt;を測れる</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「らしい応答」と「正しい応答」を切り分ける</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Efficient</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 時間とコストに見合うか</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分でやったほうが速い領域を&lt;span class="regmonkey-bold"&gt;見極める&lt;/span&gt;</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> トークン・レビュー時間を含めた総工数で判断</span></span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Ethical</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 他者と社会への影響は許容できるか</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 著作権・誤情報・差別的出力を&lt;span class="regmonkey-bold"&gt;事前に潰す&lt;/span&gt;</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客データ・個人情報の境界を引く</span></span>
+<span id="cb2-24"><a aria-label="24"></a></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Safe</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">問い</span><span class="kw">:</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分とプロジェクトを守れているか</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb2-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 破壊的操作・本番反映の前にゲートを置く</span></span>
+<span id="cb2-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> AI出力の最終責任は&lt;span class="regmonkey-bold"&gt;人間にある&lt;/span&gt;と認識する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -543,37 +546,37 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.9em !important;">
 <div id="yaml-4d-overview-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 27, 55]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ① Delegation</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 何をAIに任せるか決める</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ゴール設定と関わり方の選択を担う</span></span>
-<span id="cb3-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「自分でやる・AIと組む・AIに任せる」の&lt;span class="regmonkey-bold"&gt;切り分け&lt;/span&gt;</span></span>
-<span id="cb3-8"><a></a></span>
-<span id="cb3-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ② Description</span></span>
-<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図を伝える</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的・制約・参考例を渡し，出力を&lt;span class="regmonkey-bold"&gt;予測可能にする&lt;/span&gt;</span></span>
-<span id="cb3-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「良い例・悪い例」のセットで指示の解像度を上げる</span></span>
-<span id="cb3-16"><a></a></span>
-<span id="cb3-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ③ Discernment</span></span>
-<span id="cb3-19"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb3-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力を見極める</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb3-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> AIの出力と振る舞いを&lt;span class="regmonkey-bold"&gt;批判的に評価&lt;/span&gt;する</span></span>
-<span id="cb3-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分の知識量が評価精度の上限を決める</span></span>
-<span id="cb3-24"><a></a></span>
-<span id="cb3-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ④ Diligence</span></span>
-<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
-<span id="cb3-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 責任を持って関わる</span></span>
-<span id="cb3-29"><a></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
-<span id="cb3-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Creation・Transparency・Deploymentの&lt;span class="regmonkey-bold"&gt;3観点で倫理と安全を担保&lt;/span&gt;</span></span>
-<span id="cb3-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「AIが言った」は責任放棄の言い訳にならない</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ① Delegation</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 何をAIに任せるか決める</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ゴール設定と関わり方の選択を担う</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「自分でやる・AIと組む・AIに任せる」の&lt;span class="regmonkey-bold"&gt;切り分け&lt;/span&gt;</span></span>
+<span id="cb3-8"><a aria-label="8"></a></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ② Description</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図を伝える</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的・制約・参考例を渡し，出力を&lt;span class="regmonkey-bold"&gt;予測可能にする&lt;/span&gt;</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「良い例・悪い例」のセットで指示の解像度を上げる</span></span>
+<span id="cb3-16"><a aria-label="16"></a></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ③ Discernment</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力を見極める</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> AIの出力と振る舞いを&lt;span class="regmonkey-bold"&gt;批判的に評価&lt;/span&gt;する</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自分の知識量が評価精度の上限を決める</span></span>
+<span id="cb3-24"><a aria-label="24"></a></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">能力</span><span class="kw">:</span><span class="at"> ④ Diligence</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 責任を持って関わる</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">ポイント</span><span class="kw">:</span></span>
+<span id="cb3-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Creation・Transparency・Deploymentの&lt;span class="regmonkey-bold"&gt;3観点で倫理と安全を担保&lt;/span&gt;</span></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「AIが言った」は責任放棄の言い訳にならない</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -592,25 +595,25 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.8em;"></div>
 <div class="regmonkey_index" style="width:1500px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb4-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Problem Awareness&lt;br&gt;（課題の認識）</span></span>
-<span id="cb4-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"達成したいゴールと，そこに至るまでの&lt;strong&gt;作業の構造&lt;/strong&gt;を言語化する"</span></span>
-<span id="cb4-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「ドラフト作成・リサーチ・最終判断」のように分解できないと，任せる単位が決まらない"</span></span>
-<span id="cb4-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb4-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Platform Awareness&lt;br&gt;（AIの能力認識）</span></span>
-<span id="cb4-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"利用可能なAIシステムの&lt;strong&gt;得意領域・限界・運用コスト&lt;/strong&gt;を把握する"</span></span>
-<span id="cb4-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"コーディングエージェント・チャットLLM・RAG・自律エージェントで適性が異なる"</span></span>
-<span id="cb4-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Task Delegation&lt;br&gt;（戦略的な分配）</span></span>
-<span id="cb4-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;判断・責任・戦略&lt;/strong&gt;は人に残し，反復・展開・初稿生成をAIに渡す"</span></span>
-<span id="cb4-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Automation・Augmentation・Agencyのどの様式で関わるかも併せて決める"</span></span>
-<span id="cb4-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Problem Awareness&lt;br&gt;（課題の認識）</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"達成したいゴールと，そこに至るまでの&lt;strong&gt;作業の構造&lt;/strong&gt;を言語化する"</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「ドラフト作成・リサーチ・最終判断」のように分解できないと，任せる単位が決まらない"</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Platform Awareness&lt;br&gt;（AIの能力認識）</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"利用可能なAIシステムの&lt;strong&gt;得意領域・限界・運用コスト&lt;/strong&gt;を把握する"</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"コーディングエージェント・チャットLLM・RAG・自律エージェントで適性が異なる"</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Task Delegation&lt;br&gt;（戦略的な分配）</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;判断・責任・戦略&lt;/strong&gt;は人に残し，反復・展開・初稿生成をAIに渡す"</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Automation・Augmentation・Agencyのどの様式で関わるかも併せて決める"</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="description6つの要素を渡せば指示の解像度が上がる" class="slide level2">
@@ -618,40 +621,40 @@ Ryo Nakagami
 <p><span class="h2-submessage">抽象語ではなく要素分解で渡し，特に「悪い例」を添える</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="regmonkey_index" style="width:1500px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb5-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 目的</span></span>
-<span id="cb5-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが達成すべきゴールを1文で渡す"</span></span>
-<span id="cb5-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"例：「既存顧客の再購入促進」「休眠顧客の掘り起こし」"</span></span>
-<span id="cb5-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb5-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 対象（ペルソナ）</span></span>
-<span id="cb5-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"年齢・関心・購買履歴・課題を&lt;strong&gt;具体&lt;/strong&gt;に書き下す"</span></span>
-<span id="cb5-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「ユーザー」より「30代・育児中・時間不足が課題」のように粒度を上げる"</span></span>
-<span id="cb5-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb5-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. トーン</span></span>
-<span id="cb5-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「親しみやすいが過度にカジュアルではない」のようにブランド規範を渡す"</span></span>
-<span id="cb5-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;避ける表現&lt;/strong&gt;の例も併せると逸脱が減る"</span></span>
-<span id="cb5-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb5-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 構造的制約</span></span>
-<span id="cb5-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"件名は何文字以内・本文は何ワード・CTAは1つ など出力フォーマットを枠で縛る"</span></span>
-<span id="cb5-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"枠を渡さないと，AIは「らしい長さ」に落ちる"</span></span>
-<span id="cb5-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb5-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. 成功基準</span></span>
-<span id="cb5-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"開封率○％・CTR○％・コンバージョン○件 など定量で渡す"</span></span>
-<span id="cb5-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"評価軸を共有しないと品質判断が定まらない"</span></span>
-<span id="cb5-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb5-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 6. 参考例</span></span>
-<span id="cb5-31"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb5-32"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"良い例と&lt;strong&gt;悪い例&lt;/strong&gt;を対で提示する"</span></span>
-<span id="cb5-33"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「こういうのはNG」の提示は，抽象的な指示よりはるかに効く"</span></span>
-<span id="cb5-34"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. 目的</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが達成すべきゴールを1文で渡す"</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"例：「既存顧客の再購入促進」「休眠顧客の掘り起こし」"</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 対象（ペルソナ）</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"年齢・関心・購買履歴・課題を&lt;strong&gt;具体&lt;/strong&gt;に書き下す"</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「ユーザー」より「30代・育児中・時間不足が課題」のように粒度を上げる"</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. トーン</span></span>
+<span id="cb5-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「親しみやすいが過度にカジュアルではない」のようにブランド規範を渡す"</span></span>
+<span id="cb5-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;避ける表現&lt;/strong&gt;の例も併せると逸脱が減る"</span></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb5-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. 構造的制約</span></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"件名は何文字以内・本文は何ワード・CTAは1つ など出力フォーマットを枠で縛る"</span></span>
+<span id="cb5-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"枠を渡さないと，AIは「らしい長さ」に落ちる"</span></span>
+<span id="cb5-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb5-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. 成功基準</span></span>
+<span id="cb5-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"開封率○％・CTR○％・コンバージョン○件 など定量で渡す"</span></span>
+<span id="cb5-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"評価軸を共有しないと品質判断が定まらない"</span></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb5-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 6. 参考例</span></span>
+<span id="cb5-31"><a aria-label="31"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb5-32"><a aria-label="32"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"良い例と&lt;strong&gt;悪い例&lt;/strong&gt;を対で提示する"</span></span>
+<span id="cb5-33"><a aria-label="33"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「こういうのはNG」の提示は，抽象的な指示よりはるかに効く"</span></span>
+<span id="cb5-34"><a aria-label="34"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="discernment出力過程振る舞いを3観点で見極める" class="slide level2">
@@ -669,25 +672,25 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="regmonkey_index" style="width:1600px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb6-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Product Discernment&lt;br&gt;（出力の質）</span></span>
-<span id="cb6-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb6-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;正確性・適切性・整合性・関連性&lt;/strong&gt;の4軸で出力そのものを評価する"</span></span>
-<span id="cb6-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「らしい応答」と「正しい応答」を切り分け，ハルシネーションを見抜く"</span></span>
-<span id="cb6-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb6-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Process Discernment&lt;br&gt;（過程の妥当性）</span></span>
-<span id="cb6-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb6-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが&lt;strong&gt;どう推論したか&lt;/strong&gt;を点検：論理飛躍・観点の抜け・不適切な前提を疑う"</span></span>
-<span id="cb6-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"結論が合って見えても，前提が誤っていれば下流で破綻する"</span></span>
-<span id="cb6-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb6-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Performance Discernment&lt;br&gt;（Agent挙動の適切さ）</span></span>
-<span id="cb6-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb6-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"対話中の&lt;strong&gt;コミュニケーション様式&lt;/strong&gt;が自分の用途に合うかを評価する"</span></span>
-<span id="cb6-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"冗長・追従的・断定的な応答は，協働の質を下げる兆候として扱う"</span></span>
-<span id="cb6-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Product Discernment&lt;br&gt;（出力の質）</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;正確性・適切性・整合性・関連性&lt;/strong&gt;の4軸で出力そのものを評価する"</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"「らしい応答」と「正しい応答」を切り分け，ハルシネーションを見抜く"</span></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Process Discernment&lt;br&gt;（過程の妥当性）</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが&lt;strong&gt;どう推論したか&lt;/strong&gt;を点検：論理飛躍・観点の抜け・不適切な前提を疑う"</span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"結論が合って見えても，前提が誤っていれば下流で破綻する"</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Performance Discernment&lt;br&gt;（Agent挙動の適切さ）</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"対話中の&lt;strong&gt;コミュニケーション様式&lt;/strong&gt;が自分の用途に合うかを評価する"</span></span>
+<span id="cb6-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"冗長・追従的・断定的な応答は，協働の質を下げる兆候として扱う"</span></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="diligence3観点で責任ある協働を実装する" class="slide level2">
@@ -705,28 +708,28 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="regmonkey_index" style="width:1500px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb7-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb7-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Creation Diligence&lt;br&gt;（協働の入り口）</span></span>
-<span id="cb7-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb7-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;どのAIシステムを使い・どう関わるか&lt;/strong&gt;を意図的に選ぶ"</span></span>
-<span id="cb7-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"用途・データ感度・能力特性に合わせ，モデル・契約・運用ラインを使い分ける"</span></span>
-<span id="cb7-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：機密データを無償汎用LLMに貼る → 学習データ化と情報流出のリスク"</span></span>
-<span id="cb7-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb7-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Transparency Diligence&lt;br&gt;（協働の見える化）</span></span>
-<span id="cb7-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb7-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが関与した事実を&lt;strong&gt;知る必要のある人すべて&lt;/strong&gt;に開示する"</span></span>
-<span id="cb7-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"個人・学術・業務など文脈ごとに開示の粒度と検証の期待値は異なる"</span></span>
-<span id="cb7-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：個人で使い黙って成果物に統合 → 後追いで疑念が走り信頼が崩れる"</span></span>
-<span id="cb7-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
-<span id="cb7-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Deployment Diligence&lt;br&gt;（協働の出口）</span></span>
-<span id="cb7-18"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb7-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"共有・公開する出力は&lt;strong&gt;自分で検証し保証する&lt;/strong&gt;責任を引き受ける"</span></span>
-<span id="cb7-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"正確性・著作権・引用元を確認してから配信判断する"</span></span>
-<span id="cb7-21"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：誤情報をそのまま発信 → 「AIが言った」は責任放棄の言い訳にならない"</span></span>
-<span id="cb7-22"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb7-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. Creation Diligence&lt;br&gt;（協働の入り口）</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;どのAIシステムを使い・どう関わるか&lt;/strong&gt;を意図的に選ぶ"</span></span>
+<span id="cb7-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"用途・データ感度・能力特性に合わせ，モデル・契約・運用ラインを使い分ける"</span></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：機密データを無償汎用LLMに貼る → 学習データ化と情報流出のリスク"</span></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Transparency Diligence&lt;br&gt;（協働の見える化）</span></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"AIが関与した事実を&lt;strong&gt;知る必要のある人すべて&lt;/strong&gt;に開示する"</span></span>
+<span id="cb7-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"個人・学術・業務など文脈ごとに開示の粒度と検証の期待値は異なる"</span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：個人で使い黙って成果物に統合 → 後追いで疑念が走り信頼が崩れる"</span></span>
+<span id="cb7-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span>
+<span id="cb7-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. Deployment Diligence&lt;br&gt;（協働の出口）</span></span>
+<span id="cb7-18"><a aria-label="18"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb7-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"共有・公開する出力は&lt;strong&gt;自分で検証し保証する&lt;/strong&gt;責任を引き受ける"</span></span>
+<span id="cb7-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"正確性・著作権・引用元を確認してから配信判断する"</span></span>
+<span id="cb7-21"><a aria-label="21"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;悪い例&lt;/strong&gt;：誤情報をそのまま発信 → 「AIが言った」は責任放棄の言い訳にならない"</span></span>
+<span id="cb7-22"><a aria-label="22"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">30</span><span class="kw">,</span><span class="dv">70</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="summary" class="slide level2">
@@ -734,41 +737,41 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
 <div id="yaml-summary-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 30, 55]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Delegation</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Problem・Platform・Task&lt;/span&gt;の3観点で任せ方を決める</span></span>
-<span id="cb8-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Problem Awareness：ゴールと作業の構造を言語化する</span></span>
-<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Platform Awareness：AIシステムの得手不得手を把握する</span></span>
-<span id="cb8-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Task Delegation：判断・責任・戦略は人，反復・展開はAIに渡す</span></span>
-<span id="cb8-9"><a></a></span>
-<span id="cb8-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb8-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Description</span></span>
-<span id="cb8-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;6つの要素&lt;/span&gt;に分解して指示する</span></span>
-<span id="cb8-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的・対象・トーン・制約・成功基準・参考例を渡す</span></span>
-<span id="cb8-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「悪い例」を必ず添える</span></span>
-<span id="cb8-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 抽象指示と具体例の両方を併走させる</span></span>
-<span id="cb8-18"><a></a></span>
-<span id="cb8-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb8-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Discernment</span></span>
-<span id="cb8-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;自分の知識量&lt;/span&gt;が評価精度の上限を決める</span></span>
-<span id="cb8-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知領域では誤りを即時に見抜く</span></span>
-<span id="cb8-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 未知領域では教科書・1次資料で裏取り</span></span>
-<span id="cb8-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 固有名詞・数値・年代は幻覚を疑う</span></span>
-<span id="cb8-27"><a></a></span>
-<span id="cb8-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb8-29"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Diligence</span></span>
-<span id="cb8-30"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Creation・Transparency・Deployment&lt;/span&gt;の3観点で責任を担保する</span></span>
-<span id="cb8-32"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Creation：用途とデータ感度に合うAIシステムを選ぶ</span></span>
-<span id="cb8-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Transparency：AI関与の事実を知る必要のある人に開示する</span></span>
-<span id="cb8-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Deployment：共有・公開する出力は自分で検証し保証する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Delegation</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Problem・Platform・Task&lt;/span&gt;の3観点で任せ方を決める</span></span>
+<span id="cb8-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Problem Awareness：ゴールと作業の構造を言語化する</span></span>
+<span id="cb8-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Platform Awareness：AIシステムの得手不得手を把握する</span></span>
+<span id="cb8-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Task Delegation：判断・責任・戦略は人，反復・展開はAIに渡す</span></span>
+<span id="cb8-9"><a aria-label="9"></a></span>
+<span id="cb8-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Description</span></span>
+<span id="cb8-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;6つの要素&lt;/span&gt;に分解して指示する</span></span>
+<span id="cb8-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 目的・対象・トーン・制約・成功基準・参考例を渡す</span></span>
+<span id="cb8-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「悪い例」を必ず添える</span></span>
+<span id="cb8-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 抽象指示と具体例の両方を併走させる</span></span>
+<span id="cb8-18"><a aria-label="18"></a></span>
+<span id="cb8-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Discernment</span></span>
+<span id="cb8-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;自分の知識量&lt;/span&gt;が評価精度の上限を決める</span></span>
+<span id="cb8-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既知領域では誤りを即時に見抜く</span></span>
+<span id="cb8-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 未知領域では教科書・1次資料で裏取り</span></span>
+<span id="cb8-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 固有名詞・数値・年代は幻覚を疑う</span></span>
+<span id="cb8-27"><a aria-label="27"></a></span>
+<span id="cb8-28"><a aria-label="28"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb8-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Diligence</span></span>
+<span id="cb8-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;Creation・Transparency・Deployment&lt;/span&gt;の3観点で責任を担保する</span></span>
+<span id="cb8-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Creation：用途とデータ感度に合うAIシステムを選ぶ</span></span>
+<span id="cb8-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Transparency：AI関与の事実を知る必要のある人に開示する</span></span>
+<span id="cb8-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Deployment：共有・公開する出力は自分で検証し保証する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -859,32 +862,32 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="custom-table" style="width:100%; font-size: 0.85em !important;">
 <div id="yaml-dd-loop-table" class="yaml2table yaml2table-custom-top" data-col-widths="[16, 42, 42]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Product</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
-<span id="cb9-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フォーマット・スタイル・長さ・詳細度を&lt;span class="regmonkey-bold"&gt;具体化&lt;/span&gt;</span></span>
-<span id="cb9-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「2,000字・見出し3つ・結論を冒頭」</span></span>
-<span id="cb9-6"><a></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
-<span id="cb9-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 要件充足・&lt;span class="regmonkey-bold"&gt;正確性・有用性&lt;/span&gt;を点検</span></span>
-<span id="cb9-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力そのものの質を直接評価する</span></span>
-<span id="cb9-9"><a></a></span>
-<span id="cb9-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb9-11"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Process</span></span>
-<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレームワーク・参照方法論・&lt;span class="regmonkey-bold"&gt;踏むべき手順&lt;/span&gt;を指定</span></span>
-<span id="cb9-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「前提整理 → 反対意見 → 統合的結論」</span></span>
-<span id="cb9-15"><a></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
-<span id="cb9-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 指示した手順を踏んだか・&lt;span class="regmonkey-bold"&gt;論理は妥当か&lt;/span&gt;</span></span>
-<span id="cb9-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 観点の抜け・前提の不適切を疑う</span></span>
-<span id="cb9-18"><a></a></span>
-<span id="cb9-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb9-20"><a></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Performance</span></span>
-<span id="cb9-21"><a></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
-<span id="cb9-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 簡潔か詳細か・挑戦的か支援的かなど&lt;span class="regmonkey-bold"&gt;スタンス&lt;/span&gt;を指定</span></span>
-<span id="cb9-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「同意せず弱点を積極的に指摘して」</span></span>
-<span id="cb9-24"><a></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
-<span id="cb9-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 詳しすぎ・&lt;span class="regmonkey-bold"&gt;迎合的すぎ&lt;/span&gt;でないか</span></span>
-<span id="cb9-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要な反論をしてくれたかを評価する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Product</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> フォーマット・スタイル・長さ・詳細度を&lt;span class="regmonkey-bold"&gt;具体化&lt;/span&gt;</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「2,000字・見出し3つ・結論を冒頭」</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 要件充足・&lt;span class="regmonkey-bold"&gt;正確性・有用性&lt;/span&gt;を点検</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 出力そのものの質を直接評価する</span></span>
+<span id="cb9-9"><a aria-label="9"></a></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Process</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
+<span id="cb9-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> フレームワーク・参照方法論・&lt;span class="regmonkey-bold"&gt;踏むべき手順&lt;/span&gt;を指定</span></span>
+<span id="cb9-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「前提整理 → 反対意見 → 統合的結論」</span></span>
+<span id="cb9-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
+<span id="cb9-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 指示した手順を踏んだか・&lt;span class="regmonkey-bold"&gt;論理は妥当か&lt;/span&gt;</span></span>
+<span id="cb9-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 観点の抜け・前提の不適切を疑う</span></span>
+<span id="cb9-18"><a aria-label="18"></a></span>
+<span id="cb9-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">観点</span><span class="kw">:</span><span class="at"> Performance</span></span>
+<span id="cb9-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">Description（伝える）</span><span class="kw">:</span></span>
+<span id="cb9-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 簡潔か詳細か・挑戦的か支援的かなど&lt;span class="regmonkey-bold"&gt;スタンス&lt;/span&gt;を指定</span></span>
+<span id="cb9-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 例：「同意せず弱点を積極的に指摘して」</span></span>
+<span id="cb9-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">Discernment（見極める）</span><span class="kw">:</span></span>
+<span id="cb9-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 詳しすぎ・&lt;span class="regmonkey-bold"&gt;迎合的すぎ&lt;/span&gt;でないか</span></span>
+<span id="cb9-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要な反論をしてくれたかを評価する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>

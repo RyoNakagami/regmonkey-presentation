@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – 小規模ProjectにおけるGit開発フロー</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -248,7 +251,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -297,43 +300,43 @@ Ryo Nakagami
 </div><div class="column" style="padding-left:1em;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="regmonkey_index" style="width:1150px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">title_position</span><span class="kw">:</span><span class="at"> -0.5em</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">bullet_position</span><span class="kw">:</span><span class="at"> 1.5em</span></span>
-<span id="cb1-6"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. ブランチ設計</span></span>
-<span id="cb1-8"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ブランチ戦略3系統の比較と Git Flow variant 採用理由</span></span>
-<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 統合ブランチとトピックブランチの責務分離</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 開発の流れ</span></span>
-<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 通常開発と緊急修正（hotfix）の2系統</span></span>
-<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> トピックブランチの粒度の目安</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. コミット・マージ戦略</span></span>
-<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;git rebase -i&lt;/strong&gt; によるコミット整形</span></span>
-<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Conventional Commits と squash・no-ff の使い分け</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. バージョニングと&lt;br&gt;[リリース]{style="padding-left:1.1em;"}</span></span>
-<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> Semantic Versioning と CHANGELOG 運用</span></span>
-<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> tag と Release は CI で自動生成</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. レビュー方針</span></span>
-<span id="cb1-28"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-29"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> レビューの優先順位とコメント規約</span></span>
-<span id="cb1-30"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> レビューは，コードに向けて書き，人格に向けて書かない</span></span>
-<span id="cb1-31"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 6. Summary &amp; Appendix</span></span>
-<span id="cb1-33"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-34"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 運用原則のまとめ</span></span>
-<span id="cb1-35"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> tag/Release の違い</span></span>
-<span id="cb1-36"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> back-merge vs cherry-pick</span></span>
-<span id="cb1-37"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.8em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">title_position</span><span class="kw">:</span><span class="at"> -0.5em</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">bullet_position</span><span class="kw">:</span><span class="at"> 1.5em</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. ブランチ設計</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ブランチ戦略3系統の比較と Git Flow variant 採用理由</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 統合ブランチとトピックブランチの責務分離</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. 開発の流れ</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 通常開発と緊急修正（hotfix）の2系統</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> トピックブランチの粒度の目安</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. コミット・マージ戦略</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;git rebase -i&lt;/strong&gt; によるコミット整形</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Conventional Commits と squash・no-ff の使い分け</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. バージョニングと&lt;br&gt;[リリース]{style="padding-left:1.1em;"}</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Semantic Versioning と CHANGELOG 運用</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">        </span><span class="kw">-</span><span class="at"> tag と Release は CI で自動生成</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. レビュー方針</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">        </span><span class="kw">-</span><span class="at"> レビューの優先順位とコメント規約</span></span>
+<span id="cb1-30"><a aria-label="30"></a><span class="at">        </span><span class="kw">-</span><span class="at"> レビューは，コードに向けて書き，人格に向けて書かない</span></span>
+<span id="cb1-31"><a aria-label="31"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 6. Summary &amp; Appendix</span></span>
+<span id="cb1-33"><a aria-label="33"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-34"><a aria-label="34"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 運用原則のまとめ</span></span>
+<span id="cb1-35"><a aria-label="35"></a><span class="at">        </span><span class="kw">-</span><span class="at"> tag/Release の違い</span></span>
+<span id="cb1-36"><a aria-label="36"></a><span class="at">        </span><span class="kw">-</span><span class="at"> back-merge vs cherry-pick</span></span>
+<span id="cb1-37"><a aria-label="37"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -368,45 +371,45 @@ Ryo Nakagami
 <p><span class="h2-submessage">本フローは明示的バージョニングと並行リリースが必要な小規模プロジェクト向けに Git Flow を簡略化した variant を採る</span></p>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.78em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 32, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> GitHub Flow</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + 短命 feat ブランチのみ</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 継続デリバリ・Webサービス向け，リリース＝&lt;code&gt;main&lt;/code&gt; へのマージ</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：明示的バージョン管理・並行リリースが弱い</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> GitLab Flow</span></span>
-<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + 環境別ブランチ&lt;br&gt;（&lt;code&gt;pre-production&lt;/code&gt;・&lt;code&gt;production&lt;/code&gt;）</span></span>
-<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb2-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境とブランチを1対1で対応させ，後方へのみマージする upstream-first</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：環境別ブランチ運用は対象スコープに対して重い</span></span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Git Flow</span></span>
-<span id="cb2-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + &lt;code&gt;develop&lt;/code&gt; + &lt;code&gt;feat&lt;/code&gt;・&lt;code&gt;release&lt;/code&gt;・&lt;code&gt;hotfix&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt;</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 明示的なリリース準備ブランチと長期サポートを許容するフル構成</span></span>
-<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：ブランチ種別が多く，本スコープでは &lt;code&gt;release&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt; が過剰</span></span>
-<span id="cb2-24"><a></a></span>
-<span id="cb2-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb2-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> OneFlow</span></span>
-<span id="cb2-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb2-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; 1系統 + &lt;code&gt;feat&lt;/code&gt;・&lt;code&gt;hotfix&lt;/code&gt;，rebase 前提</span></span>
-<span id="cb2-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb2-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; を廃し，tag でリリース境界を表現する Git Flow の簡素版</span></span>
-<span id="cb2-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：強制 rebase の習熟コストと並行リリース運用が弱い</span></span>
-<span id="cb2-32"><a></a></span>
-<span id="cb2-33"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb2-34"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Git Flow variant&lt;br&gt;（今回紹介）</span></span>
-<span id="cb2-35"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb2-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + &lt;code&gt;develop&lt;/code&gt; + topic の2系統 + &lt;code&gt;hotfix&lt;/code&gt;</span></span>
-<span id="cb2-37"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb2-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;採用理由：リリース境界を tag で残し，hotfix 経路を明示できる&lt;/span&gt;</span></span>
-<span id="cb2-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> オリジナルの Git Flow から &lt;code&gt;release&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt; を省略して簡略化</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> GitHub Flow</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + 短命 feat ブランチのみ</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 継続デリバリ・Webサービス向け，リリース＝&lt;code&gt;main&lt;/code&gt; へのマージ</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：明示的バージョン管理・並行リリースが弱い</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> GitLab Flow</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + 環境別ブランチ&lt;br&gt;（&lt;code&gt;pre-production&lt;/code&gt;・&lt;code&gt;production&lt;/code&gt;）</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 環境とブランチを1対1で対応させ，後方へのみマージする upstream-first</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：環境別ブランチ運用は対象スコープに対して重い</span></span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Git Flow</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + &lt;code&gt;develop&lt;/code&gt; + &lt;code&gt;feat&lt;/code&gt;・&lt;code&gt;release&lt;/code&gt;・&lt;code&gt;hotfix&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt;</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 明示的なリリース準備ブランチと長期サポートを許容するフル構成</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：ブランチ種別が多く，本スコープでは &lt;code&gt;release&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt; が過剰</span></span>
+<span id="cb2-24"><a aria-label="24"></a></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> OneFlow</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; 1系統 + &lt;code&gt;feat&lt;/code&gt;・&lt;code&gt;hotfix&lt;/code&gt;，rebase 前提</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; を廃し，tag でリリース境界を表現する Git Flow の簡素版</span></span>
+<span id="cb2-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 採用しない理由：強制 rebase の習熟コストと並行リリース運用が弱い</span></span>
+<span id="cb2-32"><a aria-label="32"></a></span>
+<span id="cb2-33"><a aria-label="33"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb2-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Git Flow variant&lt;br&gt;（今回紹介）</span></span>
+<span id="cb2-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb2-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;main&lt;/code&gt; + &lt;code&gt;develop&lt;/code&gt; + topic の2系統 + &lt;code&gt;hotfix&lt;/code&gt;</span></span>
+<span id="cb2-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb2-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;採用理由：リリース境界を tag で残し，hotfix 経路を明示できる&lt;/span&gt;</span></span>
+<span id="cb2-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> オリジナルの Git Flow から &lt;code&gt;release&lt;/code&gt;・&lt;code&gt;support&lt;/code&gt; を省略して簡略化</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -463,53 +466,53 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:75%; font-size: 0.82em !important;">
 <div class="yaml2table yaml2table-custom-top" data-col-widths="[28, 12, 60]" data-centered-cols="[1]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ・統合作業</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
-<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;feat&lt;/code&gt; → &lt;code&gt;develop&lt;/code&gt; のマージ</span></span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 統合時の競合解消</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数トピック合流時のコンフリクト修正</span></span>
-<span id="cb3-12"><a></a></span>
-<span id="cb3-13"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 軽微な設定調整</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
-<span id="cb3-16"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CI 設定・feat flag・バージョン更新</span></span>
-<span id="cb3-18"><a></a></span>
-<span id="cb3-19"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リリース準備</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
-<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> CHANGELOG 更新・依存更新</span></span>
-<span id="cb3-24"><a></a></span>
-<span id="cb3-25"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb3-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 動作確認用の微修正</span></span>
-<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C77700;font-weight:bold; font-size:1.2em;"&gt;△&lt;/span&gt;</span></span>
-<span id="cb3-28"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合テストで必要な範囲のみ，原則はトピックに戻して修正</span></span>
-<span id="cb3-30"><a></a></span>
-<span id="cb3-31"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb3-32"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 新機能実装</span></span>
-<span id="cb3-33"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
-<span id="cb3-34"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新しい画面・ロジック追加は &lt;code&gt;feat/*&lt;/code&gt; で</span></span>
-<span id="cb3-36"><a></a></span>
-<span id="cb3-37"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb3-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 大きなリファクタ</span></span>
-<span id="cb3-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
-<span id="cb3-40"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 構造変更は &lt;code&gt;feat/*&lt;/code&gt; で隔離する</span></span>
-<span id="cb3-42"><a></a></span>
-<span id="cb3-43"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb3-44"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 実験・検証コード</span></span>
-<span id="cb3-45"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
-<span id="cb3-46"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-47"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; 上で直接試さない，PoC ブランチを切る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ・統合作業</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;feat&lt;/code&gt; → &lt;code&gt;develop&lt;/code&gt; のマージ</span></span>
+<span id="cb3-6"><a aria-label="6"></a></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 統合時の競合解消</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 複数トピック合流時のコンフリクト修正</span></span>
+<span id="cb3-12"><a aria-label="12"></a></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 軽微な設定調整</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CI 設定・feat flag・バージョン更新</span></span>
+<span id="cb3-18"><a aria-label="18"></a></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> リリース準備</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#0E8A3E;font-weight:bold; font-size:1.2em;"&gt;○&lt;/span&gt;</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> CHANGELOG 更新・依存更新</span></span>
+<span id="cb3-24"><a aria-label="24"></a></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 動作確認用の微修正</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C77700;font-weight:bold; font-size:1.2em;"&gt;△&lt;/span&gt;</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合テストで必要な範囲のみ，原則はトピックに戻して修正</span></span>
+<span id="cb3-30"><a aria-label="30"></a></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb3-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 新機能実装</span></span>
+<span id="cb3-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
+<span id="cb3-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新しい画面・ロジック追加は &lt;code&gt;feat/*&lt;/code&gt; で</span></span>
+<span id="cb3-36"><a aria-label="36"></a></span>
+<span id="cb3-37"><a aria-label="37"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb3-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 大きなリファクタ</span></span>
+<span id="cb3-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
+<span id="cb3-40"><a aria-label="40"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 構造変更は &lt;code&gt;feat/*&lt;/code&gt; で隔離する</span></span>
+<span id="cb3-42"><a aria-label="42"></a></span>
+<span id="cb3-43"><a aria-label="43"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb3-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 実験・検証コード</span></span>
+<span id="cb3-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span><span class="at"> &lt;span style="color:</span><span class="co">#C00000;font-weight:bold; font-size:1.2em;"&gt;×&lt;/span&gt;</span></span>
+<span id="cb3-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-47"><a aria-label="47"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; 上で直接試さない，PoC ブランチを切る</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -657,8 +660,8 @@ gitGraph
 <li>実装とローカルテストを並行する</li>
 </ul>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> switch develop <span class="kw">&amp;&amp;</span> <span class="fu">git</span> pull</span>
-<span id="cb4-2"><a></a><span class="fu">git</span> switch <span class="at">-c</span> feat/login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="fu">git</span> switch develop <span class="kw">&amp;&amp;</span> <span class="fu">git</span> pull</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">git</span> switch <span class="at">-c</span> feat/login</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -671,8 +674,8 @@ gitGraph
 <li>1コミット = 1つの意図に揃える</li>
 </ul>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> fetch origin</span>
-<span id="cb5-2"><a></a><span class="fu">git</span> rebase <span class="at">-i</span> origin/develop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="fu">git</span> fetch origin</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">git</span> rebase <span class="at">-i</span> origin/develop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -872,9 +875,9 @@ gitGraph
 <ul>
 <li><p>未コミット変更があると rebase は失敗する：</p>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>$ git rebase -i HEAD~10</span>
-<span id="cb6-2"><a></a>error: cannot rebase: Your index contains uncommitted changes.</span>
-<span id="cb6-3"><a></a>error: Please commit or stash them.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>$ git rebase -i HEAD~10</span>
+<span id="cb6-2"><a aria-label="2"></a>error: cannot rebase: Your index contains uncommitted changes.</span>
+<span id="cb6-3"><a aria-label="3"></a>error: Please commit or stash them.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>対処は 2 つ：<span class="regmonkey-bold">作業中の変更を <code>git stash</code> で退避</span> するか，<span class="regmonkey-bold">途中段階を一旦コミットして後で squash で潰す</span></p>
 <ul>
@@ -890,39 +893,39 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.9em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 32, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb7-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> feat</span></span>
-<span id="cb7-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb7-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新機能の追加で &lt;span class="regmonkey-bold"&gt;MINOR&lt;/span&gt; を上げる</span></span>
-<span id="cb7-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb7-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;code&gt;feat(scope): subject&lt;/code&gt; 形式で記述する"</span></span>
-<span id="cb7-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後方互換を保った機能拡張に限定する</span></span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb7-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> fix</span></span>
-<span id="cb7-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb7-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> バグ修正で &lt;span class="regmonkey-bold"&gt;PATCH&lt;/span&gt; を上げる</span></span>
-<span id="cb7-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb7-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存仕様を壊さない修正に限定する</span></span>
-<span id="cb7-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 再現テストを先に書く（Red → Green）</span></span>
-<span id="cb7-16"><a></a></span>
-<span id="cb7-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb7-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> docs / refactor / test / chore</span></span>
-<span id="cb7-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb7-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機能変更を伴わない変更には version を上げない</span></span>
-<span id="cb7-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb7-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;docs&lt;/code&gt;：ドキュメントのみの変更</span></span>
-<span id="cb7-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;refactor&lt;/code&gt;：機能変更・バグ修正を含まない</span></span>
-<span id="cb7-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;test&lt;/code&gt;：テストの追加・修正</span></span>
-<span id="cb7-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;chore&lt;/code&gt;：ビルド・CI設定など</span></span>
-<span id="cb7-26"><a></a></span>
-<span id="cb7-27"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb7-28"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> BREAKING&lt;br&gt;CHANGE</span></span>
-<span id="cb7-29"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb7-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後方互換を壊す変更で &lt;span class="regmonkey-bold"&gt;MAJOR&lt;/span&gt; を上げる</span></span>
-<span id="cb7-31"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb7-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"フッターに &lt;code&gt;BREAKING CHANGE: ...&lt;/code&gt; を明示する"</span></span>
-<span id="cb7-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 移行手順・影響範囲を本文に記述する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> feat</span></span>
+<span id="cb7-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新機能の追加で &lt;span class="regmonkey-bold"&gt;MINOR&lt;/span&gt; を上げる</span></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;code&gt;feat(scope): subject&lt;/code&gt; 形式で記述する"</span></span>
+<span id="cb7-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後方互換を保った機能拡張に限定する</span></span>
+<span id="cb7-8"><a aria-label="8"></a></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> fix</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> バグ修正で &lt;span class="regmonkey-bold"&gt;PATCH&lt;/span&gt; を上げる</span></span>
+<span id="cb7-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存仕様を壊さない修正に限定する</span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 再現テストを先に書く（Red → Green）</span></span>
+<span id="cb7-16"><a aria-label="16"></a></span>
+<span id="cb7-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb7-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> docs / refactor / test / chore</span></span>
+<span id="cb7-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機能変更を伴わない変更には version を上げない</span></span>
+<span id="cb7-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;docs&lt;/code&gt;：ドキュメントのみの変更</span></span>
+<span id="cb7-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;refactor&lt;/code&gt;：機能変更・バグ修正を含まない</span></span>
+<span id="cb7-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;test&lt;/code&gt;：テストの追加・修正</span></span>
+<span id="cb7-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;chore&lt;/code&gt;：ビルド・CI設定など</span></span>
+<span id="cb7-26"><a aria-label="26"></a></span>
+<span id="cb7-27"><a aria-label="27"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb7-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> BREAKING&lt;br&gt;CHANGE</span></span>
+<span id="cb7-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb7-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 後方互換を壊す変更で &lt;span class="regmonkey-bold"&gt;MAJOR&lt;/span&gt; を上げる</span></span>
+<span id="cb7-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb7-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"フッターに &lt;code&gt;BREAKING CHANGE: ...&lt;/code&gt; を明示する"</span></span>
+<span id="cb7-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 移行手順・影響範囲を本文に記述する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -932,29 +935,29 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:60%; font-size: 0.95em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[25, 25, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb8-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> develop ← topic</span></span>
-<span id="cb8-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;squash merge&lt;/span&gt;</span></span>
-<span id="cb8-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> topic ブランチの作業ログを潰し履歴を1コミット=1機能にする</span></span>
-<span id="cb8-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; の履歴を一覧で読める状態に保つ</span></span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb8-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> main ← develop</span></span>
-<span id="cb8-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;no-ff merge&lt;/span&gt;</span></span>
-<span id="cb8-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リリース単位を明示するマージコミットを残す</span></span>
-<span id="cb8-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> マージコミットに対してAnnotated tagを付与する</span></span>
-<span id="cb8-16"><a></a></span>
-<span id="cb8-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb8-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> main ← hotfix</span></span>
-<span id="cb8-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb8-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;no-ff merge&lt;/span&gt;</span></span>
-<span id="cb8-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb8-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同内容を &lt;code&gt;develop&lt;/code&gt; に cherry-pick または merge で反映する</span></span>
-<span id="cb8-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 緊急修正の境界を履歴上に残す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> develop ← topic</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;squash merge&lt;/span&gt;</span></span>
+<span id="cb8-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> topic ブランチの作業ログを潰し履歴を1コミット=1機能にする</span></span>
+<span id="cb8-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; の履歴を一覧で読める状態に保つ</span></span>
+<span id="cb8-8"><a aria-label="8"></a></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb8-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> main ← develop</span></span>
+<span id="cb8-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;no-ff merge&lt;/span&gt;</span></span>
+<span id="cb8-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> リリース単位を明示するマージコミットを残す</span></span>
+<span id="cb8-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> マージコミットに対してAnnotated tagを付与する</span></span>
+<span id="cb8-16"><a aria-label="16"></a></span>
+<span id="cb8-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb8-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> main ← hotfix</span></span>
+<span id="cb8-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb8-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;no-ff merge&lt;/span&gt;</span></span>
+<span id="cb8-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb8-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同内容を &lt;code&gt;develop&lt;/code&gt; に cherry-pick または merge で反映する</span></span>
+<span id="cb8-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 緊急修正の境界を履歴上に残す</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
@@ -1134,71 +1137,71 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.69em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15, 35, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 1. 設計</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> この変更はシステムに属するか・必要以上に複雑でないか</span></span>
-<span id="cb9-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 他コンポーネントとの統合は適切か</span></span>
-<span id="cb9-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 今やるべき変更か（タイミングの妥当性）</span></span>
-<span id="cb9-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 過剰設計（YAGNI 違反）はないか</span></span>
-<span id="cb9-9"><a></a></span>
-<span id="cb9-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb9-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 2. 機能</span></span>
-<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図した通りに動くか</span></span>
-<span id="cb9-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エンドユーザー・将来の開発者にとって良い動作か</span></span>
-<span id="cb9-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エッジケース・並行処理の問題はないか</span></span>
-<span id="cb9-17"><a></a></span>
-<span id="cb9-18"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb9-19"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 3. テスト</span></span>
-<span id="cb9-20"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 適切なテストが含まれているか</span></span>
-<span id="cb9-22"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> テスト自体が正しく設計されているか</span></span>
-<span id="cb9-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 壊れたときに失敗するテストか</span></span>
-<span id="cb9-25"><a></a></span>
-<span id="cb9-26"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb9-27"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 4. 命名</span></span>
-<span id="cb9-28"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名は意図を明確に伝えているか</span></span>
-<span id="cb9-30"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 略語・曖昧語を避け，変数・関数名から責務が読み取れるか</span></span>
-<span id="cb9-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名規約（snake_case / camelCase 等）はリポジトリ内で揃っているか</span></span>
-<span id="cb9-33"><a></a></span>
-<span id="cb9-34"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb9-35"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 5. コメント</span></span>
-<span id="cb9-36"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメントは「なぜ」を説明しているか（「何を」ではなく）</span></span>
-<span id="cb9-38"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自明な処理の説明コメントを残していないか</span></span>
-<span id="cb9-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 制約・前提・トレードオフなど読み手が知り得ない情報が記述されているか</span></span>
-<span id="cb9-41"><a></a></span>
-<span id="cb9-42"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb9-43"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 6. スタイル</span></span>
-<span id="cb9-44"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-45"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スタイルガイドに沿っているか</span></span>
-<span id="cb9-46"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-47"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スタイルの問題のみでマージをブロックしない</span></span>
-<span id="cb9-48"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;Nit:&lt;/code&gt; プレフィックスで残し linter での自動化を優先する</span></span>
-<span id="cb9-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 将来の開発者が理解・修正できるか</span></span>
-<span id="cb9-50"><a></a></span>
-<span id="cb9-51"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb9-52"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 7. 一貫性</span></span>
-<span id="cb9-53"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-54"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存コードのパターンと整合しているか</span></span>
-<span id="cb9-55"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-56"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存と異なる方針を取るなら理由を PR 本文に明記する</span></span>
-<span id="cb9-57"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存パターン自体が悪い場合は別 PR でリファクタする</span></span>
-<span id="cb9-58"><a></a></span>
-<span id="cb9-59"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb9-60"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 8. ドキュメント</span></span>
-<span id="cb9-61"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb9-62"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザー向け・開発者向けドキュメントが更新されているか</span></span>
-<span id="cb9-63"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb9-64"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 振る舞いを変えた場合は &lt;code&gt;README&lt;/code&gt;・&lt;code&gt;CHANGELOG&lt;/code&gt; を併せて更新する</span></span>
-<span id="cb9-65"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 廃止 API には deprecation notice を付ける</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 1. 設計</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> この変更はシステムに属するか・必要以上に複雑でないか</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 他コンポーネントとの統合は適切か</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 今やるべき変更か（タイミングの妥当性）</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 過剰設計（YAGNI 違反）はないか</span></span>
+<span id="cb9-9"><a aria-label="9"></a></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 2. 機能</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 意図した通りに動くか</span></span>
+<span id="cb9-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エンドユーザー・将来の開発者にとって良い動作か</span></span>
+<span id="cb9-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エッジケース・並行処理の問題はないか</span></span>
+<span id="cb9-17"><a aria-label="17"></a></span>
+<span id="cb9-18"><a aria-label="18"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 3. テスト</span></span>
+<span id="cb9-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 適切なテストが含まれているか</span></span>
+<span id="cb9-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> テスト自体が正しく設計されているか</span></span>
+<span id="cb9-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 壊れたときに失敗するテストか</span></span>
+<span id="cb9-25"><a aria-label="25"></a></span>
+<span id="cb9-26"><a aria-label="26"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb9-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 4. 命名</span></span>
+<span id="cb9-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名は意図を明確に伝えているか</span></span>
+<span id="cb9-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 略語・曖昧語を避け，変数・関数名から責務が読み取れるか</span></span>
+<span id="cb9-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名規約（snake_case / camelCase 等）はリポジトリ内で揃っているか</span></span>
+<span id="cb9-33"><a aria-label="33"></a></span>
+<span id="cb9-34"><a aria-label="34"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb9-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 5. コメント</span></span>
+<span id="cb9-36"><a aria-label="36"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメントは「なぜ」を説明しているか（「何を」ではなく）</span></span>
+<span id="cb9-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自明な処理の説明コメントを残していないか</span></span>
+<span id="cb9-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 制約・前提・トレードオフなど読み手が知り得ない情報が記述されているか</span></span>
+<span id="cb9-41"><a aria-label="41"></a></span>
+<span id="cb9-42"><a aria-label="42"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb9-43"><a aria-label="43"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 6. スタイル</span></span>
+<span id="cb9-44"><a aria-label="44"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-45"><a aria-label="45"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スタイルガイドに沿っているか</span></span>
+<span id="cb9-46"><a aria-label="46"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-47"><a aria-label="47"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スタイルの問題のみでマージをブロックしない</span></span>
+<span id="cb9-48"><a aria-label="48"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;Nit:&lt;/code&gt; プレフィックスで残し linter での自動化を優先する</span></span>
+<span id="cb9-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 将来の開発者が理解・修正できるか</span></span>
+<span id="cb9-50"><a aria-label="50"></a></span>
+<span id="cb9-51"><a aria-label="51"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb9-52"><a aria-label="52"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 7. 一貫性</span></span>
+<span id="cb9-53"><a aria-label="53"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-54"><a aria-label="54"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存コードのパターンと整合しているか</span></span>
+<span id="cb9-55"><a aria-label="55"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-56"><a aria-label="56"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存と異なる方針を取るなら理由を PR 本文に明記する</span></span>
+<span id="cb9-57"><a aria-label="57"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 既存パターン自体が悪い場合は別 PR でリファクタする</span></span>
+<span id="cb9-58"><a aria-label="58"></a></span>
+<span id="cb9-59"><a aria-label="59"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb9-60"><a aria-label="60"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 8. ドキュメント</span></span>
+<span id="cb9-61"><a aria-label="61"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb9-62"><a aria-label="62"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ユーザー向け・開発者向けドキュメントが更新されているか</span></span>
+<span id="cb9-63"><a aria-label="63"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb9-64"><a aria-label="64"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 振る舞いを変えた場合は &lt;code&gt;README&lt;/code&gt;・&lt;code&gt;CHANGELOG&lt;/code&gt; を併せて更新する</span></span>
+<span id="cb9-65"><a aria-label="65"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 廃止 API には deprecation notice を付ける</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1274,38 +1277,38 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.9em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 32, 50]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ブランチ設計</span></span>
-<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合ブランチ（&lt;code&gt;main&lt;/code&gt;・&lt;code&gt;develop&lt;/code&gt;）は&lt;span class="regmonkey-bold"&gt;PR必須&lt;/span&gt;で守る</span></span>
-<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> トピックブランチは短命・独立・使い捨てに保つ</span></span>
-<span id="cb10-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ブランチ = 1つの変更の理由を徹底する</span></span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb10-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> コミット</span></span>
-<span id="cb10-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> PR前に &lt;code&gt;git rebase -i&lt;/code&gt; で&lt;span class="regmonkey-bold"&gt;1コミット=1意図&lt;/span&gt;に整える</span></span>
-<span id="cb10-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Conventional Commits 形式で type を揃える</span></span>
-<span id="cb10-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 共有ブランチへの force push は禁止</span></span>
-<span id="cb10-16"><a></a></span>
-<span id="cb10-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb10-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ</span></span>
-<span id="cb10-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; は squash，&lt;code&gt;main&lt;/code&gt; は no-ff</span></span>
-<span id="cb10-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> fast-forward は使わない（境界が消えるため）</span></span>
-<span id="cb10-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リリース境界に Annotated tag を打つ</span></span>
-<span id="cb10-24"><a></a></span>
-<span id="cb10-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb10-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> テスト・レビュー</span></span>
-<span id="cb10-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb10-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> テストは実装と&lt;span class="regmonkey-bold"&gt;同時に書く&lt;/span&gt;，レビューは設計から詳細へ</span></span>
-<span id="cb10-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb10-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Unit・Integration は全PRで実行</span></span>
-<span id="cb10-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> レビューは1営業日以内に初動レスポンス</span></span>
-<span id="cb10-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメントには重要度プレフィックスを付ける</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ブランチ設計</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合ブランチ（&lt;code&gt;main&lt;/code&gt;・&lt;code&gt;develop&lt;/code&gt;）は&lt;span class="regmonkey-bold"&gt;PR必須&lt;/span&gt;で守る</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> トピックブランチは短命・独立・使い捨てに保つ</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ブランチ = 1つの変更の理由を徹底する</span></span>
+<span id="cb10-8"><a aria-label="8"></a></span>
+<span id="cb10-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> コミット</span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> PR前に &lt;code&gt;git rebase -i&lt;/code&gt; で&lt;span class="regmonkey-bold"&gt;1コミット=1意図&lt;/span&gt;に整える</span></span>
+<span id="cb10-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Conventional Commits 形式で type を揃える</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 共有ブランチへの force push は禁止</span></span>
+<span id="cb10-16"><a aria-label="16"></a></span>
+<span id="cb10-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb10-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ</span></span>
+<span id="cb10-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; は squash，&lt;code&gt;main&lt;/code&gt; は no-ff</span></span>
+<span id="cb10-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> fast-forward は使わない（境界が消えるため）</span></span>
+<span id="cb10-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> リリース境界に Annotated tag を打つ</span></span>
+<span id="cb10-24"><a aria-label="24"></a></span>
+<span id="cb10-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb10-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> テスト・レビュー</span></span>
+<span id="cb10-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb10-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> テストは実装と&lt;span class="regmonkey-bold"&gt;同時に書く&lt;/span&gt;，レビューは設計から詳細へ</span></span>
+<span id="cb10-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb10-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Unit・Integration は全PRで実行</span></span>
+<span id="cb10-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> レビューは1営業日以内に初動レスポンス</span></span>
+<span id="cb10-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> コメントには重要度プレフィックスを付ける</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1356,9 +1359,9 @@ gitGraph
 </div>
 <div class="pl-15">
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">git</span> status</span>
-<span id="cb11-2"><a></a><span class="co"># Unmerged paths:</span></span>
-<span id="cb11-3"><a></a><span class="co">#   both modified: src/app.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="fu">git</span> status</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="co"># Unmerged paths:</span></span>
+<span id="cb11-3"><a aria-label="3"></a><span class="co">#   both modified: src/app.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>Unmerged paths:</code> セクションに競合ファイルが一覧表示される</li>
@@ -1375,7 +1378,7 @@ gitGraph
 <li>一方を丸ごと採用するなら <code>git restore --ours</code> or<code>--theirs</code> を使う</li>
 </ul>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">git</span> restore <span class="at">--theirs</span> src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a aria-label="1"></a><span class="fu">git</span> restore <span class="at">--theirs</span> src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1388,8 +1391,8 @@ gitGraph
 <li>マーカー残りが無いことを確認してからステージング</li>
 </ul>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span>
-<span id="cb13-2"><a></a><span class="fu">git</span> add src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">git</span> add src/app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1399,8 +1402,8 @@ gitGraph
 </div>
 <div class="pl-15">
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="fu">git</span> commit</span>
-<span id="cb14-2"><a></a><span class="co"># Merge branch 'feature/x' into main</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a aria-label="1"></a><span class="fu">git</span> commit</span>
+<span id="cb14-2"><a aria-label="2"></a><span class="co"># Merge branch 'feature/x' into main</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>メッセージは自動生成される・中止したい場合は <code>git merge --abort</code></li>
@@ -1424,7 +1427,7 @@ gitGraph
 <li>コミット前に必ず grep で確認する</li>
 </ul>
 <div class="font-13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a aria-label="1"></a><span class="fu">grep</span> <span class="at">-rn</span> <span class="st">"&lt;&lt;&lt;&lt;&lt;&lt;"</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1438,8 +1441,8 @@ gitGraph
 <li>解決途中で中断したい場合は実行前の状態に戻せる</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
-<span id="cb16-2"><a></a><span class="fu">git</span> rebase <span class="at">--abort</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a aria-label="1"></a><span class="fu">git</span> merge <span class="at">--abort</span></span>
+<span id="cb16-2"><a aria-label="2"></a><span class="fu">git</span> rebase <span class="at">--abort</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 </div>
@@ -1454,13 +1457,13 @@ gitGraph
 <li>VSCode 等で Accept Current / Incoming / Both を選んで解決</li>
 </ul>
 <div class="font-13 pt-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="fu">git</span> mergetool</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a aria-label="1"></a><span class="fu">git</span> mergetool</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>事前設定の例：</li>
 </ul>
 <div class="font-13 pt-2 mb-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="fu">git</span> config <span class="at">--global</span> merge.tool vscode</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a aria-label="1"></a><span class="fu">git</span> config <span class="at">--global</span> merge.tool vscode</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1491,14 +1494,14 @@ gitGraph
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb19-2"><a></a><span class="kw">def</span> greet(name):</span>
-<span id="cb19-3"><a></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb19-4"><a></a><span class="op">=======</span></span>
-<span id="cb19-5"><a></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
-<span id="cb19-6"><a></a>    <span class="cf">return</span> <span class="ss">f"Hi, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
-<span id="cb19-7"><a></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
-<span id="cb19-8"><a></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature<span class="op">/</span>i18n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-label="1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb19-2"><a aria-label="2"></a><span class="kw">def</span> greet(name):</span>
+<span id="cb19-3"><a aria-label="3"></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb19-4"><a aria-label="4"></a><span class="op">=======</span></span>
+<span id="cb19-5"><a aria-label="5"></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
+<span id="cb19-6"><a aria-label="6"></a>    <span class="cf">return</span> <span class="ss">f"Hi, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
+<span id="cb19-7"><a aria-label="7"></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb19-8"><a aria-label="8"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature<span class="op">/</span>i18n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1518,9 +1521,9 @@ gitGraph
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
-<span id="cb20-2"><a></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
-<span id="cb20-3"><a></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-label="1"></a><span class="kw">def</span> greet(name, lang<span class="op">=</span><span class="st">"en"</span>):</span>
+<span id="cb20-2"><a aria-label="2"></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span> <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"en"</span> <span class="op">\</span></span>
+<span id="cb20-3"><a aria-label="3"></a>        <span class="cf">else</span> <span class="ss">f"Bonjour, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -1531,45 +1534,45 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:65%; font-size: 0.9em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[28, 32, 40]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb21-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 小さく・早くマージ</span></span>
-<span id="cb21-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb21-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブランチを長期間放置しない</span></span>
-<span id="cb21-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb21-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ブランチ = 1つの変更に絞る</span></span>
-<span id="cb21-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; への小まめなマージで競合面を最小化</span></span>
-<span id="cb21-8"><a></a></span>
-<span id="cb21-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb21-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 作業前に最新を取り込む</span></span>
-<span id="cb21-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb21-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;git fetch&lt;/code&gt; + &lt;code&gt;rebase&lt;/code&gt; を習慣化</span></span>
-<span id="cb21-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb21-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 着手前に &lt;code&gt;develop&lt;/code&gt; の最新を取り込む</span></span>
-<span id="cb21-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 長期作業中は1日1回は同期する</span></span>
-<span id="cb21-16"><a></a></span>
-<span id="cb21-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb21-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイルの責務分離</span></span>
-<span id="cb21-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb21-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ファイルを複数人で大改修しない</span></span>
-<span id="cb21-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb21-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変更範囲を疎結合に保つ</span></span>
-<span id="cb21-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大規模リファクタは別 PR で先行する</span></span>
-<span id="cb21-24"><a></a></span>
-<span id="cb21-25"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb21-26"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ戦略の固定</span></span>
-<span id="cb21-27"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb21-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.gitattributes&lt;/code&gt; で自動解決を設定</span></span>
-<span id="cb21-29"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb21-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動生成ファイル等は常に一方を優先</span></span>
-<span id="cb21-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;merge=ours&lt;/code&gt; 等の戦略を明示する</span></span>
-<span id="cb21-32"><a></a></span>
-<span id="cb21-33"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb21-34"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 早期レビュー</span></span>
-<span id="cb21-35"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb21-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の食い違いを実装前に検知</span></span>
-<span id="cb21-37"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb21-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Draft PR で早めに方針を共有する</span></span>
-<span id="cb21-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大きな設計変更は事前合意してから着手</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb21-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 小さく・早くマージ</span></span>
+<span id="cb21-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ブランチを長期間放置しない</span></span>
+<span id="cb21-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ブランチ = 1つの変更に絞る</span></span>
+<span id="cb21-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;develop&lt;/code&gt; への小まめなマージで競合面を最小化</span></span>
+<span id="cb21-8"><a aria-label="8"></a></span>
+<span id="cb21-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb21-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 作業前に最新を取り込む</span></span>
+<span id="cb21-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;git fetch&lt;/code&gt; + &lt;code&gt;rebase&lt;/code&gt; を習慣化</span></span>
+<span id="cb21-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 着手前に &lt;code&gt;develop&lt;/code&gt; の最新を取り込む</span></span>
+<span id="cb21-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 長期作業中は1日1回は同期する</span></span>
+<span id="cb21-16"><a aria-label="16"></a></span>
+<span id="cb21-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb21-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ファイルの責務分離</span></span>
+<span id="cb21-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 1ファイルを複数人で大改修しない</span></span>
+<span id="cb21-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 変更範囲を疎結合に保つ</span></span>
+<span id="cb21-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大規模リファクタは別 PR で先行する</span></span>
+<span id="cb21-24"><a aria-label="24"></a></span>
+<span id="cb21-25"><a aria-label="25"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb21-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> マージ戦略の固定</span></span>
+<span id="cb21-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;.gitattributes&lt;/code&gt; で自動解決を設定</span></span>
+<span id="cb21-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 自動生成ファイル等は常に一方を優先</span></span>
+<span id="cb21-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;merge=ours&lt;/code&gt; 等の戦略を明示する</span></span>
+<span id="cb21-32"><a aria-label="32"></a></span>
+<span id="cb21-33"><a aria-label="33"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb21-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 早期レビュー</span></span>
+<span id="cb21-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb21-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 方向性の食い違いを実装前に検知</span></span>
+<span id="cb21-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb21-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Draft PR で早めに方針を共有する</span></span>
+<span id="cb21-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 大きな設計変更は事前合意してから着手</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>

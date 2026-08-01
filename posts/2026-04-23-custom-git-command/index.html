@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – regmonkey-gitcommand 解説</title>
@@ -23,10 +23,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -243,7 +246,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -297,17 +300,17 @@ Ryo Nakagami
 <p><span class="mini-section">インストール手順</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># 1. clone</span></span>
-<span id="cb1-2"><a></a><span class="fu">git</span> clone https://github.com/RyoNakagami/regmonkey-gitcommand.git ~/.tool.d/regmonkey-gitcommand</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># 2. dependency check (optional)</span></span>
-<span id="cb1-5"><a></a><span class="fu">bash</span> ~/.tool.d/regmonkey-gitcommand/setup_dependency.sh</span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># 3. PATH 追加（.zshrc / .bashrc）</span></span>
-<span id="cb1-8"><a></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">$PATH</span><span class="st">:</span><span class="va">$HOME</span><span class="st">/.tool.d/regmonkey-gitcommand/src"</span></span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="co"># 4. 実行権限付与</span></span>
-<span id="cb1-11"><a></a><span class="fu">chmod</span> +x ~/.tool.d/regmonkey-gitcommand/src/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="co"># 1. clone</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">git</span> clone https://github.com/RyoNakagami/regmonkey-gitcommand.git ~/.tool.d/regmonkey-gitcommand</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co"># 2. dependency check (optional)</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">bash</span> ~/.tool.d/regmonkey-gitcommand/setup_dependency.sh</span>
+<span id="cb1-6"><a aria-label="6"></a></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="co"># 3. PATH 追加（.zshrc / .bashrc）</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">$PATH</span><span class="st">:</span><span class="va">$HOME</span><span class="st">/.tool.d/regmonkey-gitcommand/src"</span></span>
+<span id="cb1-9"><a aria-label="9"></a></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="co"># 4. 実行権限付与</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="fu">chmod</span> +x ~/.tool.d/regmonkey-gitcommand/src/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="コマンド一覧" class="slide level2">
@@ -407,22 +410,22 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># すべてのトラック済みファイルを処理</span></span>
-<span id="cb2-2"><a></a><span class="ex">git-add-newline</span></span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># マークダウンを除外</span></span>
-<span id="cb2-5"><a></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.md"</span></span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># 画像系を複数除外</span></span>
-<span id="cb2-8"><a></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.jpg"</span> <span class="at">-i</span> <span class="st">"*.png"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="co"># すべてのトラック済みファイルを処理</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="ex">git-add-newline</span></span>
+<span id="cb2-3"><a aria-label="3"></a></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="co"># マークダウンを除外</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.md"</span></span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co"># 画像系を複数除外</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.jpg"</span> <span class="at">-i</span> <span class="st">"*.png"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># tracked files で末尾改行が欠けているものを検出 → echo で追記</span></span>
-<span id="cb3-2"><a></a><span class="fu">git</span> ls-files <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">f</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb3-3"><a></a>  <span class="bu">[</span> <span class="ot">-s</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$(</span><span class="fu">tail</span> <span class="at">-c1</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span><span class="va">)</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span></span>
-<span id="cb3-4"><a></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="co"># tracked files で末尾改行が欠けているものを検出 → echo で追記</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">git</span> ls-files <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">f</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="bu">[</span> <span class="ot">-s</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$(</span><span class="fu">tail</span> <span class="at">-c1</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span><span class="va">)</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -475,12 +478,12 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 分析成果物の整形</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="co"># 前処理: 大容量pkl・parquetは除外し，ソースコードと結果だけ対象に</span></span>
-<span id="cb4-2"><a></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.pkl"</span> <span class="at">-i</span> <span class="st">"*.parquet"</span> <span class="at">-i</span> <span class="st">"*.ipynb_checkpoints/*"</span></span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="co"># pre-commitフックとして仕込めば，コミット時に自動整形</span></span>
-<span id="cb4-5"><a></a><span class="bu">echo</span> <span class="st">'git-add-newline -i "*.pkl" -i "*.parquet"'</span> <span class="op">&gt;</span> .git/hooks/pre-commit</span>
-<span id="cb4-6"><a></a><span class="fu">chmod</span> +x .git/hooks/pre-commit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="co"># 前処理: 大容量pkl・parquetは除外し，ソースコードと結果だけ対象に</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="ex">git-add-newline</span> <span class="at">-i</span> <span class="st">"*.pkl"</span> <span class="at">-i</span> <span class="st">"*.parquet"</span> <span class="at">-i</span> <span class="st">"*.ipynb_checkpoints/*"</span></span>
+<span id="cb4-3"><a aria-label="3"></a></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="co"># pre-commitフックとして仕込めば，コミット時に自動整形</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="bu">echo</span> <span class="st">'git-add-newline -i "*.pkl" -i "*.parquet"'</span> <span class="op">&gt;</span> .git/hooks/pre-commit</span>
+<span id="cb4-6"><a aria-label="6"></a><span class="fu">chmod</span> +x .git/hooks/pre-commit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <ul>
@@ -506,23 +509,23 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="co"># 全変更ファイルをステージ</span></span>
-<span id="cb5-2"><a></a><span class="ex">git-add-patch</span> <span class="at">-a</span></span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="co"># 特定ディレクトリの変更のみ対話的に</span></span>
-<span id="cb5-5"><a></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/models/</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="co"># ファイル名キーワードで絞る</span></span>
-<span id="cb5-8"><a></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">"feature_"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="co"># 全変更ファイルをステージ</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="ex">git-add-patch</span> <span class="at">-a</span></span>
+<span id="cb5-3"><a aria-label="3"></a></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="co"># 特定ディレクトリの変更のみ対話的に</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/models/</span>
+<span id="cb5-6"><a aria-label="6"></a></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="co"># ファイル名キーワードで絞る</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">"feature_"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="co"># ディレクトリ指定</span></span>
-<span id="cb6-2"><a></a><span class="fu">git</span> diff <span class="at">--name-only</span> <span class="at">--</span> src/models/ <span class="kw">|</span> <span class="fu">xargs</span> git add <span class="at">-p</span></span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a><span class="co"># キーワードで絞る</span></span>
-<span id="cb6-5"><a></a><span class="fu">git</span> diff <span class="at">--name-only</span> <span class="kw">|</span> <span class="fu">grep</span> feature_ <span class="kw">|</span> <span class="fu">xargs</span> git add <span class="at">-p</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="co"># ディレクトリ指定</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">git</span> diff <span class="at">--name-only</span> <span class="at">--</span> src/models/ <span class="kw">|</span> <span class="fu">xargs</span> git add <span class="at">-p</span></span>
+<span id="cb6-3"><a aria-label="3"></a></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="co"># キーワードで絞る</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="fu">git</span> diff <span class="at">--name-only</span> <span class="kw">|</span> <span class="fu">grep</span> feature_ <span class="kw">|</span> <span class="fu">xargs</span> git add <span class="at">-p</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -573,17 +576,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 前処理とモデルを別コミットに</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="co"># 1コミット目: 前処理の変更だけ</span></span>
-<span id="cb7-2"><a></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/preprocess/</span>
-<span id="cb7-3"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(preprocess): add outlier clipping"</span></span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a><span class="co"># 2コミット目: モデル側の変更</span></span>
-<span id="cb7-6"><a></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/models/</span>
-<span id="cb7-7"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(model): switch to lightgbm"</span></span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a><span class="co"># 3コミット目: ノートブックの結果更新</span></span>
-<span id="cb7-10"><a></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">".ipynb"</span></span>
-<span id="cb7-11"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"docs(notebook): refresh eval results"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="co"># 1コミット目: 前処理の変更だけ</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/preprocess/</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(preprocess): add outlier clipping"</span></span>
+<span id="cb7-4"><a aria-label="4"></a></span>
+<span id="cb7-5"><a aria-label="5"></a><span class="co"># 2コミット目: モデル側の変更</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="ex">git-add-patch</span> <span class="at">-d</span> src/models/</span>
+<span id="cb7-7"><a aria-label="7"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(model): switch to lightgbm"</span></span>
+<span id="cb7-8"><a aria-label="8"></a></span>
+<span id="cb7-9"><a aria-label="9"></a><span class="co"># 3コミット目: ノートブックの結果更新</span></span>
+<span id="cb7-10"><a aria-label="10"></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">".ipynb"</span></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"docs(notebook): refresh eval results"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-gen-commit-claudeでコミットメッセージ生成" class="slide level2">
@@ -605,23 +608,23 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="co"># 生成してそのままコミット</span></span>
-<span id="cb8-2"><a></a><span class="fu">git</span> add <span class="at">-p</span> src/</span>
-<span id="cb8-3"><a></a><span class="ex">git-gen-commit</span></span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a><span class="co"># 生成結果だけ確認（コミットしない）</span></span>
-<span id="cb8-6"><a></a><span class="ex">git-gen-commit</span> <span class="at">--dryrun</span></span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a><span class="co"># プロジェクトのルールを適用</span></span>
-<span id="cb8-9"><a></a><span class="ex">git-gen-commit</span> <span class="at">--rule</span> .claude/commit-rule.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a aria-label="1"></a><span class="co"># 生成してそのままコミット</span></span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">git</span> add <span class="at">-p</span> src/</span>
+<span id="cb8-3"><a aria-label="3"></a><span class="ex">git-gen-commit</span></span>
+<span id="cb8-4"><a aria-label="4"></a></span>
+<span id="cb8-5"><a aria-label="5"></a><span class="co"># 生成結果だけ確認（コミットしない）</span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="ex">git-gen-commit</span> <span class="at">--dryrun</span></span>
+<span id="cb8-7"><a aria-label="7"></a></span>
+<span id="cb8-8"><a aria-label="8"></a><span class="co"># プロジェクトのルールを適用</span></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="ex">git-gen-commit</span> <span class="at">--rule</span> .claude/commit-rule.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="co"># staged diff を Claude に渡してコミット</span></span>
-<span id="cb9-2"><a></a><span class="va">MSG</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> diff <span class="at">--cached</span> <span class="dt">\</span></span>
-<span id="cb9-3"><a></a>      <span class="kw">|</span> <span class="ex">claude</span> <span class="at">-p</span> <span class="st">'generate a one-line conventional commit'</span><span class="va">)</span></span>
-<span id="cb9-4"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"</span><span class="va">$MSG</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a aria-label="1"></a><span class="co"># staged diff を Claude に渡してコミット</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="va">MSG</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> diff <span class="at">--cached</span> <span class="dt">\</span></span>
+<span id="cb9-3"><a aria-label="3"></a>      <span class="kw">|</span> <span class="ex">claude</span> <span class="at">-p</span> <span class="st">'generate a one-line conventional commit'</span><span class="va">)</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"</span><span class="va">$MSG</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -679,13 +682,13 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 実験ループでの高速コミット</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="co"># 実験1サイクル: 変更 → ステージ → Claudeで要約 → コミット</span></span>
-<span id="cb10-2"><a></a><span class="ex">jupyter</span> nbconvert <span class="at">--execute</span> analysis.ipynb <span class="at">--to</span> notebook <span class="at">--inplace</span></span>
-<span id="cb10-3"><a></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">"analysis.ipynb"</span></span>
-<span id="cb10-4"><a></a><span class="ex">git-gen-commit</span> <span class="at">--rule</span> .claude/ds-commit-rule.md</span>
-<span id="cb10-5"><a></a></span>
-<span id="cb10-6"><a></a><span class="co"># 生成例:</span></span>
-<span id="cb10-7"><a></a><span class="co">#  "feat(eda): add seasonality decomposition for sales series"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a aria-label="1"></a><span class="co"># 実験1サイクル: 変更 → ステージ → Claudeで要約 → コミット</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="ex">jupyter</span> nbconvert <span class="at">--execute</span> analysis.ipynb <span class="at">--to</span> notebook <span class="at">--inplace</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="ex">git-add-patch</span> <span class="at">-s</span> <span class="st">"analysis.ipynb"</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="ex">git-gen-commit</span> <span class="at">--rule</span> .claude/ds-commit-rule.md</span>
+<span id="cb10-5"><a aria-label="5"></a></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="co"># 生成例:</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="co">#  "feat(eda): add seasonality decomposition for sales series"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-sprint-commit-スプリント週番号付きコミット" class="slide level2">
@@ -708,22 +711,22 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="co"># 週番号のみのコミット</span></span>
-<span id="cb11-2"><a></a><span class="ex">git-sprint-commit</span></span>
-<span id="cb11-3"><a></a><span class="co">#  -&gt; sprint-2026-17w</span></span>
-<span id="cb11-4"><a></a></span>
-<span id="cb11-5"><a></a><span class="co"># メッセージ付き</span></span>
-<span id="cb11-6"><a></a><span class="ex">git-sprint-commit</span> <span class="at">-m</span> <span class="st">"eda round 2"</span></span>
-<span id="cb11-7"><a></a><span class="co">#  -&gt; sprint-2026-17w: eda round 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="co"># 週番号のみのコミット</span></span>
+<span id="cb11-2"><a aria-label="2"></a><span class="ex">git-sprint-commit</span></span>
+<span id="cb11-3"><a aria-label="3"></a><span class="co">#  -&gt; sprint-2026-17w</span></span>
+<span id="cb11-4"><a aria-label="4"></a></span>
+<span id="cb11-5"><a aria-label="5"></a><span class="co"># メッセージ付き</span></span>
+<span id="cb11-6"><a aria-label="6"></a><span class="ex">git-sprint-commit</span> <span class="at">-m</span> <span class="st">"eda round 2"</span></span>
+<span id="cb11-7"><a aria-label="7"></a><span class="co">#  -&gt; sprint-2026-17w: eda round 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="co"># 週番号のみ（空コミット）</span></span>
-<span id="cb12-2"><a></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"sprint-</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span><span class="st">"</span></span>
-<span id="cb12-3"><a></a></span>
-<span id="cb12-4"><a></a><span class="co"># メッセージ付き</span></span>
-<span id="cb12-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"sprint-</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span><span class="st">: eda round 2"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a aria-label="1"></a><span class="co"># 週番号のみ（空コミット）</span></span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"sprint-</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span><span class="st">"</span></span>
+<span id="cb12-3"><a aria-label="3"></a></span>
+<span id="cb12-4"><a aria-label="4"></a><span class="co"># メッセージ付き</span></span>
+<span id="cb12-5"><a aria-label="5"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"sprint-</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span><span class="st">: eda round 2"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -768,14 +771,14 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 週次レポート自動化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="co"># 今週の実験ログをまとめて抽出</span></span>
-<span id="cb13-2"><a></a><span class="va">CURRENT_WEEK</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span></span>
-<span id="cb13-3"><a></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--grep</span> <span class="st">"sprint-</span><span class="va">${CURRENT_WEEK}</span><span class="st">"</span></span>
-<span id="cb13-4"><a></a></span>
-<span id="cb13-5"><a></a><span class="co"># ログ出力例:</span></span>
-<span id="cb13-6"><a></a><span class="co">#  a4f2c13 sprint-2026-17w: lightgbm round1 0.82 auc</span></span>
-<span id="cb13-7"><a></a><span class="co">#  b8d1e5f sprint-2026-17w: add feature interaction</span></span>
-<span id="cb13-8"><a></a><span class="co">#  c2a9f88 sprint-2026-17w</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="co"># 今週の実験ログをまとめて抽出</span></span>
+<span id="cb13-2"><a aria-label="2"></a><span class="va">CURRENT_WEEK</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +%Y-%Vw<span class="va">)</span></span>
+<span id="cb13-3"><a aria-label="3"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--grep</span> <span class="st">"sprint-</span><span class="va">${CURRENT_WEEK}</span><span class="st">"</span></span>
+<span id="cb13-4"><a aria-label="4"></a></span>
+<span id="cb13-5"><a aria-label="5"></a><span class="co"># ログ出力例:</span></span>
+<span id="cb13-6"><a aria-label="6"></a><span class="co">#  a4f2c13 sprint-2026-17w: lightgbm round1 0.82 auc</span></span>
+<span id="cb13-7"><a aria-label="7"></a><span class="co">#  b8d1e5f sprint-2026-17w: add feature interaction</span></span>
+<span id="cb13-8"><a aria-label="8"></a><span class="co">#  c2a9f88 sprint-2026-17w</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-newline-check-末尾改行欠落検査" class="slide level2">
@@ -797,19 +800,19 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co"># 全トラック済みファイルを検査</span></span>
-<span id="cb14-2"><a></a><span class="ex">git-newline-check</span></span>
-<span id="cb14-3"><a></a></span>
-<span id="cb14-4"><a></a><span class="co"># 画像とデータ系を除外</span></span>
-<span id="cb14-5"><a></a><span class="ex">git-newline-check</span> <span class="at">-i</span> <span class="st">"*.csv"</span> <span class="at">-i</span> <span class="st">"*.png"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a aria-label="1"></a><span class="co"># 全トラック済みファイルを検査</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="ex">git-newline-check</span></span>
+<span id="cb14-3"><a aria-label="3"></a></span>
+<span id="cb14-4"><a aria-label="4"></a><span class="co"># 画像とデータ系を除外</span></span>
+<span id="cb14-5"><a aria-label="5"></a><span class="ex">git-newline-check</span> <span class="at">-i</span> <span class="st">"*.csv"</span> <span class="at">-i</span> <span class="st">"*.png"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="co"># 末尾改行が欠けているファイルを一覧</span></span>
-<span id="cb15-2"><a></a><span class="fu">git</span> ls-files <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">f</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb15-3"><a></a>  <span class="bu">[</span> <span class="ot">-s</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$(</span><span class="fu">tail</span> <span class="at">-c1</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span><span class="va">)</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span></span>
-<span id="cb15-4"><a></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a aria-label="1"></a><span class="co"># 末尾改行が欠けているファイルを一覧</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="fu">git</span> ls-files <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">f</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb15-3"><a aria-label="3"></a>  <span class="bu">[</span> <span class="ot">-s</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$(</span><span class="fu">tail</span> <span class="at">-c1</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span><span class="va">)</span><span class="st">"</span> <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span></span>
+<span id="cb15-4"><a aria-label="4"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -852,18 +855,18 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: GitHub Actions での整形チェック</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a></a><span class="co"># .github/workflows/lint.yml</span></span>
-<span id="cb16-2"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> lint</span></span>
-<span id="cb16-3"><a></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">pull_request</span><span class="kw">]</span></span>
-<span id="cb16-4"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb16-5"><a></a><span class="at">  </span><span class="fu">newline-check</span><span class="kw">:</span></span>
-<span id="cb16-6"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb16-7"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb16-8"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb16-9"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check trailing newlines</span></span>
-<span id="cb16-10"><a></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb16-11"><a></a>          bash ~/.tool.d/regmonkey-gitcommand/src/git-newline-check.sh \</span>
-<span id="cb16-12"><a></a>            -i "*.parquet" -i "*.pkl" -i "*.ipynb_checkpoints/*"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a aria-label="1"></a><span class="co"># .github/workflows/lint.yml</span></span>
+<span id="cb16-2"><a aria-label="2"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> lint</span></span>
+<span id="cb16-3"><a aria-label="3"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">pull_request</span><span class="kw">]</span></span>
+<span id="cb16-4"><a aria-label="4"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb16-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">newline-check</span><span class="kw">:</span></span>
+<span id="cb16-6"><a aria-label="6"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb16-7"><a aria-label="7"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb16-8"><a aria-label="8"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb16-9"><a aria-label="9"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check trailing newlines</span></span>
+<span id="cb16-10"><a aria-label="10"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb16-11"><a aria-label="11"></a>          bash ~/.tool.d/regmonkey-gitcommand/src/git-newline-check.sh \</span>
+<span id="cb16-12"><a aria-label="12"></a>            -i "*.parquet" -i "*.pkl" -i "*.ipynb_checkpoints/*"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -914,27 +917,27 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="co"># 過去10日の3MB超コミット</span></span>
-<span id="cb17-2"><a></a><span class="ex">git-check-commitsize</span> <span class="at">-u</span> MB <span class="at">-l</span> 3 <span class="at">-d</span> 10</span>
-<span id="cb17-3"><a></a></span>
-<span id="cb17-4"><a></a><span class="co"># 過去60日の3KB超</span></span>
-<span id="cb17-5"><a></a><span class="fu">git</span> check-commitsize <span class="at">-u</span> KB <span class="at">-l</span> 3 <span class="at">-d</span> 60</span>
-<span id="cb17-6"><a></a><span class="co">#  commit-size  commit-id  file-number  commit-date</span></span>
-<span id="cb17-7"><a></a><span class="co">#  14KB         096b7bfd   6            2025-10-23</span></span>
-<span id="cb17-8"><a></a><span class="co">#  10KB         cf906f92   3            2025-09-16</span></span>
-<span id="cb17-9"><a></a><span class="co">#  23KB         dbd7014a   14           2025-09-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a aria-label="1"></a><span class="co"># 過去10日の3MB超コミット</span></span>
+<span id="cb17-2"><a aria-label="2"></a><span class="ex">git-check-commitsize</span> <span class="at">-u</span> MB <span class="at">-l</span> 3 <span class="at">-d</span> 10</span>
+<span id="cb17-3"><a aria-label="3"></a></span>
+<span id="cb17-4"><a aria-label="4"></a><span class="co"># 過去60日の3KB超</span></span>
+<span id="cb17-5"><a aria-label="5"></a><span class="fu">git</span> check-commitsize <span class="at">-u</span> KB <span class="at">-l</span> 3 <span class="at">-d</span> 60</span>
+<span id="cb17-6"><a aria-label="6"></a><span class="co">#  commit-size  commit-id  file-number  commit-date</span></span>
+<span id="cb17-7"><a aria-label="7"></a><span class="co">#  14KB         096b7bfd   6            2025-10-23</span></span>
+<span id="cb17-8"><a aria-label="8"></a><span class="co">#  10KB         cf906f92   3            2025-09-16</span></span>
+<span id="cb17-9"><a aria-label="9"></a><span class="co">#  23KB         dbd7014a   14           2025-09-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="co"># 直近30日で50MB超のコミットを size 降順で列挙</span></span>
-<span id="cb18-2"><a></a><span class="fu">git</span> log <span class="at">--since</span><span class="op">=</span><span class="st">'30 days ago'</span> <span class="dt">\</span></span>
-<span id="cb18-3"><a></a>    <span class="at">--format</span><span class="op">=</span><span class="st">'%H %ad'</span> <span class="at">--date</span><span class="op">=</span>short <span class="dt">\</span></span>
-<span id="cb18-4"><a></a>  <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">h</span> <span class="va">d</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb18-5"><a></a>      <span class="va">s</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> diff-tree <span class="at">--no-commit-id</span> <span class="at">--numstat</span> <span class="va">$h</span> <span class="dt">\</span></span>
-<span id="cb18-6"><a></a>          <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{a+=$1+$2} END{print a+0}'</span><span class="va">)</span></span>
-<span id="cb18-7"><a></a>      <span class="bu">[</span> <span class="st">"</span><span class="va">$s</span><span class="st">"</span> <span class="ot">-gt</span> 50000 <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$s</span><span class="st"> </span><span class="va">$h</span><span class="st"> </span><span class="va">$d</span><span class="st">"</span></span>
-<span id="cb18-8"><a></a>    <span class="cf">done</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-rn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a aria-label="1"></a><span class="co"># 直近30日で50MB超のコミットを size 降順で列挙</span></span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">git</span> log <span class="at">--since</span><span class="op">=</span><span class="st">'30 days ago'</span> <span class="dt">\</span></span>
+<span id="cb18-3"><a aria-label="3"></a>    <span class="at">--format</span><span class="op">=</span><span class="st">'%H %ad'</span> <span class="at">--date</span><span class="op">=</span>short <span class="dt">\</span></span>
+<span id="cb18-4"><a aria-label="4"></a>  <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">h</span> <span class="va">d</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb18-5"><a aria-label="5"></a>      <span class="va">s</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> diff-tree <span class="at">--no-commit-id</span> <span class="at">--numstat</span> <span class="va">$h</span> <span class="dt">\</span></span>
+<span id="cb18-6"><a aria-label="6"></a>          <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{a+=$1+$2} END{print a+0}'</span><span class="va">)</span></span>
+<span id="cb18-7"><a aria-label="7"></a>      <span class="bu">[</span> <span class="st">"</span><span class="va">$s</span><span class="st">"</span> <span class="ot">-gt</span> 50000 <span class="bu">]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$s</span><span class="st"> </span><span class="va">$h</span><span class="st"> </span><span class="va">$d</span><span class="st">"</span></span>
+<span id="cb18-8"><a aria-label="8"></a>    <span class="cf">done</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-rn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -986,14 +989,14 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 月次の肥大化監査</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a></a><span class="co"># 過去30日で50MB以上のコミットを列挙</span></span>
-<span id="cb19-2"><a></a><span class="ex">git-check-commitsize</span> <span class="at">-u</span> MB <span class="at">-l</span> 50 <span class="at">-d</span> 30</span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a><span class="co"># 見つかったコミットを調査</span></span>
-<span id="cb19-5"><a></a><span class="fu">git</span> show <span class="at">--stat</span> <span class="op">&lt;</span>commit-id<span class="op">&gt;</span></span>
-<span id="cb19-6"><a></a></span>
-<span id="cb19-7"><a></a><span class="co"># 履歴から問題ファイルを完全除去（バックアップ必須）</span></span>
-<span id="cb19-8"><a></a><span class="fu">git</span> filter-repo <span class="at">--path</span> models/big_model.pt <span class="at">--invert-paths</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a aria-label="1"></a><span class="co"># 過去30日で50MB以上のコミットを列挙</span></span>
+<span id="cb19-2"><a aria-label="2"></a><span class="ex">git-check-commitsize</span> <span class="at">-u</span> MB <span class="at">-l</span> 50 <span class="at">-d</span> 30</span>
+<span id="cb19-3"><a aria-label="3"></a></span>
+<span id="cb19-4"><a aria-label="4"></a><span class="co"># 見つかったコミットを調査</span></span>
+<span id="cb19-5"><a aria-label="5"></a><span class="fu">git</span> show <span class="at">--stat</span> <span class="op">&lt;</span>commit-id<span class="op">&gt;</span></span>
+<span id="cb19-6"><a aria-label="6"></a></span>
+<span id="cb19-7"><a aria-label="7"></a><span class="co"># 履歴から問題ファイルを完全除去（バックアップ必須）</span></span>
+<span id="cb19-8"><a aria-label="8"></a><span class="fu">git</span> filter-repo <span class="at">--path</span> models/big_model.pt <span class="at">--invert-paths</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-lastdiff-ファイル最終変更差分" class="slide level2">
@@ -1015,21 +1018,21 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a></a><span class="co"># 最終変更との差分</span></span>
-<span id="cb20-2"><a></a><span class="ex">git-lastdiff</span> src/feature.py</span>
-<span id="cb20-3"><a></a></span>
-<span id="cb20-4"><a></a><span class="co"># 2個前の変更との差分</span></span>
-<span id="cb20-5"><a></a><span class="ex">git-lastdiff</span> src/feature.py <span class="at">-n</span> 2</span>
-<span id="cb20-6"><a></a></span>
-<span id="cb20-7"><a></a><span class="co"># difftool を使わずプレーン</span></span>
-<span id="cb20-8"><a></a><span class="ex">git-lastdiff</span> src/feature.py <span class="at">--no-tool</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a aria-label="1"></a><span class="co"># 最終変更との差分</span></span>
+<span id="cb20-2"><a aria-label="2"></a><span class="ex">git-lastdiff</span> src/feature.py</span>
+<span id="cb20-3"><a aria-label="3"></a></span>
+<span id="cb20-4"><a aria-label="4"></a><span class="co"># 2個前の変更との差分</span></span>
+<span id="cb20-5"><a aria-label="5"></a><span class="ex">git-lastdiff</span> src/feature.py <span class="at">-n</span> 2</span>
+<span id="cb20-6"><a aria-label="6"></a></span>
+<span id="cb20-7"><a aria-label="7"></a><span class="co"># difftool を使わずプレーン</span></span>
+<span id="cb20-8"><a aria-label="8"></a><span class="ex">git-lastdiff</span> src/feature.py <span class="at">--no-tool</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a></a><span class="co"># そのファイルに最後に触れたコミットの親 vs HEAD</span></span>
-<span id="cb21-2"><a></a><span class="va">F</span><span class="op">=</span>src/feature.py</span>
-<span id="cb21-3"><a></a><span class="fu">git</span> difftool <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--format</span><span class="op">=</span>%H <span class="at">--</span> <span class="st">"</span><span class="va">$F</span><span class="st">"</span><span class="va">)</span><span class="st">^"</span> HEAD <span class="at">--</span> <span class="st">"</span><span class="va">$F</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a aria-label="1"></a><span class="co"># そのファイルに最後に触れたコミットの親 vs HEAD</span></span>
+<span id="cb21-2"><a aria-label="2"></a><span class="va">F</span><span class="op">=</span>src/feature.py</span>
+<span id="cb21-3"><a aria-label="3"></a><span class="fu">git</span> difftool <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> log <span class="at">-1</span> <span class="at">--format</span><span class="op">=</span>%H <span class="at">--</span> <span class="st">"</span><span class="va">$F</span><span class="st">"</span><span class="va">)</span><span class="st">^"</span> HEAD <span class="at">--</span> <span class="st">"</span><span class="va">$F</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1077,17 +1080,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: モデル改善履歴の確認</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a></a><span class="co"># 現在のモデル定義 vs 前バージョン</span></span>
-<span id="cb22-2"><a></a><span class="ex">git-lastdiff</span> src/models/lightgbm_tuner.py</span>
-<span id="cb22-3"><a></a></span>
-<span id="cb22-4"><a></a><span class="co"># 3回前のパラメータ探索ロジックと比較</span></span>
-<span id="cb22-5"><a></a><span class="ex">git-lastdiff</span> src/models/lightgbm_tuner.py <span class="at">-n</span> 3</span>
-<span id="cb22-6"><a></a></span>
-<span id="cb22-7"><a></a><span class="co"># difftool設定例（~/.gitconfig）</span></span>
-<span id="cb22-8"><a></a><span class="co"># [diff]</span></span>
-<span id="cb22-9"><a></a><span class="co">#     tool = vscode</span></span>
-<span id="cb22-10"><a></a><span class="co"># [difftool "vscode"]</span></span>
-<span id="cb22-11"><a></a><span class="co">#     cmd = code --wait --diff $LOCAL $REMOTE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a aria-label="1"></a><span class="co"># 現在のモデル定義 vs 前バージョン</span></span>
+<span id="cb22-2"><a aria-label="2"></a><span class="ex">git-lastdiff</span> src/models/lightgbm_tuner.py</span>
+<span id="cb22-3"><a aria-label="3"></a></span>
+<span id="cb22-4"><a aria-label="4"></a><span class="co"># 3回前のパラメータ探索ロジックと比較</span></span>
+<span id="cb22-5"><a aria-label="5"></a><span class="ex">git-lastdiff</span> src/models/lightgbm_tuner.py <span class="at">-n</span> 3</span>
+<span id="cb22-6"><a aria-label="6"></a></span>
+<span id="cb22-7"><a aria-label="7"></a><span class="co"># difftool設定例（~/.gitconfig）</span></span>
+<span id="cb22-8"><a aria-label="8"></a><span class="co"># [diff]</span></span>
+<span id="cb22-9"><a aria-label="9"></a><span class="co">#     tool = vscode</span></span>
+<span id="cb22-10"><a aria-label="10"></a><span class="co"># [difftool "vscode"]</span></span>
+<span id="cb22-11"><a aria-label="11"></a><span class="co">#     cmd = code --wait --diff $LOCAL $REMOTE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-tree-git管理ファイルだけのtree表示" class="slide level2">
@@ -1109,20 +1112,20 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a></a><span class="co"># 全体の構造</span></span>
-<span id="cb23-2"><a></a><span class="ex">git-tree</span></span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a><span class="co"># 特定ディレクトリのみ</span></span>
-<span id="cb23-5"><a></a><span class="ex">git-tree</span> src/models/</span>
-<span id="cb23-6"><a></a></span>
-<span id="cb23-7"><a></a><span class="co"># エラー: 非gitリポ or 管理外ディレクトリ</span></span>
-<span id="cb23-8"><a></a><span class="ex">git-tree</span> notebooks/  <span class="co"># → 空出力</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a aria-label="1"></a><span class="co"># 全体の構造</span></span>
+<span id="cb23-2"><a aria-label="2"></a><span class="ex">git-tree</span></span>
+<span id="cb23-3"><a aria-label="3"></a></span>
+<span id="cb23-4"><a aria-label="4"></a><span class="co"># 特定ディレクトリのみ</span></span>
+<span id="cb23-5"><a aria-label="5"></a><span class="ex">git-tree</span> src/models/</span>
+<span id="cb23-6"><a aria-label="6"></a></span>
+<span id="cb23-7"><a aria-label="7"></a><span class="co"># エラー: 非gitリポ or 管理外ディレクトリ</span></span>
+<span id="cb23-8"><a aria-label="8"></a><span class="ex">git-tree</span> notebooks/  <span class="co"># → 空出力</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a></a><span class="co"># git管理ファイルを tree --fromfile に渡す</span></span>
-<span id="cb24-2"><a></a><span class="fu">git</span> ls-tree <span class="at">-r</span> <span class="at">--name-only</span> HEAD <span class="kw">|</span> <span class="ex">tree</span> <span class="at">--fromfile</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a aria-label="1"></a><span class="co"># git管理ファイルを tree --fromfile に渡す</span></span>
+<span id="cb24-2"><a aria-label="2"></a><span class="fu">git</span> ls-tree <span class="at">-r</span> <span class="at">--name-only</span> HEAD <span class="kw">|</span> <span class="ex">tree</span> <span class="at">--fromfile</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1171,21 +1174,21 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: README 生成補助</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a></a><span class="co"># README に構造を埋める</span></span>
-<span id="cb25-2"><a></a><span class="bu">echo</span> <span class="st">'## Project Structure'</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb25-3"><a></a><span class="bu">echo</span> <span class="st">'```'</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb25-4"><a></a><span class="ex">git-tree</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb25-5"><a></a><span class="bu">echo</span> <span class="st">'```'</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb25-6"><a></a></span>
-<span id="cb25-7"><a></a><span class="co"># 出力例:</span></span>
-<span id="cb25-8"><a></a><span class="co">#  .</span></span>
-<span id="cb25-9"><a></a><span class="co">#  ├── src</span></span>
-<span id="cb25-10"><a></a><span class="co">#  │   ├── features</span></span>
-<span id="cb25-11"><a></a><span class="co">#  │   │   └── build.py</span></span>
-<span id="cb25-12"><a></a><span class="co">#  │   └── models</span></span>
-<span id="cb25-13"><a></a><span class="co">#  │       └── train.py</span></span>
-<span id="cb25-14"><a></a><span class="co">#  └── notebooks</span></span>
-<span id="cb25-15"><a></a><span class="co">#      └── 01_eda.ipynb</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a aria-label="1"></a><span class="co"># README に構造を埋める</span></span>
+<span id="cb25-2"><a aria-label="2"></a><span class="bu">echo</span> <span class="st">'## Project Structure'</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb25-3"><a aria-label="3"></a><span class="bu">echo</span> <span class="st">'```'</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb25-4"><a aria-label="4"></a><span class="ex">git-tree</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb25-5"><a aria-label="5"></a><span class="bu">echo</span> <span class="st">'```'</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb25-6"><a aria-label="6"></a></span>
+<span id="cb25-7"><a aria-label="7"></a><span class="co"># 出力例:</span></span>
+<span id="cb25-8"><a aria-label="8"></a><span class="co">#  .</span></span>
+<span id="cb25-9"><a aria-label="9"></a><span class="co">#  ├── src</span></span>
+<span id="cb25-10"><a aria-label="10"></a><span class="co">#  │   ├── features</span></span>
+<span id="cb25-11"><a aria-label="11"></a><span class="co">#  │   │   └── build.py</span></span>
+<span id="cb25-12"><a aria-label="12"></a><span class="co">#  │   └── models</span></span>
+<span id="cb25-13"><a aria-label="13"></a><span class="co">#  │       └── train.py</span></span>
+<span id="cb25-14"><a aria-label="14"></a><span class="co">#  └── notebooks</span></span>
+<span id="cb25-15"><a aria-label="15"></a><span class="co">#      └── 01_eda.ipynb</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-whoami-git-user-表示" class="slide level2">
@@ -1207,18 +1210,18 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a></a><span class="co"># 現設定の確認</span></span>
-<span id="cb26-2"><a></a><span class="ex">git-whoami</span></span>
-<span id="cb26-3"><a></a><span class="co">#  Ryo Nakagami (hogehoge@email.com)</span></span>
-<span id="cb26-4"><a></a></span>
-<span id="cb26-5"><a></a><span class="co"># help</span></span>
-<span id="cb26-6"><a></a><span class="ex">git-whoami</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a aria-label="1"></a><span class="co"># 現設定の確認</span></span>
+<span id="cb26-2"><a aria-label="2"></a><span class="ex">git-whoami</span></span>
+<span id="cb26-3"><a aria-label="3"></a><span class="co">#  Ryo Nakagami (hogehoge@email.com)</span></span>
+<span id="cb26-4"><a aria-label="4"></a></span>
+<span id="cb26-5"><a aria-label="5"></a><span class="co"># help</span></span>
+<span id="cb26-6"><a aria-label="6"></a><span class="ex">git-whoami</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a></a><span class="co"># user.name と user.email を1行で</span></span>
-<span id="cb27-2"><a></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> config user.name<span class="va">)</span><span class="st"> (</span><span class="va">$(</span><span class="fu">git</span> config user.email<span class="va">)</span><span class="st">)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a aria-label="1"></a><span class="co"># user.name と user.email を1行で</span></span>
+<span id="cb27-2"><a aria-label="2"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">git</span> config user.name<span class="va">)</span><span class="st"> (</span><span class="va">$(</span><span class="fu">git</span> config user.email<span class="va">)</span><span class="st">)"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1267,17 +1270,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: push前のガード</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a></a><span class="co"># ~/.gitconfig</span></span>
-<span id="cb28-2"><a></a><span class="co"># [includeIf "gitdir:~/work/"]</span></span>
-<span id="cb28-3"><a></a><span class="co">#     path = ~/.gitconfig-work</span></span>
-<span id="cb28-4"><a></a><span class="co"># [includeIf "gitdir:~/personal/"]</span></span>
-<span id="cb28-5"><a></a><span class="co">#     path = ~/.gitconfig-personal</span></span>
-<span id="cb28-6"><a></a></span>
-<span id="cb28-7"><a></a><span class="co"># push 前のチェック</span></span>
-<span id="cb28-8"><a></a><span class="ex">git-whoami</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</span>
-<span id="cb28-9"><a></a></span>
-<span id="cb28-10"><a></a><span class="co"># alias 化してしまうのも有効</span></span>
-<span id="cb28-11"><a></a><span class="co"># alias gpush='git-whoami &amp;&amp; git push'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a aria-label="1"></a><span class="co"># ~/.gitconfig</span></span>
+<span id="cb28-2"><a aria-label="2"></a><span class="co"># [includeIf "gitdir:~/work/"]</span></span>
+<span id="cb28-3"><a aria-label="3"></a><span class="co">#     path = ~/.gitconfig-work</span></span>
+<span id="cb28-4"><a aria-label="4"></a><span class="co"># [includeIf "gitdir:~/personal/"]</span></span>
+<span id="cb28-5"><a aria-label="5"></a><span class="co">#     path = ~/.gitconfig-personal</span></span>
+<span id="cb28-6"><a aria-label="6"></a></span>
+<span id="cb28-7"><a aria-label="7"></a><span class="co"># push 前のチェック</span></span>
+<span id="cb28-8"><a aria-label="8"></a><span class="ex">git-whoami</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</span>
+<span id="cb28-9"><a aria-label="9"></a></span>
+<span id="cb28-10"><a aria-label="10"></a><span class="co"># alias 化してしまうのも有効</span></span>
+<span id="cb28-11"><a aria-label="11"></a><span class="co"># alias gpush='git-whoami &amp;&amp; git push'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -1328,21 +1331,21 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a></a><span class="co"># 確認だけ（削除しない）</span></span>
-<span id="cb29-2"><a></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--dry</span></span>
-<span id="cb29-3"><a></a></span>
-<span id="cb29-4"><a></a><span class="co"># 一気に削除</span></span>
-<span id="cb29-5"><a></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--yes</span></span>
-<span id="cb29-6"><a></a></span>
-<span id="cb29-7"><a></a><span class="co"># 対話モード (既定)</span></span>
-<span id="cb29-8"><a></a><span class="ex">git-delete-obsolete-branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a aria-label="1"></a><span class="co"># 確認だけ（削除しない）</span></span>
+<span id="cb29-2"><a aria-label="2"></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--dry</span></span>
+<span id="cb29-3"><a aria-label="3"></a></span>
+<span id="cb29-4"><a aria-label="4"></a><span class="co"># 一気に削除</span></span>
+<span id="cb29-5"><a aria-label="5"></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--yes</span></span>
+<span id="cb29-6"><a aria-label="6"></a></span>
+<span id="cb29-7"><a aria-label="7"></a><span class="co"># 対話モード (既定)</span></span>
+<span id="cb29-8"><a aria-label="8"></a><span class="ex">git-delete-obsolete-branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a></a><span class="co"># gone 印のついたローカルブランチを一括削除</span></span>
-<span id="cb30-2"><a></a><span class="fu">git</span> fetch <span class="at">-p</span></span>
-<span id="cb30-3"><a></a><span class="fu">git</span> branch <span class="at">-vv</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'/: gone]/{print $1}'</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-r</span> git branch <span class="at">-d</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a aria-label="1"></a><span class="co"># gone 印のついたローカルブランチを一括削除</span></span>
+<span id="cb30-2"><a aria-label="2"></a><span class="fu">git</span> fetch <span class="at">-p</span></span>
+<span id="cb30-3"><a aria-label="3"></a><span class="fu">git</span> branch <span class="at">-vv</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'/: gone]/{print $1}'</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-r</span> git branch <span class="at">-d</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1398,13 +1401,13 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 週次のブランチ整理</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a></a><span class="co"># 金曜日の振り返り時に</span></span>
-<span id="cb31-2"><a></a><span class="fu">git</span> fetch <span class="at">--prune</span> <span class="at">--all</span></span>
-<span id="cb31-3"><a></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--dry</span>     <span class="co"># 先に見る</span></span>
-<span id="cb31-4"><a></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--yes</span>     <span class="co"># 納得したら削除</span></span>
-<span id="cb31-5"><a></a></span>
-<span id="cb31-6"><a></a><span class="co"># cron で自動化</span></span>
-<span id="cb31-7"><a></a><span class="co"># 0 18 * * 5 cd ~/projects/ml-pipeline &amp;&amp; git-delete-obsolete-branch --yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a aria-label="1"></a><span class="co"># 金曜日の振り返り時に</span></span>
+<span id="cb31-2"><a aria-label="2"></a><span class="fu">git</span> fetch <span class="at">--prune</span> <span class="at">--all</span></span>
+<span id="cb31-3"><a aria-label="3"></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--dry</span>     <span class="co"># 先に見る</span></span>
+<span id="cb31-4"><a aria-label="4"></a><span class="ex">git-delete-obsolete-branch</span> <span class="at">--yes</span>     <span class="co"># 納得したら削除</span></span>
+<span id="cb31-5"><a aria-label="5"></a></span>
+<span id="cb31-6"><a aria-label="6"></a><span class="co"># cron で自動化</span></span>
+<span id="cb31-7"><a aria-label="7"></a><span class="co"># 0 18 * * 5 cd ~/projects/ml-pipeline &amp;&amp; git-delete-obsolete-branch --yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-delete-remote-branch-リモートブランチ削除" class="slide level2">
@@ -1426,26 +1429,26 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a></a><span class="co"># originから消す</span></span>
-<span id="cb32-2"><a></a><span class="ex">git-delete-remote-branch</span> feature/foo</span>
-<span id="cb32-3"><a></a></span>
-<span id="cb32-4"><a></a><span class="co"># upstream 指定</span></span>
-<span id="cb32-5"><a></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--remote</span> upstream</span>
-<span id="cb32-6"><a></a></span>
-<span id="cb32-7"><a></a><span class="co"># dry-run で確認</span></span>
-<span id="cb32-8"><a></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--dry</span></span>
-<span id="cb32-9"><a></a></span>
-<span id="cb32-10"><a></a><span class="co"># ローカルも合わせて削除</span></span>
-<span id="cb32-11"><a></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--with-local</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a aria-label="1"></a><span class="co"># originから消す</span></span>
+<span id="cb32-2"><a aria-label="2"></a><span class="ex">git-delete-remote-branch</span> feature/foo</span>
+<span id="cb32-3"><a aria-label="3"></a></span>
+<span id="cb32-4"><a aria-label="4"></a><span class="co"># upstream 指定</span></span>
+<span id="cb32-5"><a aria-label="5"></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--remote</span> upstream</span>
+<span id="cb32-6"><a aria-label="6"></a></span>
+<span id="cb32-7"><a aria-label="7"></a><span class="co"># dry-run で確認</span></span>
+<span id="cb32-8"><a aria-label="8"></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--dry</span></span>
+<span id="cb32-9"><a aria-label="9"></a></span>
+<span id="cb32-10"><a aria-label="10"></a><span class="co"># ローカルも合わせて削除</span></span>
+<span id="cb32-11"><a aria-label="11"></a><span class="ex">git-delete-remote-branch</span> feature/foo <span class="at">--with-local</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a></a><span class="co"># リモートブランチ削除</span></span>
-<span id="cb33-2"><a></a><span class="fu">git</span> push origin <span class="at">--delete</span> feature/foo</span>
-<span id="cb33-3"><a></a></span>
-<span id="cb33-4"><a></a><span class="co"># ローカルも合わせて削除</span></span>
-<span id="cb33-5"><a></a><span class="fu">git</span> push origin <span class="at">--delete</span> feature/foo <span class="kw">&amp;&amp;</span> <span class="fu">git</span> branch <span class="at">-D</span> feature/foo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a aria-label="1"></a><span class="co"># リモートブランチ削除</span></span>
+<span id="cb33-2"><a aria-label="2"></a><span class="fu">git</span> push origin <span class="at">--delete</span> feature/foo</span>
+<span id="cb33-3"><a aria-label="3"></a></span>
+<span id="cb33-4"><a aria-label="4"></a><span class="co"># ローカルも合わせて削除</span></span>
+<span id="cb33-5"><a aria-label="5"></a><span class="fu">git</span> push origin <span class="at">--delete</span> feature/foo <span class="kw">&amp;&amp;</span> <span class="fu">git</span> branch <span class="at">-D</span> feature/foo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1497,13 +1500,13 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: マルチリモート環境での掃除</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a></a><span class="co"># 確認</span></span>
-<span id="cb34-2"><a></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> origin   <span class="at">--dry</span></span>
-<span id="cb34-3"><a></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> upstream <span class="at">--dry</span></span>
-<span id="cb34-4"><a></a></span>
-<span id="cb34-5"><a></a><span class="co"># 実行 + ローカルも削除</span></span>
-<span id="cb34-6"><a></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> origin   <span class="at">--with-local</span></span>
-<span id="cb34-7"><a></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> upstream</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a aria-label="1"></a><span class="co"># 確認</span></span>
+<span id="cb34-2"><a aria-label="2"></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> origin   <span class="at">--dry</span></span>
+<span id="cb34-3"><a aria-label="3"></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> upstream <span class="at">--dry</span></span>
+<span id="cb34-4"><a aria-label="4"></a></span>
+<span id="cb34-5"><a aria-label="5"></a><span class="co"># 実行 + ローカルも削除</span></span>
+<span id="cb34-6"><a aria-label="6"></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> origin   <span class="at">--with-local</span></span>
+<span id="cb34-7"><a aria-label="7"></a><span class="ex">git-delete-remote-branch</span> feature/exp-v3 <span class="at">--remote</span> upstream</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-tmp-checkout-wipを新ブランチに退避" class="slide level2">
@@ -1525,19 +1528,19 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a></a><span class="co"># 新ブランチ名だけ指定</span></span>
-<span id="cb35-2"><a></a><span class="ex">git-tmp-checkout</span> <span class="at">-c</span> feature/wip</span>
-<span id="cb35-3"><a></a></span>
-<span id="cb35-4"><a></a><span class="co"># stashメッセージも指定</span></span>
-<span id="cb35-5"><a></a><span class="ex">git-tmp-checkout</span> <span class="at">-m</span> <span class="st">"wip: refactor"</span> <span class="at">-c</span> feature/wip</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a aria-label="1"></a><span class="co"># 新ブランチ名だけ指定</span></span>
+<span id="cb35-2"><a aria-label="2"></a><span class="ex">git-tmp-checkout</span> <span class="at">-c</span> feature/wip</span>
+<span id="cb35-3"><a aria-label="3"></a></span>
+<span id="cb35-4"><a aria-label="4"></a><span class="co"># stashメッセージも指定</span></span>
+<span id="cb35-5"><a aria-label="5"></a><span class="ex">git-tmp-checkout</span> <span class="at">-m</span> <span class="st">"wip: refactor"</span> <span class="at">-c</span> feature/wip</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a></a><span class="co"># stash → 新ブランチ → apply</span></span>
-<span id="cb36-2"><a></a><span class="fu">git</span> stash push <span class="at">-a</span> <span class="at">-m</span> <span class="st">"wip: refactor"</span></span>
-<span id="cb36-3"><a></a><span class="fu">git</span> switch <span class="at">-c</span> feature/wip</span>
-<span id="cb36-4"><a></a><span class="fu">git</span> stash apply stash@{0}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a aria-label="1"></a><span class="co"># stash → 新ブランチ → apply</span></span>
+<span id="cb36-2"><a aria-label="2"></a><span class="fu">git</span> stash push <span class="at">-a</span> <span class="at">-m</span> <span class="st">"wip: refactor"</span></span>
+<span id="cb36-3"><a aria-label="3"></a><span class="fu">git</span> switch <span class="at">-c</span> feature/wip</span>
+<span id="cb36-4"><a aria-label="4"></a><span class="fu">git</span> stash apply stash@{0}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1594,15 +1597,15 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 誤ったブランチで始めた実験の退避</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a></a><span class="co"># 状況: main で analysis.ipynb をいじりまくった後に気づく</span></span>
-<span id="cb37-2"><a></a><span class="fu">git</span> branch <span class="at">--show-current</span></span>
-<span id="cb37-3"><a></a><span class="co">#  main</span></span>
-<span id="cb37-4"><a></a></span>
-<span id="cb37-5"><a></a><span class="co"># 変更を保ったまま新ブランチへ</span></span>
-<span id="cb37-6"><a></a><span class="ex">git-tmp-checkout</span> <span class="at">-m</span> <span class="st">"wip: 線形回帰 vs lgbm比較"</span> <span class="at">-c</span> exp/lgbm-compare</span>
-<span id="cb37-7"><a></a></span>
-<span id="cb37-8"><a></a><span class="co"># 作業継続．必要なら stash を drop</span></span>
-<span id="cb37-9"><a></a><span class="fu">git</span> stash drop stash@{0}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a aria-label="1"></a><span class="co"># 状況: main で analysis.ipynb をいじりまくった後に気づく</span></span>
+<span id="cb37-2"><a aria-label="2"></a><span class="fu">git</span> branch <span class="at">--show-current</span></span>
+<span id="cb37-3"><a aria-label="3"></a><span class="co">#  main</span></span>
+<span id="cb37-4"><a aria-label="4"></a></span>
+<span id="cb37-5"><a aria-label="5"></a><span class="co"># 変更を保ったまま新ブランチへ</span></span>
+<span id="cb37-6"><a aria-label="6"></a><span class="ex">git-tmp-checkout</span> <span class="at">-m</span> <span class="st">"wip: 線形回帰 vs lgbm比較"</span> <span class="at">-c</span> exp/lgbm-compare</span>
+<span id="cb37-7"><a aria-label="7"></a></span>
+<span id="cb37-8"><a aria-label="8"></a><span class="co"># 作業継続．必要なら stash を drop</span></span>
+<span id="cb37-9"><a aria-label="9"></a><span class="fu">git</span> stash drop stash@{0}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-browse-ブラウザでリポジトリを開く" class="slide level2">
@@ -1624,25 +1627,25 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a></a><span class="co"># デフォルトブラウザで開く</span></span>
-<span id="cb38-2"><a></a><span class="ex">git-browse</span></span>
-<span id="cb38-3"><a></a></span>
-<span id="cb38-4"><a></a><span class="co"># Firefox で main ブランチを</span></span>
-<span id="cb38-5"><a></a><span class="ex">git-browse</span> <span class="at">-b</span> firefox <span class="at">-r</span> main</span>
-<span id="cb38-6"><a></a></span>
-<span id="cb38-7"><a></a><span class="co"># 特定コミット</span></span>
-<span id="cb38-8"><a></a><span class="ex">git-browse</span> <span class="at">-r</span> 1234abc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a aria-label="1"></a><span class="co"># デフォルトブラウザで開く</span></span>
+<span id="cb38-2"><a aria-label="2"></a><span class="ex">git-browse</span></span>
+<span id="cb38-3"><a aria-label="3"></a></span>
+<span id="cb38-4"><a aria-label="4"></a><span class="co"># Firefox で main ブランチを</span></span>
+<span id="cb38-5"><a aria-label="5"></a><span class="ex">git-browse</span> <span class="at">-b</span> firefox <span class="at">-r</span> main</span>
+<span id="cb38-6"><a aria-label="6"></a></span>
+<span id="cb38-7"><a aria-label="7"></a><span class="co"># 特定コミット</span></span>
+<span id="cb38-8"><a aria-label="8"></a><span class="ex">git-browse</span> <span class="at">-r</span> 1234abc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a></a><span class="co"># SSH URL を HTTPS に変換して開く</span></span>
-<span id="cb39-2"><a></a><span class="va">URL</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> remote get-url origin <span class="dt">\</span></span>
-<span id="cb39-3"><a></a>      <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-E</span> <span class="st">'s#git@([^:]+):#https://\1/#; s#\.git$##'</span><span class="va">)</span></span>
-<span id="cb39-4"><a></a><span class="fu">git</span> web--browse <span class="st">"</span><span class="va">$URL</span><span class="st">"</span></span>
-<span id="cb39-5"><a></a></span>
-<span id="cb39-6"><a></a><span class="co"># 特定ブランチ</span></span>
-<span id="cb39-7"><a></a><span class="fu">git</span> web--browse <span class="st">"</span><span class="va">$URL</span><span class="st">/tree/main"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a aria-label="1"></a><span class="co"># SSH URL を HTTPS に変換して開く</span></span>
+<span id="cb39-2"><a aria-label="2"></a><span class="va">URL</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> remote get-url origin <span class="dt">\</span></span>
+<span id="cb39-3"><a aria-label="3"></a>      <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-E</span> <span class="st">'s#git@([^:]+):#https://\1/#; s#\.git$##'</span><span class="va">)</span></span>
+<span id="cb39-4"><a aria-label="4"></a><span class="fu">git</span> web--browse <span class="st">"</span><span class="va">$URL</span><span class="st">"</span></span>
+<span id="cb39-5"><a aria-label="5"></a></span>
+<span id="cb39-6"><a aria-label="6"></a><span class="co"># 特定ブランチ</span></span>
+<span id="cb39-7"><a aria-label="7"></a><span class="fu">git</span> web--browse <span class="st">"</span><span class="va">$URL</span><span class="st">/tree/main"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1698,12 +1701,12 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 実験結果のシェア</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a></a><span class="co"># 現在作業中のブランチを誰かに見てもらう</span></span>
-<span id="cb40-2"><a></a><span class="va">CURRENT</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span></span>
-<span id="cb40-3"><a></a><span class="ex">git-browse</span> <span class="at">-r</span> <span class="st">"</span><span class="va">$CURRENT</span><span class="st">"</span></span>
-<span id="cb40-4"><a></a></span>
-<span id="cb40-5"><a></a><span class="co"># 特定の試行が成功した時点のスナップショット</span></span>
-<span id="cb40-6"><a></a><span class="ex">git-browse</span> <span class="at">-r</span> <span class="va">$(</span><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">"auc 0.85"</span> <span class="at">-n</span> 1 <span class="at">--format</span><span class="op">=</span>%h<span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a aria-label="1"></a><span class="co"># 現在作業中のブランチを誰かに見てもらう</span></span>
+<span id="cb40-2"><a aria-label="2"></a><span class="va">CURRENT</span><span class="op">=</span><span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span></span>
+<span id="cb40-3"><a aria-label="3"></a><span class="ex">git-browse</span> <span class="at">-r</span> <span class="st">"</span><span class="va">$CURRENT</span><span class="st">"</span></span>
+<span id="cb40-4"><a aria-label="4"></a></span>
+<span id="cb40-5"><a aria-label="5"></a><span class="co"># 特定の試行が成功した時点のスナップショット</span></span>
+<span id="cb40-6"><a aria-label="6"></a><span class="ex">git-browse</span> <span class="at">-r</span> <span class="va">$(</span><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">"auc 0.85"</span> <span class="at">-n</span> 1 <span class="at">--format</span><span class="op">=</span>%h<span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -1754,24 +1757,24 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a></a><span class="co"># src/a と docs だけクローン</span></span>
-<span id="cb41-2"><a></a><span class="ex">git-sparse-checkout</span> <span class="at">-u</span> git@github.com:owner/repo.git <span class="dt">\</span></span>
-<span id="cb41-3"><a></a>  <span class="at">-d</span> ./repo <span class="at">-b</span> main <span class="at">-p</span> <span class="st">"src/a:docs"</span></span>
-<span id="cb41-4"><a></a></span>
-<span id="cb41-5"><a></a><span class="co"># topレベル + 空ディレクトリ骨格だけ</span></span>
-<span id="cb41-6"><a></a><span class="ex">git-sparse-checkout</span> <span class="at">-u</span> git@github.com:owner/repo.git <span class="dt">\</span></span>
-<span id="cb41-7"><a></a>  <span class="at">-d</span> ./repo <span class="at">-b</span> main <span class="at">-s</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a aria-label="1"></a><span class="co"># src/a と docs だけクローン</span></span>
+<span id="cb41-2"><a aria-label="2"></a><span class="ex">git-sparse-checkout</span> <span class="at">-u</span> git@github.com:owner/repo.git <span class="dt">\</span></span>
+<span id="cb41-3"><a aria-label="3"></a>  <span class="at">-d</span> ./repo <span class="at">-b</span> main <span class="at">-p</span> <span class="st">"src/a:docs"</span></span>
+<span id="cb41-4"><a aria-label="4"></a></span>
+<span id="cb41-5"><a aria-label="5"></a><span class="co"># topレベル + 空ディレクトリ骨格だけ</span></span>
+<span id="cb41-6"><a aria-label="6"></a><span class="ex">git-sparse-checkout</span> <span class="at">-u</span> git@github.com:owner/repo.git <span class="dt">\</span></span>
+<span id="cb41-7"><a aria-label="7"></a>  <span class="at">-d</span> ./repo <span class="at">-b</span> main <span class="at">-s</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a></a><span class="co"># blobless clone + sparse-checkout</span></span>
-<span id="cb42-2"><a></a><span class="fu">git</span> clone <span class="at">--filter</span><span class="op">=</span>blob:none <span class="at">--no-checkout</span> <span class="dt">\</span></span>
-<span id="cb42-3"><a></a>  git@github.com:owner/repo.git ./repo</span>
-<span id="cb42-4"><a></a><span class="bu">cd</span> ./repo</span>
-<span id="cb42-5"><a></a><span class="fu">git</span> sparse-checkout init <span class="at">--no-cone</span></span>
-<span id="cb42-6"><a></a><span class="bu">printf</span> <span class="st">'src/a\ndocs\n'</span> <span class="op">&gt;</span> .git/info/sparse-checkout</span>
-<span id="cb42-7"><a></a><span class="fu">git</span> checkout main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a aria-label="1"></a><span class="co"># blobless clone + sparse-checkout</span></span>
+<span id="cb42-2"><a aria-label="2"></a><span class="fu">git</span> clone <span class="at">--filter</span><span class="op">=</span>blob:none <span class="at">--no-checkout</span> <span class="dt">\</span></span>
+<span id="cb42-3"><a aria-label="3"></a>  git@github.com:owner/repo.git ./repo</span>
+<span id="cb42-4"><a aria-label="4"></a><span class="bu">cd</span> ./repo</span>
+<span id="cb42-5"><a aria-label="5"></a><span class="fu">git</span> sparse-checkout init <span class="at">--no-cone</span></span>
+<span id="cb42-6"><a aria-label="6"></a><span class="bu">printf</span> <span class="st">'src/a\ndocs\n'</span> <span class="op">&gt;</span> .git/info/sparse-checkout</span>
+<span id="cb42-7"><a aria-label="7"></a><span class="fu">git</span> checkout main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1831,17 +1834,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 分析担当者ごとの軽量clone</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a></a><span class="co"># 特徴量担当: features と共通スクリプトだけ取得</span></span>
-<span id="cb43-2"><a></a><span class="ex">git-sparse-checkout</span> <span class="dt">\</span></span>
-<span id="cb43-3"><a></a>  <span class="at">-u</span> git@github.com:acme/ml-platform.git <span class="dt">\</span></span>
-<span id="cb43-4"><a></a>  <span class="at">-d</span> ./ml-platform-slim <span class="at">-b</span> main <span class="dt">\</span></span>
-<span id="cb43-5"><a></a>  <span class="at">-p</span> <span class="st">"src/features:src/utils:notebooks/feature-eng"</span></span>
-<span id="cb43-6"><a></a></span>
-<span id="cb43-7"><a></a><span class="co"># CI担当: workflow とインフラだけ</span></span>
-<span id="cb43-8"><a></a><span class="ex">git-sparse-checkout</span> <span class="dt">\</span></span>
-<span id="cb43-9"><a></a>  <span class="at">-u</span> git@github.com:acme/ml-platform.git <span class="dt">\</span></span>
-<span id="cb43-10"><a></a>  <span class="at">-d</span> ./ml-infra <span class="at">-b</span> main <span class="dt">\</span></span>
-<span id="cb43-11"><a></a>  <span class="at">-p</span> <span class="st">".github:infra:Dockerfile"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a aria-label="1"></a><span class="co"># 特徴量担当: features と共通スクリプトだけ取得</span></span>
+<span id="cb43-2"><a aria-label="2"></a><span class="ex">git-sparse-checkout</span> <span class="dt">\</span></span>
+<span id="cb43-3"><a aria-label="3"></a>  <span class="at">-u</span> git@github.com:acme/ml-platform.git <span class="dt">\</span></span>
+<span id="cb43-4"><a aria-label="4"></a>  <span class="at">-d</span> ./ml-platform-slim <span class="at">-b</span> main <span class="dt">\</span></span>
+<span id="cb43-5"><a aria-label="5"></a>  <span class="at">-p</span> <span class="st">"src/features:src/utils:notebooks/feature-eng"</span></span>
+<span id="cb43-6"><a aria-label="6"></a></span>
+<span id="cb43-7"><a aria-label="7"></a><span class="co"># CI担当: workflow とインフラだけ</span></span>
+<span id="cb43-8"><a aria-label="8"></a><span class="ex">git-sparse-checkout</span> <span class="dt">\</span></span>
+<span id="cb43-9"><a aria-label="9"></a>  <span class="at">-u</span> git@github.com:acme/ml-platform.git <span class="dt">\</span></span>
+<span id="cb43-10"><a aria-label="10"></a>  <span class="at">-d</span> ./ml-infra <span class="at">-b</span> main <span class="dt">\</span></span>
+<span id="cb43-11"><a aria-label="11"></a>  <span class="at">-p</span> <span class="st">".github:infra:Dockerfile"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-ssh-clone-from-https-httpsssh変換クローン" class="slide level2">
@@ -1863,22 +1866,22 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a></a><span class="co"># 通常のSSH clone</span></span>
-<span id="cb44-2"><a></a><span class="ex">git-ssh-clone-from-https</span> <span class="dt">\</span></span>
-<span id="cb44-3"><a></a>  https://github.com/user/repo.git</span>
-<span id="cb44-4"><a></a></span>
-<span id="cb44-5"><a></a><span class="co"># SSH configの別エイリアスを使う</span></span>
-<span id="cb44-6"><a></a><span class="ex">git-ssh-clone-from-https</span> <span class="dt">\</span></span>
-<span id="cb44-7"><a></a>  <span class="at">-h</span> github-work <span class="dt">\</span></span>
-<span id="cb44-8"><a></a>  <span class="at">-d</span> ./my-fork <span class="dt">\</span></span>
-<span id="cb44-9"><a></a>  https://github.com/user/repo.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a aria-label="1"></a><span class="co"># 通常のSSH clone</span></span>
+<span id="cb44-2"><a aria-label="2"></a><span class="ex">git-ssh-clone-from-https</span> <span class="dt">\</span></span>
+<span id="cb44-3"><a aria-label="3"></a>  https://github.com/user/repo.git</span>
+<span id="cb44-4"><a aria-label="4"></a></span>
+<span id="cb44-5"><a aria-label="5"></a><span class="co"># SSH configの別エイリアスを使う</span></span>
+<span id="cb44-6"><a aria-label="6"></a><span class="ex">git-ssh-clone-from-https</span> <span class="dt">\</span></span>
+<span id="cb44-7"><a aria-label="7"></a>  <span class="at">-h</span> github-work <span class="dt">\</span></span>
+<span id="cb44-8"><a aria-label="8"></a>  <span class="at">-d</span> ./my-fork <span class="dt">\</span></span>
+<span id="cb44-9"><a aria-label="9"></a>  https://github.com/user/repo.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a></a><span class="co"># HTTPS → SSH URL 変換して clone</span></span>
-<span id="cb45-2"><a></a><span class="va">URL</span><span class="op">=</span>https://github.com/user/repo.git</span>
-<span id="cb45-3"><a></a><span class="fu">git</span> clone <span class="st">"</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$URL</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-E</span> <span class="st">'s#https://([^/]+)/#git@\1:#'</span><span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a aria-label="1"></a><span class="co"># HTTPS → SSH URL 変換して clone</span></span>
+<span id="cb45-2"><a aria-label="2"></a><span class="va">URL</span><span class="op">=</span>https://github.com/user/repo.git</span>
+<span id="cb45-3"><a aria-label="3"></a><span class="fu">git</span> clone <span class="st">"</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$URL</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-E</span> <span class="st">'s#https://([^/]+)/#git@\1:#'</span><span class="va">)</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -1930,21 +1933,21 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: マルチアカウント運用</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a></a><span class="co"># ~/.ssh/config</span></span>
-<span id="cb46-2"><a></a><span class="co"># Host github-work</span></span>
-<span id="cb46-3"><a></a><span class="co">#     HostName github.com</span></span>
-<span id="cb46-4"><a></a><span class="co">#     IdentityFile ~/.ssh/id_ed25519_work</span></span>
-<span id="cb46-5"><a></a><span class="co"># Host github-personal</span></span>
-<span id="cb46-6"><a></a><span class="co">#     HostName github.com</span></span>
-<span id="cb46-7"><a></a><span class="co">#     IdentityFile ~/.ssh/id_ed25519_personal</span></span>
-<span id="cb46-8"><a></a></span>
-<span id="cb46-9"><a></a><span class="co"># 会社リポジトリ</span></span>
-<span id="cb46-10"><a></a><span class="ex">git-ssh-clone-from-https</span> <span class="at">-h</span> github-work <span class="dt">\</span></span>
-<span id="cb46-11"><a></a>  https://github.com/acme/ml-pipeline.git</span>
-<span id="cb46-12"><a></a></span>
-<span id="cb46-13"><a></a><span class="co"># 個人リポジトリ</span></span>
-<span id="cb46-14"><a></a><span class="ex">git-ssh-clone-from-https</span> <span class="at">-h</span> github-personal <span class="dt">\</span></span>
-<span id="cb46-15"><a></a>  https://github.com/ryonakagami/side-project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a aria-label="1"></a><span class="co"># ~/.ssh/config</span></span>
+<span id="cb46-2"><a aria-label="2"></a><span class="co"># Host github-work</span></span>
+<span id="cb46-3"><a aria-label="3"></a><span class="co">#     HostName github.com</span></span>
+<span id="cb46-4"><a aria-label="4"></a><span class="co">#     IdentityFile ~/.ssh/id_ed25519_work</span></span>
+<span id="cb46-5"><a aria-label="5"></a><span class="co"># Host github-personal</span></span>
+<span id="cb46-6"><a aria-label="6"></a><span class="co">#     HostName github.com</span></span>
+<span id="cb46-7"><a aria-label="7"></a><span class="co">#     IdentityFile ~/.ssh/id_ed25519_personal</span></span>
+<span id="cb46-8"><a aria-label="8"></a></span>
+<span id="cb46-9"><a aria-label="9"></a><span class="co"># 会社リポジトリ</span></span>
+<span id="cb46-10"><a aria-label="10"></a><span class="ex">git-ssh-clone-from-https</span> <span class="at">-h</span> github-work <span class="dt">\</span></span>
+<span id="cb46-11"><a aria-label="11"></a>  https://github.com/acme/ml-pipeline.git</span>
+<span id="cb46-12"><a aria-label="12"></a></span>
+<span id="cb46-13"><a aria-label="13"></a><span class="co"># 個人リポジトリ</span></span>
+<span id="cb46-14"><a aria-label="14"></a><span class="ex">git-ssh-clone-from-https</span> <span class="at">-h</span> github-personal <span class="dt">\</span></span>
+<span id="cb46-15"><a aria-label="15"></a>  https://github.com/ryonakagami/side-project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-push-multiple-remotes-全remoteへpush" class="slide level2">
@@ -1966,17 +1969,17 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a></a><span class="co"># main ブランチを全remoteへpush</span></span>
-<span id="cb47-2"><a></a><span class="ex">git-push-multiple-remotes</span> main</span>
-<span id="cb47-3"><a></a></span>
-<span id="cb47-4"><a></a><span class="co"># feature ブランチも同様</span></span>
-<span id="cb47-5"><a></a><span class="ex">git-push-multiple-remotes</span> feature/v2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a aria-label="1"></a><span class="co"># main ブランチを全remoteへpush</span></span>
+<span id="cb47-2"><a aria-label="2"></a><span class="ex">git-push-multiple-remotes</span> main</span>
+<span id="cb47-3"><a aria-label="3"></a></span>
+<span id="cb47-4"><a aria-label="4"></a><span class="co"># feature ブランチも同様</span></span>
+<span id="cb47-5"><a aria-label="5"></a><span class="ex">git-push-multiple-remotes</span> feature/v2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a></a><span class="co"># 全 remote に対し順次 push</span></span>
-<span id="cb48-2"><a></a><span class="fu">git</span> remote <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> git push {} main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a aria-label="1"></a><span class="co"># 全 remote に対し順次 push</span></span>
+<span id="cb48-2"><a aria-label="2"></a><span class="fu">git</span> remote <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> git push {} main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -2025,14 +2028,14 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: 3-way ミラー運用</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a></a><span class="co"># 設定済みremote一覧</span></span>
-<span id="cb49-2"><a></a><span class="fu">git</span> remote <span class="at">-v</span></span>
-<span id="cb49-3"><a></a><span class="co">#  origin     git@gitlab.corp.internal:ml/pipeline.git (push)</span></span>
-<span id="cb49-4"><a></a><span class="co">#  mirror     git@github.com:acme/pipeline.git         (push)</span></span>
-<span id="cb49-5"><a></a><span class="co">#  backup     git@backup-host:ml/pipeline.git          (push)</span></span>
-<span id="cb49-6"><a></a></span>
-<span id="cb49-7"><a></a><span class="co"># 全部にpush</span></span>
-<span id="cb49-8"><a></a><span class="ex">git-push-multiple-remotes</span> <span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a aria-label="1"></a><span class="co"># 設定済みremote一覧</span></span>
+<span id="cb49-2"><a aria-label="2"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb49-3"><a aria-label="3"></a><span class="co">#  origin     git@gitlab.corp.internal:ml/pipeline.git (push)</span></span>
+<span id="cb49-4"><a aria-label="4"></a><span class="co">#  mirror     git@github.com:acme/pipeline.git         (push)</span></span>
+<span id="cb49-5"><a aria-label="5"></a><span class="co">#  backup     git@backup-host:ml/pipeline.git          (push)</span></span>
+<span id="cb49-6"><a aria-label="6"></a></span>
+<span id="cb49-7"><a aria-label="7"></a><span class="co"># 全部にpush</span></span>
+<span id="cb49-8"><a aria-label="8"></a><span class="ex">git-push-multiple-remotes</span> <span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-repo-update-yaml起点のメタデータ更新" class="slide level2">
@@ -2054,30 +2057,30 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a></a><span class="co"># 既定のYAMLを読む</span></span>
-<span id="cb50-2"><a></a><span class="ex">git-repo-update</span></span>
-<span id="cb50-3"><a></a></span>
-<span id="cb50-4"><a></a><span class="co"># カスタムファイル指定</span></span>
-<span id="cb50-5"><a></a><span class="ex">git-repo-update</span> /path/to/meta.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a aria-label="1"></a><span class="co"># 既定のYAMLを読む</span></span>
+<span id="cb50-2"><a aria-label="2"></a><span class="ex">git-repo-update</span></span>
+<span id="cb50-3"><a aria-label="3"></a></span>
+<span id="cb50-4"><a aria-label="4"></a><span class="co"># カスタムファイル指定</span></span>
+<span id="cb50-5"><a aria-label="5"></a><span class="ex">git-repo-update</span> /path/to/meta.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a></a><span class="co"># gh repo edit に YAML の内容を流し込む</span></span>
-<span id="cb51-2"><a></a><span class="va">DESC</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> description<span class="va">)</span></span>
-<span id="cb51-3"><a></a><span class="va">TOPICS</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> topics <span class="kw">|</span> <span class="fu">paste</span> <span class="at">-sd,</span><span class="va">)</span></span>
-<span id="cb51-4"><a></a><span class="ex">gh</span> repo edit <span class="at">--description</span> <span class="st">"</span><span class="va">$DESC</span><span class="st">"</span> <span class="at">--add-topic</span> <span class="st">"</span><span class="va">$TOPICS</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a aria-label="1"></a><span class="co"># gh repo edit に YAML の内容を流し込む</span></span>
+<span id="cb51-2"><a aria-label="2"></a><span class="va">DESC</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> description<span class="va">)</span></span>
+<span id="cb51-3"><a aria-label="3"></a><span class="va">TOPICS</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> topics <span class="kw">|</span> <span class="fu">paste</span> <span class="at">-sd,</span><span class="va">)</span></span>
+<span id="cb51-4"><a aria-label="4"></a><span class="ex">gh</span> repo edit <span class="at">--description</span> <span class="st">"</span><span class="va">$DESC</span><span class="st">"</span> <span class="at">--add-topic</span> <span class="st">"</span><span class="va">$TOPICS</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">YAMLスキーマ例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a></a><span class="co"># .github/repository_metadata/gh_repo.yml</span></span>
-<span id="cb52-2"><a></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"ML pipeline for churn prediction"</span></span>
-<span id="cb52-3"><a></a><span class="fu">topics</span><span class="kw">:</span></span>
-<span id="cb52-4"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> machine-learning</span></span>
-<span id="cb52-5"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> churn</span></span>
-<span id="cb52-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> lightgbm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a aria-label="1"></a><span class="co"># .github/repository_metadata/gh_repo.yml</span></span>
+<span id="cb52-2"><a aria-label="2"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"ML pipeline for churn prediction"</span></span>
+<span id="cb52-3"><a aria-label="3"></a><span class="fu">topics</span><span class="kw">:</span></span>
+<span id="cb52-4"><a aria-label="4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> machine-learning</span></span>
+<span id="cb52-5"><a aria-label="5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> churn</span></span>
+<span id="cb52-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> lightgbm</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
@@ -2106,19 +2109,19 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: CI でメタデータ同期</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a></a><span class="co"># .github/workflows/sync-repo-meta.yml</span></span>
-<span id="cb53-2"><a></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb53-3"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb53-4"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
-<span id="cb53-5"><a></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'.github/repository_metadata/gh_repo.yml'</span><span class="kw">]</span></span>
-<span id="cb53-6"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb53-7"><a></a><span class="at">  </span><span class="fu">sync</span><span class="kw">:</span></span>
-<span id="cb53-8"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb53-9"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb53-10"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb53-11"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ~/.tool.d/regmonkey-gitcommand/src/git-repo-update.sh</span></span>
-<span id="cb53-12"><a></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb53-13"><a></a><span class="at">          </span><span class="fu">GH_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb53-1"><a aria-label="1"></a><span class="co"># .github/workflows/sync-repo-meta.yml</span></span>
+<span id="cb53-2"><a aria-label="2"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb53-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb53-4"><a aria-label="4"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">main</span><span class="kw">]</span></span>
+<span id="cb53-5"><a aria-label="5"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'.github/repository_metadata/gh_repo.yml'</span><span class="kw">]</span></span>
+<span id="cb53-6"><a aria-label="6"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb53-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">sync</span><span class="kw">:</span></span>
+<span id="cb53-8"><a aria-label="8"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb53-9"><a aria-label="9"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb53-10"><a aria-label="10"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb53-11"><a aria-label="11"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ~/.tool.d/regmonkey-gitcommand/src/git-repo-update.sh</span></span>
+<span id="cb53-12"><a aria-label="12"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb53-13"><a aria-label="13"></a><span class="at">          </span><span class="fu">GH_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -2169,31 +2172,31 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a></a><span class="co"># 既定のYAMLで作成</span></span>
-<span id="cb54-2"><a></a><span class="ex">git-create-repo</span></span>
-<span id="cb54-3"><a></a></span>
-<span id="cb54-4"><a></a><span class="co"># 別パスのYAMLを使う</span></span>
-<span id="cb54-5"><a></a><span class="ex">git-create-repo</span> ./meta/newproject.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a aria-label="1"></a><span class="co"># 既定のYAMLで作成</span></span>
+<span id="cb54-2"><a aria-label="2"></a><span class="ex">git-create-repo</span></span>
+<span id="cb54-3"><a aria-label="3"></a></span>
+<span id="cb54-4"><a aria-label="4"></a><span class="co"># 別パスのYAMLを使う</span></span>
+<span id="cb54-5"><a aria-label="5"></a><span class="ex">git-create-repo</span> ./meta/newproject.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a></a><span class="co"># YAML から name/visibility を読んで作成</span></span>
-<span id="cb55-2"><a></a><span class="va">NAME</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> name<span class="va">)</span></span>
-<span id="cb55-3"><a></a><span class="va">VIS</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> visibility<span class="va">)</span></span>
-<span id="cb55-4"><a></a><span class="ex">gh</span> repo create <span class="st">"</span><span class="va">$NAME</span><span class="st">"</span> <span class="at">--</span><span class="st">"</span><span class="va">$VIS</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a aria-label="1"></a><span class="co"># YAML から name/visibility を読んで作成</span></span>
+<span id="cb55-2"><a aria-label="2"></a><span class="va">NAME</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> name<span class="va">)</span></span>
+<span id="cb55-3"><a aria-label="3"></a><span class="va">VIS</span><span class="op">=</span><span class="va">$(</span><span class="ex">yamlcli</span> <span class="at">-f</span> gh_repo.yml <span class="at">-k</span> visibility<span class="va">)</span></span>
+<span id="cb55-4"><a aria-label="4"></a><span class="ex">gh</span> repo create <span class="st">"</span><span class="va">$NAME</span><span class="st">"</span> <span class="at">--</span><span class="st">"</span><span class="va">$VIS</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">YAMLスキーマ例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb56-1"><a></a><span class="co"># .github/repository_metadata/gh_repo.yml</span></span>
-<span id="cb56-2"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> ml-churn-prediction</span></span>
-<span id="cb56-3"><a></a><span class="fu">visibility</span><span class="kw">:</span><span class="at"> private</span></span>
-<span id="cb56-4"><a></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"ML pipeline for churn"</span></span>
-<span id="cb56-5"><a></a><span class="fu">topics</span><span class="kw">:</span></span>
-<span id="cb56-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> machine-learning</span></span>
-<span id="cb56-7"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> churn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb56-1"><a aria-label="1"></a><span class="co"># .github/repository_metadata/gh_repo.yml</span></span>
+<span id="cb56-2"><a aria-label="2"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> ml-churn-prediction</span></span>
+<span id="cb56-3"><a aria-label="3"></a><span class="fu">visibility</span><span class="kw">:</span><span class="at"> private</span></span>
+<span id="cb56-4"><a aria-label="4"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"ML pipeline for churn"</span></span>
+<span id="cb56-5"><a aria-label="5"></a><span class="fu">topics</span><span class="kw">:</span></span>
+<span id="cb56-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> machine-learning</span></span>
+<span id="cb56-7"><a aria-label="7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> churn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
@@ -2223,17 +2226,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: プロジェクトscaffold</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a></a><span class="co"># テンプレ配布</span></span>
-<span id="cb57-2"><a></a><span class="fu">cp</span> <span class="at">-r</span> ~/.template/ds-project ./analysis-2026-Q2-customer-churn</span>
-<span id="cb57-3"><a></a><span class="bu">cd</span> ./analysis-2026-Q2-customer-churn</span>
-<span id="cb57-4"><a></a></span>
-<span id="cb57-5"><a></a><span class="co"># YAML書き換え（name だけ変えればOK）</span></span>
-<span id="cb57-6"><a></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/__PROJECT_NAME__/analysis-2026-Q2-customer-churn/'</span> <span class="dt">\</span></span>
-<span id="cb57-7"><a></a>  .github/repository_metadata/gh_repo.yml</span>
-<span id="cb57-8"><a></a></span>
-<span id="cb57-9"><a></a><span class="co"># 一発生成</span></span>
-<span id="cb57-10"><a></a><span class="ex">git-create-repo</span></span>
-<span id="cb57-11"><a></a><span class="ex">git-repo-update</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a aria-label="1"></a><span class="co"># テンプレ配布</span></span>
+<span id="cb57-2"><a aria-label="2"></a><span class="fu">cp</span> <span class="at">-r</span> ~/.template/ds-project ./analysis-2026-Q2-customer-churn</span>
+<span id="cb57-3"><a aria-label="3"></a><span class="bu">cd</span> ./analysis-2026-Q2-customer-churn</span>
+<span id="cb57-4"><a aria-label="4"></a></span>
+<span id="cb57-5"><a aria-label="5"></a><span class="co"># YAML書き換え（name だけ変えればOK）</span></span>
+<span id="cb57-6"><a aria-label="6"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/__PROJECT_NAME__/analysis-2026-Q2-customer-churn/'</span> <span class="dt">\</span></span>
+<span id="cb57-7"><a aria-label="7"></a>  .github/repository_metadata/gh_repo.yml</span>
+<span id="cb57-8"><a aria-label="8"></a></span>
+<span id="cb57-9"><a aria-label="9"></a><span class="co"># 一発生成</span></span>
+<span id="cb57-10"><a aria-label="10"></a><span class="ex">git-create-repo</span></span>
+<span id="cb57-11"><a aria-label="11"></a><span class="ex">git-repo-update</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-delete-current-repo-現リポジトリの削除" class="slide level2">
@@ -2255,18 +2258,18 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a></a><span class="co"># 確認付きで削除</span></span>
-<span id="cb58-2"><a></a><span class="ex">git-delete-current-repo</span></span>
-<span id="cb58-3"><a></a></span>
-<span id="cb58-4"><a></a><span class="co"># dry-run で対象確認</span></span>
-<span id="cb58-5"><a></a><span class="ex">git-delete-current-repo</span> <span class="at">-n</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a aria-label="1"></a><span class="co"># 確認付きで削除</span></span>
+<span id="cb58-2"><a aria-label="2"></a><span class="ex">git-delete-current-repo</span></span>
+<span id="cb58-3"><a aria-label="3"></a></span>
+<span id="cb58-4"><a aria-label="4"></a><span class="co"># dry-run で対象確認</span></span>
+<span id="cb58-5"><a aria-label="5"></a><span class="ex">git-delete-current-repo</span> <span class="at">-n</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a></a><span class="co"># 現在のローカルから OWNER/REPO を解決して削除</span></span>
-<span id="cb59-2"><a></a><span class="va">REPO</span><span class="op">=</span><span class="va">$(</span><span class="ex">gh</span> repo view <span class="at">--json</span> nameWithOwner <span class="at">-q</span> .nameWithOwner<span class="va">)</span></span>
-<span id="cb59-3"><a></a><span class="ex">gh</span> repo delete <span class="st">"</span><span class="va">$REPO</span><span class="st">"</span> <span class="at">--yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a aria-label="1"></a><span class="co"># 現在のローカルから OWNER/REPO を解決して削除</span></span>
+<span id="cb59-2"><a aria-label="2"></a><span class="va">REPO</span><span class="op">=</span><span class="va">$(</span><span class="ex">gh</span> repo view <span class="at">--json</span> nameWithOwner <span class="at">-q</span> .nameWithOwner<span class="va">)</span></span>
+<span id="cb59-3"><a aria-label="3"></a><span class="ex">gh</span> repo delete <span class="st">"</span><span class="va">$REPO</span><span class="st">"</span> <span class="at">--yes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -2319,17 +2322,17 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: scaffoldミスの即時再作成</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a></a><span class="co"># 間違ったvisibilityで作ってしまった場合</span></span>
-<span id="cb60-2"><a></a><span class="ex">git-create-repo</span>  <span class="co"># private と public を間違えて作成</span></span>
-<span id="cb60-3"><a></a></span>
-<span id="cb60-4"><a></a><span class="co"># dry-run で対象確認</span></span>
-<span id="cb60-5"><a></a><span class="ex">git-delete-current-repo</span> <span class="at">-n</span></span>
-<span id="cb60-6"><a></a><span class="co">#  [Dry run] The following repository would be deleted: user/wrong-visibility</span></span>
-<span id="cb60-7"><a></a></span>
-<span id="cb60-8"><a></a><span class="co"># 削除 → YAML直して再作成</span></span>
-<span id="cb60-9"><a></a><span class="ex">git-delete-current-repo</span></span>
-<span id="cb60-10"><a></a><span class="fu">vi</span> .github/repository_metadata/gh_repo.yml</span>
-<span id="cb60-11"><a></a><span class="ex">git-create-repo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a aria-label="1"></a><span class="co"># 間違ったvisibilityで作ってしまった場合</span></span>
+<span id="cb60-2"><a aria-label="2"></a><span class="ex">git-create-repo</span>  <span class="co"># private と public を間違えて作成</span></span>
+<span id="cb60-3"><a aria-label="3"></a></span>
+<span id="cb60-4"><a aria-label="4"></a><span class="co"># dry-run で対象確認</span></span>
+<span id="cb60-5"><a aria-label="5"></a><span class="ex">git-delete-current-repo</span> <span class="at">-n</span></span>
+<span id="cb60-6"><a aria-label="6"></a><span class="co">#  [Dry run] The following repository would be deleted: user/wrong-visibility</span></span>
+<span id="cb60-7"><a aria-label="7"></a></span>
+<span id="cb60-8"><a aria-label="8"></a><span class="co"># 削除 → YAML直して再作成</span></span>
+<span id="cb60-9"><a aria-label="9"></a><span class="ex">git-delete-current-repo</span></span>
+<span id="cb60-10"><a aria-label="10"></a><span class="fu">vi</span> .github/repository_metadata/gh_repo.yml</span>
+<span id="cb60-11"><a aria-label="11"></a><span class="ex">git-create-repo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="git-issue2pr-issueをprに変換" class="slide level2">
@@ -2351,19 +2354,19 @@ Ryo Nakagami
 <p><span class="mini-section">Usage</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a></a><span class="co"># Issue #42 を main 向けPRに</span></span>
-<span id="cb61-2"><a></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> main <span class="at">-i</span> 42</span>
-<span id="cb61-3"><a></a></span>
-<span id="cb61-4"><a></a><span class="co"># upstream fork ワークフロー</span></span>
-<span id="cb61-5"><a></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> develop <span class="at">-i</span> 7 <span class="at">-r</span> upstream</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a aria-label="1"></a><span class="co"># Issue #42 を main 向けPRに</span></span>
+<span id="cb61-2"><a aria-label="2"></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> main <span class="at">-i</span> 42</span>
+<span id="cb61-3"><a aria-label="3"></a></span>
+<span id="cb61-4"><a aria-label="4"></a><span class="co"># upstream fork ワークフロー</span></span>
+<span id="cb61-5"><a aria-label="5"></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> develop <span class="at">-i</span> 7 <span class="at">-r</span> upstream</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="mini-section">One-liner equivalent</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a></a><span class="co"># gh api で issue を PR に変換（同一ブランチ前提）</span></span>
-<span id="cb62-2"><a></a><span class="va">OWNER_REPO</span><span class="op">=</span><span class="va">$(</span><span class="ex">gh</span> repo view <span class="at">--json</span> nameWithOwner <span class="at">-q</span> .nameWithOwner<span class="va">)</span></span>
-<span id="cb62-3"><a></a><span class="ex">gh</span> api <span class="st">"repos/</span><span class="va">$OWNER_REPO</span><span class="st">/pulls"</span> <span class="dt">\</span></span>
-<span id="cb62-4"><a></a>  <span class="at">-f</span> head=<span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span> <span class="at">-f</span> base=main <span class="at">-F</span> issue=42</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a aria-label="1"></a><span class="co"># gh api で issue を PR に変換（同一ブランチ前提）</span></span>
+<span id="cb62-2"><a aria-label="2"></a><span class="va">OWNER_REPO</span><span class="op">=</span><span class="va">$(</span><span class="ex">gh</span> repo view <span class="at">--json</span> nameWithOwner <span class="at">-q</span> .nameWithOwner<span class="va">)</span></span>
+<span id="cb62-3"><a aria-label="3"></a><span class="ex">gh</span> api <span class="st">"repos/</span><span class="va">$OWNER_REPO</span><span class="st">/pulls"</span> <span class="dt">\</span></span>
+<span id="cb62-4"><a aria-label="4"></a>  <span class="at">-f</span> head=<span class="va">$(</span><span class="fu">git</span> branch <span class="at">--show-current</span><span class="va">)</span> <span class="at">-f</span> base=main <span class="at">-F</span> issue=42</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Options</span></p>
@@ -2423,16 +2426,16 @@ Ryo Nakagami
 <p><span class="mini-section">ユースケース: RFC → 実装フロー</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a></a><span class="co"># Step1: Issue作成で設計議論（評価方法/ベースライン/データソース等）</span></span>
-<span id="cb63-2"><a></a><span class="ex">gh</span> issue create <span class="at">--title</span> <span class="st">"[RFC] 解約予測モデルv2"</span> <span class="at">--body</span> <span class="st">"..."</span></span>
-<span id="cb63-3"><a></a></span>
-<span id="cb63-4"><a></a><span class="co"># Step2: 実装ブランチで作業</span></span>
-<span id="cb63-5"><a></a><span class="fu">git</span> switch <span class="at">-c</span> feat/churn-v2</span>
-<span id="cb63-6"><a></a><span class="co"># ... 実装・commit・push ...</span></span>
-<span id="cb63-7"><a></a></span>
-<span id="cb63-8"><a></a><span class="co"># Step3: Issue #42 をそのままPR化</span></span>
-<span id="cb63-9"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin feat/churn-v2</span>
-<span id="cb63-10"><a></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> main <span class="at">-i</span> 42</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a aria-label="1"></a><span class="co"># Step1: Issue作成で設計議論（評価方法/ベースライン/データソース等）</span></span>
+<span id="cb63-2"><a aria-label="2"></a><span class="ex">gh</span> issue create <span class="at">--title</span> <span class="st">"[RFC] 解約予測モデルv2"</span> <span class="at">--body</span> <span class="st">"..."</span></span>
+<span id="cb63-3"><a aria-label="3"></a></span>
+<span id="cb63-4"><a aria-label="4"></a><span class="co"># Step2: 実装ブランチで作業</span></span>
+<span id="cb63-5"><a aria-label="5"></a><span class="fu">git</span> switch <span class="at">-c</span> feat/churn-v2</span>
+<span id="cb63-6"><a aria-label="6"></a><span class="co"># ... 実装・commit・push ...</span></span>
+<span id="cb63-7"><a aria-label="7"></a></span>
+<span id="cb63-8"><a aria-label="8"></a><span class="co"># Step3: Issue #42 をそのままPR化</span></span>
+<span id="cb63-9"><a aria-label="9"></a><span class="fu">git</span> push <span class="at">-u</span> origin feat/churn-v2</span>
+<span id="cb63-10"><a aria-label="10"></a><span class="ex">git-issue2pr</span> <span class="at">-b</span> main <span class="at">-i</span> 42</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -2481,21 +2484,21 @@ Ryo Nakagami
 <p><span class="mini-section">おすすめ .gitconfig alias</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource ini number-lines code-with-copy"><code class="sourceCode ini"><span id="cb64-1"><a></a><span class="kw">[alias]</span></span>
-<span id="cb64-2"><a></a><span class="dt">  </span><span class="co"># regmonkey-gitcommand</span></span>
-<span id="cb64-3"><a></a><span class="dt">  add-newline </span><span class="ot">=</span><span class="st"> "!git-add-newline.sh"</span></span>
-<span id="cb64-4"><a></a><span class="dt">  add-patch </span><span class="ot">=</span><span class="st"> "!git-add-patch.sh"</span></span>
-<span id="cb64-5"><a></a><span class="dt">  browse </span><span class="ot">=</span><span class="st"> "!git-browse.sh"</span></span>
-<span id="cb64-6"><a></a><span class="dt">  check-commitsize </span><span class="ot">=</span><span class="st"> "!git-check-commitsize.sh"</span></span>
-<span id="cb64-7"><a></a><span class="dt">  delete-current-repo </span><span class="ot">=</span><span class="st"> "!git-delete-current-repo.sh"</span></span>
-<span id="cb64-8"><a></a><span class="dt">  delete-obsolete-branch </span><span class="ot">=</span><span class="st"> "!git-delete-obsolete-branch.sh"</span></span>
-<span id="cb64-9"><a></a><span class="dt">  issue2pr </span><span class="ot">=</span><span class="st"> "!git-issue2pr.sh"</span></span>
-<span id="cb64-10"><a></a><span class="dt">  lastdiff </span><span class="ot">=</span><span class="st"> "!git-lastdiff.sh"</span></span>
-<span id="cb64-11"><a></a><span class="dt">  newline-check </span><span class="ot">=</span><span class="st"> "!git-newline-check.sh"</span></span>
-<span id="cb64-12"><a></a><span class="dt">  sprint-commit </span><span class="ot">=</span><span class="st"> "!git-sprint-commit.sh"</span></span>
-<span id="cb64-13"><a></a><span class="dt">  tree </span><span class="ot">=</span><span class="st"> "!git-tree.sh"</span></span>
-<span id="cb64-14"><a></a><span class="dt">  tmp-checkout </span><span class="ot">=</span><span class="st"> "!git-tmp-checkout.sh"</span></span>
-<span id="cb64-15"><a></a><span class="dt">  whoami </span><span class="ot">=</span><span class="st"> "!git-whoami.sh"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode numberSource ini number-lines code-with-copy"><code class="sourceCode ini"><span id="cb64-1"><a aria-label="1"></a><span class="kw">[alias]</span></span>
+<span id="cb64-2"><a aria-label="2"></a><span class="dt">  </span><span class="co"># regmonkey-gitcommand</span></span>
+<span id="cb64-3"><a aria-label="3"></a><span class="dt">  add-newline </span><span class="ot">=</span><span class="st"> "!git-add-newline.sh"</span></span>
+<span id="cb64-4"><a aria-label="4"></a><span class="dt">  add-patch </span><span class="ot">=</span><span class="st"> "!git-add-patch.sh"</span></span>
+<span id="cb64-5"><a aria-label="5"></a><span class="dt">  browse </span><span class="ot">=</span><span class="st"> "!git-browse.sh"</span></span>
+<span id="cb64-6"><a aria-label="6"></a><span class="dt">  check-commitsize </span><span class="ot">=</span><span class="st"> "!git-check-commitsize.sh"</span></span>
+<span id="cb64-7"><a aria-label="7"></a><span class="dt">  delete-current-repo </span><span class="ot">=</span><span class="st"> "!git-delete-current-repo.sh"</span></span>
+<span id="cb64-8"><a aria-label="8"></a><span class="dt">  delete-obsolete-branch </span><span class="ot">=</span><span class="st"> "!git-delete-obsolete-branch.sh"</span></span>
+<span id="cb64-9"><a aria-label="9"></a><span class="dt">  issue2pr </span><span class="ot">=</span><span class="st"> "!git-issue2pr.sh"</span></span>
+<span id="cb64-10"><a aria-label="10"></a><span class="dt">  lastdiff </span><span class="ot">=</span><span class="st"> "!git-lastdiff.sh"</span></span>
+<span id="cb64-11"><a aria-label="11"></a><span class="dt">  newline-check </span><span class="ot">=</span><span class="st"> "!git-newline-check.sh"</span></span>
+<span id="cb64-12"><a aria-label="12"></a><span class="dt">  sprint-commit </span><span class="ot">=</span><span class="st"> "!git-sprint-commit.sh"</span></span>
+<span id="cb64-13"><a aria-label="13"></a><span class="dt">  tree </span><span class="ot">=</span><span class="st"> "!git-tree.sh"</span></span>
+<span id="cb64-14"><a aria-label="14"></a><span class="dt">  tmp-checkout </span><span class="ot">=</span><span class="st"> "!git-tmp-checkout.sh"</span></span>
+<span id="cb64-15"><a aria-label="15"></a><span class="dt">  whoami </span><span class="ot">=</span><span class="st"> "!git-whoami.sh"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- footer -->
 

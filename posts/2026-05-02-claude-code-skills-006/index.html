@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – Skillが動かない時のトラブルシューティング</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -242,7 +245,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -291,35 +294,35 @@ Ryo Nakagami
 </div><div class="column" style="width:70%; padding-left:0.5em;">
 <div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
 <div class="regmonkey_index" style="width:1200px; line-height: 1.2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. トラブルは4カテゴリ&lt;br&gt;に分かれる</span></span>
-<span id="cb1-6"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;trigger / load / 重複 / runtime&lt;/strong&gt;のどれかに収束する</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> カテゴリを先に当てれば対処手順が一意に決まる</span></span>
-<span id="cb1-9"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-10"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Skills Validator&lt;br&gt;から始める</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 構造的な問題は&lt;strong&gt;デバッグ前に弾く&lt;/strong&gt;のが定石</span></span>
-<span id="cb1-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;code&gt;claude --debug&lt;/code&gt;で読込みエラーを補完</span></span>
-<span id="cb1-14"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. trigger / load / 重複&lt;br&gt;の切り分け</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 起動しない・読込まれない・他Skillが選ばれるの3症状</span></span>
-<span id="cb1-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 大半は&lt;strong&gt;descriptionの書き方&lt;/strong&gt;に帰着する</span></span>
-<span id="cb1-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Priorityとプラグイン特有&lt;br&gt;の症状</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> enterprise &gt; project &gt; personalの&lt;strong&gt;優先順位&lt;/strong&gt;で上書きされる</span></span>
-<span id="cb1-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> プラグインSkillはcache再構築で復活することが多い</span></span>
-<span id="cb1-24"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb1-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Runtime errorsの&lt;br&gt;3点チェック</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-27"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;依存・実行権限・パス区切り&lt;/strong&gt;を順に確認</span></span>
-<span id="cb1-28"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> SKILL.md冒頭にdependency情報を明記</span></span>
-<span id="cb1-29"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.2em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 1.0em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 1. トラブルは4カテゴリ&lt;br&gt;に分かれる</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;trigger / load / 重複 / runtime&lt;/strong&gt;のどれかに収束する</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> カテゴリを先に当てれば対処手順が一意に決まる</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 2. Skills Validator&lt;br&gt;から始める</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 構造的な問題は&lt;strong&gt;デバッグ前に弾く&lt;/strong&gt;のが定石</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;code&gt;claude --debug&lt;/code&gt;で読込みエラーを補完</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 3. trigger / load / 重複&lt;br&gt;の切り分け</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 起動しない・読込まれない・他Skillが選ばれるの3症状</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 大半は&lt;strong&gt;descriptionの書き方&lt;/strong&gt;に帰着する</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 4. Priorityとプラグイン特有&lt;br&gt;の症状</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">        </span><span class="kw">-</span><span class="at"> enterprise &gt; project &gt; personalの&lt;strong&gt;優先順位&lt;/strong&gt;で上書きされる</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> プラグインSkillはcache再構築で復活することが多い</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 5. Runtime errorsの&lt;br&gt;3点チェック</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;依存・実行権限・パス区切り&lt;/strong&gt;を順に確認</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">        </span><span class="kw">-</span><span class="at"> SKILL.md冒頭にdependency情報を明記</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="at"> </span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -379,8 +382,8 @@ Ryo Nakagami
 <p><span class="mini-section">validate コマンドの実行例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>$ agentskills validate ./.claude/skills/regmonkey-slide-skill</span>
-<span id="cb2-2"><a></a>Valid skill: .claude/skills/regmonkey-slide-skill</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>$ agentskills validate ./.claude/skills/regmonkey-slide-skill</span>
+<span id="cb2-2"><a aria-label="2"></a>Valid skill: .claude/skills/regmonkey-slide-skill</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="font-09">
@@ -453,10 +456,10 @@ Ryo Nakagami
 <p><span class="mini-section">正しい配置例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="font-14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>.claude/skills/</span>
-<span id="cb3-2"><a></a>├── code-review/</span>
-<span id="cb3-3"><a></a>│   └── SKILL.md         ← OK：名前付きディレクトリ + 正確なファイル名</span>
-<span id="cb3-4"><a></a>└── SKILL.md             ← NG：skillsルート直下に置かれている</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>.claude/skills/</span>
+<span id="cb3-2"><a aria-label="2"></a>├── code-review/</span>
+<span id="cb3-3"><a aria-label="3"></a>│   └── SKILL.md         ← OK：名前付きディレクトリ + 正確なファイル名</span>
+<span id="cb3-4"><a aria-label="4"></a>└── SKILL.md             ← NG：skillsルート直下に置かれている</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="違うskillが選ばれる時はdescriptionの差別化" class="slide level2">
@@ -627,59 +630,59 @@ Ryo Nakagami
 <h2>Quick Troubleshooting Checklist</h2>
 <div class="custom-table" style="width:100%; height:80%; font-size: 0.7em !important;">
 <div id="yaml-troubleshoot-checklist" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> triggerしない</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;descriptionとユーザ語彙のズレ&lt;/span&gt;が原因のほぼ全て</span></span>
-<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実際の依頼フレーズをdescriptionに反映</span></span>
-<span id="cb4-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> トリガーフレーズ・キーワードを追加</span></span>
-<span id="cb4-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> バリエーションでテストし発火を確認</span></span>
-<span id="cb4-9"><a></a></span>
-<span id="cb4-10"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb4-11"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> loadしない</span></span>
-<span id="cb4-12"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;配置・ファイル名・YAML&lt;/span&gt;のいずれかが破綻</span></span>
-<span id="cb4-14"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 名前付きディレクトリ配下に &lt;code&gt;SKILL.md&lt;/code&gt; を置く</span></span>
-<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイル名を &lt;code&gt;SKILL.md&lt;/code&gt; に厳密一致させる</span></span>
-<span id="cb4-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;claude --debug&lt;/code&gt; でSkill名を含む行を確認</span></span>
-<span id="cb4-18"><a></a></span>
-<span id="cb4-19"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb4-20"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 違うSkillが選ばれる</span></span>
-<span id="cb4-21"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> description同士の&lt;span class="regmonkey-bold"&gt;意味が近すぎる&lt;/span&gt;</span></span>
-<span id="cb4-23"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対象範囲・タイミング・出力で書き分ける</span></span>
-<span id="cb4-25"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Skill名と説明から重複を解消</span></span>
-<span id="cb4-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合可能なら1つにまとめる</span></span>
-<span id="cb4-27"><a></a></span>
-<span id="cb4-28"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb4-29"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Priorityで負ける</span></span>
-<span id="cb4-30"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-31"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 上位スコープに&lt;span class="regmonkey-bold"&gt;同名Skill&lt;/span&gt;が存在</span></span>
-<span id="cb4-32"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Skill名を独自性の高い名前に変更</span></span>
-<span id="cb4-34"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 管理者にenterprise Skillの扱いを相談</span></span>
-<span id="cb4-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 役割の重複は機能差で名前に表現</span></span>
-<span id="cb4-36"><a></a></span>
-<span id="cb4-37"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb4-38"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン未表示</span></span>
-<span id="cb4-39"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;キャッシュ・再起動・再インストール&lt;/span&gt;で大半復旧</span></span>
-<span id="cb4-41"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-42"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> キャッシュをクリア</span></span>
-<span id="cb4-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claude Codeを再起動</span></span>
-<span id="cb4-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> プラグインを再インストール．残ればvalidator</span></span>
-<span id="cb4-45"><a></a></span>
-<span id="cb4-46"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb4-47"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Runtime失敗</span></span>
-<span id="cb4-48"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb4-49"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;依存・権限・パス&lt;/span&gt;の3点を順に確認</span></span>
-<span id="cb4-50"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb4-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要パッケージをdescriptionに明記</span></span>
-<span id="cb4-52"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;chmod +x&lt;/code&gt; でスクリプトに実行権限</span></span>
-<span id="cb4-53"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス区切りは全環境でforward slashに統一</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> triggerしない</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;descriptionとユーザ語彙のズレ&lt;/span&gt;が原因のほぼ全て</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 実際の依頼フレーズをdescriptionに反映</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> トリガーフレーズ・キーワードを追加</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> バリエーションでテストし発火を確認</span></span>
+<span id="cb4-9"><a aria-label="9"></a></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> loadしない</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;配置・ファイル名・YAML&lt;/span&gt;のいずれかが破綻</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 名前付きディレクトリ配下に &lt;code&gt;SKILL.md&lt;/code&gt; を置く</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ファイル名を &lt;code&gt;SKILL.md&lt;/code&gt; に厳密一致させる</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;claude --debug&lt;/code&gt; でSkill名を含む行を確認</span></span>
+<span id="cb4-18"><a aria-label="18"></a></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 違うSkillが選ばれる</span></span>
+<span id="cb4-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> description同士の&lt;span class="regmonkey-bold"&gt;意味が近すぎる&lt;/span&gt;</span></span>
+<span id="cb4-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 対象範囲・タイミング・出力で書き分ける</span></span>
+<span id="cb4-25"><a aria-label="25"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Skill名と説明から重複を解消</span></span>
+<span id="cb4-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 統合可能なら1つにまとめる</span></span>
+<span id="cb4-27"><a aria-label="27"></a></span>
+<span id="cb4-28"><a aria-label="28"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb4-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Priorityで負ける</span></span>
+<span id="cb4-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-31"><a aria-label="31"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 上位スコープに&lt;span class="regmonkey-bold"&gt;同名Skill&lt;/span&gt;が存在</span></span>
+<span id="cb4-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Skill名を独自性の高い名前に変更</span></span>
+<span id="cb4-34"><a aria-label="34"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 管理者にenterprise Skillの扱いを相談</span></span>
+<span id="cb4-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 役割の重複は機能差で名前に表現</span></span>
+<span id="cb4-36"><a aria-label="36"></a></span>
+<span id="cb4-37"><a aria-label="37"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb4-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> プラグイン未表示</span></span>
+<span id="cb4-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;キャッシュ・再起動・再インストール&lt;/span&gt;で大半復旧</span></span>
+<span id="cb4-41"><a aria-label="41"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-42"><a aria-label="42"></a><span class="at">    </span><span class="kw">-</span><span class="at"> キャッシュをクリア</span></span>
+<span id="cb4-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Claude Codeを再起動</span></span>
+<span id="cb4-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> プラグインを再インストール．残ればvalidator</span></span>
+<span id="cb4-45"><a aria-label="45"></a></span>
+<span id="cb4-46"><a aria-label="46"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb4-47"><a aria-label="47"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Runtime失敗</span></span>
+<span id="cb4-48"><a aria-label="48"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb4-49"><a aria-label="49"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;依存・権限・パス&lt;/span&gt;の3点を順に確認</span></span>
+<span id="cb4-50"><a aria-label="50"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb4-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 必要パッケージをdescriptionに明記</span></span>
+<span id="cb4-52"><a aria-label="52"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;chmod +x&lt;/code&gt; でスクリプトに実行権限</span></span>
+<span id="cb4-53"><a aria-label="53"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス区切りは全環境でforward slashに統一</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

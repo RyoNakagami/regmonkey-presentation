@@ -7,12 +7,12 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/regmonkey-step-flow-1.0.0/step-flow.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – OpenVPN 接続設定手順書</title>
@@ -25,10 +25,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -245,7 +248,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -294,37 +297,37 @@ Ryo Nakagami
 </div><div class="column" style="padding-left:1em;">
 <div class="reveal_vspace" style="--vspace-height: 1.5em;"></div>
 <div class="regmonkey_index" style="width:1100px">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
-<span id="cb1-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">bullet_position</span><span class="kw">:</span><span class="at"> 0.5em</span></span>
-<span id="cb1-6"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 接続の全体像</span></span>
-<span id="cb1-8"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;全体像&lt;/strong&gt;：受領 → 導入 → 設定 → 接続の 4 ステップで対象環境につなぐ</span></span>
-<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;通信経路&lt;/strong&gt;：TCP/443 の暗号化トンネル＋3 要素認証を俯瞰する</span></span>
-<span id="cb1-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 環境情報の受領</span></span>
-<span id="cb1-13"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;受領物&lt;/strong&gt;：設定ファイル・CA 証明書・TLS-Auth 共有鍵・ユーザ情報</span></span>
-<span id="cb1-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ID/パスワード・鍵・証明書は秘匿情報として扱う</span></span>
-<span id="cb1-16"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
-<span id="cb1-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> vpnux Client の導入</span></span>
-<span id="cb1-18"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;導入&lt;/strong&gt;：配布元から取得しウィザードでインストール</span></span>
-<span id="cb1-20"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;役割&lt;/strong&gt;：OpenVPN 接続を担うクライアントソフトウェア</span></span>
-<span id="cb1-21"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> プロファイルの作成</span></span>
-<span id="cb1-23"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;一般設定&lt;/strong&gt;：接続先・デバイス・プロトコル・認証を入力</span></span>
-<span id="cb1-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;詳細設定&lt;/strong&gt;：TLS-Auth と証明書検証を有効化し保存</span></span>
-<span id="cb1-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
-<span id="cb1-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> OpenVPN 接続</span></span>
-<span id="cb1-28"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb1-29"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;接続&lt;/strong&gt;：作成したプロファイルを選び接続を実行</span></span>
-<span id="cb1-30"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;確認&lt;/strong&gt;：タスクトレイの通知で接続の成否を確認</span></span>
-<span id="cb1-31"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.3em</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.85em</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">bullet_position</span><span class="kw">:</span><span class="at"> 0.5em</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 接続の全体像</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;全体像&lt;/strong&gt;：受領 → 導入 → 設定 → 接続の 4 ステップで対象環境につなぐ</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;通信経路&lt;/strong&gt;：TCP/443 の暗号化トンネル＋3 要素認証を俯瞰する</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> 環境情報の受領</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;受領物&lt;/strong&gt;：設定ファイル・CA 証明書・TLS-Auth 共有鍵・ユーザ情報</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ID/パスワード・鍵・証明書は秘匿情報として扱う</span></span>
+<span id="cb1-16"><a aria-label="16"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> vpnux Client の導入</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;導入&lt;/strong&gt;：配布元から取得しウィザードでインストール</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;役割&lt;/strong&gt;：OpenVPN 接続を担うクライアントソフトウェア</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> プロファイルの作成</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;一般設定&lt;/strong&gt;：接続先・デバイス・プロトコル・認証を入力</span></span>
+<span id="cb1-25"><a aria-label="25"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;詳細設定&lt;/strong&gt;：TLS-Auth と証明書検証を有効化し保存</span></span>
+<span id="cb1-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span>
+<span id="cb1-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> OpenVPN 接続</span></span>
+<span id="cb1-28"><a aria-label="28"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb1-29"><a aria-label="29"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;接続&lt;/strong&gt;：作成したプロファイルを選び接続を実行</span></span>
+<span id="cb1-30"><a aria-label="30"></a><span class="at">        </span><span class="kw">-</span><span class="at"> &lt;strong&gt;確認&lt;/strong&gt;：タスクトレイの通知で接続の成否を確認</span></span>
+<span id="cb1-31"><a aria-label="31"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">42</span><span class="kw">,</span><span class="dv">58</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -357,42 +360,42 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div data-step-flow="1">
 <div class="step-flow-data">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
-<span id="cb2-2"><a></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">22</span><span class="kw">,</span><span class="at"> </span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">40</span><span class="kw">]</span></span>
-<span id="cb2-3"><a></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
-<span id="cb2-4"><a></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-5"><a></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
-<span id="cb2-6"><a></a><span class="fu">header</span><span class="kw">:</span></span>
-<span id="cb2-7"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ステップ</span></span>
-<span id="cb2-8"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行うこと</span></span>
-<span id="cb2-9"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> ポイント</span></span>
-<span id="cb2-10"><a></a><span class="fu">font</span><span class="kw">:</span></span>
-<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.6em</span></span>
-<span id="cb2-12"><a></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
-<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
-<span id="cb2-14"><a></a><span class="fu">record</span><span class="kw">:</span></span>
-<span id="cb2-15"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① 環境情報の受領</span></span>
-<span id="cb2-16"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-17"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 申請後に届く接続情報一式を確認</span></span>
-<span id="cb2-18"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb2-19"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 設定ファイル・CA 証明書</span></span>
-<span id="cb2-20"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth 共有鍵・ユーザ情報</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② クライアント導入</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-23"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> vpnux Client をウィザードでインストール</span></span>
-<span id="cb2-24"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb2-25"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> OpenVPN 接続を担うクライアントソフトウェア</span></span>
-<span id="cb2-26"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ プロファイル作成</span></span>
-<span id="cb2-27"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-28"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 一般設定・詳細設定を手順どおりに入力し保存</span></span>
-<span id="cb2-29"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb2-30"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 接続先・プロトコル・認証を設定</span></span>
-<span id="cb2-31"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth と証明書検証を有効化</span></span>
-<span id="cb2-32"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ 接続</span></span>
-<span id="cb2-33"><a></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb2-34"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> 作成したプロファイルを選び接続ボタンを押下</span></span>
-<span id="cb2-35"><a></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
-<span id="cb2-36"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> タスクトレイの通知で接続完了を確認</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">step-flow__row_height</span><span class="kw">:</span><span class="at"> 4.5em</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">col_width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">22</span><span class="kw">,</span><span class="at"> </span><span class="dv">38</span><span class="kw">,</span><span class="at"> </span><span class="dv">40</span><span class="kw">]</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">header_font</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">top-aligned</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="fu">line_height</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.1</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="fu">header</span><span class="kw">:</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ステップ</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 行うこと</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> ポイント</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="fu">font</span><span class="kw">:</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">step</span><span class="kw">:</span><span class="at"> 1.6em</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">example</span><span class="kw">:</span><span class="at"> 1.4em</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="fu">record</span><span class="kw">:</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ① 環境情報の受領</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 申請後に届く接続情報一式を確認</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 設定ファイル・CA 証明書</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth 共有鍵・ユーザ情報</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ② クライアント導入</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">      </span><span class="kw">-</span><span class="at"> vpnux Client をウィザードでインストール</span></span>
+<span id="cb2-24"><a aria-label="24"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="at">      </span><span class="kw">-</span><span class="at"> OpenVPN 接続を担うクライアントソフトウェア</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ③ プロファイル作成</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 一般設定・詳細設定を手順どおりに入力し保存</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-30"><a aria-label="30"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 接続先・プロトコル・認証を設定</span></span>
+<span id="cb2-31"><a aria-label="31"></a><span class="at">      </span><span class="kw">-</span><span class="at"> TLS-Auth と証明書検証を有効化</span></span>
+<span id="cb2-32"><a aria-label="32"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">step</span><span class="kw">:</span><span class="at"> ④ 接続</span></span>
+<span id="cb2-33"><a aria-label="33"></a><span class="at">    </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb2-34"><a aria-label="34"></a><span class="at">      </span><span class="kw">-</span><span class="at"> 作成したプロファイルを選び接続ボタンを押下</span></span>
+<span id="cb2-35"><a aria-label="35"></a><span class="at">    </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb2-36"><a aria-label="36"></a><span class="at">      </span><span class="kw">-</span><span class="at"> タスクトレイの通知で接続完了を確認</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -440,27 +443,27 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.1em;"></div>
 <div class="font-10 lh-19">
 <div class="yaml2table yaml2table-custom-top" data-col-widths="[35,65]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;/&lt;/code&gt;"</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎フォルダ</span></span>
-<span id="cb3-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.key&lt;/code&gt;"</span></span>
-<span id="cb3-6"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎の秘密鍵（本手順では利用しない）</span></span>
-<span id="cb3-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt;"</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> VPN ログイン用のユーザ ID・パスワードを記載</span></span>
-<span id="cb3-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-11"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/&lt;/code&gt;"</span></span>
-<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定フォルダ</span></span>
-<span id="cb3-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ca.crt&lt;/code&gt;"</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> 認証用 CA 証明書</span></span>
-<span id="cb3-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ta.key&lt;/code&gt;"</span></span>
-<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
-<span id="cb3-19"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;*.ovpn&lt;/code&gt;"</span></span>
-<span id="cb3-21"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定ファイル（接続先、ポート、使用する証明書・鍵などを記述）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;/&lt;/code&gt;"</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎フォルダ</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.key&lt;/code&gt;"</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> ユーザ毎の秘密鍵（本手順では利用しない）</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt;"</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> VPN ログイン用のユーザ ID・パスワードを記載</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/&lt;/code&gt;"</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定フォルダ</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ca.crt&lt;/code&gt;"</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> 認証用 CA 証明書</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;config/ta.key&lt;/code&gt;"</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">ファイル・フォルダ</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;*.ovpn&lt;/code&gt;"</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> OpenVPN 設定ファイル（接続先、ポート、使用する証明書・鍵などを記述）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -502,26 +505,26 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="regmonkey_index padding-L-10" style="width:100%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb4-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
-<span id="cb4-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
-<span id="cb4-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb4-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb4-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① GUI だけでプロファイルを管理できる</span></span>
-<span id="cb4-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 設定ファイルをテキストエディタで直接編集せず，GUI から接続プロファイルを作成・切り替えできる</span></span>
-<span id="cb4-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 複数の接続先を使い分ける場合もプロファイルを追加するだけでよい</span></span>
-<span id="cb4-10"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb4-11"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 無償の Standard Edition を使用する</span></span>
-<span id="cb4-12"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-13"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一定の条件で商用利用も可能な無償版：問い合わせサポート・保守サービスは提供されない</span></span>
-<span id="cb4-14"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サポートや企業向け機能が必要な場合は有償の Business Edition を利用する</span></span>
-<span id="cb4-15"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
-<span id="cb4-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ インストールはウィザードに従うだけ</span></span>
-<span id="cb4-17"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb4-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 公式サイト &lt;code&gt;https://www.vpnux.jp/&lt;/code&gt; からインストーラを取得し，既定設定のまま導入する</span></span>
-<span id="cb4-19"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 管理者権限が必要なのはインストール時のみ：導入後の VPN 接続操作は一般ユーザ権限で行える</span></span>
-<span id="cb4-20"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
+<span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① GUI だけでプロファイルを管理できる</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 設定ファイルをテキストエディタで直接編集せず，GUI から接続プロファイルを作成・切り替えできる</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 複数の接続先を使い分ける場合もプロファイルを追加するだけでよい</span></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② 無償の Standard Edition を使用する</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一定の条件で商用利用も可能な無償版：問い合わせサポート・保守サービスは提供されない</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="at">        </span><span class="kw">-</span><span class="at"> サポートや企業向け機能が必要な場合は有償の Business Edition を利用する</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ インストールはウィザードに従うだけ</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 公式サイト &lt;code&gt;https://www.vpnux.jp/&lt;/code&gt; からインストーラを取得し，既定設定のまま導入する</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 管理者権限が必要なのはインストール時のみ：導入後の VPN 接続操作は一般ユーザ権限で行える</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">40</span><span class="kw">,</span><span class="dv">60</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -601,33 +604,33 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.2em;"></div>
 <div class="font-10 lh-15">
 <div class="yaml2table yaml2table-custom-top" data-col-widths="[26,74]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロファイル名</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 任意文字列（例：&lt;code&gt;MY_VPN&lt;/code&gt;）</span></span>
-<span id="cb5-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> VPN サーバ</span></span>
-<span id="cb5-6"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;vpn.example.com&lt;/code&gt; を入力</span></span>
-<span id="cb5-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ポート</span></span>
-<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;443&lt;/code&gt; を入力</span></span>
-<span id="cb5-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb5-11"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> デバイス</span></span>
-<span id="cb5-12"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TUN&lt;/code&gt; を選択 (仮想ネットワークインターフェースの種類)</span></span>
-<span id="cb5-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロトコル</span></span>
-<span id="cb5-15"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TCP&lt;/code&gt; を選択</span></span>
-<span id="cb5-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb5-17"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 拡張設定</span></span>
-<span id="cb5-18"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「LZO 圧縮を有効にする」「サーバ側のアドレス変更を許容する」をチェック</span></span>
-<span id="cb5-19"><a></a><span class="fu">record7</span><span class="kw">:</span></span>
-<span id="cb5-20"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> CA 証明書</span></span>
-<span id="cb5-21"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ca.crt&lt;/code&gt; から読み込み保存</span></span>
-<span id="cb5-22"><a></a><span class="fu">record8</span><span class="kw">:</span></span>
-<span id="cb5-23"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 認証</span></span>
-<span id="cb5-24"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ID/パスワード認証を使用」をチェック</span></span>
-<span id="cb5-25"><a></a><span class="fu">record9</span><span class="kw">:</span></span>
-<span id="cb5-26"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ID・パスワード</span></span>
-<span id="cb5-27"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt; の ID・パスワードを入力し「保存」をチェック"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロファイル名</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 任意文字列（例：&lt;code&gt;MY_VPN&lt;/code&gt;）</span></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> VPN サーバ</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;vpn.example.com&lt;/code&gt; を入力</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ポート</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;443&lt;/code&gt; を入力</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> デバイス</span></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TUN&lt;/code&gt; を選択 (仮想ネットワークインターフェースの種類)</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> プロトコル</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;TCP&lt;/code&gt; を選択</span></span>
+<span id="cb5-16"><a aria-label="16"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb5-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 拡張設定</span></span>
+<span id="cb5-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「LZO 圧縮を有効にする」「サーバ側のアドレス変更を許容する」をチェック</span></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="fu">record7</span><span class="kw">:</span></span>
+<span id="cb5-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> CA 証明書</span></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ca.crt&lt;/code&gt; から読み込み保存</span></span>
+<span id="cb5-22"><a aria-label="22"></a><span class="fu">record8</span><span class="kw">:</span></span>
+<span id="cb5-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 認証</span></span>
+<span id="cb5-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ID/パスワード認証を使用」をチェック</span></span>
+<span id="cb5-25"><a aria-label="25"></a><span class="fu">record9</span><span class="kw">:</span></span>
+<span id="cb5-26"><a aria-label="26"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ID・パスワード</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;&amp;lt;username&amp;gt;.txt&lt;/code&gt; の ID・パスワードを入力し「保存」をチェック"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -647,24 +650,24 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="font-10 lh-18">
 <div class="yaml2table yaml2table-custom-top" data-col-widths="[28,72]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 暗号アルゴリズム</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「デフォルト」を選択</span></span>
-<span id="cb6-4"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 追加セキュリティ</span></span>
-<span id="cb6-6"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「TLS-Auth HMAC 署名を使用」をチェック</span></span>
-<span id="cb6-7"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 共有鍵</span></span>
-<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ta.key&lt;/code&gt; から読み込み保存</span></span>
-<span id="cb6-10"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> サーバ証明書</span></span>
-<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「サーバ証明書の nsCertType を検証」をチェック</span></span>
-<span id="cb6-13"><a></a><span class="fu">record5</span><span class="kw">:</span></span>
-<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ネットワーク</span></span>
-<span id="cb6-15"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ローカルアドレス/ポートにバインドしない」をチェック</span></span>
-<span id="cb6-16"><a></a><span class="fu">record6</span><span class="kw">:</span></span>
-<span id="cb6-17"><a></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 保存</span></span>
-<span id="cb6-18"><a></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「保存」ボタンをクリックしプロファイル作成を完了</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 暗号アルゴリズム</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「デフォルト」を選択</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 追加セキュリティ</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「TLS-Auth HMAC 署名を使用」をチェック</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 共有鍵</span></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> &lt;code&gt;config/ta.key&lt;/code&gt; から読み込み保存</span></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> サーバ証明書</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「サーバ証明書の nsCertType を検証」をチェック</span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="fu">record5</span><span class="kw">:</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> ネットワーク</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「ローカルアドレス/ポートにバインドしない」をチェック</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="fu">record6</span><span class="kw">:</span></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">項目</span><span class="kw">:</span><span class="at"> 保存</span></span>
+<span id="cb6-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">設定値</span><span class="kw">:</span><span class="at"> 「保存」ボタンをクリックしプロファイル作成を完了</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></div>
@@ -890,9 +893,9 @@ Ryo Nakagami
 <p><span class="mini-section">ca.crt の発行：CA を作成し server.crt に署名する</span></p>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">openssl</span> genrsa <span class="at">-out</span> ca.key 4096</span>
-<span id="cb7-2"><a></a><span class="ex">openssl</span> req <span class="at">-x509</span> <span class="at">-new</span> <span class="at">-nodes</span> <span class="at">-key</span> ca.key <span class="dt">\</span></span>
-<span id="cb7-3"><a></a>  <span class="at">-sha256</span> <span class="at">-days</span> 3650 <span class="at">-out</span> ca.crt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="ex">openssl</span> genrsa <span class="at">-out</span> ca.key 4096</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="ex">openssl</span> req <span class="at">-x509</span> <span class="at">-new</span> <span class="at">-nodes</span> <span class="at">-key</span> ca.key <span class="dt">\</span></span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="at">-sha256</span> <span class="at">-days</span> 3650 <span class="at">-out</span> ca.crt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="font-08 lh-13 padding-L-05">
 <ul>
@@ -904,7 +907,7 @@ Ryo Nakagami
 <p><span class="mini-section">ta.key の発行：OpenVPN コマンドで生成する</span></p>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="font-15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">openvpn</span> <span class="at">--genkey</span> secret ta.key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a aria-label="1"></a><span class="ex">openvpn</span> <span class="at">--genkey</span> secret ta.key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="font-08 lh-13 padding-L-05">
 <ul>
@@ -920,18 +923,18 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="font-10 lh-19">
 <div class="yaml2table yaml2table-custom-top" data-col-widths="[16,44,40]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb9-2"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.key&lt;/code&gt;"</span></span>
-<span id="cb9-3"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の秘密鍵</span></span>
-<span id="cb9-4"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者のみ（外部へ配布しない）</span></span>
-<span id="cb9-5"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb9-6"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.crt&lt;/code&gt;"</span></span>
-<span id="cb9-7"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の公開証明書（サーバー証明書の検証に利用）</span></span>
-<span id="cb9-8"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント</span></span>
-<span id="cb9-9"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb9-10"><a></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ta.key&lt;/code&gt;"</span></span>
-<span id="cb9-11"><a></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
-<span id="cb9-12"><a></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント（全端末で同一）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.key&lt;/code&gt;"</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の秘密鍵</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者のみ（外部へ配布しない）</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ca.crt&lt;/code&gt;"</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> CA の公開証明書（サーバー証明書の検証に利用）</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント</span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">ファイル</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;code&gt;ta.key&lt;/code&gt;"</span></span>
+<span id="cb9-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">役割</span><span class="kw">:</span><span class="at"> TLS-Auth 用共有鍵</span></span>
+<span id="cb9-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">保持者</span><span class="kw">:</span><span class="at"> VPN 管理者・サーバー・全クライアント（全端末で同一）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
@@ -997,32 +1000,32 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
 <p><span class="mini-section">接続時に照合が行われる順序</span></p>
 <div class="regmonkey_index padding-L-10" style="width:100%">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
-<span id="cb10-2"><a></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.05em</span></span>
-<span id="cb10-3"><a></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.86em</span></span>
-<span id="cb10-4"><a></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb10-5"><a></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
-<span id="cb10-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① TLS-Auth 検証（ta.key）</span></span>
-<span id="cb10-7"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb10-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ta.key&lt;/code&gt; を用いて接続要求に HMAC を付与</span></span>
-<span id="cb10-9"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは同じ &lt;code&gt;ta.key&lt;/code&gt; で HMAC を検証</span></span>
-<span id="cb10-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一致しない接続要求は TLS ハンドシェイク前に破棄</span></span>
-<span id="cb10-11"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb10-12"><a></a></span>
-<span id="cb10-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② TLS ハンドシェイク（ca.crt）</span></span>
-<span id="cb10-14"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb10-15"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは &lt;code&gt;server.crt&lt;/code&gt; をクライアントへ送信</span></span>
-<span id="cb10-16"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ca.crt&lt;/code&gt; により証明書の署名・有効期限を検証</span></span>
-<span id="cb10-17"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> ECDHE 等でセッション鍵を生成し，共通鍵を共有</span></span>
-<span id="cb10-18"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路（暗号化トンネル）を確立</span></span>
-<span id="cb10-19"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
-<span id="cb10-20"><a></a></span>
-<span id="cb10-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ LDAP 認証</span></span>
-<span id="cb10-22"><a></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
-<span id="cb10-23"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路上で ID・パスワードを安全に送信</span></span>
-<span id="cb10-24"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> VPN サーバーは LDAP サーバーへ認証を要求し，LDAP サーバーが利用者情報を照合</span></span>
-<span id="cb10-25"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> 認証成功後，仮想 IP を割り当て VPN 利用開始</span></span>
-<span id="cb10-26"><a></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.05em</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.86em</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">numbering</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">children</span><span class="kw">:</span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ① TLS-Auth 検証（ta.key）</span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ta.key&lt;/code&gt; を用いて接続要求に HMAC を付与</span></span>
+<span id="cb10-9"><a aria-label="9"></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは同じ &lt;code&gt;ta.key&lt;/code&gt; で HMAC を検証</span></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 一致しない接続要求は TLS ハンドシェイク前に破棄</span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb10-12"><a aria-label="12"></a></span>
+<span id="cb10-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ② TLS ハンドシェイク（ca.crt）</span></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="at">        </span><span class="kw">-</span><span class="at"> サーバーは &lt;code&gt;server.crt&lt;/code&gt; をクライアントへ送信</span></span>
+<span id="cb10-16"><a aria-label="16"></a><span class="at">        </span><span class="kw">-</span><span class="at"> クライアントは &lt;code&gt;ca.crt&lt;/code&gt; により証明書の署名・有効期限を検証</span></span>
+<span id="cb10-17"><a aria-label="17"></a><span class="at">        </span><span class="kw">-</span><span class="at"> ECDHE 等でセッション鍵を生成し，共通鍵を共有</span></span>
+<span id="cb10-18"><a aria-label="18"></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路（暗号化トンネル）を確立</span></span>
+<span id="cb10-19"><a aria-label="19"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span>
+<span id="cb10-20"><a aria-label="20"></a></span>
+<span id="cb10-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> ③ LDAP 認証</span></span>
+<span id="cb10-22"><a aria-label="22"></a><span class="at">      </span><span class="fu">description</span><span class="kw">:</span></span>
+<span id="cb10-23"><a aria-label="23"></a><span class="at">        </span><span class="kw">-</span><span class="at"> TLS 通信路上で ID・パスワードを安全に送信</span></span>
+<span id="cb10-24"><a aria-label="24"></a><span class="at">        </span><span class="kw">-</span><span class="at"> VPN サーバーは LDAP サーバーへ認証を要求し，LDAP サーバーが利用者情報を照合</span></span>
+<span id="cb10-25"><a aria-label="25"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 認証成功後，仮想 IP を割り当て VPN 利用開始</span></span>
+<span id="cb10-26"><a aria-label="26"></a><span class="at">      </span><span class="fu">width</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">35</span><span class="kw">,</span><span class="dv">65</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

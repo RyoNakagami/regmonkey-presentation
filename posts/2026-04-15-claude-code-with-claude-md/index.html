@@ -7,11 +7,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – CLAUDE.mdとPriority</title>
@@ -24,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -244,7 +247,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -401,29 +404,29 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="custom-table" style="width:100%; height:42%; font-size: 0.82em !important;">
 <div id="yaml-claudemd-precedence" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ① 弱&lt;br&gt;User</span></span>
-<span id="cb1-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb1-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;~/.claude/CLAUDE.md&lt;/code&gt;</span></span>
-<span id="cb1-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb1-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：ログインユーザーの&lt;span class="regmonkey-bold"&gt;全プロジェクト&lt;/span&gt;</span></span>
-<span id="cb1-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：セッション起動時に自動読込</span></span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb1-10"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ② 中&lt;br&gt;Project</span></span>
-<span id="cb1-11"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb1-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;./CLAUDE.md&lt;/code&gt;（cwd直下）</span></span>
-<span id="cb1-13"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb1-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：当該&lt;span class="regmonkey-bold"&gt;プロジェクト全体&lt;/span&gt;</span></span>
-<span id="cb1-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：セッション起動時に自動読込</span></span>
-<span id="cb1-16"><a></a></span>
-<span id="cb1-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb1-18"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ③ 強&lt;br&gt;Subdir</span></span>
-<span id="cb1-19"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb1-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;./&amp;lt;subdir&amp;gt;/CLAUDE.md&lt;/code&gt;</span></span>
-<span id="cb1-21"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb1-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：当該&lt;span class="regmonkey-bold"&gt;サブディレクトリ配下のみ&lt;/span&gt;</span></span>
-<span id="cb1-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：配下ファイルに触れた時点で&lt;span class="regmonkey-bold"&gt;オンデマンド読込&lt;/span&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ① 弱&lt;br&gt;User</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;~/.claude/CLAUDE.md&lt;/code&gt;</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：ログインユーザーの&lt;span class="regmonkey-bold"&gt;全プロジェクト&lt;/span&gt;</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：セッション起動時に自動読込</span></span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ② 中&lt;br&gt;Project</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;./CLAUDE.md&lt;/code&gt;（cwd直下）</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：当該&lt;span class="regmonkey-bold"&gt;プロジェクト全体&lt;/span&gt;</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：セッション起動時に自動読込</span></span>
+<span id="cb1-16"><a aria-label="16"></a></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb1-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ③ 強&lt;br&gt;Subdir</span></span>
+<span id="cb1-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb1-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パス：&lt;code&gt;./&amp;lt;subdir&amp;gt;/CLAUDE.md&lt;/code&gt;</span></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb1-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープ：当該&lt;span class="regmonkey-bold"&gt;サブディレクトリ配下のみ&lt;/span&gt;</span></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ロード：配下ファイルに触れた時点で&lt;span class="regmonkey-bold"&gt;オンデマンド読込&lt;/span&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -443,28 +446,28 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="custom-table" style="width:100%; height:50%; font-size: 0.78em !important;">
 <div id="yaml-precedence-verify" class="yaml2table yaml2table-custom-top" data-col-widths="[18, 35, 47]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 1&lt;br&gt;Project &amp;gt; User</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新セッションで &lt;code&gt;precedence-test&lt;/code&gt; を送信</span></span>
-<span id="cb2-5"><a></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
-<span id="cb2-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=PROJECT&lt;/code&gt;（User より Project が勝つ）</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> この時点では Subdir はまだ未ロードのため候補外</span></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 2&lt;br&gt;Subdir &amp;gt; Project</span></span>
-<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
-<span id="cb2-12"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;subdir/sample.txt を読んで&lt;/code&gt; で Subdir をロードさせ &lt;code&gt;precedence-test&lt;/code&gt;</span></span>
-<span id="cb2-13"><a></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
-<span id="cb2-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=SUBDIR&lt;/code&gt;（Project より Subdir が勝つ）</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;オンデマンドロードのトリガー&lt;/span&gt;を踏むのが要点</span></span>
-<span id="cb2-16"><a></a></span>
-<span id="cb2-17"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb2-18"><a></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 3&lt;br&gt;User 単独</span></span>
-<span id="cb2-19"><a></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
-<span id="cb2-20"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;mv CLAUDE.md CLAUDE.md.bak&lt;/code&gt; で Project を退避し新セッションで送信</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=USER&lt;/code&gt;（上位階層が無いと User が露出）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 1&lt;br&gt;Project &amp;gt; User</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 新セッションで &lt;code&gt;precedence-test&lt;/code&gt; を送信</span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=PROJECT&lt;/code&gt;（User より Project が勝つ）</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> この時点では Subdir はまだ未ロードのため候補外</span></span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 2&lt;br&gt;Subdir &amp;gt; Project</span></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;subdir/sample.txt を読んで&lt;/code&gt; で Subdir をロードさせ &lt;code&gt;precedence-test&lt;/code&gt;</span></span>
+<span id="cb2-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=SUBDIR&lt;/code&gt;（Project より Subdir が勝つ）</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;オンデマンドロードのトリガー&lt;/span&gt;を踏むのが要点</span></span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb2-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">検証</span><span class="kw">:</span><span class="at"> Test 3&lt;br&gt;User 単独</span></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">Action</span><span class="kw">:</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;mv CLAUDE.md CLAUDE.md.bak&lt;/code&gt; で Project を退避し新セッションで送信</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">結果</span><span class="kw">:</span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;code&gt;LEVEL=USER&lt;/code&gt;（上位階層が無いと User が露出）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section></section>
@@ -547,44 +550,44 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="custom-table" style="width:100%; height:70%; font-size: 0.8em !important;">
 <div id="yaml-claude-md-design" class="yaml2table yaml2table-custom-top" data-col-widths="[20, 35, 45]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 書くべきこと</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb3-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> エージェントが&lt;span class="regmonkey-bold"&gt;毎回参照しないと判断を誤る&lt;/span&gt;前提を集約</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 主要コマンド（テスト・lint・dev起動）</span></span>
-<span id="cb3-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> リポジトリ構造の地図と主要ディレクトリの責務</span></span>
-<span id="cb3-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名規約・コード規約・コミットメッセージ規約</span></span>
-<span id="cb3-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> DBスキーマや型定義など重要ファイルへの &lt;code&gt;@&lt;/code&gt; 参照</span></span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 書かないこと</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb3-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;必要時に取り込めば足りる&lt;/span&gt;情報は本体に積まない</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個別タスクの一時的な指示はセッションで渡す</span></span>
-<span id="cb3-17"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 巨大なAPIリファレンスや生コードは &lt;code&gt;@&lt;/code&gt; で都度参照</span></span>
-<span id="cb3-18"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「いつか使うかも」の機能説明は別ドキュメントへ</span></span>
-<span id="cb3-19"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機密情報（鍵・トークン）は絶対に書かない</span></span>
-<span id="cb3-20"><a></a></span>
-<span id="cb3-21"><a></a><span class="fu">record3</span><span class="kw">:</span></span>
-<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 階層の選択</span></span>
-<span id="cb3-23"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb3-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープに合わせ&lt;span class="regmonkey-bold"&gt;3階層へ振り分け&lt;/span&gt;る</span></span>
-<span id="cb3-25"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム共有の規約 → Project（コミット対象）</span></span>
-<span id="cb3-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人の実験的指示 → Local（gitignore）</span></span>
-<span id="cb3-28"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 言語選好や返答スタイル → User（マシン全体）</span></span>
-<span id="cb3-29"><a></a></span>
-<span id="cb3-30"><a></a><span class="fu">record4</span><span class="kw">:</span></span>
-<span id="cb3-31"><a></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 改善ループ</span></span>
-<span id="cb3-32"><a></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
-<span id="cb3-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;繰り返しの修正を観測したら即追記&lt;/span&gt;する</span></span>
-<span id="cb3-34"><a></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
-<span id="cb3-35"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> Escapeで停止 → &lt;code&gt;</span><span class="co">#&lt;/code&gt; で予防策をメモリに記録</span></span>
-<span id="cb3-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同じ指摘を2回したら本体に昇格させる</span></span>
-<span id="cb3-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要になった項目は積極的に削除し肥大化を抑える</span></span>
-<span id="cb3-38"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的に通読し，現実とのズレを是正する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 書くべきこと</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> エージェントが&lt;span class="regmonkey-bold"&gt;毎回参照しないと判断を誤る&lt;/span&gt;前提を集約</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 主要コマンド（テスト・lint・dev起動）</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> リポジトリ構造の地図と主要ディレクトリの責務</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 命名規約・コード規約・コミットメッセージ規約</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> DBスキーマや型定義など重要ファイルへの &lt;code&gt;@&lt;/code&gt; 参照</span></span>
+<span id="cb3-10"><a aria-label="10"></a></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 書かないこと</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;必要時に取り込めば足りる&lt;/span&gt;情報は本体に積まない</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個別タスクの一時的な指示はセッションで渡す</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 巨大なAPIリファレンスや生コードは &lt;code&gt;@&lt;/code&gt; で都度参照</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 「いつか使うかも」の機能説明は別ドキュメントへ</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 機密情報（鍵・トークン）は絶対に書かない</span></span>
+<span id="cb3-20"><a aria-label="20"></a></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="fu">record3</span><span class="kw">:</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 階層の選択</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> スコープに合わせ&lt;span class="regmonkey-bold"&gt;3階層へ振り分け&lt;/span&gt;る</span></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> チーム共有の規約 → Project（コミット対象）</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 個人の実験的指示 → Local（gitignore）</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 言語選好や返答スタイル → User（マシン全体）</span></span>
+<span id="cb3-29"><a aria-label="29"></a></span>
+<span id="cb3-30"><a aria-label="30"></a><span class="fu">record4</span><span class="kw">:</span></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">category</span><span class="kw">:</span><span class="at"> 改善ループ</span></span>
+<span id="cb3-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">rule</span><span class="kw">:</span></span>
+<span id="cb3-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> &lt;span class="regmonkey-bold"&gt;繰り返しの修正を観測したら即追記&lt;/span&gt;する</span></span>
+<span id="cb3-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">actions</span><span class="kw">:</span></span>
+<span id="cb3-35"><a aria-label="35"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Escapeで停止 → &lt;code&gt;</span><span class="co">#&lt;/code&gt; で予防策をメモリに記録</span></span>
+<span id="cb3-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 同じ指摘を2回したら本体に昇格させる</span></span>
+<span id="cb3-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 不要になった項目は積極的に削除し肥大化を抑える</span></span>
+<span id="cb3-38"><a aria-label="38"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 定期的に通読し，現実とのズレを是正する</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 

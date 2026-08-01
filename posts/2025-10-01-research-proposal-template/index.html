@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/reveal_vspace-1.0.0/reveal_vspace.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Ryo Nakagami">
   <title>Presentation for Regession Monkey – 分析提案スライドの作成</title>
@@ -23,10 +23,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -247,7 +250,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Ryo Nakagami 
+Ryo Nakagami
 </div>
 </div>
 </div>
@@ -366,17 +369,17 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="horizontal-tree-container font-11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a></a><span class="fu">horizontal_tree</span><span class="kw">:</span></span>
-<span id="cb1-2"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> テーマ</span></span>
-<span id="cb1-3"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> breakdown 1</span></span>
-<span id="cb1-4"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.1</span></span>
-<span id="cb1-5"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.2</span></span>
-<span id="cb1-6"><a></a><span class="at">          </span><span class="kw">-</span><span class="at"> problem 1.2.1</span></span>
-<span id="cb1-7"><a></a><span class="at">          </span><span class="kw">-</span><span class="at"> problem 1.2.2</span></span>
-<span id="cb1-8"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.3</span></span>
-<span id="cb1-9"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> breakdown 2</span></span>
-<span id="cb1-10"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 2.1</span></span>
-<span id="cb1-11"><a></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 2.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a aria-label="1"></a><span class="fu">horizontal_tree</span><span class="kw">:</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> テーマ</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="at">    </span><span class="kw">-</span><span class="at"> breakdown 1</span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.1</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.2</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="at">          </span><span class="kw">-</span><span class="at"> problem 1.2.1</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="at">          </span><span class="kw">-</span><span class="at"> problem 1.2.2</span></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 1.3</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="at">    </span><span class="kw">-</span><span class="at"> breakdown 2</span></span>
+<span id="cb1-10"><a aria-label="10"></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 2.1</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="at">        </span><span class="kw">-</span><span class="at"> problem 2.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="integration-arrow">
 <svg width="40" height="400" viewbox="0 0 40 400" xmlns="http://www.w3.org/2000/svg">
@@ -574,58 +577,58 @@ Ryo Nakagami
 <p><span class="topleftbox">Solution提案</span></p>
 <div class="custom-table position-left-40" style="width:110%; height:80%; font-size: 0.7em !important;">
 <div id="yaml-tidy-table" class="yaml2table yaml2table-custom-top" data-col-widths="[15,22,12,23,18,10]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="fu">record1</span><span class="kw">:</span></span>
-<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> テスト環境再現性向上</span></span>
-<span id="cb2-3"><a></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;実機テスト環境が市場条件を十分に再現できない&lt;/strong&gt;"</span><span class="at"> </span></span>
-<span id="cb2-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"市場投入後の予期せぬトラブルによるリコールや追加対応のコスト増"</span></span>
-<span id="cb2-6"><a></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
-<span id="cb2-7"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開発エンジニア</span></span>
-<span id="cb2-8"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> テスト担当</span></span>
-<span id="cb2-9"><a></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
-<span id="cb2-10"><a></a><span class="kw">    - </span><span class="ch">|</span></span>
-<span id="cb2-11"><a></a>      ① デジタルツイン環境を構築し，市場条件を忠実に再現するシミュレーションを実施．</span>
-<span id="cb2-12"><a></a>      これにより，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;</span>
-<span id="cb2-13"><a></a>      実環境に近い動的シミュレーション環境を提供し，設計・検証の精度を向上&lt;/span&gt;させる．</span>
-<span id="cb2-14"><a></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
-<span id="cb2-15"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 市場投入後の不具合低減</span></span>
-<span id="cb2-16"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 試験工数削減</span></span>
-<span id="cb2-17"><a></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 3ヶ月</span></span>
-<span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a><span class="fu">record2</span><span class="kw">:</span></span>
-<span id="cb2-20"><a></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> パラメータ最適化</span></span>
-<span id="cb2-21"><a></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> パラメータ調整が手作業で非効率</span></span>
-<span id="cb2-23"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調整作業に時間がかかり，開発サイクルが長期化する</span></span>
-<span id="cb2-24"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手作業による人為的ミスや調整のばらつきが発生しやすい</span></span>
-<span id="cb2-25"><a></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
-<span id="cb2-26"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 品質保証部門</span></span>
-<span id="cb2-27"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 生産部門</span></span>
-<span id="cb2-28"><a></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
-<span id="cb2-29"><a></a><span class="kw">    - </span><span class="ch">|</span></span>
-<span id="cb2-30"><a></a>      ② ML／PIML を用いた効率的な条件探索アルゴリズムを導入し，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;パラメータ最適化プロセスを構築&lt;/span&gt;します．</span>
-<span id="cb2-31"><a></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
-<span id="cb2-32"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調整時間短縮</span></span>
-<span id="cb2-33"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開発リードタイム圧縮</span></span>
-<span id="cb2-34"><a></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 4ヶ月</span></span>
-<span id="cb2-35"><a></a></span>
-<span id="cb2-36"><a></a><span class="fu">record2-2</span><span class="kw">:</span></span>
-<span id="cb2-37"><a></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> システム統合評価</span></span>
-<span id="cb2-38"><a></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-39"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> デバイス単体での評価にとどまり，システム挙動が把握しづらい</span></span>
-<span id="cb2-40"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 連携不具合や制御ロジックの不整合が開発後期まで見えにくい</span></span>
-<span id="cb2-41"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 単体評価では検出できない問題が市場投入後に顕在化するリスク</span></span>
-<span id="cb2-42"><a></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
-<span id="cb2-43"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 品質保証部門</span></span>
-<span id="cb2-44"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客対応部門</span></span>
-<span id="cb2-45"><a></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
-<span id="cb2-46"><a></a><span class="kw">    - </span><span class="ch">|</span></span>
-<span id="cb2-47"><a></a>      ③ デバイス間連携・制御ロジックを再現する統合シミュレーションを実施し，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;システム全体の統合テスト環境を構築&lt;/span&gt;します．</span>
-<span id="cb2-48"><a></a></span>
-<span id="cb2-49"><a></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
-<span id="cb2-50"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 単体では見えない不具合の早期検出</span></span>
-<span id="cb2-51"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> 信頼性向上</span></span>
-<span id="cb2-52"><a></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 3ヶ月</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a aria-label="1"></a><span class="fu">record1</span><span class="kw">:</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> テスト環境再現性向上</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"&lt;strong&gt;実機テスト環境が市場条件を十分に再現できない&lt;/strong&gt;"</span><span class="at"> </span></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"市場投入後の予期せぬトラブルによるリコールや追加対応のコスト増"</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開発エンジニア</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="at">    </span><span class="kw">-</span><span class="at"> テスト担当</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
+<span id="cb2-10"><a aria-label="10"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb2-11"><a aria-label="11"></a>      ① デジタルツイン環境を構築し，市場条件を忠実に再現するシミュレーションを実施．</span>
+<span id="cb2-12"><a aria-label="12"></a>      これにより，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;</span>
+<span id="cb2-13"><a aria-label="13"></a>      実環境に近い動的シミュレーション環境を提供し，設計・検証の精度を向上&lt;/span&gt;させる．</span>
+<span id="cb2-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 市場投入後の不具合低減</span></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 試験工数削減</span></span>
+<span id="cb2-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 3ヶ月</span></span>
+<span id="cb2-18"><a aria-label="18"></a></span>
+<span id="cb2-19"><a aria-label="19"></a><span class="fu">record2</span><span class="kw">:</span></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> パラメータ最適化</span></span>
+<span id="cb2-21"><a aria-label="21"></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> パラメータ調整が手作業で非効率</span></span>
+<span id="cb2-23"><a aria-label="23"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調整作業に時間がかかり，開発サイクルが長期化する</span></span>
+<span id="cb2-24"><a aria-label="24"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 手作業による人為的ミスや調整のばらつきが発生しやすい</span></span>
+<span id="cb2-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
+<span id="cb2-26"><a aria-label="26"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 品質保証部門</span></span>
+<span id="cb2-27"><a aria-label="27"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 生産部門</span></span>
+<span id="cb2-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
+<span id="cb2-29"><a aria-label="29"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb2-30"><a aria-label="30"></a>      ② ML／PIML を用いた効率的な条件探索アルゴリズムを導入し，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;パラメータ最適化プロセスを構築&lt;/span&gt;します．</span>
+<span id="cb2-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
+<span id="cb2-32"><a aria-label="32"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 調整時間短縮</span></span>
+<span id="cb2-33"><a aria-label="33"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 開発リードタイム圧縮</span></span>
+<span id="cb2-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 4ヶ月</span></span>
+<span id="cb2-35"><a aria-label="35"></a></span>
+<span id="cb2-36"><a aria-label="36"></a><span class="fu">record2-2</span><span class="kw">:</span></span>
+<span id="cb2-37"><a aria-label="37"></a><span class="at">  </span><span class="fu">テーマ</span><span class="kw">:</span><span class="at"> システム統合評価</span></span>
+<span id="cb2-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">事業課題</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-39"><a aria-label="39"></a><span class="at">    </span><span class="kw">-</span><span class="at"> デバイス単体での評価にとどまり，システム挙動が把握しづらい</span></span>
+<span id="cb2-40"><a aria-label="40"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 連携不具合や制御ロジックの不整合が開発後期まで見えにくい</span></span>
+<span id="cb2-41"><a aria-label="41"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 単体評価では検出できない問題が市場投入後に顕在化するリスク</span></span>
+<span id="cb2-42"><a aria-label="42"></a><span class="at">  </span><span class="fu">受益者</span><span class="kw">:</span></span>
+<span id="cb2-43"><a aria-label="43"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 品質保証部門</span></span>
+<span id="cb2-44"><a aria-label="44"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 顧客対応部門</span></span>
+<span id="cb2-45"><a aria-label="45"></a><span class="at">  </span><span class="fu">取り組み提案</span><span class="kw">:</span></span>
+<span id="cb2-46"><a aria-label="46"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb2-47"><a aria-label="47"></a>      ③ デバイス間連携・制御ロジックを再現する統合シミュレーションを実施し，&lt;span style="color: #206f83; font-weight: bold !important;"&gt;システム全体の統合テスト環境を構築&lt;/span&gt;します．</span>
+<span id="cb2-48"><a aria-label="48"></a></span>
+<span id="cb2-49"><a aria-label="49"></a><span class="at">  </span><span class="fu">事業インパクト</span><span class="kw">:</span></span>
+<span id="cb2-50"><a aria-label="50"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 単体では見えない不具合の早期検出</span></span>
+<span id="cb2-51"><a aria-label="51"></a><span class="at">    </span><span class="kw">-</span><span class="at"> 信頼性向上</span></span>
+<span id="cb2-52"><a aria-label="52"></a><span class="at">  </span><span class="fu">想定期間</span><span class="kw">:</span><span class="at"> 3ヶ月</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -734,40 +737,40 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:65%;">
 <div class="regmonkey-waterfall-container" data-width="100%" data-height="700px" data-legend="false">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="fu">現状</span><span class="kw">:</span></span>
-<span id="cb3-2"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
-<span id="cb3-3"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"dsadsd"</span></span>
-<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-5"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
-<span id="cb3-6"><a></a><span class="fu">'センサ・ログ&lt;br&gt;取得の自動化'</span><span class="kw">:</span></span>
-<span id="cb3-7"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-10</span></span>
-<span id="cb3-8"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"センサ・ログ取得の自動化"</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-10"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
-<span id="cb3-11"><a></a><span class="fu">前処理</span><span class="kw">:</span></span>
-<span id="cb3-12"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-8</span></span>
-<span id="cb3-13"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"データクレンジング自動化"</span></span>
-<span id="cb3-14"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-15"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
-<span id="cb3-16"><a></a><span class="fu">モデル構築</span><span class="kw">:</span></span>
-<span id="cb3-17"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-12</span></span>
-<span id="cb3-18"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"サロゲートモデル活用"</span></span>
-<span id="cb3-19"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-20"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
-<span id="cb3-21"><a></a><span class="fu">モデル評価</span><span class="kw">:</span></span>
-<span id="cb3-22"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-5</span></span>
-<span id="cb3-23"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"テストデータ・理論値比較の効率化"</span></span>
-<span id="cb3-24"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-25"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span>
-<span id="cb3-26"><a></a><span class="fu">PoC実施</span><span class="kw">:</span></span>
-<span id="cb3-27"><a></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-3</span></span>
-<span id="cb3-28"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"小規模試験環境での迅速検証"</span></span>
-<span id="cb3-29"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb3-30"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#1A1A1A"</span></span>
-<span id="cb3-31"><a></a><span class="fu">総合工数削減</span><span class="kw">:</span></span>
-<span id="cb3-32"><a></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"合計工数削減"</span></span>
-<span id="cb3-33"><a></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-34"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#D31804"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a aria-label="1"></a><span class="fu">現状</span><span class="kw">:</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"dsadsd"</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
+<span id="cb3-6"><a aria-label="6"></a><span class="fu">'センサ・ログ&lt;br&gt;取得の自動化'</span><span class="kw">:</span></span>
+<span id="cb3-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-10</span></span>
+<span id="cb3-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"センサ・ログ取得の自動化"</span></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-10"><a aria-label="10"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
+<span id="cb3-11"><a aria-label="11"></a><span class="fu">前処理</span><span class="kw">:</span></span>
+<span id="cb3-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-8</span></span>
+<span id="cb3-13"><a aria-label="13"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"データクレンジング自動化"</span></span>
+<span id="cb3-14"><a aria-label="14"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="fu">モデル構築</span><span class="kw">:</span></span>
+<span id="cb3-17"><a aria-label="17"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-12</span></span>
+<span id="cb3-18"><a aria-label="18"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"サロゲートモデル活用"</span></span>
+<span id="cb3-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
+<span id="cb3-21"><a aria-label="21"></a><span class="fu">モデル評価</span><span class="kw">:</span></span>
+<span id="cb3-22"><a aria-label="22"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-5</span></span>
+<span id="cb3-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"テストデータ・理論値比較の効率化"</span></span>
+<span id="cb3-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-25"><a aria-label="25"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span>
+<span id="cb3-26"><a aria-label="26"></a><span class="fu">PoC実施</span><span class="kw">:</span></span>
+<span id="cb3-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">-3</span></span>
+<span id="cb3-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"小規模試験環境での迅速検証"</span></span>
+<span id="cb3-29"><a aria-label="29"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-30"><a aria-label="30"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#1A1A1A"</span></span>
+<span id="cb3-31"><a aria-label="31"></a><span class="fu">総合工数削減</span><span class="kw">:</span></span>
+<span id="cb3-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">custom_field</span><span class="kw">:</span><span class="at"> </span><span class="st">"合計工数削減"</span></span>
+<span id="cb3-33"><a aria-label="33"></a><span class="at">  </span><span class="fu">is_total</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#D31804"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -895,45 +898,45 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 2em;"></div>
 <div class="width-110 position-left-25">
 <div class="vuetify-timeline-container">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">data1</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"収集対象と範囲確定"</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb6-4"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'社内外のセンサーデータ，ログデータを収集'</span></span>
-<span id="cb6-5"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'必要に応じて外部データセットを取得'</span></span>
-<span id="cb6-6"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'&lt;span style="color: #D31804;"&gt;xxxのリスクあり&lt;/span&gt;'</span></span>
-<span id="cb6-7"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"５月中旬完了見込み"</span></span>
-<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
-<span id="cb6-9"><a></a></span>
-<span id="cb6-10"><a></a><span class="fu">Preprocessing</span><span class="kw">:</span></span>
-<span id="cb6-11"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"データクレンジング"</span></span>
-<span id="cb6-12"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb6-13"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'欠損値処理，異常値検出'</span></span>
-<span id="cb6-14"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'正規化・標準化・カテゴリ変換などの前処理'</span></span>
-<span id="cb6-15"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"５月下旬完了見込み"</span></span>
-<span id="cb6-16"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
-<span id="cb6-17"><a></a></span>
-<span id="cb6-18"><a></a><span class="fu">Modeling1</span><span class="kw">:</span></span>
-<span id="cb6-19"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"モデル選択と構築"</span></span>
-<span id="cb6-20"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb6-21"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'機械学習／回帰モデルの構築'</span></span>
-<span id="cb6-22"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'PIML／サロゲートモデルによる物理挙動の推定'</span></span>
-<span id="cb6-23"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"６月上旬Start"</span></span>
-<span id="cb6-24"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
-<span id="cb6-25"><a></a></span>
-<span id="cb6-26"><a></a><span class="fu">Modeling2</span><span class="kw">:</span></span>
-<span id="cb6-27"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"モデル検証"</span></span>
-<span id="cb6-28"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb6-29"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'テストデータによる性能評価'</span></span>
-<span id="cb6-30"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'理論値との比較および誤差分析'</span></span>
-<span id="cb6-31"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"7月上旬完了"</span></span>
-<span id="cb6-32"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
-<span id="cb6-33"><a></a><span class="fu">PoC1</span><span class="kw">:</span></span>
-<span id="cb6-34"><a></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"PoC"</span></span>
-<span id="cb6-35"><a></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
-<span id="cb6-36"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'小規模試験環境での検証'</span></span>
-<span id="cb6-37"><a></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'実運用への適用可能性評価'</span></span>
-<span id="cb6-38"><a></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
-<span id="cb6-39"><a></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a aria-label="1"></a><span class="fu">data1</span><span class="kw">:</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"収集対象と範囲確定"</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'社内外のセンサーデータ，ログデータを収集'</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'必要に応じて外部データセットを取得'</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'&lt;span style="color: #D31804;"&gt;xxxのリスクあり&lt;/span&gt;'</span></span>
+<span id="cb6-7"><a aria-label="7"></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"５月中旬完了見込み"</span></span>
+<span id="cb6-8"><a aria-label="8"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#E8F1FE"</span></span>
+<span id="cb6-9"><a aria-label="9"></a></span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">Preprocessing</span><span class="kw">:</span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"データクレンジング"</span></span>
+<span id="cb6-12"><a aria-label="12"></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb6-13"><a aria-label="13"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'欠損値処理，異常値検出'</span></span>
+<span id="cb6-14"><a aria-label="14"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'正規化・標準化・カテゴリ変換などの前処理'</span></span>
+<span id="cb6-15"><a aria-label="15"></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"５月下旬完了見込み"</span></span>
+<span id="cb6-16"><a aria-label="16"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B4D7FF"</span></span>
+<span id="cb6-17"><a aria-label="17"></a></span>
+<span id="cb6-18"><a aria-label="18"></a><span class="fu">Modeling1</span><span class="kw">:</span></span>
+<span id="cb6-19"><a aria-label="19"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"モデル選択と構築"</span></span>
+<span id="cb6-20"><a aria-label="20"></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb6-21"><a aria-label="21"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'機械学習／回帰モデルの構築'</span></span>
+<span id="cb6-22"><a aria-label="22"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'PIML／サロゲートモデルによる物理挙動の推定'</span></span>
+<span id="cb6-23"><a aria-label="23"></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"６月上旬Start"</span></span>
+<span id="cb6-24"><a aria-label="24"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
+<span id="cb6-25"><a aria-label="25"></a></span>
+<span id="cb6-26"><a aria-label="26"></a><span class="fu">Modeling2</span><span class="kw">:</span></span>
+<span id="cb6-27"><a aria-label="27"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"モデル検証"</span></span>
+<span id="cb6-28"><a aria-label="28"></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb6-29"><a aria-label="29"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'テストデータによる性能評価'</span></span>
+<span id="cb6-30"><a aria-label="30"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'理論値との比較および誤差分析'</span></span>
+<span id="cb6-31"><a aria-label="31"></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">"7月上旬完了"</span></span>
+<span id="cb6-32"><a aria-label="32"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#0E3666"</span></span>
+<span id="cb6-33"><a aria-label="33"></a><span class="fu">PoC1</span><span class="kw">:</span></span>
+<span id="cb6-34"><a aria-label="34"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"PoC"</span></span>
+<span id="cb6-35"><a aria-label="35"></a><span class="at">  </span><span class="fu">content</span><span class="kw">:</span></span>
+<span id="cb6-36"><a aria-label="36"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'小規模試験環境での検証'</span></span>
+<span id="cb6-37"><a aria-label="37"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'実運用への適用可能性評価'</span></span>
+<span id="cb6-38"><a aria-label="38"></a><span class="at">  </span><span class="fu">opposite</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
+<span id="cb6-39"><a aria-label="39"></a><span class="at">  </span><span class="fu">color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#428CE6"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
