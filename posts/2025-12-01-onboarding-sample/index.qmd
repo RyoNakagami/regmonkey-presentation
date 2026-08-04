@@ -1,0 +1,1368 @@
+---
+title: "オンボーディングガイドサンプル"
+subtitle: "仕事効率化"
+author: "Ryo Nakagami"
+date: "2025-12-01"
+categories: [手続き]
+slide-number: true
+filters:
+  - reveal-auto-agenda
+  - inject_anychart_js
+  - regmonkey_slide_editing
+  - regmonkey_step_flow
+  - regmonkey_glossary_generator
+auto-agenda:
+  bullets: bullets
+  font-size: 24pt
+  item-spacing: 0.1em
+  item-padding: 0.3em
+  line-height: 1.1
+  sub-font-size: 1em
+# chalkboard: false
+# embed-resources: true
+---
+
+## Index {.regmonkey-index-slide-no-title}
+
+::::: {.columns}
+
+{{< reveal_vspace 2em >}}
+
+:::: {.column width="30%"}
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.sidebar}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi bullseye size=1.7em color=#428CE6 >}}
+
+### [目的]{.padding-L-05}
+
+:::
+
+- 着任後のスタートダッシュに必要な情報を1つに集約
+- 4週間での「独り立ち」がゴール
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi person size=1.7em color=#428CE6 >}}
+
+### [対象]{.padding-L-05}
+
+:::
+
+- データサイエンスチームに新しく加わるメンバー
+- 中途・新卒・異動を問わず共通
+
+::::
+
+{{< reveal_vspace 1em >}}
+
+::::{.component-card-index .pl-4 .pr-4 .pt-1 .pb-6 .border-blue-500}
+
+:::{.flex .items-center .mb-2}
+
+{{< bi chat-square-text size=1.7em color=#428CE6 >}}
+
+### [困ったときは]{.padding-L-05}
+
+:::
+
+- まずチームチャットで質問：質問は歓迎される
+- 解決しないことは週次1on1で相談
+
+::::
+
+::::
+::::
+
+::: {.column width="70%" style="padding-left:1em;"}
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.regmonkey_index style="width:1150px"}
+
+```yaml
+regmonkey_index:
+  title_fontsize: 1.4em
+  bullet_fontsize: 0.9em
+  title_position: -0.5em
+  bullet_position: 1.5em
+  children:
+    - title: 1. チームを知る
+      description:
+        - ミッション・役割変革
+        - アプローチ「ドメイン×データサイエンス」・相談先
+      width: [35,65]
+    - title: 2. 最初の4週間
+      description:
+        - 週ごとのタスクリストで「教わる」から「任される」へ
+        - 環境構築・1on1から小規模テーマの主担当まで
+      width: [35,65]
+    - title: 3. 業務プロセス
+      description:
+        - 受託分析プロジェクトのデリバリーと社内活動
+        - クライアント定例・スケジュール管理・リモートワークのルール
+      width: [35,65]
+    - title: 4. リソース・ツール
+      description:
+        - アカウント申請・コミュニケーションルール
+        - ツール・開発作法の学習資料
+      width: [35,65]
+    - title: 5. 評価とキャリア
+      description:
+        - 半期の評価サイクルと2種類の評価
+        - JG別の期待役割・3つの「目指す姿」
+      width: [35,65]
+    - title: Appendix
+      description:
+        - 用語集：チーム内の頻出ワード
+        - FDDS・MBO・JGなど11の用語の意味を確認
+      width: [35,65]
+```
+
+:::
+:::
+:::::
+
+# チームを知る
+
+## ミッションは事業成果に直結する課題解決を主導すること
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- チームのミッションは，[データサイエンスの力で事業成果に直結する課題解決を主導する]{.regmonkey-bold}こと
+- 提供価値は[クライアントの事業成果への貢献]{.regmonkey-bold}で測る：分析結果を示唆で終わらせず，意思決定・施策・業務変革につなげる
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-mission-aspirations data-col-widths="[28, 40, 32]"}
+
+```yaml
+record1:
+  目指す姿:
+    - 事業成果に直結する問いを設計する<br>（Analytics Translator）
+  果たす役割・貢献の形:
+    - クライアントのドメインと意思決定の構造を理解し，解決すべき課題を「分析で解くべき問い」へ落とし込む
+    - 分析結果を示唆で終わらせず，意思決定・施策・業務変革につなげる
+  主なキーワード:
+    - 業務理解・課題設定・問いの設計
+    - KPI・指標設計・仮説構築・検証設計
+    - ステークホルダー合意形成・施策実装への接続
+
+record2:
+  目指す姿:
+    - 分析可能なデータ・指標基盤を設計する<br>（Analytics Engineer）
+  果たす役割・貢献の形:
+    - 分析すべき観点・指標を具備したデータ基盤を整備・運用し，データと加工の品質を担保する
+    - AIと人間の双方が正しく使える環境の構築で，クライアントの価値創出をリードする
+  主なキーワード:
+    - データ定義・指標設計・データ品質
+    - メタデータ・セマンティックレイヤー
+    - AIエージェントが誤解しにくいテーブル設計
+
+record3:
+  目指す姿:
+    - 高難度な分析・実装をリードする<br>（AI-empowered Specialist）
+  果たす役割・貢献の形:
+    - AIエージェントを使いこなし，分析・実装・検証・ドキュメンテーションのサイクルを高速化する
+    - DSの諸領域の専門性を深め，高難度な分析・実装をリードする
+  主なキーワード:
+    - AIエージェント活用・分析自動化・実装高速化
+    - 統計・機械学習・因果推論・最適化・MLOps
+    - AI出力の妥当性評価・専門知によるレビュー
+```
+
+:::
+::::
+
+## チームのアプローチは「ドメイン×データサイエンス」
+
+[「データだけでなく，知識を使って学習する」がチームの共通思想]{.h2-submessage}
+
+{{< reveal_vspace 1.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+機械学習を素朴に適用する難しさ
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+- 少数データへの適用が難しい：世の中の事例の多くは豊富なデータが前提
+- 過学習しやすい：データのノイズや偏りを学習し，新しいデータで機能しなくなる
+- 説明できない挙動：予測の理由を説明できないモデルは現場実装のハードルが高い
+- 機械学習が力を発揮するのは3V（Volume・Variety・Velocity）が揃う状況：素朴に適用できる領域は大きくない
+:::
+
+::::
+:::::
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+ドメイン知識をモデルに組み込む
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+- ベイズモデリング：経験・理論・過去の分析結果を[事前分布]{.regmonkey-bold}として組み込み，少数データでも推定を安定させる
+- PIML：熱伝導方程式などの[物理法則]{.regmonkey-bold}を制約として学習に反映し，観測していない条件下の推定に耐える
+- どちらも後付けの説明ではなく，[設計段階から解釈性を持つ]{.regmonkey-bold}ようにモデルを作る
+:::
+
+::::
+:::::
+::::::
+
+## 役割は「分析の実行役」から「設計・実装の担い手」へ
+
+[背景：LLMの性能向上で分析実務の一部は誰でも実行できる時代に]{.h2-submessage}
+
+{{< reveal_vspace 1.5em >}}
+
+:::::: {.columns}
+::::: {.column width="50%"}
+
+::::{.pentagon-box-500}
+
+:::{.border-bottom-header-left}
+AS-IS：「分析の実行役」の限界
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+- LLMの性能向上により，コーディング・可視化など分析実務の一部はクライアント側でも実行できるようになった
+- データを分析して示唆を出すだけの「単純な分析代行」では差別化が難しくなりつつある
+- 分析実行の枠組みにとどまると，市場で価値を出し続けることが難しくなる
+:::
+
+::::
+:::::
+::::: {.column width="50%"}
+
+::::{.square-box-500}
+
+:::{.border-bottom-header-left}
+TO-BE：「設計・実装の担い手」への変革
+:::
+
+:::{.squaredmark style="font-size: 0.85em"}
+- ビジネス・業務への一層深い理解に基づき，[課題設計から実装までを一貫してリード]{.regmonkey-bold}する
+- 分析結果を示唆で終わらせず，[意思決定・施策・業務変革まで]{.regmonkey-bold}つなげる
+- 職種の境界にこだわらず，課題設定・対話・合意形成・実装までを自らつなげる
+:::
+
+::::
+:::::
+::::::
+
+## プロジェクトはワンチームで推進
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 受託プロジェクトは，ストラテジスト・エンジニア・DSの3職種による[ワンチーム]{.regmonkey-bold}でクライアントに入り込んで進める
+- 職種間のオーバーラップは前提：境界のタスクを押し付け合わず，チームで価値提供を完結させる
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::: {.columns}
+
+:::: {.column style="width: 33.3%; height:55%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi compass size=1.6em color=#428CE6 >}}
+ストラテジスト：変革を牽引
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- [ストラテジスト]{.regmonkey-bold}：AI変革ビジョンとROIを経営目線で定義し，意思決定へ導く
+- 変革ロードマップを業務・技術・組織の3軸で構造化し，エンジニア・DSが実装に進めるシナリオへ落とし込む
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:55%"}
+
+:::{.horizontal-keypoints-block style="height:95%;"}
+
+:::{.block-header}
+{{< bi tools size=1.6em color=#428CE6 >}}
+エンジニア：価値を実装
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- [エンジニア]{.regmonkey-bold}：課題の発掘から解決策の実装までを一気通貫で担う
+- クライアント環境の制約の中で本番リリースを完結させ，顧客エンジニアへの技術移転まで並走する
+
+:::
+
+:::
+::::
+
+:::: {.column style="width: 33.3%; height:55%"}
+
+:::{.horizontal-keypoints-block-no-border style="height:95%;"}
+
+:::{.block-header}
+{{< bi graph-up size=1.6em color=#428CE6 >}}
+DS：モデルを仕上げる
+:::
+
+{{< reveal_vspace 5% >}}
+
+:::{.block style="font-size:0.8em; padding-right:0.4em;" .lh-14}
+
+- [Data Scientist]{.regmonkey-bold}：クライアントの生データ環境に直接入り込み，散在・未整備の状態から分析可能な形へ自力で整える
+- 業務担当者と対話しながら，アルゴリズムだけでなくKPI・Metrics・データの観点からモデルを仕上げる
+- 「精度」ではなく[「現場で使われ続けること」]{.regmonkey-bold}を合格基準に置き，顧客チームへの技術移転まで完結させる
+
+:::
+
+:::
+::::
+
+:::::
+
+## チーム構成：相談先は「役割」で覚える
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- メンバーの顔と名前は1on1で覚える：まず押さえるべきは[「何を誰に相談するか」]{.regmonkey-bold}
+- メンバーの連絡先は，チームチャットのメンバー一覧から確認できる
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::: {.regmonkey_index style="width:95%" .padding-L-10}
+
+```yml
+regmonkey_index:
+  title_fontsize: 1.1em
+  bullet_fontsize: 0.85em
+  numbering: false
+  bullet_position: 0.5em
+  children:
+    - title: ユニットリーダー
+      description:
+        - プロジェクトのアサインと優先順位を決定：キャリアの方向性も週次1on1でここに相談
+        - 勤怠・休暇など労務関連の相談先
+      width: [30,70]
+    - title: プロジェクトリーダー（PL）
+      description:
+        - 担当プロジェクトの進め方・成果物・スコープの相談先
+        - プロジェクトの困りごとエスカレーションもまずPLへ
+      width: [30,70]
+    - title: ストラテジスト
+      description:
+        - クライアント戦略・提案・ステークホルダー調整の相談先：経営層との合意形成をリード
+      width: [30,70]
+    - title: エンジニア
+      description:
+        - クライアント環境・実装・インフラ制約の相談先：本番リリースまでの技術判断をリード
+      width: [30,70]
+    - title: 先輩DS
+      description:
+        - 分析設計・モデリングの実務を担当：分析手法・過去の分析事例はまずここに相談
+      width: [30,70]
+```
+
+:::
+
+# 最初の4週間
+
+## 最初の4週間で「教わる」から「任される」へ移行する
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- ゴールは4週間での[「独り立ち」]{.regmonkey-bold}：小規模な分析ワークストリームを主担当として回せる状態になる
+- 以下の3ステップはそのための手段：進め方は担当プロジェクトの状況に合わせてユニットリーダーと調整する
+
+:::
+::::
+
+{{< reveal_vspace 0.75em >}}
+
+:::::{.hop-step-jump-container style="height:60%;"}
+::::{.step .step-1}
+:::{.step-number}
+第1週
+:::
+:::{.step-title}
+分析に着手できる状態を作る
+:::
+:::{.info-content}
+- アカウント申請・分析環境の構築
+- チーム・ワンチームメンバーとの1on1
+- ドメイン知識講座の受講
+:::
+::::
+::::{.step .step-2}
+:::{.step-number}
+第2〜3週
+:::
+:::{.step-title}
+実務サイクルに参加する
+:::
+:::{.info-content}
+- データ環境と過去の分析資産を読み込む
+- クライアント定例資料をペア作業で作成
+- 小規模な分析タスクをレビュー前提で担当
+:::
+::::
+::::{.step .step-3}
+:::{.step-number}
+第4〜5週
+:::
+:::{.step-title}
+主担当として回す
+:::
+:::{.info-content}
+- 分析の一次アウトプットをレビューに提出
+- クライアント定例資料を主担当で作成
+- 小規模なワークストリームを推進
+:::
+::::
+:::::
+
+## 第1〜2週：「分析に着手できる状態」を作る
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- ゴールは[「分析に着手できる状態」]{.regmonkey-bold}を作ること：環境・データ・ドメイン・人脈の4つを揃える
+- この2週間は成果を出す期間ではない：[3週目以降の立ち上がり速度を上げる]{.regmonkey-bold}ための投資と位置づける
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.75em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-week12 data-col-widths="[12, 22, 66]"}
+
+```yaml
+record1:
+  週:
+    - 第1週
+  重点テーマ:
+    - 分析環境と関係構築
+  主なタスク:
+    - アカウント・権限の一括申請：分析基盤・ソースコード管理・BIツール（詳細は「リソース・ツール」章を参照）
+    - 分析環境のセットアップ：リポジトリの取得・仮想環境の再現・サンプルコードの実行確認
+    - チーム・ワンチームメンバー（ストラテジスト・エンジニア）との1on1：日程は各自で調整
+    - ドメイン知識講座（1回目）：クライアント業界の構造と主要KPIの基礎
+    - 期初目標（MBO）を設定し，ユニットリーダーとすり合わせ：詳細は「評価とキャリア」章を参照
+
+record2:
+  週:
+    - 第2週
+  重点テーマ:
+    - データとドメインの土地勘
+  主なタスク:
+    - 担当プロジェクトのスコープ・成果物・データ環境を把握：DWHの主要テーブルとデータ定義を読む
+    - 過去の分析レポート・リポジトリを読み，チームの分析作法（レビュー・再現性のルール）を理解する
+    - クライアント定例資料の作成を先輩DSとのペア作業で体験
+    - ドメイン知識講座（2回目）：クライアントのデータ基盤と帳票の読み方
+```
+
+:::
+::::
+
+:::{.font-08}
+
+- 日程調整がつかない場合は無理に詰め込まず，ユニットリーダーと優先順位を相談する
+
+:::
+
+## 第3〜5週：分析ワークストリームで独り立ちする
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- ゴールは[「独り立ち」]{.regmonkey-bold}：小規模な分析ワークストリームを，分析設計から報告まで主担当として一巡させる
+- 手段はレビューを受けながらの[段階的な担当拡大]{.regmonkey-bold}：困りごとは翌週に持ち越さず週次1on1で共有する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.75em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-week35 data-col-widths="[12, 22, 66]"}
+
+```yaml
+record1:
+  週:
+    - 第3週
+  重点テーマ:
+    - 実務サイクルに参加
+  主なタスク:
+    - 担当プロジェクトのキックオフまたはクライアント定例に参加し，論点と意思決定の流れを把握
+    - 小規模な分析タスク（EDA・データ品質チェックなど）をレビュー前提で担当
+
+record2:
+  週:
+    - 第4週
+  重点テーマ:
+    - 主担当デビュー
+  主なタスク:
+    - クライアント定例資料を主担当として作成・報告
+    - 分析の一次アウトプット（仮説・検証設計・ベースラインモデル）をレビューに提出
+    - 期初目標（MBO）の修正・確定
+
+record3:
+  週:
+    - 第5週
+  重点テーマ:
+    - 独り立ち
+  主なタスク:
+    - 小規模なワークストリームを主担当として推進：分析設計から報告までを一巡させる
+    - コード・データ・手順をドキュメント化し，再現可能な形でチームコラボレーションできる状態にする
+    - 困りごとは翌週に持ち越さず，週次1on1で共有
+```
+
+:::
+::::
+
+# 業務プロセス
+
+## 業務の中心は受託する分析プロジェクトのデリバリー
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 業務はクライアントから受託する[分析プロジェクトのデリバリー]{.regmonkey-bold}と，提案・ナレッジ化などの[社内活動]{.regmonkey-bold}の2本立て
+- アサインはユニットリーダーとの1on1で決定：稼働は工数管理ツールへ日次で記録する
+
+:::
+::::
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::::{.message-card .position-left-05 .font-10}
+
+:::{.message-card-title-no-margin .center}
+
+プロジェクト（デリバリー）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- クライアント課題を受託し，分析・実装から報告まで成果物として納品する
+- ストラテジスト・エンジニア・DSのワンチームでクライアント業務に入り込む
+- スコープ・検収条件・スケジュールはキックオフで確認する
+
+:::
+
+::::
+
+:::
+::: {.column width="50%"}
+
+::::{.message-card .position-left-05 .font-10}
+
+:::{.message-card-title-no-margin .center}
+
+社内活動
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 提案書・見積りの作成支援：デリバリーで得た知見を次の案件へつなげる
+- 勉強会・分析テンプレートのアセット化などのナレッジ共有
+- デリバリーの稼働状況に応じて，ユニットリーダーと配分を調整する
+
+:::
+
+::::
+
+:::
+::::
+
+## ミーティングは5種類：まずカレンダー登録から
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- スケジュールの軸は[クライアント定例]{.regmonkey-bold}：担当プロジェクトの定例を着任初日にすべて登録する
+- 翌週の自分の予定は[金曜日までに]{.regmonkey-bold}カレンダーへ記入する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; height:60%; font-size: 0.9em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-meetings data-col-widths="[24, 20, 56]"}
+
+```yaml
+record1:
+  会議体:
+    - クライアント定例<br>(External)
+  頻度:
+    - 週次
+  目的・参加ルール:
+    - 進捗報告と論点討議：報告資料は前日までにPLのレビューを受ける
+
+record2:
+  会議体:
+    - プロジェクト内定例<br>(Internal)
+  頻度:
+    - 週次〜日次
+  目的・参加ルール:
+    - ワンチーム内のタスク・ブロッカー共有
+
+record3:
+  会議体:
+    - チーム会
+  頻度:
+    - 週次（月曜）
+  目的・参加ルール:
+    - チーム内の案件状況共有と意思決定：全員参加
+
+record4:
+  会議体:
+    - 朝会
+  頻度:
+    - 毎営業日
+  目的・参加ルール:
+    - 当日のタスクと困りごとの共有：15分で完結
+
+record5:
+  会議体:
+    - 月次レビュー
+  頻度:
+    - 月次
+  目的・参加ルール:
+    - プロジェクト横断で品質・稼働・収支を振り返り，翌月アクションを確認
+```
+
+:::
+::::
+
+## リモートワークの1日は「報告に始まり報告に終わる」
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- リモートワークは事前申請制：申請手順は社内ポータルのマニュアルを参照
+- 勤怠は[勤怠システムの打刻]{.regmonkey-bold}と[チャットでの報告]{.regmonkey-bold}の2系統をセットで運用する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[リモートワーク日に毎日実施する3ステップ]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.step-container style="height: 48%" .padding-TB-none}
+
+:::{.step}
+[勤務開始時]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 勤怠システムで出勤打刻
+- 勤怠報告チャンネルで勤務開始を報告
+:::
+
+:::
+
+:::{.step}
+[勤務中]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 計1時間の休憩を取得しながら業務
+- 当日の予定をカレンダーに反映
+:::
+
+:::
+
+:::{.step}
+[勤務終了時]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 勤怠報告チャンネルで勤務終了を報告
+- 勤怠システムで退勤打刻
+:::
+
+:::
+
+::::
+
+:::{.font-08}
+
+- 休暇申請・打刻漏れなど勤務表の修正が必要な場合は，ユニットリーダーへ連絡する
+- 社外からのVPN接続の設定手順は[OpenVPN 接続設定手順書](http://localhost:4201/posts/2026-06-01-manual-example/#/title-slide)を参照
+
+:::
+
+# リソース・ツール
+
+## アカウント・権限申請は着任初日にまとめて実施する
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 権限付与には数営業日かかるものがある：[初日にまとめて申請]{.regmonkey-bold}し，待ち時間を最初に消化する
+- 各申請手順のマニュアルは社内ポータルに集約されている
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-accounts data-col-widths="[20, 44, 36]"}
+
+```yaml
+record1:
+  区分:
+    - 開発・分析環境
+  申請・設定するもの:
+    - ソースコード管理・分析基盤・BIツールの各アカウント
+  ポイント:
+    - ツールごとに申請先が異なる：チームの申請一覧に従う
+    - ソースコード管理の初期設定は<a href="http://localhost:4201/posts/2025-06-07-getting-started-with-github/#/title-slide">はじめてのGitHub</a>を参照
+
+record2:
+  区分:
+    - コミュニケーション
+  申請・設定するもの:
+    - チャット・Web会議・共有ドライブの権限
+  ポイント:
+    - チームスペースへの招待はユニットリーダーに依頼
+
+record3:
+  区分:
+    - 人事・労務
+  申請・設定するもの:
+    - 人事システムへの個人情報・緊急連絡先の登録
+  ポイント:
+    - 初週中に登録を完了させる
+
+record4:
+  区分:
+    - 総務・経費
+  申請・設定するもの:
+    - 入館証・名刺・経費精算システムの設定
+  ポイント:
+    - 経費の承認ルートを最初に確認しておく
+```
+
+:::
+::::
+
+## 業務は指定ツール上で完結させる
+
+[取り扱い注意の情報が多いため，用途ごとに指定ツールを使い分ける]{.h2-submessage}
+
+{{< reveal_vspace 0.75em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-tools data-col-widths="[22, 20, 58]"}
+
+```yaml
+record1:
+  用途:
+    - チャット・通話
+  ツール:
+    - Slack
+  運用ルール:
+    - 即時性の高い連絡・質問・勤怠報告に使用
+    - 短時間の相談・画面共有はSlackハドル
+
+record2:
+  用途:
+    - Web会議・予定表
+  ツール:
+    - Google Meet
+    - Googleカレンダー
+  運用ルール:
+    - 会議依頼はすべてカレンダーで管理
+    - クライアント定例・社内定例はMeetで実施
+
+record3:
+  用途:
+    - ドキュメント・タスク管理
+  ツール:
+    - Notion
+  運用ルール:
+    - 議事録・ナレッジを集約し，プロジェクトタスクと社内活動タスクを一元管理
+
+record4:
+  用途:
+    - 資料作成・共有
+  ツール:
+    - Google Drive
+  運用ルール:
+    - 提案書・報告資料は原則Drive上で作成・共有
+    - ローカル保存はしない
+
+record5:
+  用途:
+    - ソースコード管理
+  ツール:
+    - Git
+    - GitHub
+  運用ルール:
+    - 分析コード・実装はリポジトリで管理
+    - レビューはPull Requestで実施
+
+record6:
+  用途:
+    - 分析・開発基盤
+  ツール:
+    - Google Cloud
+  運用ルール:
+    - データ分析・モデル開発の標準基盤
+    - プロジェクトによってはAWSなどクライアント指定の基盤を使用
+
+record7:
+  用途:
+    - コーディングエージェント
+  ツール:
+    - Claude Code
+    - Codex
+  運用ルール:
+    - 許可されたエージェントのみ使用
+    - クライアントデータの取り扱いはプロジェクトのルールに従う
+```
+
+:::
+::::
+
+## 全社アナウンスは必読：クライアント返信は必ず事前相談
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 営業・デリバリー現場からの全社向け発信には，クライアント動向など判断の前提となる一次情報が流れてくるため[全員必読]{.regmonkey-bold}
+- クライアントからの問い合わせ対応は最優先業務：ただし返信は全社に配信されるため，送信前にPL・ユニットリーダーへ文面を相談する
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.9em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-channels data-col-widths="[24, 30, 46]"}
+
+```yaml
+record1:
+  チャンネル:
+    - チームチャンネル
+  用途:
+    - 日常の連絡・質問・相談
+  運用ルール:
+    - 質問は歓迎：迷ったらまずここに書く
+
+record2:
+  チャンネル:
+    - 勤怠報告チャンネル
+  用途:
+    - 勤務開始・終了の報告
+  運用ルール:
+    - リモートワーク時は毎日実施
+
+record3:
+  チャンネル:
+    - 部門アナウンス
+  用途:
+    - 部門一斉の連絡
+  運用ルール:
+    - 共有ドライブの権限設定の単位としても使うため覚えておく
+
+record4:
+  チャンネル:
+    - 全社・現場発信
+  用途:
+    - 営業・デリバリー現場からの情報発信・全社連絡
+  運用ルール:
+    - 必読：返信は全社に配信されるため送信前の相談が必須
+```
+
+:::
+::::
+
+## ツール・開発作法はスライド資料で学ぶ
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 開発ツール・開発作法のオンボーディング資料は[チームのスライドサイト]{.regmonkey-bold}に集約されている
+- 環境構築や作法のキャッチアップは，以下の資料を参照しながら進める
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-learning-resources data-col-widths="[22, 36, 42]"}
+
+```yaml
+record1:
+  テーマ:
+    - バージョン管理
+  資料:
+    - <a href="http://localhost:4201/posts/2025-06-07-getting-started-with-github/#/title-slide">はじめてのGitHub</a>
+  内容:
+    - アカウント作成からPull Requestまでの基本操作
+
+record2:
+  テーマ:
+    - 開発フロー
+  資料:
+    - <a href="http://localhost:4201/posts/2026-05-25-git-development-flow/#/title-slide">小規模ProjectにおけるGit開発フロー</a>
+  内容:
+    - ブランチ運用・コミット・マージ戦略のチーム標準
+
+record3:
+  テーマ:
+    - コーディングエージェント
+  資料:
+    - <a href="http://localhost:4201/posts/2026-04-13-claude-code-101/#/title-slide">はじめてのClaude Code</a>
+  内容:
+    - コーディングエージェントの導入手順と基本的な使い方
+
+record4:
+  テーマ:
+    - リモート接続
+  資料:
+    - <a href="http://localhost:4201/posts/2026-06-01-manual-example/#/title-slide">OpenVPN 接続設定手順書</a>
+  内容:
+    - リモートワークに必要なVPN接続の設定手順
+
+record5:
+  テーマ:
+    - 分析レビュー
+  資料:
+    - <a href="http://localhost:4201/posts/2026-06-12-analysis-check-list/#/title-slide">分析レビューの８つの観点</a>
+  内容:
+    - 分析アウトプットをレビューに出す前のセルフチェック観点
+
+record6:
+  テーマ:
+    - 資料作成
+  資料:
+    - <a href="http://localhost:4201/posts/2025-05-07-how-to-write-slide/#/title-slide">構造化されたストーリーとしてのスライド</a>
+  内容:
+    - 1スライド1メッセージ・結論先出しのスライド作成作法
+```
+
+:::
+::::
+
+# 評価とキャリア
+
+## 評価は半期サイクル：昇給昇格の機会は年2回
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 評価は[上期・下期の半期ごと]{.regmonkey-bold}に実施され，それぞれが昇給昇格の機会になる
+- 期末にまとめて振り返るのではなく，期中に[プロジェクト評価を蓄積]{.regmonkey-bold}し期末評価のインプットにする
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+[半期の評価サイクル：4つの評価イベント]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.step-container style="height: 48%" .padding-TB-none}
+
+:::{.step}
+[目標設定]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 期初にJGの期待役割から個人目標（MBO）を設定
+- ユニットリーダーとの1on1で合意
+:::
+
+:::
+
+:::{.step}
+[プロジェクト評価]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 期中に3か月に一度程度のペースで実施
+- プロジェクトでの成果を記録・蓄積
+:::
+
+:::
+
+:::{.step}
+[期末評価]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 自己記入のあとユニットリーダーが記入
+- 1on1で振り返り，評価内容を確定
+:::
+
+:::
+
+:::{.step}
+[評価会議・通知]{.step .active-phase .active-phase-sm}
+
+:::{.step-label}
+- 評価会議で全体水準を確認し評語を確定
+- 結果通知とFBを次期の目標設定へつなげる
+:::
+
+:::
+
+::::
+
+:::{.font-08}
+
+- 途中入社の場合も，評価期間中に3か月以上在籍していれば評価対象になる
+
+:::
+
+## プロジェクト評価の蓄積が期末評価のインプットになる
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- プロジェクトでの成果は[プロジェクト評価（スナップショット）]{.regmonkey-bold}として記録され，期末評価の参考情報になる
+- プロジェクト評価がそのまま人事評価に反映されるわけではない：人事評価はユニットリーダーが行う
+
+:::
+::::
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::::{.message-card .font-10}
+
+:::{.message-card-title-no-margin .center}
+
+プロジェクト評価
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- プロジェクト上長との1on1で実施：頻度は3か月に一度程度，またはプロジェクトの区切り
+- タイトルの期待役割に対する5段階評価と「次のチャレンジ」を記録
+- 同職種の上長からのフィードバックでなくても良い
+
+:::
+
+::::
+
+:::
+::: {.column width="50%"}
+
+::::{.message-card .font-10}
+
+:::{.message-card-title-no-margin .center}
+
+期末評価（人事評価）
+
+:::
+
+:::{.message-card-body .squaredmark .font-09}
+
+- 半年に一度，期初に目標を記載したシートへ実績・評価を追記
+- 自己記入→ユニットリーダー記入→1on1の流れで確定
+- ユニットリーダーは蓄積されたプロジェクト評価を参考に記入
+
+:::
+
+::::
+
+:::
+::::
+
+## JG別の期待役割：任される範囲が段階的に広がる
+
+{{< reveal_vspace 0.75em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- JG（ジョブグレード）は習熟度・レベルを示す[社内の共通言語]{.regmonkey-bold}：JGごとに期待役割が定義されている
+- 職種別タイトル（DSマネージャー・DSディレクターなど）はJGと対応して定義される
+- 自分のJGの期待役割は，期初の目標設定と定性評価の基準になる
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.8em !important; margin-bottom:0.5em;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-jg-roles data-col-widths="[10, 42, 48]"}
+
+```yaml
+record1:
+  JG:
+    - J5
+  期待する役割:
+    - データサイエンスの特定領域でチーム内で最も知見を持ち，複数プロジェクトをQCD観点からマネージできる
+  評価のポイント:
+    - 明確なビジネス貢献を評価する：新規提案・新技術の社内導入・標準化による生産性向上・外部発信など形は問わない
+
+record2:
+  JG:
+    - J4
+  期待する役割:
+    - 1つのプロジェクトのデータサイエンスパートを，品質を担保しながら推進できる
+  評価のポイント:
+    - プロジェクトマネジメントを期待：アウトプット定義・タスク分解・メンバーのレビュー・早期のエスカレーション
+
+record3:
+  JG:
+    - J3
+  期待する役割:
+    - 上位者のサポートをほとんど必要とせず，自律的にタスクを設計・推進できる
+  評価のポイント:
+    - 1つのワークストリーム・テーマを担当：判断に必要なアウトプットを定義し，レビューを受けながら推進する
+
+record4:
+  JG:
+    - J2
+  期待する役割:
+    - PO・PLの指示を受けながら一定の品質でアウトプットを出せる
+  評価のポイント:
+    - プロジェクトの実質的な原動力：期限までにアウトプットを作成し，成熟度に応じて粗い粒度のタスクを担う
+
+record5:
+  JG:
+    - J1
+  期待する役割:
+    - PO・PLの指示を受けながらタスクを遂行できる
+  評価のポイント:
+    - 育成段階：渡されたタスクの確実な遂行から始める
+```
+
+:::
+::::
+
+## キャリアは3つの「目指す姿」を指針に主体的に築く
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-09 .padding-L-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- 3つの「目指す姿」はあくまで指針：[いずれか，あるいは異なる姿を目指してもよい]{.regmonkey-bold}
+- 画一的なスキルマップは定めない：[JGの期待役割]{.regmonkey-bold}から必要スキルを主体的に習得し，方向性は1on1で相談する
+
+:::
+::::
+
+{{< reveal_vspace 0.75em >}}
+
+[キャリアを考えるうえでの3つの前提]{.mini-section}
+
+{{< reveal_vspace 0.5em >}}
+
+
+::: {.info-contents .font-09 .padding-L-10 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- いずれの姿を目指すにしても，最終的な価値は[「クライアントの事業成果への貢献」]{.regmonkey-bold}で測られる
+- Biz・TC・Dev・DSの職種の境界は曖昧になり，[各職種が相互に領域を広げる]{.regmonkey-bold}ことが前提になる
+- DSもビジネス・業務理解やエンジニアリング観点へ越境し，[課題設定・対話・合意形成・実装までつなげる力]{.regmonkey-bold}を高める
+
+:::
+
+{{< reveal_vspace 0.5em >}}
+
+[キャリア例：「目指す姿」ごとの歩み方]{.mini-section}
+
+{{< reveal_vspace 0.25em >}}
+
+::: {.info-contents .font-09 .padding-L-10 .lh-12}
+
+- TBA
+
+:::
+
+# Appendix
+
+## 用語集：チーム内の頻出ワード
+
+{{< reveal_vspace 0.25em >}}
+
+::::: {.columns}
+:::: {.column width="50%"}
+
+:::{.glossary-container .font-08 .lh-12}
+
+```yaml
+glossary:
+  - def: 1on1
+    description: |
+      1対1の定期ミーティング：ユニットリーダーとは週次で実施し，困りごとを早めに共有する
+  - def: ワンチーム
+    description: |
+      ストラテジスト・エンジニア・DSの3職種が1チームでクライアントに入り込み，プロジェクトを進める体制
+  - def: MBO
+    description: |
+      Management by Objectives：期初に設定する個人目標．評価サイクルの基準になる
+  - def: JG
+    description: |
+      ジョブグレード：習熟度・レベルを示す社内の共通言語．JGごとに期待役割が定義される
+  - def: プロジェクト評価
+    description: |
+      プロジェクト上長との1on1で成果を記録するスナップショット：期末評価のインプットになる
+```
+
+:::
+
+::::
+:::: {.column width="50%"}
+
+:::{.glossary-container .font-08 .lh-12}
+
+```yaml
+glossary:
+  - def: QCD
+    description: |
+      Quality（品質）・Cost（コスト）・Delivery（納期）：プロジェクトを品質・工数・納期のバランスで管理する考え方
+
+  - def: KPI
+    description: |
+      重要業績評価指標：チームがモニタリングする数値目標．定義はBIアナリストに確認
+  - def: FY・上期・下期
+    description: |
+      会計年度とその前半・後半：四半期・月次の計画サイクルの基準になる
+  - def: DWH
+    description: |
+      データウェアハウス：分析用データを集約した基盤．分析はここのデータを正とする
+  - def: 独り立ち
+    description: |
+      クライアント定例資料とワークストリームを主担当として回せる状態：オンボーディングのゴール
+```
+
+:::
+
+::::
+:::::
