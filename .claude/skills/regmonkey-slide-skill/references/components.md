@@ -70,7 +70,7 @@ Internal structure for `.info-box`:
 ```
 :::{.info-box}
 {{< reveal_vspace 0.25em >}}
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 - bullet 1
 - bullet 2
 :::
@@ -84,7 +84,7 @@ For `.info-box` you can title it: put `[タイトル]{.info-box-title}` inside. 
 
 [① タイトル]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 - bullet 1
 - bullet 2
 :::

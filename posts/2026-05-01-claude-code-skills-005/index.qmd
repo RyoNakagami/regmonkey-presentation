@@ -508,7 +508,7 @@ skills: accessibility-audit, performance-check
 
 {{< bi box-seam size=1.7em color=#428CE6 >}}
 
-### [自己完結性]{.padding-L-05}
+### [自己完結性]{.padding-left-05}
 
 
 
@@ -527,7 +527,7 @@ skills: accessibility-audit, performance-check
 
 {{< bi diagram-3 size=1.7em color=#428CE6 >}}
 
-### [構造化出力]{.padding-L-05}
+### [構造化出力]{.padding-left-05}
 
 :::
 
@@ -544,7 +544,7 @@ skills: accessibility-audit, performance-check
 
 {{< bi clock-history size=1.7em color=#428CE6 >}}
 
-### [追跡可能性]{.padding-L-05}
+### [追跡可能性]{.padding-left-05}
 
 :::
 

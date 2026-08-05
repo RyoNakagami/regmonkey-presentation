@@ -25,7 +25,7 @@ chalkboard: false
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - Claude Agent Skillは**個人のローカル環境に閉じがち**で，チーム内の再利用が進まない
 - skilltoolは[Skillパッケージの publish / install / search を提供するCLI＋レジストリ]{.regmonkey-bold}で，この問題を解決する
@@ -64,7 +64,7 @@ skilltoolなしの世界 = Skillの散在 → 属人化 → 再発明
 ::::
 
 :::
-::: {.column width="50.0%" .padding-L-12 .font-09}
+::: {.column width="50.0%" .padding-left-12 .font-09}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -337,7 +337,7 @@ publish 手順を案内する
 
 :::{.info-box}
 
-:::{.info-contents .font-09 .padding-L-05}
+:::{.info-contents .font-09 .padding-left-05}
 
 - SKILL.mdは人間向けドキュメントではなく**Claudeが実行する指示書** 
 - 曖昧さを排除し，手順・制約・エッジケースを明記する
@@ -649,7 +649,7 @@ token:     tok_alice_****
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - `skilltool publish ./dir/` を実行すると，CLIがmanifest解析 → zip作成 → Transport経由でRegistryに送信
 - HTTPとSSHの**2つのTransport**が選択可能だが，内部では同じ`publish_logic()`を呼ぶ
@@ -795,7 +795,7 @@ Step 4: Claude Codeで利用する
 
 {{< reveal_vspace 0.3em >}}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - Registryサーバー（FastAPI）はHTMLページも提供しており，`http://100.x.x.x:8765/` にブラウザでアクセスするだけで利用可能
 - CLIと同じデータを参照するため，ブラウザで検索→ CLIで `install` といった流れも可能
@@ -906,7 +906,7 @@ Step 4: Claude Codeで利用する
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 {{< reveal_vspace 0.3em >}}
 
@@ -962,7 +962,7 @@ Step 4: Claude Codeで利用する
 
 {{< reveal_vspace 0.3em >}}
 
-::::{.font-09 .padding-L-05}
+::::{.font-09 .padding-left-05}
 
 ❌ **NG配置**（認識されない）
 

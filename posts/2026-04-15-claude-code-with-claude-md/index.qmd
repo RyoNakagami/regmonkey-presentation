@@ -29,7 +29,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - CLAUDE.md = [Claude Codeが起動時に自動読込し，毎リクエストの先頭に添付する]{.regmonkey-bold} 永続メモリファイル
 - `/init` を一度走らせるとリポジトリ全体を解析し，[サマリー・主要ファイル・アーキテクチャ]{.regmonkey-bold} を雛形として書き出す
@@ -56,7 +56,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.font-09 .padding-L-05 .lh-14}
+:::{.font-09 .padding-left-05 .lh-14}
 
 - セッション横断で情報を残せる [唯一の標準的な仕組み]{.regmonkey-bold}：`/clear` や `/compact` を跨いで保持される
 - ただし [毎回送信される＝Context Windowを常時消費する]{.regmonkey-bold} ため，肥大化はトークン浪費に直結する
@@ -168,7 +168,7 @@ Machine
 
 [Anthropic Docsの記述]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - ["More specific locations take precedence over broader ones."]{.regmonkey-bold}（より具体的な階層が広範な階層に優先する）
 - 同じトリガー指示が複数階層に書かれても [最終的に効くのは最も深い階層の指示のみ]{.regmonkey-bold}
@@ -226,7 +226,7 @@ record3:
 
 [セットアップ：3階層に同じトリガーを置く]{.info-box-title}
 
-:::{.info-contents .font-09 .padding-L-05 .lh-12}
+:::{.info-contents .font-09 .padding-left-05 .lh-12}
 
 - 各階層の `CLAUDE.md` に「`precedence-test` と入力されたら `LEVEL=USER`・`LEVEL=PROJECT`・`LEVEL=SUBDIR` のいずれかを返答」と互いに矛盾する指示を仕込む
 - claude code sessionで `precedence-test` と入力し，claude codeからのレスポンスを確認する
@@ -298,7 +298,7 @@ record3:
 
 :::::
 
-::::: {.column width="50%" .padding-L-10}
+::::: {.column width="50%" .padding-left-10}
 
 
 :::{.border-bottom-header-left}

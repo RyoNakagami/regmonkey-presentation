@@ -31,7 +31,7 @@ chalkboard: false  # 一時的に切ってみる
 
 {{< bi bullseye size=1.7em color=#428CE6 >}}
 
-### [学習目標]{.padding-L-05}
+### [学習目標]{.padding-left-05}
 
 :::
 
@@ -49,7 +49,7 @@ chalkboard: false  # 一時的に切ってみる
 
 {{< bi person size=1.7em color=#428CE6 >}}
 
-### [対象レベル]{.padding-L-05}
+### [対象レベル]{.padding-left-05}
 
 :::
 
@@ -65,7 +65,7 @@ chalkboard: false  # 一時的に切ってみる
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### [前提知識 & 必要環境]{.padding-L-05}
+### [前提知識 & 必要環境]{.padding-left-05}
 
 :::
 

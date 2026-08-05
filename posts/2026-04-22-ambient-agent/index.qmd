@@ -22,7 +22,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height: 1.2"}
 
 - チャット型のように[人が毎回話しかける]{.regmonkey-bold}のではなく，カレンダー・Slackなどの[イベントストリーム]{.regmonkey-bold}を常時監視するエージェント
 - ほとんどのタスクは裏側で自律処理し，[必要な時だけ]{.regmonkey-bold}人に通知・質問・承認を求める
@@ -60,7 +60,7 @@ auto-agenda:
 ::::
 
 :::
-::: {.column width="50.0%" .padding-L-12 .font-09}
+::: {.column width="50.0%" .padding-left-12 .font-09}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -216,9 +216,9 @@ auto-agenda:
 {{< reveal_vspace 1em >}}
 
 :::: {.callout-note}
-## [REMARKS: チャット型との違いをフロー視点で整理[^footer-flow]]{.padding-L-05 .font-12}
+## [REMARKS: チャット型との違いをフロー視点で整理[^footer-flow]]{.padding-left-05 .font-12}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - **起点**: チャット型は人のメッセージ送信で起動するが，アンビエント型は外部イベント（メール / Slack / Cron）が起点になる
 - **並列度**: チャット型は1会話ずつ逐次処理するのに対し，アンビエント型は複数タスクを並列処理できる
@@ -242,7 +242,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height: 1.2"}
 
 - アンビエントエージェントは**全自動ではない** ── 適切なタイミングで人の判断を組み込む
 - 関与の型は **Notify（通知） / Question（質問） / Review（承認）** の3つに整理できる
@@ -322,7 +322,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height: 1.2"}
 
 {{< reveal_vspace 0.5em >}}
 
@@ -449,7 +449,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - アンビエント型はチャット型と違い，**バックグラウンドで走り続ける基盤**が必要
 - LangGraphは，[永続化 / Human-in-the-Loop / 長期メモリ / Cron]{.regmonkey-bold}をランタイム機能として提供
@@ -588,7 +588,7 @@ Inboxでの承認・回答は長期メモリに蓄積され，次回以降の判
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 {{< reveal_vspace 0.25em >}}
 

@@ -137,7 +137,7 @@ regmonkey_index:
 
 [必須フィールド]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 - `name`：識別子．[**最大 64 文字**]{.regmonkey-bold}．小文字・数字・ハイフンのみ
 - `description`：マッチング基準．[**最大 1024 文字**]{.regmonkey-bold}．非空
@@ -148,7 +148,7 @@ regmonkey_index:
 
 [任意フィールド]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 - `license`：ライセンス名 or バンドルファイル参照
 - `compatibility`：環境要件（最大 500 文字）
@@ -199,11 +199,11 @@ system works:
 :::
 
 :::
-::: {.column width="52.5%" .padding-L-10}
+::: {.column width="52.5%" .padding-left-10}
 
 [allowed-tools の効果]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 列挙したツールは [**確認なしで利用可**]{.regmonkey-bold}(= without permission)
 - 列挙外のツール（`Edit`，`Write` 等）は [**使えない**]{.regmonkey-bold}
@@ -215,7 +215,7 @@ system works:
 
 [使いどころ]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 調査・要約など [**書き換えを伴わない作業**]{.regmonkey-bold}
 - セキュリティ感度が高い workflow
@@ -248,7 +248,7 @@ system works:
 
 [3 つのオプションディレクトリ]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 - `scripts/`：[**実行可能コード**]{.regmonkey-bold}．自己完結 or 依存を明記
 - `references/`：[**追加ドキュメント**]{.regmonkey-bold}．`REFERENCE.md` `FORMS.md` などを置き，[**必要なときだけ**]{.regmonkey-bold}読ませる
@@ -260,7 +260,7 @@ system works:
 
 [なぜ分離するのか]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 - 全部を SKILL.md に詰めると[**コンテキストを圧迫**]{.regmonkey-bold}しメンテも辛い
 - 個別ファイルは[**ロード対象に含めるかを Claude が判断**]{.regmonkey-bold}できる
@@ -279,7 +279,7 @@ system works:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -298,7 +298,7 @@ system works:
 
 [向いている処理]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 環境バリデーション（依存・バージョンチェック）
 - 一貫性が必要な[**データ変換**]{.regmonkey-bold}
@@ -311,7 +311,7 @@ system works:
 
 [Skill 設計の判断軸]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 自然言語で Claude に毎回考えさせる？ → [**SKILL.md 本文**]{.regmonkey-bold}に書く
 - 決まった処理を毎回流す？ → `scripts/` に置いて[**実行を指示**]{.regmonkey-bold}する
@@ -346,7 +346,7 @@ npx eslint@9.0.0 src/
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - バージョンを [**ピン留め**]{.regmonkey-bold}して再現性を確保
 - 前提環境は `compatibility` フィールドで宣言
@@ -375,7 +375,7 @@ from bs4 import BeautifulSoup
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - `uv run scripts/extract.py` で[**隔離環境＋自動依存解決**]{.regmonkey-bold}
 - `uv lock --script` で完全再現用のロックファイル生成
@@ -466,7 +466,7 @@ from bs4 import BeautifulSoup
 
 [① 冪等性]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 - エージェントはリトライ前提．何度呼ばれても結果が同じ設計に
 - 「create if not exists」を「create and fail」より優先する
 :::
@@ -478,7 +478,7 @@ from bs4 import BeautifulSoup
 
 [② 入力制約]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 
 - 曖昧な入力を推測で実行しない．推測は誤実行のもと
 - enum・closed set を使い，曖昧な入力は[**明確にエラー**]{.regmonkey-bold}
@@ -494,7 +494,7 @@ from bs4 import BeautifulSoup
 
 [③ dry-run]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 - 副作用ありの操作は未然に防ぎたい
 - `--dry-run` フラグで先に[**プレビュー**]{.regmonkey-bold}させる
 :::
@@ -507,7 +507,7 @@ from bs4 import BeautifulSoup
 
 [④ 意味のある終了コード]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 - 失敗の種類を区別できないと，エージェントが対処を選べない
 - 失敗種別ごとに別 code を返し，`--help` に[**意味を明記**]{.regmonkey-bold}
 :::
@@ -519,7 +519,7 @@ from bs4 import BeautifulSoup
 
 [⑤ 安全なデフォルト]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 - うっかり破壊的操作が走る事故を防ぐ
 - `--confirm`・`--force` などの[**明示フラグを必須化**]{.regmonkey-bold}
 :::
@@ -531,7 +531,7 @@ from bs4 import BeautifulSoup
 
 [⑥ 出力サイズの予測可能性]{.info-box-title}
 
-:::{.info-contents .font-09 .lh-14 .padding-L-10}
+:::{.info-contents .font-09 .lh-14 .padding-left-10}
 - harness は 10〜30K 字で truncate．重要情報が消えうる
 - 要約をデフォルトに．`--offset` で[**追加取得を許可**]{.regmonkey-bold}
 :::
@@ -565,7 +565,7 @@ skills-ref validate ./my-skill
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - agentskills が提供する [**リファレンス実装**]{.regmonkey-bold}の CLI
 - ディレクトリを引数に指定して実行するだけ
@@ -578,7 +578,7 @@ skills-ref validate ./my-skill
 
 [使いどころ]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 公開前のチェック：[**name の文字数・構文**]{.regmonkey-bold}・description 必須を機械検証
 - CI への組み込み：壊れた Skill を[**マージ前にブロック**]{.regmonkey-bold}
@@ -590,7 +590,7 @@ skills-ref validate ./my-skill
 
 [validate でカバーできること]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - frontmatter のスキーマ準拠
 - `include` の glob と実ファイルの整合

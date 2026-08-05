@@ -30,7 +30,7 @@ auto-agenda:
 
 {{< bi chat-square-text size=1.7em color=#428CE6 >}}
 
-### [背景・課題]{.padding-L-05}
+### [背景・課題]{.padding-left-05}
 
 :::
 
@@ -47,7 +47,7 @@ auto-agenda:
 
 {{< bi bullseye size=1.7em color=#428CE6 >}}
 
-### [目的]{.padding-L-05}
+### [目的]{.padding-left-05}
 
 :::
 
@@ -64,7 +64,7 @@ auto-agenda:
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### [前提・制約]{.padding-L-05}
+### [前提・制約]{.padding-left-05}
 
 :::
 
@@ -231,7 +231,7 @@ record3:
 {{< reveal_vspace 0.3em >}}
 
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -342,7 +342,7 @@ record4:
 :::
 ::::
 :::::
-::::: {.column width="50%" .padding-L-12 .font-09}
+::::: {.column width="50%" .padding-left-12 .font-09}
 ::::{.square-box-500}
 :::{.border-bottom-header-left}
 差分の大きさ：人間 vs AI
@@ -490,7 +490,7 @@ AI利用後
 
 [求められる能力の変化]{.mini-section}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -554,7 +554,7 @@ AI利用後
 
 [最終判断が人間に残る理由]{.mini-section}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 

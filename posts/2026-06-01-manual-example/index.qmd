@@ -32,7 +32,7 @@ auto-agenda:
 
 {{< bi chat-square-text size=1.7em color=#428CE6 >}}
 
-### [目的]{.padding-L-05}
+### [目的]{.padding-left-05}
 
 :::
 
@@ -49,7 +49,7 @@ auto-agenda:
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### [前提]{.padding-L-05}
+### [前提]{.padding-left-05}
 
 :::
 
@@ -66,7 +66,7 @@ auto-agenda:
 
 {{< bi terminal size=1.7em color=#428CE6 >}}
 
-### [必要環境]{.padding-L-05}
+### [必要環境]{.padding-left-05}
 
 :::
 
@@ -259,7 +259,7 @@ record7:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -271,7 +271,7 @@ record7:
 
 {{< reveal_vspace 1em >}}
 
-::: {.regmonkey_index style="width:100%" .padding-L-10}
+::: {.regmonkey_index style="width:100%" .padding-left-10}
 
 ```yml
 regmonkey_index:
@@ -507,7 +507,7 @@ record6:
 
 [接続手順と確認]{.info-box-title}
 
-:::{.info-contents .font-08 .padding-L-05 .lh-12}
+:::{.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -533,7 +533,7 @@ record6:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -547,7 +547,7 @@ record6:
 
 [本手順で TCP/443 を採用する理由]{.mini-section}
 
-:::{.font-09 .lh-13 .padding-L-05}
+:::{.font-09 .lh-13 .padding-left-05}
 - 社内ネットワークや公衆 Wi-Fi では外向き通信が制限されることが多い一方，HTTPS 用の TCP/443 はほとんどの環境で許可されている
 - OpenVPN の待ち受けを TCP/443 にすることで，接続元のファイアウォール設定を変更せずに幅広い環境から接続できる
 :::
@@ -556,7 +556,7 @@ record6:
 
 [留意点]{.mini-section}
 
-:::{.font-09 .lh-13 .padding-L-05}
+:::{.font-09 .lh-13 .padding-left-05}
 - OpenVPN は UDP の方が転送効率は高いが，TCP のトンネル上に TCP 通信を重ねる際の再送の重複を許容し，本構成では到達性を優先して TCP を採用している
 :::
 
@@ -569,7 +569,7 @@ record6:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -601,7 +601,7 @@ HTTPS 通信との関係
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.font-08 .lh-13 .padding-L-05}
+:::{.font-08 .lh-13 .padding-left-05}
 - HTTPS とは，[HTTP 通信を TLS 通信路の上で行う方式]{.regmonkey-bold}（HTTP over TLS）のこと
 - ブラウザのアドレスバーの鍵マークは，Web サーバーとの間に TLS 通信路が確立されたことを示す
 - 標準ポートは TCP/443：OpenVPN が同じポートで待ち受けることで，HTTPS が通る環境なら同様に到達できる
@@ -619,7 +619,7 @@ HTTPS 通信との関係
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -643,7 +643,7 @@ HTTPS 通信との関係
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -703,7 +703,7 @@ With LDAP：ディレクトリで一元管理
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -717,7 +717,7 @@ With LDAP：ディレクトリで一元管理
 
 [ca.crt：VPN サーバーが本物か検証する]{.mini-section}
 
-:::{.font-09 .lh-13 .padding-L-05}
+:::{.font-09 .lh-13 .padding-left-05}
 - 接続時にサーバーが提示する証明書が CA に署名されているか検証し，正しければ本物の VPN サーバーと判断して通信を続行する
 - HTTPS で Web サイトの証明書をブラウザが確認するのと同じ考え方
 :::
@@ -726,7 +726,7 @@ With LDAP：ディレクトリで一元管理
 
 [ta.key：不正な接続要求を TLS 開始前に遮断する]{.mini-section}
 
-:::{.font-09 .lh-13 .padding-L-05}
+:::{.font-09 .lh-13 .padding-left-05}
 - 共有鍵が一致しない相手とは TLS ハンドシェイク自体を開始せず，接続要求を即座に破棄する
 - 不正アクセスの排除・DoS 攻撃の軽減・ポートスキャンへの応答抑止に寄与する
 :::
@@ -739,7 +739,7 @@ With LDAP：ディレクトリで一元管理
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -770,7 +770,7 @@ openssl req -x509 -new -nodes -key ca.key \
 
 :::
 
-:::{.font-08 .lh-13 .padding-L-05}
+:::{.font-08 .lh-13 .padding-left-05}
 - `ca.key` は CA の秘密鍵として VPN 管理者のみが保持し，`ca.crt` は公開証明書としてクライアントへ配布する
 - クライアントは `ca.crt` を使って，接続先のサーバー証明書がこの CA の署名によるものかを検証する
 :::
@@ -791,7 +791,7 @@ openvpn --genkey secret ta.key
 
 :::
 
-:::{.font-08 .lh-13 .padding-L-05}
+:::{.font-08 .lh-13 .padding-left-05}
 - 生成した同一の `ta.key` をサーバーと全クライアントに配置する
 - サーバー側は `tls-auth ta.key 0`，クライアント側は `tls-auth ta.key 1` と設定して方向を区別する
 :::
@@ -833,7 +833,7 @@ record3:
 
 [実務では Easy-RSA による一元管理が一般的]{.mini-section}
 
-:::{.font-09 .lh-13 .padding-L-05}
+:::{.font-09 .lh-13 .padding-left-05}
 - 企業では OpenVPN の Easy-RSA を利用して CA を管理し，`ca.crt`・`server.crt`・`client.crt` の発行・更新を一元的に行うことが多い
 - `ta.key` は OpenVPN コマンドで一度生成し，その共有鍵を各クライアントへ配布する運用が一般的
 :::
@@ -846,7 +846,7 @@ record3:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -874,7 +874,7 @@ record3:
 
 [検証の流れ]{.mini-section}
 
-:::{.font-08 .lh-13 .padding-L-05}
+:::{.font-08 .lh-13 .padding-left-05}
 - サーバーとクライアントが同一の `ta.key` を事前に共有する（環境情報の受領時に配布される）
 - 送信側は制御パケットごとに HMAC 署名を計算して付与し，受信側は同じ鍵で署名を再計算して一致を確認する
 :::
@@ -883,7 +883,7 @@ record3:
 
 [入口対策としての効果]{.mini-section}
 
-:::{.font-08 .lh-13 .padding-L-05}
+:::{.font-08 .lh-13 .padding-left-05}
 - 不一致のパケットには一切応答しないため，ポートスキャンに対して OpenVPN の稼働を検知されにくい
 - TLS ハンドシェイク前に遮断するため，TLS 実装の脆弱性を突く攻撃や DoS の処理負荷を軽減できる
 :::
@@ -900,7 +900,7 @@ record3:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -914,7 +914,7 @@ record3:
 
 [接続時に照合が行われる順序]{.mini-section}
 
-::: {.regmonkey_index style="width:100%" .padding-L-10}
+::: {.regmonkey_index style="width:100%" .padding-left-10}
 
 ```yml
 regmonkey_index:

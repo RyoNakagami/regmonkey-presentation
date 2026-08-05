@@ -30,7 +30,7 @@ auto-agenda:
 
 {{< bi bullseye size=1.7em color=#428CE6 >}}
 
-### [学習目標]{.padding-L-05}
+### [学習目標]{.padding-left-05}
 
 :::
 
@@ -47,7 +47,7 @@ auto-agenda:
 
 {{< bi person size=1.7em color=#428CE6 >}}
 
-### [対象レベル]{.padding-L-05}
+### [対象レベル]{.padding-left-05}
 
 :::
 
@@ -64,7 +64,7 @@ auto-agenda:
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### [前提知識]{.padding-L-05}
+### [前提知識]{.padding-left-05}
 
 :::
 
@@ -243,7 +243,7 @@ record4:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 

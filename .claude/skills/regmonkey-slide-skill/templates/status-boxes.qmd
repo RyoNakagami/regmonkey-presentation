@@ -4,7 +4,7 @@
 
 :::{.success-box}
 [実現できること]{.info-box-title}
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 - できる項目1
 - できる項目2
 :::
@@ -14,7 +14,7 @@
 
 :::{.warning-box}
 [注意点]{.info-box-title}
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 - 気をつけるべき項目1
 - 気をつけるべき項目2
 :::
@@ -24,7 +24,7 @@
 
 :::{.caution-box}
 [技術上の課題]{.info-box-title}
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 - 課題1
 - 課題2
 :::
@@ -34,7 +34,7 @@
 
 :::{.danger-box}
 [アンチパターン]{.info-box-title}
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 - やってはいけない項目1
 - やってはいけない項目2
 :::

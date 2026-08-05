@@ -157,7 +157,7 @@ horizontal_tree:
 
 <!-- left column end -->
 
-::::: {.column width="50%" .padding-L-10}
+::::: {.column width="50%" .padding-left-10}
 :::: {.info-box .padding-TB-none}
 
 [Problem 1.1]{.info-box-title}
@@ -478,7 +478,7 @@ record2-2:
 
 :::
 
-:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-L-05}
+:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-left-05}
 Data
 :::
 
@@ -511,7 +511,7 @@ Data
 
 :::
 
-:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-L-05}
+:::{.text-xxl .font-bold .text-gray-700 .mb-3 .padding-left-05}
 サロゲートモデル
 :::
 :::
@@ -543,7 +543,7 @@ Data
 :::
 
 
-:::{.text-xxl .font-bold .mb-3 .padding-L-05}
+:::{.text-xxl .font-bold .mb-3 .padding-left-05}
 成果物
 :::
 :::
@@ -910,7 +910,7 @@ PoC1:
 
 {{< reveal_vspace 0.25em >}}
 
-::: {.info-contents .font-10 .padding-L-10}
+::: {.info-contents .font-10 .padding-left-10}
 
 - 形式だけでなく内容の質を高めることで説得力のある提案書にすることが重要
 - 下記の自己チェックに加えて，定期的な上長レビューと同僚からのフィードバックを活用してください
@@ -931,7 +931,7 @@ PoC1:
 
 :::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -939,7 +939,7 @@ PoC1:
 [分析目的の明確性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 分析の目的が明確に記述されているか
 
@@ -948,7 +948,7 @@ PoC1:
 ::::
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -956,7 +956,7 @@ PoC1:
 [Research Questionの明確性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 設定したRQが具体的で検証可能な形になっているか
 
@@ -964,7 +964,7 @@ PoC1:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -972,7 +972,7 @@ PoC1:
 [成果物の明確性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 分析によって得られる成果物が具体的に記述されているか?
 
@@ -980,7 +980,7 @@ PoC1:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -988,7 +988,7 @@ PoC1:
 [手法の妥当性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 選択した分析手法の理由と他手法との比較が記載されているか
 
@@ -996,7 +996,7 @@ PoC1:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1004,7 +1004,7 @@ PoC1:
 [エビデンスの充実度]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 主張を裏付ける参考文献や根拠が適切に引用されているか
 
@@ -1023,7 +1023,7 @@ PoC1:
 
 :::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1031,7 +1031,7 @@ PoC1:
 [リソース計画の現実性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 必要なデータ・計算環境・人的リソースが過不足なく記載されているか
 
@@ -1040,7 +1040,7 @@ PoC1:
 ::::
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1048,7 +1048,7 @@ PoC1:
 [実現可能性の検討]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 予想される制約や限界についても言及されているか
 
@@ -1056,7 +1056,7 @@ PoC1:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1064,7 +1064,7 @@ PoC1:
 [タイムラインの具体性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 各工程の期間と全体スケジュールが明示されているか
 
@@ -1074,7 +1074,7 @@ PoC1:
 
 
 
-::::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+::::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 :::: {.tool-content}
 ::: {.tool-name}
@@ -1082,7 +1082,7 @@ PoC1:
 [PoCの目的・範囲]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 PoCで検証する業務フローや課題領域が明確に定義されているか
 
@@ -1090,7 +1090,7 @@ PoCで検証する業務フローや課題領域が明確に定義されてい�
 ::::
 :::::
 
-::::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+::::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 :::: {.tool-content}
 ::: {.tool-name}
@@ -1098,7 +1098,7 @@ PoCで検証する業務フローや課題領域が明確に定義されてい�
 [PoC評価基準]{.checkbox2 .checked}
 
 :::
-::: {.tool-description .padding-L-20}
+::: {.tool-description .padding-left-20}
 
 PoCの成果物や成功基準，評価方法が定義されているか
 

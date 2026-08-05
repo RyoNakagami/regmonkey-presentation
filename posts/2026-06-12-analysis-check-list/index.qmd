@@ -103,7 +103,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -125,7 +125,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -133,7 +133,7 @@ record8:
 [基本情報の明記]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 タイトル・要約・分析者・日付・目的が明記されているか
 
@@ -141,7 +141,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -149,7 +149,7 @@ record8:
 [出典の明記]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 引用・図表に出典が明記され，無断転載がないか
 
@@ -157,7 +157,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -165,7 +165,7 @@ record8:
 [図表の可読性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 ラベル・軸・凡例・単位が読み取れるか
 
@@ -173,7 +173,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -181,7 +181,7 @@ record8:
 [参照情報の鮮度]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 参照データ・先行分析が最新で，欠落がないか
 
@@ -189,7 +189,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -197,7 +197,7 @@ record8:
 [分析ガイドラインの準拠]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 社内の分析ガイドライン・テンプレートに準拠しているか
 
@@ -215,7 +215,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - タイトルや目的が記載されていない
 - 図表の軸ラベル・単位・凡例が欠落している
@@ -243,7 +243,7 @@ record8:
 {{< reveal_vspace 0.5em >}}
 
 :::: {.main-message-box}
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -265,7 +265,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -273,7 +273,7 @@ record8:
 [問いの事前合意]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 問いの定義が分析開始前に合意されていたか
 
@@ -281,7 +281,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -289,7 +289,7 @@ record8:
 [問いへの回答]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 依頼された問い（ビジネス課題）に正面から答えているか
 
@@ -297,7 +297,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -305,7 +305,7 @@ record8:
 [焦点の維持]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 分析の焦点が別のものにすり替わっていないか
 
@@ -313,7 +313,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -321,7 +321,7 @@ record8:
 [新しい洞察]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 既知の事実の再確認に留まらず，新しい洞察があるか
 
@@ -339,7 +339,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 問いが曖昧なまま分析に着手している
 - 答えるべき問いが未定義なまま，データを可視化している
@@ -364,7 +364,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -386,7 +386,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -394,7 +394,7 @@ record8:
 [結論への一貫性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 観察の羅列でなく，結論まで一貫して導かれているか
 
@@ -402,7 +402,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -410,7 +410,7 @@ record8:
 [事実と解釈の区別]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 観察された事実と，解釈・示唆が区別して記述されているか
 
@@ -418,7 +418,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -426,7 +426,7 @@ record8:
 [先行知見の網羅]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 関連する先行知見・既存施策が適切に考慮されているか
 
@@ -434,7 +434,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -442,7 +442,7 @@ record8:
 [残課題の整理]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 答えきれなかった問い・追加検証が必要な事項が整理されているか
 
@@ -460,7 +460,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 集計結果を並べただけで示唆がない
 - 「だから何か」に答える結論パートがない
@@ -484,7 +484,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -506,7 +506,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -514,7 +514,7 @@ record8:
 [指標定義の一致]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 指標の定義（分子・分母・集計単位・期間）が一致しているか
 
@@ -522,7 +522,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -530,7 +530,7 @@ record8:
 [比較対象の明確性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 対照群・ベースライン・比較指標が明確か
 
@@ -538,7 +538,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -546,7 +546,7 @@ record8:
 [再現可能性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 前処理・抽出条件・集計ロジックが記述され，再現できるか
 
@@ -554,7 +554,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -562,7 +562,7 @@ record8:
 [統計的妥当性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 サンプルサイズ・検定・多重比較・交絡の扱いが適切か
 
@@ -570,7 +570,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -578,7 +578,7 @@ record8:
 [データ理解]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 期間・母集団・欠損・外れ値処理・バイアスが明示されているか
 
@@ -596,7 +596,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 指標の定義が関係者間で一致していない
 - 前処理・抽出条件が記載されず，再現できない
@@ -623,7 +623,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -645,7 +645,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -653,7 +653,7 @@ record8:
 [論理の筋道]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 論理展開が筋道立っており，飛躍がないか
 
@@ -661,7 +661,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -669,7 +669,7 @@ record8:
 [データによる裏付け]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 結論がデータに裏付けられているか
 
@@ -677,7 +677,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -685,7 +685,7 @@ record8:
 [反証の検討]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 不都合な結果や反証となる事実を無視していないか
 
@@ -693,7 +693,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -701,7 +701,7 @@ record8:
 [限界の明示]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 分析の限界（limitations）・解釈上の注意点が明示されているか
 
@@ -719,7 +719,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 分析の限界（limitations）を記載していない
 - 識別戦略への言及なく因果効果を解釈している
@@ -742,7 +742,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -764,7 +764,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -772,7 +772,7 @@ record8:
 [焼き直しでないか]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 既存レポートの微修正・再集計を膨らませていないか
 
@@ -780,7 +780,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -788,7 +788,7 @@ record8:
 [報告の粒度]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 本来1本で語るべき内容を細切れにしていないか
 
@@ -796,7 +796,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -804,7 +804,7 @@ record8:
 [意思決定への貢献]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 意思決定や施策をドライブさせる新たな情報があるか
 
@@ -822,7 +822,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 指標改善(特に誤差範囲内)，それ自体を成果として報告している
 - 本来1本で語るべき内容を細切れに報告している
@@ -844,7 +844,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -866,7 +866,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -874,7 +874,7 @@ record8:
 [構成の明瞭性]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 言語・構成・図表が対象読者にとって明瞭か
 
@@ -882,7 +882,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -890,7 +890,7 @@ record8:
 [専門外への伝達]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 専門外の意思決定者でも結論と根拠を追えるか
 
@@ -898,7 +898,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -906,7 +906,7 @@ record8:
 [第三者レビュー]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 書いた本人以外にレビューしてもらったか
 
@@ -924,7 +924,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 論旨を追えない構成になっている
 - 図表が小さい・凡例がなく読み取れない
@@ -948,7 +948,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-09 .padding-L-05 .lh-12}
+::: {.info-contents .font-09 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -970,7 +970,7 @@ record8:
 
 
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -978,7 +978,7 @@ record8:
 [So what? への回答]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 「で，何が嬉しいのか」に答えているか
 
@@ -986,7 +986,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -994,7 +994,7 @@ record8:
 [問いの関心度]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 扱っている問いがビジネス・現場にとって関心のあるものか
 
@@ -1002,7 +1002,7 @@ record8:
 :::
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1010,7 +1010,7 @@ record8:
 [行動変容につながるか]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 想定読者にとって，行動を変えるだけの価値があるか
 
@@ -1019,7 +1019,7 @@ record8:
 
 ::::
 
-:::: {.tool-item .font-09 .padding-TB-02 .padding-L-10}
+:::: {.tool-item .font-09 .padding-TB-02 .padding-left-10}
 
 ::: {.tool-content}
 ::: {.tool-name}
@@ -1027,7 +1027,7 @@ record8:
 [推奨アクション]{.checkbox2 .checked}
 
 :::
-::: {.tool-description style="color: #1a1a1a" .padding-L-20}
+::: {.tool-description style="color: #1a1a1a" .padding-left-20}
 
 不確実性を踏まえた上で，実行可能な推奨アクションが述べられているか
 
@@ -1046,7 +1046,7 @@ record8:
 
 :::
 
-:::{.font-09 .padding-L-10 .lh-20}
+:::{.font-09 .padding-left-10 .lh-20}
 
 - 技術的には正しいが，誰の意思決定にも影響を与えない
 - 「So what?」への答えがなく，解釈を読み手に委ねている

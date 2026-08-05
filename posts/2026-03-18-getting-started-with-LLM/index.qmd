@@ -18,7 +18,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - LLMは入力テキスト（プロンプト）に対して, **次に来る可能性が高いトークンを確率的に予測**し, 順番に出力している
 - 各ステップで語彙全体に対する確率分布を計算し, そこからトークンをサンプリングする
@@ -44,7 +44,7 @@ auto-agenda:
 - 常に「ランクの高い」トークンを選び続けると単調な文章が生成される傾向があるので，ランクの低い単語を選ぶ余地を残すことも重要
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 [トークンとは？]{.mini-section}
 
@@ -73,7 +73,7 @@ auto-agenda:
 
 [Key Takeaways]{.mini-section}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - 次のトークンを予測するには「あるトークン列の後に各トークンが出現する確率」が必要
 - しかし，語彙数が膨大なため全パターンの頻度をデータから直接数え上げることは不可能
@@ -137,7 +137,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - LLMは膨大な学習データから知識を獲得しているが，**プロンプトの書き方次第で正しい知識を引き出せない**ことがある
 - ユーザーが「LLMが本来知っていること」を適切に引き出せていないことに気づかない状態が**Unknown Knowns問題**
@@ -176,7 +176,7 @@ auto-agenda:
 ::::
 
 :::
-::: {.column width="47.5%" .padding-L-12 .font-09}
+::: {.column width="47.5%" .padding-left-12 .font-09}
 
 [Unknown Knowns問題の具体例]{.mini-section}
 
@@ -319,7 +319,7 @@ LLMが知っていることを知っている状態
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - 単語の意味は**その単語が使われる文脈（周囲の単語）によって決まる**（分布仮説）^[footer-firth]
 - この考えに基づき，単語を**低次元の実数ベクトル（密ベクトル）**で表現する手法がWord Embedding
@@ -383,7 +383,7 @@ LLMが知っていることを知っている状態
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - 大量のテキストデータ上で「**ある単語の周囲にどの単語が出現しやすいか**」を予測するタスクを解くことで，各単語のベクトル表現を獲得する（Mikolov et al., 2013）
 
@@ -411,7 +411,7 @@ $$p(w_{t+j} \mid w_t) = \frac{\exp(\mathbf{u}_{w_{t+j}}^\top \mathbf{v}_{w_t})}{
 5. 真の文脈語の確率が高くなるよう $\mathbf{v}, \mathbf{u}$ を更新
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 [学習されたベクトルの性質]{.mini-section}
 
@@ -437,7 +437,7 @@ $$p(w_{t+j} \mid w_t) = \frac{\exp(\mathbf{u}_{w_{t+j}}^\top \mathbf{v}_{w_t})}{
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - GPT（Generative Pre-trained Transformer）は，Word2Vecで確立されたEmbeddingの考え方を発展させ，**文脈に応じて動的に変化するベクトル表現**を実現した
 
@@ -465,7 +465,7 @@ $$p(w_{t+j} \mid w_t) = \frac{\exp(\mathbf{u}_{w_{t+j}}^\top \mathbf{v}_{w_t})}{
 - GPTはその着想をTransformerアーキテクチャで拡張した
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 [GPTの処理フロー]{.mini-section}
 

@@ -77,7 +77,7 @@ auto-agenda:
 
 {{< reveal_vspace 1em >}}
 
-::: {.padding-L-10}
+::: {.padding-left-10}
 
 ![](sample.svg)
 
@@ -85,7 +85,7 @@ auto-agenda:
 
 {{< reveal_vspace 1em >}}
 
-::: {.regmonkey_index style="width:95%" .padding-L-10}
+::: {.regmonkey_index style="width:95%" .padding-left-10}
 
 ```yml
 regmonkey_index:

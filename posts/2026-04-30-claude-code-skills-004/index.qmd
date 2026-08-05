@@ -236,7 +236,7 @@ CLAUDE.md を使う場面
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 
 {{< reveal_vspace 0.5em >}}
@@ -325,7 +325,7 @@ Subagents を使う場面
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 
 {{< reveal_vspace 0.5em >}}
@@ -365,7 +365,7 @@ Skills を使う場面
 
 [もしSubAgentsがなかったら]{.mini-section}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 1. 膨大なログ分析やテスト実行ログを読み込むことでAgentのメモリが汚染
 2. 重要な要件や設計判断が圧縮[^footer-compaction]で失われる
@@ -426,7 +426,7 @@ Hooks を使う場面
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 
 {{< reveal_vspace 0.5em >}}
@@ -767,7 +767,7 @@ MCP servers を使う場面
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 
 {{< reveal_vspace 0.5em >}}

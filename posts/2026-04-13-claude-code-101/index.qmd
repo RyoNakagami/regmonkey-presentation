@@ -22,7 +22,7 @@ auto-agenda:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - コーディングエージェントとは，[LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント[^footer-ao-agent]]{.regmonkey-bold}のこと
 - ユーザーの指示を受けて「[計画 → 実行 → 検証 → 修正]{.regmonkey-bold}」のループを自走し，タスク完了まで反復する
@@ -455,7 +455,7 @@ record4:
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - エージェントは**コンテキストの質で精度が決まる** ⇔ 曖昧な指示は動的生成を暴走させる
 - **コードではなく仕様書を「正」として扱い**，仕様 → 実装の方向性を固定することでズレを抑える
@@ -570,7 +570,7 @@ record4:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - プロンプトエンジニアリング = [AIから望ましい応答を引き出すための指示文を設計する実践]{.regmonkey-bold}
 - 出力の質は [プロンプトの具体性・構造・前提情報の与え方]{.regmonkey-bold} に強く依存する
@@ -586,7 +586,7 @@ record4:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.font-09 .padding-L-05 .lh-14}
+:::{.font-09 .padding-left-05 .lh-14}
 
 - プロンプティングは [Description（AIとの効果的な意思疎通）]{.regmonkey-bold} に該当する技能
 - Delegation で何を任せるか決め，Description で伝え方を設計し，Discernment で出力を評価する
@@ -719,7 +719,7 @@ record6:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -748,7 +748,7 @@ record6:
 
 [Context Windowを消費する代表的な要素]{.mini-section}
 
-:::{.font-09 .padding-L-05 .lh-14}
+:::{.font-09 .padding-left-05 .lh-14}
 
 - ユーザープロンプト・アシスタント応答
 - `Read` / `Bash` / `Grep` などツール実行結果
@@ -772,7 +772,7 @@ record6:
 
 [Compactionの仕組み]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 上限に近づくと Claude Code は [重要情報を要約し，古いツール結果を捨てる]{.regmonkey-bold}
 - 圧縮後の要約が新しい文脈として保持され，会話を中断せずに作業を継続できる
@@ -788,7 +788,7 @@ record6:
 
 [詳細喪失のリスク]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 要約は [固有値・コードの細部・微妙なやり取りを取りこぼす]{.regmonkey-bold}ことがある
 - 重要な仕様・前提条件は [Compaction前に `CLAUDE.md` やファイルへ書き出す]{.regmonkey-bold}べき
@@ -1202,7 +1202,7 @@ regmonkey_abstract_summary:
 
 {{< reveal_vspace 0.5em >}}
 
-::: {.info-contents .font-10 .padding-L-10}
+::: {.info-contents .font-10 .padding-left-10}
 
 - コードを書く前に機械が読める以下の仕様書を作ることで，仕様書をエージェントの「外部記憶」として機能させる
 - 一義的には，人間のためのドキュメントではなく，エージェントのためのコンテキストとして設計

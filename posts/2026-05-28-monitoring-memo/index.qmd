@@ -246,7 +246,7 @@ Action に接続
 
 [ミッションではなく現状維持がドライバになってはいけない]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - [「いつもやっていることだから」]{.regmonkey-bold} という理由で過去の手法を惰性で踏襲する
 - [FUD（Fear・Uncertainty・Doubt）]{.regmonkey-bold} によりレガシーな監視構成の修正を躊躇する
@@ -473,7 +473,7 @@ record7:
 
 [「動いている」をオーナーと最初に合意する]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 監視対象が [「動いている」とはどういう状態か]{.regmonkey-bold} を最初に定義する
 - 定義は [サービス・アプリケーションのオーナーに聞く]{.regmonkey-bold} ところから始める
@@ -490,7 +490,7 @@ record7:
 
 [よくある誤り：CPU 使用率を主指標にする]{.mini-section}
 
-:::{.info-contents .padding-L-05 .font-09 .lh-14}
+:::{.info-contents .padding-left-05 .font-09 .lh-14}
 - 単独の高 CPU をアラート化 → [誤検知でアラート疲れ]{.regmonkey-bold}
 - CPU の数字だけでは [ユーザー体感と無関係]{.regmonkey-bold}
 - 何を意思決定したいかの設計が抜けたままダッシュボード化
@@ -503,7 +503,7 @@ record7:
 
 [正しい扱い：補助指標としての CPU]{.mini-section}
 
-:::{.info-contents .padding-L-05 .font-09 .lh-14}
+:::{.info-contents .padding-left-05 .font-09 .lh-14}
 - 「動いている」なら [CPU が高くても問題ではない]{.regmonkey-bold}：処理をしているだけ
 - パフォーマンス影響のある [負荷の急変化・トレンド]{.regmonkey-bold} は確認
 - 主指標は [HTTP コード・レイテンシ・エラー率]{.regmonkey-bold} 等のユーザー視点指標
@@ -579,7 +579,7 @@ record4:
 
 [UNIX 哲学：1つのことを行い，またそれをうまくやるプログラムを書け．協調して動くプログラムを書け．]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - 監視も同じで [1つのツールに全てを背負わせない]{.regmonkey-bold}．収集・蓄積・可視化・通知をそれぞれ得意なツールに任せる
 - ツール間は [標準フォーマット・API]{.regmonkey-bold} で接続し，1つを差し替えても全体が壊れない構成にする
@@ -683,7 +683,7 @@ record4:
 
 [1つのツールに全機能を背負わせるのは絶対にやってはいけない]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - オールインワン製品は [初期構築は速い]{.regmonkey-bold} が，変化に弱く Lock-in が強い
 - 監視ニーズはプロダクト成熟・組織成長で変わる：[部品を交換できる構成]{.regmonkey-bold} が前提
@@ -797,7 +797,7 @@ record4:
 
 [ログ：タイムスタンプ付きの連続イベント．監視プラットフォームではメトリクスと並ぶ第2の柱]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - 基本は [連続した文字列]{.regmonkey-bold} に [タイムスタンプ]{.regmonkey-bold} が紐付いたもの．[パース可能性]{.regmonkey-bold} で扱いが大きく変わる
 - 用途に応じて [構造化・非構造化を使い分ける]{.regmonkey-bold}（集計重視か可読性重視か）
@@ -952,7 +952,7 @@ Key-Value ペア（多くは JSON）
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.font-09 .padding-L-05 .lh-12}
+:::{.font-09 .padding-left-05 .lh-12}
 
 - 監視基盤の [自前開発は人時コスト]{.regmonkey-bold} と [逸失利益]{.regmonkey-bold} を考慮すると割高になりやすい
 - 多くの企業では [SaaS 監視ソリューションに年間 6,000〜9,000 ドル]{.regmonkey-bold} を投資している
@@ -986,7 +986,7 @@ Key-Value ペア（多くは JSON）
 
 [監視は「作って終わり」ではなく，定期的に棚卸し・チューニング・組み替えを行う運用プロセス]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - 監視ツールも [プロダクトと監視ニーズも日進月歩]{.regmonkey-bold} で変化する．陳腐化した監視は [誤検知と見落としの温床]{.regmonkey-bold} になる
 - [いかに柔軟に時世に合わせて変えていけるか]{.regmonkey-bold} の組織能力が，観測体制の品質を決める
@@ -1232,7 +1232,7 @@ record2:
 
 [手順書が必ず答えるべき6つの問い]{.mini-section}
 
-:::{.info-contents .padding-L-05 .font-10 .lh-14}
+:::{.info-contents .padding-left-05 .font-10 .lh-14}
 - これは [何のサービスで，何をするものか]{.regmonkey-bold}？
 - 誰が [責任者（サービスオーナー）]{.regmonkey-bold} か？
 - どんな [依存性]{.regmonkey-bold} を持つか？（外部・内部）
@@ -1323,7 +1323,7 @@ record4:
 
 [オンコール（On-call）とは]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 何か問題が起きたときに [いつでも呼び出しに答えられるようにしている担当]{.regmonkey-bold}
 - 誤報・わかりにくいアラート・場当たり対応は [必要以上に体力を消耗させる]{.regmonkey-bold}
@@ -1560,7 +1560,7 @@ record4:
 
 [Business KPI の役割]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 全体としてビジネスが機能するために必要な計画を [どのように実行しているか]{.regmonkey-bold} を測るメトリクス
 - 監視と同じく [Issue Finding・Insight・Action]{.regmonkey-bold} を導くものでなければならない
@@ -1730,7 +1730,7 @@ record7:
 
 [なぜパフォーマンス評価が重要か]{.info-box-title}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 動くことの評価も重要だが，[パフォーマンス評価が事業インパクトに直結]{.regmonkey-bold}
 - フロントエンドの改善が [収益にどれほどのインパクトを与えるか]{.regmonkey-bold} を説明することが重要
@@ -1843,7 +1843,7 @@ record5:
 
 [可用性 = 稼働時間 / 総稼働時間．サービスの可用性は下位レイヤの可用性を超えない]{.mini-section-bare}
 
-:::{.padding-L-05 .lh-12 .font-09}
+:::{.padding-left-05 .lh-12 .font-09}
 
 - 99% を [two-nine]{.regmonkey-bold}，99.99% を [four-nine]{.regmonkey-bold} と呼ぶ
 - 例：Cloud Storage は [99.999999999%（イレブンナイン）]{.regmonkey-bold} の年間耐久性 ＝ 年間 31 秒のダウン相当
@@ -1861,7 +1861,7 @@ record5:
 
 [① ナイキスト・シャノンのサンプリング定理]{.info-box-title}
 
-:::{.info-contents .padding-L-05 .font-09 .lh-14}
+:::{.info-contents .padding-left-05 .font-09 .lh-14}
 - 2 分間のダウンタイムを計測するには [1 分間隔]{.regmonkey-bold} の収集が必要
 - サンプリング間隔は [検知したい最短ダウン時間の 1/2 以下]{.regmonkey-bold}
 - 可用性計算が難しい理由のひとつ
@@ -1874,7 +1874,7 @@ record5:
 
 [② 依存コンポーネントの天井]{.info-box-title}
 
-:::{.info-contents .padding-L-05 .font-09 .lh-14}
+:::{.info-contents .padding-left-05 .font-09 .lh-14}
 - サービスの可用性は [下位レイヤの可用性を超えない]{.regmonkey-bold}
 - 例：AWS EC2 は 1 リージョンで [99.95% 保証]{.regmonkey-bold} → 年間最低 4 時間のダウン
 - SLO 設計時は [依存先 SLA の積み上げ]{.regmonkey-bold} で天井を確認

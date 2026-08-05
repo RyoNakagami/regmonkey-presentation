@@ -17,7 +17,7 @@ Skill の役割：
 ## どのファイルをいつ読むか
 
 - **`references/components.md`** — 名前付きコンポーネントの完全カタログ（pentagon/square ボックスの全サイズ，def-block，info/success/warning/caution/danger ボックス，hop-step-jump，horizontal-keypoints，summary ブロック，component-cards，tools-grid，mini-section，h2-submessage，border-bottom-headers）．インラインに無いコンポーネントを使うとき，または正確なサイズバリアントが必要なときに開く．
-- **`references/utilities.md`** — `.font-07`〜`.font-20`，`.lh-07`〜`.lh-20`，`.padding-L-05`〜`.padding-L-20`，`.width-90`〜`.width-110`，`.position-left-XX`，`.checkmark`，`.squaredmark` のユーティリティとショートコード（`reveal_vspace`, `reveal_hspace`, `fas`, `bi`）．スペーシング・フォントサイズ調整やアイコン追加で開く．
+- **`references/utilities.md`** — `.font-07`〜`.font-20`，`.lh-07`〜`.lh-20`，`.padding-left-05`〜`.padding-left-20`，`.width-90`〜`.width-110`，`.position-left-XX`，`.checkmark`，`.squaredmark` のユーティリティとショートコード（`reveal_vspace`, `reveal_hspace`, `fas`, `bi`）．スペーシング・フォントサイズ調整やアイコン追加で開く．
 - **`references/patterns.md`** — スライド種別単位のパターン（Index slide，Abstract slide，Summary slide，AS-IS/TO-BE のゴール設定，Research-proposal，書籍紹介，meta-data セクション扉）．コンポーネント単位ではなく*スライド種別*での要望が来たときに開く．
 - **`references/wording.md`** — 推奨用語変換（`定石` → `一般的`，誇張語の事実ベース化，口語 → 書き言葉，等）．本文執筆中の語感チェックや推敲フェーズに開く．SKILL.md「ライティングルール」を補完する語彙レベルのチートシート．
 - **`references/authoring-checks.md`** — 脚注の書き方，height overflow の検出と対処，render & 目視確認チェックリスト．**完了宣言の前に必ず開く**．
@@ -207,7 +207,7 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -245,7 +245,7 @@ post ディレクトリは `posts/YYYY-MM-DD-<slug>/index.qmd`．`posts/_metadat
 
 - ブロック間の縦余白：`{{< reveal_vspace 0.5em >}}`（`1em`，`2em`，`15%` 等）
 - フォントサイズ：`.font-09`（= 0.9em）〜 `.font-20`．行送りは `.lh-12`（= 1.2em）等
-- 左パディング：`.padding-L-05` 〜 `.padding-L-20`
+- 左パディング：`.padding-left-05` 〜 `.padding-left-20`
 - 幅・位置：`.width-110` でブロック幅 110%．`.position-left-20` と組み合わせて中央揃えを保つ
 - FontAwesome：`{{< fas check-circle mr-2 text-blue-500 >}}`．Bootstrap：`{{< bi signpost-fill size=1.7em color=#428CE6 >}}`
 - インライン強調：`[強調語]{.regmonkey-bold}`（#206f83 太字）．小見出し：`[見出し]{.mini-section}`（▶ 付き）

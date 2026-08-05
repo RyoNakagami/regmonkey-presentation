@@ -106,7 +106,7 @@
       "",
       ":::: {.main-message-box}",
       "",
-      "::: {.info-contents .font-08 .padding-L-05 .lh-12}",
+      "::: {.info-contents .font-08 .padding-left-05 .lh-12}",
       "",
       "{{< reveal_vspace 0.25em >}}",
       "",

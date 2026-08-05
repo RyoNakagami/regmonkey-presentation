@@ -4,7 +4,7 @@ Fine-grained styling controls. These are utility classes (Tailwind-style: name e
 
 ## Mental model
 
-- **Class names encode values**: `.font-09` means `font-size: 0.9em`. `.padding-L-15` means `padding-left: 1.5em`. `.width-110` means `width: 110%`. The numeric suffix is the value, scaled. Once you know the convention you don't need to look up each one.
+- **Class names encode values**: `.font-09` means `font-size: 0.9em`. `.padding-left-15` means `padding-left: 1.5em`. `.width-110` means `width: 110%`. The numeric suffix is the value, scaled. Once you know the convention you don't need to look up each one.
 - **Shortcodes inject HTML at render time**: `{{< reveal_vspace 1em >}}` becomes a 1em-tall spacer div. They live in `_extensions/` and require the matching `filters:` entry in the YAML frontmatter.
 
 ## Font size
@@ -83,12 +83,12 @@ Left-side padding (most common):
 
 | Class | `padding-left` |
 |---|---|
-| `.padding-L-05` | 0.5em |
-| `.padding-L-10` | 1em |
-| `.padding-L-11` | 1.1em |
-| `.padding-L-12` | 1.2em |
-| `.padding-L-15` | 1.5em |
-| `.padding-L-20` | 2em |
+| `.padding-left-05` | 0.5em |
+| `.padding-left-10` | 1em |
+| `.padding-left-11` | 1.1em |
+| `.padding-left-12` | 1.2em |
+| `.padding-left-15` | 1.5em |
+| `.padding-left-20` | 2em |
 
 Top/bottom padding (symmetric):
 
@@ -197,7 +197,7 @@ Combine with utilities: `[本文]{.regmonkey-bold .font-12}` is fine.
 |---|---|
 | Gap between two block-level components | `{{< reveal_vspace 0.5em >}}` (or `1em` for emphasis) |
 | Tightening padding inside a single block | `.padding-TB-02` / `.padding-TB-05` |
-| Indenting bullet body | `.padding-L-05` / `.padding-L-10` |
+| Indenting bullet body | `.padding-left-05` / `.padding-left-10` |
 | Pulling a wide block back into visual center | `.width-110 .position-left-20` |
 | Squeezing a list to fit more bullets | `.font-09 .lh-12` on the wrapper |
 | Forcing line break inside title | `.wrap-text` on the H2 |

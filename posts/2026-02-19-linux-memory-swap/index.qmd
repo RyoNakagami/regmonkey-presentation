@@ -73,7 +73,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height: 1.2"}
 
 - CPUが扱えるのは[**CPU内蔵メモリ**]{.regmonkey-bold}のみ．物理メモリ（DRAM）ですらCPUから見れば**外部**
 - 各段は[**速度を犠牲に容量を稼ぐ**]{.regmonkey-bold}構造．上位段では載らないものを下位段に置く
@@ -191,9 +191,9 @@ auto-agenda:
 {{< reveal_vspace 0.5em >}}
 
 :::: {.callout-note}
-## [REMARKS: 大皿と取皿と冷蔵庫]{.padding-L-05 .font-12}
+## [REMARKS: 大皿と取皿と冷蔵庫]{.padding-left-05 .font-12}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - CPUキャッシュ = 取皿，物理メモリ = 大皿と考えると理解しやすい
 - 取皿に載り切らないものは大皿から取ってきては捨てる．だから[**大皿（メモリ）は速度が重要**]{.regmonkey-bold}
@@ -214,7 +214,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height:1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height:1.2"}
 
 - Linuxのメモリページは大きく[**File-backed**（ファイル起源） と **Anonymous**（プロセスが確保）]{.regmonkey-bold}の2種
 - メモリ回収時，Fileページは[**捨てるだけで済む**]{.regmonkey-bold}（ディスクに実体があるため再読込可能）
@@ -263,9 +263,9 @@ auto-agenda:
 {{< reveal_vspace 0.5em >}}
 
 :::: {.callout-note}
-## [REMARKS: swapがないと何が困るか]{.padding-L-05 .font-12}
+## [REMARKS: swapがないと何が困るか]{.padding-left-05 .font-12}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - メモリが逼迫した時，**swap あり** なら「使われていないAnonページ」を退避して，よく使うFileページをメモリに残せる
 - **swap なし** だと，メモリを空けるには「Fileページ破棄」しか選択肢がない ⇒ **ページキャッシュ消失で I/O 激増**
@@ -285,7 +285,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height:1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height:1.2"}
 
 - swap があって悪いことはないが， 暗号化環境のみ注意
 - 現代のデスクトップ用途（16GB以上）では[**swapが実際に使われる場面は少ない**]{.regmonkey-bold}
@@ -322,7 +322,7 @@ Pros — swap を有効にしておく理由
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -367,7 +367,7 @@ Cons — swap が問題になるケース
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - メモリ回収が必要になった時，カーネルは2択を迫られる
   - (A) [**Fileページを捨てる**]{.regmonkey-bold}（＝ page cache を減らす）
@@ -409,7 +409,7 @@ Cons — swap が問題になるケース
 
 {{< reveal_vspace 0.20em >}}
 
-:::{.font-09 .padding-L-20}
+:::{.font-09 .padding-left-20}
 
 [**現在値の確認**]{.font-09}
 

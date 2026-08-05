@@ -603,7 +603,7 @@ plt.show()
 :::: {.def-block}
 [情報エントロピー（Shannon Entropy）]{.def-title}
 
-::: {.def-contents .padding-L-10 .font-08}
+::: {.def-contents .padding-left-10 .font-08}
 
 確率分布 $P = \{P(x_1), P(x_2), \ldots, P(x_n)\}$ に対して，**情報エントロピー** $H(P)$ は
 
@@ -1040,7 +1040,7 @@ plt.show()
 
 :::
 
-::: {.column width="60%" .padding-L-10}
+::: {.column width="60%" .padding-left-10}
 
 {{< reveal_vspace 1em >}}
 
@@ -1232,7 +1232,7 @@ $$
 ::::
 
 :::: {.callout-note}
-## [REMARKS]{.padding-L-05 .font-12}
+## [REMARKS]{.padding-left-05 .font-12}
 
 - シャノン符号は累積確率を２進数展開し，上位 $l_k$ 桁を符号とするアルゴリズム
 - 後述するシャノン・ファノ符号化法は記号を確率の合計がほぼ等しい２群に再帰的に分割し，各群に 0/1 を割り当てるトップダウン型のアルゴリズム
@@ -1326,7 +1326,7 @@ $$
 ::::
 
 :::: {.callout-note}
-## [REMARKS]{.padding-L-05 .font-12}
+## [REMARKS]{.padding-left-05 .font-12}
 
 - シャノン符号の平均符号長 $L = 2.5$ に対し，ファノ符号は $L = 2.05$ とエントロピー $H \approx 2.01$ により近い
 - ファノ符号は分割の自由度があるため，分割方法によって結果が異なりうる(同じ確率和の分割が複数ある場合)
@@ -1558,7 +1558,7 @@ $$
 ::::
 
 :::: {.callout-note}
-## [REMARKS]{.padding-L-05 .font-12}
+## [REMARKS]{.padding-left-05 .font-12}
 
 - ハフマン符号は**最適な**瞬時復号可能符号であることが証明されている（$H \leq L < H + 1$）
 - 本例ではファノ符号と同じ符号長配分 $(1,2,3,4,4)$ となり $L = 2.05$（エントロピー $H \approx 2.01$）
@@ -1697,7 +1697,7 @@ plt.show()
 ::::
 
 :::: {.callout-note}
-## [REMARKS]{.padding-L-05 .font-12}
+## [REMARKS]{.padding-left-05 .font-12}
 
 - $m$ を大きくすると $L_m/m \to H(S)$ に収束し，エントロピー限界に漸近的に到達可能
 - 代償として超記号数が $|S|^m$ に指数増大し，符号表のサイズと計算量が増大する
@@ -1763,7 +1763,7 @@ plt.show()
 
 :::
 
-::: {.column width="50%" .padding-L-10}
+::: {.column width="50%" .padding-left-10}
 
 [Python 実装]{.mini-section}
 
@@ -1886,7 +1886,7 @@ True
 {{< reveal_vspace 1em >}}
 
 :::{.callout-note .font-12}
-## [REMARKS]{.padding-L-05}
+## [REMARKS]{.padding-left-05}
 
 - 即時復号可能（prefix-free）なので，ビット列を先頭から読むだけで一意にデコードできる
 - 圧縮率 70% は，エントロピー $H \approx 1.96$ bit に対し平均符号長 $L = 2.1$ bit/symbol で情報理論的限界に近い

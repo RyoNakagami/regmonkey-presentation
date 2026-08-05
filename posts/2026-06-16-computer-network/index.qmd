@@ -32,7 +32,7 @@ auto-agenda:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -115,7 +115,7 @@ auto-agenda:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -215,7 +215,7 @@ Network Interface card
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -246,7 +246,7 @@ Network Interface card
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - SFTPサービスとはSFTPクライアントとSFTPサーバーがSFTPというプロトコルを用いてファイル転送をできるようにするサービス
 - ファイルは1つずつでなくても，まとめて転送可能
@@ -268,7 +268,7 @@ Network Interface card
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - TCP/IPでは送受信に関わる一連の作業を5層にわけて処理
 - 上の層ほどユーザーに近く，下の層ほど機器に近い作業を担当
@@ -358,7 +358,7 @@ record5:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -383,7 +383,7 @@ record5:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -395,7 +395,7 @@ record5:
 
 {{< reveal_vspace 1.0em >}}
 
-::: {.regmonkey_index style="width:95%" .padding-L-10}
+::: {.regmonkey_index style="width:95%" .padding-left-10}
 
 ```yml
 regmonkey_index:
@@ -431,7 +431,7 @@ regmonkey_index:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -519,7 +519,7 @@ record:
 
 ![](./routing-ttl-unreachable.svg)
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12 style="margin-right:2em"}
+::: {.info-contents .font-08 .padding-left-05 .lh-12 style="margin-right:2em"}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -599,6 +599,117 @@ record:
 # アプリケーション層{.nested}
 ## アプリケーションプロトコル
 
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- Web閲覧やファイル転送など，利用する通信サービスごとに異なるプロトコル(送受信するデータの形式や通信手順)が利用される
+- 通信時には，トランスポート層のTCPやUDPを介してネットワーク上でデータを送受信
+
+:::
+::::
+
+{{< reveal_vspace 0.25em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.7em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-app-protocols data-col-widths="[18, 56, 26]"}
+
+```yaml
+record1:
+  プロトコル:
+    - HTTP
+  役割:
+    - WebブラウザとWebサーバー間でWebページ（HTML等）を転送する
+  ポート番号:
+    - 80 / TCP
+
+record2:
+  プロトコル:
+    - HTTPS
+  役割:
+    - TLSで暗号化したHTTP通信を行う
+  ポート番号:
+    - 443 / TCP
+
+record3:
+  プロトコル:
+    - DNS
+  役割:
+    - ドメイン名とIPアドレスを相互変換する（名前解決）
+  ポート番号:
+    - 53 / UDP・TCP
+
+record4:
+  プロトコル:
+    - DHCP
+  役割:
+    - IPアドレス等のネットワーク設定を端末へ自動的に割り当てる
+  ポート番号:
+    - 67・68 / UDP
+
+record5:
+  プロトコル:
+    - SMTP
+  役割:
+    - メールを送信し，メールサーバー間で転送する
+  ポート番号:
+    - 25 / TCP
+
+record6:
+  プロトコル:
+    - POP3
+  役割:
+    - メールをサーバーから端末へダウンロードして受信する
+  ポート番号:
+    - 110 / TCP
+
+record7:
+  プロトコル:
+    - IMAP4
+  役割:
+    - メールをサーバー上に置いたまま閲覧・管理する
+  ポート番号:
+    - 143 / TCP
+
+record8:
+  プロトコル:
+    - FTP
+  役割:
+    - ファイルのアップロード・ダウンロードを行う（制御用とデータ用で2ポート）
+  ポート番号:
+    - 21・20 / TCP
+
+record9:
+  プロトコル:
+    - SSH
+  役割:
+    - 暗号化された通信路で遠隔ログイン・コマンド実行を行う
+  ポート番号:
+    - 22 / TCP
+
+record10:
+  プロトコル:
+    - NTP
+  役割:
+    - コンピュータの時刻をサーバーと同期する
+  ポート番号:
+    - 123 / UDP
+
+record11:
+  プロトコル:
+    - SNMP
+  役割:
+    - "ネットワーク機器の状態を監視・管理する（161: 問い合わせ，162: 通知）"
+  ポート番号:
+    - 161・162 / UDP
+```
+
+:::
+::::
 
 # トランスポート層{.nested}
 ## トランスポート層の役割
@@ -607,7 +718,7 @@ record:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - トランスポート層の役割は，データを適切なアプリケーションへ届けること
 - アプリケーションから大量のデータが渡された場合は，送信可能な大きさに分割する（TCP: セグメント化，UDP: データグラム化）
@@ -749,7 +860,7 @@ sequenceDiagram
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - アプリケーションごとの「出入り口」がポート (Port) であり，通信相手はポート番号を指定してデータを送る
 - IPアドレスが「どのコンピュータか」を識別するのに対し，ポート番号は「そのコンピュータ内のどのアプリケーションか」を識別
@@ -868,7 +979,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -963,7 +1074,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - IP（Internet Protocol）は，異なるネットワーク同士を接続した環境でデータを届けるための通信ルール
 - データは**IPデータグラム（IPパケット）**という単位で送受信される
@@ -976,7 +1087,7 @@ record8:
 
 [IPプロトコルの特徴]{.mini-section}
 
-::: {.regmonkey_index style="width:100%" .padding-L-10}
+::: {.regmonkey_index style="width:100%" .padding-left-10}
 
 ```yml
 regmonkey_index:
@@ -1021,7 +1132,7 @@ regmonkey_index:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - IPアドレスは，ネットワーク上の機器を区別するための番号(=コンピューターのネットワーク上の住所)
 - IPアドレスは，住所でいう「町名」にあたる「ネットワーク部」と，「番地」にあたる「ホスト部」から構成されている
@@ -1114,7 +1225,7 @@ IPv4 vs IPv6
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -1145,7 +1256,7 @@ IPv4 vs IPv6
 
 <!-- footer -->
 
-[^addressclass]: Pアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (`/8`: 大規模ネットワーク)，クラスB (`/26`: 中規模)，クラスC (`/24`: 小規模)に分類する方式のこと
+[^addressclass]: IPアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (`/8`: 大規模ネットワーク)，クラスB (`/26`: 中規模)，クラスC (`/24`: 小規模)に分類する方式のこと
 
 ## サブネットマスクとサブネットワークアドレス
 
@@ -1153,7 +1264,7 @@ IPv4 vs IPv6
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 サブネットマスクが `255.255.252.0` のとき，IPアドレス `172.30.123.45` のホストが属するサブネットワークアドレスは？
 
@@ -1180,7 +1291,7 @@ IPv4 vs IPv6
 
 
 ::: {.callout-note}
-### [ネットワークアドレス]{.padding-L-10}
+### [ネットワークアドレス]{.padding-left-10}
 
 - ネットワークアドレスとは、ネットワークの代表となるアドレス
 - IPアドレスのホスト部をすべて `0` にした値で表される
@@ -1209,7 +1320,7 @@ IPv4 vs IPv6
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - 1つの大きなネットワークを複数の小さなネットワークに分ける仕組みを[サブネット]{.regmonkey-bold}と呼ぶ
 - 会社などでは，部署ごとにネットワークを分割，来客用Wi-Fiと社内ネットワークを分離を目的に使用される場合が多い
@@ -1291,7 +1402,7 @@ Quiz: サブネットの分割
 
 [問題]{.mini-section}
 
-:::{.padding-L-20}
+:::{.padding-left-20}
 
 クラスC[^classcip]のIPアドレスを分割して，10個のサブネットを使用したい．ホスト数が最も多くなるように分割した場合のサブネットマスクはどうなるか？
 
@@ -1300,7 +1411,7 @@ Quiz: サブネットの分割
 
 [解答]{.mini-section}
 
-:::{.padding-L-20}
+:::{.padding-left-20}
 
 10個以上のサブネットを作るには
 
@@ -1395,7 +1506,7 @@ $$
 ::::
 
 :::
-::: {.column width="35%" .padding-L-10}
+::: {.column width="35%" .padding-left-10}
 
 {{< reveal_vspace 1em >}}
 
@@ -1598,7 +1709,7 @@ DHCPのポイント
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -1630,7 +1741,6 @@ DHCPのポイント
 
 :::{.font-07}
 
-
 - IPヘッダの送信元IPアドレスとTCP/UDPヘッダの送信元ポート番号が書き換えられる
   - NAPT → ネットワーク層 + トランスポート層の情報を書き換える
 - 返信パケットを受信した際には，ルーターが変換テーブルを参照して元のIPアドレスやポート番号に復元する
@@ -1640,6 +1750,22 @@ DHCPのポイント
 
 :::
 ::::
+
+## 名前解決: Domain Name System(DNS)
+[数字のIPアドレスとドメイン名を対応させるサービス]{.h2-submessage}
+
+:::: {.columns}
+::: {.column width="70%"}
+
+![](./dns-name-resolution.svg){width=100%}
+
+:::
+::: {.column width="30%"}
+:::
+::::
+
+## DNSの構成
+
 
 
 
@@ -1651,7 +1777,7 @@ DHCPのポイント
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -1850,7 +1976,7 @@ L2プロトコル
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - データリンク層では，データにヘッダを付けたものを[フレーム]{.regmonkey-bold}と呼ぶ
 - 送信側は，上位から受け取った IP パケットに Header（MAC アドレス等）と FCSを付けてフレームを構成する
@@ -1870,7 +1996,7 @@ L2プロトコル
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - 2点間で1:1の通信を行うプロトコル（主に電話回線やISDN，専用回線やATM回線などの通信で使用）
 - 通信にリンク制御プロトコル(LCP)とネットワーク制御プロトコル(NCP)を使用
@@ -1965,6 +2091,84 @@ PPPフレーム
 :::
 ::::
 
+## データリンク上の機器: MACアドレスを見て転送先を判断
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- ブリッジ・L2スイッチ・無線LANアクセスポイントは[MACアドレステーブルを学習]{.regmonkey-bold}し，宛先のあるポートにのみ転送する
+- MACアドレスを見ないリピータハブは全ポートに信号を流すため，衝突ドメインを分割できない
+
+:::
+::::
+
+{{< reveal_vspace 0.5em >}}
+
+::::{.custom-table style="width:100%; font-size: 0.68em !important;"}
+:::{.yaml2table .yaml2table-custom-top #yaml-datalink-devices data-col-widths="[16, 26, 30, 28]"}
+
+```yaml
+record1:
+  機器:
+    - リピータハブ<br>（物理層）
+  役割:
+    - 受信した電気信号を増幅・整形し，受信ポート以外の全ポートへ転送
+  転送の仕組み:
+    - MACアドレスを見ない
+    - 宛先に関係なく全ポートに同じ信号を流す
+  備考:
+    - 全ポートが同一の衝突ドメイン・半二重通信
+    - 現在はほぼL2スイッチに置き換えられている
+
+record2:
+  機器:
+    - ブリッジ
+  役割:
+    - LANセグメント同士を接続し，フレームを中継
+  転送の仕組み:
+    - 送信元MACアドレスからポートとMACアドレスの対応を学習
+    - 宛先MACアドレスが存在するセグメントにのみ転送
+  備考:
+    - 衝突ドメインを分割できる
+    - ソフトウェア処理が中心で，機能はL2スイッチに引き継がれた
+
+record3:
+  機器:
+    - L2スイッチ<br>（スイッチングハブ）
+  役割:
+    - 複数ノードをポート単位で収容し，フレームを高速中継
+  転送の仕組み:
+    - MACアドレステーブルに基づき宛先ポートにのみ転送
+    - 専用ハードウェア（ASIC）で処理する多ポート版ブリッジ
+  備考:
+    - ポートごとに衝突ドメインを分割・全二重通信が可能
+    - VLAN対応機種もある
+
+record4:
+  機器:
+    - 無線LAN<br>アクセスポイント
+  役割:
+    - 無線端末を有線LANに接続（無線と有線のフレーム変換）
+  転送の仕組み:
+    - MACアドレスに基づき無線・有線間を中継（ブリッジとして動作）
+  備考:
+    - 無線区間はCSMA/CAによる半二重通信
+    - IEEE802.1Xの認証装置としても機能する
+```
+
+:::
+::::
+
+
+
+
+
+
 ## IEEE 802.1X: LANへの接続を制御する認証技術
 [ネットワークの入口で正規のユーザや端末だけを接続させるための仕組み]{.h2-submessage}
 
@@ -2044,7 +2248,7 @@ record3:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -2111,7 +2315,6 @@ record3:
 ::::
 
 
-
 # 物理層{.nested}
 ## リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器
 
@@ -2119,7 +2322,7 @@ record3:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -2139,21 +2342,7 @@ Wi-Fi Repeater
 
 :::
 
-:::: {.columns}
-::: {.column width="40%"}
-
-![BUFFALO WEX-1800AX4EA](./WEX-1800AX4EA.png){}
-
-:::
-
-::: {.column width="60%"}
-
-{{< reveal_vspace 1em >}}
-
-![](./dualband.png)
-
-:::
-::::
+![](./WEX-1800AX4EA.png){width="100%"}
 
 :::
 
@@ -2210,28 +2399,146 @@ Wi-Fi Repeater
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
 - L3スイッチは，L2スイッチの機能に加えて「ルーティング機能」を搭載している機器（TCP/IP のネットワーク層で動作）
 - 同一組織内の複数の IP ネットワーク（VLAN）を高速に接続する際に利用される
 - 主にLAN同士の接続が役割なので，基本的には，NAT/NAPT は搭載されていない
+- MAC アドレステーブル・ARP テーブル・ルーティングテーブルを内部に持ち、それらを ASIC[^asic] によってハードウェア処理しているため，VLAN 間ルーティングを「高速に」行える
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+VLAN間の転送
+
+:::
+
+
+![](./l3-switch-inter-vlan.svg)
+
+
+:::{.font-08}
+
+- 受信した[Ethernetフレームを一旦取り除き]{.regmonkey-bold}，中のIPパケットの宛先IPアドレスから転送先VLANを決定する
+- 送出時は宛先MACアドレスをARPテーブルで解決し，[新しいEthernetフレームを付け直して]{.regmonkey-bold}送り出す
+
+:::
+
+:::
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+同一VLAN内の転送
+
+:::
+
+![](./l3-switch-same-vlan.svg)
+
+:::
+::::
+
+
+<!-- footer -->
+
+[^asic]: Application Specific Integrated Circuit．決められた処理だけを非常に高速に実行する専用プロセッサ．
+
+## ルーターとL3スイッチの差分
+
+
+
+# ネットワーク実践
+## VLANを用いたネットワークの分割
+
+
+
+
+## LAN利用率の概算
+
+{{< reveal_vspace 0.5em >}}
+
+:::: {.main-message-box}
+
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
+
+{{< reveal_vspace 0.25em >}}
+
+- LAN利用率とは，LANの通信帯域のうち，実際にどの程度利用されているかを表す指標
+- 利用率が高い場合は，利用率が高い部署だけを VLAN で分離し通信負荷を分散などのアクションを取る
+
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+:::{.border-bottom-header}
+
+LAN利用率計算問題
+
+:::
+
+![](./lan-utilization-setup.svg){width="100%"}
+
+:::{.font-07 .padding-left-20}
+
+- 10 Mbps の LAN に A～D の 4 台のノードが接続されている
+- 衝突は考えない
+- (A, B)，(C, D) の組み合わせで，1,000 byte のファイルを毎秒 60 回送信する
+- ファイルサイズの 30 % に相当する制御情報が付与されるものとする
+
+:::
+
+
+:::
+::: {.column width="50%"}
+
+{{< reveal_vspace 2em >}}
+
+[LAN利用率: 約12.5%]{.mini-section}
+
+:::{.font-09 .padding-left-10}
+
+1. 1回の転送で流れるデータ量：ファイル1000 byte ＋ 制御情報30% → 1000 × 1.3 = 1300 byte
+
+{{< reveal_vspace 0.5em >}}
+
+2. ビットに換算：1300 byte × 8 = 10,400 bit
+
+{{< reveal_vspace 0.5em >}}
+
+3. 1ペアあたりのトラフィック：10,400 bit × 60回/s = 624,000 bps
+
+{{< reveal_vspace 0.5em >}}
+
+4. LAN全体のトラフィック：(A,B)と(C,D)の2ペアが同一LANを共有するので 624,000 × 2 = 1,248,000 bps
+
+{{< reveal_vspace 0.5em >}}
+
+5. 利用率：1,248,000 ÷ 10,000,000 = 0.1248 ≒ 12.5%
+
+
+:::
 
 :::
 ::::
 
 
 
-
-# ネットワーク実践
 ## L3スイッチのフィルタリングルール設定例
 
 {{< reveal_vspace 0.5em >}}
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -2512,7 +2819,7 @@ record7:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -2587,6 +2894,10 @@ record7:
 
 :::
 ::::
+
+## ドメイン名の構造
+
+
 
 ## 電子メールはアプリケーション層プロトコルであるSMTP・POP・MIMEの組み合わせで成り立つ
 
@@ -2711,7 +3022,7 @@ MIME
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - ICANNは，InterNICの後身として1998年に設立された非営利組織（民営化は2016年）
 - インターネット上でコンピューター間が重複なく通信できるよう、ICANNはドメイン名とIPアドレスの一意性を管理
@@ -2802,7 +3113,7 @@ ISP（インターネットサービスプロバイダ）
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - 送信元IPアドレスは比較的簡単に偽造できるため，それだけで送信者を特定する根拠にはならない
 - DoS攻撃では，使われるパケットの大半が送信元IPアドレスを偽造している
@@ -2860,7 +3171,7 @@ if __name__ == "__main__":
 :::
 
 :::
-::: {.column width="50%" .padding-L-10}
+::: {.column width="50%" .padding-left-10}
 
 :::{.border-bottom-header}
 
@@ -2938,7 +3249,7 @@ $ sudo tcpdump -i any udp port 53 -v
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -2950,7 +3261,7 @@ $ sudo tcpdump -i any udp port 53 -v
 
 {{< reveal_vspace 0.75em >}}
 
-::: {.regmonkey_index style="width:100%" .padding-L-10}
+::: {.regmonkey_index style="width:100%" .padding-left-10}
 
 ```yml
 regmonkey_index:
@@ -2984,7 +3295,7 @@ regmonkey_index:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 - 無線LANとは，電波を利用して複数の機器間でデータの送受信を行なう通信方法（狭義には IEEE 802.11 規格に準拠した方式を指す）
 - 有線LANと異なり，電波という単一の空間を共有するため，送信用と受信用の物理的な通り道（経路）が分けられていない[^channel]
@@ -3083,7 +3394,7 @@ record8:
 
 :::: {.main-message-box}
 
-::: {.info-contents .font-08 .padding-L-05 .lh-12}
+::: {.info-contents .font-08 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -3239,7 +3550,7 @@ record6:
 :::
 ::::
 
-
+## DNSキャッシュポイズニング
 
 
 

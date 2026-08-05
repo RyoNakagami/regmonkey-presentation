@@ -21,7 +21,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.info-contents .font-10 .padding-L-05}
+:::{.info-contents .font-10 .padding-left-05}
 
 - 事前学習済みモデルは「もっともらしいテキスト」を生成するが，有害な応答や事実と異なる出力を返す場合がある
 - **RLHF** は，人間の選好を学習信号として取り込み，モデルの振る舞いを人間の好みに沿うよう調整する手法

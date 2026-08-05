@@ -8,7 +8,7 @@
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 1点目を一文で。重要語は [ハイライト]{.regmonkey-bold} する
 - 2点目を一文で

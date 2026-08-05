@@ -169,7 +169,7 @@ Claude Code を再起動
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -239,7 +239,7 @@ Brief context on why this change is needed.
 
 [コツ]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - frontmatter を変えたら [**Claude Code を再起動**]{.regmonkey-bold}しないと反映されない
 - 本文はマッチ後に遅延ロード．長くてもコンテキストを圧迫しない
@@ -271,7 +271,7 @@ Brief context on why this change is needed.
 
 ![](./what-skills-are-available.png){fig-alt="Claude Code に What skills are available? と問い合わせている画面" width="100%"}
 
-:::{.font-09 .padding-L-05 .lh-14}
+:::{.font-09 .padding-left-05 .lh-14}
 
 - `What skills are available?` と聞くだけ
 - スラッシュコマンドではなく [**自然文で OK**]{.regmonkey-bold}
@@ -287,7 +287,7 @@ Brief context on why this change is needed.
 
 ![](./available-skills-list.png){fig-alt="Skill 一覧（documentation・debugging・pr-description 等）が表示された画面" width="100%"}
 
-:::{.font-09 .padding-L-05 .lh-14}
+:::{.font-09 .padding-left-05 .lh-14}
 
 - `Skill: <name>` と `Description: ...` が並ぶ
 - 期待した [**`pr-description` が含まれているか**]{.regmonkey-bold}を目視
@@ -318,7 +318,7 @@ Brief context on why this change is needed.
 
 [起動の流れ]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 1. ユーザーが [**自然文で依頼**]{.regmonkey-bold}を入力
     - 例：`Write a PR description for my changes.`
@@ -332,7 +332,7 @@ Brief context on why this change is needed.
 
 [ここがデバッグの勘所]{.mini-section}
 
-:::{.padding-L-10 .lh-14}
+:::{.padding-left-10 .lh-14}
 
 - 表示が出れば [**`description` が効いている**]{.regmonkey-bold}証拠
 - 出ない・別 Skill が出る → description の文言を見直す
@@ -374,7 +374,7 @@ Brief context on why this change is needed.
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 ::::{.square-box-500}
 
@@ -402,7 +402,7 @@ Brief context on why this change is needed.
 
 [REMARKS]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-14}
+:::{.padding-left-10 .font-09 .lh-14}
 
 - メタ情報だけ先読みする設計のおかげで，[**何十個 Skill を置いてもコンテキストを圧迫しない**]{.regmonkey-bold}
 - 確認プロンプトがあるので「どの Skill が動いたか」を毎回ユーザーが把握できる
@@ -417,7 +417,7 @@ Brief context on why this change is needed.
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 | 順位 | 種別 | 配置場所 | 役割 |
 |:----:|:------|:----------|:------|
@@ -439,7 +439,7 @@ Brief context on why this change is needed.
 
 [衝突を避ける命名のコツ]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 汎用的な名前（例：`review`）は避ける
 - 用途を含めて命名：`frontend-review`，`backend-review`
@@ -452,7 +452,7 @@ Brief context on why this change is needed.
 
 [この順序の意図]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - Enterprise が最優先：[**組織の合意がローカル設定に勝つ**]{.regmonkey-bold}思想
 - Plugins が最下位：[**個人・プロジェクト側で上書き可能**]{.regmonkey-bold}な拡張ポイント
@@ -473,7 +473,7 @@ Brief context on why this change is needed.
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -492,7 +492,7 @@ Brief context on why this change is needed.
 
 [よくある事故]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 編集したのに古い挙動 → [**再起動漏れ**]{.regmonkey-bold}
 - 起動しなくなった → ディレクトリ名と `name` の不一致
@@ -505,7 +505,7 @@ Brief context on why this change is needed.
 
 [改善サイクル]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 誤発火・空振りを観察し description を磨く
 - 本文は試行を重ねながら手順を具体化
@@ -524,7 +524,7 @@ Brief context on why this change is needed.
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -660,7 +660,7 @@ Brief context on why this change is needed.
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 

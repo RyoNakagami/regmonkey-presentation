@@ -219,7 +219,7 @@ $$
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -247,7 +247,7 @@ $$
 
 [補間性]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 観測位置 $x_i$ では $\mu_{\mathcal{D}}(x_i) = \phi_i$，$K_{\mathcal{D}}(x_i, x_i) = 0$
 - 95% 信用区間は[**観測点で縮小**]{.regmonkey-bold}し，離れるほど広がる
@@ -259,7 +259,7 @@ $$
 
 [影響範囲]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 観測の影響は $K(x,\mathbf{x})$ が[**非自明な相関を持つ範囲**]{.regmonkey-bold}にだけ及ぶ
 - 相関が消える領域では事前分布のまま
@@ -358,7 +358,7 @@ record2:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -380,7 +380,7 @@ $$
 
 [3 つの極端ケース]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - $\rho = 0$：観測は無関係 → [**事前のまま**]{.regmonkey-bold}
 - $|\rho| = 1$：観測は完全に決定的 → 平均は $z$ 標準偏差分シフト，標準偏差 $\to 0$
@@ -393,7 +393,7 @@ $$
 
 [ベクトル観測への一般化]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - $\mathbf{y}$ を観測したときの事後平均は同じ形：
 $$
@@ -415,7 +415,7 @@ $$
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -434,7 +434,7 @@ $$
 
 [実務的含意]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-14}
+:::{.padding-left-10 .font-09 .lh-14}
 
 - ベイズ最適化の獲得関数評価では，観測前から[**事後分散を計算可能**]{.regmonkey-bold}
 - Noise観測 $\mathbf{N}$ を含む場合：
@@ -456,7 +456,7 @@ $$
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-14}
+:::{.info-contents .font-10 .padding-left-05 .lh-14}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -479,7 +479,7 @@ $$
 
 [ねらい]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 直接観測のない領域でも，[**カップリング経由で他関数の belief が事後を引き締める**]{.regmonkey-bold}様子を確認する
 
@@ -532,7 +532,7 @@ $$
 
 [Keypoiints]{.mini-section}
 
-:::{.padding-L-10 .font-09 .lh-16}
+:::{.padding-left-10 .font-09 .lh-16}
 
 - 結合 GP の観測は[**1 本の多変量正規ベクトル**]{.regmonkey-bold}に積み上げる
 - カーネル行列 $C$ は[**4 つのブロック**]{.regmonkey-bold}：自己ブロック 2 つとクロスブロック 2 つ

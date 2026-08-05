@@ -24,7 +24,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `regmonkey-gitcommand` は[**Git標準コマンドでは面倒な作業を1コマンド化**]{.regmonkey-bold}したシェルスクリプト集
 - リポジトリ: [RyoNakagami/regmonkey-gitcommand](https://github.com/RyoNakagami/regmonkey-gitcommand)
@@ -130,7 +130,7 @@ chmod +x ~/.tool.d/regmonkey-gitcommand/src/*
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Git管理下のすべてのトラック済みファイルをスキャンし，[**末尾改行が欠けているテキストファイルに自動で改行を追加**]{.regmonkey-bold}
 - バイナリ・SVG は自動スキップ．POSIX 準拠のファイル整形を保つための定型作業
@@ -199,7 +199,7 @@ done
 
 [REMARKS]{.mini-section}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - バイナリ・SVGは MIME判定で自動除外
 - 処理後に変更ファイル一覧をレポート
@@ -221,7 +221,7 @@ done
 {{< reveal_vspace 0.25em >}}
 
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - データサイエンス現場では，[**スクリプトが自動生成したCSV・JSON・ログ**]{.regmonkey-bold}の末尾改行欠落が頻発
 - PR差分時に `\ No newline at end of file` が出てレビューしにくくなる問題を一掃
@@ -265,7 +265,7 @@ chmod +x .git/hooks/pre-commit
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 標準の `git add -p` は[**全変更ファイルが対象**]{.regmonkey-bold}で大規模リポジトリだと面倒
 - このコマンドは[**ディレクトリ指定・キーワード検索でファイル集合を絞ってから対話的ステージ**]{.regmonkey-bold}できる
@@ -345,7 +345,7 @@ git diff --name-only | grep feature_ | xargs git add -p
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSプロジェクトでは[**1回の作業で複数の関心事**]{.regmonkey-bold}（特徴量追加・モデル更新・可視化修正）が混ざる
 - モジュール毎に分けて `git-add-patch -d` でステージすれば，[**1PR=1テーマ**]{.regmonkey-bold}の原則を守れる
@@ -387,7 +387,7 @@ git commit -m "docs(notebook): refresh eval results"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - ステージ済みの差分を `claude -p <prompt>` に流し，[**1行コミットメッセージを生成**]{.regmonkey-bold}
 - `--rule <path>` でプロジェクト独自ルール（Conventional Commits等）を追加プロンプトとして注入可能
@@ -460,7 +460,7 @@ git commit -m "$MSG"
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 依存: `claude` CLI が PATH 上にあり，API設定済
 - ステージ未確定だとエラー終了
@@ -481,7 +481,7 @@ git commit -m "$MSG"
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - ノートブック変更は[**JSON diff がノイズだらけ**]{.regmonkey-bold}で「update notebook」のような雑なメッセージになりがち
 - Claudeに要約させれば「`feat: EDA: 売上に対する曜日効果の可視化追加`」のような[**実質的な変更点**]{.regmonkey-bold}を抽出可能
@@ -520,7 +520,7 @@ git-gen-commit --rule .claude/ds-commit-rule.md
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `date +%Y-%Vw` でISO週番号を取得し，[**`sprint-2026-17w` のような週バケツ**]{.regmonkey-bold}をコミット名に
 - `-m <msg>` で詳細を追記可能．[**1日に複数コミットしても同じ週番号で揃う**]{.regmonkey-bold}
@@ -603,7 +603,7 @@ git commit -m "sprint-$(date +%Y-%Vw): eda round 2"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 研究プロジェクトでは[**日々の実験ログを残したい**]{.regmonkey-bold}が，コミットメッセージに日付を手書きするのは面倒
 - 週番号で揃えれば `git log --grep "sprint-2026-17"` で[**その週の試行錯誤を一括抽出**]{.regmonkey-bold}できる
@@ -643,7 +643,7 @@ git log --oneline --grep "sprint-${CURRENT_WEEK}"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git-add-newline` の[**検査のみ版**]{.regmonkey-bold} ── 自動修正せず報告だけ
 - バイナリ・SVG は自動スキップ．`-i` で任意の除外パターンを追加可能
@@ -717,7 +717,7 @@ done
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Data scienceリポジトリに[**手動/自動生成ファイル**]{.regmonkey-bold}が混在する場合，整形基準をCIで担保したい
 - コミット時点ではなく **push → PR** のタイミングで検査すればレビュワーの手間を減らせる
@@ -763,7 +763,7 @@ jobs:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Perlスクリプト．`--unit` でサイズ単位，`--lowersize` で閾値，`--days` で期間を指定
 - 出力: `commit-size / commit-id / file-number / commit-date` の4カラム
@@ -847,7 +847,7 @@ git log --since='30 days ago' \
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSリポジトリは[**うっかり大容量アセットをコミット**]{.regmonkey-bold}しがち（pkl/parquet/h5/checkpoint）
 - clone時間・ストレージを肥大化させる原因．定期的に検査して早期発見
@@ -887,7 +887,7 @@ git filter-repo --path models/big_model.pt --invert-paths
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 最新コミットでそのファイルが触られた時点との diff を表示（未コミット変更含む）
 - `-n <N>` でN個前のコミットを基準にできる．[**「前回いじった時との差を知りたい」**]{.regmonkey-bold}用途にフィット
@@ -964,7 +964,7 @@ git difftool "$(git log -1 --format=%H -- "$F")^" HEAD -- "$F"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - モデル定義ファイルや特徴量生成コードは[**何度も書き換え続ける**]{.regmonkey-bold}ので「前回との差」を日常的に見たい
 - `git log -p -- <file>` は冗長．`git-lastdiff` なら[**1コマンドで直近差分**]{.regmonkey-bold}を視覚表示
@@ -1007,7 +1007,7 @@ git-lastdiff src/models/lightgbm_tuner.py -n 3
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 通常の `tree` は `node_modules/` `.venv/` `data/` など[**無視したいディレクトリまで表示**]{.regmonkey-bold}する
 - `git-tree` は `git ls-tree -r --name-only HEAD` を使い，[**本当に管理下のファイルのみ**]{.regmonkey-bold}を表示
@@ -1075,7 +1075,7 @@ git ls-tree -r --name-only HEAD | tree --fromfile
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 依存: `tree`, `gh` CLI
 - `.gitignore` と厳密に整合
@@ -1094,7 +1094,7 @@ git ls-tree -r --name-only HEAD | tree --fromfile
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSリポジトリの README に構成図を載せたいが，普通の `tree` だと巨大で読めなくなる
 - `git-tree` なら[**ソース・設定・notebook だけ**]{.regmonkey-bold}が出るので，そのまま貼れる
@@ -1141,7 +1141,7 @@ echo '```' >> README.md
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git config user.name` と `user.email` を[**1コマンドでまとめて表示**]{.regmonkey-bold}
 - 両方設定されているかチェックしたうえで `username (email@example.com)` 形式で出力
@@ -1208,7 +1208,7 @@ echo "$(git config user.name) ($(git config user.email))"
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - exit code で `name`/`email` 未設定を検知可能
 - shell プロンプトに組み込むのもあり
@@ -1227,7 +1227,7 @@ echo "$(git config user.name) ($(git config user.email))"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DS分析者は[**企業GitHub / 個人GitHub**]{.regmonkey-bold}をまたぐことが多く，コミット identity の取り違えで機密漏洩や公開ミスが起きやすい
 - `includeIf` で directory ごとに切替設定しても，[**意図通り適用されているか確認したい**]{.regmonkey-bold}
@@ -1272,7 +1272,7 @@ git-whoami && git push
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git fetch --prune` 実行後，[**リモートが消えたローカル追跡ブランチ**]{.regmonkey-bold}を一覧
 - 対話・Dry-run・強制削除の3モード．`git branch -d` による安全削除（merge済みのみ）
@@ -1343,7 +1343,7 @@ git branch -vv | awk '/: gone]/{print $1}' | xargs -r git branch -d
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - `git branch -d` なので unmerged は保護される
 
@@ -1361,7 +1361,7 @@ git branch -vv | awk '/: gone]/{print $1}' | xargs -r git branch -d
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSプロジェクトでは[**1試行=1ブランチ**]{.regmonkey-bold}で実験することが多く，数十本のブランチが溜まる
 - リモートで既に削除済みなのにローカルに残ると `git branch` がノイズだらけに
@@ -1400,7 +1400,7 @@ git-delete-obsolete-branch --yes     # 納得したら削除
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git push <remote> --delete <branch>` の**安全ラッパー**．dry-run・remote指定・local同時削除に対応
 - ブランチ存在チェックを行ってから実行するのでミス削除を防ぐ
@@ -1483,7 +1483,7 @@ git push origin --delete feature/foo && git branch -D feature/foo
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 企業DS現場では[**社内GitLab + 社外GitHub ミラー**]{.regmonkey-bold}のような複数リモート運用が一般的
 - PR merge 後に両方から branch を消したい時，手動だと忘れがち
@@ -1522,7 +1522,7 @@ git-delete-remote-branch feature/exp-v3 --remote upstream
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git stash push -a` で[**tracked + untracked の全変更**]{.regmonkey-bold}を退避
 - `git switch -c <new_branch>` で新ブランチ作成，その上に stash を apply
@@ -1591,7 +1591,7 @@ git stash apply stash@{0}
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - stash は apply 後も残る．不要なら手動 drop
 - git >= 2.23 必須
@@ -1610,7 +1610,7 @@ git stash apply stash@{0}
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSあるある: [**`main` のノートブックを直接いじって実験してしまう**]{.regmonkey-bold}
 - そのまま commit すると履歴が汚れるので，`git-tmp-checkout` で変更を保ったまま実験ブランチに移動
@@ -1651,7 +1651,7 @@ git stash drop stash@{0}
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `-b` でブラウザ指定（firefox / chrome / chromium）．既定は `git web--browse` に委譲
 - `-r <ref>` で[**特定のブランチ・タグ・コミット**]{.regmonkey-bold}のURLに直飛び
@@ -1726,7 +1726,7 @@ git web--browse "$URL/tree/main"
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - GitHub `/tree/`, GitLab `/-/tree/`, Bitbucket `/src/` を自動判別
 
@@ -1744,7 +1744,7 @@ git web--browse "$URL/tree/main"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - コードレビューやMTG中に[**「このブランチの notebook 見ておいて」**]{.regmonkey-bold}と URL を共有する機会は多い
 - ターミナルから1コマンドでブラウザを開き，URLをコピー＆ペーストできる
@@ -1784,7 +1784,7 @@ git-browse -r $(git log --grep "auc 0.85" -n 1 --format=%h)
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git clone --no-checkout --filter=blob:none` + `core.sparseCheckout=true` の[**コンボを1コマンド化**]{.regmonkey-bold}
 - `-p` でコロン区切りのパスを複数指定．`-s` で top-level のみの骨格クローン
@@ -1867,7 +1867,7 @@ git checkout main
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 企業DSリポジトリは[**ノートブック・データ・モデル・インフラ設定が全部入り**]{.regmonkey-bold}で数GB以上になりがち
 - 自分が触る `notebooks/` や `src/features/` だけあれば十分なケースが多い
@@ -1910,7 +1910,7 @@ git-sparse-checkout \
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - ブラウザからコピーしたHTTPS URL (`https://github.com/user/repo.git`) を[**そのまま渡してSSHでclone**]{.regmonkey-bold}
 - `-h` で SSH config のhostnameを指定可能（`github-work` 等で複数キー切替）
@@ -1981,7 +1981,7 @@ git clone "$(echo $URL | sed -E 's#https://([^/]+)/#git@\1:#')"
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - `-h` は標準のHELPではなくhostname指定．ヘルプは引数なしで呼び出し
 
@@ -1999,7 +1999,7 @@ git clone "$(echo $URL | sed -E 's#https://([^/]+)/#git@\1:#')"
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DS現場では[**個人GitHub / 会社GitHub / 別クライアントGitHub**]{.regmonkey-bold}を横断することが多い
 - SSH config で `github-work` / `github-personal` を分けて鍵を切替えるのが定番
@@ -2046,7 +2046,7 @@ git-ssh-clone-from-https -h github-personal \
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `git remote` で取得した全リモートに対し，指定ブランチを順次 `git push`
 - シンプルな実装（約30行のシェル）．複雑な条件分岐なし
@@ -2111,7 +2111,7 @@ git remote | xargs -I{} git push {} main
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - remoteが未設定ならエラー
 - 途中失敗してもループは継続
@@ -2130,7 +2130,7 @@ git remote | xargs -I{} git push {} main
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 企業DS現場では[**社内GitLab → 社外GitHub（PR レビュー用） → S3ミラー**]{.regmonkey-bold}のような多段ミラーが定番
 - `git push origin && git push mirror && git push backup` を手で打つのは面倒
@@ -2170,7 +2170,7 @@ git-push-multiple-remotes $(git branch --show-current)
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - プロジェクト直下の `.github/repository_metadata/gh_repo.yml` を読み込み
 - YAMLに書いた `description` / `topics` を `gh repo edit` で反映
@@ -2245,7 +2245,7 @@ topics:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 依存: `gh` CLI，`yamlcli`，`jq`
 
@@ -2261,7 +2261,7 @@ topics:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSプロジェクトは[**タスク・スコープが頻繁に変わる**]{.regmonkey-bold}が，GitHubのdescriptionは手で更新しがち
 - 仕様 yaml を一次情報にして CI で `git-repo-update` を走らせれば，[**実態とGitHub表示がズレない**]{.regmonkey-bold}
@@ -2308,7 +2308,7 @@ jobs:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - プロジェクト配下の `.github/repository_metadata/gh_repo.yml` を読み込み
 - `name` / `visibility` 等を `gh repo create` に渡してリポジトリを[**YAMLベースで作成**]{.regmonkey-bold}
@@ -2384,7 +2384,7 @@ topics:
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 依存: `gh` CLI 認証済，`yamlcli`
 - tags にスペースは不可
@@ -2400,7 +2400,7 @@ topics:
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 「新しい分析タスクが来たら毎回リポジトリを作る」DS運用では，ブートストラップが煩雑
 - テンプレートYAMLを用意し，[**プロジェクト名だけ差し替えて即座に作成**]{.regmonkey-bold}
@@ -2443,7 +2443,7 @@ git-repo-update
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - `gh repo view` で所属を取得し，[**`<OWNER/REPO>` 形式の対象リポジトリを削除**]{.regmonkey-bold}
 - 実行時にY/N確認．`-n` で dry-run
@@ -2510,7 +2510,7 @@ gh repo delete "$REPO" --yes
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 削除は **不可逆** なので慎重に
 - 依存: `gh` CLI 認証済
@@ -2529,7 +2529,7 @@ gh repo delete "$REPO" --yes
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 探索的な DS プロジェクトは[**放棄・再構築**]{.regmonkey-bold}が起きやすい．scaffoldミスで作り直すことも
 - `gh repo archive` ではなく完全削除したいケース（個人サンドボックス等）
@@ -2572,7 +2572,7 @@ git-create-repo
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - GitHub REST API の [**「IssueをPRに変換する」機能**]{.regmonkey-bold}を CLI ラップ
 - 現在のブランチが head，`-b` で指定したブランチが base，`-i` でIssue番号を指定
@@ -2642,7 +2642,7 @@ gh api "repos/$OWNER_REPO/pulls" \
 
 {{< reveal_vspace 0.25em >}}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 事前に現ブランチをpush済みであること
 
@@ -2660,7 +2660,7 @@ gh api "repos/$OWNER_REPO/pulls" \
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - DSタスクは「何を作るか」よりも[**どう評価するか・どのデータを使うか**]{.regmonkey-bold}の議論が重い
 - Issueで議論 → 実装が見えてきた段階で PR 化すれば，[**レビュワーは議論の文脈ごと**]{.regmonkey-bold}受け取れる
@@ -2704,7 +2704,7 @@ git-issue2pr -b main -i 42
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - 20コマンド全てが[**単一シェル/Perlスクリプト**]{.regmonkey-bold}で完結．依存は `git` / `gh` / `tree` / `yamlcli` / `claude` 程度
 - まずは頻度の高い `git-add-patch` / `git-gen-commit` / `git-delete-obsolete-branch` / `git-tree` から導入すると効果を実感しやすい

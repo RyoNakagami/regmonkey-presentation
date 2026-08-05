@@ -41,7 +41,7 @@ AAAA
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 
 {{< reveal_vspace 1em >}}

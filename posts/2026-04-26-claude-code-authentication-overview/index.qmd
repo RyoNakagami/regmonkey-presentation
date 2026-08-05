@@ -30,7 +30,7 @@ auto-agenda:
 
 {{< bi bullseye size=1.7em color=#428CE6 >}}
 
-### [学習目標]{.padding-L-05}
+### [学習目標]{.padding-left-05}
 
 :::
 
@@ -47,7 +47,7 @@ auto-agenda:
 
 {{< bi person size=1.7em color=#428CE6 >}}
 
-### [対象レベル]{.padding-L-05}
+### [対象レベル]{.padding-left-05}
 
 :::
 
@@ -63,7 +63,7 @@ auto-agenda:
 
 {{< bi book size=1.7em color=#428CE6 >}}
 
-### [前提知識]{.padding-L-05}
+### [前提知識]{.padding-left-05}
 
 :::
 
@@ -217,7 +217,7 @@ record5:
 
 [共有プールの構造]{.mini-section}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Claude Code・Claude.ai (Web)・Desktop・モバイルは[単一プールから消費]{.regmonkey-bold}される
 - 上限は[二層構造]{.regmonkey-bold}で，独立にカウントされ独立にリセットされる
@@ -231,7 +231,7 @@ record5:
 
 [消費を重く動かす要因]{.mini-section}
 
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 
 - モデル選択：[Opus > Sonnet > Haiku]{.regmonkey-bold} の順に大きく消費される
 - 会話履歴は毎ターン[全体が再送される]{.regmonkey-bold}：セッションが長いほど1メッセージあたり重くなる
@@ -248,7 +248,7 @@ record5:
 
 [残量の確認手段]{.mini-section}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Claude Code 内 [`/usage`]{.regmonkey-bold} (エイリアス `/cost`・`/stats`)：セッションコスト・各枠への進捗を表示
 - コンテキスト埋まり具合は [`/context`]{.regmonkey-bold} で別途確認
@@ -263,7 +263,7 @@ record5:
 
 [上限到達時の4つの選択肢]{.mini-section}
 
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 
 - [上位プランへのアップグレード]{.regmonkey-bold}：Pro → Max 5x → Max 20x
 - [Extra usage を有効化]{.regmonkey-bold}：標準 API レートでプラン枠外を継続消費
@@ -360,7 +360,7 @@ record3:
 
 {{< reveal_vspace 0.3em >}}
 
-:::{.font-08 .padding-L-05}
+:::{.font-08 .padding-left-05}
 
 共通割引：Prompt cache は[書込が標準入力の20%・読込が10%]{.regmonkey-bold}，Batch 処理は[50% off]{.regmonkey-bold}，US-only 推論は 1.1x
 
@@ -374,7 +374,7 @@ record3:
 
 [Claude Console の請求リスク]{.mini-section}
 
-:::{.info-contents .padding-L-05 .lh-14}
+:::{.info-contents .padding-left-05 .lh-14}
 
 - 自動チャージ (Auto Reload) を有効にしたまま運用すると，[使用量に比例して請求が継続的に発生]{.regmonkey-bold}する
 - 暴走したサブエージェントや長尺ループで意図しない高額請求が起きうる
@@ -388,7 +388,7 @@ record3:
 
 [サブスクとの違い]{.mini-section}
 
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 
 - Claude.ai サブスク (Pro・Max) は[月額固定]{.regmonkey-bold}：上限到達で停止・追加課金は発生しない
 - 「上限を予測しづらい想定外利用への耐性」を最優先するならサブスクが安全
@@ -446,7 +446,7 @@ record3:
 
 [クラウドプロバイダ経由の利点]{.mini-section}
 
-:::{.info-contents .padding-L-05 .lh-14}
+:::{.info-contents .padding-left-05 .lh-14}
 
 - 通信が[クラウド契約のプライベート網内で完結]{.regmonkey-bold}し，Anthropic へのインターネット経由送信が発生しない
 - リージョン選択で[データ所在地のコンプラ要件]{.regmonkey-bold}を満たせる
@@ -460,7 +460,7 @@ record3:
 
 [補足：モデル版固定の推奨]{.mini-section}
 
-:::{.info-contents .padding-L-05}
+:::{.info-contents .padding-left-05}
 
 - クラウド経由では `ANTHROPIC_DEFAULT_OPUS_MODEL` 等で[モデル ID を pin する]{.regmonkey-bold}と，新リリースが各クラウドで有効化されるタイミングを制御できる
 

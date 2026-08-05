@@ -24,7 +24,7 @@ auto-agenda:
 
 {{< reveal_vspace 0.5em >}}
 
-:::{.info-contents .font-10 .padding-L-05 style="line-height: 1.2"}
+:::{.info-contents .font-10 .padding-left-05 style="line-height: 1.2"}
 
 - Skillとは，Claude Codeが[**特定タスクを正確にこなすための指示・リソースをまとめたフォルダ**]{.regmonkey-bold}
 - 各Skillは `SKILL.md` 一枚を中核とし，frontmatterの `name` / `description` でClaudeに自身の役割を共有する
@@ -63,7 +63,7 @@ Skillなしの世界 = 同じ指示を毎セッション再入力
 ::::
 
 :::
-::: {.column width="50.0%" .padding-L-12 .font-09}
+::: {.column width="50.0%" .padding-left-12 .font-09}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -81,7 +81,7 @@ Skillありの世界 = 自動マッチ＆オンデマンド適用
 
 [**起動の仕組み**]{.mini-section}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - Claudeが`description`を見て自動判定
 - 関連タスク発生時のみ読み込まれる
@@ -92,7 +92,7 @@ Skillありの世界 = 自動マッチ＆オンデマンド適用
 
 [**運用上のメリット**]{.mini-section}
 
-:::{.padding-L-10}
+:::{.padding-left-10}
 
 - 個人 / プロジェクト単位で**切り替え可能**
 - Git管理でき**チーム横断で共有**できる
@@ -115,7 +115,7 @@ Skillありの世界 = 自動マッチ＆オンデマンド適用
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Skillは[**フォルダ単位で構成され，`SKILL.md` をエントリーポイント**]{.regmonkey-bold}とする
 - frontmatterの `description` は[**Claudeが「このSkillを使うか」を判断する唯一のキー**]{.regmonkey-bold}．具体的に書くほど誤発火が減る
@@ -176,7 +176,7 @@ description: Reviews pull requests for code
 
 [REMARKS]{.mini-section}
 
-:::{.padding-L-10 .font-09}
+:::{.padding-left-10 .font-09}
 
 - 初期ロードは`name` + `description`のみ．本文は[**マッチ後に遅延ロード**]{.regmonkey-bold}される
 - そのため大量のSkillを置いてもコンテキストを圧迫しない
@@ -207,7 +207,7 @@ description: Reviews pull requests for code
 
 [読み込みまでの3ステップ]{.mini-section}
 
-:::{.padding-L-10 .lh-12}
+:::{.padding-left-10 .lh-12}
 
 
 1. ユーザーが**自然言語で依頼**を入力
@@ -222,7 +222,7 @@ description: Reviews pull requests for code
 
 [ここがSkillsの本質]{.mini-section}
 
-:::{.padding-L-10 style="line-height: 1.6"}
+:::{.padding-left-10 style="line-height: 1.6"}
 
 - ユーザーは **`/pr-review` を明示的に呼んでいない**のに自動マッチ
 - ロードが**視覚的に確認できる**ので「期待した Skill が起動したか」をその場でデバッグ可能
@@ -266,7 +266,7 @@ Personal skills = 個人の作法を全プロジェクトに
 ::::
 
 :::
-::: {.column width="50%" .padding-L-12 .font-09}
+::: {.column width="50%" .padding-left-12 .font-09}
 
 ::::{.square-box-500}
 
@@ -301,7 +301,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 {{< reveal_vspace 0.25em >}}
 
@@ -335,7 +335,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [使い分けの指針]{.mini-section}
 
-:::{.padding-L-10 style="line-height: 1.6"}
+:::{.padding-left-10 style="line-height: 1.6"}
 
 - **Personal**: コミット文体・説明レベルなど自分の作法
 - **Project**: チームのレビュー基準・ブランドガイド（repo に commit して配布）
@@ -375,7 +375,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [使い分けの原則]{.mini-section}
 
-:::{.padding-L-10 .font-09 style="line-height: 1.8"}
+:::{.padding-left-10 .font-09 style="line-height: 1.8"}
 
 - **必ず守らせたい** → `CLAUDE.md`
 - **状況依存で適用したい** → Skill
@@ -388,7 +388,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [コンテキスト消費の観点]{.mini-section}
 
-:::{.padding-L-10 .font-09 style="line-height: 1.8"}
+:::{.padding-left-10 .font-09 style="line-height: 1.8"}
 
 - `CLAUDE.md` は[**全会話で消費**]{.regmonkey-bold} → 肥大化に注意
 - Skillは[**マッチ時のみ消費**]{.regmonkey-bold} → 大量に置けるのが強み
@@ -408,7 +408,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 :::{.info-box}
 
-:::{.info-contents .font-10 .padding-L-05 .lh-12}
+:::{.info-contents .font-10 .padding-left-05 .lh-12}
 
 - Skill化の判断基準はシンプル: [**「自分が同じ説明をClaudeに繰り返している」と気づいた瞬間**]{.regmonkey-bold}が，それは Skill になるべき知識
 - 一般のCLAUDE.mdに入れるには**特定的すぎる**が，毎回手で説明するには**汎用的すぎる** → そのスイートスポットがSkill
@@ -425,7 +425,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [Skill化に向いているもの]{.mini-section}
 
-:::{.padding-L-10 style="line-height: 1.8"}
+:::{.padding-left-10 style="line-height: 1.8"}
 
 - チームのコードレビュー基準
 - 好みのコミットメッセージ書式
@@ -441,7 +441,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [Skill化に向かないもの]{.mini-section}
 
-:::{.padding-L-10 style="line-height: 1.8"}
+:::{.padding-left-10 style="line-height: 1.8"}
 
 - プロジェクト全体で**常に**守って欲しい掟 → `CLAUDE.md`
 - 一回限りのタスク → 直接プロンプト
@@ -570,7 +570,7 @@ Project skills = チーム標準をリポジトリと同梱
 
 [Key Takeaways]{.mini-section}
 
-:::{.padding-L-10 .font-10 style="line-height: 1.2"}
+:::{.padding-left-10 .font-10 style="line-height: 1.2"}
 
 - Skillとは「[**Claudeに一度だけやり方を教えるmarkdownファイル**]{.regmonkey-bold}」．以降は自動適用
 - frontmatterの `description` がマッチング鍵 — 具体的に書くこと
