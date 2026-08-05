@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -401,7 +401,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>name</code> は識別子，<code>description</code> がマッチングキー，本文が指示書</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>frontmatter は <code>---</code> で囲み，<code>name</code>（kebab-case<sup>1</sup>）と <code>description</code>（自然文）を必ず書く</li>
@@ -471,7 +471,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">コツ</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>frontmatter を変えたら <span class="regmonkey-bold"><strong>Claude Code を再起動</strong></span>しないと反映されない</li>
 <li>本文はマッチ後に遅延ロード．長くてもコンテキストを圧迫しない</li>
@@ -509,7 +509,7 @@ Ryo Nakagami
 <p><span class="mini-section">① 自然文で問い合わせる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><img data-src="./what-skills-are-available.png" style="width:100.0%" alt="Claude Code に What skills are available? と問い合わせている画面"></p>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><code>What skills are available?</code> と聞くだけ</li>
 <li>スラッシュコマンドではなく <span class="regmonkey-bold"><strong>自然文で OK</strong></span></li>
@@ -519,7 +519,7 @@ Ryo Nakagami
 <p><span class="mini-section">② 一覧出力を確認</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><img data-src="./available-skills-list.png" style="width:100.0%" alt="Skill 一覧（documentation・debugging・pr-description 等）が表示された画面"></p>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><code>Skill: &lt;name&gt;</code> と <code>Description: ...</code> が並ぶ</li>
 <li>期待した <span class="regmonkey-bold"><strong><code>pr-description</code> が含まれているか</strong></span>を目視</li>
@@ -539,7 +539,7 @@ Ryo Nakagami
 </div><div class="column font-09" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><span class="mini-section">起動の流れ</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ol type="1">
 <li>ユーザーが <span class="regmonkey-bold"><strong>自然文で依頼</strong></span>を入力
 <ul>
@@ -552,7 +552,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">ここがデバッグの勘所</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ul>
 <li>表示が出れば <span class="regmonkey-bold"><strong><code>description</code> が効いている</strong></span>証拠</li>
 <li>出ない・別 Skill が出る → description の文言を見直す</li>
@@ -603,7 +603,7 @@ Ryo Nakagami
 </ul>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:50%;">
+</div><div class="column padding-left-12 font-09" style="width:50%;">
 <div class="square-box-500">
 <div class="border-bottom-header-left">
 <p>リクエスト時：意味マッチ + 確認</p>
@@ -620,7 +620,7 @@ Ryo Nakagami
 </div></div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09 lh-14">
+<div class="padding-left-10 font-09 lh-14">
 <ul>
 <li>メタ情報だけ先読みする設計のおかげで，<span class="regmonkey-bold"><strong>何十個 Skill を置いてもコンテキストを圧迫しない</strong></span></li>
 <li>確認プロンプトがあるので「どの Skill が動いたか」を毎回ユーザーが把握できる</li>
@@ -632,7 +632,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <table class="caption-top">
 <colgroup>
 <col style="width: 8%">
@@ -681,7 +681,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">衝突を避ける命名のコツ</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>汎用的な名前（例：<code>review</code>）は避ける</li>
 <li>用途を含めて命名：<code>frontend-review</code>，<code>backend-review</code></li>
@@ -690,7 +690,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">この順序の意図</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>Enterprise が最優先：<span class="regmonkey-bold"><strong>組織の合意がローカル設定に勝つ</strong></span>思想</li>
 <li>Plugins が最下位：<span class="regmonkey-bold"><strong>個人・プロジェクト側で上書き可能</strong></span>な拡張ポイント</li>
@@ -724,7 +724,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">ファイル操作はシンプルだが「再起動忘れ」が最頻出のハマりポイント</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>更新したいとき：<code>SKILL.md</code> を編集して <span class="regmonkey-bold"><strong>Claude Code を再起動</strong></span></li>
@@ -737,7 +737,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">よくある事故</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>編集したのに古い挙動 → <span class="regmonkey-bold"><strong>再起動漏れ</strong></span></li>
 <li>起動しなくなった → ディレクトリ名と <code>name</code> の不一致</li>
@@ -746,7 +746,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">改善サイクル</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>誤発火・空振りを観察し description を磨く</li>
 <li>本文は試行を重ねながら手順を具体化</li>
@@ -760,7 +760,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">漠然とした description は誤発火・空振りの元．具体的なキーワードと発動条件をセットで書く</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>description は Claude が<span class="regmonkey-bold"><strong>マッチングに使う唯一の手がかり</strong></span>．本文は読まれない</li>
@@ -858,7 +858,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">一つの巨大 Skill に詰め込むより，観点ごとに分けるほうが再利用性も保守性も上がる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>例：「規制対象プロダクトのリリース前チェック」は <span class="regmonkey-bold"><strong>ドメイン × タスク × 成果物の3層が同時に走る</strong></span></li>

@@ -3196,7 +3196,7 @@
     "href": "posts/2026-06-16-computer-network/index.html#アプリケーションプロトコル",
     "title": "ネットワークを学ぶ",
     "section": "アプリケーションプロトコル",
-    "text": "アプリケーションプロトコル"
+    "text": "アプリケーションプロトコル\n\n\n\n\n\nWeb閲覧やファイル転送など，利用する通信サービスごとに異なるプロトコル(送受信するデータの形式や通信手順)が利用される\n通信時には，トランスポート層のTCPやUDPを介してネットワーク上でデータを送受信\n\n\n\n\n\n\nrecord1:\n  プロトコル:\n    - HTTP\n  役割:\n    - WebブラウザとWebサーバー間でWebページ（HTML等）を転送する\n  ポート番号:\n    - 80 / TCP\n\nrecord2:\n  プロトコル:\n    - HTTPS\n  役割:\n    - TLSで暗号化したHTTP通信を行う\n  ポート番号:\n    - 443 / TCP\n\nrecord3:\n  プロトコル:\n    - DNS\n  役割:\n    - ドメイン名とIPアドレスを相互変換する（名前解決）\n  ポート番号:\n    - 53 / UDP・TCP\n\nrecord4:\n  プロトコル:\n    - DHCP\n  役割:\n    - IPアドレス等のネットワーク設定を端末へ自動的に割り当てる\n  ポート番号:\n    - 67・68 / UDP\n\nrecord5:\n  プロトコル:\n    - SMTP\n  役割:\n    - メールを送信し，メールサーバー間で転送する\n  ポート番号:\n    - 25 / TCP\n\nrecord6:\n  プロトコル:\n    - POP3\n  役割:\n    - メールをサーバーから端末へダウンロードして受信する\n  ポート番号:\n    - 110 / TCP\n\nrecord7:\n  プロトコル:\n    - IMAP4\n  役割:\n    - メールをサーバー上に置いたまま閲覧・管理する\n  ポート番号:\n    - 143 / TCP\n\nrecord8:\n  プロトコル:\n    - FTP\n  役割:\n    - ファイルのアップロード・ダウンロードを行う（制御用とデータ用で2ポート）\n  ポート番号:\n    - 21・20 / TCP\n\nrecord9:\n  プロトコル:\n    - SSH\n  役割:\n    - 暗号化された通信路で遠隔ログイン・コマンド実行を行う\n  ポート番号:\n    - 22 / TCP\n\nrecord10:\n  プロトコル:\n    - NTP\n  役割:\n    - コンピュータの時刻をサーバーと同期する\n  ポート番号:\n    - 123 / UDP\n\nrecord11:\n  プロトコル:\n    - SNMP\n  役割:\n    - \"ネットワーク機器の状態を監視・管理する（161: 問い合わせ，162: 通知）\"\n  ポート番号:\n    - 161・162 / UDP"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#トランスポート層の役割",
@@ -3238,7 +3238,7 @@
     "href": "posts/2026-06-16-computer-network/index.html#cidrのnはネットワーク部のビット数を表す",
     "title": "ネットワークを学ぶ",
     "section": "CIDRの/nはネットワーク部のビット数を表す",
-    "text": "CIDRの/nはネットワーク部のビット数を表す\nIPv4 CIDR表記とサブネットマスク\n\n\n\n\n\nCIDRは，クラスA~CのIPアドレスクラス1にとらわれずに，ネットワーク部とホスト部の区切りを1 bit単位で設定できる方式のこと\nCIDR表記 /n は先頭から n ビットがネットワーク部，残り 32 - n ビットがホスト部であることを表す\nサブネットマスクの最終オクテットは255 − ホスト部最大値（2^ホスト部ビット数 − 1）で求められる\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCIDR\nホスト部のビット数\nホスト部の最大値 (2^n − 1)\n計算式\nサブネットマスク\n\n\n\n\n/24\n8\n255\n255 − 255 = 0\n255.255.255.0\n\n\n/25\n7\n127\n255 − 127 = 128\n255.255.255.128\n\n\n/26\n6\n63\n255 − 63 = 192\n255.255.255.192\n\n\n/27\n5\n31\n255 − 31 = 224\n255.255.255.224\n\n\n/28\n4\n15\n255 − 15 = 240\n255.255.255.240\n\n\n/29\n3\n7\n255 − 7 = 248\n255.255.255.248\n\n\n/30\n2\n3\n255 − 3 = 252\n255.255.255.252\n\n\n/31\n1\n1\n255 − 1 = 254\n255.255.255.254\n\n\n/32\n0\n0\n255 − 0 = 255\n255.255.255.255\n\n\n\n\n\nPアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (/8: 大規模ネットワーク)，クラスB (/26: 中規模)，クラスC (/24: 小規模)に分類する方式のこと"
+    "text": "CIDRの/nはネットワーク部のビット数を表す\nIPv4 CIDR表記とサブネットマスク\n\n\n\n\n\nCIDRは，クラスA~CのIPアドレスクラス1にとらわれずに，ネットワーク部とホスト部の区切りを1 bit単位で設定できる方式のこと\nCIDR表記 /n は先頭から n ビットがネットワーク部，残り 32 - n ビットがホスト部であることを表す\nサブネットマスクの最終オクテットは255 − ホスト部最大値（2^ホスト部ビット数 − 1）で求められる\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCIDR\nホスト部のビット数\nホスト部の最大値 (2^n − 1)\n計算式\nサブネットマスク\n\n\n\n\n/24\n8\n255\n255 − 255 = 0\n255.255.255.0\n\n\n/25\n7\n127\n255 − 127 = 128\n255.255.255.128\n\n\n/26\n6\n63\n255 − 63 = 192\n255.255.255.192\n\n\n/27\n5\n31\n255 − 31 = 224\n255.255.255.224\n\n\n/28\n4\n15\n255 − 15 = 240\n255.255.255.240\n\n\n/29\n3\n7\n255 − 7 = 248\n255.255.255.248\n\n\n/30\n2\n3\n255 − 3 = 252\n255.255.255.252\n\n\n/31\n1\n1\n255 − 1 = 254\n255.255.255.254\n\n\n/32\n0\n0\n255 − 0 = 255\n255.255.255.255\n\n\n\n\n\nIPアドレスクラスとは，IPアドレスをネットワーク規模に応じてクラスA (/8: 大規模ネットワーク)，クラスB (/26: 中規模)，クラスC (/24: 小規模)に分類する方式のこと"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#サブネットマスクとサブネットワークアドレス",
@@ -3283,6 +3283,20 @@
     "text": "NAT・NAPTによるIPアドレス変換\n\n\n\n\n\nNAT（Network Address Translation）は，IPアドレスを別のIPアドレスへ変換する技術\nNAPT（Network Address Port Translation）は，IPアドレスとポート番号を変換する技術\n家庭用や企業のルーターでは，NAPTを利用して複数の端末が1つのグローバルIPアドレスを共有してインターネットへ接続している\n\n\n\n\n\n\n\n\nルーターがIPヘッダの送信元IPアドレスを書き換える\n\nNAT → ネットワーク層の情報を書き換える\n\n\n\n\n\n\n\nIPヘッダの送信元IPアドレスとTCP/UDPヘッダの送信元ポート番号が書き換えられる\n\nNAPT → ネットワーク層 + トランスポート層の情報を書き換える\n\n返信パケットを受信した際には，ルーターが変換テーブルを参照して元のIPアドレスやポート番号に復元する"
   },
   {
+    "objectID": "posts/2026-06-16-computer-network/index.html#名前解決-domain-name-systemdns",
+    "href": "posts/2026-06-16-computer-network/index.html#名前解決-domain-name-systemdns",
+    "title": "ネットワークを学ぶ",
+    "section": "名前解決: Domain Name System(DNS)",
+    "text": "名前解決: Domain Name System(DNS)\n数字のIPアドレスとドメイン名を対応させるサービス"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#dnsの構成",
+    "href": "posts/2026-06-16-computer-network/index.html#dnsの構成",
+    "title": "ネットワークを学ぶ",
+    "section": "DNSの構成",
+    "text": "DNSの構成"
+  },
+  {
     "objectID": "posts/2026-06-16-computer-network/index.html#機器を同一の方法でつなげたひとかたまりをデータリンクという",
     "href": "posts/2026-06-16-computer-network/index.html#機器を同一の方法でつなげたひとかたまりをデータリンクという",
     "title": "ネットワークを学ぶ",
@@ -3311,6 +3325,13 @@
     "text": "PPP: Point-to-Point Protocol\n\n\n\n\n2点間で1:1の通信を行うプロトコル（主に電話回線やISDN，専用回線やATM回線などの通信で使用）\n通信にリンク制御プロトコル(LCP)とネットワーク制御プロトコル(NCP)を使用\n送信と受信を同時に行うことができる全二重方式(電話のようにやりとりができる ↔︎ トランシーバーのように待ち発生)\n\n\n\n\n\n\nPPP 接続シーケンス\n\n\n\n\n\n\n%%{\n  init: {\n    'theme': 'base',\n    'themeVariables': {\n      'fontFamily': 'Meiryo',\n      'primaryColor': '#E8F1FE',\n      'primaryTextColor': '#1A1A1A',\n      'primaryBorderColor': '#428CE6',\n      'secondaryColor': '#B4D7FF',\n      'tertiaryColor': '#E8F1FE',\n      'noteBkgColor': '#FBE7E6',\n      'noteTextColor': '#1A1A1A',\n      'noteBorderColor': '#D31804',\n      'activationBorderColor': '#0E3666',\n      'activationBkgColor': '#B4D7FF',\n      'sequenceNumberColor': '#FFFFFF',\n      'actorBkg': '#0E3666',\n      'actorTextColor': '#FFFFFF',\n      'actorLineColor': '#575757',\n      'labelBoxBkgColor': '#E8F1FE',\n      'labelBoxBorderColor': '#428CE6',\n      'labelTextColor': '#0E3666',\n      'loopTextColor': '#0E3666',\n      'signalColor': '#0E3666',\n      'signalTextColor': '#1A1A1A'\n    },\n    'sequence': {\n      'useMaxWidth': true,\n      'actorMargin': 260,\n      'width': 130,\n      'height': 28,\n      'boxMargin': 4,\n      'boxTextMargin': 3,\n      'noteMargin': 6,\n      'messageMargin': 18\n    }\n  }\n}%%\nsequenceDiagram\n    participant C as 接続元\n    participant S as 接続先\n    Note over C,S: ① リンク確立（LCP）: 通信要求の送信\n    C-&gt;&gt;S: リンク確立要求\n    S-&gt;&gt;C: 設定の合意\n    Note over C,S: ② 認証フェーズ（PAP/CHAP）: 利用者認証\n    C-&gt;&gt;S: ユーザー名・パスワード\n    S-&gt;&gt;C: 認証OK\n    Note over C,S: ③ ネットワーク設定（NCP/IPCP）: 通信条件相談\n    C-&gt;&gt;S: IPアドレス割り当て要求\n    S-&gt;&gt;C: IPアドレス通知\n    Note over C,S: 通信開始: IPパケットの送受信\n\n\n\n\n\n\n\n\nPPPフレーム\n\n\n\nPPPはTCP/IP以外のプロトコルにも対応\nネットワーク層のプロトコルがIPになるとは限らない"
   },
   {
+    "objectID": "posts/2026-06-16-computer-network/index.html#データリンク上の機器-macアドレスを見て転送先を判断",
+    "href": "posts/2026-06-16-computer-network/index.html#データリンク上の機器-macアドレスを見て転送先を判断",
+    "title": "ネットワークを学ぶ",
+    "section": "データリンク上の機器: MACアドレスを見て転送先を判断",
+    "text": "データリンク上の機器: MACアドレスを見て転送先を判断\n\n\n\n\n\nブリッジ・L2スイッチ・無線LANアクセスポイントはMACアドレステーブルを学習し，宛先のあるポートにのみ転送する\nMACアドレスを見ないリピータハブは全ポートに信号を流すため，衝突ドメインを分割できない\n\n\n\n\n\n\nrecord1:\n  機器:\n    - リピータハブ&lt;br&gt;（物理層）\n  役割:\n    - 受信した電気信号を増幅・整形し，受信ポート以外の全ポートへ転送\n  転送の仕組み:\n    - MACアドレスを見ない\n    - 宛先に関係なく全ポートに同じ信号を流す\n  備考:\n    - 全ポートが同一の衝突ドメイン・半二重通信\n    - 現在はほぼL2スイッチに置き換えられている\n\nrecord2:\n  機器:\n    - ブリッジ\n  役割:\n    - LANセグメント同士を接続し，フレームを中継\n  転送の仕組み:\n    - 送信元MACアドレスからポートとMACアドレスの対応を学習\n    - 宛先MACアドレスが存在するセグメントにのみ転送\n  備考:\n    - 衝突ドメインを分割できる\n    - ソフトウェア処理が中心で，機能はL2スイッチに引き継がれた\n\nrecord3:\n  機器:\n    - L2スイッチ&lt;br&gt;（スイッチングハブ）\n  役割:\n    - 複数ノードをポート単位で収容し，フレームを高速中継\n  転送の仕組み:\n    - MACアドレステーブルに基づき宛先ポートにのみ転送\n    - 専用ハードウェア（ASIC）で処理する多ポート版ブリッジ\n  備考:\n    - ポートごとに衝突ドメインを分割・全二重通信が可能\n    - VLAN対応機種もある\n\nrecord4:\n  機器:\n    - 無線LAN&lt;br&gt;アクセスポイント\n  役割:\n    - 無線端末を有線LANに接続（無線と有線のフレーム変換）\n  転送の仕組み:\n    - MACアドレスに基づき無線・有線間を中継（ブリッジとして動作）\n  備考:\n    - 無線区間はCSMA/CAによる半二重通信\n    - IEEE802.1Xの認証装置としても機能する"
+  },
+  {
     "objectID": "posts/2026-06-16-computer-network/index.html#ieee-802.1x-lanへの接続を制御する認証技術",
     "href": "posts/2026-06-16-computer-network/index.html#ieee-802.1x-lanへの接続を制御する認証技術",
     "title": "ネットワークを学ぶ",
@@ -3329,14 +3350,35 @@
     "href": "posts/2026-06-16-computer-network/index.html#リピーター-ケーブルで流れる電気信号を増幅し波形を整える機器",
     "title": "ネットワークを学ぶ",
     "section": "リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器",
-    "text": "リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器\n\n\n\n\n\nリピータはケーブルで流れる電気信号を増幅し波形を整えてもう一方のインターフェースから電気信号を流す機器\n1つのポートからの信号を増幅するという特性上，半二重通信しかできない\nWi-Fiリピーターはアクセスポイントから受信した無線信号を再送信し，通信可能範囲を広げる機器\n\n\n\n\n\n\nWi-Fi Repeater\n\n\n\n\n\n\nBUFFALO WEX-1800AX4EA\n\n\n\n\n\n\n\n\n\n\n① 電波が届かない場所への橋渡し\n\n\n\nアクセスポイントからの電波を受信して再送信する\n壁や距離の影響で電波が弱い場所でも通信しやすくなる\n利用者からは同じ無線LANの一部として利用できる\n\n\n\n\n\n\n② 通信速度が低下することがある\n\n\n\nWi-Fiは半二重通信である\nシングルバンド構成では実効スループットが理論上 約 1/2 に低下する（デュアルバンド構成では別チャネルで回避可能）"
+    "text": "リピーター: ケーブルで流れる電気信号を増幅し波形を整える機器\n\n\n\n\n\nリピータはケーブルで流れる電気信号を増幅し波形を整えてもう一方のインターフェースから電気信号を流す機器\n1つのポートからの信号を増幅するという特性上，半二重通信しかできない\nWi-Fiリピーターはアクセスポイントから受信した無線信号を再送信し，通信可能範囲を広げる機器\n\n\n\n\n\n\nWi-Fi Repeater\n\n\n\n\n\n\n① 電波が届かない場所への橋渡し\n\n\n\nアクセスポイントからの電波を受信して再送信する\n壁や距離の影響で電波が弱い場所でも通信しやすくなる\n利用者からは同じ無線LANの一部として利用できる\n\n\n\n\n\n\n② 通信速度が低下することがある\n\n\n\nWi-Fiは半二重通信である\nシングルバンド構成では実効スループットが理論上 約 1/2 に低下する（デュアルバンド構成では別チャネルで回避可能）"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#レイヤー3スイッチのルーティング",
     "href": "posts/2026-06-16-computer-network/index.html#レイヤー3スイッチのルーティング",
     "title": "ネットワークを学ぶ",
     "section": "レイヤー3スイッチのルーティング",
-    "text": "レイヤー3スイッチのルーティング\n\n\n\n\n\nL3スイッチは，L2スイッチの機能に加えて「ルーティング機能」を搭載している機器（TCP/IP のネットワーク層で動作）\n同一組織内の複数の IP ネットワーク（VLAN）を高速に接続する際に利用される\n主にLAN同士の接続が役割なので，基本的には，NAT/NAPT は搭載されていない"
+    "text": "レイヤー3スイッチのルーティング\n\n\n\n\n\nL3スイッチは，L2スイッチの機能に加えて「ルーティング機能」を搭載している機器（TCP/IP のネットワーク層で動作）\n同一組織内の複数の IP ネットワーク（VLAN）を高速に接続する際に利用される\n主にLAN同士の接続が役割なので，基本的には，NAT/NAPT は搭載されていない\nMAC アドレステーブル・ARP テーブル・ルーティングテーブルを内部に持ち、それらを ASIC1 によってハードウェア処理しているため，VLAN 間ルーティングを「高速に」行える\n\n\n\n\n\n\nVLAN間の転送\n\n\n\n\n受信したEthernetフレームを一旦取り除き，中のIPパケットの宛先IPアドレスから転送先VLANを決定する\n送出時は宛先MACアドレスをARPテーブルで解決し，新しいEthernetフレームを付け直して送り出す\n\n\n\n\n同一VLAN内の転送\n\n\n\n\nApplication Specific Integrated Circuit．決められた処理だけを非常に高速に実行する専用プロセッサ．"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#ルーターとl3スイッチの差分",
+    "href": "posts/2026-06-16-computer-network/index.html#ルーターとl3スイッチの差分",
+    "title": "ネットワークを学ぶ",
+    "section": "ルーターとL3スイッチの差分",
+    "text": "ルーターとL3スイッチの差分"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#vlanを用いたネットワークの分割",
+    "href": "posts/2026-06-16-computer-network/index.html#vlanを用いたネットワークの分割",
+    "title": "ネットワークを学ぶ",
+    "section": "VLANを用いたネットワークの分割",
+    "text": "VLANを用いたネットワークの分割"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#lan利用率の概算",
+    "href": "posts/2026-06-16-computer-network/index.html#lan利用率の概算",
+    "title": "ネットワークを学ぶ",
+    "section": "LAN利用率の概算",
+    "text": "LAN利用率の概算\n\n\n\n\n\nLAN利用率とは，LANの通信帯域のうち，実際にどの程度利用されているかを表す指標\n利用率が高い場合は，利用率が高い部署だけを VLAN で分離し通信負荷を分散などのアクションを取る\n\n\n\n\n\n\nLAN利用率計算問題\n\n\n\n\n10 Mbps の LAN に A～D の 4 台のノードが接続されている\n衝突は考えない\n(A, B)，(C, D) の組み合わせで，1,000 byte のファイルを毎秒 60 回送信する\nファイルサイズの 30 % に相当する制御情報が付与されるものとする\n\n\n\n\nLAN利用率: 約12.5%\n\n\n1回の転送で流れるデータ量：ファイル1000 byte ＋ 制御情報30% → 1000 × 1.3 = 1300 byte\n\n\n\nビットに換算：1300 byte × 8 = 10,400 bit\n\n\n\n1ペアあたりのトラフィック：10,400 bit × 60回/s = 624,000 bps\n\n\n\nLAN全体のトラフィック：(A,B)と(C,D)の2ペアが同一LANを共有するので 624,000 × 2 = 1,248,000 bps\n\n\n\n利用率：1,248,000 ÷ 10,000,000 = 0.1248 ≒ 12.5%"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#l3スイッチのフィルタリングルール設定例",
@@ -3358,6 +3400,13 @@
     "title": "ネットワークを学ぶ",
     "section": "WWWとは？",
     "text": "WWWとは？\nコンピューターネットワーク活用事例\n\n\n\n\n\nWWW（World Wide Web）の仕組みは，情報を保持するサーバーと，閲覧するブラウザの対話で成り立つ\nやり取りは，アプリケーション層のプロトコルであるHTTP (Hypertext Transfer Protocol)に則って処理\n\n\n\n\n\n\n\n\n\n\n① HTTPリクエスト（要求）\n\n\n\nブラウザにURLを入力するかリンクをクリックすると，サーバーに対して「このデータをください」というHTTPリクエストが送信\n\n\n\n\n\n\n② HTTPレスポンス（応答）\n\n\n\nクエストを受け取ったWWWサーバーは，指定されたファイル（HTMLや画像など）を探す\n正常であればステータスコード（200 OK）と共にデータを送り返す\n\n\n\n\n\n\n③ ブラウザによるレンダリング\n\n\n\nダウンロードしたHTMLやCSSをブラウザが解析・翻訳し，人間が見やすいWeb画面として組み立てて表示（レンダリング）"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#ドメイン名の構造",
+    "href": "posts/2026-06-16-computer-network/index.html#ドメイン名の構造",
+    "title": "ネットワークを学ぶ",
+    "section": "ドメイン名の構造",
+    "text": "ドメイン名の構造"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#電子メールはアプリケーション層プロトコルであるsmtppopmimeの組み合わせで成り立つ",
@@ -3407,6 +3456,13 @@
     "title": "ネットワークを学ぶ",
     "section": "インターネット利用時の注意点",
     "text": "インターネット利用時の注意点\n\n\n\nrecord1:\n  category: ポート管理\n  rule:\n    - 利用しないポートは&lt;span class=\"regmonkey-bold\"&gt;必ず閉じる&lt;/span&gt;\n  actions:\n    - 使用中のポートを定期的に棚卸し（&lt;code&gt;netstat -an&lt;/code&gt; 等）\n    - 不要なサービス・デーモンは停止し，ポートを解放\n    - ウェルノウンポート（20/21/23 等）は用途がなければ即閉鎖\n    - 開放ポートはアクセス元IPをACLで絞り込む\n\nrecord2:\n  category: ファイアウォール\n  rule:\n    - &lt;span class=\"regmonkey-bold\"&gt;デフォルト拒否&lt;/span&gt;を原則とし，許可ルールを最小限に保つ\n  actions:\n    - インバウンド・アウトバウンドの両方向にルールを設定\n    - 常時接続は&lt;span class=\"regmonkey-bold\"&gt;玄関を開けっ放しにするのと同義&lt;/span&gt;と認識する\n    - 不審なIPレンジはブラックリスト登録\n    - ルール変更は変更管理ログに記録し定期レビューする\n\nrecord3:\n  category: セキュリティパッチ\n  rule:\n    - 既知脆弱性は&lt;span class=\"regmonkey-bold\"&gt;公開直後に適用&lt;/span&gt;することが最大の防御\n  actions:\n    - OS・ミドルウェア・ファームウェアの自動更新を有効化\n    - CVEアドバイザリを購読し，重大度 Critical/High を優先対応\n\nrecord4:\n  category: 通信暗号化\n  rule:\n    - 平文通信は&lt;span class=\"regmonkey-bold\"&gt;LAN内でも傍受リスクがある&lt;/span&gt;と想定する\n  actions:\n    - Wi-Fi は WPA2/WPA3（AES-CCMP）を使用；TKIP は脆弱なため非推奨\n    - HTTP・FTP・Telnet は TLS/SSH 版（HTTPS・SFTP・SSH）に移行\n\nrecord5:\n  category: MACアドレスフィルタリング\n  rule:\n    - 登録済みデバイス以外の&lt;span class=\"regmonkey-bold\"&gt;接続を物理層で排除&lt;/span&gt;する\n  actions:\n    - AP・スイッチに許可MACリストを登録し，未登録端末を遮断\n    - 新規デバイス追加時は申請フローを設け，無断接続を抑止\n    - 定期的にDHCPリースログを確認し，未知MACを検出する\n\nrecord6:\n  category: LAN内脅威対策\n  rule:\n    - 内部ネットワークも&lt;span class=\"regmonkey-bold\"&gt;ゼロトラストで扱う&lt;/span&gt;\n  actions:\n    - ARPスプーフィング対策としてDAI（Dynamic ARP Inspection）を有効化\n    - 接続端末のエンドポイント保護（EDR/AV）を必須化\n    - 不審な通信量・パターンをIDSで監視し，アラートを設定"
+  },
+  {
+    "objectID": "posts/2026-06-16-computer-network/index.html#dnsキャッシュポイズニング",
+    "href": "posts/2026-06-16-computer-network/index.html#dnsキャッシュポイズニング",
+    "title": "ネットワークを学ぶ",
+    "section": "DNSキャッシュポイズニング",
+    "text": "DNSキャッシュポイズニング"
   },
   {
     "objectID": "posts/2026-06-16-computer-network/index.html#関連request-for-comments一覧",

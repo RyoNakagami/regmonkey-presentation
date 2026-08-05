@@ -38,7 +38,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -191,7 +191,7 @@ Ryo Nakagami
 <h2>LLMはプロンプトに対して順当な続きを出力している</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>LLMは入力テキスト（プロンプト）に対して, <strong>次に来る可能性が高いトークンを確率的に予測</strong>し, 順番に出力している</li>
 <li>各ステップで語彙全体に対する確率分布を計算し, そこからトークンをサンプリングする</li>
@@ -272,7 +272,7 @@ adapt
 <li>プロンプトに対して，上記のように次のトークンを１つずつサンプリングし続けることで文章を生成している</li>
 <li>常に「ランクの高い」トークンを選び続けると単調な文章が生成される傾向があるので，ランクの低い単語を選ぶ余地を残すことも重要</li>
 </ul>
-</div><div class="column padding-L-12 font-09" style="width:50%;">
+</div><div class="column padding-left-12 font-09" style="width:50%;">
 <p><span class="mini-section">トークンとは？</span></p>
 <ul>
 <li>テキストを分割した最小単位（単語・サブワード・文字など）</li>
@@ -295,7 +295,7 @@ adapt
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <p><span class="mini-section">Key Takeaways</span></p>
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>次のトークンを予測するには「あるトークン列の後に各トークンが出現する確率」が必要</li>
 <li>しかし，語彙数が膨大なため全パターンの頻度をデータから直接数え上げることは不可能</li>
@@ -339,7 +339,7 @@ adapt
 <h2>LLMは「知っていること」を引き出せないことがある</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>LLMは膨大な学習データから知識を獲得しているが，<strong>プロンプトの書き方次第で正しい知識を引き出せない</strong>ことがある</li>
 <li>ユーザーが「LLMが本来知っていること」を適切に引き出せていないことに気づかない状態が<strong>Unknown Knowns問題</strong></li>
@@ -365,7 +365,7 @@ adapt
 </ol>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:47.5%;">
+</div><div class="column padding-left-12 font-09" style="width:47.5%;">
 <p><span class="mini-section">Unknown Knowns問題の具体例</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="square-box-500">
@@ -464,7 +464,7 @@ adapt
 <h2>単語をベクトルで表現する: Word Embedding</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>単語の意味は<strong>その単語が使われる文脈（周囲の単語）によって決まる</strong>（分布仮説）<sup>1</sup></li>
 <li>この考えに基づき，単語を<strong>低次元の実数ベクトル（密ベクトル）</strong>で表現する手法がWord Embedding</li>
@@ -510,7 +510,7 @@ adapt
 <h2>Word2Vec: 文脈から単語ベクトルを学習する</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>大量のテキストデータ上で「<strong>ある単語の周囲にどの単語が出現しやすいか</strong>」を予測するタスクを解くことで，各単語のベクトル表現を獲得する（Mikolov et al., 2013）</li>
 </ul>
@@ -534,7 +534,7 @@ adapt
 <ol start="5" type="1">
 <li>真の文脈語の確率が高くなるよう <span class="math inline">\(\mathbf{v}, \mathbf{u}\)</span> を更新</li>
 </ol>
-</div><div class="column padding-L-12 font-09" style="width:50%;">
+</div><div class="column padding-left-12 font-09" style="width:50%;">
 <p><span class="mini-section">学習されたベクトルの性質</span></p>
 <ul>
 <li>意味の近い単語はベクトルも近くなる
@@ -559,7 +559,7 @@ adapt
 <h2>GPTにおけるEmbeddingの役割</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>GPT（Generative Pre-trained Transformer）は，Word2Vecで確立されたEmbeddingの考え方を発展させ，<strong>文脈に応じて動的に変化するベクトル表現</strong>を実現した</li>
 </ul>
@@ -610,7 +610,7 @@ adapt
 <li>Word2Vecは「単語の意味をベクトルで表現できる」ことを示した</li>
 <li>GPTはその着想をTransformerアーキテクチャで拡張した</li>
 </ul>
-</div><div class="column padding-L-12 font-09" style="width:50%;">
+</div><div class="column padding-left-12 font-09" style="width:50%;">
 <p><span class="mini-section">GPTの処理フロー</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ol type="1">

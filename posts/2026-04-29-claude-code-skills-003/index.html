@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -357,7 +357,7 @@ Ryo Nakagami
 </div><div class="column font-09" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><span class="mini-section">必須フィールド</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ul>
 <li><code>name</code>：識別子．<span class="regmonkey-bold"><strong>最大 64 文字</strong></span>．小文字・数字・ハイフンのみ</li>
 <li><code>description</code>：マッチング基準．<span class="regmonkey-bold"><strong>最大 1024 文字</strong></span>．非空</li>
@@ -365,7 +365,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">任意フィールド</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ul>
 <li><code>license</code>：ライセンス名 or バンドルファイル参照</li>
 <li><code>compatibility</code>：環境要件（最大 500 文字）</li>
@@ -420,9 +420,9 @@ Ryo Nakagami
 <span id="cb2-13"><a aria-label="13"></a><span class="ss">2. </span>Use Grep to locate entry points</span>
 <span id="cb2-14"><a aria-label="14"></a><span class="ss">3. </span>Read key modules and explain</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div><div class="column padding-L-10" style="width:52.5%;">
+</div><div class="column padding-left-10" style="width:52.5%;">
 <p><span class="mini-section">allowed-tools の効果</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>列挙したツールは <span class="regmonkey-bold"><strong>確認なしで利用可</strong></span>(= without permission)</li>
 <li>列挙外のツール（<code>Edit</code>，<code>Write</code> 等）は <span class="regmonkey-bold"><strong>使えない</strong></span></li>
@@ -431,7 +431,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">使いどころ</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>調査・要約など <span class="regmonkey-bold"><strong>書き換えを伴わない作業</strong></span></li>
 <li>セキュリティ感度が高い workflow</li>
@@ -471,7 +471,7 @@ Ryo Nakagami
 </div><div class="column font-09" style="width:60%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><span class="mini-section">3 つのオプションディレクトリ</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ul>
 <li><code>scripts/</code>：<span class="regmonkey-bold"><strong>実行可能コード</strong></span>．自己完結 or 依存を明記</li>
 <li><code>references/</code>：<span class="regmonkey-bold"><strong>追加ドキュメント</strong></span>．<code>REFERENCE.md</code> <code>FORMS.md</code> などを置き，<span class="regmonkey-bold"><strong>必要なときだけ</strong></span>読ませる</li>
@@ -480,7 +480,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">なぜ分離するのか</span></p>
-<div class="padding-L-10 lh-14">
+<div class="padding-left-10 lh-14">
 <ul>
 <li>全部を SKILL.md に詰めると<span class="regmonkey-bold"><strong>コンテキストを圧迫</strong></span>しメンテも辛い</li>
 <li>個別ファイルは<span class="regmonkey-bold"><strong>ロード対象に含めるかを Claude が判断</strong></span>できる</li>
@@ -494,7 +494,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">本体は読まれず，実行結果（出力）だけが context に乗る．コードで書ける処理は scripts へ</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>SKILL.md には「<span class="regmonkey-bold"><strong>スクリプトを実行する</strong></span>」と書く．<span class="regmonkey-bold"><strong>読ませない</strong></span></li>
@@ -507,7 +507,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">向いている処理</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>環境バリデーション（依存・バージョンチェック）</li>
 <li>一貫性が必要な<span class="regmonkey-bold"><strong>データ変換</strong></span></li>
@@ -516,7 +516,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Skill 設計の判断軸</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>自然言語で Claude に毎回考えさせる？ → <span class="regmonkey-bold"><strong>SKILL.md 本文</strong></span>に書く</li>
 <li>決まった処理を毎回流す？ → <code>scripts/</code> に置いて<span class="regmonkey-bold"><strong>実行を指示</strong></span>する</li>
@@ -538,7 +538,7 @@ Ryo Nakagami
 <span id="cb3-3"><a aria-label="3"></a><span class="ex">npx</span> eslint@9.0.0 src/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>バージョンを <span class="regmonkey-bold"><strong>ピン留め</strong></span>して再現性を確保</li>
 <li>前提環境は <code>compatibility</code> フィールドで宣言</li>
@@ -556,7 +556,7 @@ Ryo Nakagami
 <span id="cb4-5"><a aria-label="5"></a>...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li><code>uv run scripts/extract.py</code> で<span class="regmonkey-bold"><strong>隔離環境＋自動依存解決</strong></span></li>
 <li><code>uv lock --script</code> で完全再現用のロックファイル生成</li>
@@ -624,7 +624,7 @@ Ryo Nakagami
 <div class="column" style="width:50%;">
 <div class="info-box">
 <p><span class="info-box-title">① 冪等性</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>エージェントはリトライ前提．何度呼ばれても結果が同じ設計に</li>
 <li>「create if not exists」を「create and fail」より優先する</li>
@@ -634,7 +634,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">② 入力制約</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>曖昧な入力を推測で実行しない．推測は誤実行のもと</li>
 <li>enum・closed set を使い，曖昧な入力は<span class="regmonkey-bold"><strong>明確にエラー</strong></span></li>
@@ -645,7 +645,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">③ dry-run</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>副作用ありの操作は未然に防ぎたい</li>
 <li><code>--dry-run</code> フラグで先に<span class="regmonkey-bold"><strong>プレビュー</strong></span>させる</li>
@@ -655,7 +655,7 @@ Ryo Nakagami
 </div><div class="column" style="width:50%;">
 <div class="info-box">
 <p><span class="info-box-title">④ 意味のある終了コード</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>失敗の種類を区別できないと，エージェントが対処を選べない</li>
 <li>失敗種別ごとに別 code を返し，<code>--help</code> に<span class="regmonkey-bold"><strong>意味を明記</strong></span></li>
@@ -665,7 +665,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">⑤ 安全なデフォルト</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>うっかり破壊的操作が走る事故を防ぐ</li>
 <li><code>--confirm</code>・<code>--force</code> などの<span class="regmonkey-bold"><strong>明示フラグを必須化</strong></span></li>
@@ -675,7 +675,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">⑥ 出力サイズの予測可能性</span></p>
-<div class="info-contents font-09 lh-14 padding-L-10">
+<div class="info-contents font-09 lh-14 padding-left-10">
 <ul>
 <li>harness は 10〜30K 字で truncate．重要情報が消えうる</li>
 <li>要約をデフォルトに．<code>--offset</code> で<span class="regmonkey-bold"><strong>追加取得を許可</strong></span></li>
@@ -716,7 +716,7 @@ Ryo Nakagami
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="ex">skills-ref</span> validate ./my-skill</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>agentskills が提供する <span class="regmonkey-bold"><strong>リファレンス実装</strong></span>の CLI</li>
 <li>ディレクトリを引数に指定して実行するだけ</li>
@@ -725,7 +725,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">使いどころ</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>公開前のチェック：<span class="regmonkey-bold"><strong>name の文字数・構文</strong></span>・description 必須を機械検証</li>
 <li>CI への組み込み：壊れた Skill を<span class="regmonkey-bold"><strong>マージ前にブロック</strong></span></li>
@@ -734,7 +734,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">validate でカバーできること</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>frontmatter のスキーマ準拠</li>
 <li><code>include</code> の glob と実ファイルの整合</li>

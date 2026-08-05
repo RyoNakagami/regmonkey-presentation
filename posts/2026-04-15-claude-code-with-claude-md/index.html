@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -280,7 +280,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>CLAUDE.md = <span class="regmonkey-bold">Claude Codeが起動時に自動読込し，毎リクエストの先頭に添付する</span> 永続メモリファイル</li>
 <li><code>/init</code> を一度走らせるとリポジトリ全体を解析し，<span class="regmonkey-bold">サマリー・主要ファイル・アーキテクチャ</span> を雛形として書き出す</li>
@@ -296,7 +296,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">コンテキスト管理上の位置付け</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>セッション横断で情報を残せる <span class="regmonkey-bold">唯一の標準的な仕組み</span>：<code>/clear</code> や <code>/compact</code> を跨いで保持される</li>
 <li>ただし <span class="regmonkey-bold">毎回送信される＝Context Windowを常時消費する</span> ため，肥大化はトークン浪費に直結する</li>
@@ -391,7 +391,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">Anthropic Docsの記述</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><span class="regmonkey-bold">“More specific locations take precedence over broader ones.”</span>（より具体的な階層が広範な階層に優先する）</li>
 <li>同じトリガー指示が複数階層に書かれても <span class="regmonkey-bold">最終的に効くのは最も深い階層の指示のみ</span></li>
@@ -436,7 +436,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">セットアップ：3階層に同じトリガーを置く</span></p>
-<div class="info-contents font-09 padding-L-05 lh-12">
+<div class="info-contents font-09 padding-left-05 lh-12">
 <ul>
 <li>各階層の <code>CLAUDE.md</code> に「<code>precedence-test</code> と入力されたら <code>LEVEL=USER</code>・<code>LEVEL=PROJECT</code>・<code>LEVEL=SUBDIR</code> のいずれかを返答」と互いに矛盾する指示を仕込む</li>
 <li>claude code sessionで <code>precedence-test</code> と入力し，claude codeからのレスポンスを確認する</li>
@@ -509,7 +509,7 @@ Ryo Nakagami
 <li>例：<code># このプロジェクトでは pnpm を使う</code></li>
 </ul>
 </div>
-</div><div class="column padding-L-10" style="width:50%;">
+</div><div class="column padding-left-10" style="width:50%;">
 <div class="border-bottom-header-left">
 <p><code>@</code> でその場限りに取込み</p>
 </div>

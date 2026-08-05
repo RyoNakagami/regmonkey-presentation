@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -470,7 +470,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1.0em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">ミッションではなく現状維持がドライバになってはいけない</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li><span class="regmonkey-bold">「いつもやっていることだから」</span> という理由で過去の手法を惰性で踏襲する</li>
 <li><span class="regmonkey-bold">FUD（Fear・Uncertainty・Doubt）</span> によりレガシーな監視構成の修正を躊躇する</li>
@@ -642,7 +642,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
 <p><span class="info-box-title">「動いている」をオーナーと最初に合意する</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>監視対象が <span class="regmonkey-bold">「動いている」とはどういう状態か</span> を最初に定義する</li>
 <li>定義は <span class="regmonkey-bold">サービス・アプリケーションのオーナーに聞く</span> ところから始める</li>
@@ -654,7 +654,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">よくある誤り：CPU 使用率を主指標にする</span></p>
-<div class="info-contents padding-L-05 font-09 lh-14">
+<div class="info-contents padding-left-05 font-09 lh-14">
 <ul>
 <li>単独の高 CPU をアラート化 → <span class="regmonkey-bold">誤検知でアラート疲れ</span></li>
 <li>CPU の数字だけでは <span class="regmonkey-bold">ユーザー体感と無関係</span></li>
@@ -663,7 +663,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">正しい扱い：補助指標としての CPU</span></p>
-<div class="info-contents padding-L-05 font-09 lh-14">
+<div class="info-contents padding-left-05 font-09 lh-14">
 <ul>
 <li>「動いている」なら <span class="regmonkey-bold">CPU が高くても問題ではない</span>：処理をしているだけ</li>
 <li>パフォーマンス影響のある <span class="regmonkey-bold">負荷の急変化・トレンド</span> は確認</li>
@@ -755,7 +755,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">UNIX 哲学：1つのことを行い，またそれをうまくやるプログラムを書け．協調して動くプログラムを書け．</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li>監視も同じで <span class="regmonkey-bold">1つのツールに全てを背負わせない</span>．収集・蓄積・可視化・通知をそれぞれ得意なツールに任せる</li>
 <li>ツール間は <span class="regmonkey-bold">標準フォーマット・API</span> で接続し，1つを差し替えても全体が壊れない構成にする</li>
@@ -841,7 +841,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">1つのツールに全機能を背負わせるのは絶対にやってはいけない</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li>オールインワン製品は <span class="regmonkey-bold">初期構築は速い</span> が，変化に弱く Lock-in が強い</li>
 <li>監視ニーズはプロダクト成熟・組織成長で変わる：<span class="regmonkey-bold">部品を交換できる構成</span> が前提</li>
@@ -933,7 +933,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">ログ：タイムスタンプ付きの連続イベント．監視プラットフォームではメトリクスと並ぶ第2の柱</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li>基本は <span class="regmonkey-bold">連続した文字列</span> に <span class="regmonkey-bold">タイムスタンプ</span> が紐付いたもの．<span class="regmonkey-bold">パース可能性</span> で扱いが大きく変わる</li>
 <li>用途に応じて <span class="regmonkey-bold">構造化・非構造化を使い分ける</span>（集計重視か可読性重視か）</li>
@@ -1054,7 +1054,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-12">
+<div class="font-09 padding-left-05 lh-12">
 <ul>
 <li>監視基盤の <span class="regmonkey-bold">自前開発は人時コスト</span> と <span class="regmonkey-bold">逸失利益</span> を考慮すると割高になりやすい</li>
 <li>多くの企業では <span class="regmonkey-bold">SaaS 監視ソリューションに年間 6,000〜9,000 ドル</span> を投資している</li>
@@ -1079,7 +1079,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">監視は「作って終わり」ではなく，定期的に棚卸し・チューニング・組み替えを行う運用プロセス</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li>監視ツールも <span class="regmonkey-bold">プロダクトと監視ニーズも日進月歩</span> で変化する．陳腐化した監視は <span class="regmonkey-bold">誤検知と見落としの温床</span> になる</li>
 <li><span class="regmonkey-bold">いかに柔軟に時世に合わせて変えていけるか</span> の組織能力が，観測体制の品質を決める</li>
@@ -1290,7 +1290,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">6つの問いに答えられる手順書がオンコールを救う</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">手順書が必ず答えるべき6つの問い</span></p>
-<div class="info-contents padding-L-05 font-10 lh-14">
+<div class="info-contents padding-left-05 font-10 lh-14">
 <ul>
 <li>これは <span class="regmonkey-bold">何のサービスで，何をするものか</span>？</li>
 <li>誰が <span class="regmonkey-bold">責任者（サービスオーナー）</span> か？</li>
@@ -1368,7 +1368,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">オンコール（On-call）とは</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>何か問題が起きたときに <span class="regmonkey-bold">いつでも呼び出しに答えられるようにしている担当</span></li>
 <li>誤報・わかりにくいアラート・場当たり対応は <span class="regmonkey-bold">必要以上に体力を消耗させる</span></li>
@@ -1628,7 +1628,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
 <p><span class="info-box-title">Business KPI の役割</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>全体としてビジネスが機能するために必要な計画を <span class="regmonkey-bold">どのように実行しているか</span> を測るメトリクス</li>
 <li>監視と同じく <span class="regmonkey-bold">Issue Finding・Insight・Action</span> を導くものでなければならない</li>
@@ -1775,7 +1775,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
 <p><span class="info-box-title">なぜパフォーマンス評価が重要か</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>動くことの評価も重要だが，<span class="regmonkey-bold">パフォーマンス評価が事業インパクトに直結</span></li>
 <li>フロントエンドの改善が <span class="regmonkey-bold">収益にどれほどのインパクトを与えるか</span> を説明することが重要</li>
@@ -1892,7 +1892,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box font-11">
 <p><span class="mini-section-bare">可用性 = 稼働時間 / 総稼働時間．サービスの可用性は下位レイヤの可用性を超えない</span></p>
-<div class="padding-L-05 lh-12 font-09">
+<div class="padding-left-05 lh-12 font-09">
 <ul>
 <li>99% を <span class="regmonkey-bold">two-nine</span>，99.99% を <span class="regmonkey-bold">four-nine</span> と呼ぶ</li>
 <li>例：Cloud Storage は <span class="regmonkey-bold">99.999999999%（イレブンナイン）</span> の年間耐久性 ＝ 年間 31 秒のダウン相当</li>
@@ -1904,7 +1904,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="info-box-title">① ナイキスト・シャノンのサンプリング定理</span></p>
-<div class="info-contents padding-L-05 font-09 lh-14">
+<div class="info-contents padding-left-05 font-09 lh-14">
 <ul>
 <li>2 分間のダウンタイムを計測するには <span class="regmonkey-bold">1 分間隔</span> の収集が必要</li>
 <li>サンプリング間隔は <span class="regmonkey-bold">検知したい最短ダウン時間の 1/2 以下</span></li>
@@ -1913,7 +1913,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="info-box-title">② 依存コンポーネントの天井</span></p>
-<div class="info-contents padding-L-05 font-09 lh-14">
+<div class="info-contents padding-left-05 font-09 lh-14">
 <ul>
 <li>サービスの可用性は <span class="regmonkey-bold">下位レイヤの可用性を超えない</span></li>
 <li>例：AWS EC2 は 1 リージョンで <span class="regmonkey-bold">99.95% 保証</span> → 年間最低 4 時間のダウン</li>

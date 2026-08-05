@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -285,7 +285,7 @@ Ryo Nakagami
 <h2>コーディングエージェントとは何か？</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>コーディングエージェントとは，<span class="regmonkey-bold">LLMが自律的にコードの読み書き・コマンド実行・検証を行うAIエージェント<sup>1</sup></span>のこと</li>
 <li>ユーザーの指示を受けて「<span class="regmonkey-bold">計画 → 実行 → 検証 → 修正</span>」のループを自走し，タスク完了まで反復する
@@ -645,7 +645,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>エージェントは<strong>コンテキストの質で精度が決まる</strong> ⇔ 曖昧な指示は動的生成を暴走させる</li>
 <li><strong>コードではなく仕様書を「正」として扱い</strong>，仕様 → 実装の方向性を固定することでズレを抑える</li>
@@ -743,7 +743,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>プロンプトエンジニアリング = <span class="regmonkey-bold">AIから望ましい応答を引き出すための指示文を設計する実践</span></li>
 <li>出力の質は <span class="regmonkey-bold">プロンプトの具体性・構造・前提情報の与え方</span> に強く依存する</li>
@@ -754,7 +754,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">AI Fluency 4D Framework における位置づけ<sup>1</sup></span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>プロンプティングは <span class="regmonkey-bold">Description（AIとの効果的な意思疎通）</span> に該当する技能</li>
 <li>Delegation で何を任せるか決め，Description で伝え方を設計し，Discernment で出力を評価する</li>
@@ -882,7 +882,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">エージェントの「作業メモリ」として，あらゆる入出力が同じ有限リソースを共有する</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>Context Window = エージェントが <span class="regmonkey-bold">一度の会話で参照できるトークンの上限</span></li>
@@ -898,7 +898,7 @@ Ryo Nakagami
 <p><img data-src="./context-window-example.png"></p>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">Context Windowを消費する代表的な要素</span></p>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>ユーザープロンプト・アシスタント応答</li>
 <li><code>Read</code> / <code>Bash</code> / <code>Grep</code> などツール実行結果</li>
@@ -916,7 +916,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <p><span class="info-box-title">Compactionの仕組み</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>上限に近づくと Claude Code は <span class="regmonkey-bold">重要情報を要約し，古いツール結果を捨てる</span></li>
 <li>圧縮後の要約が新しい文脈として保持され，会話を中断せずに作業を継続できる</li>
@@ -927,7 +927,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="caution-box">
 <p><span class="info-box-title">詳細喪失のリスク</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>要約は <span class="regmonkey-bold">固有値・コードの細部・微妙なやり取りを取りこぼす</span>ことがある</li>
 <li>重要な仕様・前提条件は <span class="regmonkey-bold">Compaction前に <code>CLAUDE.md</code> やファイルへ書き出す</span>べき</li>
@@ -1285,7 +1285,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-10">
+<div class="info-contents font-10 padding-left-10">
 <ul>
 <li>コードを書く前に機械が読める以下の仕様書を作ることで，仕様書をエージェントの「外部記憶」として機能させる</li>
 <li>一義的には，人間のためのドキュメントではなく，エージェントのためのコンテキストとして設計</li>

@@ -104,7 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -259,7 +259,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05" style="line-height: 1.2">
+<div class="info-contents font-10 padding-left-05" style="line-height: 1.2">
 <ul>
 <li>チャット型のように<span class="regmonkey-bold">人が毎回話しかける</span>のではなく，カレンダー・Slackなどの<span class="regmonkey-bold">イベントストリーム</span>を常時監視するエージェント</li>
 <li>ほとんどのタスクは裏側で自律処理し，<span class="regmonkey-bold">必要な時だけ</span>人に通知・質問・承認を求める</li>
@@ -285,7 +285,7 @@ Ryo Nakagami
 </ol>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:50.0%;">
+</div><div class="column padding-left-12 font-09" style="width:50.0%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="square-box-500">
 <div class="border-bottom-header">
@@ -400,10 +400,10 @@ Ryo Nakagami
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong><span class="padding-L-05 font-12">REMARKS: チャット型との違いをフロー視点で整理<sup>1</sup></span></strong></p>
+<p><strong><span class="padding-left-05 font-12">REMARKS: チャット型との違いをフロー視点で整理<sup>1</sup></span></strong></p>
 </div>
 <div class="callout-content">
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li><strong>起点</strong>: チャット型は人のメッセージ送信で起動するが，アンビエント型は外部イベント（メール / Slack / Cron）が起点になる</li>
 <li><strong>並列度</strong>: チャット型は1会話ずつ逐次処理するのに対し，アンビエント型は複数タスクを並列処理できる</li>
@@ -421,7 +421,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">すべてを自動化しない，人の判断を組み込む3つの型</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05" style="line-height: 1.2">
+<div class="info-contents font-10 padding-left-05" style="line-height: 1.2">
 <ul>
 <li>アンビエントエージェントは<strong>全自動ではない</strong> ── 適切なタイミングで人の判断を組み込む</li>
 <li>関与の型は <strong>Notify（通知） / Question（質問） / Review（承認）</strong> の3つに整理できる</li>
@@ -474,7 +474,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">3段階の判定で Notify / Question / Review / 自動実行 に振り分け</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05" style="line-height: 1.2">
+<div class="info-contents font-10 padding-left-05" style="line-height: 1.2">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <ul>
 <li>受信したイベントに対し，Agentは<span class="regmonkey-bold"><strong>3段階の判断</strong></span>を経て動作モードを決定する</li>
@@ -552,7 +552,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">LangGraphが永続化・HITL・長期メモリ・Cronを内蔵</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>アンビエント型はチャット型と違い，<strong>バックグラウンドで走り続ける基盤</strong>が必要</li>
 <li>LangGraphは，<span class="regmonkey-bold">永続化 / Human-in-the-Loop / 長期メモリ / Cron</span>をランタイム機能として提供</li>
@@ -646,7 +646,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">CLI + Hooks + Schedule + Subagents でClaude Codeをアンビエント化する</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>Claude Code では，<span class="regmonkey-bold"><strong>Hooks</strong> / <strong>Schedule</strong> / <strong>Headlessモード</strong></span>を組み合わせると，外部イベントを起点に自走させられる</li>

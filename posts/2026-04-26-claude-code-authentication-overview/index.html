@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -263,7 +263,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-bullseye " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="学習目標"><span class="padding-L-05">学習目標</span></h3>
+<h3 id="学習目標"><span class="padding-left-05">学習目標</span></h3>
 </div>
 <ul>
 <li>Claude Code の認証方式を理解する</li>
@@ -274,7 +274,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-person " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="対象レベル"><span class="padding-L-05">対象レベル</span></h3>
+<h3 id="対象レベル"><span class="padding-left-05">対象レベル</span></h3>
 </div>
 <ul>
 <li>Claude Code を触り始めたエンジニア</li>
@@ -284,7 +284,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="前提知識"><span class="padding-L-05">前提知識</span></h3>
+<h3 id="前提知識"><span class="padding-left-05">前提知識</span></h3>
 </div>
 <ul>
 <li>ターミナル操作</li>
@@ -432,7 +432,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">5時間ローリングと7日週次の二層構造でモデルとツール量に応じ重み付け消費される<sup>1</sup></span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">共有プールの構造</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Claude Code・Claude.ai (Web)・Desktop・モバイルは<span class="regmonkey-bold">単一プールから消費</span>される</li>
 <li>上限は<span class="regmonkey-bold">二層構造</span>で，独立にカウントされ独立にリセットされる
@@ -445,7 +445,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">消費を重く動かす要因</span></p>
-<div class="info-contents padding-L-05">
+<div class="info-contents padding-left-05">
 <ul>
 <li>モデル選択：<span class="regmonkey-bold">Opus &gt; Sonnet &gt; Haiku</span> の順に大きく消費される</li>
 <li>会話履歴は毎ターン<span class="regmonkey-bold">全体が再送される</span>：セッションが長いほど1メッセージあたり重くなる</li>
@@ -459,7 +459,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">上限到達時はリセット待ち・上位プラン・Extra usage・API fallback の4択が提示される<sup>1</sup></span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">残量の確認手段</span></p>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Claude Code 内 <span class="regmonkey-bold"><code>/usage</code></span> (エイリアス <code>/cost</code>・<code>/stats</code>)：セッションコスト・各枠への進捗を表示</li>
 <li>コンテキスト埋まり具合は <span class="regmonkey-bold"><code>/context</code></span> で別途確認</li>
@@ -469,7 +469,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">上限到達時の4つの選択肢</span></p>
-<div class="info-contents padding-L-05">
+<div class="info-contents padding-left-05">
 <ul>
 <li><span class="regmonkey-bold">上位プランへのアップグレード</span>：Pro → Max 5x → Max 20x</li>
 <li><span class="regmonkey-bold">Extra usage を有効化</span>：標準 API レートでプラン枠外を継続消費</li>
@@ -553,7 +553,7 @@ Ryo Nakagami
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="font-08 padding-L-05">
+<div class="font-08 padding-left-05">
 <p>共通割引：Prompt cache は<span class="regmonkey-bold">書込が標準入力の20%・読込が10%</span>，Batch 処理は<span class="regmonkey-bold">50% off</span>，US-only 推論は 1.1x</p>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn5"><p>Claude API 料金: <a href="https://claude.com/platform/api" class="uri">https://claude.com/platform/api</a> (取得日 2026-05-11)</p></li></ol></aside></section>
@@ -562,7 +562,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">クレジット枯渇時に自動補充されると上限なく請求が積み上がる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">Claude Console の請求リスク</span></p>
-<div class="info-contents padding-L-05 lh-14">
+<div class="info-contents padding-left-05 lh-14">
 <ul>
 <li>自動チャージ (Auto Reload) を有効にしたまま運用すると，<span class="regmonkey-bold">使用量に比例して請求が継続的に発生</span>する</li>
 <li>暴走したサブエージェントや長尺ループで意図しない高額請求が起きうる</li>
@@ -572,7 +572,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">サブスクとの違い</span></p>
-<div class="info-contents padding-L-05">
+<div class="info-contents padding-left-05">
 <ul>
 <li>Claude.ai サブスク (Pro・Max) は<span class="regmonkey-bold">月額固定</span>：上限到達で停止・追加課金は発生しない</li>
 <li>「上限を予測しづらい想定外利用への耐性」を最優先するならサブスクが安全</li>
@@ -642,7 +642,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">クラウド契約の枠内で完結するためデータ境界・課金・監査が既存基盤に揃う</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">クラウドプロバイダ経由の利点</span></p>
-<div class="info-contents padding-L-05 lh-14">
+<div class="info-contents padding-left-05 lh-14">
 <ul>
 <li>通信が<span class="regmonkey-bold">クラウド契約のプライベート網内で完結</span>し，Anthropic へのインターネット経由送信が発生しない</li>
 <li>リージョン選択で<span class="regmonkey-bold">データ所在地のコンプラ要件</span>を満たせる</li>
@@ -652,7 +652,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">補足：モデル版固定の推奨</span></p>
-<div class="info-contents padding-L-05">
+<div class="info-contents padding-left-05">
 <ul>
 <li>クラウド経由では <code>ANTHROPIC_DEFAULT_OPUS_MODEL</code> 等で<span class="regmonkey-bold">モデル ID を pin する</span>と，新リリースが各クラウドで有効化されるタイミングを制御できる</li>
 </ul>

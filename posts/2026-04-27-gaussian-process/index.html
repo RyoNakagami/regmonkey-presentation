@@ -107,7 +107,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -449,7 +449,7 @@ K(x, x') = \exp\!\left(-\tfrac{1}{2}\,|x - x'|^2\right)
 <p><span class="h2-submessage">多変量正規の自己共役性により，事後過程もガウス過程となる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>事前 GP <span class="math inline">\(p(f) = \mathcal{GP}(f;\mu, K)\)</span> にExact観測 <span class="math inline">\(\boldsymbol{\phi} = f(\mathbf{x})\)</span> を条件付けると，<span class="regmonkey-bold"><strong>事後も GP</strong></span>： <span class="math display">\[
@@ -469,7 +469,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})\,\boldsymbol{\Sigma}^{-1}
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">補間性</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>観測位置 <span class="math inline">\(x_i\)</span> では <span class="math inline">\(\mu_{\mathcal{D}}(x_i) = \phi_i\)</span>，<span class="math inline">\(K_{\mathcal{D}}(x_i, x_i) = 0\)</span></li>
 <li>95% 信用区間は<span class="regmonkey-bold"><strong>観測点で縮小</strong></span>し，離れるほど広がる</li>
@@ -477,7 +477,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})\,\boldsymbol{\Sigma}^{-1}
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">影響範囲</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>観測の影響は <span class="math inline">\(K(x,\mathbf{x})\)</span> が<span class="regmonkey-bold"><strong>非自明な相関を持つ範囲</strong></span>にだけ及ぶ</li>
 <li>相関が消える領域では事前分布のまま</li>
@@ -594,7 +594,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 <p><span class="h2-submessage">スカラ観測で事後の動きを分解すると，事前モーメントと観測の「驚きの度合い」に分かれる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>事前： <span class="math inline">\(\phi \sim \mathcal{N}(\mu, \sigma^2)\)</span>，観測： <span class="math inline">\(y \sim \mathcal{N}(m, s^2)\)</span>，相関 <span class="math inline">\(\rho = \mathrm{corr}[y, \phi \mid x]\)</span> とする</li>
@@ -609,7 +609,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">3 つの極端ケース</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li><span class="math inline">\(\rho = 0\)</span>：観測は無関係 → <span class="regmonkey-bold"><strong>事前のまま</strong></span></li>
 <li><span class="math inline">\(|\rho| = 1\)</span>：観測は完全に決定的 → 平均は <span class="math inline">\(z\)</span> 標準偏差分シフト，標準偏差 <span class="math inline">\(\to 0\)</span></li>
@@ -618,7 +618,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">ベクトル観測への一般化</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li><span class="math inline">\(\mathbf{y}\)</span> を観測したときの事後平均は同じ形： <span class="math display">\[
 \mu + \sigma\,\boldsymbol{\rho}^{\!\top}\mathbf{P}^{-1}\mathbf{z}
@@ -633,7 +633,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 <p><span class="h2-submessage">観測値そのものは事後分散に影響を与えない</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>スカラ観測の事後標準偏差： <span class="math display">\[
@@ -646,7 +646,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <p><span class="mini-section">実務的含意</span></p>
-<div class="padding-L-10 font-09 lh-14">
+<div class="padding-left-10 font-09 lh-14">
 <ul>
 <li>ベイズ最適化の獲得関数評価では，観測前から<span class="regmonkey-bold"><strong>事後分散を計算可能</strong></span></li>
 <li>Noise観測 <span class="math inline">\(\mathbf{N}\)</span> を含む場合： <span class="math display">\[
@@ -684,7 +684,7 @@ K_{\mathcal{D}}(x,x') &amp;= K(x,x') - K(x,\mathbf{x})(\boldsymbol{\Sigma}+\math
 <p><span class="h2-submessage"><span class="math inline">\(f\)</span> を直接観測する点と，<span class="math inline">\(g\)</span>（関数変換を噛ませた別関数）を観測する点が異なる場面を扱う</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-14">
+<div class="info-contents font-10 padding-left-05 lh-14">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>共通領域 <span class="math inline">\(\mathcal{X} = [0, 30]\)</span> 上に，2 つの関数 <span class="math inline">\(f, g\)</span> を結合 GP として置く</li>
@@ -700,7 +700,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 \]</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">ねらい</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>直接観測のない領域でも，<span class="regmonkey-bold"><strong>カップリング経由で他関数の belief が事後を引き締める</strong></span>様子を確認する</li>
 </ul>
@@ -713,7 +713,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="font-08">
-<div class="pseudocode-container quarto-float" data-no-end="false" data-line-number="true" data-caption-prefix="Algorithm" data-pseudocode-number="1" data-line-number-punc=":" data-comment-delimiter="//" data-indent-size="1em">
+<div class="pseudocode-container quarto-float" data-line-number="true" data-caption-prefix="Algorithm" data-indent-size="1em" data-comment-delimiter="//" data-no-end="false" data-line-number-punc=":" data-pseudocode-number="1">
 <div class="pseudocode">
 \begin{algorithm} \caption{Joint GP Posterior Inference} \begin{algorithmic} \Procedure{JointGPPosterior}{$x^*,\, (x_f, \phi),\, (x_g, \gamma)$} \State $a \gets [\phi;\, \gamma]$ \Comment{観測ベクトルを連結} \State $C \gets \begin{bmatrix} K(x_f, x_f) &amp; K_{fg}(x_f, x_g) \\ K_{fg}(x_g, x_f) &amp; K(x_g, x_g) \end{bmatrix}$ \Comment{結合カーネル} \State $\kappa_f \gets [\,K(x^*, x_f),\; K_{fg}(x^*, x_g)\,]$ \State $\kappa_g \gets [\,K_{fg}(x^*, x_f),\; K(x^*, x_g)\,]$ \State $L \gets \textsf{Cholesky}(C)$ \Comment{$O(n^3)$ で安定に解く} \State $\alpha \gets \textsf{Solve}(L^\top,\; \textsf{Solve}(L,\, a))$ \State $\mu_f^* \gets \kappa_f\, \alpha,\quad \mu_g^* \gets \kappa_g\, \alpha$ \Comment{事後 mean} \State $V_f \gets \textsf{Solve}(L,\, \kappa_f^\top),\quad V_g \gets \textsf{Solve}(L,\, \kappa_g^\top)$ \State $\sigma_f^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_f^2)$ \Comment{事後 variance} \State $\sigma_g^{*2} \gets \mathrm{diag}\,K(x^*, x^*) - \mathrm{colSum}(V_g^2)$ \Return $(\mu_f^*, \sigma_f^*),\; (\mu_g^*, \sigma_g^*)$ \EndProcedure \end{algorithmic} \end{algorithm}
 </div>
@@ -721,7 +721,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 </div>
 </div><div class="column" style="width:45%;">
 <p><span class="mini-section">Keypoiints</span></p>
-<div class="padding-L-10 font-09 lh-16">
+<div class="padding-left-10 font-09 lh-16">
 <ul>
 <li>結合 GP の観測は<span class="regmonkey-bold"><strong>1 本の多変量正規ベクトル</strong></span>に積み上げる</li>
 <li>カーネル行列 <span class="math inline">\(C\)</span> は<span class="regmonkey-bold"><strong>4 つのブロック</strong></span>：自己ブロック 2 つとクロスブロック 2 つ</li>
@@ -736,7 +736,7 @@ p(f, g) = \mathcal{GP}\!\left(\begin{bmatrix}f\\g\end{bmatrix};\,\begin{bmatrix}
 <h2>Python 実装：NumPy で結合カーネル → 事後 mean / variance を計算</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="font-09">
-<div id="9c0dad01" class="cell" data-execution_count="1">
+<div id="f2358333" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>

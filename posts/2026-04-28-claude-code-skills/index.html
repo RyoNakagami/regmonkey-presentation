@@ -104,7 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -276,7 +276,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05" style="line-height: 1.2">
+<div class="info-contents font-10 padding-left-05" style="line-height: 1.2">
 <ul>
 <li>Skillとは，Claude Codeが<span class="regmonkey-bold"><strong>特定タスクを正確にこなすための指示・リソースをまとめたフォルダ</strong></span></li>
 <li>各Skillは <code>SKILL.md</code> 一枚を中核とし，frontmatterの <code>name</code> / <code>description</code> でClaudeに自身の役割を共有する</li>
@@ -303,7 +303,7 @@ Ryo Nakagami
 </ol>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:50.0%;">
+</div><div class="column padding-left-12 font-09" style="width:50.0%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="square-box-500">
 <div class="border-bottom-header">
@@ -312,7 +312,7 @@ Ryo Nakagami
 <div class="squaredmark" style="font-size: 0.9em; padding-right: 1em">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section"><strong>起動の仕組み</strong></span></p>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>Claudeが<code>description</code>を見て自動判定</li>
 <li>関連タスク発生時のみ読み込まれる</li>
@@ -320,7 +320,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section"><strong>運用上のメリット</strong></span></p>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>個人 / プロジェクト単位で<strong>切り替え可能</strong></li>
 <li>Git管理でき<strong>チーム横断で共有</strong>できる</li>
@@ -335,7 +335,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>SKILL.md</code> の frontmatter が “看板”，本文が “中身”</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Skillは<span class="regmonkey-bold"><strong>フォルダ単位で構成され，<code>SKILL.md</code> をエントリーポイント</strong></span>とする</li>
 <li>frontmatterの <code>description</code> は<span class="regmonkey-bold"><strong>Claudeが「このSkillを使うか」を判断する唯一のキー</strong></span>．具体的に書くほど誤発火が減る</li>
@@ -397,7 +397,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>初期ロードは<code>name</code> + <code>description</code>のみ．本文は<span class="regmonkey-bold"><strong>マッチ後に遅延ロード</strong></span>される</li>
 <li>そのため大量のSkillを置いてもコンテキストを圧迫しない</li>
@@ -416,7 +416,7 @@ Ryo Nakagami
 </div><div class="column font-09" style="width:45%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <p><span class="mini-section">読み込みまでの3ステップ</span></p>
-<div class="padding-L-10 lh-12">
+<div class="padding-left-10 lh-12">
 <ol type="1">
 <li>ユーザーが<strong>自然言語で依頼</strong>を入力
 <ul>
@@ -428,7 +428,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">ここがSkillsの本質</span></p>
-<div class="padding-L-10" style="line-height: 1.6">
+<div class="padding-left-10" style="line-height: 1.6">
 <ul>
 <li>ユーザーは <strong><code>/pr-review</code> を明示的に呼んでいない</strong>のに自動マッチ</li>
 <li>ロードが<strong>視覚的に確認できる</strong>ので「期待した Skill が起動したか」をその場でデバッグ可能</li>
@@ -461,7 +461,7 @@ Ryo Nakagami
 </ul>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:50%;">
+</div><div class="column padding-left-12 font-09" style="width:50%;">
 <div class="square-box-500">
 <div class="border-bottom-header">
 <p>Project skills = チーム標準をリポジトリと同梱</p>
@@ -487,7 +487,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">名前衝突時は Enterprise &gt; Personal &gt; Project，Plugin は名前空間で隔離</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>Skillの配置先は<span class="regmonkey-bold"><strong>Enterprise / Personal / Project / Plugin の4階層</strong></span>に分かれており，それぞれ適用範囲が異なる</li>
@@ -539,7 +539,7 @@ Ryo Nakagami
 </div>
 </div><div class="column font-09" style="width:42%;">
 <p><span class="mini-section">使い分けの指針</span></p>
-<div class="padding-L-10" style="line-height: 1.6">
+<div class="padding-left-10" style="line-height: 1.6">
 <ul>
 <li><strong>Personal</strong>: コミット文体・説明レベルなど自分の作法</li>
 <li><strong>Project</strong>: チームのレビュー基準・ブランドガイド（repo に commit して配布）</li>
@@ -612,7 +612,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><span class="mini-section">使い分けの原則</span></p>
-<div class="padding-L-10 font-09" style="line-height: 1.8">
+<div class="padding-left-10 font-09" style="line-height: 1.8">
 <ul>
 <li><strong>必ず守らせたい</strong> → <code>CLAUDE.md</code></li>
 <li><strong>状況依存で適用したい</strong> → Skill</li>
@@ -621,7 +621,7 @@ Ryo Nakagami
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="mini-section">コンテキスト消費の観点</span></p>
-<div class="padding-L-10 font-09" style="line-height: 1.8">
+<div class="padding-left-10 font-09" style="line-height: 1.8">
 <ul>
 <li><code>CLAUDE.md</code> は<span class="regmonkey-bold"><strong>全会話で消費</strong></span> → 肥大化に注意</li>
 <li>Skillは<span class="regmonkey-bold"><strong>マッチ時のみ消費</strong></span> → 大量に置けるのが強み</li>
@@ -635,7 +635,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">「同じ説明を2回以上した」が Skill 化のシグナル</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Skill化の判断基準はシンプル: <span class="regmonkey-bold"><strong>「自分が同じ説明をClaudeに繰り返している」と気づいた瞬間</strong></span>が，それは Skill になるべき知識</li>
 <li>一般のCLAUDE.mdに入れるには<strong>特定的すぎる</strong>が，毎回手で説明するには<strong>汎用的すぎる</strong> → そのスイートスポットがSkill</li>
@@ -647,7 +647,7 @@ Ryo Nakagami
 <div class="columns">
 <div class="column font-09" style="width:50%;">
 <p><span class="mini-section">Skill化に向いているもの</span></p>
-<div class="padding-L-10" style="line-height: 1.8">
+<div class="padding-left-10" style="line-height: 1.8">
 <ul>
 <li>チームのコードレビュー基準</li>
 <li>好みのコミットメッセージ書式</li>
@@ -659,7 +659,7 @@ Ryo Nakagami
 </div>
 </div><div class="column font-09" style="width:50%;">
 <p><span class="mini-section">Skill化に向かないもの</span></p>
-<div class="padding-L-10" style="line-height: 1.8">
+<div class="padding-left-10" style="line-height: 1.8">
 <ul>
 <li>プロジェクト全体で<strong>常に</strong>守って欲しい掟 → <code>CLAUDE.md</code></li>
 <li>一回限りのタスク → 直接プロンプト</li>
@@ -758,7 +758,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">Key Takeaways</span></p>
-<div class="padding-L-10 font-10" style="line-height: 1.2">
+<div class="padding-left-10 font-10" style="line-height: 1.2">
 <ul>
 <li>Skillとは「<span class="regmonkey-bold"><strong>Claudeに一度だけやり方を教えるmarkdownファイル</strong></span>」．以降は自動適用</li>
 <li>frontmatterの <code>description</code> がマッチング鍵 — 具体的に書くこと</li>

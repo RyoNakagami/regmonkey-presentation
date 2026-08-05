@@ -104,7 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -288,7 +288,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>regmonkey-gitcommand</code> は<span class="regmonkey-bold"><strong>Git標準コマンドでは面倒な作業を1コマンド化</strong></span>したシェルスクリプト集</li>
 <li>リポジトリ: <a href="https://github.com/RyoNakagami/regmonkey-gitcommand">RyoNakagami/regmonkey-gitcommand</a></li>
@@ -396,7 +396,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Git管理下のすべてのトラック済みファイルをスキャンし，<span class="regmonkey-bold"><strong>末尾改行が欠けているテキストファイルに自動で改行を追加</strong></span></li>
 <li>バイナリ・SVG は自動スキップ．POSIX 準拠のファイル整形を保つための定型作業</li>
@@ -452,7 +452,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>バイナリ・SVGは MIME判定で自動除外</li>
 <li>処理後に変更ファイル一覧をレポート</li>
@@ -466,7 +466,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>データサイエンス現場では，<span class="regmonkey-bold"><strong>スクリプトが自動生成したCSV・JSON・ログ</strong></span>の末尾改行欠落が頻発</li>
 <li>PR差分時に <code>\ No newline at end of file</code> が出てレビューしにくくなる問題を一掃</li>
@@ -495,7 +495,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">変更ファイルをディレクトリ・キーワードで絞り込み，<code>git add -p</code> で部分ステージング</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>標準の <code>git add -p</code> は<span class="regmonkey-bold"><strong>全変更ファイルが対象</strong></span>で大規模リポジトリだと面倒</li>
 <li>このコマンドは<span class="regmonkey-bold"><strong>ディレクトリ指定・キーワード検索でファイル集合を絞ってから対話的ステージ</strong></span>できる</li>
@@ -565,7 +565,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">分析コードとノートブックを分けてコミットし，レビューしやすい履歴に</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSプロジェクトでは<span class="regmonkey-bold"><strong>1回の作業で複数の関心事</strong></span>（特徴量追加・モデル更新・可視化修正）が混ざる</li>
 <li>モジュール毎に分けて <code>git-add-patch -d</code> でステージすれば，<span class="regmonkey-bold"><strong>1PR=1テーマ</strong></span>の原則を守れる</li>
@@ -594,7 +594,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>git diff --cached</code> を Claude CLI にパイプし，ワンラインコミット文を自動生成</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>ステージ済みの差分を <code>claude -p &lt;prompt&gt;</code> に流し，<span class="regmonkey-bold"><strong>1行コミットメッセージを生成</strong></span></li>
 <li><code>--rule &lt;path&gt;</code> でプロジェクト独自ルール（Conventional Commits等）を追加プロンプトとして注入可能</li>
@@ -656,7 +656,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>依存: <code>claude</code> CLI が PATH 上にあり，API設定済</li>
 <li>ステージ未確定だとエラー終了</li>
@@ -670,7 +670,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>ノートブック変更は<span class="regmonkey-bold"><strong>JSON diff がノイズだらけ</strong></span>で「update notebook」のような雑なメッセージになりがち</li>
 <li>Claudeに要約させれば「<code>feat: EDA: 売上に対する曜日効果の可視化追加</code>」のような<span class="regmonkey-bold"><strong>実質的な変更点</strong></span>を抽出可能</li>
@@ -696,7 +696,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">ISO週番号 <code>sprint-YYYY-WWw</code> をプレフィックスにしたコミットを自動生成</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>date +%Y-%Vw</code> でISO週番号を取得し，<span class="regmonkey-bold"><strong><code>sprint-2026-17w</code> のような週バケツ</strong></span>をコミット名に</li>
 <li><code>-m &lt;msg&gt;</code> で詳細を追記可能．<span class="regmonkey-bold"><strong>1日に複数コミットしても同じ週番号で揃う</strong></span></li>
@@ -759,7 +759,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">週次ベースの実験進捗を時系列で追跡．振り返りやレポートにそのまま使える</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>研究プロジェクトでは<span class="regmonkey-bold"><strong>日々の実験ログを残したい</strong></span>が，コミットメッセージに日付を手書きするのは面倒</li>
 <li>週番号で揃えれば <code>git log --grep "sprint-2026-17"</code> で<span class="regmonkey-bold"><strong>その週の試行錯誤を一括抽出</strong></span>できる</li>
@@ -786,7 +786,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">末尾改行が欠けているファイルを一覧表示．CI の pre-check に最適</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git-add-newline</code> の<span class="regmonkey-bold"><strong>検査のみ版</strong></span> ── 自動修正せず報告だけ</li>
 <li>バイナリ・SVG は自動スキップ．<code>-i</code> で任意の除外パターンを追加可能</li>
@@ -844,7 +844,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">GitHub Actions に組み込み，データファイル・ノートブックの整形を CI レベルで保証</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Data scienceリポジトリに<span class="regmonkey-bold"><strong>手動/自動生成ファイル</strong></span>が混在する場合，整形基準をCIで担保したい</li>
 <li>コミット時点ではなく <strong>push → PR</strong> のタイミングで検査すればレビュワーの手間を減らせる</li>
@@ -903,7 +903,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">指定期間内で閾値以上のサイズを持つコミットを列挙．リポジトリ肥大化を早期発見</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>Perlスクリプト．<code>--unit</code> でサイズ単位，<code>--lowersize</code> で閾値，<code>--days</code> で期間を指定</li>
 <li>出力: <code>commit-size / commit-id / file-number / commit-date</code> の4カラム</li>
@@ -977,7 +977,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">誤コミットされた学習データ・モデル重みを検出し，<code>git-filter-repo</code> で除去する入口</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSリポジトリは<span class="regmonkey-bold"><strong>うっかり大容量アセットをコミット</strong></span>しがち（pkl/parquet/h5/checkpoint）</li>
 <li>clone時間・ストレージを肥大化させる原因．定期的に検査して早期発見</li>
@@ -1004,7 +1004,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">指定ファイルの最新コミット vs 現在の差分を difftool で視覚的に比較</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>最新コミットでそのファイルが触られた時点との diff を表示（未コミット変更含む）</li>
 <li><code>-n &lt;N&gt;</code> でN個前のコミットを基準にできる．<span class="regmonkey-bold"><strong>「前回いじった時との差を知りたい」</strong></span>用途にフィット</li>
@@ -1068,7 +1068,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">ノートブック/モデル定義の「前回実装」との差分確認．実験の進化過程を可視化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>モデル定義ファイルや特徴量生成コードは<span class="regmonkey-bold"><strong>何度も書き換え続ける</strong></span>ので「前回との差」を日常的に見たい</li>
 <li><code>git log -p -- &lt;file&gt;</code> は冗長．<code>git-lastdiff</code> なら<span class="regmonkey-bold"><strong>1コマンドで直近差分</strong></span>を視覚表示</li>
@@ -1098,7 +1098,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>tree --fromfile</code> を使い，<code>.gitignore</code> 準拠で git-tracked ファイルだけを階層表示</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>通常の <code>tree</code> は <code>node_modules/</code> <code>.venv/</code> <code>data/</code> など<span class="regmonkey-bold"><strong>無視したいディレクトリまで表示</strong></span>する</li>
 <li><code>git-tree</code> は <code>git ls-tree -r --name-only HEAD</code> を使い，<span class="regmonkey-bold"><strong>本当に管理下のファイルのみ</strong></span>を表示</li>
@@ -1149,7 +1149,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>依存: <code>tree</code>, <code>gh</code> CLI</li>
 <li><code>.gitignore</code> と厳密に整合</li>
@@ -1162,7 +1162,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">README/ドキュメントに貼り付ける「プロジェクト構造」を <code>.venv</code> や <code>data/raw/</code> を除去して取得</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSリポジトリの README に構成図を載せたいが，普通の <code>tree</code> だと巨大で読めなくなる</li>
 <li><code>git-tree</code> なら<span class="regmonkey-bold"><strong>ソース・設定・notebook だけ</strong></span>が出るので，そのまま貼れる</li>
@@ -1196,7 +1196,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">現在の Git 設定の <code>user.name</code> と <code>user.email</code> を表示．ミスコミット防止に</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git config user.name</code> と <code>user.email</code> を<span class="regmonkey-bold"><strong>1コマンドでまとめて表示</strong></span></li>
 <li>両方設定されているかチェックしたうえで <code>username (email@example.com)</code> 形式で出力</li>
@@ -1245,7 +1245,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>exit code で <code>name</code>/<code>email</code> 未設定を検知可能</li>
 <li>shell プロンプトに組み込むのもあり</li>
@@ -1258,7 +1258,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">企業内リポジトリと個人リポジトリを往復する際の ID 取り違えを防止</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DS分析者は<span class="regmonkey-bold"><strong>企業GitHub / 個人GitHub</strong></span>をまたぐことが多く，コミット identity の取り違えで機密漏洩や公開ミスが起きやすい</li>
 <li><code>includeIf</code> で directory ごとに切替設定しても，<span class="regmonkey-bold"><strong>意図通り適用されているか確認したい</strong></span></li>
@@ -1317,7 +1317,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">リモート追跡が切れたローカルブランチ（<code>gone</code>）を検出して一括削除</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git fetch --prune</code> 実行後，<span class="regmonkey-bold"><strong>リモートが消えたローカル追跡ブランチ</strong></span>を一覧</li>
 <li>対話・Dry-run・強制削除の3モード．<code>git branch -d</code> による安全削除（merge済みのみ）</li>
@@ -1377,7 +1377,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li><code>git branch -d</code> なので unmerged は保護される</li>
 </ul>
@@ -1389,7 +1389,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">実験ブランチの墓場を整理．<code>feat/exp-xxx</code> ブランチで溢れたリポジトリを一掃</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSプロジェクトでは<span class="regmonkey-bold"><strong>1試行=1ブランチ</strong></span>で実験することが多く，数十本のブランチが溜まる</li>
 <li>リモートで既に削除済みなのにローカルに残ると <code>git branch</code> がノイズだらけに</li>
@@ -1415,7 +1415,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">対話不要で指定リモートブランチを削除．<code>--with-local</code> でローカルも同時削除</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git push &lt;remote&gt; --delete &lt;branch&gt;</code> の<strong>安全ラッパー</strong>．dry-run・remote指定・local同時削除に対応</li>
 <li>ブランチ存在チェックを行ってから実行するのでミス削除を防ぐ</li>
@@ -1488,7 +1488,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">実験完了後の「本家リモート + ミラーリモート」両方のブランチを整理</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>企業DS現場では<span class="regmonkey-bold"><strong>社内GitLab + 社外GitHub ミラー</strong></span>のような複数リモート運用が一般的</li>
 <li>PR merge 後に両方から branch を消したい時，手動だと忘れがち</li>
@@ -1514,7 +1514,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">現在の作業木（untracked含む）をstash→新ブランチ作成→stash適用．作業を失わず分岐</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git stash push -a</code> で<span class="regmonkey-bold"><strong>tracked + untracked の全変更</strong></span>を退避</li>
 <li><code>git switch -c &lt;new_branch&gt;</code> で新ブランチ作成，その上に stash を apply</li>
@@ -1572,7 +1572,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>stash は apply 後も残る．不要なら手動 drop</li>
 <li>git &gt;= 2.23 必須</li>
@@ -1585,7 +1585,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>main</code> でノートブック試行錯誤してしまった時に，実験ブランチに無痛退避</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSあるある: <span class="regmonkey-bold"><strong><code>main</code> のノートブックを直接いじって実験してしまう</strong></span></li>
 <li>そのまま commit すると履歴が汚れるので，<code>git-tmp-checkout</code> で変更を保ったまま実験ブランチに移動</li>
@@ -1613,7 +1613,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">GitHub / GitLab / Bitbucket の remote URL を自動判定しブラウザで開く</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>-b</code> でブラウザ指定（firefox / chrome / chromium）．既定は <code>git web--browse</code> に委譲</li>
 <li><code>-r &lt;ref&gt;</code> で<span class="regmonkey-bold"><strong>特定のブランチ・タグ・コミット</strong></span>のURLに直飛び</li>
@@ -1677,7 +1677,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>GitHub <code>/tree/</code>, GitLab <code>/-/tree/</code>, Bitbucket <code>/src/</code> を自動判別</li>
 </ul>
@@ -1689,7 +1689,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">実験ブランチのリンクをSlackで即共有．レビュー依頼の起点に</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>コードレビューやMTG中に<span class="regmonkey-bold"><strong>「このブランチの notebook 見ておいて」</strong></span>と URL を共有する機会は多い</li>
 <li>ターミナルから1コマンドでブラウザを開き，URLをコピー＆ペーストできる</li>
@@ -1743,7 +1743,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">モノレポから <code>src/</code> や特定パスだけを取得．<code>--bare</code> でメタ情報のみ取得も可能</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git clone --no-checkout --filter=blob:none</code> + <code>core.sparseCheckout=true</code> の<span class="regmonkey-bold"><strong>コンボを1コマンド化</strong></span></li>
 <li><code>-p</code> でコロン区切りのパスを複数指定．<code>-s</code> で top-level のみの骨格クローン</li>
@@ -1822,7 +1822,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">巨大モノレポから必要なノートブック群だけを取得．データ/モデル重みを除外し高速クローン</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>企業DSリポジトリは<span class="regmonkey-bold"><strong>ノートブック・データ・モデル・インフラ設定が全部入り</strong></span>で数GB以上になりがち</li>
 <li>自分が触る <code>notebooks/</code> や <code>src/features/</code> だけあれば十分なケースが多い</li>
@@ -1852,7 +1852,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">GitHub のURLを貼るだけでSSHクローン．hostname指定で複数SSHキー運用にも対応</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>ブラウザからコピーしたHTTPS URL (<code>https://github.com/user/repo.git</code>) を<span class="regmonkey-bold"><strong>そのまま渡してSSHでclone</strong></span></li>
 <li><code>-h</code> で SSH config のhostnameを指定可能（<code>github-work</code> 等で複数キー切替）</li>
@@ -1909,7 +1909,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li><code>-h</code> は標準のHELPではなくhostname指定．ヘルプは引数なしで呼び出し</li>
 </ul>
@@ -1921,7 +1921,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">会社用と個人用のSSHキーを切り替えながら，HTTPS URLコピペでcloneできる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DS現場では<span class="regmonkey-bold"><strong>個人GitHub / 会社GitHub / 別クライアントGitHub</strong></span>を横断することが多い</li>
 <li>SSH config で <code>github-work</code> / <code>github-personal</code> を分けて鍵を切替えるのが定番</li>
@@ -1955,7 +1955,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">設定済みremoteすべてに同じブランチを順次push．ミラー運用の定型化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>git remote</code> で取得した全リモートに対し，指定ブランチを順次 <code>git push</code></li>
 <li>シンプルな実装（約30行のシェル）．複雑な条件分岐なし</li>
@@ -2003,7 +2003,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>remoteが未設定ならエラー</li>
 <li>途中失敗してもループは継続</li>
@@ -2016,7 +2016,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">社内GitLab + 社外GitHub + バックアップのミラー運用．実験スナップショットを冗長化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>企業DS現場では<span class="regmonkey-bold"><strong>社内GitLab → 社外GitHub（PR レビュー用） → S3ミラー</strong></span>のような多段ミラーが定番</li>
 <li><code>git push origin &amp;&amp; git push mirror &amp;&amp; git push backup</code> を手で打つのは面倒</li>
@@ -2043,7 +2043,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>gh_repo.yml</code> の description/topics を読み <code>gh repo edit</code> でリポジトリメタを反映</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>プロジェクト直下の <code>.github/repository_metadata/gh_repo.yml</code> を読み込み</li>
 <li>YAMLに書いた <code>description</code> / <code>topics</code> を <code>gh repo edit</code> で反映</li>
@@ -2086,7 +2086,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>依存: <code>gh</code> CLI，<code>yamlcli</code>，<code>jq</code></li>
 </ul>
@@ -2097,7 +2097,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">プロジェクト仕様書と同期してGitHubのdescription/topicsを更新．ドキュメント追従の自動化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSプロジェクトは<span class="regmonkey-bold"><strong>タスク・スコープが頻繁に変わる</strong></span>が，GitHubのdescriptionは手で更新しがち</li>
 <li>仕様 yaml を一次情報にして CI で <code>git-repo-update</code> を走らせれば，<span class="regmonkey-bold"><strong>実態とGitHub表示がズレない</strong></span></li>
@@ -2158,7 +2158,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>gh_repo.yml</code> を元に <code>gh repo create</code> でリポジトリ新規作成．テンプレ化に最適</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>プロジェクト配下の <code>.github/repository_metadata/gh_repo.yml</code> を読み込み</li>
 <li><code>name</code> / <code>visibility</code> 等を <code>gh repo create</code> に渡してリポジトリを<span class="regmonkey-bold"><strong>YAMLベースで作成</strong></span></li>
@@ -2202,7 +2202,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>依存: <code>gh</code> CLI 認証済，<code>yamlcli</code></li>
 <li>tags にスペースは不可</li>
@@ -2214,7 +2214,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">新規実験プロジェクトのリポジトリを YAML テンプレから一発生成．ブートストラップ高速化</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>「新しい分析タスクが来たら毎回リポジトリを作る」DS運用では，ブートストラップが煩雑</li>
 <li>テンプレートYAMLを用意し，<span class="regmonkey-bold"><strong>プロジェクト名だけ差し替えて即座に作成</strong></span></li>
@@ -2244,7 +2244,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">現在のローカル Git リポジトリに対応するGitHubリポジトリを確認付きで削除</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>gh repo view</code> で所属を取得し，<span class="regmonkey-bold"><strong><code>&lt;OWNER/REPO&gt;</code> 形式の対象リポジトリを削除</strong></span></li>
 <li>実行時にY/N確認．<code>-n</code> で dry-run</li>
@@ -2297,7 +2297,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>削除は <strong>不可逆</strong> なので慎重に</li>
 <li>依存: <code>gh</code> CLI 認証済</li>
@@ -2310,7 +2310,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">実験打ち切り・再構築時のcleanup．アーカイブではなく削除という選択肢が必要な場面に</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>探索的な DS プロジェクトは<span class="regmonkey-bold"><strong>放棄・再構築</strong></span>が起きやすい．scaffoldミスで作り直すことも</li>
 <li><code>gh repo archive</code> ではなく完全削除したいケース（個人サンドボックス等）</li>
@@ -2340,7 +2340,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">既存のGitHub Issueを <code>gh api</code> 経由でPullRequestに変換．Issue本文を引き継げる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>GitHub REST API の <span class="regmonkey-bold"><strong>「IssueをPRに変換する」機能</strong></span>を CLI ラップ</li>
 <li>現在のブランチが head，<code>-b</code> で指定したブランチが base，<code>-i</code> でIssue番号を指定</li>
@@ -2402,7 +2402,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10">
+<div class="padding-left-10">
 <ul>
 <li>事前に現ブランチをpush済みであること</li>
 </ul>
@@ -2414,7 +2414,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">タスクissueのまま議論 → 実装が固まった瞬間にPR化，議論ログを無駄なく継承</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DSタスクは「何を作るか」よりも<span class="regmonkey-bold"><strong>どう評価するか・どのデータを使うか</strong></span>の議論が重い</li>
 <li>Issueで議論 → 実装が見えてきた段階で PR 化すれば，<span class="regmonkey-bold"><strong>レビュワーは議論の文脈ごと</strong></span>受け取れる</li>
@@ -2472,7 +2472,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">CLIとしてPATH追加すれば即使える．<code>.gitconfig</code> alias 化で <code>git &lt;name&gt;</code> へ昇格</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>20コマンド全てが<span class="regmonkey-bold"><strong>単一シェル/Perlスクリプト</strong></span>で完結．依存は <code>git</code> / <code>gh</code> / <code>tree</code> / <code>yamlcli</code> / <code>claude</code> 程度</li>
 <li>まずは頻度の高い <code>git-add-patch</code> / <code>git-gen-commit</code> / <code>git-delete-obsolete-branch</code> / <code>git-tree</code> から導入すると効果を実感しやすい</li>

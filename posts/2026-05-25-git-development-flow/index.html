@@ -105,7 +105,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -267,7 +267,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-chat-square-text " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="モチベーション"><span class="padding-L-05">モチベーション</span></h3>
+<h3 id="モチベーション"><span class="padding-left-05">モチベーション</span></h3>
 </div>
 <ul>
 <li>PR 作成・レビュー・マージの流れを標準化したい</li>
@@ -278,7 +278,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-bullseye " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="goal"><span class="padding-L-05">Goal</span></h3>
+<h3 id="goal"><span class="padding-left-05">Goal</span></h3>
 </div>
 <ul>
 <li><code>main</code> を常にデプロイ可能に保つ</li>
@@ -289,7 +289,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="前提条件"><span class="padding-L-05">前提条件</span></h3>
+<h3 id="前提条件"><span class="padding-left-05">前提条件</span></h3>
 </div>
 <ul>
 <li><code>git branch</code>・<code>merge</code>・<code>rebase</code> の基本操作</li>
@@ -693,7 +693,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <p><span class="mini-section">rebase・squash・no-ff mergeの採用</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><strong>PR 前の整形</strong>：<code>git rebase -i</code> または <code>git reset --soft &lt;hash&gt;</code> で WIP コミットを潰し，意図のある単位に再コミットする
 <ul>
@@ -802,7 +802,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <p><span class="mini-section">① 細かく切る（推奨）</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>1機能でも <span class="regmonkey-bold">「API追加」「UI実装」「テスト追加」は分けられる</span>：レビュー負荷が下がり，CIの失敗箇所も特定しやすい</li>
 <li><code>develop</code> への小まめなマージで <span class="regmonkey-bold">コンフリクトのリスクを下げる</span></li>
@@ -811,7 +811,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">② まとめてよい</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>切り離すと片方だけでは動かない場合（モデルとマイグレーション等）</li>
 <li>変更行数の目安（Google Eng Practices）：理想は <span class="regmonkey-bold">200行未満・500行で分割検討</span></li>
@@ -821,7 +821,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">③ PR description（PR本文）の規約</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>1行目はサマリ（コミット要約と同質）・本文には <span class="regmonkey-bold">「何を」ではなく「なぜ」</span> を書く</li>
 <li><span class="regmonkey-bold">Test plan</span> セクションを必ず含める：レビュアーが検証範囲を判断できるように</li>
@@ -861,7 +861,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">大原則</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>目的：<span class="regmonkey-bold">1 コミット = 1 つの意図</span> に整える（レビュアーが差分を意図単位で読める状態）</li>
 <li>rebase は <span class="regmonkey-bold">自分の topic ブランチ上でのみ</span> 実行する</li>
@@ -871,7 +871,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">実行前の前提：作業ツリーをクリーンにする</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><p>未コミット変更があると rebase は失敗する：</p>
 <div class="font-15">
@@ -961,7 +961,7 @@ gitGraph
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="font-09 padding-L-05">
+<div class="font-09 padding-left-05">
 <ul>
 <li>本フローでは統合ブランチへのマージで fast-forward を選ばない：マージ境界＝レビュー単位／リリース単位を履歴に残すため（Git 仕様上の禁則ではなく運用方針）</li>
 </ul>
@@ -1051,7 +1051,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">① PR ごとにやる：CHANGELOG.md の <code>[Unreleased]</code> に追記</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><code>develop</code> への squash merge ごとに <span class="regmonkey-bold"><code>[Unreleased]</code> セクションに 1 行追記</span></li>
 <li>6 カテゴリ（Keep a Changelog 準拠）：<code>Added</code> / <code>Changed</code> / <code>Deprecated</code> / <code>Removed</code> / <code>Fixed</code> / <code>Security</code></li>
@@ -1061,7 +1061,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">② リリース時に CI が自動でやる：tag と GitHub Release</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li><code>develop</code> → <code>main</code> のマージを起点に CI が実行：
 <ul>
@@ -1105,7 +1105,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">① 目指すこと</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>判断軸はただ 1 つ：<span class="regmonkey-bold">マージ後にコードベース全体が良くなるか</span></li>
 <li>完璧でなくても <span class="regmonkey-bold">全体として改善する PR はマージしてよい</span></li>
@@ -1114,7 +1114,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">② レビュアーがやらないこと</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>機能の正しさを手で再確認する：それは <span class="regmonkey-bold">テストの役割</span>（レビュアー≠QA）</li>
 <li>完璧を求めて PR を何週間も止める</li>
@@ -1124,7 +1124,7 @@ gitGraph
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">③ レビュー速度の原則（Google Engineering Practices より）</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="font-09 padding-L-05 lh-14">
+<div class="font-09 padding-left-05 lh-14">
 <ul>
 <li>PR が来たら <span class="regmonkey-bold">1 営業日以内に最初のレスポンス</span> を返す</li>
 <li>フォーカス中のタスクがある場合は区切りをつけてから着手する</li>

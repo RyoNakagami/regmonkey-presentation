@@ -106,7 +106,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -282,7 +282,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>claude-stdin-prompt</code> は<span class="regmonkey-bold"><strong>pipe で受けたデータと prompt を1つに結合し，<code>claude --print</code> に渡すシェルスクリプト</strong></span></li>
 <li><code>-p</code>/<code>--prompt</code> 以外の全フラグ（<code>--model</code>・<code>--output-format</code>・<code>--debug</code> 等）はそのまま claude へ転送</li>
@@ -363,7 +363,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">位置引数または <code>-p</code> で指示を渡し，stdin で材料を流す</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li><code>claude-stdin-prompt</code> は<span class="regmonkey-bold"><strong>指示（prompt）と材料（stdin）を分離</strong></span>して受け取る</li>
 <li>stdin が空・TTY のとき，あるいは prompt 未指定のときは<span class="regmonkey-bold"><strong>起動を拒否</strong></span>してエラー終了</li>
@@ -409,7 +409,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>変数経由・heredoc・引用符に気を使う必要が消える</li>
 <li>ラッパー側でエラー検出（TTY・prompt 欠如）も担保</li>
@@ -455,7 +455,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>真偽値フラグの直後に裸の位置引数を置くと<span class="regmonkey-bold"><strong>flag の値</strong></span>と誤解される場合あり</li>
 <li>曖昧さは <code>-p</code> を明示するか <code>--</code> で区切ると解消
@@ -508,7 +508,7 @@ Ryo Nakagami
 </table>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>全リストは <code>claude --help</code> を参照</li>
 <li>未知のフラグは<span class="regmonkey-bold"><strong>フラグ＋次の非フラグ引数を1組にして転送</strong></span>するヒューリスティクスで処理</li>
@@ -521,7 +521,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">4ステップで「pipe された材料 + 指示」を <code>claude --print</code> に exec</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ol type="1">
 <li><strong>オプション解析</strong>：<code>-h</code>/<code>-p</code> を消費，他は <code>PASSTHRU</code> 配列に転送用として蓄積</li>
 <li><strong>prompt 解決</strong>：値が既存ファイルなら <code>cat</code> で中身に展開，そうでなければリテラル文字列</li>
@@ -541,7 +541,7 @@ Ryo Nakagami
 <span id="cb4-5"><a aria-label="5"></a>&lt;STDIN の内容&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>区切りは <code>---</code> ＋ Markdown 見出し <code># stdin</code>：claude 側がプロンプトとデータを文脈的に区別しやすい</li>
 <li>claude 側のレスポンスは<span class="regmonkey-bold"><strong>そのまま stdout</strong></span>に流れる：パイプ後段で <code>jq</code> 等にも繋げられる</li>
@@ -570,7 +570,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">ノートブック JSON diff のノイズから実質的な変更点だけを抽出し，そのまま <code>git commit</code> へ</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>ノートブック差分は<span class="regmonkey-bold"><strong>JSON のノイズが多く <code>update notebook</code> のような雑メッセージ</strong></span>になりがち</li>
 <li>claude に要約を任せると <code>feat(eda): 売上の曜日効果を可視化</code> のような<span class="regmonkey-bold"><strong>実質的な変更点</strong></span>を抽出可能</li>
@@ -612,7 +612,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li><code>--output-format text</code>（既定）の出力は<span class="regmonkey-bold"><strong>そのまま下流コマンドの引数</strong></span>に流せる</li>
 <li>prompt はファイル化しチーム共通規約として共有</li>
@@ -625,7 +625,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">2タグ間の <code>git log</code> をユーザー視点のリリースノートに変換し，そのまま GitHub Release に投稿</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>「リリース毎に変更点を整理して書き直す作業」は<span class="regmonkey-bold"><strong>手作業だと負荷が高い</strong></span></li>
 <li><code>git log v1.0..v1.1 --oneline</code> を投げて<span class="regmonkey-bold"><strong>Features / Fixes / Internal の3カテゴリ整形</strong></span>を AI に依頼</li>
@@ -668,7 +668,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li><code>--max-budget-usd 0.5</code> で<span class="regmonkey-bold"><strong>長尺ログ送信時のコスト天井</strong></span>を設定</li>
 <li>投稿前に <code>tee</code> でローカル保存しておくと再投稿しやすい</li>
@@ -681,7 +681,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>gh pr diff</code> を観点付きでレビュー → そのまま <code>gh pr comment</code> で PR にコメント投稿</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>大型 PR の<span class="regmonkey-bold"><strong>初手レビュー観点抽出</strong></span>を AI に並走させ，人間レビュアーは判断に集中</li>
 <li><code>prompts/review.md</code> に観点（セキュリティ・テスト・命名・性能）を<span class="regmonkey-bold"><strong>チーム標準として集約</strong></span></li>
@@ -725,7 +725,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <p><span class="mini-section">REMARKS</span></p>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li><code>--add-dir .</code> で<span class="regmonkey-bold"><strong>リポジトリ全体の文脈</strong></span>を補強</li>
 <li><code>glow</code> は terminal 上で markdown を整形表示する CLI</li>
@@ -738,7 +738,7 @@ Ryo Nakagami
 <p><span class="h2-submessage"><code>--output-format json</code> ＋ <code>--json-schema</code> で型固定し，<code>jq</code> 経由で集計・可視化スクリプトへ</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05 lh-12">
+<div class="info-contents font-10 padding-left-05 lh-12">
 <ul>
 <li>DB クエリ結果や CSV を流し，<span class="regmonkey-bold"><strong>外れ値・トレンド・相関</strong></span>の初手分析を AI に依頼</li>
 <li><code>--output-format json</code> ＋ <code>--json-schema</code> で<span class="regmonkey-bold"><strong>型固定の構造化出力</strong></span>に統一</li>
@@ -789,7 +789,7 @@ Ryo Nakagami
 <span id="cb12-17"><a aria-label="17"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="padding-L-10 font-09">
+<div class="padding-left-10 font-09">
 <ul>
 <li>schema 強制で<span class="regmonkey-bold"><strong>parse 失敗による下流クラッシュ</strong></span>を防止</li>
 </ul>

@@ -106,7 +106,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -264,7 +264,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-chat-square-text " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="目的"><span class="padding-L-05">目的</span></h3>
+<h3 id="目的"><span class="padding-left-05">目的</span></h3>
 </div>
 <ul>
 <li>社外の手元マシンから対象環境へ安全に接続する</li>
@@ -275,7 +275,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-book " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="前提"><span class="padding-L-05">前提</span></h3>
+<h3 id="前提"><span class="padding-left-05">前提</span></h3>
 </div>
 <ul>
 <li>接続申請が承認済み</li>
@@ -286,7 +286,7 @@ Ryo Nakagami
 <div class="component-card-index pl-4 pr-4 pt-1 pb-6 border-blue-500">
 <div class="flex items-center mb-2">
 <p><i class="bi-terminal " style="font-size: 1.7em;color: #428CE6;" role="img" aria-hidden="true"></i></p>
-<h3 id="必要環境"><span class="padding-L-05">必要環境</span></h3>
+<h3 id="必要環境"><span class="padding-left-05">必要環境</span></h3>
 </div>
 <ul>
 <li>Windows クライアント</li>
@@ -495,7 +495,7 @@ Ryo Nakagami
 <h2>vpnux Client を入れて接続クライアントを用意する</h2>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>vpnux Client は，OpenVPN 経由で対象環境へ接続するための <span class="regmonkey-bold">Windows 向けクライアントソフトウェア</span>（Plum Systems 製・日本語 GUI）</li>
@@ -504,7 +504,7 @@ Ryo Nakagami
 </div>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
-<div class="regmonkey_index padding-L-10" style="width:100%">
+<div class="regmonkey_index padding-left-10" style="width:100%">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
 <span id="cb4-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.1em</span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.9em</span></span>
@@ -711,7 +711,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 1em;"></div>
 <div class="main-message-box">
 <p><span class="info-box-title">接続手順と確認</span></p>
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>起動直後のログイン画面に戻り，画面上部の <span class="regmonkey-bold">「プロファイル」プルダウン</span> で作成したプロファイルを選択する</li>
@@ -732,7 +732,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">HTTPS と同じポートを使い，制限されたネットワークからも到達しやすくする</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>TCP/443 とは，<span class="regmonkey-bold">トランスポートプロトコルに TCP・ポート番号に 443 を用いる通信</span> のこと</li>
@@ -742,7 +742,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
 <p><span class="mini-section">本手順で TCP/443 を採用する理由</span></p>
-<div class="font-09 lh-13 padding-L-05">
+<div class="font-09 lh-13 padding-left-05">
 <ul>
 <li>社内ネットワークや公衆 Wi-Fi では外向き通信が制限されることが多い一方，HTTPS 用の TCP/443 はほとんどの環境で許可されている</li>
 <li>OpenVPN の待ち受けを TCP/443 にすることで，接続元のファイアウォール設定を変更せずに幅広い環境から接続できる</li>
@@ -750,7 +750,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">留意点</span></p>
-<div class="font-09 lh-13 padding-L-05">
+<div class="font-09 lh-13 padding-left-05">
 <ul>
 <li>OpenVPN は UDP の方が転送効率は高いが，TCP のトンネル上に TCP 通信を重ねる際の再送の重複を許容し，本構成では到達性を優先して TCP を採用している</li>
 </ul>
@@ -761,7 +761,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">通信内容の暗号化・通信相手の認証・改ざんの検知を備えた安全な通信経路</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>TLS 通信路とは，<span class="regmonkey-bold">TLS（Transport Layer Security）によって暗号化・認証された通信経路</span> のこと</li>
@@ -780,7 +780,7 @@ Ryo Nakagami
 <p>HTTPS 通信との関係</p>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="font-08 lh-13 padding-L-05">
+<div class="font-08 lh-13 padding-left-05">
 <ul>
 <li>HTTPS とは，<span class="regmonkey-bold">HTTP 通信を TLS 通信路の上で行う方式</span>（HTTP over TLS）のこと</li>
 <li>ブラウザのアドレスバーの鍵マークは，Web サーバーとの間に TLS 通信路が確立されたことを示す</li>
@@ -794,7 +794,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">どちらも TLS を利用するが，保護する対象の範囲が異なる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>HTTPS は <span class="regmonkey-bold">Web ブラウザと Web サーバー間の通信</span> だけを TLS 通信路で保護する</li>
@@ -812,7 +812,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">VPN ログインの ID・パスワードはディレクトリサービスで一元管理される</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>LDAP とは，ユーザー・組織・機器などの情報を木構造で管理する <span class="regmonkey-bold">ディレクトリサービスへ問い合わせるための標準プロトコル</span></li>
@@ -849,7 +849,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">VPN 通信路を安全に確立するための証明書と共有鍵</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li><code>ca.crt</code> は，<span class="regmonkey-bold">VPN サーバーの正当性を検証するための CA（認証局）証明書</span>：公開情報のため秘匿は不要</li>
@@ -859,7 +859,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
 <p><span class="mini-section">ca.crt：VPN サーバーが本物か検証する</span></p>
-<div class="font-09 lh-13 padding-L-05">
+<div class="font-09 lh-13 padding-left-05">
 <ul>
 <li>接続時にサーバーが提示する証明書が CA に署名されているか検証し，正しければ本物の VPN サーバーと判断して通信を続行する</li>
 <li>HTTPS で Web サイトの証明書をブラウザが確認するのと同じ考え方</li>
@@ -867,7 +867,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">ta.key：不正な接続要求を TLS 開始前に遮断する</span></p>
-<div class="font-09 lh-13 padding-L-05">
+<div class="font-09 lh-13 padding-left-05">
 <ul>
 <li>共有鍵が一致しない相手とは TLS ハンドシェイク自体を開始せず，接続要求を即座に破棄する</li>
 <li>不正アクセスの排除・DoS 攻撃の軽減・ポートスキャンへの応答抑止に寄与する</li>
@@ -879,7 +879,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">利用者が自分で作成するものではなく，接続設定一式として配布される</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li><code>ca.crt</code> は，VPN 管理者が <span class="regmonkey-bold">CA（認証局）を作成して発行する公開証明書</span>：この CA がサーバー証明書 <code>server.crt</code> に署名する</li>
@@ -897,7 +897,7 @@ Ryo Nakagami
 <span id="cb7-2"><a aria-label="2"></a><span class="ex">openssl</span> req <span class="at">-x509</span> <span class="at">-new</span> <span class="at">-nodes</span> <span class="at">-key</span> ca.key <span class="dt">\</span></span>
 <span id="cb7-3"><a aria-label="3"></a>  <span class="at">-sha256</span> <span class="at">-days</span> 3650 <span class="at">-out</span> ca.crt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="font-08 lh-13 padding-L-05">
+<div class="font-08 lh-13 padding-left-05">
 <ul>
 <li><code>ca.key</code> は CA の秘密鍵として VPN 管理者のみが保持し，<code>ca.crt</code> は公開証明書としてクライアントへ配布する</li>
 <li>クライアントは <code>ca.crt</code> を使って，接続先のサーバー証明書がこの CA の署名によるものかを検証する</li>
@@ -909,7 +909,7 @@ Ryo Nakagami
 <div class="font-15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a aria-label="1"></a><span class="ex">openvpn</span> <span class="at">--genkey</span> secret ta.key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="font-08 lh-13 padding-L-05">
+<div class="font-08 lh-13 padding-left-05">
 <ul>
 <li>生成した同一の <code>ta.key</code> をサーバーと全クライアントに配置する</li>
 <li>サーバー側は <code>tls-auth ta.key 0</code>，クライアント側は <code>tls-auth ta.key 1</code> と設定して方向を区別する</li>
@@ -939,7 +939,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
 <p><span class="mini-section">実務では Easy-RSA による一元管理が一般的</span></p>
-<div class="font-09 lh-13 padding-L-05">
+<div class="font-09 lh-13 padding-left-05">
 <ul>
 <li>企業では OpenVPN の Easy-RSA を利用して CA を管理し，<code>ca.crt</code>・<code>server.crt</code>・<code>client.crt</code> の発行・更新を一元的に行うことが多い</li>
 <li><code>ta.key</code> は OpenVPN コマンドで一度生成し，その共有鍵を各クライアントへ配布する運用が一般的</li>
@@ -951,7 +951,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">署名が一致しないパケットは TLS ハンドシェイク前に破棄される</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>TLS-Auth 検証とは，<span class="regmonkey-bold">事前共有した <code>ta.key</code> で OpenVPN の全制御パケットに HMAC 署名を付与・照合する仕組み</span> のこと</li>
@@ -968,7 +968,7 @@ Ryo Nakagami
 </div><div class="column" style="width:42%; padding-left:0.8em;">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <p><span class="mini-section">検証の流れ</span></p>
-<div class="font-08 lh-13 padding-L-05">
+<div class="font-08 lh-13 padding-left-05">
 <ul>
 <li>サーバーとクライアントが同一の <code>ta.key</code> を事前に共有する（環境情報の受領時に配布される）</li>
 <li>送信側は制御パケットごとに HMAC 署名を計算して付与し，受信側は同じ鍵で署名を再計算して一致を確認する</li>
@@ -976,7 +976,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.4em;"></div>
 <p><span class="mini-section">入口対策としての効果</span></p>
-<div class="font-08 lh-13 padding-L-05">
+<div class="font-08 lh-13 padding-left-05">
 <ul>
 <li>不一致のパケットには一切応答しないため，ポートスキャンに対して OpenVPN の稼働を検知されにくい</li>
 <li>TLS ハンドシェイク前に遮断するため，TLS 実装の脆弱性を突く攻撃や DoS の処理負荷を軽減できる</li>
@@ -989,7 +989,7 @@ Ryo Nakagami
 <p><span class="h2-submessage">接続設定一式と同時に配布されるが，担う役割は異なる</span></p>
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="main-message-box">
-<div class="info-contents font-08 padding-L-05 lh-12">
+<div class="info-contents font-08 padding-left-05 lh-12">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <ul>
 <li>VPN 接続は，<span class="regmonkey-bold">通信路の確立（ca.crt・ta.key）</span> と <span class="regmonkey-bold">ユーザー認証（LDAP の ID・パスワード）</span> の2段階で成立する</li>
@@ -999,7 +999,7 @@ Ryo Nakagami
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.7em;"></div>
 <p><span class="mini-section">接続時に照合が行われる順序</span></p>
-<div class="regmonkey_index padding-L-10" style="width:100%">
+<div class="regmonkey_index padding-left-10" style="width:100%">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a aria-label="1"></a><span class="fu">regmonkey_index</span><span class="kw">:</span></span>
 <span id="cb10-2"><a aria-label="2"></a><span class="at">  </span><span class="fu">title_fontsize</span><span class="kw">:</span><span class="at"> 1.05em</span></span>
 <span id="cb10-3"><a aria-label="3"></a><span class="at">  </span><span class="fu">bullet_fontsize</span><span class="kw">:</span><span class="at"> 0.86em</span></span>

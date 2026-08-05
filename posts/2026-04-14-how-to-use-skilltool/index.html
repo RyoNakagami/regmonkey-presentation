@@ -104,7 +104,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6968bc7186b44946c7fa053e1882580d.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-54c995de12e7c1309741065be1385079.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LVL413SV09"></script>
 
   <script type="text/javascript">
@@ -275,7 +275,7 @@ Ryo Nakagami
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.5em;"></div>
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>Claude Agent Skillは<strong>個人のローカル環境に閉じがち</strong>で，チーム内の再利用が進まない</li>
 <li>skilltoolは<span class="regmonkey-bold">Skillパッケージの publish / install / search を提供するCLI＋レジストリ</span>で，この問題を解決する</li>
@@ -301,7 +301,7 @@ Ryo Nakagami
 </ol>
 </div>
 </div>
-</div><div class="column padding-L-12 font-09" style="width:50.0%;">
+</div><div class="column padding-left-12 font-09" style="width:50.0%;">
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="square-box-500">
 <div class="border-bottom-header">
@@ -556,7 +556,7 @@ Ryo Nakagami
 <span id="cb2-28"><a aria-label="28"></a><span class="ss">- </span>SKILL.md は大文字．entry と完全一致させる</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="reveal_vspace" style="--vspace-height: 0.25em;"></div>
 <div class="info-box">
-<div class="info-contents font-09 padding-L-05">
+<div class="info-contents font-09 padding-left-05">
 <ul>
 <li>SKILL.mdは人間向けドキュメントではなく<strong>Claudeが実行する指示書</strong></li>
 <li>曖昧さを排除し，手順・制約・エッジケースを明記する</li>
@@ -735,7 +735,7 @@ Ryo Nakagami
 <h2>publishの内部フロー</h2>
 <p><span class="h2-submessage">CLIからStorageまで — 1コマンドの裏側で何が起きるか</span></p>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li><code>skilltool publish ./dir/</code> を実行すると，CLIがmanifest解析 → zip作成 → Transport経由でRegistryに送信</li>
 <li>HTTPとSSHの<strong>2つのTransport</strong>が選択可能だが，内部では同じ<code>publish_logic()</code>を呼ぶ</li>
@@ -852,7 +852,7 @@ sequenceDiagram
 <p><span class="h2-submessage">CLIだけでなく，ブラウザからもパッケージの検索・詳細確認・publish が可能</span></p>
 <div class="info-box">
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <ul>
 <li>Registryサーバー（FastAPI）はHTMLページも提供しており，<code>http://100.x.x.x:8765/</code> にブラウザでアクセスするだけで利用可能</li>
 <li>CLIと同じデータを参照するため，ブラウザで検索→ CLIで <code>install</code> といった流れも可能</li>
@@ -939,7 +939,7 @@ sequenceDiagram
 <h2>Claude Codeスラッシュコマンドの2形式</h2>
 <p><span class="h2-submessage">SKILLパッケージは<code>.claude/skills/</code> または <code>.claude/commands/</code> に配置する</span></p>
 <div class="info-box">
-<div class="info-contents font-10 padding-L-05">
+<div class="info-contents font-10 padding-left-05">
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
 <ul>
 <li>Claude Codeのスラッシュコマンドは<strong>Skill形式（推奨）</strong>と<strong>commands形式（レガシー）</strong>の2種類</li>
@@ -1028,7 +1028,7 @@ sequenceDiagram
 </table>
 </div>
 <div class="reveal_vspace" style="--vspace-height: 0.3em;"></div>
-<div class="font-09 padding-L-05">
+<div class="font-09 padding-left-05">
 <p>❌ <strong>NG配置</strong>（認識されない）</p>
 <div class="font-15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a aria-label="1"></a>.claude/</span>
