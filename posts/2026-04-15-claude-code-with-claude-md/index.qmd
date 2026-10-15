@@ -3,7 +3,7 @@ title: "CLAUDE.mdとPriority"
 subtitle: "claude-code 101"
 author: "Ryo Nakagami"
 date: "2026-04-15"
-categories: [claude code]
+categories: [claude-code]
 slide-number: true
 # resources:
 #     - sample_data.csv

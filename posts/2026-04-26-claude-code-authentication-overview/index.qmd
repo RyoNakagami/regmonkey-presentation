@@ -3,7 +3,7 @@ title: "Claude Code 認証方式"
 subtitle: "claude-code 101"
 author: "Ryo Nakagami"
 date: "2026-04-26"
-categories: [claude code, authentication]
+categories: [claude-code, authentication]
 slide-number: true
 filters:
   - reveal-auto-agenda
