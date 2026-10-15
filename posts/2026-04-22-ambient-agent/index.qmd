@@ -3,7 +3,7 @@ title: "アンビエントエージェントの仕組み"
 subtitle: "LLM101"
 author: "Ryo Nakagami"
 date: "2026-04-22"
-categories: [LLM, agent, LangChain, Claude]
+categories: [LLM, agent, LangChain, claude]
 slide-number: true
 filters:
   - reveal-auto-agenda
