@@ -3,7 +3,7 @@ title: "はじめてのGitHub"
 subtitle: "開発環境"
 author: "Ryo Nakagami"
 date: "2025-06-07"
-categories: [開発環境]
+categories: [開発環境, git, github]
 slide-number: true
 filters:
   - reveal-auto-agenda
@@ -1030,6 +1030,40 @@ GitHub PR活用Tips
 [^footer1]: Pull Requestは Git の機能ではなく，ブランチの変更をレビュー・統合するためのUIとワークフローを提供するGitHub独自の仕組み
 
 [^footer2]: １つのトピックに集中して，他の作業は一切行わないブランチ．対義語は統合ブランチ(例: `main` や `release`)．
+
+## Pull Request 作成手順
+
+[Web UI と GitHub CLI のどちらでも同じ5ステップで作成できる]{.h2-submessage}
+[Pull Request]{.topleftbox}
+
+{{< reveal_vspace 0.4em >}}
+
+[作成プロセス：GitHub Web UI]{.mini-section}
+
+:::{style="text-align:center;"}
+![](./pr-create-process.svg){fig-alt="Web UIでブランチのpushからPR作成までの5ステップ" width="92%"}
+:::
+
+{{< reveal_vspace 0.4em >}}
+
+[作成プロセス：GitHub CLI]{.mini-section}
+
+:::{style="text-align:center;"}
+![](./pr-create-process-cli.svg){fig-alt="GitHub CLIでブランチのpushからPR作成までの5ステップ" width="92%"}
+:::
+
+
+[作成プロセス：GitHub CLI ワンライナー]{.mini-section}
+
+:::{.font-13 style="margin-top: 1em"}
+
+```bash
+# Step 2〜5 を1コマンドで指定
+gh pr create --base main --title "feat: ログ出力を追加" --body-file pr.md --reviewer <user> --draft
+```
+
+:::
+
 
 
 ## Pull Request フィードバックポイント
